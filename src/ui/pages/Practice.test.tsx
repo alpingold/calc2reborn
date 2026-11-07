@@ -1,7 +1,8 @@
 import { expect, test } from 'vitest'
 import { act, render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { MemoryRouter } from 'react-router'
+import { Link, MemoryRouter } from 'react-router'
+import type { ReactNode } from 'react'
 import { Practice } from './Practice'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
@@ -39,7 +40,7 @@ const STEMS = ['Stem one', 'Stem two', 'Stem three']
 const base = loadContent()
 const content = buildContent(base.lessons, base.cards, [seedExam])
 
-async function setup(opts: { url?: string; store?: MemoryStore } = {}) {
+async function setup(opts: { url?: string; store?: MemoryStore; extra?: ReactNode } = {}) {
   const store = opts.store ?? new MemoryStore()
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19' })
   const scheduler = await createScheduler()
@@ -50,6 +51,7 @@ async function setup(opts: { url?: string; store?: MemoryStore } = {}) {
     <MemoryRouter initialEntries={[opts.url ?? '/practice']}>
       <StoreProvider store={store} scheduler={scheduler} content={content} rng={() => 0} now={() => clock.t}>
         <Practice />
+        {opts.extra}
       </StoreProvider>
     </MemoryRouter>,
   )
@@ -186,4 +188,20 @@ test('save failure shows an alert and allows retry', async () => {
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
   expect(await store.listAttempts()).toHaveLength(1)
   expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+})
+
+test('changing the lesson param starts a fresh session', async () => {
+  await setup({ url: '/practice?lesson=L19', extra: <Link to="/practice">All lessons</Link> })
+  for (let i = 0; i < 3; i++) {
+    await userEvent.keyboard('a{Enter}')
+    await screen.findByRole('status')
+    await userEvent.keyboard('{Enter}')
+    if (i < 2) await screen.findByRole('button', { name: 'Submit' })
+  }
+  expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
+  expect(screen.getByText('Correct 1 of 3')).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('link', { name: 'All lessons' }))
+  expect(await screen.findByText('Stem one')).toBeInTheDocument()
+  expect(screen.getByText('Correct 0 of 0')).toBeInTheDocument()
+  expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
 })

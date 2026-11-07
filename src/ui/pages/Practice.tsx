@@ -8,14 +8,20 @@ import { useContent, useNow, useRng, useSettings, useStore } from '../../storage
 import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
 
+// Route component: a change of `?lesson=` remounts the session so the question,
+// served set, and score never carry over between scopes.
 export function Practice() {
+  const [searchParams] = useSearchParams()
+  const lessonParam = searchParams.get('lesson')
+  return <PracticeSession key={lessonParam === null ? 'covered' : `lesson:${lessonParam}`} lessonParam={lessonParam} />
+}
+
+function PracticeSession({ lessonParam }: { lessonParam: string | null }) {
   const store = useStore()
   const content = useContent()
   const { settings } = useSettings()
   const now = useNow()
   const rng = useRng()
-  const [searchParams] = useSearchParams()
-  const lessonParam = searchParams.get('lesson')
 
   const lessonIds = useMemo(
     () => (lessonParam ? [lessonParam] : coveredLessonIds(content.lessons, settings.currentLessonId)),
