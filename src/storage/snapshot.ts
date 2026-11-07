@@ -4,11 +4,25 @@ import type { ProgressSnapshot } from './types'
 export const SNAPSHOT_VERSION = 1
 
 const iso = z.string()
+const FsrsCardSchema = z.object({
+  dueAt: z.iso.datetime(),
+  lastReviewAt: z.iso.datetime().nullable(),
+  stability: z.number(),
+  stabilityFast: z.number(),
+  difficulty: z.number(),
+  state: z.number(),
+  scheduleStatus: z.string(),
+  reps: z.number(),
+  lapses: z.number(),
+  scheduledDays: z.number(),
+  learningStep: z.number(),
+  cardId: z.string(),
+})
 const SnapshotSchema = z.object({
   version: z.literal(SNAPSHOT_VERSION),
   exportedAt: iso,
   cardStates: z.array(
-    z.object({ cardId: z.string(), introducedAt: iso, fsrs: z.record(z.string(), z.unknown()) }),
+    z.object({ cardId: z.string(), introducedAt: iso, fsrs: FsrsCardSchema }),
   ),
   attempts: z.array(
     z.object({

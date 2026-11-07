@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest'
+import { createScheduler } from '../engine/fsrs'
 import { parseSnapshot } from './snapshot'
 import { DEFAULT_SETTINGS } from './types'
 
@@ -6,7 +7,7 @@ const attempt = { id: 'a1', questionId: 'q1', chosen: 'A', correct: true, second
 const valid = {
   version: 1,
   exportedAt: '2026-01-01T00:00:00.000Z',
-  cardStates: [{ cardId: 'c1', introducedAt: '2026-01-01T00:00:00.000Z', fsrs: { dueAt: 'x', lastReviewAt: null, stability: 0, stabilityFast: 0, difficulty: 0, state: 0, scheduleStatus: 'new', reps: 0, lapses: 0, scheduledDays: 0, learningStep: 0, cardId: 'c1' } }],
+  cardStates: [{ cardId: 'c1', introducedAt: '2026-01-01T00:00:00.000Z', fsrs: { dueAt: '2026-01-02T00:00:00.000Z', lastReviewAt: null, stability: 0, stabilityFast: 0, difficulty: 0, state: 0, scheduleStatus: 'new', reps: 0, lapses: 0, scheduledDays: 0, learningStep: 0, cardId: 'c1' } }],
   attempts: [attempt],
   settings: DEFAULT_SETTINGS,
 }
@@ -30,5 +31,16 @@ describe('parseSnapshot', () => {
   test('rejects non-object', () => {
     expect(parseSnapshot('nope').ok).toBe(false)
     expect(parseSnapshot(null).ok).toBe(false)
+  })
+  test('rejects a non-ISO fsrs dueAt', () => {
+    const bad = { ...valid, cardStates: [{ ...valid.cardStates[0], fsrs: { ...valid.cardStates[0].fsrs, dueAt: 'not-a-date' } }] }
+    const r = parseSnapshot(bad)
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.error).toContain('cardStates[0].fsrs.dueAt')
+  })
+  test('accepts a card produced by the scheduler', async () => {
+    const s = await createScheduler()
+    const st = s.review(s.newState('c1', new Date('2026-01-01T00:00:00Z')), 3, new Date('2026-01-01T00:00:00Z'))
+    expect(parseSnapshot({ ...valid, cardStates: [st] }).ok).toBe(true)
   })
 })
