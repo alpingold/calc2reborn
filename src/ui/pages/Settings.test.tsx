@@ -11,8 +11,13 @@ import type { Scheduler } from '../../engine/fsrs'
 const content = loadContent()
 const scheduler = {} as Scheduler
 
+const realCreate = URL.createObjectURL
+const realRevoke = URL.revokeObjectURL
+
 afterEach(() => {
   vi.unstubAllGlobals()
+  vi.restoreAllMocks()
+  Object.assign(URL, { createObjectURL: realCreate, revokeObjectURL: realRevoke })
 })
 
 async function setup(store = new MemoryStore()) {
@@ -85,7 +90,7 @@ test('Import progress rejects an invalid snapshot without changing settings', as
   const file = new File([JSON.stringify({ version: 2 })], 'p.json', { type: 'application/json' })
   await userEvent.upload(screen.getByLabelText('Import progress'), file)
   const alert = await screen.findByRole('alert')
-  expect(alert.textContent).toBeTruthy()
+  expect(alert).toHaveTextContent(/version/i)
   expect(await store.getSettings()).toEqual(DEFAULT_SETTINGS)
 })
 
@@ -123,6 +128,7 @@ test('Reset progress confirms then clears the store', async () => {
     timestamp: '2026-01-01T00:00:00.000Z',
     mode: 'practice',
   })
+  await store.saveSettings({ ...DEFAULT_SETTINGS, dailyNewCards: 33, currentLessonId: 'L23' })
   const confirm = vi.fn(() => false)
   vi.stubGlobal('confirm', confirm)
   await setup(store)
@@ -132,4 +138,7 @@ test('Reset progress confirms then clears the store', async () => {
   confirm.mockReturnValue(true)
   await userEvent.click(screen.getByRole('button', { name: 'Reset progress' }))
   await vi.waitFor(async () => expect(await store.listAttempts()).toHaveLength(0))
+  await vi.waitFor(async () => expect(await store.getSettings()).toEqual(DEFAULT_SETTINGS))
+  await vi.waitFor(() => expect(screen.getByLabelText('Daily new cards')).toHaveValue(DEFAULT_SETTINGS.dailyNewCards))
+  expect(screen.getByLabelText('Current lesson')).toHaveValue('')
 })
