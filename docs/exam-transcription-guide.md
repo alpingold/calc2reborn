@@ -50,7 +50,7 @@ Facts that still fit the schema: `f2021` has 6 choices throughout. `s2017-e2` an
 
 **Points.** Use the booklet's stated points. Do not store free points: 12 questions at 8 points stores 96, not 100. Only `f2016-e1` is 100/12 per problem. `f2016-e2` and `f2016-e3` are 8 each. `s2017-e1` is 9 each. `s2024-*` are 1 each. `s2017-e2`, `s2017-e3`, and all of `f2024` and `f2025` print points per question.
 
-**Picture choices** (`f2017-final` Q12, `f2018-final` Q21, `f2019-final` Q25, `f2022-final` Q24, `f2023-final` Q25, `s2019-e3` Q10, `s2019-final` Q21). Crop one figure covering all the graphs with their letters, and use choice text such as "Graph A". The stem stays text.
+**Picture choices** (`f2017-final` Q12, `f2018-final` Q21, `f2019-final` Q25, `f2022-final` Q24, `f2023-final` Q25, `f2025-e2` Q4, `s2019-e3` Q10, `s2019-final` Q21). Crop one figure covering all the pictures with their letters, and use choice text such as "Graph A" or "Triangle A". The stem stays text. Other exams may have more; apply the same rule.
 
 **Duration.** Only `f2021-final`, `f2024-*`, `f2025-*`, and `s2024-*` state one. "10 minutes" and "20 minutes" on covers are no-leave windows, not durations. Use 60 for midterms and 120 for finals everywhere; that is what clock times imply.
 
@@ -67,32 +67,36 @@ Six exams have neither: `f2023-e2`, `f2023-e3`, `f2023-final`, `s2023-final`, `f
 
 ## Figures
 
-A question gets a figure only if a diagram carries information the text does not. Add a rectangle to `scripts/crops.json`, run `pnpm content:crop`, view the PNG, and adjust until it holds the whole diagram with a small margin and no stray text. Reference it as `"figures": ["figures/<examId>/q02.png"]`. Coordinates are in pixels on the 1224 x 1584 page image. Do not paste a whole question as an image.
+A question gets a figure if a diagram carries information the text does not. Keep a printed graph if the stem leaves a boundary, intersection, or orientation for the student to work out, since exam takers had it. Add a rectangle to `scripts/crops.json`, run `pnpm content:crop`, view the PNG, and adjust until it holds the whole diagram with a small margin and no stray text. Reference it as `"figures": ["figures/<examId>/q02.png"]`. Coordinates are in pixels on the 1224 x 1584 page image. Do not paste a whole question as an image.
 
 ## Lesson tags
 
 | Topic | Lesson |
 |---|---|
-| Vectors, 3D coordinates, spheres, lines | L1, L2 |
+| Vector arithmetic, unit vectors, 3D coordinates and planes such as $z = 5$ | L1 |
+| Spheres (equation, center, radius), regions in 3D, collinear points | L2 |
 | Dot product, projections, angles | L3 |
 | Cross product, area of a parallelogram, torque | L4 |
 | Area between curves | L5 |
 | Volume by slicing, disks, washers | L6 |
 | Volume by shells | L7 |
 | Arc length, surface area | L8 |
-| Density, mass, center of mass | L9 |
-| Work, pumping, springs, force | L10 |
+| Density and mass of a thin bar or wire, work by a variable force, springs and Hooke's law, work against gravity, chains and cables | L9 |
+| Pumping fluid from a tank, hydrostatic pressure and force | L10 |
 | Integration by parts | L11 |
-| Trig integrals | L12, L13 |
-| Trig substitution | L14, L15 |
-| Partial fractions | L16, L17 |
+| Powers of sine and cosine, basic tan, sec, and cot integrals | L12 |
+| Powers of tan and sec, rewriting tan and sec as sine and cosine | L13 |
+| Trig substitution: building the triangle, sine and tangent cases | L14 |
+| Trig substitution: completing the square, factored radicals, arc-length applications | L15 |
+| Partial fractions: distinct and repeated linear factors | L16 |
+| Partial fractions: polynomial long division, irreducible and repeated quadratic factors | L17 |
 | Improper integrals | L18 |
 | Sequence and series overview, partial sums | L19 |
 | Sequence limits | L20 |
 | Geometric and telescoping series | L21 |
 | Divergence Test, Integral Test, p-series | L22 |
 | Direct and Limit Comparison | L23 |
-| Alternating series, error bound | L24 |
+| Alternating series, error bound, absolute versus conditional convergence | L24 |
 | Ratio and Root Tests, absolute convergence | L25 |
 | Mixed "which test" | L26 |
 | Taylor polynomials | L27 |
@@ -104,7 +108,11 @@ A question gets a figure only if a diagram carries information the text does not
 | Polar coordinates, polar curves | L33, L34 |
 | Polar area and length | L35 |
 
-Questions may carry more than one lesson. Check `content/lessons.json` when a split such as L12 versus L13 matters, since part 1 and part 2 cover different cases.
+Questions may carry more than one lesson, but do not add a lesson as a hedge. A wrong tag sends a student to the wrong lesson.
+
+No lesson teaches center of mass or equations of a line. If an exam asks either, tag the nearest lesson (L9, or L1 and L2) and report it. A secant substitution has no worked example; tag L14 and report it.
+
+`keyIdeas` is empty for L1 to L18 and L33 to L35, so settle splits by reading the lesson's `notesUrl` page with base64 images stripped.
 
 ## Finishing
 
