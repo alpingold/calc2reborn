@@ -116,6 +116,7 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - Circles in the plane (center, radius, how two circles relate): tag L2.
 - Symmetry of a polar curve: tag L34.
 - Binomial series (first terms of $(1+x)^p$): tag L31.
+- A plain $u$-substitution that needs no other technique (such as $\int_0^1 x^2e^{x^3}\,dx$): tag L11, whose key ideas say to use a substitution instead of parts when one works. When the substitution is only a step inside another lesson's technique (powers of sine and cosine, tan and sec, an improper integral), tag that lesson instead.
 - A completed square in the sine or tangent case is L15 only.
 - A secant substitution has no worked example: tag L14. If the radical must first be completed to $(x-a)^2-b^2$, tag L14 and L15, since both skills are tested.
 
