@@ -1,0 +1,142 @@
+[
+  {
+    "id": "L32-c01",
+    "lessonId": "L32",
+    "front": "Find $\\lim_{x\\to 0} \\frac{9\\tan^{-1} x - 9x + 3x^3}{5x^5}$ using series.",
+    "back": "$9\\tan^{-1} x = 9x - 3x^3 + \\frac{9}{5}x^5 - \\cdots$, so the quotient is $\\frac{9}{5}\\left(\\frac{1}{5} - \\frac{x^2}{7} + \\cdots\\right)$. Higher-order terms go to $0$, so the limit is $\\frac{9}{25}$. l'Hospital's Rule would take five rounds.",
+    "tags": [
+      "limits",
+      "maclaurin",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c02",
+    "lessonId": "L32",
+    "front": "Find $\\lim_{x\\to 0} \\frac{\\sin x - x}{x^3}$ using series.",
+    "back": "$\\sin x - x = -\\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots$. Dividing by $x^3$ gives $-\\frac{1}{6} + \\frac{x^2}{120} - \\cdots \\to -\\frac{1}{6}$.",
+    "tags": [
+      "limits",
+      "maclaurin",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c03",
+    "lessonId": "L32",
+    "front": "Find $\\lim_{x\\to 0} \\frac{1 - \\cos x}{x^2}$ using series.",
+    "back": "$1 - \\cos x = \\frac{x^2}{2!} - \\frac{x^4}{4!} + \\cdots$. Dividing by $x^2$ gives $\\frac{1}{2} - \\frac{x^2}{24} + \\cdots \\to \\frac{1}{2}$.",
+    "tags": [
+      "limits",
+      "maclaurin",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c04",
+    "lessonId": "L32",
+    "front": "Write the Maclaurin series of $\\frac{9\\tan^{-1} x - 9x + 3x^3}{5x^5}$ in summation form.",
+    "back": "$\\frac{9}{5}\\sum_{k=0}^{\\infty} (-1)^k \\frac{x^{2k}}{2k+5}$. Check $k = 0$: $\\frac{9}{5} \\cdot \\frac{1}{5} = \\frac{9}{25}$, from the $\\frac{9}{5}x^5$ term divided by $5x^5$. It holds for $0 < |x| \\le 1$.",
+    "tags": [
+      "maclaurin",
+      "index"
+    ]
+  },
+  {
+    "id": "L32-c05",
+    "lessonId": "L32",
+    "front": "Estimate $\\int_0^1 \\frac{9\\tan^{-1} x - 9x + 3x^3}{5x^5}\\,dx$ with three terms of the series, and bound the error.",
+    "back": "Integrating gives $\\frac{9}{5}\\left(\\frac{1}{5} - \\frac{1}{21} + \\frac{1}{45} - \\frac{1}{77} + \\cdots\\right)$. Three terms give about $0.3143$. It is alternating with decreasing magnitudes, so $|\\text{error}| \\le \\frac{9}{5} \\cdot \\frac{1}{77} \\approx 0.0234$.",
+    "tags": [
+      "integrals",
+      "error-bound",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c06",
+    "lessonId": "L32",
+    "front": "Why use a series for $\\int_0^{0.1} e^{-x^2}\\,dx$, and what is the integrated series?",
+    "back": "$e^{-x^2}$ has no elementary antiderivative. Substituting into $e^x$ and integrating gives $\\sum_{k=0}^{\\infty} \\frac{(-1)^k (0.1)^{2k+1}}{(2k+1)\\,k!} = 0.1 - \\frac{(0.1)^3}{3} + \\frac{(0.1)^5}{5 \\cdot 2!} - \\cdots$.",
+    "tags": [
+      "integrals",
+      "substitution"
+    ]
+  },
+  {
+    "id": "L32-c07",
+    "lessonId": "L32",
+    "front": "How many terms give $\\int_0^{0.1} e^{-x^2}\\,dx$ to within $10^{-8}$?",
+    "back": "Three. The term $\\frac{(0.1)^5}{5 \\cdot 2!} = 10^{-6}$ is too big to drop, and the next one, $\\frac{(0.1)^7}{7 \\cdot 3!} \\approx 2.38 \\times 10^{-9}$, is below $10^{-8}$. The sum is $0.1 - \\frac{(0.1)^3}{3} + 10^{-6} \\approx 0.09966767$. Chen's page 7 prints $0.099068$, an arithmetic slip.",
+    "tags": [
+      "trap",
+      "integrals",
+      "error-bound",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c08",
+    "lessonId": "L32",
+    "front": "Alternating Series bound or Taylor's Remainder bound: when do you use which?",
+    "back": "Use the alternating bound, $|\\text{error}| \\le |\\text{first term thrown out}|$, when the series alternates with magnitudes nonincreasing to $0$ from that term on. Otherwise use $|R_k(x)| \\le \\frac{M}{(k+1)!}|x-a|^{k+1}$, with $|f^{(k+1)}(t)| \\le M$ for all $t$ between $a$ and $x$.",
+    "tags": [
+      "trap",
+      "error-bound",
+      "remainder"
+    ]
+  },
+  {
+    "id": "L32-c09",
+    "lessonId": "L32",
+    "front": "Estimate $\\sin(0.1)$ with two nonzero terms, and bound the error.",
+    "back": "$\\sin(0.1) \\approx 0.1 - \\frac{(0.1)^3}{6} \\approx 0.0998333$. The series alternates with decreasing magnitudes, so the error is at most $\\frac{(0.1)^5}{5!} \\approx 8.3 \\times 10^{-8}$.",
+    "tags": [
+      "error-bound",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c10",
+    "lessonId": "L32",
+    "front": "Find the sum of $1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\cdots$.",
+    "back": "Set $x = 1$ in $\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots$, which is allowed since the interval is $-1 < x \\le 1$. The sum is $\\ln 2$.",
+    "tags": [
+      "sums",
+      "maclaurin"
+    ]
+  },
+  {
+    "id": "L32-c11",
+    "lessonId": "L32",
+    "front": "Does putting $x = 2$ into the series for $\\ln(1+x)$ give $\\ln 3$?",
+    "back": "No. $x = 2$ is outside $(-1, 1]$, and the terms $\\frac{2^k}{k}$ grow without bound, so the series diverges. $\\ln 3$ exists, but this series cannot reach it. Always check that $x$ lies in the interval.",
+    "tags": [
+      "trap",
+      "interval",
+      "maclaurin"
+    ]
+  },
+  {
+    "id": "L32-c12",
+    "lessonId": "L32",
+    "front": "Identify the sums: $\\sum_{k=0}^{\\infty} \\frac{2^k}{k!}$, $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{2k+1}$, $\\sum_{k=1}^{\\infty} \\frac{1}{k\\,2^k}$.",
+    "back": "$e^2$ (from $e^x$ at $x = 2$). $\\frac{\\pi}{4}$ (from $\\tan^{-1} x$ at $x = 1$). $\\ln 2$ (from $-\\ln(1-x)$ at $x = \\frac{1}{2}$).",
+    "tags": [
+      "sums",
+      "maclaurin",
+      "compute"
+    ]
+  },
+  {
+    "id": "L32-c13",
+    "lessonId": "L32",
+    "front": "Can every function differentiable near $x = a$ be written as its Taylor series?",
+    "back": "No, despite Chen's page 1 wording. The series needs derivatives of every order at $a$: $x|x|$ is differentiable but has no second derivative at $0$. Even then, the sum is $f(x)$ only where $R_k(x) \\to 0$.",
+    "tags": [
+      "trap",
+      "taylor-series",
+      "remainder"
+    ]
+  }
+]

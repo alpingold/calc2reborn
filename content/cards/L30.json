@@ -1,0 +1,130 @@
+[
+  {
+    "id": "L30-c01",
+    "lessonId": "L30",
+    "front": "State term-by-term differentiation and integration for $f(x) = \\sum_{k=0}^{\\infty} c_k (x-a)^k$ with radius $R > 0$.",
+    "back": "On $|x-a| < R$: $f'(x) = \\sum_{k=1}^{\\infty} k\\,c_k (x-a)^{k-1}$ and $\\int f(x)\\,dx = C + \\sum_{k=0}^{\\infty} c_k \\frac{(x-a)^{k+1}}{k+1}$. Both new series have the same radius $R$.",
+    "tags": [
+      "term-by-term",
+      "radius"
+    ]
+  },
+  {
+    "id": "L30-c02",
+    "lessonId": "L30",
+    "front": "Term-by-term differentiation keeps the radius. Does it keep the interval of convergence?",
+    "back": "Not necessarily: the endpoints can change, so check each one again. $\\tan^{-1} x$ has a series converging on $[-1, 1]$, but its derivative series $\\sum_{k=0}^{\\infty} (-1)^k x^{2k}$ converges only on $(-1, 1)$.",
+    "tags": [
+      "trap",
+      "term-by-term",
+      "radius",
+      "endpoints"
+    ]
+  },
+  {
+    "id": "L30-c03",
+    "lessonId": "L30",
+    "front": "Give an example where integrating a series gains an endpoint.",
+    "back": "$\\sum_{k=0}^{\\infty} x^k$ converges on $(-1, 1)$. Integrating gives $\\sum_{k=1}^{\\infty} \\frac{x^k}{k} = -\\ln(1-x)$, which also converges at $x = -1$, so its interval is $[-1, 1)$.",
+    "tags": [
+      "trap",
+      "term-by-term",
+      "endpoints"
+    ]
+  },
+  {
+    "id": "L30-c04",
+    "lessonId": "L30",
+    "front": "Why does $\\frac{d}{dx}\\sum_{k=0}^{\\infty} x^k$ start at $k = 1$?",
+    "back": "The $k = 0$ term is a constant, and its derivative is $0$. So $\\frac{d}{dx}\\sum_{k=0}^{\\infty} x^k = \\sum_{k=1}^{\\infty} k x^{k-1}$, whose first term is $1$.",
+    "tags": [
+      "term-by-term",
+      "index"
+    ]
+  },
+  {
+    "id": "L30-c05",
+    "lessonId": "L30",
+    "front": "Find a power series and the radius for $\\frac{1}{(1-x)^2}$.",
+    "back": "It is the derivative of $\\frac{1}{1-x}$, so $\\frac{1}{(1-x)^2} = \\sum_{k=1}^{\\infty} k x^{k-1} = 1 + 2x + 3x^2 + \\cdots$. The radius stays $R = 1$. Both endpoints diverge, since the terms do not approach $0$.",
+    "tags": [
+      "term-by-term",
+      "compute"
+    ]
+  },
+  {
+    "id": "L30-c06",
+    "lessonId": "L30",
+    "front": "How do you find the constant $C$ after integrating a series?",
+    "back": "Set $x$ equal to the center and compare both sides. For $\\ln\\sqrt{16-x^2}$ at $x = 0$, $\\ln 4 = 0 + C$, so $C = \\ln 4$. Do not assume $C = 0$.",
+    "tags": [
+      "trap",
+      "term-by-term",
+      "constant"
+    ]
+  },
+  {
+    "id": "L30-c07",
+    "lessonId": "L30",
+    "front": "Find the power series for $\\frac{1}{(1+x^2)^2}$.",
+    "back": "Since $\\frac{d}{dx}\\frac{1}{1+x^2} = \\frac{-2x}{(1+x^2)^2}$, differentiate $1 - x^2 + x^4 - \\cdots$ and divide by $-2x$. This gives $1 - 2x^2 + 3x^4 - \\cdots = \\sum_{k=1}^{\\infty} (-1)^{k-1} k\\,x^{2k-2}$ for $|x| < 1$. Check $k = 1$: the first term is $1$.",
+    "tags": [
+      "term-by-term",
+      "compute",
+      "index"
+    ]
+  },
+  {
+    "id": "L30-c08",
+    "lessonId": "L30",
+    "front": "$\\frac{1}{(1+x^2)^2}$ is defined for all $x$. Where does its power series at $0$ converge?",
+    "back": "Only on $|x| < 1$. At $x = \\pm 1$ the terms are $(-1)^{k-1} k$, which do not approach $0$. Differentiating kept radius $1$ from $\\frac{1}{1+x^2}$, whatever the function does outside.",
+    "tags": [
+      "trap",
+      "radius",
+      "endpoints"
+    ]
+  },
+  {
+    "id": "L30-c09",
+    "lessonId": "L30",
+    "front": "Find the power series for $\\ln\\sqrt{16-x^2}$.",
+    "back": "Differentiate to get $-x \\cdot \\frac{1}{16-x^2} = -\\frac{x}{16}\\sum_{k=0}^{\\infty} \\frac{x^{2k}}{4^{2k}}$, integrate, and use $C = \\ln 4$. The result is $\\ln 4 - \\sum_{k=1}^{\\infty} \\frac{x^{2k}}{2k \\cdot 4^{2k}}$ for $|x| < 4$.",
+    "tags": [
+      "term-by-term",
+      "compute"
+    ]
+  },
+  {
+    "id": "L30-c10",
+    "lessonId": "L30",
+    "front": "The series for $\\ln\\sqrt{16-x^2}$ has radius $4$, yet the model $\\frac{1}{1-x}$ has radius $1$. Doesn't integrating keep the radius?",
+    "back": "The radius changed at the substitution step, not at integration. Replacing $x$ with $\\left(\\frac{x}{4}\\right)^2$ in $\\frac{1}{1-x}$ gives $\\frac{x^2}{16} < 1$, so $|x| < 4$. Integrating afterward keeps that $4$.",
+    "tags": [
+      "trap",
+      "radius"
+    ]
+  },
+  {
+    "id": "L30-c11",
+    "lessonId": "L30",
+    "front": "What function is $\\sum_{k=0}^{\\infty} \\frac{(x-2)^k}{3^{2k}}$, and where?",
+    "back": "It is geometric with ratio $\\frac{x-2}{9}$, so it equals $\\frac{1}{1-\\frac{x-2}{9}} = \\frac{9}{11-x}$. This holds only for $|x-2| < 9$, that is $-7 < x < 11$; at $x = 20$ the formula exists but the series diverges.",
+    "tags": [
+      "trap",
+      "geometric",
+      "compute"
+    ]
+  },
+  {
+    "id": "L30-c12",
+    "lessonId": "L30",
+    "front": "Get $\\ln(1+x)$ from a known series by integrating.",
+    "back": "Integrate $\\frac{1}{1+x} = \\sum_{k=0}^{\\infty} (-1)^k x^k$ to get $\\ln(1+x) = C + \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{k+1}}{k+1}$. At $x = 0$, $C = 0$. Reindexing gives $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1} x^k}{k}$, and the endpoint $x = 1$ is gained.",
+    "tags": [
+      "term-by-term",
+      "index",
+      "endpoints"
+    ]
+  }
+]

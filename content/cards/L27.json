@@ -1,0 +1,123 @@
+[
+  {
+    "id": "L27-c01",
+    "lessonId": "L27",
+    "front": "In $\\sum_{k=0}^{\\infty} C_k (x-a)^k$, what are $a$ and $C_k$?",
+    "back": "$a$ is the center of the power series and $C_k$ is the coefficient of the $k$th-order term. Read the center with its sign: $(x+3)^k = (x-(-3))^k$ has $a = -3$.",
+    "tags": [
+      "power-series",
+      "center"
+    ]
+  },
+  {
+    "id": "L27-c02",
+    "lessonId": "L27",
+    "front": "Why is the Taylor coefficient $C_k = \\frac{f^{(k)}(a)}{k!}$?",
+    "back": "Differentiate the series $k$ times and set $x = a$. Every term still holding a factor of $(x-a)$ vanishes, leaving $f^{(k)}(a) = k!\\,C_k$.",
+    "tags": [
+      "taylor-series",
+      "coefficients"
+    ]
+  },
+  {
+    "id": "L27-c03",
+    "lessonId": "L27",
+    "front": "Write the Taylor series of $f(x)$ at $x = a$.",
+    "back": "$\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x-a)^k = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\cdots$. It requires derivatives of every order at $x = a$.",
+    "tags": [
+      "taylor-series"
+    ]
+  },
+  {
+    "id": "L27-c04",
+    "lessonId": "L27",
+    "front": "What is the difference between a Taylor polynomial and a Taylor series?",
+    "back": "The polynomial $P_k$ is a finite sum that stops at order $k$, and $f(x) \\approx P_k(x)$ near $a$. The series is the infinite sum, and whether its sum is $f(x)$ at a given $x$ must be checked separately.",
+    "tags": [
+      "trap",
+      "taylor-polynomial",
+      "taylor-series"
+    ]
+  },
+  {
+    "id": "L27-c05",
+    "lessonId": "L27",
+    "front": "What does $P_k$ have in common with $f$ at $x = a$? What is $P_1$?",
+    "back": "$P_k$ has the same value and the same first $k$ derivatives as $f$ at $x = a$. $P_1(x) = f(a) + f'(a)(x-a)$ is the linear approximation, the tangent line.",
+    "tags": [
+      "taylor-polynomial",
+      "linear-approximation"
+    ]
+  },
+  {
+    "id": "L27-c06",
+    "lessonId": "L27",
+    "front": "Find $P_3$ for $e^x$ at $a = 0$.",
+    "back": "Every derivative of $e^x$ equals $1$ at $0$, so $P_3(x) = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}$.",
+    "tags": [
+      "taylor-polynomial",
+      "compute"
+    ]
+  },
+  {
+    "id": "L27-c07",
+    "lessonId": "L27",
+    "front": "Estimate $e^{0.5}$ using $P_1$ and $P_2$ for $e^x$ at $a = 0$.",
+    "back": "$P_1(0.5) = 1.5$ and $P_2(0.5) = 1 + 0.5 + 0.125 = 1.625$. The true value is $1.6487\\ldots$, so here $P_2$ is closer.",
+    "tags": [
+      "taylor-polynomial",
+      "compute"
+    ]
+  },
+  {
+    "id": "L27-c08",
+    "lessonId": "L27",
+    "front": "Find $P_2$ for $\\cos(2x)$ at $a = \\frac{\\pi}{8}$.",
+    "back": "$f = \\cos(2x)$, $f' = -2\\sin(2x)$, $f'' = -4\\cos(2x)$, which give $\\frac{\\sqrt{2}}{2}$, $-\\sqrt{2}$, $-2\\sqrt{2}$ at $\\frac{\\pi}{8}$. So $P_2(x) = \\frac{\\sqrt{2}}{2} - \\sqrt{2}\\left(x - \\frac{\\pi}{8}\\right) - \\sqrt{2}\\left(x - \\frac{\\pi}{8}\\right)^2$, after dividing $f''$ by $2!$.",
+    "tags": [
+      "taylor-polynomial",
+      "compute"
+    ]
+  },
+  {
+    "id": "L27-c09",
+    "lessonId": "L27",
+    "front": "Does the $k$th-order Taylor polynomial always have degree $k$?",
+    "back": "No. If $f^{(k)}(a) = 0$, that term vanishes. For $\\sin x$ at $a = 0$, $P_2(x) = x$ has degree $1$, and $P_4(x) = x - \\frac{x^3}{6}$ has degree $3$.",
+    "tags": [
+      "trap",
+      "taylor-polynomial",
+      "order"
+    ]
+  },
+  {
+    "id": "L27-c10",
+    "lessonId": "L27",
+    "front": "$f(2) = 5$, $f'(2) = -3$, $f''(2) = 4$. Write $P_2$.",
+    "back": "$P_2(x) = 5 - 3(x-2) + \\frac{4}{2!}(x-2)^2 = 5 - 3(x-2) + 2(x-2)^2$. The usual slips are forgetting the $2!$ and writing powers of $x$ instead of $(x-2)$.",
+    "tags": [
+      "trap",
+      "taylor-polynomial",
+      "compute"
+    ]
+  },
+  {
+    "id": "L27-c11",
+    "lessonId": "L27",
+    "front": "Is $P_k(x)$ ever exactly equal to $f(x)$ for all $x$?",
+    "back": "Yes, when $f$ is a polynomial of degree at most $k$. For $f(x) = x^2 + 1$ at $a = 1$, $P_2(x) = 2 + 2(x-1) + (x-1)^2 = x^2 + 1$. For other functions $P_k$ is an approximation.",
+    "tags": [
+      "taylor-polynomial"
+    ]
+  },
+  {
+    "id": "L27-c12",
+    "lessonId": "L27",
+    "front": "Does adding one more term always reduce the error at a given $x$?",
+    "back": "No. For $e^x$ at $a = 0$ and $x = -3$: $P_0 = 1$ misses $e^{-3}$ by about $0.95$, while $P_1 = -2$ misses by about $2.05$. The error still goes to $0$ as $k \\to \\infty$ for $e^x$, but not necessarily at each step.",
+    "tags": [
+      "trap",
+      "taylor-polynomial"
+    ]
+  }
+]

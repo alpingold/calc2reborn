@@ -1,0 +1,164 @@
+[
+  {
+    "id": "L31-c01",
+    "lessonId": "L31",
+    "front": "What is a Maclaurin series?",
+    "back": "The Taylor series with center $a = 0$: $\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(0)}{k!} x^k = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 + \\cdots$.",
+    "tags": [
+      "maclaurin",
+      "taylor-series"
+    ]
+  },
+  {
+    "id": "L31-c02",
+    "lessonId": "L31",
+    "front": "Maclaurin series of $e^x$, with its interval of convergence.",
+    "back": "$e^x = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\cdots = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$. Interval: $(-\\infty, \\infty)$.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "interval"
+    ]
+  },
+  {
+    "id": "L31-c03",
+    "lessonId": "L31",
+    "front": "Maclaurin series of $\\sin x$, with its interval of convergence.",
+    "back": "$\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}$. Interval: $(-\\infty, \\infty)$. Odd powers only, with odd factorials.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "interval"
+    ]
+  },
+  {
+    "id": "L31-c04",
+    "lessonId": "L31",
+    "front": "Maclaurin series of $\\cos x$, with its interval of convergence.",
+    "back": "$\\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!}$. Interval: $(-\\infty, \\infty)$. Even powers only, with even factorials.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "interval"
+    ]
+  },
+  {
+    "id": "L31-c05",
+    "lessonId": "L31",
+    "front": "Maclaurin series of $\\frac{1}{1-x}$, with its interval of convergence.",
+    "back": "$\\frac{1}{1-x} = 1 + x + x^2 + \\cdots = \\sum_{k=0}^{\\infty} x^k$. Interval: $(-1, 1)$. Neither endpoint converges.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "interval"
+    ]
+  },
+  {
+    "id": "L31-c06",
+    "lessonId": "L31",
+    "front": "Maclaurin series of $\\ln(1+x)$, with its interval of convergence.",
+    "back": "$\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots = \\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1} x^k}{k}$. Interval: $(-1, 1]$. It starts at $k = 1$ and has no factorials.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "interval"
+    ]
+  },
+  {
+    "id": "L31-c07",
+    "lessonId": "L31",
+    "front": "Maclaurin series of $\\tan^{-1} x$ (that is, $\\arctan x$), with its interval of convergence.",
+    "back": "$\\tan^{-1} x = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{2k+1}$. Interval: $[-1, 1]$. It looks like $\\sin x$ but divides by $2k+1$, not $(2k+1)!$.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "interval"
+    ]
+  },
+  {
+    "id": "L31-c08",
+    "lessonId": "L31",
+    "front": "Why is the interval of $\\ln(1+x)$ equal to $(-1, 1]$ and not $(-1, 1)$ or $[-1, 1]$?",
+    "back": "At $x = 1$ it is the alternating harmonic series, which converges (to $\\ln 2$). At $x = -1$ it is $-\\sum \\frac{1}{k}$, which diverges, and $\\ln 0$ is undefined. By contrast, $-\\ln(1-x)$ has interval $[-1, 1)$.",
+    "tags": [
+      "trap",
+      "endpoints",
+      "maclaurin"
+    ]
+  },
+  {
+    "id": "L31-c09",
+    "lessonId": "L31",
+    "front": "A Taylor series converges at $x$. Does that mean its sum is $f(x)$?",
+    "back": "Not by itself. Its sum is $f(x)$ exactly when $\\lim_{k\\to\\infty} R_k(x) = 0$. Convergence and equality are separate questions.",
+    "tags": [
+      "trap",
+      "remainder",
+      "taylor-series"
+    ]
+  },
+  {
+    "id": "L31-c10",
+    "lessonId": "L31",
+    "front": "Give a function whose Maclaurin series converges everywhere but differs from the function.",
+    "back": "$f(x) = e^{-1/x^2}$ with $f(0) = 0$. Every derivative at $0$ is $0$, so the Maclaurin series is $0$ for all $x$, yet $f(x) > 0$ for $x \\ne 0$. This is beyond Chen's notes.",
+    "tags": [
+      "trap",
+      "maclaurin",
+      "remainder"
+    ]
+  },
+  {
+    "id": "L31-c11",
+    "lessonId": "L31",
+    "front": "Why does the Taylor series of $\\sin x$ at any center $a$ converge to $\\sin x$ for every $x$?",
+    "back": "Every derivative is $\\pm\\sin$ or $\\pm\\cos$, so $|f^{(k+1)}(c)| \\le 1$ and $|R_k(x)| \\le \\frac{|x-a|^{k+1}}{(k+1)!}$. The factorial outgrows the power for every fixed $x$, so $R_k(x) \\to 0$.",
+    "tags": [
+      "remainder",
+      "taylor-series"
+    ]
+  },
+  {
+    "id": "L31-c12",
+    "lessonId": "L31",
+    "front": "Find the Maclaurin series of $x^3 \\sin\\left(\\frac{x^2}{3}\\right)$.",
+    "back": "Substitute $\\frac{x^2}{3}$ for $x$ in $\\sin x$, then multiply by $x^3$: $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{(2k+1)!} \\cdot \\frac{x^{4k+5}}{3^{2k+1}} = \\frac{x^5}{3} - \\frac{x^9}{3! \\cdot 3^3} + \\frac{x^{13}}{5! \\cdot 3^5} - \\cdots$. It converges on $(-\\infty, \\infty)$.",
+    "tags": [
+      "maclaurin",
+      "substitution",
+      "compute"
+    ]
+  },
+  {
+    "id": "L31-c13",
+    "lessonId": "L31",
+    "front": "Find the Maclaurin series of $\\frac{e^x - 1}{5x}$. What index does it start at?",
+    "back": "Subtracting $1$ removes the $k = 0$ term, so $e^x - 1 = \\sum_{k=1}^{\\infty} \\frac{x^k}{k!}$. Dividing by $5x$ gives $\\sum_{k=1}^{\\infty} \\frac{x^{k-1}}{5 \\cdot k!} = \\frac{1}{5} + \\frac{x}{5 \\cdot 2!} + \\cdots$ for $x \\ne 0$. The first term comes from $k = 1$.",
+    "tags": [
+      "maclaurin",
+      "index",
+      "compute"
+    ]
+  },
+  {
+    "id": "L31-c14",
+    "lessonId": "L31",
+    "front": "Can you get the Taylor series of $\\sin x$ at $a = \\frac{\\pi}{6}$ from the Maclaurin table by swapping $x$ for $x - \\frac{\\pi}{6}$?",
+    "back": "No, that gives the series of $\\sin\\left(x - \\frac{\\pi}{6}\\right)$, a different function. Differentiate and evaluate at $\\frac{\\pi}{6}$: $\\frac{1}{2} + \\frac{\\sqrt{3}}{2}\\left(x - \\frac{\\pi}{6}\\right) - \\frac{1/2}{2!}\\left(x - \\frac{\\pi}{6}\\right)^2 - \\cdots$.",
+    "tags": [
+      "trap",
+      "taylor-series",
+      "center"
+    ]
+  },
+  {
+    "id": "L31-c15",
+    "lessonId": "L31",
+    "front": "Show that the series of $\\sin x$ has radius $\\infty$.",
+    "back": "The ratio of consecutive terms is $\\frac{x^2}{(2k+3)(2k+2)}$, which goes to $L = 0 < 1$ for every $x \\ne 0$. The center $x = 0$ converges trivially, so the interval is $(-\\infty, \\infty)$ and there are no endpoints to check.",
+    "tags": [
+      "radius",
+      "ratio-test"
+    ]
+  }
+]

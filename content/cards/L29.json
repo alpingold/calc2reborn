@@ -1,0 +1,155 @@
+[
+  {
+    "id": "L29-c01",
+    "lessonId": "L29",
+    "front": "What is the difference between the radius and the interval of convergence?",
+    "back": "The radius $R$ is the distance from the center to one end. The interval is the full set of $x$ where the series converges, and it includes a decision on each endpoint. Knowing $R$ does not settle the endpoints: check each one separately.",
+    "tags": [
+      "trap",
+      "radius",
+      "interval",
+      "endpoints"
+    ]
+  },
+  {
+    "id": "L29-c02",
+    "lessonId": "L29",
+    "front": "Give four series with $R = 1$ and four different intervals of convergence.",
+    "back": "$\\sum_{k=0}^{\\infty} x^k$: $(-1, 1)$. $\\sum_{k=1}^{\\infty} \\frac{x^k}{k}$: $[-1, 1)$. $\\sum_{k=1}^{\\infty} \\frac{(-1)^k x^k}{k}$: $(-1, 1]$. $\\sum_{k=1}^{\\infty} \\frac{x^k}{k^2}$: $[-1, 1]$.",
+    "tags": [
+      "trap",
+      "radius",
+      "endpoints"
+    ]
+  },
+  {
+    "id": "L29-c03",
+    "lessonId": "L29",
+    "front": "What are the possible convergence sets of $\\sum_{k=0}^{\\infty} c_k (x-a)^k$?",
+    "back": "Only $x = a$ ($R = 0$); or $|x-a| < R$ with $0 < R < \\infty$, plus possibly one or both endpoints; or all $x$ ($R = \\infty$). There are no other cases.",
+    "tags": [
+      "radius",
+      "interval"
+    ]
+  },
+  {
+    "id": "L29-c04",
+    "lessonId": "L29",
+    "front": "Steps for finding an interval of convergence?",
+    "back": "Apply the Ratio Test to the whole term, with $x$ included. Solve $L < 1$ to get the open interval and $R$. Substitute each endpoint and test it with another test, since $L = 1$ is inconclusive there. Then write the interval.",
+    "tags": [
+      "interval",
+      "endpoints",
+      "ratio-test"
+    ]
+  },
+  {
+    "id": "L29-c05",
+    "lessonId": "L29",
+    "front": "Inside the interval and at the endpoints, what kind of convergence can a power series have?",
+    "back": "For $|x-a| < R$, convergence is absolute. At an endpoint anything can happen: absolute, conditional, or divergence. For $\\sum \\frac{x^k}{k}$, $x = -1$ converges conditionally and $x = 1$ diverges.",
+    "tags": [
+      "absolute",
+      "endpoints"
+    ]
+  },
+  {
+    "id": "L29-c06",
+    "lessonId": "L29",
+    "front": "Center, radius, and interval of $\\sum_{k=1}^{\\infty} \\frac{(-1)^k k}{4^k}(x+3)^k$?",
+    "back": "$L = \\frac{|x+3|}{4} < 1$ gives $-7 < x < 1$, with center $a = -3$ and $R = 4$. At $x = -7$ the series is $\\sum k$, and at $x = 1$ it is $\\sum (-1)^k k$. Both diverge by the Divergence Test, so the interval is $(-7, 1)$.",
+    "tags": [
+      "center",
+      "radius",
+      "interval",
+      "compute"
+    ]
+  },
+  {
+    "id": "L29-c07",
+    "lessonId": "L29",
+    "front": "Interval of convergence of $\\sum_{k=1}^{\\infty} (kx)^k$?",
+    "back": "$L = \\lim \\left(1 + \\frac{1}{k}\\right)^k (k+1)|x| = \\infty$ for every $x \\ne 0$. So the series diverges there, and $R = 0$. At $x = 0$ all terms are $0$, so it converges only at $x = 0$.",
+    "tags": [
+      "radius",
+      "ratio-test",
+      "compute"
+    ]
+  },
+  {
+    "id": "L29-c08",
+    "lessonId": "L29",
+    "front": "The Ratio Test on a power series gives $L = \\infty$ for every $x \\ne a$, or $L = 0$ for every $x \\ne a$. What are the radii?",
+    "back": "$L = \\infty$ for every $x \\ne a$ means divergence there, so $R = 0$. $L = 0$ for every $x \\ne a$ means convergence for all $x$, so $R = \\infty$. Students often swap these. Neither case has endpoints to check.",
+    "tags": [
+      "trap",
+      "radius",
+      "ratio-test"
+    ]
+  },
+  {
+    "id": "L29-c09",
+    "lessonId": "L29",
+    "front": "Center and interval of $\\sum_{k=0}^{\\infty} (2x-1)^k$?",
+    "back": "This is geometric with $|2x-1| < 1$, so $0 < x < 1$. The center is $a = \\frac{1}{2}$ and $R = \\frac{1}{2}$, because $2x - 1 = 2\\left(x - \\frac{1}{2}\\right)$. Both endpoints give a ratio of magnitude $1$ and diverge.",
+    "tags": [
+      "trap",
+      "center",
+      "radius",
+      "compute"
+    ]
+  },
+  {
+    "id": "L29-c10",
+    "lessonId": "L29",
+    "front": "Write $x - \\frac{x^3}{4} + \\frac{x^5}{9} - \\frac{x^7}{16} + \\cdots$ in summation notation, starting at $k = 1$.",
+    "back": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\frac{x^{2k-1}}{k^2}$. Check $k = 1$: the sign is $+$, the power is $x^1$, and the denominator is $1^2$. Starting at $k = 0$ changes the formula to $\\sum_{k=0}^{\\infty} (-1)^{k} \\frac{x^{2k+1}}{(k+1)^2}$.",
+    "tags": [
+      "summation-notation",
+      "index"
+    ]
+  },
+  {
+    "id": "L29-c11",
+    "lessonId": "L29",
+    "front": "State the geometric model series, with its first term and its condition.",
+    "back": "$\\frac{1}{1-x} = \\sum_{k=0}^{\\infty} x^k = 1 + x + x^2 + \\cdots$ for $|x| < 1$. The sum starts at $k = 0$ with first term $1$. Both endpoints $x = \\pm 1$ diverge.",
+    "tags": [
+      "geometric",
+      "model-series"
+    ]
+  },
+  {
+    "id": "L29-c12",
+    "lessonId": "L29",
+    "front": "Find a power series and interval for $\\frac{1}{2-x}$.",
+    "back": "Make the denominator start with $1$: $\\frac{1}{2-x} = \\frac{1}{2} \\cdot \\frac{1}{1-\\frac{x}{2}} = \\sum_{k=0}^{\\infty} \\frac{x^k}{2^{k+1}}$. It converges when $\\left|\\frac{x}{2}\\right| < 1$, so on $(-2, 2)$.",
+    "tags": [
+      "trap",
+      "geometric",
+      "model-series"
+    ]
+  },
+  {
+    "id": "L29-c13",
+    "lessonId": "L29",
+    "front": "Find a power series and interval for $\\frac{x^2}{1+x^2}$.",
+    "back": "$x^2 \\cdot \\frac{1}{1-(-x^2)} = x^2 \\sum_{k=0}^{\\infty} (-x^2)^k = \\sum_{k=0}^{\\infty} (-1)^k x^{2k+2}$. The condition $|-x^2| < 1$ gives $-1 < x < 1$. Multiplying by $x^2$ shifts the exponents only.",
+    "tags": [
+      "geometric",
+      "model-series",
+      "compute"
+    ]
+  },
+  {
+    "id": "L29-c14",
+    "lessonId": "L29",
+    "front": "$\\frac{1}{1-x} = \\frac{1}{2}$ at $x = -1$. Does that mean $\\sum_{k=0}^{\\infty} x^k$ converges to $\\frac{1}{2}$ there?",
+    "back": "No. At $x = -1$ the series is $1 - 1 + 1 - \\cdots$, which diverges. The formula and the series agree only on $|x| < 1$, so a function being defined says nothing about its series.",
+    "tags": [
+      "trap",
+      "geometric",
+      "endpoints"
+    ]
+  }
+]
