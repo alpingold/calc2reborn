@@ -1,0 +1,865 @@
+{
+  "id": "s2018-final",
+  "term": "Spring",
+  "year": 2018,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2018.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2018.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "s2018-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "The vector of length 2 whose direction is *opposite* that of $\\langle 2, 3, 2 \\rangle$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2\\langle 2, 3, 2 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{1}{\\sqrt{17}}\\langle 2, 3, 2 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$-\\frac{2}{\\sqrt{17}}\\langle 2, 3, 2 \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{2}{17}\\langle 2, 3, 2 \\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{2}{\\sqrt{7}}\\langle 2, 3, 2 \\rangle$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Choose $t$ so that the vectors $\\langle 3, 5, -1 \\rangle$ and $\\langle t, -1, 1 \\rangle$ are orthogonal. Answer: $t =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$-1$"
+        },
+        {
+          "label": "E",
+          "text": "$3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Let $P = (1, 3, 2)$, $Q = (0, 1, 1)$, and $R = (-2, 2, 0)$. Which of the following vectors is perpendicular to the plane that contains the points $P$, $Q$, and $R$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3\\hat{\\mathbf{i}} - \\hat{\\mathbf{j}} - 5\\hat{\\mathbf{k}}$"
+        },
+        {
+          "label": "B",
+          "text": "$-6\\hat{\\mathbf{i}} - 2\\hat{\\mathbf{j}} + 10\\hat{\\mathbf{k}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\hat{\\mathbf{i}} - \\hat{\\mathbf{j}} + \\hat{\\mathbf{k}}$"
+        },
+        {
+          "label": "D",
+          "text": "$-2\\hat{\\mathbf{i}} - 2\\hat{\\mathbf{j}} - 2\\hat{\\mathbf{k}}$"
+        },
+        {
+          "label": "E",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The volume of the solid obtained by rotating the area enclosed by the graphs of $y = x$ and $y = x^4$ about the $y$-axis is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2\\pi}{9}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2\\pi}{15}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "$\\int_0^1 xe^x\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$-1$"
+        },
+        {
+          "label": "C",
+          "text": "$e$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{e^2}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$2e$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "$\\int_0^{\\pi/8} \\sin^3(2x)\\cos(2x)\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{64}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{16}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{8}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{32}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Use *integration by parts* to compute $\\int_1^e \\ln x\\, dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$-1$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$e$"
+        },
+        {
+          "label": "E",
+          "text": "$e - 1$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "$\\int_0^{\\pi/2} \\sin^2(3x)\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{4} - \\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{4} - \\frac{1}{12}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{4} + \\frac{1}{12}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Evaluate $\\int_2^3 \\frac{3}{(x-1)(x+2)}\\, dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{33}{20}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{9}{20}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln\\left(\\frac{5}{2}\\right)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln\\left(\\frac{8}{5}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln\\left(\\frac{2}{5}\\right)$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Evaluate $\\int_4^{\\infty} \\frac{2x}{(x^2 + 9)^{1/3}}\\, dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$7^{\\frac{2}{3}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{2}(7^{\\frac{2}{3}})$"
+        },
+        {
+          "label": "C",
+          "text": "$9^{\\frac{2}{3}} + 7^{\\frac{2}{3}}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3}{2}(9^{\\frac{2}{3}} + 7^{\\frac{2}{3}})$"
+        },
+        {
+          "label": "E",
+          "text": "Integral diverges"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "What is the length of the curve $y = \\frac{2}{3}x^{\\frac{3}{2}}$ from $x = 0$ to $x = 3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$4$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{14}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{16}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$7$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "The **sequence** $\\left\\{\\frac{\\sin(\\sqrt{2}\\,n)}{n}\\right\\}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "converges to $\\sqrt{2}$"
+        },
+        {
+          "label": "B",
+          "text": "converges to $1$"
+        },
+        {
+          "label": "C",
+          "text": "converges to $\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "label": "D",
+          "text": "converges to $0$"
+        },
+        {
+          "label": "E",
+          "text": "diverges"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "The sum of $\\frac{3}{2} + \\frac{9}{16} + \\frac{27}{128} + \\frac{81}{1024} + \\cdots$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{47}{20}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{49}{20}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{5}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{12}{5}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "For what values of $x$ does the series $1 + \\frac{1}{2^{x-1}} + \\frac{1}{3^{x-1}} + \\frac{1}{4^{x-1}} + \\frac{1}{5^{x-1}} + \\cdots$ converge?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "No values of $x$"
+        },
+        {
+          "label": "B",
+          "text": "$x > 2$"
+        },
+        {
+          "label": "C",
+          "text": "$x \\geq 1$"
+        },
+        {
+          "label": "D",
+          "text": "$x > 1$"
+        },
+        {
+          "label": "E",
+          "text": "All values of x"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "Consider the series $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n^3}$. Which of the following statements are correct?\n\nI. The series converges\n\nII. $\\sum_{n=\\mathbf{10}}^{\\infty} \\frac{(-1)^n}{n^3} \\leq \\frac{1}{1000}$\n\nIII. The Ratio Test is inconclusive",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of them"
+        },
+        {
+          "label": "B",
+          "text": "None of them"
+        },
+        {
+          "label": "C",
+          "text": "I only"
+        },
+        {
+          "label": "D",
+          "text": "I and II only"
+        },
+        {
+          "label": "E",
+          "text": "III only"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L24",
+        "L25"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "**How many** of the following series converge conditionally?\n\nI. $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{5n + 1}$\n\nII. $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{2^n}$\n\nIII. $\\sum_{n=1}^{\\infty} (-1)^{n+1} \\frac{n^2}{n^2 + 4}$\n\nIV. $\\sum_{n=2}^{\\infty} \\frac{(-1)^n}{n\\ln(n)}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Find the interval of convergence for the series $\\sum_{n=1}^{\\infty} \\frac{x^n}{n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$[-1, 1]$"
+        },
+        {
+          "label": "B",
+          "text": "$(-1, 1]$"
+        },
+        {
+          "label": "C",
+          "text": "$[-1, 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$(-1, 1)$"
+        },
+        {
+          "label": "E",
+          "text": "$(-\\infty, \\infty)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "Find the Maclaurin series for $f(x) = \\frac{x}{1 + 4x^2}$. Hint: use geometric series.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty} (-2)^{2n} x^{2n+1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n (2x)^{2n+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} (-2)^n x^{3n+3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} 4^n x^{2n+1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} (-4)^n x^{2n+1}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "Which of the following could be the Maclaurin series for the function graphed below?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x + \\frac{1}{2}x^2 + \\frac{1}{8}x^3 + \\cdots$"
+        },
+        {
+          "label": "B",
+          "text": "$x - \\frac{1}{2}x^2 + \\frac{1}{8}x^3 - \\cdots$"
+        },
+        {
+          "label": "C",
+          "text": "$2x - \\frac{4}{3}x^3 + \\frac{4}{15}x^5 + \\cdots$"
+        },
+        {
+          "label": "D",
+          "text": "$1 + \\frac{1}{2}x + \\frac{1}{8}x^2 + \\cdots$"
+        },
+        {
+          "label": "E",
+          "text": "$-1 - \\frac{1}{2}x - \\frac{1}{8}x^2 - \\cdots$"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/s2018-final/q19.png"
+      ],
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "The equation of the line tangent to the parametric curve $x = t^3 + t$, $y = t^4 + 2t^2$ at $t = 1$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$y = 2x$"
+        },
+        {
+          "label": "B",
+          "text": "$y = 8x$"
+        },
+        {
+          "label": "C",
+          "text": "$y = 4x - 5$"
+        },
+        {
+          "label": "D",
+          "text": "$y = 8x + 13$"
+        },
+        {
+          "label": "E",
+          "text": "$y = 2x - 1$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "The length of the curve described by the parametric equation $x = \\cos^3 t$, $y = \\sin^3 t$ for $0 \\leq t \\leq \\frac{\\pi}{2}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} \\sqrt{3\\cos^2 t + 3\\sin^2 t}\\, dt$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} \\sqrt{9\\cos^4 t\\sin^2 t + 9\\sin^4 t\\cos^2 t}\\, dt$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} \\sqrt{-3\\cos^2 t\\sin t + 3\\sin^2 t\\cos t}\\, dt$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} \\sqrt{9\\cos^4 t + 9\\sin^4 t}\\, dt$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} \\sqrt{\\cos^6 t + \\sin^6 t}\\, dt$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "What is the equation in polar form for the vertical line $x = 2$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r = 2\\cos\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$r = 2\\sin\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$r = 2\\csc\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$r = 2\\sec\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$r = 2\\tan\\theta$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "The complex number $-5 - 5i$ expressed in polar form with the argument between $0$ and $2\\pi$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5(\\cos\\frac{5\\pi}{4} + i\\sin\\frac{5\\pi}{4})$"
+        },
+        {
+          "label": "B",
+          "text": "$5\\sqrt{2}(\\cos\\frac{5\\pi}{4} + i\\sin\\frac{5\\pi}{4})$"
+        },
+        {
+          "label": "C",
+          "text": "$5(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4})$"
+        },
+        {
+          "label": "D",
+          "text": "$-5(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4})$"
+        },
+        {
+          "label": "E",
+          "text": "$5\\sqrt{2}(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4})$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "The area of the region enclosed by the polar curve $r = \\sin(2\\theta)$, $0 \\leq \\theta \\leq \\frac{\\pi}{2}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{8}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{4}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "Find the vertex of the conic section described by $x^2 + 4x - 4y + 8 = 0$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(0, 2)$"
+        },
+        {
+          "label": "B",
+          "text": "$(2, -1)$"
+        },
+        {
+          "label": "C",
+          "text": "$(-2, 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$(-2, -1)$"
+        },
+        {
+          "label": "E",
+          "text": "$(-1, 2)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}

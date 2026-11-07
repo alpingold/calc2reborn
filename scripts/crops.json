@@ -27,5 +27,6 @@
   { "figure": "figures/s2019-e3/q10.png", "examId": "s2019-e3", "page": 6, "x": 130, "y": 888, "w": 905, "h": 472 },
   { "figure": "figures/s2019-final/q21.png", "examId": "s2019-final", "page": 12, "x": 138, "y": 196, "w": 598, "h": 400 },
   { "figure": "figures/s2019-final/q22.png", "examId": "s2019-final", "page": 12, "x": 136, "y": 806, "w": 198, "h": 182 },
-  { "figure": "figures/f2018-final/q21.png", "examId": "f2018-final", "page": 12, "x": 255, "y": 240, "w": 710, "h": 320 }
+  { "figure": "figures/f2018-final/q21.png", "examId": "f2018-final", "page": 12, "x": 255, "y": 240, "w": 710, "h": 320 },
+  { "figure": "figures/s2018-final/q19.png", "examId": "s2018-final", "page": 12, "x": 476, "y": 196, "w": 306, "h": 302 }
 ]
