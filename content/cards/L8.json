@@ -23,7 +23,7 @@
     "id": "L8-c03",
     "lessonId": "L8",
     "front": "Find the arc length of $y = \\ln(\\cos x)$ on $\\left[0, \\frac{\\pi}{4}\\right]$.",
-    "back": "$y' = -\\tan x$, so $1 + (y')^2 = \\sec^2 x$, and $\\sec x > 0$ here. Then $L = \\int_0^{\\pi/4} \\sec x\\,dx = \\ln(\\sqrt{2} + 1)$.",
+    "back": "$y' = -\\tan x$, so $1 + (y')^2 = \\sec^2 x$, and $\\sec x > 0$ here. Then $L = \\int_0^{\\pi/4} \\sec x\\,dx = \\ln(\\sqrt{2} + 1)$, using $\\int \\sec x\\,dx = \\ln|\\sec x + \\tan x| + C$ (trig integrals start in L12).",
     "tags": [
       "arc-length",
       "compute"
@@ -53,7 +53,7 @@
     "id": "L8-c06",
     "lessonId": "L8",
     "front": "Why switch to $y$ for the arc length of $y = x^{1/3}$ on $[0, 1]$? Set up the integral.",
-    "back": "$y' = \\frac{1}{3}x^{-2/3}$ does not exist at $x = 0$. Writing $x = y^3$, $\\frac{dx}{dy} = 3y^2$ exists on the whole interval, so $L = \\int_0^1 \\sqrt{1 + 9y^4}\\,dy$.",
+    "back": "$y' = \\frac{1}{3}x^{-2/3}$ does not exist at $x = 0$, so the $x$-integral is improper. It still converges, so switching is not required, but it is easier. Writing $x = y^3$, $\\frac{dx}{dy} = 3y^2$ exists on the whole interval, giving the proper integral $L = \\int_0^1 \\sqrt{1 + 9y^4}\\,dy$.",
     "tags": [
       "trap",
       "arc-length",

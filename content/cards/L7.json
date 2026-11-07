@@ -23,7 +23,7 @@
     "id": "L7-c03",
     "lessonId": "L7",
     "front": "Revolving about a vertical line, which variable do shells use, and which do washers use? About a horizontal line?",
-    "back": "Vertical axis: shells use $dx$, washers use $dy$. Horizontal axis: shells use $dy$, washers use $dx$. The two methods always integrate in opposite variables.",
+    "back": "Vertical axis: shells use $dx$, washers use $dy$. Horizontal axis: shells use $dy$, washers use $dx$. For a horizontal or vertical axis, the two methods integrate in opposite variables.",
     "tags": [
       "trap",
       "shell",
