@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { App } from './App'
 import { routes } from './routes'
@@ -43,7 +43,7 @@ test('shows the fallback banner when indexedDB is unavailable', async () => {
 test.each([
   ['/', 'Dashboard'],
   ['/course', 'Course'],
-  ['/course/L19', 'Lesson'],
+  ['/course/L19', '10.1 Sequences and Series: An Overview'],
   ['/review', 'Review'],
   ['/practice?lesson=L23', 'Practice'],
   ['/exams', 'Exams'],
@@ -55,5 +55,6 @@ test.each([
   ['/nope', 'Not found'],
 ])('route %s renders %s', async (path, name) => {
   renderAt(path, new MemoryStore())
-  expect(await screen.findByRole('heading', { level: 2, name })).toBeInTheDocument()
+  // waitFor re-queries: pages swap their h2 element once data loads
+  await waitFor(() => expect(screen.getByRole('heading', { level: 2, name })).toBeInTheDocument())
 })

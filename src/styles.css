@@ -100,3 +100,36 @@ a {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tile {
+  min-width: 48px;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--fg);
+  background: var(--surface);
+}
+
+.tile.mastery-weak {
+  background: color-mix(in srgb, var(--danger) 30%, var(--surface));
+}
+
+.tile.mastery-ok {
+  background: color-mix(in srgb, var(--accent) 30%, var(--surface));
+}
+
+.tile.mastery-strong {
+  background: color-mix(in srgb, #2e7d32 40%, var(--surface));
+}
+
+.tile.current {
+  outline: 2px solid var(--accent);
+}
