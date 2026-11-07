@@ -206,8 +206,9 @@
       ],
       "answer": "B",
       "lessonIds": [
+        "L21",
         "L23",
-        "L26"
+        "L25"
       ],
       "sourcePage": 4,
       "status": "reviewed"
