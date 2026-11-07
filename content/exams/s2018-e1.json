@@ -1,0 +1,419 @@
+{
+  "id": "s2018-e1",
+  "term": "Spring",
+  "year": 2018,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2018.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2018.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2018-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find the center and the radius of the sphere described by\n\n$$\nx^2 + y^2 + z^2 + 6x + 8y - 4z + 4 = 0\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "center $(3, 4, -2)$, radius 25"
+        },
+        {
+          "label": "B",
+          "text": "center $(3, 4, -2)$, radius 5"
+        },
+        {
+          "label": "C",
+          "text": "center $(-3, -4, 2)$, radius $\\sqrt{33}$"
+        },
+        {
+          "label": "D",
+          "text": "center $(-3, -4, 2)$, radius 5"
+        },
+        {
+          "label": "E",
+          "text": "center $(3, 4, 2)$, radius 5"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "If $\\vec{a} = \\langle 2, 1, -3 \\rangle$ and $\\vec{b} = \\langle 1, 2, -2, \\rangle$, find $|5\\vec{b} - 2\\vec{a}|$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$6$"
+        },
+        {
+          "label": "B",
+          "text": "$7$"
+        },
+        {
+          "label": "C",
+          "text": "$8$"
+        },
+        {
+          "label": "D",
+          "text": "$9$"
+        },
+        {
+          "label": "E",
+          "text": "$10$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the values of $x$ such that $\\langle 4x, x, 3 \\rangle$ and $\\langle 2, x, 5 \\rangle$ are orthogonal.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = -3, -5$"
+        },
+        {
+          "label": "B",
+          "text": "$x = -1, -5$"
+        },
+        {
+          "label": "C",
+          "text": "$x = -3, 3$"
+        },
+        {
+          "label": "D",
+          "text": "$x = 1, -1$"
+        },
+        {
+          "label": "E",
+          "text": "$x = 5-, -5$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "If $\\vec{a} = 3\\vec{\\imath} - 3\\vec{k}$ and $\\vec{b} = \\vec{\\imath} - \\vec{\\jmath}$, what is $\\operatorname{comp}_{\\vec{b}} \\vec{a}$ (the scalar projection of $\\vec{a}$ onto $\\vec{b}$)?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{\\sqrt{2}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{\\sqrt{18}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "If $\\vec{a} = \\langle 2, 0, 1 \\rangle$, $\\vec{b} = \\langle 3, 1, 1 \\rangle$, and $\\vec{c} = \\vec{a} \\times \\vec{b} = \\langle c_1, c_2, c_3 \\rangle$, what is $c_2$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-1$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$-2$"
+        },
+        {
+          "label": "E",
+          "text": "$7$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the area of the parallelogram with vertices $A(0, 0, 0)$, $B(1, 0, 1)$, $C(2, 1, 0)$, and $D(3, 1, 1)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the area of the region bounded by $y = x^2 - 4x$ and $y = -2x$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{16}{3}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the area of the region bounded by $y = x$ and $x = y^2 - 2y$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$9$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{9}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{27}{2}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "The area between the graphs of $y = x^2$ and $y = 2x$ is revolved around the $x$-axis. If the disk/washer method is used, the integral representing the volume of the resulting solid is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^2 \\pi(2x - x^2)\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^2 \\pi(2x - x^2)^2\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^4 2\\pi x(2x - x^2)\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^4 2\\pi x(4x^2 - x^4)\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^2 \\pi(4x^2 - x^4)\\,dx$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The area between the graphs of $y = x^2$ and $y = 2x$ is revolved around the $x$-axis. If the method of cylindrical shells is used, the integral representing the volume of the resulting solid is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^2 2\\pi y(y^2 - 2y)\\,dy$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^4 2\\pi y(\\sqrt{y} - \\frac{y}{2})\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^2 \\pi(y^2 - 2y)\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^4 2\\pi y(y - \\frac{y^2}{4})\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^4 \\pi(y^4 - 4y^2)\\,dy$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "What value of the positive constant $c$ makes the volume of the solid obtained by rotating the area between $x = 0$, $y = e^{2x}$, and $x = c$ about the $x$-axis equal to $\\pi$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{4}\\ln 2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}\\ln\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{5}\\ln 4$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{4}\\ln\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{4}\\ln 5$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "An unusual pyramid of height 2 is sitting on the $xy$-plane. If the cross-section at a level $z \\ge 0$ is a square of side $\\sqrt{2 - z}$, what is the volume of this strange pyramid?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2^{5/2}}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\pi$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}
