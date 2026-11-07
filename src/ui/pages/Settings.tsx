@@ -1,3 +1,161 @@
+import { useEffect, useMemo, useState } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
+import { useContent, useSettings, useStore } from '../../storage/context'
+import { parseSnapshot } from '../../storage/snapshot'
+import { DEFAULT_SETTINGS } from '../../storage/types'
+
+const DAILY_ERROR = 'Enter a number from 0 to 100'
+
 export function Settings() {
-  return <h2>Settings</h2>
+  const { settings, save } = useSettings()
+  const store = useStore()
+  const content = useContent()
+  const lessons = useMemo(() => content.lessons.filter((l) => !l.isReview), [content])
+
+  const [currentLessonId, setCurrentLessonId] = useState(settings.currentLessonId ?? '')
+  const [daily, setDaily] = useState(String(settings.dailyNewCards))
+  const [examDate, setExamDate] = useState(settings.examDate ?? '')
+  const [examLessonIds, setExamLessonIds] = useState<string[]>(settings.examLessonIds)
+  const [error, setError] = useState<string | null>(null)
+  const [status, setStatus] = useState<string | null>(null)
+
+  useEffect(() => {
+    setCurrentLessonId(settings.currentLessonId ?? '')
+    setDaily(String(settings.dailyNewCards))
+    setExamDate(settings.examDate ?? '')
+    setExamLessonIds(settings.examLessonIds)
+  }, [settings])
+
+  async function onSave(e: FormEvent) {
+    e.preventDefault()
+    setStatus(null)
+    const n = Number(daily)
+    if (daily.trim() === '' || !Number.isInteger(n) || n < 0 || n > 100) {
+      setError(DAILY_ERROR)
+      return
+    }
+    setError(null)
+    await save({
+      currentLessonId: currentLessonId === '' ? null : currentLessonId,
+      examDate: examDate === '' ? null : examDate,
+      examLessonIds,
+      dailyNewCards: n,
+    })
+    setStatus('Saved')
+  }
+
+  async function onExport() {
+    setError(null)
+    setStatus(null)
+    const snapshot = await store.exportAll()
+    const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `ma16200-progress-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  async function onImport(e: ChangeEvent<HTMLInputElement>) {
+    const input = e.target
+    const file = input.files?.[0]
+    if (!file) return
+    setError(null)
+    setStatus(null)
+    let raw: unknown
+    try {
+      raw = JSON.parse(await file.text())
+    } catch {
+      setError('Not valid JSON')
+      input.value = ''
+      return
+    }
+    const parsed = parseSnapshot(raw)
+    if (!parsed.ok) {
+      setError(parsed.error)
+    } else {
+      await store.importAll(parsed.snapshot)
+      await save(parsed.snapshot.settings)
+      setStatus('Progress imported')
+    }
+    input.value = ''
+  }
+
+  async function onReset() {
+    if (!window.confirm('Delete all progress? This cannot be undone.')) return
+    setError(null)
+    await store.clear()
+    await save(DEFAULT_SETTINGS)
+    setStatus('Progress reset')
+  }
+
+  return (
+    <section>
+      <h2>Settings</h2>
+      <form onSubmit={onSave}>
+        <p>
+          <label>
+            Current lesson
+            <select value={currentLessonId} onChange={(e) => setCurrentLessonId(e.target.value)}>
+              <option value="">Not set</option>
+              {lessons.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {`${l.id} · ${l.title}`}
+                </option>
+              ))}
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>
+            Daily new cards
+            <input type="number" value={daily} onChange={(e) => setDaily(e.target.value)} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Exam date
+            <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Lessons on the exam
+            <select
+              multiple
+              value={examLessonIds}
+              onChange={(e) => setExamLessonIds(Array.from(e.target.selectedOptions, (o) => o.value))}
+            >
+              {lessons.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {`${l.id} · ${l.title}`}
+                </option>
+              ))}
+            </select>
+          </label>
+        </p>
+        <button type="submit">Save</button>
+      </form>
+      <h3>Your data</h3>
+      <p>
+        <button type="button" onClick={onExport}>
+          Export progress
+        </button>
+      </p>
+      <p>
+        <label>
+          Import progress
+          <input type="file" accept="application/json" onChange={onImport} />
+        </label>
+      </p>
+      <p>
+        <button type="button" onClick={onReset}>
+          Reset progress
+        </button>
+      </p>
+      {error && <p role="alert">{error}</p>}
+      {status && <p role="status">{status}</p>}
+    </section>
+  )
 }
