@@ -1,0 +1,419 @@
+{
+  "id": "f2023-e1",
+  "term": "Fall",
+  "year": 2023,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2023.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2023.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2023-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "If $|\\mathbf{u}| \\ne \\mathbf{0}$ and $|\\mathbf{v}| \\ne \\mathbf{0}$ and $|\\mathbf{u}+\\mathbf{v}| = |\\mathbf{u}|+|\\mathbf{v}|$, which of the following statements is correct?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\mathbf{u}$ and $\\mathbf{v}$ are parallel and in the same direction."
+        },
+        {
+          "label": "B",
+          "text": "$\\mathbf{u}$ and $\\mathbf{v}$ are parallel and in the opposite directions."
+        },
+        {
+          "label": "C",
+          "text": "$\\mathbf{u}$ and $\\mathbf{v}$ are perpendicular."
+        },
+        {
+          "label": "D",
+          "text": "Always true for all $\\mathbf{u}$ and $\\mathbf{v}$"
+        },
+        {
+          "label": "E",
+          "text": "Never true for any $\\mathbf{u}$ and $\\mathbf{v}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "What are the center and radius of the sphere given by\n\n$$\nx^2 + y^2 + z^2 + 6x + 8y - 4z + 4 = 0\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Center $(3, 4, -2)$ and radius $25$"
+        },
+        {
+          "label": "B",
+          "text": "Center $(3, 4, -2)$ and radius $5$"
+        },
+        {
+          "label": "C",
+          "text": "Center $(-3, -4, 2)$ and radius $\\sqrt{33}$"
+        },
+        {
+          "label": "D",
+          "text": "Center $(-3, -4, 2)$ and radius $5$"
+        },
+        {
+          "label": "E",
+          "text": "Center $(3, 4, -2)$ and radius $\\sqrt{33}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "If $\\boldsymbol{u} =< -4, 0, 1 >$ and $\\boldsymbol{v} =< 1, 3, -3 >$ and $\\text{proj}_{\\boldsymbol{v}} \\boldsymbol{u} =< a, b, c >$, what is $b$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{21}{19}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{7}{19}$"
+        },
+        {
+          "label": "C",
+          "text": "$-21$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "$21$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The angle between $\\boldsymbol{a} =< 1, 1 >$ and $\\boldsymbol{b} =< \\sqrt{3} - 1, \\sqrt{3} + 1 >$ is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find $x > 0$ so that the area of the area of the **triangle** with vertices $(0, 0, 0)$, $(1, 1, 1)$, $(x, 2x, 3x)$ is $1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{\\sqrt{3}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{\\sqrt{6}}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{\\sqrt{6}}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{\\sqrt{3}}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "The area of the region bounded by $y = \\cos x$, $y = \\sin x$, and the $x-$axis, $0 \\le x \\le \\frac{\\pi}{2}$ is given by",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\frac{\\pi}{4}} \\cos x\\,dx - \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{2}} \\sin x\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^{\\frac{\\pi}{4}} (\\cos x - \\sin x)\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{2}} (\\sin x - \\cos x)\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\frac{\\pi}{4}} \\sin x\\,dx + \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{2}} \\cos x\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\frac{\\pi}{4}} (\\cos x - \\sin x)\\,dx + \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{2}} (\\sin x - \\cos x)\\,dx$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the volume of a solid obtained by revolving about the $x$-axis the region bounded by $x = y^2$, $x = y + 2$, and the $x$-axis in the first quadrant.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{10\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{14\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{16\\pi}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the volume of a solid whose base is the region bounded by $y = \\sqrt{1 - x^2}$ and the $x$-axis on the $xy$-plane. Slices of this solid perpendicular to the $x$-axis and the $xy$-plane are squares with sides $\\sqrt{1 - x^2}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{4}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the length of the curve $y = \\frac{x^3}{6} + \\frac{1}{2x}$, $1 \\le x \\le 2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{19}{12}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{17}{12}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{13}{12}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{11}{12}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Find the area of the surface obtained by revolving the curve $y = \\sqrt{1 - x^2}$ from $x = 0$ to $x = \\frac{\\sqrt{3}}{2}$ about the $x$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{2}\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{3}\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3\\pi}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sqrt{3}\\pi}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\sqrt{2}\\pi}{3}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "A full water basin has the shape of a box 2m wide, 10m long, and 1m deep. How much work (in J) is required to pump the water out? Please use $1000 \\frac{\\text{kg}}{\\text{m}^3}$ as the density of water and $g = 9.8 \\frac{\\text{m}}{\\text{s}^2}$ as the acceleration due to gravity in your calculation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$49000$"
+        },
+        {
+          "label": "B",
+          "text": "$98000$"
+        },
+        {
+          "label": "C",
+          "text": "$147000$"
+        },
+        {
+          "label": "D",
+          "text": "$196000$"
+        },
+        {
+          "label": "E",
+          "text": "$245000$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "It takes 20 J of work to stretch a spring 0.2 m from its equilibrium position. How much work (in J) does it take to stretch it by an additional 0.3 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$95$"
+        },
+        {
+          "label": "B",
+          "text": "$55$"
+        },
+        {
+          "label": "C",
+          "text": "$105$"
+        },
+        {
+          "label": "D",
+          "text": "$75$"
+        },
+        {
+          "label": "E",
+          "text": "$115$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
