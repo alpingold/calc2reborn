@@ -1,0 +1,123 @@
+[
+  {
+    "id": "L21-c01",
+    "lessonId": "L21",
+    "front": "When does the geometric series $\\sum_{k=0}^{\\infty} ar^k$ converge, and what is its sum?",
+    "back": "It converges if and only if $|r| < 1$, and then the sum is $\\frac{a}{1-r}$, where $a$ is the first term and $r$ the common ratio. If $|r| \\ge 1$ (with $a \\ne 0$) it diverges.",
+    "tags": [
+      "geometric",
+      "series"
+    ]
+  },
+  {
+    "id": "L21-c02",
+    "lessonId": "L21",
+    "front": "Find $\\sum_{k=2}^{\\infty} 3\\left(\\frac{1}{4}\\right)^k$.",
+    "back": "The first term (at $k = 2$) is $a = \\frac{3}{16}$ and $r = \\frac{1}{4}$, so the sum is $\\frac{3/16}{1 - 1/4} = \\frac{1}{4}$. Using the coefficient $3$ as $a$ would give $4$, which is wrong: $a$ is the first term of the sum.",
+    "tags": [
+      "trap",
+      "geometric",
+      "first-term"
+    ]
+  },
+  {
+    "id": "L21-c03",
+    "lessonId": "L21",
+    "front": "Plugging $\\sum_{k=0}^{\\infty} \\left(-\\frac{5}{4}\\right)^k$ into $\\frac{a}{1-r}$ gives $\\frac{4}{9}$. Is that the sum?",
+    "back": "No. $|r| = \\frac{5}{4} > 1$, so the series diverges (its terms do not even go to $0$). The formula $\\frac{a}{1-r}$ is valid only when $|r| < 1$.",
+    "tags": [
+      "trap",
+      "geometric"
+    ]
+  },
+  {
+    "id": "L21-c04",
+    "lessonId": "L21",
+    "front": "Give the $n$th partial sum of a geometric series with first term $a$ and ratio $r \\ne 1$, and where it comes from.",
+    "back": "$S_n = a + ar + \\cdots + ar^{n-1} = \\frac{a(1 - r^n)}{1 - r}$. Subtract $rS_n$ from $S_n$: everything cancels except $a - ar^n$, then divide by $1 - r$. If $|r| < 1$, $r^n \\to 0$ and $S_n \\to \\frac{a}{1-r}$.",
+    "tags": [
+      "geometric",
+      "partial-sums"
+    ]
+  },
+  {
+    "id": "L21-c05",
+    "lessonId": "L21",
+    "front": "Evaluate $\\sum_{k=1}^{\\infty} \\frac{2^{k+1}}{5^k}$.",
+    "back": "Rewrite as $\\sum_{k=1}^{\\infty} 2\\left(\\frac{2}{5}\\right)^k$: geometric with $r = \\frac{2}{5}$ and first term $\\frac{4}{5}$. Sum $= \\frac{4/5}{1 - 2/5} = \\frac{4}{3}$.",
+    "tags": [
+      "geometric",
+      "which-test"
+    ]
+  },
+  {
+    "id": "L21-c06",
+    "lessonId": "L21",
+    "front": "Write $0.363636\\ldots$ as a fraction using a geometric series.",
+    "back": "$0.3636\\ldots = \\frac{36}{100} + \\frac{36}{100^2} + \\cdots$, geometric with $a = \\frac{36}{100}$ and $r = \\frac{1}{100}$. Sum $= \\frac{36/100}{1 - 1/100} = \\frac{36}{99} = \\frac{4}{11}$.",
+    "tags": [
+      "geometric"
+    ]
+  },
+  {
+    "id": "L21-c07",
+    "lessonId": "L21",
+    "front": "What is a telescoping series, and how do you find its sum?",
+    "back": "A series whose terms split (often by partial fractions) into differences like $b_k - b_{k+1}$, so that most terms cancel in $S_n$. Write $S_n$ explicitly, keep the surviving terms, and take $\\lim_{n\\to\\infty} S_n$.",
+    "tags": [
+      "telescoping",
+      "partial-sums"
+    ]
+  },
+  {
+    "id": "L21-c08",
+    "lessonId": "L21",
+    "front": "Find $\\sum_{k=1}^{\\infty} \\frac{1}{(k+11)(k+12)}$.",
+    "back": "Partial fractions: $\\frac{1}{k+11} - \\frac{1}{k+12}$. Then $S_n = \\frac{1}{12} - \\frac{1}{n+12}$, which tends to $\\frac{1}{12}$. The series converges to $\\frac{1}{12}$.",
+    "tags": [
+      "telescoping"
+    ]
+  },
+  {
+    "id": "L21-c09",
+    "lessonId": "L21",
+    "front": "Find $\\sum_{k=1}^{\\infty} \\left(\\frac{1}{k} - \\frac{1}{k+2}\\right)$.",
+    "back": "Here two terms survive at each end: $S_n = 1 + \\frac{1}{2} - \\frac{1}{n+1} - \\frac{1}{n+2}$. So the sum is $\\frac{3}{2}$, not just the first term $1$.",
+    "tags": [
+      "trap",
+      "telescoping"
+    ]
+  },
+  {
+    "id": "L21-c10",
+    "lessonId": "L21",
+    "front": "Does $\\sum_{k=1}^{\\infty} \\ln\\left(\\frac{k}{k+1}\\right)$ converge?",
+    "back": "No. It telescopes: $\\ln k - \\ln(k+1)$, so $S_n = \\ln 1 - \\ln(n+1) = -\\ln(n+1) \\to -\\infty$. The terms go to $\\ln 1 = 0$, yet the series diverges.",
+    "tags": [
+      "trap",
+      "telescoping",
+      "divergence-test"
+    ]
+  },
+  {
+    "id": "L21-c11",
+    "lessonId": "L21",
+    "front": "$\\sum a_k$ converges and $\\sum b_k$ diverges. What about $\\sum (a_k + b_k)$? What if both diverge?",
+    "back": "Convergent plus divergent always diverges. If both diverge, there is no general conclusion: $\\sum 1$ and $\\sum (-1)$ both diverge, but $\\sum (1 + (-1)) = 0$.",
+    "tags": [
+      "trap",
+      "series",
+      "properties"
+    ]
+  },
+  {
+    "id": "L21-c12",
+    "lessonId": "L21",
+    "front": "Does removing the first $1000$ terms of a series change whether it converges? Does it change the sum?",
+    "back": "Convergence is unchanged: the starting index never affects convergence. The sum does change, by exactly the amount of the removed terms.",
+    "tags": [
+      "series",
+      "properties"
+    ]
+  }
+]

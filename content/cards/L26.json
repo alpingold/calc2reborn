@@ -1,0 +1,139 @@
+[
+  {
+    "id": "L26-c01",
+    "lessonId": "L26",
+    "front": "What test should you always try first on a series, and what can it prove?",
+    "back": "The Divergence Test. If $\\lim_{k\\to\\infty} a_k \\ne 0$ it proves divergence immediately. If the limit is $0$ it proves nothing, and you move on to another test.",
+    "tags": [
+      "strategy",
+      "divergence-test"
+    ]
+  },
+  {
+    "id": "L26-c02",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\left(1 - \\frac{1}{k}\\right)^k$, and why?",
+    "back": "Divergence Test: with $y = \\left(1 - \\frac{1}{k}\\right)^k$, $\\ln y = k \\ln\\left(1 - \\frac{1}{k}\\right) \\to -1$, so $a_k \\to e^{-1} \\ne 0$ and the series diverges. Keep the exponent limit $-1$ apart from the answer $e^{-1}$.",
+    "tags": [
+      "which-test",
+      "divergence-test",
+      "1-infinity",
+      "trap"
+    ]
+  },
+  {
+    "id": "L26-c03",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{1 + \\sin 9k}{k^2}$, and why?",
+    "back": "Direct Comparison: $0 \\le 1 + \\sin 9k \\le 2$, so $0 \\le a_k \\le \\frac{2}{k^2}$, a convergent p-series multiple. It converges. Limit Comparison fails here because $\\lim (1 + \\sin 9k)$ does not exist.",
+    "tags": [
+      "which-test",
+      "comparison"
+    ]
+  },
+  {
+    "id": "L26-c04",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{5}{k(\\ln k)^9}$, and why?",
+    "back": "Integral Test: $u = \\ln x$ turns $\\int_2^{\\infty} \\frac{5}{x(\\ln x)^9}\\,dx$ into $\\int_{\\ln 2}^{\\infty} \\frac{5}{u^9}\\,du$, which is finite since $9 > 1$. So the series converges. Comparing with p-series does not settle it.",
+    "tags": [
+      "which-test",
+      "integral-test"
+    ]
+  },
+  {
+    "id": "L26-c05",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\left(\\sqrt{16k^4 + 1} - 4k^2\\right)$, and why?",
+    "back": "Rationalize first: the term equals $\\frac{1}{\\sqrt{16k^4 + 1} + 4k^2}$, which behaves like $\\frac{1}{8k^2}$. Limit Comparison with $\\frac{1}{k^2}$ gives $c = \\frac{1}{8}$, so the series converges.",
+    "tags": [
+      "which-test",
+      "limit-comparison"
+    ]
+  },
+  {
+    "id": "L26-c06",
+    "lessonId": "L26",
+    "front": "Evaluate $\\sum_{k=1}^{\\infty} \\frac{3^k + 2^k}{5^k}$.",
+    "back": "Split into two geometric series: $\\sum \\left(\\frac{3}{5}\\right)^k + \\sum \\left(\\frac{2}{5}\\right)^k = \\frac{3/5}{1 - 3/5} + \\frac{2/5}{1 - 2/5} = \\frac{3}{2} + \\frac{2}{3} = \\frac{13}{6}$.",
+    "tags": [
+      "which-test",
+      "geometric"
+    ]
+  },
+  {
+    "id": "L26-c07",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{(-1)^k}{\\ln k}$, and why? Absolute or conditional?",
+    "back": "AST: $\\frac{1}{\\ln k}$ decreases to $0$, so it converges. But $\\frac{1}{\\ln k} > \\frac{1}{k}$ and $\\sum \\frac{1}{k}$ diverges, so $\\sum |a_k|$ diverges by Direct Comparison. Conditionally convergent.",
+    "tags": [
+      "which-test",
+      "alternating",
+      "conditional"
+    ]
+  },
+  {
+    "id": "L26-c08",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{k^2 + 1}{k^3 + 2k}$, and why?",
+    "back": "Limit Comparison with $\\frac{1}{k}$ (dominant terms $\\frac{k^2}{k^3}$): $c = \\lim \\frac{k^3 + k}{k^3 + 2k} = 1$, and $\\sum \\frac{1}{k}$ diverges, so the series diverges.",
+    "tags": [
+      "which-test",
+      "limit-comparison"
+    ]
+  },
+  {
+    "id": "L26-c09",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{\\sqrt{k}}{k^2 + 1}$, and why?",
+    "back": "Limit Comparison with $\\frac{1}{k^{3/2}}$ (dominant terms $\\frac{k^{1/2}}{k^2}$): $c = \\lim \\frac{k^2}{k^2 + 1} = 1$, and $p = \\frac{3}{2} > 1$, so the series converges.",
+    "tags": [
+      "which-test",
+      "limit-comparison",
+      "p-series"
+    ]
+  },
+  {
+    "id": "L26-c10",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{k!}{k^k}$, and why?",
+    "back": "Ratio Test (factorial): $\\frac{a_{k+1}}{a_k} = \\frac{k^k}{(k+1)^k} = \\left(\\frac{k}{k+1}\\right)^k \\to e^{-1} < 1$, so the series converges. The ratio limit is $e^{-1}$, from an exponent limit of $-1$.",
+    "tags": [
+      "which-test",
+      "ratio-test",
+      "1-infinity"
+    ]
+  },
+  {
+    "id": "L26-c11",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\left(\\frac{k}{k+1}\\right)^{k^2}$, and why?",
+    "back": "Root Test (the term is a $k$th power): $\\sqrt[k]{a_k} = \\left(\\frac{k}{k+1}\\right)^k \\to e^{-1} < 1$, so the series converges.",
+    "tags": [
+      "which-test",
+      "root-test",
+      "1-infinity"
+    ]
+  },
+  {
+    "id": "L26-c12",
+    "lessonId": "L26",
+    "front": "Does $\\sum_{k=1}^{\\infty} \\sin\\left(\\frac{1}{k}\\right)$ converge?",
+    "back": "No. The terms go to $0$, so the Divergence Test says nothing. Limit Comparison with $\\frac{1}{k}$: $\\lim \\frac{\\sin(1/k)}{1/k} = 1$, and $\\sum \\frac{1}{k}$ diverges, so the series diverges.",
+    "tags": [
+      "trap",
+      "which-test",
+      "limit-comparison"
+    ]
+  },
+  {
+    "id": "L26-c13",
+    "lessonId": "L26",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k^2}$, and why?",
+    "back": "Limit Comparison with $\\frac{1}{k^{3/2}}$: $c = \\lim \\frac{\\ln k}{\\sqrt{k}} = 0$, and $\\sum \\frac{1}{k^{3/2}}$ converges, so (the $c = 0$ case) the series converges. Direct Comparison with $\\frac{\\sqrt{k}}{k^2}$, using $\\ln k < \\sqrt{k}$, also works.",
+    "tags": [
+      "which-test",
+      "limit-comparison"
+    ]
+  }
+]

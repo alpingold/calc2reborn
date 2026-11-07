@@ -1,0 +1,119 @@
+[
+  {
+    "id": "L22-c01",
+    "lessonId": "L22",
+    "front": "State the Divergence Test.",
+    "back": "If $\\lim_{k\\to\\infty} a_k \\ne 0$ (or the limit does not exist), then $\\sum_{k=1}^{\\infty} a_k$ diverges. Equivalently, if $\\sum a_k$ converges then $a_k \\to 0$. It can only prove divergence.",
+    "tags": [
+      "divergence-test"
+    ]
+  },
+  {
+    "id": "L22-c02",
+    "lessonId": "L22",
+    "front": "Your Divergence Test computation gives $\\lim_{k\\to\\infty} a_k = 0$. What do you conclude about $\\sum a_k$?",
+    "back": "Nothing: the test is inconclusive and you must use another test. Both $\\sum \\frac{1}{k}$ (diverges) and $\\sum \\frac{1}{k^2}$ (converges) have terms going to $0$.",
+    "tags": [
+      "trap",
+      "divergence-test"
+    ]
+  },
+  {
+    "id": "L22-c03",
+    "lessonId": "L22",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} k \\sin\\left(\\frac{1}{k}\\right)$, and why?",
+    "back": "Divergence Test: $k \\sin\\left(\\frac{1}{k}\\right) = \\frac{\\sin(1/k)}{1/k} \\to 1 \\ne 0$, so the series diverges.",
+    "tags": [
+      "which-test",
+      "divergence-test"
+    ]
+  },
+  {
+    "id": "L22-c04",
+    "lessonId": "L22",
+    "front": "State the Integral Test, with all its conditions.",
+    "back": "If $a_k = f(k)$ where $f$ is positive, continuous, and decreasing for $x \\ge 1$ (or eventually), then $\\sum_{k=1}^{\\infty} a_k$ and $\\int_1^{\\infty} f(x)\\,dx$ either both converge or both diverge.",
+    "tags": [
+      "integral-test"
+    ]
+  },
+  {
+    "id": "L22-c05",
+    "lessonId": "L22",
+    "front": "Can you use the Integral Test on $\\sum \\frac{2 + \\sin k}{k^2}$ or on $\\sum \\frac{(-1)^k}{k}$?",
+    "back": "No. The Integral Test needs $f$ positive, continuous, and decreasing. $\\frac{2 + \\sin x}{x^2}$ keeps wiggling up and down, and $\\frac{(-1)^k}{k}$ changes sign. Use Direct Comparison with $\\frac{3}{k^2}$ for the first and the Alternating Series Test for the second.",
+    "tags": [
+      "trap",
+      "integral-test"
+    ]
+  },
+  {
+    "id": "L22-c06",
+    "lessonId": "L22",
+    "front": "The Integral Test gives $\\int_1^{\\infty} f(x)\\,dx = 1$. Is $\\sum_{k=1}^{\\infty} a_k = 1$?",
+    "back": "No. It only tells you the series converges. The sum lies between $\\int_1^{\\infty} f(x)\\,dx$ and $a_1 + \\int_1^{\\infty} f(x)\\,dx$; for example $\\sum \\frac{1}{k^2} = \\frac{\\pi^2}{6} \\approx 1.645$ while $\\int_1^{\\infty} \\frac{1}{x^2}\\,dx = 1$.",
+    "tags": [
+      "trap",
+      "integral-test"
+    ]
+  },
+  {
+    "id": "L22-c07",
+    "lessonId": "L22",
+    "front": "State the p-series test.",
+    "back": "$\\sum_{k=1}^{\\infty} \\frac{1}{k^p}$ converges if $p > 1$ and diverges if $p \\le 1$. It follows from the Integral Test, since $\\int_1^{\\infty} \\frac{1}{x^p}\\,dx$ is finite exactly when $p > 1$.",
+    "tags": [
+      "p-series"
+    ]
+  },
+  {
+    "id": "L22-c08",
+    "lessonId": "L22",
+    "front": "Do $\\sum \\frac{1}{k}$, $\\sum \\frac{1}{k^{1.001}}$, and $\\sum \\frac{1}{k^{0.999}}$ converge?",
+    "back": "$\\sum \\frac{1}{k}$ diverges: $p = 1$ is the harmonic series, and the test needs $p > 1$ strictly. $\\sum \\frac{1}{k^{1.001}}$ converges ($p > 1$). $\\sum \\frac{1}{k^{0.999}}$ diverges ($p < 1$).",
+    "tags": [
+      "trap",
+      "p-series"
+    ]
+  },
+  {
+    "id": "L22-c09",
+    "lessonId": "L22",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{1}{\\sqrt[3]{k^2}}$, and why?",
+    "back": "p-series: $\\frac{1}{\\sqrt[3]{k^2}} = \\frac{1}{k^{2/3}}$ with $p = \\frac{2}{3} \\le 1$, so it diverges.",
+    "tags": [
+      "which-test",
+      "p-series"
+    ]
+  },
+  {
+    "id": "L22-c10",
+    "lessonId": "L22",
+    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{1}{k \\ln k}$, and why?",
+    "back": "Integral Test: $f(x) = \\frac{1}{x \\ln x}$ is positive, continuous, decreasing for $x \\ge 2$, and $u = \\ln x$ gives $\\int_2^{\\infty} \\frac{dx}{x \\ln x} = \\lim_{b\\to\\infty} \\left(\\ln(\\ln b) - \\ln(\\ln 2)\\right) = \\infty$. So the series diverges.",
+    "tags": [
+      "which-test",
+      "integral-test"
+    ]
+  },
+  {
+    "id": "L22-c11",
+    "lessonId": "L22",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} k e^{-k^2}$, and why?",
+    "back": "Integral Test: $f(x) = x e^{-x^2}$ is positive, continuous, and decreasing for $x \\ge 1$, and $\\int_1^{\\infty} x e^{-x^2}\\,dx = \\frac{1}{2e}$ is finite (with $u = x^2$). So the series converges.",
+    "tags": [
+      "which-test",
+      "integral-test"
+    ]
+  },
+  {
+    "id": "L22-c12",
+    "lessonId": "L22",
+    "front": "State the Integral Test remainder estimate for $R_n = S - S_n$.",
+    "back": "If $f$ is positive, continuous, and decreasing with $a_k = f(k)$, then $\\int_{n+1}^{\\infty} f(x)\\,dx \\le R_n \\le \\int_n^{\\infty} f(x)\\,dx$. For $\\sum \\frac{1}{k^2}$, $R_{10} \\le \\int_{10}^{\\infty} \\frac{dx}{x^2} = \\frac{1}{10}$.",
+    "tags": [
+      "integral-test",
+      "error-bound"
+    ]
+  }
+]

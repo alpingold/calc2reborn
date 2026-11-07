@@ -1,0 +1,127 @@
+[
+  {
+    "id": "L24-c01",
+    "lessonId": "L24",
+    "front": "State the Alternating Series Test.",
+    "back": "$\\sum (-1)^{k+1} a_k$ with $a_k > 0$ converges if (1) $a_{k+1} \\le a_k$ for all $k$ from some point on and (2) $\\lim_{k\\to\\infty} a_k = 0$. Both conditions are required.",
+    "tags": [
+      "alternating"
+    ]
+  },
+  {
+    "id": "L24-c02",
+    "lessonId": "L24",
+    "front": "An alternating series has $a_k \\to 0$, but the $a_k$ are not eventually decreasing. What does the AST say?",
+    "back": "Nothing: the AST does not apply, so it gives no conclusion either way. The AST can only prove convergence, never divergence; try absolute convergence or another test.",
+    "tags": [
+      "trap",
+      "alternating"
+    ]
+  },
+  {
+    "id": "L24-c03",
+    "lessonId": "L24",
+    "front": "Does $\\sum_{k=1}^{\\infty} (-1)^k \\frac{k}{k+1}$ converge?",
+    "back": "No. The magnitudes $\\frac{k}{k+1} \\to 1 \\ne 0$, so the terms do not go to $0$ and the series diverges by the Divergence Test. (Failing the AST alone would not prove divergence; the Divergence Test does.)",
+    "tags": [
+      "trap",
+      "alternating",
+      "divergence-test"
+    ]
+  },
+  {
+    "id": "L24-c04",
+    "lessonId": "L24",
+    "front": "State the error bound for an alternating series that satisfies the AST.",
+    "back": "If $S$ is the sum and $S_n$ the $n$th partial sum, then $|S - S_n| \\le a_{n+1}$: the error is at most the magnitude of the first omitted term. The true sum lies between $S_n$ and $S_{n+1}$.",
+    "tags": [
+      "alternating",
+      "error-bound"
+    ]
+  },
+  {
+    "id": "L24-c05",
+    "lessonId": "L24",
+    "front": "For $\\sum \\frac{(-1)^{k+1}}{k}$, $S_4 = \\frac{7}{12}$. Is the error bound $a_4$ or $a_5$?",
+    "back": "$a_5 = \\frac{1}{5}$, the next term, not the last term used. So $|S - \\frac{7}{12}| \\le \\frac{1}{5}$, that is, $\\frac{7}{12} - \\frac{1}{5} \\le S \\le \\frac{7}{12} + \\frac{1}{5}$.",
+    "tags": [
+      "trap",
+      "alternating",
+      "error-bound"
+    ]
+  },
+  {
+    "id": "L24-c06",
+    "lessonId": "L24",
+    "front": "How many terms of $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{k^2}$ guarantee an error less than $0.001$?",
+    "back": "Need $a_{n+1} = \\frac{1}{(n+1)^2} < 0.001$, so $(n+1)^2 > 1000$, giving $n + 1 \\ge 32$. So $n = 31$ terms ($31^2 = 961$ is not enough, $32^2 = 1024$ is).",
+    "tags": [
+      "alternating",
+      "error-bound"
+    ]
+  },
+  {
+    "id": "L24-c07",
+    "lessonId": "L24",
+    "front": "Define absolute convergence and conditional convergence.",
+    "back": "$\\sum a_k$ converges absolutely if $\\sum |a_k|$ converges; then $\\sum a_k$ also converges. It converges conditionally if $\\sum a_k$ converges but $\\sum |a_k|$ diverges.",
+    "tags": [
+      "absolute",
+      "conditional"
+    ]
+  },
+  {
+    "id": "L24-c08",
+    "lessonId": "L24",
+    "front": "If $\\sum a_k$ converges, must $\\sum |a_k|$ converge?",
+    "back": "No. Only the other direction holds: absolute convergence implies convergence. The alternating harmonic series $\\sum \\frac{(-1)^{k+1}}{k}$ converges, but $\\sum \\frac{1}{k}$ diverges.",
+    "tags": [
+      "trap",
+      "absolute",
+      "conditional"
+    ]
+  },
+  {
+    "id": "L24-c09",
+    "lessonId": "L24",
+    "front": "Classify $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{\\sqrt{k}}$: absolutely convergent, conditionally convergent, or divergent?",
+    "back": "Conditionally convergent. $\\sum \\frac{1}{\\sqrt{k}}$ is a p-series with $p = \\frac{1}{2} \\le 1$, so it diverges; but $\\frac{1}{\\sqrt{k}}$ decreases to $0$, so the AST gives convergence.",
+    "tags": [
+      "which-test",
+      "conditional",
+      "alternating"
+    ]
+  },
+  {
+    "id": "L24-c10",
+    "lessonId": "L24",
+    "front": "Classify $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k^6 + 9}$.",
+    "back": "Absolutely convergent. $\\frac{1}{k^6 + 9} \\le \\frac{1}{k^6}$ for $k \\ge 1$, a convergent p-series, so $\\sum |a_k|$ converges. (Chen shows convergence with the AST; absolute convergence is the stronger statement.)",
+    "tags": [
+      "which-test",
+      "absolute"
+    ]
+  },
+  {
+    "id": "L24-c11",
+    "lessonId": "L24",
+    "front": "Does $\\sum_{k=2}^{\\infty} (-1)^k \\frac{\\ln k}{k}$ converge? Absolutely or conditionally?",
+    "back": "Conditionally. $f(x) = \\frac{\\ln x}{x}$ has $f'(x) = \\frac{1 - \\ln x}{x^2} < 0$ for $x > e$, so $a_k$ is eventually decreasing, and $a_k \\to 0$: AST gives convergence. But $\\frac{\\ln k}{k} \\ge \\frac{1}{k}$ for $k \\ge 3$, so $\\sum |a_k|$ diverges.",
+    "tags": [
+      "which-test",
+      "conditional",
+      "alternating"
+    ]
+  },
+  {
+    "id": "L24-c12",
+    "lessonId": "L24",
+    "front": "What is the procedure for classifying a series with mixed signs?",
+    "back": "First test $\\sum |a_k|$ (p-series, comparison, ratio). If it converges, the series converges absolutely. If it diverges, check $\\lim a_k$ (nonzero means divergent) and then the AST; if the AST holds, it converges conditionally.",
+    "tags": [
+      "absolute",
+      "conditional",
+      "strategy"
+    ]
+  }
+]

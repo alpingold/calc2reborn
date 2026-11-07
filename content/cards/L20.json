@@ -1,0 +1,137 @@
+[
+  {
+    "id": "L20-c01",
+    "lessonId": "L20",
+    "front": "State the Squeeze Theorem for sequences.",
+    "back": "If $b_n \\le a_n \\le c_n$ for all large $n$ and $\\lim_{n\\to\\infty} b_n = \\lim_{n\\to\\infty} c_n = L$, then $\\lim_{n\\to\\infty} a_n = L$.",
+    "tags": [
+      "sequence",
+      "squeeze",
+      "limit"
+    ]
+  },
+  {
+    "id": "L20-c02",
+    "lessonId": "L20",
+    "front": "Does $\\left\\{\\frac{\\cos n}{n}\\right\\}$ converge? Which tool, and why?",
+    "back": "Squeeze Theorem: $-1 \\le \\cos n \\le 1$ gives $-\\frac{1}{n} \\le \\frac{\\cos n}{n} \\le \\frac{1}{n}$, and both bounds go to $0$. So the sequence converges to $0$.",
+    "tags": [
+      "sequence",
+      "squeeze",
+      "which-test"
+    ]
+  },
+  {
+    "id": "L20-c03",
+    "lessonId": "L20",
+    "front": "For which $r$ does the geometric sequence $\\{r^n\\}$ converge, and to what?",
+    "back": "It converges exactly when $-1 < r \\le 1$: to $0$ if $|r| < 1$, and to $1$ if $r = 1$. It diverges for $r = -1$ (oscillates between $-1$ and $1$) and for $|r| > 1$.",
+    "tags": [
+      "sequence",
+      "geometric"
+    ]
+  },
+  {
+    "id": "L20-c04",
+    "lessonId": "L20",
+    "front": "Why does $r = 1$ work for the sequence $\\{r^n\\}$ but not for the series $\\sum r^k$?",
+    "back": "The sequence is $1, 1, 1, \\dots$, which converges to $1$. The series is $1 + 1 + 1 + \\cdots$ with $S_n = n \\to \\infty$, so it diverges. Geometric series need $|r| < 1$ strictly.",
+    "tags": [
+      "trap",
+      "geometric",
+      "sequence-vs-series"
+    ]
+  },
+  {
+    "id": "L20-c05",
+    "lessonId": "L20",
+    "front": "State the Bounded Monotonic Sequence Theorem.",
+    "back": "If a sequence is monotonic (always increasing or always decreasing, at least from some point on) and bounded, then it converges. Example: $\\frac{n}{n+1}$ increases and stays between $\\frac{1}{2}$ and $1$, so it converges.",
+    "tags": [
+      "sequence",
+      "monotonic"
+    ]
+  },
+  {
+    "id": "L20-c06",
+    "lessonId": "L20",
+    "front": "Is every bounded sequence convergent? Is every convergent sequence monotonic?",
+    "back": "No to both. $(-1)^n$ is bounded but diverges. $\\frac{(-1)^n}{n}$ converges to $0$ but is not monotonic. You need bounded **and** monotonic to guarantee convergence.",
+    "tags": [
+      "trap",
+      "sequence",
+      "monotonic"
+    ]
+  },
+  {
+    "id": "L20-c07",
+    "lessonId": "L20",
+    "front": "How do you find $\\lim_{n\\to\\infty} a_n$ when it has the form $1^\\infty$, $\\infty^0$, or $0^0$?",
+    "back": "Let $y = a_n$ and compute $L = \\lim_{n\\to\\infty} \\ln y$, usually by rewriting $\\ln y$ as a quotient and using L'Hospital. Then $\\lim_{n\\to\\infty} a_n = e^L$. The last step, exponentiating, is the one people forget.",
+    "tags": [
+      "limit",
+      "1-infinity"
+    ]
+  },
+  {
+    "id": "L20-c08",
+    "lessonId": "L20",
+    "front": "You found $\\lim_{n\\to\\infty} n\\ln\\left(1 + \\frac{5}{n}\\right) = 5$. What is $\\lim_{n\\to\\infty} \\left(1 + \\frac{5}{n}\\right)^n$?",
+    "back": "$e^5$, not $5$. The $5$ is the limit $L$ of $\\ln y$, where $y = \\left(1 + \\frac{5}{n}\\right)^n$. Since $y = e^{\\ln y}$, the answer is $e^L = e^5$.",
+    "tags": [
+      "trap",
+      "limit",
+      "1-infinity"
+    ]
+  },
+  {
+    "id": "L20-c09",
+    "lessonId": "L20",
+    "front": "Evaluate $\\lim_{n\\to\\infty} \\left(1 + \\frac{a}{n}\\right)^n$.",
+    "back": "$e^a$. With $y = \\left(1 + \\frac{a}{n}\\right)^n$, $\\ln y = \\frac{\\ln(1 + a/n)}{1/n}$, a $\\frac{0}{0}$ form; L'Hospital gives $\\lim \\ln y = a$, so $y \\to e^a$.",
+    "tags": [
+      "limit",
+      "1-infinity"
+    ]
+  },
+  {
+    "id": "L20-c10",
+    "lessonId": "L20",
+    "front": "Evaluate $\\lim_{n\\to\\infty} \\left(1 - \\frac{2}{n}\\right)^{3n}$.",
+    "back": "$\\ln y = 3n \\ln\\left(1 - \\frac{2}{n}\\right) \\to 3 \\cdot (-2) = -6$. The exponent limit is $L = -6$, so the answer is $e^{-6}$.",
+    "tags": [
+      "limit",
+      "1-infinity"
+    ]
+  },
+  {
+    "id": "L20-c11",
+    "lessonId": "L20",
+    "front": "Evaluate $\\lim_{n\\to\\infty} n^{13/n}$.",
+    "back": "This is $\\infty^0$. With $y = n^{13/n}$, $\\ln y = \\frac{13 \\ln n}{n} \\to 0$ by L'Hospital ($\\frac{13/n}{1} \\to 0$). So the limit is $e^0 = 1$.",
+    "tags": [
+      "limit",
+      "lhospital"
+    ]
+  },
+  {
+    "id": "L20-c12",
+    "lessonId": "L20",
+    "front": "Order by growth as $n \\to \\infty$: $n!$, $\\ln n$, $n^n$, $2^n$, $n^3$.",
+    "back": "$\\ln n \\ll n^3 \\ll 2^n \\ll n! \\ll n^n$. Logs are slowest, then powers, then exponentials, then factorials, then $n^n$. So, for example, $\\frac{2^n}{n!} \\to 0$ and $\\frac{n^3}{2^n} \\to 0$.",
+    "tags": [
+      "sequence",
+      "growth-rates"
+    ]
+  },
+  {
+    "id": "L20-c13",
+    "lessonId": "L20",
+    "front": "Does $\\left\\{\\frac{e^n}{n!}\\right\\}$ converge?",
+    "back": "Yes, to $0$. The factorial grows faster than any exponential $b^n$: each new factor of $n!$ is $n$, which eventually far exceeds $e$. Chen checks numerically: $e^{100} \\approx 3 \\times 10^{43}$ while $100! \\approx 9 \\times 10^{157}$.",
+    "tags": [
+      "sequence",
+      "growth-rates"
+    ]
+  }
+]
