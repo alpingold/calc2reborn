@@ -1,0 +1,432 @@
+{
+  "id": "s2019-e2",
+  "term": "Spring",
+  "year": 2019,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2019.pdf",
+  "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e2-s2019.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2019-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "$$\n\\int \\frac{x+13}{x^2+5x-6}\\,dx =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln\\left|\\frac{x-1}{(x+6)^2}\\right| + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln\\left|\\frac{x+3}{x+2}\\right| + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln\\left|\\frac{2(x-1)}{x+6}\\right| + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln\\left|\\frac{(x-1)^2}{x+6}\\right| + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln\\left|\\frac{x+2}{x+3}\\right| + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 2,
+      "solution": "Write $\\frac{x+13}{x^2+5x-6} = \\frac{A}{x-1} + \\frac{B}{x+6}$. Then $x + 13 = (A+B)x + 6A - B$, so $A = 2$ and $B = -1$.\n\n$$\n\\int \\left(\\frac{2}{x-1} - \\frac{1}{x+6}\\right) dx = 2\\ln|x-1| - \\ln|x+6| + C = \\ln\\left|\\frac{(x-1)^2}{x+6}\\right| + C\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "$$\n\\int \\frac{2x^3+5x^2+8x+4}{(x^2+2x+2)^2}\\,dx =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int \\frac{2x+2}{x^2+2x+2}\\,dx + \\int \\frac{2x+1}{(x^2+2x+2)^2}\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int \\frac{2x+1}{x^2+2x+2}\\,dx + \\int \\frac{2x+2}{(x^2+2x+2)^2}\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int \\frac{2x}{x^2+2x+2}\\,dx + \\int \\frac{2x+1}{(x^2+2x+2)^2}\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int \\frac{2x}{x^2+2x+2}\\,dx + \\int \\frac{2x+2}{(x^2+2x+2)^2}\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int \\frac{2x+1}{x^2+2x+2}\\,dx + \\int \\frac{2x}{(x^2+2x+2)^2}\\,dx$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 2,
+      "solution": "Write\n\n$$\n\\frac{2x^3+5x^2+8x+4}{(x^2+2x+2)^2} = \\frac{Ax+B}{x^2+2x+2} + \\frac{Cx+D}{(x^2+2x+2)^2}.\n$$\n\nThen\n\n$$\n2x^3+5x^2+8x+4 = (Ax+B)(x^2+2x+2) + Cx + D = Ax^3 + (B+2A)x^2 + (2A+2B+C)x + (2B+D),\n$$\n\nso $A = 2$, $B = 1$, $C = 2$, and $D = 2$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The curve $y = \\sin x$, $0 \\le x \\le \\frac{\\pi}{2}$, is rotated around the $x$-axis to generate a surface $S$. Which of the following formulas represents the surface area of $S$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} 2\\pi \\sin x\\,\\sqrt{1+\\cos^2 x}\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 2\\pi y\\,\\sqrt{1+(\\cos^{-1} y)^2}\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 2\\pi \\sin^{-1} y\\,\\sqrt{1+\\frac{1}{1-y^2}}\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} 2\\pi x\\,\\sqrt{1+\\cos^2 x}\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} 2\\pi \\sin x\\,\\sqrt{1+\\frac{1}{1-x^2}}\\,dx$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 3,
+      "solution": "$S = \\int 2\\pi r\\,ds$ with radius $r = y = \\sin x$ and\n\n$$\nds = \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}\\,dx = \\sqrt{1+\\cos^2 x}\\,dx,\n$$\n\nso\n\n$$\nS = \\int_0^{\\frac{\\pi}{2}} 2\\pi \\sin x\\,\\sqrt{1+\\cos^2 x}\\,dx.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "$$\n\\int_0^{2\\sqrt{2}} \\frac{x^2\\,dx}{\\sqrt{16-x^2}} =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi - 2$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi + 2$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi - 4$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi + 4$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 3,
+      "solution": "Let $x = 4\\sin\\theta$, so $dx = 4\\cos\\theta\\,d\\theta$. When $x = 2\\sqrt{2}$, $\\sin\\theta = \\frac{\\sqrt{2}}{2}$ and $\\theta = \\frac{\\pi}{4}$; when $x = 0$, $\\theta = 0$.\n\n$$\n\\int_0^{\\pi/4} \\frac{(4\\sin\\theta)^2\\,4\\cos\\theta}{\\sqrt{16-16\\sin^2\\theta}}\\,d\\theta = \\int_0^{\\pi/4} \\frac{(16\\sin^2\\theta)(4\\cos\\theta)}{4\\cos\\theta}\\,d\\theta = \\int_0^{\\pi/4} 16\\sin^2\\theta\\,d\\theta\n$$\n\n$$\n= \\int_0^{\\pi/4} 16\\left(\\frac{1-\\cos 2\\theta}{2}\\right) d\\theta = \\int_0^{\\pi/4} (8 - 8\\cos 2\\theta)\\,d\\theta = \\Big[8\\theta - 4\\sin 2\\theta\\Big]_0^{\\pi/4}\n$$\n\n$$\n= 8\\left(\\frac{\\pi}{4}\\right) - 4\\sin\\left(\\frac{\\pi}{2}\\right) - 8(0) + 4\\sin(0) = 2\\pi - 4\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "$$\n\\int_{\\frac{1}{12}}^{\\frac{1}{4}} \\frac{12\\,dt}{\\sqrt{t}+4t\\sqrt{t}} =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$6\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$3\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 4,
+      "solution": "Let $u = 2\\sqrt{t}$, so $du = \\frac{1}{\\sqrt{t}}\\,dt$ and $\\sqrt{t} + 4t\\sqrt{t} = \\sqrt{t}\\,(1+u^2)$. When $t = \\frac{1}{4}$, $u = 1$; when $t = \\frac{1}{12}$, $u = \\frac{1}{\\sqrt{3}}$.\n\n$$\n\\int_{1/\\sqrt{3}}^{1} \\frac{12}{1+u^2}\\,du = 12\\tan^{-1} u\\,\\Big|_{1/\\sqrt{3}}^{1} = 12\\left(\\frac{\\pi}{4} - \\frac{\\pi}{6}\\right) = 3\\pi - 2\\pi = \\pi\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the length of the curve given by\n\n$$\nx^{2/3} + y^{2/3} = 1\n$$\n\nfor $0 \\le x \\le 1$ and $0 \\le y \\le 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{8}{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{13}{9}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5}{3}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 4,
+      "solution": "Solve for $y = \\left[1 - x^{2/3}\\right]^{3/2}$. Then\n\n$$\n\\frac{dy}{dx} = \\frac{3}{2}\\left[1 - x^{2/3}\\right]^{1/2}\\left(-\\frac{2}{3}x^{-1/3}\\right) = -x^{-1/3}\\left(1 - x^{2/3}\\right)^{1/2}\n$$\n\nand\n\n$$\nL = \\int_0^1 \\sqrt{1 + x^{-2/3}\\left(1 - x^{2/3}\\right)}\\,dx = \\int_0^1 \\sqrt{1 + x^{-2/3} - 1}\\,dx = \\int_0^1 x^{-1/3}\\,dx = \\frac{3}{2}x^{2/3}\\Big|_0^1 = \\frac{3}{2}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Which expression represents the $y$-coordinate of the centroid of the region of the plane bounded by $y = x^2$ and $x = y^2$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\int_0^1 (x - x^{3/2})\\,dx}{\\int_0^1 (\\sqrt{x} - x^2)\\,dx}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\int_0^1 (x - x^{3/2})\\,dx}{2\\int_0^1 (\\sqrt{x} - x^2)\\,dx}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\int_0^1 (x^3 - x^{3/2})\\,dx}{\\int_0^1 (\\sqrt{x} - x^2)\\,dx}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\int_0^1 (x^{3/2} - x^3)\\,dx}{2\\int_0^1 (\\sqrt{x} - x^2)\\,dx}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\int_0^1 (x - x^4)\\,dx}{2\\int_0^1 (\\sqrt{x} - x^2)\\,dx}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 5,
+      "solution": "The region lies between $y = \\sqrt{x}$ (above) and $y = x^2$ (below), from $(0,0)$ to $(1,1)$.\n\n$$\nM_x = \\int_0^1 \\frac{1}{2}\\left[(\\sqrt{x})^2 - (x^2)^2\\right] dx = \\frac{1}{2}\\int_0^1 (x - x^4)\\,dx, \\qquad A = \\int_0^1 (\\sqrt{x} - x^2)\\,dx\n$$\n\n$$\n\\bar{y} = \\frac{M_x}{A} = \\frac{\\int_0^1 (x - x^4)\\,dx}{2\\int_0^1 (\\sqrt{x} - x^2)\\,dx}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "$$\n\\int_0^1 \\frac{1}{\\sqrt{x}}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "Divergent"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 5,
+      "solution": "$$\n\\int_0^1 \\frac{1}{\\sqrt{x}}\\,dx = \\lim_{a\\to 0^+}\\int_a^1 x^{-1/2}\\,dx = \\lim_{a\\to 0^+} 2x^{1/2}\\Big|_a^1 = \\lim_{a\\to 0^+}\\left(2 - 2\\sqrt{a}\\right) = 2 - 0 = 2\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Which statement is true for the following sequence?\n\n$$\na_n = \\sqrt{n+1} - \\sqrt{n}\n$$\n\nwhere $n = 1, 2, \\ldots$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The sequence is divergent and decreasing."
+        },
+        {
+          "label": "B",
+          "text": "The sequence is divergent and not monotonic."
+        },
+        {
+          "label": "C",
+          "text": "The sequence is convergent and not monotonic."
+        },
+        {
+          "label": "D",
+          "text": "The sequence is divergent and increasing."
+        },
+        {
+          "label": "E",
+          "text": "The sequence is convergent and decreasing."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 6,
+      "solution": "$$\n\\lim_{n\\to\\infty}\\left(\\sqrt{n+1}-\\sqrt{n}\\right)\\left(\\frac{\\sqrt{n+1}+\\sqrt{n}}{\\sqrt{n+1}+\\sqrt{n}}\\right) = \\lim_{n\\to\\infty}\\frac{n+1-n}{\\sqrt{n+1}+\\sqrt{n}} = \\lim_{n\\to\\infty}\\frac{1}{\\sqrt{n+1}+\\sqrt{n}} = 0\n$$\n\nso the sequence converges. If $f(x) = \\sqrt{x+1} - \\sqrt{x}$, then\n\n$$\nf'(x) = \\frac{1}{2\\sqrt{x+1}} - \\frac{1}{2\\sqrt{x}} = \\frac{\\sqrt{x} - \\sqrt{x+1}}{2\\sqrt{x}\\sqrt{x+1}} < 0\n$$\n\nsince $x + 1 > x$, so the sequence is decreasing.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "$$\n\\frac{1}{e} + \\frac{1}{e^2} + \\frac{1}{e^3} + \\frac{1}{e^4} + \\ldots\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "converges to $\\frac{e}{1-e}$"
+        },
+        {
+          "label": "B",
+          "text": "converges to $\\frac{1}{1-e}$"
+        },
+        {
+          "label": "C",
+          "text": "diverges"
+        },
+        {
+          "label": "D",
+          "text": "converges to $\\frac{e}{e-1}$"
+        },
+        {
+          "label": "E",
+          "text": "converges to $\\frac{1}{e-1}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 6,
+      "solution": "This is a geometric series with $a = \\frac{1}{e}$ and $r = \\frac{1}{e}$. Since $e > 1$, $|r| = \\frac{1}{e} < 1$, so the series converges to\n\n$$\n\\frac{a}{1-r} = \\frac{1/e}{1 - 1/e}\\cdot\\frac{e}{e} = \\frac{1}{e-1}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Only one of these series converges. Which one?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=2}^{\\infty} \\frac{e^n}{\\ln n}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{2^n}{n+3^n}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=2}^{\\infty} \\frac{1}{n\\ln n}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=1}^{\\infty} \\sin\\left(\\frac{1}{n}\\right)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 7,
+      "solution": "- A: a $p$-series with $p = \\frac{1}{2} \\le 1$, so it diverges.\n- B: $\\lim_{n\\to\\infty}\\frac{e^n}{\\ln n} \\ne 0$, so it diverges by the Divergence Test.\n- C: by Direct Comparison, $\\frac{2^n}{n+3^n} < \\left(\\frac{2}{3}\\right)^n$ and $\\sum\\left(\\frac{2}{3}\\right)^n$ converges ($|r| = \\frac{2}{3} < 1$), so C converges.\n- D: $\\int_2^{\\infty} \\frac{1}{x\\ln x}\\,dx = \\lim_{b\\to\\infty}\\ln(\\ln x)\\Big|_2^b = \\infty$, so it diverges by the Integral Test.\n- E: by Limit Comparison, $\\lim_{n\\to\\infty}\\frac{\\sin(1/n)}{1/n} = 1$ and $\\sum\\frac{1}{n}$ diverges, so it diverges.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Assume each $a_n$ is positive. Which one of the following conditions guarantees that the series $\\sum_{n=1}^{\\infty} a_n$ diverges?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\lim_{n\\to\\infty} \\frac{a_n}{1/2^n} = 1$"
+        },
+        {
+          "label": "B",
+          "text": "$a_n > \\frac{1}{n^2}$ for all $n$"
+        },
+        {
+          "label": "C",
+          "text": "$a_n < \\frac{1}{n}$ for all $n$"
+        },
+        {
+          "label": "D",
+          "text": "$\\lim_{n\\to\\infty} \\frac{a_n}{\\sqrt{2^n}} = 1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\lim_{n\\to\\infty} \\frac{a_n}{1/n^2} = \\infty$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 7,
+      "solution": "- A: $\\sum a_n$ converges by Limit Comparison with $\\sum\\frac{1}{2^n}$ ($|r| = \\frac{1}{2} < 1$).\n- B: inconclusive.\n- C: inconclusive.\n- D: $\\sum\\sqrt{2^n} = \\sum\\left(\\sqrt{2}\\right)^n$ diverges ($|r| = \\sqrt{2} > 1$), so by Limit Comparison $\\sum a_n$ diverges.\n- E: inconclusive.",
+      "status": "reviewed"
+    }
+  ]
+}
