@@ -1,0 +1,419 @@
+{
+  "id": "f2019-e2",
+  "term": "Fall",
+  "year": 2019,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2019.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2019-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Compute\n\n$$\n\\int -9x \\cos 5x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{9}{25} \\cos 5x - \\frac{9}{5} x \\sin 9x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{9}{5} \\cos 5x - 9x \\sin 5x + C$"
+        },
+        {
+          "label": "C",
+          "text": "$-\\frac{9}{25} \\cos 5x - \\frac{9}{5} \\sin 9x + C$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{9}{25} \\cos 5x - \\frac{9}{5} x \\sin 5x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9}{25} \\cos 5x + \\frac{9}{5} x \\sin 5x + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Compute\n\n$$\n\\int (2x - 1) \\ln(10x)\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(x^2 - x) \\ln(10x) - x^2 + x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$(x^2 - x) \\ln(10x) - \\frac{x^2}{2} + x + C$"
+        },
+        {
+          "label": "C",
+          "text": "$(x^2 - x) \\ln(10x) - \\frac{x^2}{2} + 2x + C$"
+        },
+        {
+          "label": "D",
+          "text": "$(\\frac{x^2}{2} - x) \\ln(10x) - \\frac{x^2}{4} + x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$(\\frac{x^2}{2} - x) \\ln(10x) + \\frac{x^2}{2} + 2x + C$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "A cylindrical water tank has a height of 7 m and a radius of 2 m. If the tank is full of water, how much work, in Joules, is required to pump the water to the level of the top and out of the tank? Express your answer in terms of $\\pi$, $g$ (acceleration due to gravity in $\\text{m/s}^2$), and $\\rho$ (the density of water in $\\text{kg/m}^3$).",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$40\\pi\\rho g$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{49}{2}\\pi\\rho g$"
+        },
+        {
+          "label": "C",
+          "text": "$686\\pi\\rho g$"
+        },
+        {
+          "label": "D",
+          "text": "$98\\pi\\rho g$"
+        },
+        {
+          "label": "E",
+          "text": "$49\\pi\\rho g$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Compute\n\n$$\n\\int 7 \\sec^4 x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{7}{3} \\tan^3 x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{7}{3} \\tan^3 x + C$"
+        },
+        {
+          "label": "C",
+          "text": "$7(\\sec x + \\tan x)^5 + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7}{3} \\tan x + 7 \\tan^3 x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$7 \\tan x + \\frac{7}{3} \\tan^3 x + C$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\frac{1}{4}} 5 \\sin^4(2\\pi x)\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{15}{32} - \\frac{5}{\\pi}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{15}{16}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{15}{32}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{15}{16} - \\frac{5}{8\\pi}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5}{8\\pi}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Use a trigonometric substitution to evaluate\n\n$$\n\\int_0^1 \\frac{dx}{\\sqrt{64 - x^2}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8 \\cos^{-1}(\\frac{1}{8})$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{8} \\sin^{-1}(\\frac{1}{8})$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sin^{-1}(\\frac{1}{8})$"
+        },
+        {
+          "label": "D",
+          "text": "$\\cos^{-1}(\\frac{1}{8})$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{8} \\cos^{-1}(\\frac{1}{8})$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "After a proper trigonometric substitution is used to transform $\\int_1^4 \\frac{dt}{t^2 - 2t + 10}$ into $\\int_a^b f(\\theta)\\,d\\theta$, what is the new upper integration limit $b$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Use the fact that\n\n$$\n\\int \\frac{2x^4 + 15x^3 + 9x^2 + 11x + 3}{x^5 + x^4 - x - 1}\\,dx = 5 \\ln|x - 1| - 3 \\ln|x + 1| - \\frac{3}{x + 1} + 2 \\tan^{-1}(x) + C\n$$\n\nto find the partial fraction expansion of $\\frac{2x^4 + 15x^3 + 9x^2 + 11x + 3}{x^5 + x^4 - x - 1}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5}{x - 1} + \\frac{-3}{x + 1} + \\frac{3}{(x + 1)^2} + \\frac{2}{x^2 + 1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5}{x - 1} + \\frac{-3}{x + 1} + \\frac{-3x}{(x + 1)^2} + \\frac{2}{x^2 + 1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{x - 1} + \\frac{-3}{x + 1} + \\frac{-3}{(x + 1)^2} + \\frac{2x}{x^2 + 1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{-5}{x - 1} + \\frac{3}{x + 1} + \\frac{3}{(x + 1)^2} + \\frac{-2}{x^2 + 1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{-5}{x - 1} + \\frac{3}{x + 1} + \\frac{3x}{(x + 1)^2} + \\frac{2x}{x^2 + 1}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "After a long division, the rational expression $\\frac{x^3 + 2}{x^3 - 2x^2 + x}$ can be written as\n\n$$\nA + \\frac{B}{x} + \\frac{C}{x - 1} + \\frac{D}{(x - 1)^2}\n$$\n\nFind D",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$-2$"
+        },
+        {
+          "label": "E",
+          "text": "$-3$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Which of the following improper integrals are convergent?\n\nI. $\\int_0^\\infty \\cos \\pi x\\,dx$\n\nII. $\\int_1^\\infty x e^{-x^2}\\,dx$\n\nIII. $\\int_{-1}^1 \\frac{1}{x^2}\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I, II, III"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I, II only"
+        },
+        {
+          "label": "E",
+          "text": "II, III only"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Which of the following sequences converge?\n\nI. $\\left\\{\\frac{n}{2n + (-1)^n}\\right\\}_{n=1}^\\infty$\n\nII. $\\left\\{\\sin \\frac{(2n - 1)\\pi}{2}\\right\\}_{n=1}^\\infty$\n\nIII. $\\{a_n\\}_{n=1}^\\infty$ where $a_1 = 1$, $a_{n+1} = \\frac{a_n}{2}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of them"
+        },
+        {
+          "label": "B",
+          "text": "None of them"
+        },
+        {
+          "label": "C",
+          "text": "I only"
+        },
+        {
+          "label": "D",
+          "text": "I and III only"
+        },
+        {
+          "label": "E",
+          "text": "III only"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Find a formula for the $\\text{n}^{\\text{th}}$ partial sum of the infinite series\n\n$$\n\\sum_{n=1}^\\infty \\frac{1}{3^n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3^n - 1}{3^n}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3^n + 1}{2 \\cdot 3^n}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{3^n}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{n3^n}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3^n - 1}{2 \\cdot 3^n}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
