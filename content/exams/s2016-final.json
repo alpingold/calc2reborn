@@ -1,0 +1,865 @@
+{
+  "id": "s2016-final",
+  "term": "Spring",
+  "year": 2016,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2016.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2016.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "s2016-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find the cosine of the angle between $\\mathbf{v} = \\langle 1, 2, 1 \\rangle$ and $\\mathbf{w} = \\langle -1, 1, 1 \\rangle$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{\\sqrt{3}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{2}}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\sqrt{6}}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Find the area of the triangle with vertices\n\n$$\n(1, 0, -2), \\quad (2, 1, -1), \\quad (3, 2, -1).\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{5}}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{6}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Use the disk/washer method to find the volume of the solid obtained by revolving the region bounded by $y = x^2$ and $y = 1$ about the line $y = 1$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8}{15}\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{8}{5}\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{16}{5}\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{16}{15}\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{3}\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The region bounded by $y = x^2$ and $y = 4$ is revolved about the line $x = 2$. If the method of cylindrical shells is used, the integral that represents the volume of the solid is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4\\pi \\int_0^2 (4 - x)(2 - x^2)\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi \\int_{-2}^2 (2 - x)(4 - x^2)\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi \\int_{-2}^2 x(4 - x^2)\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$4\\pi \\int_0^4 \\sqrt{y}\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$8\\pi \\int_0^4 y\\,dy$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the average value of $y = x^2\\sqrt{x^3 + 1}$ on the interval $[0, 2]$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{26}{9}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{52}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{26}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{52}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$24$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the integral $\\int e^{2x} \\sin x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{e^{2x}}{5}(\\sin x - \\cos x) + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{e^{2x}}{5}(\\sin x + \\cos x) + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{e^{2x}}{5}(2\\sin x + \\cos x) + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{e^{2x}}{5}(\\sin x + 2\\cos x) + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{e^{2x}}{5}(2\\sin x - \\cos x) + C$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the integral: $\\int_0^{\\pi/2} \\cos^5 x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{15}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{15}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4}{15}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7}{15}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{8}{15}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Which trigonometric substitution should be used to compute\n\n$$\n\\int \\frac{x^2}{\\sqrt{4 - 9x^2}}\\,dx \\qquad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = 2\\tan\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$x = \\frac{2}{3}\\tan\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$x = 2\\sin\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$x = \\frac{2}{3}\\sin\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$x = \\frac{2}{3}\\sec\\theta$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Compute\n\n$$\n\\int_2^3 \\frac{(x + 3)}{x^2 - 1}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\ln 2 + \\ln 2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln 2 + \\ln 3$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\ln 2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln 3$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\ln 2 + \\ln 3$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\infty} \\frac{dx}{(2x + 3)^3}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{36}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{12}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{18}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{9}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{9}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Use the formula\n\n$$\n\\int \\frac{du}{(a^2 + u^2)^{3/2}} = \\frac{u}{a^2\\sqrt{a^2 + u^2}} + C\n$$\n\nto compute $\\int_2^3 \\frac{dx}{(x^2 - 4x + 7)^{3/2}}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2\\sqrt{3}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{\\sqrt{3}}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Which of the following integrals gives the length of the graph of $y = \\sqrt{x}$ on the interval $[1, 9]$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_1^9 \\sqrt{x^2 + x}\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_1^9 \\sqrt{x + \\sqrt{x}}\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_1^9 \\sqrt{x + \\frac{1}{2\\sqrt{x}}}\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_1^9 \\sqrt{1 + \\frac{1}{2\\sqrt{x}}}\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_1^9 \\sqrt{1 + \\frac{1}{4x}}\\,dx$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "Which of the following **sequences** converge?\n\nI. $\\left\\{\\frac{1}{n}\\right\\}$\n\nII. $\\left\\{\\frac{(-1)^{n+1}}{n}\\right\\}$\n\nIII. $\\left\\{\\frac{n}{\\ln n}\\right\\}$\n\nIV. $\\left\\{\\frac{n^2}{e^n}\\right\\}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of them"
+        },
+        {
+          "label": "B",
+          "text": "II, IV"
+        },
+        {
+          "label": "C",
+          "text": "I, II, IV"
+        },
+        {
+          "label": "D",
+          "text": "II, III, IV"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "The sum of the series $2 - 1 + \\frac{1}{2} - \\frac{1}{4} + \\frac{1}{8} - \\cdots$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4/3$"
+        },
+        {
+          "label": "B",
+          "text": "$5/4$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$3/2$"
+        },
+        {
+          "label": "E",
+          "text": "$3/4$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "Given the two series $A = 1 + \\frac{1}{4} + \\frac{1}{9} + \\frac{1}{16} + \\frac{1}{25} + \\cdots$ and $B = \\sum_{n=1}^{\\infty} n^5 e^{-n^6}$, use the Integral Test to determine whether each series is convergent and choose the correct statement from below:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both series are divergent"
+        },
+        {
+          "label": "B",
+          "text": "Series A is convergent, series B is divergent"
+        },
+        {
+          "label": "C",
+          "text": "Series A is divergent, series B is convergent"
+        },
+        {
+          "label": "D",
+          "text": "Both series are convergent"
+        },
+        {
+          "label": "E",
+          "text": "The Integral Test is inconclusive"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "**How many** of the following series are convergent?\n\n$$\n\\sum_{n=2}^{\\infty} (-1)^n \\sqrt{n}\n$$\n\n$$\n\\sum_{n=2}^{\\infty} \\frac{n^3}{n^4 + 5}\n$$\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{n!}{n^{2002}}\n$$\n\n$$\n\\sum_{n=2}^{\\infty} \\frac{1}{n(\\ln n)^2}\n$$\n\n$$\n\\sum_{n=1}^{\\infty} \\left(1 + \\frac{1}{n}\\right)^{-n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "One"
+        },
+        {
+          "label": "B",
+          "text": "Two"
+        },
+        {
+          "label": "C",
+          "text": "Three"
+        },
+        {
+          "label": "D",
+          "text": "Four"
+        },
+        {
+          "label": "E",
+          "text": "Five"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "**How many** of the following series are **conditionally** convergent?\n\n$$\n\\sum_{n=2}^{\\infty} \\frac{(-1)^n}{n\\ln n}\n$$\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{2^n}\n$$\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n^{0.998}}\n$$\n\n$$\n\\sum_{n=2}^{\\infty} \\frac{(-1)^{n-1}}{n}\n$$\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n^{1.001}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "One"
+        },
+        {
+          "label": "B",
+          "text": "Two"
+        },
+        {
+          "label": "C",
+          "text": "Three"
+        },
+        {
+          "label": "D",
+          "text": "Four"
+        },
+        {
+          "label": "E",
+          "text": "Five"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "If the power series of $\\ln(1 + x^2)$ is used to express $S = \\int_0^1 \\ln(1 + x^2)\\,dx$ as an infinite series, what is the maximum possible error when the first three terms of that series are used to approximate $S$? Note that $\\ln(1 + x) = \\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{x^n}{n} = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\cdots$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{21}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{20}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{36}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{18}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{12}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24",
+        "L32"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "Find the interval of convergence of $\\sum_{n=1}^{\\infty} \\frac{(-1)^n 2^n (x - 2)^n}{n + 1}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(0, 4)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left(\\frac{3}{2}, \\frac{5}{2}\\right]$"
+        },
+        {
+          "label": "C",
+          "text": "$(0, 4]$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left[\\frac{3}{2}, \\frac{5}{2}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left(\\frac{3}{2}, \\frac{5}{2}\\right)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "Suppose that the function $f(x) = x^4 - x^3 - x + 2$ is written as a Taylor series about $a = 2$, what is the coefficient of $(x - 2)^3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$5$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$6$"
+        },
+        {
+          "label": "E",
+          "text": "$7$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "What is the coefficient of $x^3$ in the Maclaurin series of $\\frac{1}{(x - 2)^2}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{8}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{8}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7}{8}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9}{8}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "One of these parametric curves goes twice around a circle in the clockwise direction. Which one?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = 2\\cos t + 3, \\quad y = 2\\sin t - 1, \\quad 0 \\le t \\le 4\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$x = \\cos(2t) + 3, \\quad y = -\\sin(2t) - 1, \\quad 0 \\le t \\le 4\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$x = \\sin(2t) + 3, \\quad y = \\cos(2t) - 1, \\quad 0 \\le t \\le 4\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$x = 2\\sin t + 3, \\quad y = -2\\cos t - 1, \\quad 0 \\le t \\le 4\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$x = 2\\cos t + 3, \\quad y = -2\\sin t - 1, \\quad 0 \\le t \\le 4\\pi$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "For the parametric curve\n\n$$\nx = 2\\sin t, \\quad y = 3\\cos t, \\quad -\\pi \\le t \\le \\pi,\n$$\n\nwhat is $\\frac{d^2y}{dx^2}$ when $t = 0$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-12$"
+        },
+        {
+          "label": "B",
+          "text": "$-6$"
+        },
+        {
+          "label": "C",
+          "text": "$-3$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{3}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{3}{4}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "If $(2 + 3i)e^{i\\pi/4} = a + bi$, what is $b$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9\\sqrt{2}}{2}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "The picture below shows two pieces of the polar curve $r = \\cos 2\\theta$. Which $\\theta$ intervals correspond to these two pieces?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left[\\frac{\\pi}{4}, \\frac{\\pi}{2}\\right], \\left[\\frac{3\\pi}{4}, \\pi\\right]$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left[\\frac{3\\pi}{4}, \\pi\\right], \\left[\\frac{5\\pi}{4}, \\frac{3\\pi}{2}\\right]$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left[\\pi, \\frac{5\\pi}{4}\\right], \\left[\\frac{3\\pi}{2}, \\frac{7\\pi}{4}\\right]$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left[\\frac{\\pi}{2}, \\frac{3\\pi}{4}\\right], \\left[\\pi, \\frac{5\\pi}{4}\\right]$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left[\\frac{5\\pi}{4}, \\frac{3\\pi}{2}\\right], \\left[\\frac{7\\pi}{4}, 2\\pi\\right]$"
+        }
+      ],
+      "answer": "D",
+      "figures": [
+        "figures/s2016-final/q25.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    }
+  ]
+}
