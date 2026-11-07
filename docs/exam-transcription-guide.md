@@ -46,7 +46,7 @@ Check this list before starting. These were confirmed by surveying every booklet
 - **`s2019-*.sol`** has no cover, so its pages run one behind the booklet. `sourcePage` always refers to the booklet.
 - **`f2022-e2`** is "Alternate Exam 2". Use it as published.
 
-Facts that still fit the schema: `f2022-final` printed Q6 says "wench" and printed Q14 says "Which of the following statement is true?"; keep both as printed. `f2023-e1` Q3 and Q4 print vectors as `=< a, b, c >`, and Q5 prints "the area of the area of the triangle"; keep both as printed. `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
+Facts that still fit the schema: `s2022-e2` Q12 prints the density as $\rho\,\frac{kg}{m^2}$, `s2022-e1` Q4 choice A prints a stray outer $2\pi$, `s2022-e1` Q10 choice D prints `π/27(10^{3/2} − 1)` inline, and `s2022-final` Q15 choice E prints "I, II and II"; keep all as printed. `s2022-e3` Q1 has four choices. `f2022-final` printed Q6 says "wench" and printed Q14 says "Which of the following statement is true?"; keep both as printed. `f2023-e1` Q3 and Q4 print vectors as `=< a, b, c >`, and Q5 prints "the area of the area of the triangle"; keep both as printed. `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
 
 **Points.** Use the booklet's stated points. Do not store free points: 12 questions at 8 points stores 96, not 100. Only `f2016-e1` is 100/12 per problem. `f2016-e2` and `f2016-e3` are 8 each. `s2017-e1` is 9 each. `s2024-*` are 1 each. `s2017-e2`, `s2017-e3`, and all of `f2024` and `f2025` print points per question.
 
@@ -115,6 +115,7 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 
 - Circles in the plane (center, radius, how two circles relate): tag L2.
 - Symmetry of a polar curve: tag L34.
+- A completed square in the sine or tangent case is L15 only.
 - A secant substitution has no worked example: tag L14. If the radical must first be completed to $(x-a)^2-b^2$, tag L14 and L15, since both skills are tested.
 
 Series of an integral: tag by the model series, and do not tag both.
