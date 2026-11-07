@@ -134,6 +134,8 @@ Series of an integral: tag by the model series, and do not tag both.
 - Integrating an integrand built from the Maclaurin table (sin, cos, $e^x$, arctan, ln), often after cancelling terms or dividing by a power of $x$: L32.
 - Differentiating or integrating the geometric series to reach a closed form such as $\frac{1}{(1-x)^2}$ or a log, or asking how endpoints change: L30.
 - Differentiating a given or tabled non-geometric series, with or without a substitution (such as $\sec^2(x^3)$ from the series for $\tan x$): L32.
+- Building a Maclaurin series by substituting into, multiplying by a power of $x$, or adding series from the table, with no differentiation or integration (such as $x\cos x-\sin 3x$): L31.
+- Building a power series from the geometric series by factoring the denominator to start with 1, substituting, and multiplying by a power of $x$, with no differentiation or integration (such as $\frac{x}{2+3x}$): L30.
 
 `keyIdeas` is empty for L1 to L18 and L33 to L35, so settle splits by reading the lesson's `notesUrl` page with base64 images stripped.
 
