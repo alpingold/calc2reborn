@@ -1,0 +1,430 @@
+{
+  "id": "f2023-e2",
+  "term": "Fall",
+  "year": 2023,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2023.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2023-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\pi} \\frac{x\\cos x}{2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2$"
+        },
+        {
+          "label": "B",
+          "text": "$-1$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\frac{\\pi}{2}} e^x\\cos x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}(e^{\\frac{\\pi}{2}} - 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}(e^{\\frac{\\pi}{2}} + 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$e^{\\frac{\\pi}{2}}$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\frac{\\pi}{2}} (1 - \\sin^2 x)^2\\sin x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{2}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{1}{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{5}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Compute\n\n$$\n\\int \\frac{3}{2}\\sec^{\\frac{3}{2}} x\\tan x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\tan^{\\frac{1}{2}} x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sec x\\tan x + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{\\sec x\\tan x} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sec^{\\frac{3}{2}} x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sec^{\\frac{1}{2}} x + C$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "After making an appropriate trigonometric substitution, the integral\n\n$$\n\\int_0^{\\frac{1}{3}} \\sqrt{4 - 9x^2}\\,dx\n$$\n\nbecomes",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{3}\\int_0^{\\frac{\\pi}{3}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{3}\\int_0^{\\frac{\\pi}{6}} \\cos\\theta\\,d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4}{3}\\int_0^{\\frac{\\pi}{6}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4}{3}\\int_0^{\\frac{\\pi}{3}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{3}\\int_0^{\\frac{\\pi}{6}} \\cos\\theta\\,d\\theta$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "What does the integral $\\int \\frac{x^2}{\\sqrt{x^2 + 25}}\\,dx$ become after a trigonometric substitution?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$25\\int (\\tan^2\\theta)(\\sec\\theta)\\,d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$5\\int (\\tan^2\\theta)(\\sec\\theta)\\,d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$25\\int \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\int \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$25\\int \\sin^2\\theta\\,d\\theta$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Use a partial fraction expansion to evaluate\n\n$$\n\\int_3^4 \\frac{8}{(x - 2)(x + 6)}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln 3 + 2\\ln 5$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\ln 3 + \\ln 5$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln 3 - 2\\ln 5$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\ln 3 - \\ln 5$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln 3 - \\ln 5$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Which of the following is the correct *form* of the partial fractions decomposition for the given rational function?\n\n$$\n\\frac{x^4 + 1}{x^2(x + 1)^2(x^2 + 1)^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x^2} + \\frac{B}{(x + 1)^2} + \\frac{Cx + D}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x + 1} + \\frac{D}{(x + 1)^2} + \\frac{Ex + F}{x^2 + 1} + \\frac{Gx + H}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x^2} + \\frac{B}{(x + 1)^2} + \\frac{C}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x + 1} + \\frac{D}{(x + 1)^2} + \\frac{E}{x^2 + 1} + \\frac{F}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x^2} + \\frac{B}{x + 1} + \\frac{C}{(x^2 + 1)^2} + \\frac{Dx + E}{(x^2 + 1)^2}$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "$$\n\\int_0^{\\infty} \\frac{x}{(x^2 + 1)^2}\\,dx =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{6}$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "$$\n\\int_{-3}^{3} \\frac{1}{(x + 2)^3}\\,dx =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{12}{25}$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{13}{25}$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{13}{25}$"
+        },
+        {
+          "label": "E",
+          "text": "The integral diverges"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Which of the following sequences converge?\n\n(i). $\\left\\{\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{8}, \\cdots, \\frac{1}{2^n}, \\cdots\\right\\}$\n\n(ii). $\\left\\{\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{4}, \\cdots, \\frac{n}{n+1}, \\cdots\\right\\}$\n\n(iii). $\\left\\{\\frac{1}{2}, -\\frac{2}{3}, \\frac{3}{4}, \\cdots, \\frac{(-1)^{n+1}n}{n+1}, \\cdots\\right\\}$\n\n(iv). $\\{\\sin(\\pi), \\sin(2\\pi), \\sin(3\\pi), \\cdots, \\sin(n\\pi), \\cdots\\}$\n\n(v). $\\{\\cos(\\pi), \\cos(2\\pi), \\cos(3\\pi), \\cdots, \\cos(n\\pi), \\cdots\\}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All are convergent"
+        },
+        {
+          "label": "B",
+          "text": "(i), (ii), (iii), (iv) converge but (v) diverges"
+        },
+        {
+          "label": "C",
+          "text": "(i), (iii), (iv) converge but (ii) and (v) diverge"
+        },
+        {
+          "label": "D",
+          "text": "(i), (ii), (iv) converge but (iii) and (v) diverge"
+        },
+        {
+          "label": "E",
+          "text": "All are divergent"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "A sequence is given by the recurrence formula\n\n$$\na_1 = 1, \\quad a_2 = 2, \\quad a_{n+2} = a_{n+1} - a_n\n$$\n\nFind $a_6$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-1$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$-2$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
