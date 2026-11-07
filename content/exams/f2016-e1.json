@@ -1,0 +1,432 @@
+{
+  "id": "f2016-e1",
+  "term": "Fall",
+  "year": 2016,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2016.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2016.pdf",
+  "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e1-f2016.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2016-e1-q01",
+      "number": 1,
+      "points": 8.333333333333334,
+      "stem": "Find the center and the radius of the sphere $4x^2 + 4y^2 + 4z^2 - 5x + 10y - 6z = 0$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Center $(\\frac{5}{8}, -\\frac{5}{4}, \\frac{3}{4})$ and radius $\\frac{\\sqrt{135}}{8}$"
+        },
+        {
+          "label": "B",
+          "text": "Center $(\\frac{5}{8}, -\\frac{5}{4}, \\frac{3}{4})$ and radius $\\frac{\\sqrt{161}}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "Center $(\\frac{5}{8}, -\\frac{5}{4}, -\\frac{3}{4})$ and radius $\\frac{\\sqrt{161}}{8}$"
+        },
+        {
+          "label": "D",
+          "text": "Center $(-\\frac{5}{8}, \\frac{5}{4}, -\\frac{3}{4})$ and radius $\\frac{\\sqrt{135}}{8}$"
+        },
+        {
+          "label": "E",
+          "text": "Center $(-\\frac{5}{8}, \\frac{5}{4}, -\\frac{3}{4})$ and radius $\\frac{\\sqrt{161}}{8}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "solution": "Divide the equation by 4:\n\n$$\nx^2 + y^2 + z^2 - \\frac{5}{4}x + \\frac{5}{2}y - \\frac{3}{2}z = 0\n$$\n\nComplete the squares:\n\n$$\nx^2 - \\frac{5}{4}x = \\left(x - \\frac{5}{8}\\right)^2 - \\frac{25}{64}, \\qquad y^2 + \\frac{5}{2}y = \\left(y + \\frac{5}{4}\\right)^2 - \\frac{25}{16}, \\qquad z^2 - \\frac{3}{2}z = \\left(z - \\frac{3}{4}\\right)^2 - \\frac{9}{16}\n$$\n\nSo the equation becomes\n\n$$\n\\left(x - \\frac{5}{8}\\right)^2 + \\left(y + \\frac{5}{4}\\right)^2 + \\left(z - \\frac{3}{4}\\right)^2 = \\frac{25}{64} + \\frac{25}{16} + \\frac{9}{16} = \\frac{161}{64}\n$$\n\nThe radius is $\\frac{\\sqrt{161}}{8}$ and the center is $\\left(\\frac{5}{8}, -\\frac{5}{4}, \\frac{3}{4}\\right)$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q02",
+      "number": 2,
+      "points": 8.333333333333334,
+      "stem": "The measure of the angle (in radians) between the vectors\n\n$$\n\\vec{u} = 2\\vec{i} + \\vec{j} + \\vec{k} \\text{ and } \\vec{v} = -\\sqrt{\\frac{6}{5}}\\,\\vec{i} - \\vec{j} + \\vec{k}\n$$\n\nis equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3\\pi}{4}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 2,
+      "solution": "Use $\\vec{u} \\cdot \\vec{v} = |\\vec{u}|\\,|\\vec{v}|\\cos\\theta$.\n\n$$\n\\vec{u} \\cdot \\vec{v} = -2\\sqrt{\\frac{6}{5}} - 1 + 1 = -2\\sqrt{\\frac{6}{5}}\n$$\n\n$|\\vec{u}| = \\sqrt{4 + 1 + 1} = \\sqrt{6}$ and $|\\vec{v}| = \\sqrt{\\frac{6}{5} + 1 + 1} = \\frac{4}{\\sqrt{5}}$. So we have\n\n$$\n-2\\frac{\\sqrt{6}}{\\sqrt{5}} = \\sqrt{6} \\cdot \\frac{4}{\\sqrt{5}}\\cos\\theta, \\qquad \\cos\\theta = -\\frac{1}{2}\n$$\n\nand $\\theta = \\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3}$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q03",
+      "number": 3,
+      "points": 8.333333333333334,
+      "stem": "The area of the triangle with vertices $P(1, 0, 2)$, $Q(2, -1, 1)$ and $R(0, 1, -1)$ is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\sqrt{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$4\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\sqrt{2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "solution": "$\\overrightarrow{PQ} = Q - P = \\langle 1, -1, -1 \\rangle$ and $\\overrightarrow{PR} = R - P = \\langle -1, 1, -3 \\rangle$. The area of the triangle is $\\frac{1}{2}|\\overrightarrow{PQ} \\times \\overrightarrow{PR}|$.\n\n$$\n\\overrightarrow{PQ} \\times \\overrightarrow{PR} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & -1 & -1 \\\\ -1 & 1 & -3 \\end{vmatrix} = \\vec{i}(4) - \\vec{j}(-4) + \\vec{k}(0) = 4\\vec{i} + 4\\vec{j}\n$$\n\n$|\\overrightarrow{PQ} \\times \\overrightarrow{PR}| = \\sqrt{16 + 16} = \\sqrt{2 \\times 16} = 4\\sqrt{2}$, so the area of the triangle is $2\\sqrt{2}$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q04",
+      "number": 4,
+      "points": 8.333333333333334,
+      "stem": "The area of the region bounded by $y = x(2 - x)$ and $y = x^2$ is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 3,
+      "solution": "The curves meet where $x(2 - x) = x^2$: $x = 0$, or $2 - x = x$, so $x = 1$. On $[0, 1]$ the curve $y = 2x - x^2$ is on top.\n\n$$\nA = \\int_0^1 (2x - x^2 - x^2)\\,dx = \\int_0^1 (2x - 2x^2)\\,dx = 2\\left(\\frac{x^2}{2} - \\frac{x^3}{3}\\right)\\Big|_0^1 = 2\\left(\\frac{1}{2} - \\frac{1}{3}\\right) = \\frac{1}{3}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q05",
+      "number": 5,
+      "points": 8.333333333333334,
+      "stem": "Find the volume of the solid whose base is the region bounded by $y = x^2$ and $y = 1$, and whose cross-sections are squares that are perpendicular to the $y$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$6$"
+        },
+        {
+          "label": "E",
+          "text": "$3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 4,
+      "solution": "At height $y$ the base runs from $x = -\\sqrt{y}$ to $x = \\sqrt{y}$, so the length of the base is $2\\sqrt{y}$ and the area of the cross-section is $(2\\sqrt{y})^2 = 4y$.\n\n$$\n\\text{Volume of the solid} = \\int_0^1 4y\\,dy = 2\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q06",
+      "number": 6,
+      "points": 8.333333333333334,
+      "stem": "The volume of the solid obtained by rotating the region bounded by $y = x + 1$, $x = 0$ and $y = 3$ about the $y$-axis is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{8\\pi}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 4,
+      "solution": "Slice perpendicular to the $y$-axis. At height $y$, $1 \\le y \\le 3$, the region runs from $x = 0$ to the line $x = y - 1$, so the cross-section is a disk of area\n\n$$\nA(y) = \\pi(y - 1)^2\n$$\n\nWith $u = y - 1$:\n\n$$\nV = \\int_1^3 \\pi(y - 1)^2\\,dy = \\pi\\int_0^2 u^2\\,du = \\frac{\\pi}{3}u^3\\Big|_0^2 = \\frac{8\\pi}{3}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q07",
+      "number": 7,
+      "points": 8.333333333333334,
+      "stem": "If one uses the method of cylindrical shells to find the volume of the region bounded by the curves $y = \\sqrt{x}$ and $y = x^2$ rotated about the $x$-axis, one arrives at the following integral",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi\\int_0^1 (y^{\\frac{3}{2}} - \\frac{1}{2}y^2)\\,dy$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi\\int_0^1 (y^{\\frac{5}{2}} - \\frac{1}{2}y^{\\frac{3}{2}})\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi\\int_0^1 (y^{\\frac{3}{2}} - y^3)\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi\\int_0^1 (y^{\\frac{3}{2}} - \\frac{1}{2}y)\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi\\int_0^1 y^2(y^{\\frac{1}{2}} - \\frac{1}{2}y)\\,dy$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "solution": "The curves meet at $(0, 0)$ and $(1, 1)$. Use horizontal shells: at height $y$, $0 \\le y \\le 1$, the radius is $y$ and the shell runs from the left curve $x = y^2$ to the right curve $x = \\sqrt{y}$.\n\n$$\nV = 2\\pi\\int_0^1 y\\left(\\sqrt{y} - y^2\\right)dy = 2\\pi\\int_0^1 \\left(y^{3/2} - y^3\\right)dy\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q08",
+      "number": 8,
+      "points": 8.333333333333334,
+      "stem": "A conical tank T is 5 meters high and the radius of its base is 4 meters long. The base of tank rests on the ground. If the tank is filled with a liquid of density $\\rho$ $\\mathrm{kg/m^3}$ (g is the acceleration of gravity), the work necessary to empty it by pumping the liquid through its top is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$50\\rho\\pi g$"
+        },
+        {
+          "label": "B",
+          "text": "$75\\rho\\pi g$"
+        },
+        {
+          "label": "C",
+          "text": "$80\\rho\\pi g$"
+        },
+        {
+          "label": "D",
+          "text": "$100\\rho\\pi g$"
+        },
+        {
+          "label": "E",
+          "text": "$120\\rho\\pi g$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 5,
+      "solution": "Measure $x$ downward from the top (the vertex) of the tank, $0 \\le x \\le 5$. By similar triangles $\\frac{r(x)}{x} = \\frac{4}{5}$, so $r(x) = \\frac{4}{5}x$.\n\nThe weight of the slab with width $dx$ is $\\rho\\pi r(x)^2\\,dx \\cdot g$. The work to move the slab to the top is\n\n$$\nx \\cdot \\pi\\rho r(x)^2 g\\,dx = \\left(\\frac{4}{5}\\right)^2 \\pi\\rho g\\,x^3\\,dx\n$$\n\nTotal work:\n\n$$\nW = \\frac{16}{25}\\rho\\pi g\\int_0^5 x^3\\,dx = \\frac{16}{25}\\pi\\rho g \\cdot \\frac{5^4}{4} = 100\\rho\\pi g\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q09",
+      "number": 9,
+      "points": 8.333333333333334,
+      "stem": "The integral\n\n$$\n\\int_1^2 x\\ln x\\,dx \\text{ is equal to}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4\\ln 2 + 3/2$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\ln 2 - 3/4$"
+        },
+        {
+          "label": "C",
+          "text": "$4\\ln 2 - 3$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\ln 2 - 3/2$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}\\ln 2 - 2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 6,
+      "solution": "Integrate by parts with $u = \\ln x$, $du = \\frac{1}{x}\\,dx$, $dv = x\\,dx$, $v = \\frac{x^2}{2}$:\n\n$$\n\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\int \\frac{x}{2}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4}\n$$\n\nSo\n\n$$\n\\int_1^2 x\\ln x\\,dx = \\left(\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}\\right)\\Big|_1^2 = (2\\ln 2 - 1) - \\left(-\\frac{1}{4}\\right) = 2\\ln 2 - \\frac{3}{4}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q10",
+      "number": 10,
+      "points": 8.333333333333334,
+      "stem": "A force of 4 pounds stretches a spring with natural length of 12 inches to 18 inches. Find the total work by stretching the spring from a length of 18 inches to 24 inches:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "5 ft-lb"
+        },
+        {
+          "label": "B",
+          "text": "3 ft-lb"
+        },
+        {
+          "label": "C",
+          "text": "8 ft-lb"
+        },
+        {
+          "label": "D",
+          "text": "6 ft-lb"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{2}$ ft-lb"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 6,
+      "solution": "Use $F = kx$ with $x$ in feet beyond the natural length. A force of 4 lb stretches the spring 6 in $= \\frac{1}{2}$ ft, so $4 = \\frac{k}{2}$ and $k = 8$. Stretching from 18 in to 24 in means $x$ goes from $0.5$ ft to $1$ ft:\n\n$$\nW = \\int_{0.5}^1 8x\\,dx = 4x^2\\Big|_{0.5}^1 = 4\\left(1 - (0.5)^2\\right) = 4 - 1 = 3\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q11",
+      "number": 11,
+      "points": 8.333333333333334,
+      "stem": "Compute the value of the following definite integral\n\n$$\n\\int_0^{\\frac{1}{\\sqrt{2}}} x^2\\sqrt{1 - x^2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{12}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{32}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2\\pi}{16}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3\\pi}{4}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 7,
+      "solution": "Substitute $x = \\sin\\theta$, $dx = \\cos\\theta\\,d\\theta$, $1 - x^2 = \\cos^2\\theta$. The limits $x = 0$ and $x = \\frac{1}{\\sqrt{2}}$ become $\\theta = 0$ and $\\theta = \\frac{\\pi}{4}$.\n\n$$\n\\int_0^{\\frac{1}{\\sqrt{2}}} x^2\\sqrt{1 - x^2}\\,dx = \\int_0^{\\pi/4} \\sin^2\\theta\\cos^2\\theta\\,d\\theta = \\frac{1}{4}\\int_0^{\\pi/4} (\\sin 2\\theta)^2\\,d\\theta = \\frac{1}{4}\\int_0^{\\pi/4} \\frac{1 - \\cos 4\\theta}{2}\\,d\\theta\n$$\n\n$$\n= \\frac{1}{8}\\left(\\theta - \\frac{\\sin 4\\theta}{4}\\right)\\Big|_0^{\\pi/4} = \\frac{1}{8} \\cdot \\frac{\\pi}{4} = \\frac{\\pi}{32}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2016-e1-q12",
+      "number": 12,
+      "points": 8.333333333333334,
+      "stem": "The integral $\\int_0^{\\pi/4} \\tan^3 x\\sec^2 x\\,dx$ is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2\\pi}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 7,
+      "solution": "Set $u = \\tan x$, $du = \\sec^2 x\\,dx$:\n\n$$\n\\int_0^{\\pi/4} \\tan^3 x\\sec^2 x\\,dx = \\int_0^1 u^3\\,du = \\frac{u^4}{4}\\Big|_0^1 = \\frac{1}{4}\n$$",
+      "status": "reviewed"
+    }
+  ]
+}
