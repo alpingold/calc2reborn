@@ -1,0 +1,426 @@
+{
+  "id": "f2025-e1",
+  "term": "Fall",
+  "year": 2025,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2025.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2025.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2025-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find the area of the region bounded by the curves\n\n$$y = x^2 \\quad \\text{and} \\quad y = 2x.$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$20/3$"
+        },
+        {
+          "label": "B",
+          "text": "$4/3$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$16/3$"
+        },
+        {
+          "label": "E",
+          "text": "$1/6$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "A zero-entry pool is 6 m long and 6 m wide, with a bottom that slopes uniformly from no depth at one side to a depth of 1 m at the opposite side. A cross section of the pool is sketched below. Assuming the pool is full, how much work is needed to pump all water out of the pool from its top?\n\n(Use $\\rho = 1000 \\,\\mathrm{kg/m^3}$ for the density of water, and $g = 10 \\,\\mathrm{m/s^2}$ for gravitational acceleration.)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "60,000 J"
+        },
+        {
+          "label": "B",
+          "text": "180,000 J"
+        },
+        {
+          "label": "C",
+          "text": "45,000 J"
+        },
+        {
+          "label": "D",
+          "text": "90,000 J"
+        },
+        {
+          "label": "E",
+          "text": "120,000 J"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/f2025-e1/q02.png"
+      ],
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Which one of the following integrals equals the arc length of the curve\n\n$$y = e^x - 1, \\quad 0 \\le x \\le 1 \\quad ?$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^1 \\sqrt{e^{2x} - 1}\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 \\sqrt{e^x + 1}\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 \\sqrt{e^{2x} + 1}\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 e^x - 1\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^1 \\sqrt{e^x - 1}\\,dx$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "A solid $S$ has a base that is the circle $x^2 + y^2 = 9$ in the $xy$-plane. Cross sections of the solid $S$ parallel to the $xz$-plane are squares. What is the volume of this solid?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$36$"
+        },
+        {
+          "label": "B",
+          "text": "$27\\pi^2$"
+        },
+        {
+          "label": "C",
+          "text": "$27\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$144$"
+        },
+        {
+          "label": "E",
+          "text": "$54\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "An inverted conical tank has height $h = 4$ m and base radius $r = 2$ m. The top half of the tank (in height) needs a paint job. What is the total area that is being painted?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\sqrt{5}\\pi \\,\\mathrm{m}^2$"
+        },
+        {
+          "label": "B",
+          "text": "$3\\sqrt{5}\\pi \\,\\mathrm{m}^2$"
+        },
+        {
+          "label": "C",
+          "text": "$6\\sqrt{5}\\pi \\,\\mathrm{m}^2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{5}\\pi \\,\\mathrm{m}^2$"
+        },
+        {
+          "label": "E",
+          "text": "$4\\sqrt{5}\\pi \\,\\mathrm{m}^2$"
+        }
+      ],
+      "answer": "B",
+      "figures": [
+        "figures/f2025-e1/q05.png"
+      ],
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the center $C$ and radius $r$ of the sphere\n\n$$x^2 + y^2 + z^2 + 2y - 4z = 4.$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Center $C = (0, -1, 2)$; radius $r = 3$"
+        },
+        {
+          "label": "B",
+          "text": "Center $C = (0, 1, -2)$; radius $r = 3$"
+        },
+        {
+          "label": "C",
+          "text": "Center $C = (1, 1, -2)$; radius $r = 2$"
+        },
+        {
+          "label": "D",
+          "text": "Center $C = (0, 2, -4)$; radius $r = 2$"
+        },
+        {
+          "label": "E",
+          "text": "Center $C = (0, -2, 4)$; radius $r = 2$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "If $\\square ABCD$ is an arbitrary quadrilateral, and if $E$, $F$, $G$, and $H$ are the midpoints of the sides $AB$, $BC$, $CD$, and $DA$, respectively, which of the following shape is $\\square EFGH$ guaranteed to be?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A square"
+        },
+        {
+          "label": "B",
+          "text": "A parallelogram"
+        },
+        {
+          "label": "C",
+          "text": "A trapezoid"
+        },
+        {
+          "label": "D",
+          "text": "A rhombus"
+        },
+        {
+          "label": "E",
+          "text": "A rectangle"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q08",
+      "number": 8,
+      "points": 12,
+      "stem": "If $\\vec{v}$ and $\\vec{w}$ are vectors in 3D, which of the following equations about $\\vec{v}$ and $\\vec{w}$ is/are guaranteed to hold?\n\n(i) $(\\vec{v} \\times \\vec{w}) \\cdot \\vec{v} = 0$\n\n(ii) $(\\vec{v} \\times \\vec{w}) + (\\vec{w} \\times \\vec{v}) = \\vec{0}$\n\n(iii) $(\\vec{v} \\times \\vec{w}) \\times \\vec{w} = \\vec{0}$\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 6,
+      "status": "transcribed"
+    },
+    {
+      "id": "f2025-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "If $S$ is the solid generated by taking the triangle with vertices at\n\n$$(0, 0), \\quad (0, 1), \\quad (1, 0),$$\n\nand rotating it about $y = 2$, what is the volume of $S$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi/3$"
+        },
+        {
+          "label": "B",
+          "text": "$4\\pi/3$"
+        },
+        {
+          "label": "C",
+          "text": "$8\\pi/3$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "E",
+          "text": "$5\\pi/3$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Compute the area of the parallelogram with vertices at\n\n$$(0, 0, 0), \\quad (1, 0, -1), \\quad (-1, 2, 0), \\quad \\text{and} \\quad (0, 2, -1).$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$5$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{10}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{5}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "If $\\vec{v}$ and $\\vec{w}$ are vectors that satisfy\n\n$$|\\vec{v}| = 2, \\quad |\\vec{w}| = \\sqrt{3}, \\quad \\text{and} \\quad |\\vec{v} + \\vec{w}| = 3,$$\n\nwhat is the value of $\\vec{v} \\cdot \\vec{w}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$-2$"
+        },
+        {
+          "label": "D",
+          "text": "$-1$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "A force of 40 N is holding a spring 0.1 m from its equilibrium position. How much work is needed to stretch the spring by an *additional* 0.2 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "8 J"
+        },
+        {
+          "label": "B",
+          "text": "18 J"
+        },
+        {
+          "label": "C",
+          "text": "16 J"
+        },
+        {
+          "label": "D",
+          "text": "6 J"
+        },
+        {
+          "label": "E",
+          "text": "2 J"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9",
+        "L10"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}
