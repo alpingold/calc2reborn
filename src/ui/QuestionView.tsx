@@ -1,0 +1,116 @@
+import { useCallback, useEffect, useRef } from 'react'
+import type { JSX } from 'react'
+import { Link } from 'react-router'
+import type { Choice, Question } from '../content/schema'
+import { useNow } from '../storage/context'
+import { Markdown } from './Markdown'
+
+export interface QuestionViewProps {
+  question: Question
+  mode: 'immediate' | 'deferred' // immediate: submit reveals feedback; deferred (exams): only records the choice
+  chosen?: Choice['label']
+  onChoose(label: Choice['label']): void
+  onSubmit?(label: Choice['label'], seconds: number): void
+  revealed?: boolean
+  lessonTitle?: string
+  lessonHref?: string
+}
+
+const KEY_TO_LABEL: Record<string, Choice['label']> = { a: 'A', b: 'B', c: 'C', d: 'D', e: 'E' }
+
+function isFormField(t: EventTarget | null): boolean {
+  const el = t as HTMLElement | null
+  return !!el && ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName)
+}
+
+export function QuestionView({
+  question,
+  mode,
+  chosen,
+  onChoose,
+  onSubmit,
+  revealed = false,
+  lessonTitle,
+  lessonHref,
+}: QuestionViewProps): JSX.Element {
+  const now = useNow()
+  const startedAt = useRef(0)
+
+  useEffect(() => {
+    startedAt.current = now().getTime()
+    // the timer restarts only when a different question appears
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [question.id])
+
+  const submit = useCallback(() => {
+    if (mode !== 'immediate' || !onSubmit || !chosen || revealed) return
+    const seconds = Math.max(0, Math.round((now().getTime() - startedAt.current) / 100) / 10)
+    onSubmit(chosen, seconds)
+  }, [mode, onSubmit, chosen, revealed, now])
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (isFormField(e.target) || revealed) return
+      if (e.ctrlKey || e.metaKey || e.altKey) return
+      if (e.key === 'Enter') {
+        // a focused link keeps its own Enter behavior
+        if ((e.target as HTMLElement | null)?.tagName === 'A') return
+        if (mode === 'immediate' && chosen) {
+          // keep a focused button from also activating on this Enter
+          e.preventDefault()
+          submit()
+        }
+        return
+      }
+      const label = KEY_TO_LABEL[e.key.toLowerCase()]
+      if (label && question.choices.some((c) => c.label === label)) onChoose(label)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [revealed, mode, chosen, submit, onChoose, question.choices])
+
+  const isCorrect = chosen === question.answer
+
+  function choiceAriaLabel(label: Choice['label']): string | undefined {
+    if (!revealed) return undefined
+    if (label === question.answer) return 'Correct answer'
+    if (label === chosen) return 'Your answer'
+    return undefined
+  }
+
+  return (
+    <article className="question">
+      <Markdown text={question.stem} />
+      {question.figures?.map((path) => (
+        <img key={path} src={'/' + path} alt={`Figure for question ${question.number}`} />
+      ))}
+      <div className="choices">
+        {question.choices.map((c) => (
+          <button
+            key={c.label}
+            type="button"
+            className="choice"
+            aria-pressed={chosen === c.label}
+            aria-label={choiceAriaLabel(c.label)}
+            disabled={revealed}
+            onClick={() => onChoose(c.label)}
+          >
+            <strong className="choice-label">{c.label}</strong> <Markdown text={c.text} />
+          </button>
+        ))}
+      </div>
+      {mode === 'immediate' && onSubmit && !revealed && (
+        <button type="button" disabled={!chosen} onClick={submit}>
+          Submit
+        </button>
+      )}
+      {revealed && (
+        <div className="feedback">
+          <p role="status">{isCorrect ? 'Correct' : 'Not quite'}</p>
+          {question.solution && <Markdown text={question.solution} />}
+          {lessonTitle && lessonHref && <Link to={lessonHref}>{lessonTitle}</Link>}
+        </div>
+      )}
+    </article>
+  )
+}
