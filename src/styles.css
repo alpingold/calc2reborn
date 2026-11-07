@@ -98,6 +98,17 @@ a {
   color: var(--muted);
 }
 
+/* a wide figure or form control must shrink to the column, never widen the page on a phone */
+.question img,
+.markdown img {
+  max-width: 100%;
+  height: auto;
+}
+
+select {
+  max-width: 100%;
+}
+
 .choices {
   display: flex;
   flex-direction: column;
@@ -118,6 +129,9 @@ a {
   line-height: inherit;
   text-align: left;
   cursor: pointer;
+  /* a formula wider than a phone scrolls inside its choice; the padding keeps tall math unclipped */
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .choice:hover:not(:disabled) {

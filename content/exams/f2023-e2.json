@@ -360,7 +360,7 @@
       "id": "f2023-e2-q11",
       "number": 11,
       "points": 8,
-      "stem": "Which of the following sequences converge?\n\n(i). $\\left\\{\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{8}, \\cdots, \\frac{1}{2^n}, \\cdots\\right\\}$\n\n(ii). $\\left\\{\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{4}, \\cdots, \\frac{n}{n+1}, \\cdots\\right\\}$\n\n(iii). $\\left\\{\\frac{1}{2}, -\\frac{2}{3}, \\frac{3}{4}, \\cdots, \\frac{(-1)^{n+1}n}{n+1}, \\cdots\\right\\}$\n\n(iv). $\\{\\sin(\\pi), \\sin(2\\pi), \\sin(3\\pi), \\cdots, \\sin(n\\pi), \\cdots\\}$\n\n(v). $\\{\\cos(\\pi), \\cos(2\\pi), \\cos(3\\pi), \\cdots, \\cos(n\\pi), \\cdots\\}$",
+      "stem": "Which of the following sequences converge?\n\n(i). $\\left\\{\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{8}, \\cdots, \\frac{1}{2^n}, \\cdots\\right\\}$\n\n(ii). $\\left\\{\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{4}, \\cdots, \\frac{n}{n+1}, \\cdots\\right\\}$\n\n(iii). $\\left\\{\\frac{1}{2}, -\\frac{2}{3}, \\frac{3}{4}, \\cdots, \\frac{(-1)^{n+1}n}{n+1}, \\cdots\\right\\}$\n\n(iv). $\\{\\sin(\\pi), \\allowbreak \\sin(2\\pi), \\allowbreak \\sin(3\\pi), \\allowbreak \\cdots, \\allowbreak \\sin(n\\pi), \\allowbreak \\cdots\\}$\n\n(v). $\\{\\cos(\\pi), \\allowbreak \\cos(2\\pi), \\allowbreak \\cos(3\\pi), \\allowbreak \\cdots, \\allowbreak \\cos(n\\pi), \\allowbreak \\cdots\\}$",
       "choices": [
         {
           "label": "A",
