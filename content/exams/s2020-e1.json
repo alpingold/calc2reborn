@@ -1,0 +1,421 @@
+{
+  "id": "s2020-e1",
+  "term": "Spring",
+  "year": 2020,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2020.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2020.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2020-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "A sphere is described by the equation $2x^2 + 2y^2 + 2z^2 = 8x - 12y + 2$. What is the radius of the sphere?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{18}$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{14}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{28}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Find the value(s) of $x$ such that the vector $\\langle x, -\\frac{x}{2} \\rangle$ is a unit vector.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = \\frac{4}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$x = \\pm\\sqrt{\\frac{2}{3}}$"
+        },
+        {
+          "label": "C",
+          "text": "$x = 2$"
+        },
+        {
+          "label": "D",
+          "text": "$x = \\pm\\frac{2}{\\sqrt{3}}$"
+        },
+        {
+          "label": "E",
+          "text": "$x = \\pm\\frac{2}{\\sqrt{5}}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Let $\\mathbf{u}$ and $\\mathbf{v}$ be given three dimensional vectors. How many of the following expressions are always mathematically valid?\n\nI. $|\\mathbf{v}| \\ge 0$\n\nII. $|\\mathbf{u} + \\mathbf{v}| = |\\mathbf{u}| + |\\mathbf{v}|$\n\nIII. $\\mathbf{u} \\times \\mathbf{v} = -(\\mathbf{v} \\times \\mathbf{u})$\n\nIV. $\\mathbf{u} \\cdot \\mathbf{v} = \\mathbf{v} \\cdot \\mathbf{u}$\n\nV. $\\mathbf{u} \\cdot \\mathbf{v} = |\\mathbf{u}||\\mathbf{v}| \\sin\\theta$ where $\\theta$ is the angle between the vectors",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L1",
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Determine the cross product $\\mathbf{u} \\times \\mathbf{v}$ for the given vectors $\\mathbf{u} = \\langle 2, 1, 0 \\rangle$ and $\\mathbf{v} = \\langle 1, 0, 1 \\rangle$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle -1, -2, -1 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle -1, 2, 1 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle 1, -2, -1 \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\langle 1, 2, -1 \\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 1, 2, 1 \\rangle$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Calculate the work done by pulling a sled 2 meters horizontally with a constant force of 5 Newtons at an angle $30^o$ to the horizon.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5\\sqrt{3}$ joules"
+        },
+        {
+          "label": "B",
+          "text": "$5\\sqrt{2}$ joules"
+        },
+        {
+          "label": "C",
+          "text": "$5$ joules"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7}{2}\\sqrt{3}$ joules"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{7}{2}\\sqrt{2}$ joules"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the value of $x$ such that the vectors $\\langle 1, x, 0 \\rangle$ and $\\langle 2, -1, 2 \\rangle$ are orthogonal.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = 1$"
+        },
+        {
+          "label": "B",
+          "text": "$x = 2$"
+        },
+        {
+          "label": "C",
+          "text": "$x = 2\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$x = -2\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$x = -2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the area of the region enclosed by $x = y^2$ and $x = 8 - y^2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8/3$"
+        },
+        {
+          "label": "B",
+          "text": "$64/3$"
+        },
+        {
+          "label": "C",
+          "text": "$32/3$"
+        },
+        {
+          "label": "D",
+          "text": "$16/3$"
+        },
+        {
+          "label": "E",
+          "text": "$4/3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the volume of the solid whose base is the region bounded by $y = x^2$, the $x$-axis and $x = 2$ and whose cross-sections taken perpendicular to the $x$-axis are squares.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$16/5$"
+        },
+        {
+          "label": "B",
+          "text": "$8/3$"
+        },
+        {
+          "label": "C",
+          "text": "$32/5$"
+        },
+        {
+          "label": "D",
+          "text": "$4/3$"
+        },
+        {
+          "label": "E",
+          "text": "$2/3$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the volume of the solid obtained by rotating the region bounded by $x = 0$, $y = 0$, $y = 1/2$ and $y = \\ln(x)$ about the $y$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{2}(e^2 - 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{2}(e - 1)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{8}(e - 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{4}(e^2 - 1)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{8}(e^2 - 1)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Find the surface area of the surface obtained by rotating $y = x^3$, $0 \\le x \\le 1$ about the $x$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{27}(10^{(3/2)} - 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{9}(10^{(3/2)} - 1)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{18}(10^{(3/2)} - 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{54}(10^{(3/2)} - 1)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{3}(10^{(3/2)} - 1)$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the volume of the solid obtained by rotating the region bounded by $y = x^2$ and $y = x$ about the line $x = 3$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^1 2\\pi(1 - x)^2(x - x^2)\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 2\\pi(3 - x)(x - x^2)\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 2\\pi(1 - x)(x - x^2)^2\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 2\\pi(1 - x)^2(x - x^2)^2\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^1 2\\pi(3 - x)^2(x - x^2)\\,dx$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "If the work needed to stretch a spring 2 feet beyond its natural length is 8 ft-lb, how much work is needed to stretch the spring 6 inches beyond its natural length?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{4}$ ft-lb"
+        },
+        {
+          "label": "B",
+          "text": "$2$ ft-lb"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3}{2}$ ft-lb"
+        },
+        {
+          "label": "D",
+          "text": "$1$ ft-lb"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}$ ft-lb"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
