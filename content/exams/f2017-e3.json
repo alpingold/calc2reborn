@@ -1,0 +1,426 @@
+{
+  "id": "f2017-e3",
+  "term": "Fall",
+  "year": 2017,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2017.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2017.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2017-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "$$\nI.\\ \\sum_{n=1}^{\\infty} \\frac{3^n}{n^4}; \\quad II.\\ \\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{1}{\\ln^2(n + 1)}; \\quad III.\\ \\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{\\sqrt{n}}{n + 1}.\n$$\n\nWhich of the following statement is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Only II is convergent"
+        },
+        {
+          "label": "B",
+          "text": "II and III are convergent"
+        },
+        {
+          "label": "C",
+          "text": "All three are divergent"
+        },
+        {
+          "label": "D",
+          "text": "I and II are convergent"
+        },
+        {
+          "label": "E",
+          "text": "All three are convergent"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L22",
+        "L24"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Which of the following statement is false?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=1}^{\\infty} r^n$ diverges for all $|r| \\ge 1$."
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{1}{\\sqrt{n}}$ is absolutely convergent."
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{2^n}{n^p}$ diverges for all $p > 1$."
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{1}{n^p + n}$ is convergent for all $p > 1$."
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{n^2}{r^n}$ converges for all $r > 1$."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L21",
+        "L22",
+        "L23",
+        "L24",
+        "L25"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The length of the curve\n\n$$\nx = t^4/2, \\quad y = (1 + t^5)/5, \\quad 0 \\le t \\le 1\n$$\n\nis given by",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^1 \\sqrt{\\frac{t^8}{4} + \\frac{(1 + t^5)^2}{25}}\\, dt$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 \\sqrt{\\frac{t^4(1 + t^5)}{10}}\\, dt$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 t^3\\sqrt{4 + t^2}\\, dt$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 t^2\\sqrt{4 - t^2}\\, dt$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^1 \\sqrt{\\frac{t^4}{2} + \\frac{1 + t^5}{5}}\\, dt$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The first three terms of the binomial series for $f(x) = (1 + 2x)^{-1/4}$ are",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 - \\frac{1}{4}x + \\frac{5}{32}x^2$"
+        },
+        {
+          "label": "B",
+          "text": "$1 - \\frac{1}{2}x + \\frac{5}{8}x^2$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - \\frac{1}{5}x + \\frac{5}{9}x^2$"
+        },
+        {
+          "label": "D",
+          "text": "$1 - \\frac{1}{3}x + \\frac{5}{9}x^2$"
+        },
+        {
+          "label": "E",
+          "text": "$1 - \\frac{1}{2}x + \\frac{3}{25}x^2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the radius and interval of convergence of the power series\n\n$$\n\\sum_{n=1}^{\\infty} (-1)^{n-1}\\frac{1}{n}(x + 2)^n.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "radius of convergence: $1$; interval of convergence: $(-3,-1)$"
+        },
+        {
+          "label": "B",
+          "text": "radius of convergence: $1$; interval of convergence: $(-3,-1]$"
+        },
+        {
+          "label": "C",
+          "text": "radius of convergence: $1$; interval of convergence: $[-3,-1)$"
+        },
+        {
+          "label": "D",
+          "text": "radius of convergence: $\\infty$; interval of convergence: $(-\\infty, \\infty)$"
+        },
+        {
+          "label": "E",
+          "text": "radius of convergence: $2$; interval of convergence: $(-4,0)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the power series for $\\frac{x}{3 + x}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n 3^{-n-1} x^{n+1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} 3^{-n} x^n$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} 3^{-n-1} x^n$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n 3^{-n+1} x^{n+1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n 3^{-n} x^{n+1}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "The Maclaurin series of $\\frac{x}{\\sqrt{1 - x^2}}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{2 \\cdot 4 \\cdots (2k)}{2^k k!} x^{2k}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{1 \\cdot 3 \\cdots (2k - 1)}{2^k k!} x^{2k+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1 \\cdot 3 \\cdots (2k - 1)}{k!} x^{2k-1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1 \\cdot 3 \\cdots (2k - 1)}{k!} x^{2k}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^{k+1} \\frac{1 \\cdot 3 \\cdots (2k + 1)}{2^{k+1} k!} x^{2k}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Consider $S = \\sum_{m=1}^{\\infty} (-1)^{m-1} \\frac{1}{m^3}$ and its partial sums $S_n$. Which of the following is true?\n\n$$\n|S - S_n| \\le 8 \\times 10^{-6} \\quad \\text{if} \\quad I.\\ n = 49; \\quad II.\\ n = 51; \\quad III.\\ n = 99.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Only I"
+        },
+        {
+          "label": "B",
+          "text": "Only II"
+        },
+        {
+          "label": "C",
+          "text": "Only II and III"
+        },
+        {
+          "label": "D",
+          "text": "I, II and III"
+        },
+        {
+          "label": "E",
+          "text": "Only III"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "In the power series for $\\frac{1}{x^2}$ about $-1$, what is the coefficient of $(x + 1)^4$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The equation of the tangent drawn to the curve\n\n$$\nx = t\\cos t, \\quad y = t^2 \\sin 2t\n$$\n\ncorresponding to $t = \\pi$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$y = \\pi x$"
+        },
+        {
+          "label": "B",
+          "text": "$y = \\pi^2 x + 2\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$y = -2x + \\pi^2$"
+        },
+        {
+          "label": "D",
+          "text": "$y = 2(x + \\pi)$"
+        },
+        {
+          "label": "E",
+          "text": "$y = -2\\pi^2(x + \\pi)$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Which of the following series converge?\n\n$$\nI.\\ \\sum_{k=1}^{\\infty}(-1)^{k-1}\\sin k; \\quad II.\\ \\sum_{k=1}^{\\infty}(-1)^{k-1}\\frac{1}{\\sqrt{k} + 1}; \\quad III.\\ \\sum_{k=1}^{\\infty}\\frac{\\cos k}{k^2 + 1}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All three"
+        },
+        {
+          "label": "B",
+          "text": "I and II"
+        },
+        {
+          "label": "C",
+          "text": "Only III"
+        },
+        {
+          "label": "D",
+          "text": "None"
+        },
+        {
+          "label": "E",
+          "text": "II and III"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L22",
+        "L23",
+        "L24"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "The Maclaurin series of $x\\cos x + \\sin 2x$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n \\frac{2n + 1 + 2^{2n+1}}{(2n + 1)!} x^{2n+1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n \\frac{2n + 2^{2n}}{(2n)!} x^{2n}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^n \\frac{n + 2^n}{(n)!} x^n$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{n + 2^n}{(n)!} x^n$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{2n + 2^{2n+1}}{(2n + 1)!} x^{2n+2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
