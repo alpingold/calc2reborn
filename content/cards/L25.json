@@ -22,7 +22,7 @@
     "id": "L25-c03",
     "lessonId": "L25",
     "front": "State the Root Test.",
-    "back": "Let $L = \\lim_{k\\to\\infty} \\sqrt[k]{|a_k|}$. If $L < 1$ the series converges absolutely; if $L > 1$ it diverges; if $L = 1$ it is inconclusive. Use it when the whole term is a $k$th power.",
+    "back": "Let $L = \\lim_{k\\to\\infty} \\sqrt[k]{|a_k|}$. If $L < 1$ the series converges absolutely; if $L > 1$ it diverges; if $L = 1$ it is inconclusive. It works well when $k$ appears in an exponent, especially when the whole term is a $k$th power.",
     "tags": [
       "root-test"
     ]
