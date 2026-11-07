@@ -4,7 +4,9 @@ import { afterEach } from 'vitest'
 import { cleanup, configure, getConfig } from '@testing-library/react'
 import { unstable_NormalPriority, unstable_scheduleCallback } from 'scheduler'
 
-// Scheduler runs equal-priority tasks in order, so this resolves after everything React has already queued.
+// Scheduler runs equal-priority tasks in order, so this resolves after the tasks already queued at normal
+// priority or higher, which include React's renders and passive effects. It does not wait for
+// lower-priority tasks or for tasks spawned later. setup.test.tsx checks this is the copy React uses.
 function schedulerTasksRun(): Promise<void> {
   return new Promise((resolve) => {
     unstable_scheduleCallback(unstable_NormalPriority, resolve)

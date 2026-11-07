@@ -26,6 +26,12 @@ test('a one-line $$...$$ renders inline, which is why content must fence display
   expect(container.querySelector('.katex-display')).toBeNull()
 })
 
+test('an escaped dollar renders as a literal dollar beside real math', () => {
+  const { container } = render(<Markdown text={'costs \\$5 and $x^2$ here'} />)
+  expect(container.textContent).toContain('costs $5 and')
+  expect(container.querySelectorAll('.katex')).toHaveLength(1)
+})
+
 test('renders bold as strong', () => {
   const { container } = render(<Markdown text="**bold**" />)
   expect(container.querySelector('strong')?.textContent).toBe('bold')

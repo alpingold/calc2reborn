@@ -1,19 +1,51 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import katex from 'katex'
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, test } from 'vitest'
+import { Markdown } from '../ui/Markdown'
 import { loadContent } from './index'
 import { CHOICE_LABELS } from './schema'
 
-/** Extract `$$...$$` first, then `$...$` (single line, non-greedy). */
+/**
+ * Extract math the way remark-math pairs dollars. `\$` is a literal dollar only outside math. Inside
+ * `$...$` the next `$` always closes, so `$\$5$` is the fragment `\`, which fails KaTeX as it does on the
+ * page. Display fragments come first, then inline ones.
+ */
 export function extractMath(text: string): { fragment: string; displayMode: boolean }[] {
-  const out: { fragment: string; displayMode: boolean }[] = []
-  const rest = text.replace(/\$\$([\s\S]+?)\$\$/g, (_m, f: string) => {
-    out.push({ fragment: f, displayMode: true })
-    return ' '
-  })
-  for (const m of rest.matchAll(/\$([^$\n]+?)\$/g)) out.push({ fragment: m[1], displayMode: false })
-  return out
+  const display: { fragment: string; displayMode: boolean }[] = []
+  const inline: { fragment: string; displayMode: boolean }[] = []
+  let i = 0
+  while (i < text.length) {
+    if (text[i] === '\\') {
+      i += 2
+    } else if (text.startsWith('$$', i)) {
+      const end = text.indexOf('$$', i + 2)
+      if (end === -1) break // an unclosed fence is reported by checkDisplayMathFences
+      if (end > i + 2) display.push({ fragment: text.slice(i + 2, end), displayMode: true })
+      i = end + 2
+    } else if (text[i] === '$') {
+      const close = closingDollar(text, i)
+      if (close === -1) {
+        i += 1 // an unpaired dollar is reported by checkDollarPairs
+      } else {
+        inline.push({ fragment: text.slice(i + 1, close), displayMode: false })
+        i = close + 1
+      }
+    } else {
+      i += 1
+    }
+  }
+  return [...display, ...inline]
+}
+
+/** Index of the `$` closing the inline math opened at `open`, or -1 if none on the same line. */
+function closingDollar(text: string, open: number): number {
+  for (let j = open + 1; j < text.length && text[j] !== '\n'; j++) {
+    if (text[j] === '$') return j
+  }
+  return -1
 }
 
 /** Render every math fragment; throws with the owning id and fragment on failure. */
@@ -34,6 +66,32 @@ export function checkDisplayMathFences(ownerId: string, text: string): void {
   if (bad !== undefined) throw new Error(`Display math in ${ownerId} is not fenced: ${JSON.stringify(bad)}`)
   if (lines.filter((line) => line.includes('$$')).length % 2 !== 0) {
     throw new Error(`Display math in ${ownerId} has an unclosed $$ fence`)
+  }
+}
+
+/**
+ * Fail on dollars that cannot pair as intended: an odd count of unescaped `$` on a line, or a pair with
+ * a space just inside it, as in `$5 and $10`, whose even count would otherwise pass as the math `5 and `.
+ * Write a dollar amount as `\$5`.
+ */
+export function checkDollarPairs(ownerId: string, text: string): void {
+  for (const line of text.split('\n')) {
+    let misPaired = false
+    let i = 0
+    while (i < line.length) {
+      if (line[i] === '\\') {
+        i += 2
+      } else if (line[i] === '$') {
+        const close = closingDollar(line, i)
+        if (close === -1) throw new Error(`Odd number of unescaped $ in ${ownerId}: ${JSON.stringify(line)}`)
+        const fragment = line.slice(i + 1, close)
+        if (fragment !== '' && fragment.trim() !== fragment) misPaired = true
+        i = close + 1
+      } else {
+        i += 1
+      }
+    }
+    if (misPaired) throw new Error(`Mis-paired $ in ${ownerId}: ${JSON.stringify(line)}`)
   }
 }
 
@@ -105,6 +163,10 @@ describe('content validation', () => {
     for (const [id, text] of markdownStrings()) checkMath(id, text)
   })
 
+  test('all dollars pair up on each line', () => {
+    for (const [id, text] of markdownStrings()) checkDollarPairs(id, text)
+  })
+
   test('all display math is fenced on its own lines', () => {
     for (const [id, text] of markdownStrings()) checkDisplayMathFences(id, text)
   })
@@ -135,6 +197,48 @@ describe('checkMath', () => {
   test('a broken multi-line $$ block fails and names the owner', () => {
     expect(() => checkMath('L1.keyIdeas', 'before\n\n$$\n\\frac{1}{\n$$\n\nafter')).toThrow(/KaTeX failed in L1\.keyIdeas/)
     expect(() => checkMath('L2.keyIdeas', '$$\n\\notacommand{x}\n$$')).toThrow(/KaTeX failed in L2\.keyIdeas/)
+  })
+})
+
+describe('escaped and unpaired dollars', () => {
+  test('a dollar amount written with \$ is text, and later math still pairs', () => {
+    expect(extractMath('costs \\$5 and $x^2$ here')).toEqual([{ fragment: 'x^2', displayMode: false }])
+    expect(extractMath('costs \\$5 and \\$10')).toEqual([])
+  })
+  test('an escaped backslash does not escape the dollar after it', () => {
+    expect(extractMath('\\\\$x$ end')).toEqual([{ fragment: 'x', displayMode: false }])
+  })
+  test('inside math the next $ closes, even after a backslash, so KaTeX rejects it', () => {
+    expect(extractMath('$\\$5$ today')[0]).toEqual({ fragment: '\\', displayMode: false })
+    expect(() => checkMath('Q5.stem', '$\\$5$ today')).toThrow(/KaTeX failed in Q5\.stem/)
+  })
+  test.each([
+    'costs \\$5 and $x^2$ here',
+    'costs \\$5 and \\$10',
+    '\\\\$x$ end',
+    '$a \\\\$ end',
+    '$x$ and $y$',
+    '$x$ and \\$y',
+  ])('extraction agrees with the rendered page: %s', (text) => {
+    const html = renderToStaticMarkup(createElement(Markdown, { text }))
+    const rendered = [...html.matchAll(/<annotation[^>]*>([\s\S]*?)<\/annotation>/g)].map((m) => m[1])
+    expect(extractMath(text).map((m) => m.fragment)).toEqual(rendered)
+  })
+  test('rejects an odd count of unescaped $ and names the owner', () => {
+    expect(() => checkDollarPairs('Q6.stem', 'costs $5 and $x^2$ here')).toThrow(/Odd number.*Q6\.stem/)
+    expect(() => checkDollarPairs('Q7.stem', 'Let $\\frac{1}{2} be')).toThrow(/Odd number.*Q7\.stem/)
+    expect(() => checkDollarPairs('Q8.stem', '$\\$5$ today')).toThrow(/Odd number.*Q8\.stem/)
+  })
+  test('counts each line separately', () => {
+    expect(() => checkDollarPairs('Q9.stem', 'first $x\nsecond y$')).toThrow(/Odd number.*Q9\.stem/)
+  })
+  test('rejects an even count that pairs across text', () => {
+    expect(() => checkDollarPairs('Q10.stem', 'costs $5 and $10')).toThrow(/Mis-paired.*Q10\.stem/)
+  })
+  test('accepts escaped dollars, paired math, and display fences', () => {
+    expect(() => checkDollarPairs('x', 'costs \\$5 and \\$10')).not.toThrow()
+    expect(() => checkDollarPairs('x', 'costs \\$5 and $x^2$ here\n\n$$\n\\frac{1}{2}\n$$\n')).not.toThrow()
+    expect(() => checkDollarPairs('x', '$a \\\\$ then $b$')).not.toThrow()
   })
 })
 

@@ -1,7 +1,10 @@
+import { realpathSync } from 'node:fs'
+import { createRequire } from 'node:module'
+import path from 'node:path'
 import { afterEach, expect, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { useEffect, useState } from 'react'
-import { unstable_NormalPriority, unstable_scheduleCallback } from 'scheduler'
+import { useEffect, useLayoutEffect, useState } from 'react'
+import { unstable_ImmediatePriority, unstable_NormalPriority, unstable_scheduleCallback } from 'scheduler'
 
 function spin(ms: number) {
   const end = performance.now() + ms
@@ -63,4 +66,40 @@ test('a test can end with Scheduler tasks still queued', () => {
 
 test('afterEach waits for queued Scheduler tasks, so none can outlive jsdom', () => {
   expect(tasksRun).toBe(QUEUED_TASKS)
+})
+
+// The waits in setup.ts mean nothing if they use a different copy of scheduler from React's. package.json
+// pins an exact version while react-dom declares a range, so a React upgrade can split them silently.
+test('setup.ts resolves the same scheduler package as react-dom', () => {
+  const fromSetup = createRequire(path.resolve('src/test/setup.ts'))
+  // resolved first so the lookup starts from react-dom's real folder, not the node_modules symlink
+  const fromReactDom = createRequire(fromSetup.resolve('react-dom/package.json'))
+  expect(realpathSync(fromSetup.resolve('scheduler'))).toBe(realpathSync(fromReactDom.resolve('scheduler')))
+})
+
+// Catches a split that package resolution cannot see, such as a bundler alias. In one queue an immediate
+// task runs ahead of React's waiting render. With two copies, each runs in the order it was posted.
+test('the scheduler imported here is the queue React renders from', async () => {
+  const order: string[] = []
+  let turnOn = () => {}
+  function Probe() {
+    const [on, setOn] = useState(false)
+    turnOn = () => setOn(true)
+    useLayoutEffect(() => {
+      if (on) order.push('render')
+    }, [on])
+    return <p>{on ? 'on' : 'off'}</p>
+  }
+  render(<Probe />)
+  const env = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }
+  env.IS_REACT_ACT_ENVIRONMENT = false
+  try {
+    turnOn()
+    await Promise.resolve() // React hands the render to its Scheduler in a microtask
+    unstable_scheduleCallback(unstable_ImmediatePriority, () => order.push('immediate'))
+    await screen.findByText('on')
+  } finally {
+    env.IS_REACT_ACT_ENVIRONMENT = true
+  }
+  expect(order).toEqual(['immediate', 'render'])
 })
