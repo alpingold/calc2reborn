@@ -67,7 +67,7 @@
     "id": "L32-c07",
     "lessonId": "L32",
     "front": "How many terms give $\\int_0^{0.1} e^{-x^2}\\,dx$ to within $10^{-8}$?",
-    "back": "Three. The term $\\frac{(0.1)^5}{5 \\cdot 2!} = 10^{-6}$ is too big to drop, and the next one, $\\frac{(0.1)^7}{7 \\cdot 3!} \\approx 2.38 \\times 10^{-9}$, is below $10^{-8}$. The sum is $0.1 - \\frac{(0.1)^3}{3} + 10^{-6} \\approx 0.09966767$. Chen's page 7 prints $0.099068$, an arithmetic slip.",
+    "back": "Three. The term $\\frac{(0.1)^5}{5 \\cdot 2!} = 10^{-6}$ is too big to drop, and the next one, $\\frac{(0.1)^7}{7 \\cdot 3!} \\approx 2.38 \\times 10^{-9}$, is below $10^{-8}$. The sum is $0.1 - \\frac{(0.1)^3}{3} + 10^{-6} \\approx 0.09966767$, which rounds to $0.099668$. Chen's page 7 prints $0.099068$, a one-digit slip.",
     "tags": [
       "trap",
       "integrals",
@@ -78,8 +78,8 @@
   {
     "id": "L32-c08",
     "lessonId": "L32",
-    "front": "Alternating Series bound or Taylor's Remainder bound: when do you use which?",
-    "back": "Use the alternating bound, $|\\text{error}| \\le |\\text{first term thrown out}|$, when the series alternates with magnitudes nonincreasing to $0$ from that term on. Otherwise use $|R_k(x)| \\le \\frac{M}{(k+1)!}|x-a|^{k+1}$, with $|f^{(k+1)}(t)| \\le M$ for all $t$ between $a$ and $x$.",
+    "front": "When can you use the Alternating Series bound, and when Taylor's Remainder bound?",
+    "back": "The alternating bound, $|\\text{error}| \\le |\\text{first term thrown out}|$, applies when the series alternates with magnitudes nonincreasing to $0$ from that term on; when it applies, it is usually easier. Taylor's bound, $|R_k(x)| \\le \\frac{M}{(k+1)!}|x-a|^{k+1}$ with $|f^{(k+1)}(t)| \\le M$ for all $t$ between $a$ and $x$, is an option whether or not the series alternates. Chen lists both for the same alternating example.",
     "tags": [
       "trap",
       "error-bound",

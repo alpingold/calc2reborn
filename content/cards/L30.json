@@ -89,7 +89,7 @@
     "id": "L30-c09",
     "lessonId": "L30",
     "front": "Find the power series for $\\ln\\sqrt{16-x^2}$.",
-    "back": "Differentiate to get $-x \\cdot \\frac{1}{16-x^2} = -\\frac{x}{16}\\sum_{k=0}^{\\infty} \\frac{x^{2k}}{4^{2k}}$, integrate, and use $C = \\ln 4$. The result is $\\ln 4 - \\sum_{k=1}^{\\infty} \\frac{x^{2k}}{2k \\cdot 4^{2k}}$ for $|x| < 4$.",
+    "back": "Differentiate to get $-x \\cdot \\frac{1}{16-x^2} = -\\frac{x}{16}\\sum_{k=0}^{\\infty} \\frac{x^{2k}}{4^{2k}}$, integrate, and use $C = \\ln 4$. The result is $\\ln 4 - \\sum_{k=1}^{\\infty} \\frac{x^{2k}}{2k \\cdot 4^{2k}}$ for $|x| < 4$. At $x = \\pm 4$ it is $\\ln 4 - \\sum_{k=1}^{\\infty} \\frac{1}{2k}$, which diverges.",
     "tags": [
       "term-by-term",
       "compute"
