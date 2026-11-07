@@ -1,0 +1,422 @@
+{
+  "id": "s2023-e1",
+  "term": "Spring",
+  "year": 2023,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2023.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2023.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2023-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "For what value of $a$ is the vector $\\vec{\\mathbf{v}} = \\langle 5, 8, 3 \\rangle$ orthogonal to the vector $\\vec{\\mathbf{w}} = \\langle a, -3, 7 \\rangle$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$9$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{9}{5}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{9}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{5}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Find a formula for the volume of the following solid: The region bounded by $y = \\sin(x)$, the $x$-axis, $x = 0$ and $x = \\frac{\\pi}{2}$, is revolved around the line $x = -1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} 2\\pi(x-1)\\sin(x)dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 \\pi\\left\\{[\\sin^{-1}(y)]^2 - 1\\right\\} dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 \\pi[\\sin^{-1}(y) - 1]^2 dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} 2\\pi(x+1)\\sin(x)dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\frac{\\pi}{2}} 2\\pi x\\sin(x+1)dx$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "A pump handle has a pivot at $(0, 0, 0)$ and extends to $P(5, 0, -5)$. A force $\\vec{\\mathbf{F}} = \\langle 0, 1, -10 \\rangle$ is applied at $P$. Find the torque about the pivot.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$50$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle 0, -55, 0 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$5\\sqrt{102}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\langle 0, 5, -50 \\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 5, 50, 5 \\rangle$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The point $(-2, 0, 4)$ lies on a sphere centered at $(1, 2, 3)$. What is the radius of the sphere?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{14}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{54}$"
+        },
+        {
+          "label": "C",
+          "text": "$14$"
+        },
+        {
+          "label": "D",
+          "text": "$54$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{20}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "A force of 60 N is holding a spring 0.3 m from its equilibrium position. How much work is needed to stretch the spring an **additional** 0.2 m, so that it is 0.5 m from equilibrium?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9 N·m"
+        },
+        {
+          "label": "B",
+          "text": "4 N·m"
+        },
+        {
+          "label": "C",
+          "text": "16 N·m"
+        },
+        {
+          "label": "D",
+          "text": "2 N·m"
+        },
+        {
+          "label": "E",
+          "text": "25 N·m"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "A swimming pool has a rectangular base that is 5 m long and 6 m wide. The sides are 2 m high and the pool is half full of water. How much work will it take to empty the pool by pumping the water out over the top of the pool? Write your answer in terms of the gravitational acceleration constant $g$ and the density of water $\\rho$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$75\\rho g$ N·m"
+        },
+        {
+          "label": "B",
+          "text": "$90\\rho g$ N·m"
+        },
+        {
+          "label": "C",
+          "text": "$60\\rho g$ N·m"
+        },
+        {
+          "label": "D",
+          "text": "$30\\rho g$ N·m"
+        },
+        {
+          "label": "E",
+          "text": "$45\\rho g$ N·m"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the area of the region bounded by the curves $y = 2x$ and $y = 2x^2 - 2x$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{32}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{16}{3}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Let $R$ be the region bounded by the curves $y = x^{1/4}$ and $y = x$ between $x = 0$ and $x = 1$. Find the volume of the solid when $R$ is revolved around the x-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Let $\\vec{\\mathbf{u}} = \\langle 10, 5 \\rangle$ and $\\vec{\\mathbf{v}} = \\langle 2, 6 \\rangle$. Find $\\text{proj}_{\\vec{\\mathbf{v}}}(\\vec{\\mathbf{u}})$, the orthogonal projection of $\\vec{\\mathbf{u}}$ onto $\\vec{\\mathbf{v}}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle 4, 2 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle \\frac{1}{2}, \\frac{3}{2} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle 5\\sqrt{10}, 15\\sqrt{10} \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle \\frac{5}{2}, \\frac{15}{2} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 20\\sqrt{5}, 10\\sqrt{5} \\rangle$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Find the area of the surface generated when the curve $y = \\sqrt{6x - x^2}$ on the interval $[1, 2]$ is revolved around the x-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$12\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$6\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$18\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\pi$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Define the points $P(-3, 1)$ and $Q(1, -2)$. Which of the following vectors is parallel to $\\overrightarrow{PQ}$ and has magnitude 2?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left\\langle \\frac{4}{\\sqrt{13}}, \\frac{6}{\\sqrt{13}} \\right\\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle -\\frac{4}{\\sqrt{5}}, -\\frac{2}{\\sqrt{5}} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left\\langle \\frac{8}{5}, -\\frac{6}{5} \\right\\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle \\frac{4}{5}, -\\frac{3}{5} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle -\\frac{2}{\\sqrt{5}}, -\\frac{1}{\\sqrt{5}} \\right\\rangle$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Find the volume of the solid whose base is the disk $x^2 + y^2 \\le 4$. The cross sections by planes perpendicular to the $x$-axis between $x = -2$ and $x = 2$ are isosceles right triangles with one leg in the disk. (Hint: an isosceles right triangle has legs of equal length)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{64}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{20}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{32}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{8}{3}$"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/s2023-e1/q12.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
