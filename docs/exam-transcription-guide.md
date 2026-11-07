@@ -30,7 +30,7 @@ Many exams have several test versions, marked "TEST NUMBER 01" or "VERSION 01" o
 - `answer` comes from the key. Solve at least the quick questions yourself. If your answer disagrees with the key, keep the key's letter and report the disagreement.
 - `lessonIds`: one or more, chosen by reading the question against the lesson titles, not by keywords. Tag the skill the question tests. See below.
 - `sourcePage` is the number of the PNG the question appears on.
-- `solution`: fill in from the solutions PDF when one exists, as Markdown with LaTeX. If the solutions PDF only marks the answer and shows no working for a question, leave `solution` out for that question. You may add a final arithmetic step the working stops short of, and put a sketch's information (which curve is on top, a shell's radius) into words. If the handwriting has a slip that its own next line corrects, write the corrected step and note it in your report. Do not invent solutions otherwise.
+- `solution`: fill in from the solutions PDF when one exists, as Markdown with LaTeX. If the solutions PDF only marks the answer and shows no working for a question, leave `solution` out for that question. You may add a final arithmetic step the working stops short of, and put a sketch's information (which curve is on top, a shell's radius) into words. If the handwriting has a slip that its own next line corrects, write the corrected step and note it in your report. A slip that the stem or the line before plainly corrects is written corrected the same way. If the handwriting has a wrong step that no line corrects, replace it with the shortest correct step that reaches the same conclusion, and report it. Do not invent solutions otherwise.
 - `status`: `transcribed` first. Set `reviewed` only after a genuine second pass comparing every stem and choice with the page image. Report which questions got the second pass.
 
 ## Known exceptions
@@ -124,6 +124,7 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - Conic sections (ellipse, hyperbola, parabola, foci): tag L2 and report it.
 - Complex numbers, including exponential form $re^{i\theta}$: tag L33 and report it.
 - Multiplying two Maclaurin series: L32.
+- A statement that a series and its tail from some $k=N$ converge or diverge together: L21.
 - Average value of a function: no lesson teaches it; tag the lesson of the integration technique it needs and report it. If it needs no technique (a polynomial), tag L5.
 - A Taylor coefficient of a function about $a\ne0$: L31.
 - Partial fractions with an irreducible quadratic factor alongside linear or repeated linear factors: L17 only. A question that mentions long division but asks only for a linear-factor coefficient: L16 only.
@@ -137,7 +138,7 @@ Series of an integral: tag by the model series, and do not tag both.
 - Integrating an integrand built from the Maclaurin table (sin, cos, $e^x$, arctan, ln), often after cancelling terms or dividing by a power of $x$: L32.
 - Differentiating or integrating the geometric series to reach a closed form such as $\frac{1}{(1-x)^2}$ or a log, or asking how endpoints change: L30.
 - Differentiating a given or tabled non-geometric series, with or without a substitution (such as $\sec^2(x^3)$ from the series for $\tan x$): L32.
-- Building a Maclaurin series by substituting into, multiplying by a power of $x$, or adding series from the table, with no differentiation or integration (such as $x\cos x-\sin 3x$): L31.
+- Building a Maclaurin series by substituting into, multiplying or dividing by a power of $x$, or adding or subtracting series or terms from the table, with no differentiation or integration (such as $x\cos x-\sin 3x$ or $\frac{\sin x^2-x^2}{x^6}$): L31.
 - Building a power series from the geometric series by factoring the denominator to start with 1, substituting, and multiplying by a power of $x$, with no differentiation or integration (such as $\frac{x}{2+3x}$): L30.
 
 `keyIdeas` is empty for L1 to L18 and L33 to L35, so settle splits by reading the lesson's `notesUrl` page with base64 images stripped.
