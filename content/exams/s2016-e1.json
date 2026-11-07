@@ -1,0 +1,422 @@
+{
+  "id": "s2016-e1",
+  "term": "Spring",
+  "year": 2016,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2016.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2016.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2016-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Let $S_1$ by the sphere $x^2 + y^2 + z^2 + 4x - 6y - 2z = -5$ and let $S_2$ be the sphere $x^2 + y^2 + z^2 + 4x - 2y + 4z = -8$. Find the distance between the centers of the spheres.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{17}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{14}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{10}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{13}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{5}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "A man is walking on the deck of a ship in the North-East direction at a speed of 2 km/h. The ship is moving East at a speed of 4 km/h. Find the speed, in km/h, of the man relative to the surface of the water.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{16 + 8\\sqrt{2}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{20 + 4\\sqrt{2}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{20 + 8\\sqrt{2}}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{18 + 4\\sqrt{2}}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{24 + 8\\sqrt{2}}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the angle $\\theta$ between $\\vec{a} =< -4, -1, 1 >$ and $\\vec{b} =< 2, 2, 1 >$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3\\pi}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2\\pi}{3}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Let $\\vec{a} =< 2, -1, 1 >$ and $\\vec{b} =< 4, 1, -1 >$. If $\\text{proj}_{\\vec{b}}\\vec{a} = c\\vec{b}$, what is c?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{9}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "If $\\vec{a} =< 2, -1, 4 >$ and $\\vec{b} =< 2, 2, 1 >$, find the $\\vec{j}$-component of $\\vec{a} \\times \\vec{b}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$6$"
+        },
+        {
+          "label": "B",
+          "text": "$-6$"
+        },
+        {
+          "label": "C",
+          "text": "$9$"
+        },
+        {
+          "label": "D",
+          "text": "$-9$"
+        },
+        {
+          "label": "E",
+          "text": "$-2$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the area of the region enclosed by $y = 8x^2$ and $y = 3 + 5x^2$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$5$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "The region enclosed by the curves $x = y$ and $x = y^2$ is rotated about the $x$-axis. If the Disk/Washer method is used, which of the following integrals would represent the volume of the resulting solid?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi\\int_0^1 (x - x^2)\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi\\int_0^1 (\\sqrt{x} - x)^2\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi\\int_0^1 (y^4 - y^2)\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi\\int_0^1 (y^2 - y^3)\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi\\int_0^1 (y^3 - y^2)\\,dy$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "A certain rectangular pyramid has a height of 4 ft. Cross-sections at $x$ ft below the tip are rectangles whose length is $x$ ft and whose width is $\\frac{1}{2}x$ ft (see figure). Find the volume of this pyramid.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{16}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{32}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{64}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$32$"
+        },
+        {
+          "label": "E",
+          "text": "$64$"
+        }
+      ],
+      "answer": "B",
+      "figures": [
+        "figures/s2016-e1/q08.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Use the method of cylindrical shells to find the volume of the solid obtained by rotating about the $y$-axis the region bounded by $y = x^3 + x$, $y = 0$, and $x = 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{16\\pi}{15}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{17\\pi}{15}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{19\\pi}{15}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{22\\pi}{15}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{23\\pi}{15}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "An aquarium 2 feet long, 2 feet wide and 2 feet deep is half full of water. Find the work needed to pump the water out of the aquarium. Use the fact that water weighs 62.5 pounds per cubic foot.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "437.5 foot-pounds"
+        },
+        {
+          "label": "B",
+          "text": "375 foot-pounds"
+        },
+        {
+          "label": "C",
+          "text": "312.5 foot-pounds"
+        },
+        {
+          "label": "D",
+          "text": "250 foot-pounds"
+        },
+        {
+          "label": "E",
+          "text": "187.5 foot-pounds"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the integral: $\\int_0^{\\pi/2} x^2\\cos x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi^2}{4} - 1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi^2}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi^2}{4} + 1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi^2}{4} + 2$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi^2}{4} - 2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Find the integral: $\\int_1^e x^{-1/2}\\ln x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\sqrt{e} + 4$"
+        },
+        {
+          "label": "B",
+          "text": "$4$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{e} + 4$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\sqrt{e} + 4$"
+        },
+        {
+          "label": "E",
+          "text": "$-2\\sqrt{e} + 4$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}

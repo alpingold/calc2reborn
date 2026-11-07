@@ -30,5 +30,6 @@
   { "figure": "figures/f2018-final/q21.png", "examId": "f2018-final", "page": 12, "x": 255, "y": 240, "w": 710, "h": 320 },
   { "figure": "figures/s2018-final/q19.png", "examId": "s2018-final", "page": 12, "x": 476, "y": 196, "w": 306, "h": 302 },
   { "figure": "figures/s2017-e1/q01.png", "examId": "s2017-e1", "page": 2, "x": 510, "y": 130, "w": 272, "h": 296 },
-  { "figure": "figures/f2017-final/q12.png", "examId": "f2017-final", "page": 7, "x": 185, "y": 798, "w": 915, "h": 505 }
+  { "figure": "figures/f2017-final/q12.png", "examId": "f2017-final", "page": 7, "x": 185, "y": 798, "w": 915, "h": 505 },
+  { "figure": "figures/s2016-e1/q08.png", "examId": "s2016-e1", "page": 6, "x": 645, "y": 955, "w": 480, "h": 270 }
 ]
