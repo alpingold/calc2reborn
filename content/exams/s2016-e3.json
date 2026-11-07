@@ -1,0 +1,419 @@
+{
+  "id": "s2016-e3",
+  "term": "Spring",
+  "year": 2016,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2016.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2016.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2016-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find the sum of $\\sum_{n=0}^{\\infty}\\frac{2^n + (-1)^{n+1}}{3^n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{9}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{7}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9}{4}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Which statements are true about $\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{2n^2 - 1}}$?\n\nI. Using $\\sum_{n=1}^{\\infty} b_n = \\sum_{n=1}^{\\infty}\\frac{1}{2n}$, the Limit Comparison Test implies the series converges.\n\nII. Using $\\sum_{n=1}^{\\infty} b_n = \\sum_{n=1}^{\\infty}\\frac{1}{2n}$, the Limit Comparison Test implies the series diverges.\n\nIII. Using $\\sum_{n=1}^{\\infty} b_n = \\sum_{n=1}^{\\infty}\\frac{1}{2n}$, the (ordinary) Comparison Test implies the series converges.\n\nIV. Using $\\sum_{n=1}^{\\infty} b_n = \\sum_{n=1}^{\\infty}\\frac{1}{2n}$, the (ordinary) Comparison Test implies the series diverges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and III"
+        },
+        {
+          "label": "B",
+          "text": "II and IV"
+        },
+        {
+          "label": "C",
+          "text": "IV only"
+        },
+        {
+          "label": "D",
+          "text": "III only"
+        },
+        {
+          "label": "E",
+          "text": "II only"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Which of the following series converge?\n\n$$\n\\text{I. } \\sum_{n=2}^{\\infty}\\frac{1}{n^2(\\ln n)} \\qquad \\text{II. } \\sum_{n=1}^{\\infty}\\frac{\\cos^2 n}{n^2 + 1} \\qquad \\text{III. } \\sum_{n=1}^{\\infty}\\frac{(\\ln n)^2}{n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "II only"
+        },
+        {
+          "label": "B",
+          "text": "I only"
+        },
+        {
+          "label": "C",
+          "text": "I and II"
+        },
+        {
+          "label": "D",
+          "text": "II and III"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Which of the following series converge?\n\n$$\n\\text{I. } \\sum_{n=1}^{\\infty}\\frac{2^n + 1}{3^n + 1} \\qquad \\text{II. } \\sum_{n=1}^{\\infty}\\frac{1}{(\\sqrt{n} + 1)^2} \\qquad \\text{III. } \\sum_{n=1}^{\\infty}\\frac{e^{1/n}}{n^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "I and III"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "What does the Alternating Series Estimation Theorem predict about how many terms of the series $\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n^2}$ you need to add to find the sum with an error of no more than 0.01?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "7 terms"
+        },
+        {
+          "label": "B",
+          "text": "8 terms"
+        },
+        {
+          "label": "C",
+          "text": "9 terms"
+        },
+        {
+          "label": "D",
+          "text": "10 terms"
+        },
+        {
+          "label": "E",
+          "text": "11 terms"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "For which of these series does the ratio test show convergence?\n\n$$\n\\text{I. } \\sum_{n=1}^{\\infty}\\frac{e^{n^2}}{n!} \\qquad \\text{II. } \\sum_{n=1}^{\\infty}\\frac{1}{n^2 + 1} \\qquad \\text{III. } \\sum_{n=1}^{\\infty}\\frac{10^n}{n^{10}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "None of them"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Which of these series converge conditionally?\n\n$$\n\\text{I. } \\sum_{n=1}^{\\infty}(-1)^n\\frac{n^2}{2^n} \\qquad \\text{II. } \\sum_{n=1}^{\\infty}(-1)^n\\frac{1}{(3n + 1)^2} \\qquad \\text{III. } \\sum_{n=1}^{\\infty}(-1)^n n\\sin\\left(\\frac{1}{n}\\right)\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "None of them"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the radius of convergence.\n\n$$\n\\sum_{n=1}^{\\infty}\\frac{n^2(x - 3)^n}{(n + 1)2^n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$\\infty$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the coefficient of the $x^3$ term in the power series representation of $f(x) = \\frac{x}{9 + x}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{9^3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{-1}{9^3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{9^4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{-1}{9^4}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The Maclaurin series of $f(x)$ is $\\sum_{n=1}^{\\infty}\\frac{1}{2n - 1}x^{2n-1}$. Find the fifth derivative of $f(x)$ at $x = 0$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3!$"
+        },
+        {
+          "label": "B",
+          "text": "$4!$"
+        },
+        {
+          "label": "C",
+          "text": "$5!$"
+        },
+        {
+          "label": "D",
+          "text": "$6!$"
+        },
+        {
+          "label": "E",
+          "text": "$7!$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Use the fact that $e^x = \\sum_{n=0}^{\\infty}\\frac{x^n}{n!}$ to find the Maclaurin series of $\\int \\frac{e^x - 1}{x}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$C + \\sum_{n=1}^{\\infty}\\frac{x^n}{n \\cdot n!}$"
+        },
+        {
+          "label": "B",
+          "text": "$C + \\sum_{n=1}^{\\infty}\\frac{x^{n+1}}{(n + 1)(n + 1)!}$"
+        },
+        {
+          "label": "C",
+          "text": "$C + \\sum_{n=1}^{\\infty}\\frac{x^{n+1}}{n!}$"
+        },
+        {
+          "label": "D",
+          "text": "$C + \\sum_{n=1}^{\\infty}\\frac{x^{n+1}}{(n + 1)n!}$"
+        },
+        {
+          "label": "E",
+          "text": "$C + \\sum_{n=1}^{\\infty}\\frac{x^n}{n(n + 1)!}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "The binomial series is\n\n$$\n(1 + x)^k = \\sum_{n=0}^{\\infty}\\binom{k}{n}x^n = 1 + kx + \\frac{k(k - 1)}{2!}x^2 + \\frac{k(k - 1)(k - 2)}{3!}x^3 + \\ldots.\n$$\n\nWhat is the Maclaurin series of $f(x) = \\frac{1}{(1 + x)^3}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty}\\frac{(-1)^n(n + 1)n}{2}x^n$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty}\\frac{(-1)^n(n + 2)(n + 1)}{2}x^{n+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty}\\frac{(-1)^n(n + 1)n}{2}x^{n+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=1}^{\\infty}\\frac{(-1)^n(n + 2)(n + 1)}{2}x^{n-1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty}\\frac{(-1)^n(n + 2)(n + 1)}{2}x^n$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}
