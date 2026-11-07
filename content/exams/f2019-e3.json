@@ -1,0 +1,420 @@
+{
+  "id": "f2019-e3",
+  "term": "Fall",
+  "year": 2019,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2019.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2019-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Determine if the geometric series converges. If it converges, find its sum.\n\n$$\n1 + 1/5 + (1/5)^2 + (1/5)^3 + \\cdots\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Converges to $7/4$."
+        },
+        {
+          "label": "B",
+          "text": "Converges to $2$."
+        },
+        {
+          "label": "C",
+          "text": "Converges to $5/4$."
+        },
+        {
+          "label": "D",
+          "text": "Converges to $9/4$."
+        },
+        {
+          "label": "E",
+          "text": "Diverges."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Determine if the telescoping series converges. If it converges, find its sum.\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{2}{(n + 1)(n + 3)}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Converges to $3/2$."
+        },
+        {
+          "label": "B",
+          "text": "Converges to $5/12$."
+        },
+        {
+          "label": "C",
+          "text": "Converges to $5/6$."
+        },
+        {
+          "label": "D",
+          "text": "Converges to $5/2$."
+        },
+        {
+          "label": "E",
+          "text": "Diverges."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Which statement is true for the series $\\sum_{m=1}^{\\infty} \\frac{2^{-m}}{\\cos(m) + 2}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Diverges by comparison test with $\\sum_{m=1}^{\\infty} \\frac{1}{\\cos(m) + 2}$."
+        },
+        {
+          "label": "B",
+          "text": "Diverges by comparison test with $\\sum_{m=1}^{\\infty} 2^{-m}$."
+        },
+        {
+          "label": "C",
+          "text": "Converges by comparison test with $\\sum_{m=1}^{\\infty} \\frac{1}{\\cos(m) + 2}$."
+        },
+        {
+          "label": "D",
+          "text": "The comparison test is not applicable."
+        },
+        {
+          "label": "E",
+          "text": "Converges by comparison test with $\\sum_{m=1}^{\\infty} 2^{-m}$."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Which of the following series converge?\n\n$$\nI.\\ \\sum_{k=1}^{\\infty} \\frac{1}{2k - 1}; \\quad II.\\ \\sum_{k=1}^{\\infty} (-1)^{k-1} \\frac{1}{\\sqrt{k} + 1}; \\quad III.\\ \\sum_{k=1}^{\\infty} \\frac{1}{k^2 + 1}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All three"
+        },
+        {
+          "label": "B",
+          "text": "I and II"
+        },
+        {
+          "label": "C",
+          "text": "Only III"
+        },
+        {
+          "label": "D",
+          "text": "II and III"
+        },
+        {
+          "label": "E",
+          "text": "None"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Consider $S = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n^7}$ and its partial sum $S_n$. What is the smallest number $n$ such that $|S - S_n|$ is guaranteed by the Alternating Series Estimation Theorem to be **less than or equal to** $6^{-7}$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4$"
+        },
+        {
+          "label": "B",
+          "text": "$5$"
+        },
+        {
+          "label": "C",
+          "text": "$6$"
+        },
+        {
+          "label": "D",
+          "text": "$7$"
+        },
+        {
+          "label": "E",
+          "text": "$8$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Which of the following statements is FALSE?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{n^3}{r^n}$ converges for all $|r| > 1$."
+        },
+        {
+          "label": "B",
+          "text": "If $0 \\le a_n \\le b_n$ and $\\sum_{n=1}^{\\infty} a_n$ is convergent, then $\\sum_{n=1}^{\\infty} b_n$ is also convergent."
+        },
+        {
+          "label": "C",
+          "text": "If $0 \\le a_n \\le b_n$ and $\\sum_{n=1}^{\\infty} a_n$ is divergent, then $\\sum_{n=1}^{\\infty} b_n$ is also divergent."
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{1}{n^p + n}$ is convergent for all $p > 1$."
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=1}^{\\infty} r^n$ diverges for all $|r| \\ge 1$."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23",
+        "L26"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "For which of the following series is the Ratio Test inconclusive?\n\nI. $\\sum_{n=101}^{\\infty} \\frac{n}{e^{n+1}}$\n\nII. $\\sum_{n=1}^{\\infty} \\frac{(-1)^n \\sin(9n)}{n^2}$\n\nIII. $\\sum_{n=1}^{\\infty} \\frac{13^n}{2^{n^2}}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "II and III only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "All of them"
+        },
+        {
+          "label": "E",
+          "text": "None of them"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "For which values of $c$ is $\\sum_{n=1}^{\\infty} \\left(1 + \\frac{c^2}{n}\\right)^n$ convergent?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All values of $c$."
+        },
+        {
+          "label": "B",
+          "text": "$|c| < 1$."
+        },
+        {
+          "label": "C",
+          "text": "$|c| < 2$."
+        },
+        {
+          "label": "D",
+          "text": "$|c| > 2$."
+        },
+        {
+          "label": "E",
+          "text": "No values of $c$."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Use a second-order Taylor Polynomial for $f(x) = \\cos^2 x$ centered at $x = a = 0$ to estimate $f\\left(\\frac{\\pi}{6}\\right)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 - \\frac{\\pi^2}{36}$"
+        },
+        {
+          "label": "B",
+          "text": "$1 - \\frac{\\pi^2}{18}$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - \\frac{\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{4}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "A second-order Taylor Polynomial for $f(x) = \\frac{1}{x}$ centered at $x = a = 1$ is used to estimate the value of $\\frac{1}{1.1}$. What is its remainder? In the answers below, $c$ is some number between 1 and 1.1.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{-(0.1)^3}{c^4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{(0.1)^2}{c^3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{(1.1)^3}{c^4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{(0.1)^3}{c^3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{-(1.1)^3}{c^4}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L28"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the radius of convergence.\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{n^2(x - 2)^n}{(n + 1)3^n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$\\infty$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Find the interval of convergence of $\\sum_{n=1}^{\\infty} \\frac{(-1)^n x^n}{n + 4}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$[-1, 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$[-1, 1]$"
+        },
+        {
+          "label": "C",
+          "text": "$(-1, 1]$"
+        },
+        {
+          "label": "D",
+          "text": "$(-1, 1)$"
+        },
+        {
+          "label": "E",
+          "text": "Converges everywhere"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
