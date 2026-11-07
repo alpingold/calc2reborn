@@ -70,9 +70,10 @@ export function checkDisplayMathFences(ownerId: string, text: string): void {
 }
 
 /**
- * Fail on dollars that cannot pair as intended: an odd count of unescaped `$` on a line, or a pair with
- * a space just inside it, as in `$5 and $10`, whose even count would otherwise pass as the math `5 and `.
- * Write a dollar amount as `\$5`.
+ * Fail on dollars that cannot pair as intended: an odd count of unescaped `$` on a line, a pair with a
+ * space just inside it, as in `$5 and $10`, or a closing `$` right before a digit, as in `$5+$10`. Those
+ * last two have an even count and would otherwise pass as the math `5 and ` or `5+`. Write a dollar amount
+ * as `\$5`.
  */
 export function checkDollarPairs(ownerId: string, text: string): void {
   for (const line of text.split('\n')) {
@@ -86,6 +87,7 @@ export function checkDollarPairs(ownerId: string, text: string): void {
         if (close === -1) throw new Error(`Odd number of unescaped $ in ${ownerId}: ${JSON.stringify(line)}`)
         const fragment = line.slice(i + 1, close)
         if (fragment !== '' && fragment.trim() !== fragment) misPaired = true
+        if (/\d/.test(line[close + 1] ?? '')) misPaired = true
         i = close + 1
       } else {
         i += 1
@@ -234,6 +236,13 @@ describe('escaped and unpaired dollars', () => {
   })
   test('rejects an even count that pairs across text', () => {
     expect(() => checkDollarPairs('Q10.stem', 'costs $5 and $10')).toThrow(/Mis-paired.*Q10\.stem/)
+  })
+  test.each(['$5+$10', '$5-$10', '$5/$10', '$5,$10'])('rejects a closing $ right before a digit: %s', (line) => {
+    expect(() => checkDollarPairs('Q11.stem', `costs ${line} total`)).toThrow(/Mis-paired.*Q11\.stem/)
+  })
+  test('accepts a digit after a closing $ once anything separates them', () => {
+    expect(() => checkDollarPairs('x', 'then $x$ 2 and $y$, 3')).not.toThrow()
+    expect(() => checkDollarPairs('x', '$x^2$ and $2$')).not.toThrow()
   })
   test('accepts escaped dollars, paired math, and display fences', () => {
     expect(() => checkDollarPairs('x', 'costs \\$5 and \\$10')).not.toThrow()

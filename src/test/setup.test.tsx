@@ -92,14 +92,17 @@ test('the scheduler imported here is the queue React renders from', async () => 
   }
   render(<Probe />)
   const env = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }
+  const priorActEnvironment = env.IS_REACT_ACT_ENVIRONMENT
   env.IS_REACT_ACT_ENVIRONMENT = false
   try {
     turnOn()
-    await Promise.resolve() // React hands the render to its Scheduler in a microtask
+    // React hands the render to its Scheduler in a microtask, and our task must be posted after that for
+    // two copies to show up. Scheduler only runs on a macrotask, so extra ticks cannot change one queue's order.
+    for (let tick = 0; tick < 20; tick++) await Promise.resolve()
     unstable_scheduleCallback(unstable_ImmediatePriority, () => order.push('immediate'))
     await screen.findByText('on')
   } finally {
-    env.IS_REACT_ACT_ENVIRONMENT = true
+    env.IS_REACT_ACT_ENVIRONMENT = priorActEnvironment
   }
   expect(order).toEqual(['immediate', 'render'])
 })
