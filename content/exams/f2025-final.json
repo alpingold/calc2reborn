@@ -1,0 +1,896 @@
+{
+  "id": "f2025-final",
+  "term": "Fall",
+  "year": 2025,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2025.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2025.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "f2025-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find the area of the region enclosed by the polar curve\n\n$$\nr = 2 + \\cos(2\\theta), \\text{ where } 0 \\le \\theta \\le 2\\pi.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$6\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$9\\pi/2$"
+        },
+        {
+          "label": "C",
+          "text": "$5\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$9\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$5\\pi/2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "A function $f(x)$ is defined by\n\n$$\nf(x) = \\int_0^x \\frac{\\sin(t)}{t}\\,dt.\n$$\n\nWhich of the following is a power series representation of $f(x)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k)!}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+2}}{(2k+2)!}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k+1)!}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)(2k+1)!}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q03",
+      "number": 3,
+      "points": 9,
+      "stem": "The following are three attempts at evaluating the integral\n\n$$\n\\int \\sin(x)\\cos(x)\\,dx\n$$\n\nAttempt (i):\n\nSet\n\n$$\nu = \\sin(x), \\quad dv = \\cos(x)\\,dx; \\quad \\text{thus} \\quad du = \\cos(x)\\,dx, \\quad v = \\sin(x).\n$$\n\nThen we have\n\n$$\n\\int \\sin(x)\\cos(x)\\,dx = uv - \\int v\\,du = \\sin(x)^2 - \\int \\sin(x)\\cos(x)\\,dx.\n$$\n\nFrom here, we can algebraically solve for the integral, and we obtain\n\n$$\n\\int \\sin(x)\\cos(x)\\,dx = \\frac{\\sin(x)^2}{2} + C.\n$$\n\nAttempt (ii):\n\nSet\n\n$$\nu = \\cos(x), \\quad \\text{then} \\quad du = -\\sin(x)\\,dx,\n$$\n\nand so\n\n$$\n\\int \\sin(x)\\cos(x)\\,dx = -\\int u\\,du = -\\frac{u^2}{2} + C = -\\frac{\\cos(x)^2}{2} + C.\n$$\n\nAttempt (iii):\n\nBy the double angle formula $\\sin(2x) = 2\\sin(x)\\cos(x)$, we can rewrite the integral\n\n$$\n\\int \\sin(x)\\cos(x)\\,dx = \\frac{1}{2}\\int \\sin(2x)\\,dx = \\frac{1}{2} \\cdot \\frac{-\\cos(2x)}{2} + C = -\\frac{\\cos(2x)}{4} + C.\n$$\n\nWhich of these attempts is/are correct?\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "H",
+      "lessonIds": [
+        "L11",
+        "L12"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\sum_{n=0}^{\\infty} \\frac{n+1}{3^n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$9/4$"
+        },
+        {
+          "label": "B",
+          "text": "$3/2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln(3/2)$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "The series is divergent."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Given vectors\n\n$$\n\\vec{v} = \\langle 1, -1, 0 \\rangle \\quad \\text{and} \\quad \\vec{w} = \\langle -2, 1, 2 \\rangle.\n$$\n\nCompute $\\mathsf{proj}_{\\vec{v}}(\\vec{w})$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle -3, 3, 0 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle -\\frac{3}{\\sqrt{2}}, \\frac{3}{\\sqrt{2}}, 0 \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left\\langle \\frac{2}{3}, -\\frac{1}{3}, -\\frac{2}{3} \\right\\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle \\frac{2}{9}, -\\frac{1}{9}, -\\frac{2}{9} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle -\\frac{3}{2}, \\frac{3}{2}, 0 \\right\\rangle$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "The face of a dam is in the shape of a trapezoid, which has a 20 m wide base, a 40 m wide top, and a height of 20 m. When the water level is even with the top, which one of the following integrals computes the total hydrostatic force on the face of the dam?\n\nNote: Use $\\rho$ kg/m$^3$ for the density of water, and $g$ m/s$^2$ for gravitational acceleration.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{20} \\rho g(20 + y)y\\,dy$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^{20} \\rho g(40 - y)(20 + y)\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^{40} \\rho g(20 + y)y\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{20} \\rho g(40 - y)y\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{40} \\rho g(40 - y)y\\,dy$"
+        }
+      ],
+      "answer": "D",
+      "figures": [
+        "figures/f2025-final/q06.png"
+      ],
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 2n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1/2$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$3/2$"
+        },
+        {
+          "label": "D",
+          "text": "$3/4$"
+        },
+        {
+          "label": "E",
+          "text": "The series is divergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Which of the following statements is correct about the polar curve\n\n$$\nr = \\sin(\\theta)\\cos(\\theta)\\tan(\\theta) \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The curve is symmetric about both the $x$-axis and the $y$-axis, but not about the origin."
+        },
+        {
+          "label": "B",
+          "text": "The curve is symmetric about the $x$-axis only."
+        },
+        {
+          "label": "C",
+          "text": "The curve is symmetric about the $x$-axis, the $y$-axis, and the origin."
+        },
+        {
+          "label": "D",
+          "text": "The curve is symmetric about both the origin and the $y$-axis, but not about the $x$-axis."
+        },
+        {
+          "label": "E",
+          "text": "The curve is symmetric about the $y$-axis only."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q09",
+      "number": 9,
+      "points": 9,
+      "stem": "Given two arbitrary sequences $\\{a_n\\}_{n=1}^{\\infty}$ and $\\{b_n\\}_{n=1}^{\\infty}$, determine which of the following three statements is/are always TRUE.\n\n(i) If $\\{a_n\\}_{n=1}^{\\infty}$ is convergent, then $\\sum_{n=1}^{\\infty} a_n$ is convergent.\n\n(ii) If $\\{a_n\\}_{n=1}^{\\infty}$ and $\\{b_n\\}_{n=1}^{\\infty}$ are both convergent, then $\\{a_n/b_n\\}_{n=1}^{\\infty}$ is convergent.\n\n(iii) If $\\{a_n\\}_{n=1}^{\\infty}$ is convergent, then $\\{|a_n|\\}_{n=1}^{\\infty}$ is convergent.\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L19",
+        "L20"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The power series\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{(x-1)^k}{2^k(k+1)}\n$$\n\nhas radius of convergence $R = 2$. What is its interval of convergence?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(-2, 2]$"
+        },
+        {
+          "label": "B",
+          "text": "$(-2, 2)$"
+        },
+        {
+          "label": "C",
+          "text": "$(-1, 3)$"
+        },
+        {
+          "label": "D",
+          "text": "$[-1, 3]$"
+        },
+        {
+          "label": "E",
+          "text": "$[-1, 3)$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\infty} \\frac{1}{x^2 + 6x + 9}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-1/3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "D",
+          "text": "$1/3$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "What is the Maclaurin series of the function\n\n$$\nf(x) = \\frac{x^3 \\sin(2x)}{2} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-4)^k\\, x^{2k+3}}{(2k)!}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-4)^k\\, x^{2k+4}}{(2k+1)!}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k\\, x^{2k+4}}{(2k+1)!}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{-4^k\\, x^{2k+4}}{(2k+1)!}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k\\, x^{2k+3}}{(2k)!}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\pi/4} \\frac{\\sec(x)^2}{\\sqrt{\\tan(x)}}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{\\pi}$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L13",
+        "L18"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q14",
+      "number": 14,
+      "points": 12,
+      "stem": "Determine which of the following three series is/are convergent.\n\n(i) $\\sum_{n=2}^{\\infty} \\frac{\\sin(n)}{n^2 + n}$\n\n(ii) $\\sum_{n=3}^{\\infty} \\sqrt{\\frac{n^3}{n^5 - n}}$\n\n(iii) $\\sum_{n=1}^{\\infty} \\frac{1}{\\arctan(n)}$\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q15",
+      "number": 15,
+      "points": 9,
+      "stem": "Which of the following pairs of polar coordinates and Cartesian coordinates describe the same point in the plane?\n\n(i) Polar coordinates $(\\sqrt{2}, 5\\pi/4)$; Cartesian coordinates $(-1, -1)$.\n\n(ii) Polar coordinates $(-5, 3\\pi)$; Cartesian coordinates $(5, 0)$.\n\n(iii) Polar coordinates $(4, -\\pi/3)$; Cartesian coordinates $(2, -2\\sqrt{3})$.\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "H",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Given that\n\n$$\n\\frac{x-2}{x^3 - 4x + 1} = \\frac{A}{x - r_1} + \\frac{B}{x - r_2} + \\frac{C}{x - r_3},\n$$\n\nwhere $r_1$, $r_2$, and $r_3$ are three distinct real roots of the polynomial $x^3 - 4x + 1$. What is the value of $A + B + C$?\n\nHint: Do not try to find the values of $r_1$, $r_2$, and $r_3$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$-2$"
+        },
+        {
+          "label": "E",
+          "text": "$-1$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q17",
+      "number": 17,
+      "points": 9,
+      "stem": "Which of the following polar equations describe a straight line?\n\n(i) $r = \\sin(\\theta)$.\n\n(ii) $r = \\cos(\\theta) - \\sin(\\theta)$.\n\n(iii) $r = \\sec(\\theta)$.\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "Consider the following four points\n\n$$\nA = (-2, 8), \\quad B = (1, 4), \\quad C = (3, -4), \\quad \\text{and} \\quad D = (-9, 5).\n$$\n\nSuppose that we have two circle:\n\n- The first circle is centered at point $A$, with point $B$ on the first circle;\n- The second circle is centered at point $C$, with point $D$ on the second circle.\n\nWhich one of the following statements about these two circles is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The circles intersect at two points."
+        },
+        {
+          "label": "B",
+          "text": "The circles are disjoint, and one is enclosed inside of the other."
+        },
+        {
+          "label": "C",
+          "text": "The circles are tangent, and they are outside of each other."
+        },
+        {
+          "label": "D",
+          "text": "The circles are tangent, and one is enclosed inside of the other."
+        },
+        {
+          "label": "E",
+          "text": "The circles are disjoint, and they are outside of each other."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "What is the radius of convergence $R$ of the power series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{k!\\, x^{k+4}}{(3k)^k} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$R = 3e$"
+        },
+        {
+          "label": "B",
+          "text": "$R = \\frac{1}{3e}$"
+        },
+        {
+          "label": "C",
+          "text": "$R = \\frac{1}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$R = 3$"
+        },
+        {
+          "label": "E",
+          "text": "$R = \\frac{3}{e}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "Find the arc length of the polar curve\n\n$$\nr = e^{\\theta}, \\text{ where } 0 \\le \\theta \\le 1.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$e - 1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{2}(e - 1)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{2}e$"
+        },
+        {
+          "label": "D",
+          "text": "$2(e - 1)$"
+        },
+        {
+          "label": "E",
+          "text": "$e^2 - 1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "Which of the following conclusion is correct if the root test is applied to the series\n\n$$\n\\sum_{n=3}^{\\infty} \\left(\\frac{2}{n} - 1\\right)^{n^2} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The series is divergent because $\\rho = e^2$."
+        },
+        {
+          "label": "B",
+          "text": "The series is absolutely convergent because $\\rho = 0$."
+        },
+        {
+          "label": "C",
+          "text": "The series is divergent because $\\rho = \\infty$."
+        },
+        {
+          "label": "D",
+          "text": "The series is absolutely convergent because $\\rho = e^{-2}$."
+        },
+        {
+          "label": "E",
+          "text": "The root test is inconclusive because $\\rho = 1$."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "A function $f(x)$ is defined by the power series\n\n$$\nf(x) = \\sum_{k=0}^{\\infty} \\frac{x^{2k}}{k^3 - 4}.\n$$\n\nWhat is its fourth-derivative $f^{(4)}(0)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1/60$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$1/4$"
+        },
+        {
+          "label": "D",
+          "text": "$2/5$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "A function $f(x)$ is defined by the power series\n\n$$\nf(x) = \\sum_{k=1}^{\\infty} \\frac{x^{2k}}{(2k)!}.\n$$\n\nEvaluate\n\n$$\n\\lim_{x \\to 0} \\frac{f(2x)}{f(x)}.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "The limit does not exist."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "A hemispherical dome has height $h = 2$ m. The top half of the dome (in height) needs a paint job. What is the total area that is being painted?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4\\pi$ m$^2$"
+        },
+        {
+          "label": "B",
+          "text": "$4\\sqrt{3}\\pi$ m$^2$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\sqrt{3}\\pi$ m$^2$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi$ m$^2$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{3}\\pi$ m$^2$"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/f2025-final/q24.png"
+      ],
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    }
+  ]
+}

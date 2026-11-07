@@ -2,6 +2,8 @@
   { "figure": "figures/f2025-e1/q02.png", "examId": "f2025-e1", "page": 3, "x": 755, "y": 933, "w": 380, "h": 212 },
   { "figure": "figures/f2025-e1/q05.png", "examId": "f2025-e1", "page": 5, "x": 770, "y": 185, "w": 360, "h": 265 },
   { "figure": "figures/f2025-e2/q04.png", "examId": "f2025-e2", "page": 5, "x": 148, "y": 259, "w": 292, "h": 748 },
+  { "figure": "figures/f2025-final/q06.png", "examId": "f2025-final", "page": 6, "x": 765, "y": 238, "w": 358, "h": 235 },
+  { "figure": "figures/f2025-final/q24.png", "examId": "f2025-final", "page": 15, "x": 752, "y": 958, "w": 365, "h": 195 },
   { "figure": "figures/s2024-e1/q08.png", "examId": "s2024-e1", "page": 5, "x": 855, "y": 830, "w": 263, "h": 362 },
   { "figure": "figures/s2024-e1/q12.png", "examId": "s2024-e1", "page": 7, "x": 885, "y": 1003, "w": 235, "h": 218 },
   { "figure": "figures/s2024-e2/q02.png", "examId": "s2024-e2", "page": 2, "x": 710, "y": 918, "w": 405, "h": 372 }
