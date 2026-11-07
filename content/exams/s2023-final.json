@@ -1,0 +1,894 @@
+{
+  "id": "s2023-final",
+  "term": "Spring",
+  "year": 2023,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2023.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "s2023-final-q01",
+      "number": 1,
+      "points": 4,
+      "stem": "Describe the following two series:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{k\\sqrt{k}} \\qquad \\text{and} \\qquad \\sum_{k=1}^{\\infty} \\frac{\\cos(k)}{k^3}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "One series converges absolutely and one series converges conditionally."
+        },
+        {
+          "label": "B",
+          "text": "One series converges absolutely and one series diverges."
+        },
+        {
+          "label": "C",
+          "text": "One series converges conditionally and one series diverges."
+        },
+        {
+          "label": "D",
+          "text": "Both series converge conditionally."
+        },
+        {
+          "label": "E",
+          "text": "Both series converge absolutely."
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24",
+        "L23"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q02",
+      "number": 2,
+      "points": 4,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\frac{\\pi}{2}} x\\cos(x)dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3\\pi}{2} - 1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{2} - 1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3\\pi}{2}$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q03",
+      "number": 3,
+      "points": 4,
+      "stem": "Find the interval of convergence for the following power series:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(x + 3)^k}{k2^k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left(-\\frac{7}{2}, -\\frac{5}{2}\\right]$"
+        },
+        {
+          "label": "B",
+          "text": "$[-5, -1)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left[-\\frac{7}{2}, -\\frac{5}{2}\\right]$"
+        },
+        {
+          "label": "D",
+          "text": "$(-\\infty, \\infty)$"
+        },
+        {
+          "label": "E",
+          "text": "$(-5, -1)$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q04",
+      "number": 4,
+      "points": 4,
+      "stem": "Which of the following polar equations describes the plot?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r = 2$"
+        },
+        {
+          "label": "B",
+          "text": "$r = 1 + \\cos(\\theta)$"
+        },
+        {
+          "label": "C",
+          "text": "$r = 2\\cos(\\theta)$"
+        },
+        {
+          "label": "D",
+          "text": "$r = 1 - 2\\cos(\\theta)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\theta = \\frac{\\pi}{4}$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "figures": [
+        "figures/s2023-final/q04.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q05",
+      "number": 5,
+      "points": 4,
+      "stem": "The following function has a partial fraction decomposition:\n\n$$\n\\frac{x^3 - 14x^2 - 3x + 2}{x^4 - x^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x-1} + \\frac{D}{x+1}\n$$\n\nFind $C$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2$"
+        },
+        {
+          "label": "B",
+          "text": "$-7$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q06",
+      "number": 6,
+      "points": 4,
+      "stem": "Find the length of the curve given by $r = 10\\cos(\\theta)$ from $\\theta = \\frac{\\pi}{6}$ to $\\theta = \\frac{\\pi}{3}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{10\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$10\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{10}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5}{3}$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q07",
+      "number": 7,
+      "points": 4,
+      "stem": "Find the volume of the solid whose base is the disk $x^2 + y^2 \\le 9$. The cross sections by planes perpendicular to the $x$-axis between $x = -3$ and $x = 3$ are isosceles right triangles with one leg in the disk. (Hint: an isosceles right triangle has legs of equal length)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$108$"
+        },
+        {
+          "label": "B",
+          "text": "$72$"
+        },
+        {
+          "label": "C",
+          "text": "$18$"
+        },
+        {
+          "label": "D",
+          "text": "$36$"
+        },
+        {
+          "label": "E",
+          "text": "$144$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "figures": [
+        "figures/s2023-final/q07.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q08",
+      "number": 8,
+      "points": 4,
+      "stem": "Suppose $\\vec{\\mathbf{u}} \\cdot \\vec{\\mathbf{v}} = 5$ and $|\\vec{\\mathbf{u}} \\times \\vec{\\mathbf{v}}| = 5\\sqrt{3}$. Find the angle $\\theta$ between $\\vec{\\mathbf{u}}$ and $\\vec{\\mathbf{v}}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{3}$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q09",
+      "number": 9,
+      "points": 4,
+      "stem": "Using the 2nd order Taylor polynomial of $f(x) = \\frac{1}{x}$ centered at $a = 3$,\n\n$$\n\\frac{1}{\\pi} \\approx \\frac{1}{3} - \\frac{1}{9}(\\pi - 3) + \\frac{2}{27}(\\pi - 3)^2.\n$$\n\nAccording to the Taylor Remainder Theorem, this approximation has error equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{(\\pi - 3)^3}{6c^4}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{(\\pi - 3)^3}{3c^3}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$-\\frac{(\\pi - 3)^3}{3c^4}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{(\\pi - 3)^3}{6c^3}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{(\\pi - 3)^3}{c^4}$ for some $c$ between 3 and $\\pi$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L28"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q10",
+      "number": 10,
+      "points": 4,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\frac{\\pi}{3}} \\sec^{\\frac{5}{2}}(x)\\tan(x)dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8\\sqrt{2}}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3\\sqrt{2} + 1}{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7\\sqrt{2} + 2}{5}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8\\sqrt{2} - 2}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3\\sqrt{2}}{5}$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q11",
+      "number": 11,
+      "points": 4,
+      "stem": "Compute:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-\\pi)^{k-1}}{5^k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{5 + \\pi}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{5 + \\pi}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{5 + \\pi}$"
+        },
+        {
+          "label": "D",
+          "text": "Series diverges"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5 - \\pi}{5 + \\pi}$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q12",
+      "number": 12,
+      "points": 4,
+      "stem": "A swimming pool has a rectangular base that is 4 m long and 10 m wide. The sides are 2 m high and the pool is half full of water. How much work will it take to empty the pool by pumping the water out over the top of the pool? Write your answer in terms of the gravitational acceleration constant $g$ and the density of water $\\rho$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$60\\rho g$ N·m"
+        },
+        {
+          "label": "B",
+          "text": "$80\\rho g$ N·m"
+        },
+        {
+          "label": "C",
+          "text": "$100\\rho g$ N·m"
+        },
+        {
+          "label": "D",
+          "text": "$40\\rho g$ N·m"
+        },
+        {
+          "label": "E",
+          "text": "$120\\rho g$ N·m"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q13",
+      "number": 13,
+      "points": 4,
+      "stem": "Let $f(x) = \\frac{2}{3}x^{3/2}$. Find the arc length of $f(x)$ on the interval $[0, 8]$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{26}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$52$"
+        },
+        {
+          "label": "C",
+          "text": "$18$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{52}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$27$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q14",
+      "number": 14,
+      "points": 4,
+      "stem": "The series:\n\n$$\n\\sum_{k=2}^{\\infty} \\frac{1}{k\\ln(k)}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Diverges by the Integral Test"
+        },
+        {
+          "label": "B",
+          "text": "Converges by comparison with $\\sum_{k=2}^{\\infty} \\frac{1}{k^2}$"
+        },
+        {
+          "label": "C",
+          "text": "Converges by the Integral Test"
+        },
+        {
+          "label": "D",
+          "text": "Diverges by Divergence Test"
+        },
+        {
+          "label": "E",
+          "text": "Converges by Divergence Test"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q15",
+      "number": 15,
+      "points": 4,
+      "stem": "Consider the series:\n\n$$\n\\sum_{k=1}^{\\infty} \\tan\\left(\\frac{1}{k^2}\\right)\n$$\n\nAnd compare it to the series:\n\n$$\n\\sum_{k=1}^{\\infty} b_k = \\sum_{k=1}^{\\infty} \\frac{1}{k^2}\n$$\n\nWhat is the result of the Limit Comparison Test?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The series diverges because $L > 1$"
+        },
+        {
+          "label": "B",
+          "text": "The test is inconclusive because $L = 1$"
+        },
+        {
+          "label": "C",
+          "text": "The series diverges because $L = +\\infty$"
+        },
+        {
+          "label": "D",
+          "text": "The series converges because $0 < L < \\infty$"
+        },
+        {
+          "label": "E",
+          "text": "The series converges because $L < 0$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q16",
+      "number": 16,
+      "points": 4,
+      "stem": "An appropriate trig substitution will convert the definite integral\n\n$$\n\\int_5^7 \\sqrt{x^2 - 6x + 5}\\,dx\n$$\n\ninto which of the following integrals?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\frac{\\pi}{3}} 4\\tan^3(\\theta)\\sec(\\theta)d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^{\\frac{\\pi}{3}} 2\\tan(\\theta)\\sec(\\theta)d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^{\\frac{\\pi}{3}} 2\\tan(\\theta)\\sec^3(\\theta)d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\frac{\\pi}{3}} 4\\tan(\\theta)\\sec^2(\\theta)d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\frac{\\pi}{3}} 4\\tan^2(\\theta)\\sec(\\theta)d\\theta$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L14",
+        "L15"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q17",
+      "number": 17,
+      "points": 4,
+      "stem": "The Ratio Test for the series:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(2k)!}{(k!)^2}\n$$\n\ngives a resulting limit of:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r = 1$ and therefore the test is inconclusive."
+        },
+        {
+          "label": "B",
+          "text": "$r = 0$ and therefore the test is inconclusive."
+        },
+        {
+          "label": "C",
+          "text": "$r > 1$ and therefore the series diverges."
+        },
+        {
+          "label": "D",
+          "text": "$r < \\infty$ and therefore the series converges."
+        },
+        {
+          "label": "E",
+          "text": "$r < 1$ and therefore the series converges."
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q18",
+      "number": 18,
+      "points": 4,
+      "stem": "How many of the following sequences will converge?\n\n$$\n\\text{(i) } \\left\\{\\frac{n+1}{n-1}\\right\\} \\qquad \\text{(ii) } \\left\\{\\frac{(-2)^n}{5^n}\\right\\} \\qquad \\text{(iii) } \\left\\{\\frac{n!}{(n+1)!}\\right\\} \\qquad \\text{(iv) } \\left\\{\\frac{n!}{2^n}\\right\\}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q19",
+      "number": 19,
+      "points": 4,
+      "stem": "What is the equation in polar form for the horizontal line $y = 3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r = 3\\sec(\\theta)$"
+        },
+        {
+          "label": "B",
+          "text": "$r = 3\\tan(\\theta)$"
+        },
+        {
+          "label": "C",
+          "text": "$r = 3\\csc(\\theta)$"
+        },
+        {
+          "label": "D",
+          "text": "$r = 3\\cos(\\theta)$"
+        },
+        {
+          "label": "E",
+          "text": "$r = 3\\sin(\\theta)$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q20",
+      "number": 20,
+      "points": 4,
+      "stem": "We compute the Taylor series for $f(x) = \\frac{1}{x^4}$ centered at $a = 7$. What is the coefficient of $(x - 7)^3$ in the Taylor series?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{7^4}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{5}{6 \\cdot 7^3}$"
+        },
+        {
+          "label": "C",
+          "text": "$-\\frac{20}{7^7}$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{20}{6 \\cdot 7^7}$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{1}{6 \\cdot 7^3}$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q21",
+      "number": 21,
+      "points": 4,
+      "stem": "Find\n\n$$\n\\lim_{x \\to 0} \\frac{9x^6 - 6x^2 + 2\\sin(3x^2)}{x^{10}}\n$$\n\n*Hint:* $\\sin(x) = \\sum_{k=0}^{\\infty} (-1)^k \\frac{x^{2k+1}}{(2k+1)!}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The limit does not exist"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3^4}{20}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3^4}{40}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3^5}{5}$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q22",
+      "number": 22,
+      "points": 4,
+      "stem": "Let $R$ be the area bounded by the curves $y = \\sin(x^2)$, the $x$-axis, and $x = 0$ and $x = \\sqrt{\\pi}$. Find the volume of the solid of revolution when $R$ is revolved around the $y$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\sqrt{\\pi}}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\sqrt{\\pi}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q23",
+      "number": 23,
+      "points": 4,
+      "stem": "A pump handle has a pivot at $(0, 0, 0)$ and extends to $P(5, 3, -2)$. A force $\\vec{\\mathbf{F}} = \\langle 2, -1, 1 \\rangle$ is applied at $P$. Find the torque about the pivot.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle 5, 10, 0 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle -1, 1, -1 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle 1, -9, -11 \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\langle 5, 11, -1 \\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle -5, 9, 1 \\rangle$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q24",
+      "number": 24,
+      "points": 4,
+      "stem": "Find the area of the region inside the curve $r = \\sqrt{\\sin(\\theta)}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-final-q25",
+      "number": 25,
+      "points": 4,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\infty} xe^{-x^2}dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The integral is divergent."
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{e}$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}

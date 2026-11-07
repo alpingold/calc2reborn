@@ -34,5 +34,7 @@
   { "figure": "figures/s2016-e1/q08.png", "examId": "s2016-e1", "page": 6, "x": 645, "y": 955, "w": 480, "h": 270 },
   { "figure": "figures/s2016-final/q25.png", "examId": "s2016-final", "page": 15, "x": 175, "y": 225, "w": 480, "h": 470 },
   { "figure": "figures/f2023-final/q21.png", "examId": "f2023-final", "page": 12, "x": 462, "y": 270, "w": 330, "h": 328 },
-  { "figure": "figures/f2023-final/q25.png", "examId": "f2023-final", "page": 14, "x": 175, "y": 865, "w": 860, "h": 585 }
+  { "figure": "figures/f2023-final/q25.png", "examId": "f2023-final", "page": 14, "x": 175, "y": 865, "w": 860, "h": 585 },
+  { "figure": "figures/s2023-final/q04.png", "examId": "s2023-final", "page": 3, "x": 132, "y": 684, "w": 394, "h": 442 },
+  { "figure": "figures/s2023-final/q07.png", "examId": "s2023-final", "page": 5, "x": 140, "y": 262, "w": 250, "h": 206 }
 ]
