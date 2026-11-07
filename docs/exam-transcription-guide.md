@@ -29,7 +29,7 @@ Many exams have several test versions, marked "TEST NUMBER 01" or "VERSION 01" o
 - `answer` comes from the key. Solve at least the quick questions yourself. If your answer disagrees with the key, keep the key's letter and report the disagreement.
 - `lessonIds`: one or more, chosen by reading the question against the lesson titles, not by keywords. Tag the skill the question tests. See below.
 - `sourcePage` is the number of the PNG the question appears on.
-- `solution`: fill in from the solutions PDF when one exists, as Markdown with LaTeX. Do not invent solutions otherwise.
+- `solution`: fill in from the solutions PDF when one exists, as Markdown with LaTeX. If the solutions PDF only marks the answer and shows no working for a question, leave `solution` out for that question. Do not invent solutions otherwise.
 - `status`: `transcribed` first. Set `reviewed` only after a genuine second pass comparing every stem and choice with the page image. Report which questions got the second pass.
 
 ## Known exceptions
@@ -118,6 +118,9 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - Binomial series (first terms of $(1+x)^p$): tag L31.
 - Constant-force work along a displacement at an angle ($W=\vec F\cdot\vec d=|\vec F||\vec d|\cos\theta$): tag L3, not L9.
 - An improper integral whose antiderivative needs another lesson's technique (integration by parts, partial fractions, trig substitution): tag that lesson and L18. A plain $u$-substitution inside an improper integral stays L18 only.
+- Average value of a function: no lesson teaches it; tag the lesson of the integration technique it needs and report it.
+- Partial fractions with an irreducible quadratic factor alongside linear or repeated linear factors: L17 only. A question that mentions long division but asks only for a linear-factor coefficient: L16 only.
+- A list of true/false statements about several convergence tests: tag the lesson of each test the statements use. Add L26 only when the question asks which test to choose.
 - A plain $u$-substitution that needs no other technique (such as $\int_0^1 x^2e^{x^3}\,dx$): tag L11, whose key ideas say to use a substitution instead of parts when one works. When the substitution is only a step inside another lesson's technique (powers of sine and cosine, tan and sec, an improper integral), tag that lesson instead.
 - A completed square in the sine or tangent case is L15 only.
 - A secant substitution has no worked example: tag L14. If the radical must first be completed to $(x-a)^2-b^2$, tag L14 and L15, since both skills are tested.
