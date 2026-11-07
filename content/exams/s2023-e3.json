@@ -1,0 +1,420 @@
+{
+  "id": "s2023-e3",
+  "term": "Spring",
+  "year": 2023,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2023.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2023.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2023-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Using the 2nd order Taylor polynomial of $f(x) = \\ln(x)$ centered at $a = 3$,\n\n$$\n\\ln(\\pi) \\approx \\ln(3) + \\frac{1}{3}(\\pi - 3) - \\frac{1}{18}(\\pi - 3)^2.\n$$\n\nAccording to the Taylor Remainder Theorem, this approximation has error equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{(\\pi - 3)^3}{6c^3}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{(\\pi - 3)^2}{2c^2}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{(\\pi - 3)^2}{c^2}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{(\\pi - 3)^3}{6c^2}$ for some $c$ between 3 and $\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{(\\pi - 3)^3}{3c^3}$ for some $c$ between 3 and $\\pi$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L28"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Find all the values of $p$ such that the following series converges:\n\n$$\n\\sum_{k=1}^{\\infty} \\sqrt{\\frac{k^4 + 2k^2}{3 + k^p}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$p > 2$"
+        },
+        {
+          "label": "B",
+          "text": "$p > 6$"
+        },
+        {
+          "label": "C",
+          "text": "$p > 8$"
+        },
+        {
+          "label": "D",
+          "text": "$p > 5$"
+        },
+        {
+          "label": "E",
+          "text": "$p > 4$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The series:\n\n$$\n\\sum_{k=2}^{\\infty} \\frac{1}{k[\\ln(k)]^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Converges by the Integral Test"
+        },
+        {
+          "label": "B",
+          "text": "Diverges by the Integral Test"
+        },
+        {
+          "label": "C",
+          "text": "Diverges by the Divergence Test"
+        },
+        {
+          "label": "D",
+          "text": "Converges by the Divergence Test"
+        },
+        {
+          "label": "E",
+          "text": "Diverges by comparison with $\\sum_{k=2}^{\\infty} \\frac{1}{k}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "According to the root test, the series\n\n$$\n\\sum_{k=1}^{\\infty} \\left[\\sin\\left(\\frac{1}{k}\\right)\\right]^k\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Inconclusive because $\\rho = 0$"
+        },
+        {
+          "label": "B",
+          "text": "Converges because $\\rho < \\infty$"
+        },
+        {
+          "label": "C",
+          "text": "Diverges because $\\rho > 1$"
+        },
+        {
+          "label": "D",
+          "text": "Inconclusive because $\\rho = 1$"
+        },
+        {
+          "label": "E",
+          "text": "Converges because $\\rho < 1$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Which of the following statements are true?\n\nI. If $\\lim_{n\\to\\infty} a_n = 0$, then $\\sum_{n=1}^{\\infty} a_n$ converges.\n\nII. If $\\sum_{n=1}^{\\infty} |a_n|$ converges, then $\\sum_{n=1}^{\\infty} a_n$ converges.\n\nIII. If the sequence $\\{a_n\\}$ is decreasing, then $\\sum_{n=1}^{\\infty} (-1)^{n+1} a_n$ converges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "III only"
+        },
+        {
+          "label": "B",
+          "text": "II and III only"
+        },
+        {
+          "label": "C",
+          "text": "I and II only"
+        },
+        {
+          "label": "D",
+          "text": "I and III only"
+        },
+        {
+          "label": "E",
+          "text": "II only"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L22",
+        "L24"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Compute:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-e)^{k+1}}{5^k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5e}{5 + e}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{e}{5 + e}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{5 + e}$"
+        },
+        {
+          "label": "D",
+          "text": "Series diverges"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{e^2}{5 + e}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Which of the following series converge?\n\nI. $\\sum_{k=1}^{\\infty} \\frac{7^k}{k! + 10}$\n\nII. $\\sum_{k=1}^{\\infty} \\frac{2 + (-1)^k}{2^k}$\n\nIII. $\\sum_{k=1}^{\\infty} \\sin\\left(\\frac{1}{\\sqrt{k}}\\right)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "II and III only"
+        },
+        {
+          "label": "B",
+          "text": "I and III only"
+        },
+        {
+          "label": "C",
+          "text": "I, II, and III"
+        },
+        {
+          "label": "D",
+          "text": "II only"
+        },
+        {
+          "label": "E",
+          "text": "I and II only"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "For which of the following series is the ratio test inconclusive? (Only one is inconclusive)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=1}^{\\infty} \\frac{k + 3}{5k - 1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=1}^{\\infty} \\frac{\\sqrt{k}}{k!}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=1}^{\\infty} \\frac{k!}{2^k}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=1}^{\\infty} \\frac{(-10)^k}{k 7^{2k+1}}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=1}^{\\infty} \\frac{e^k}{3k}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Determine the radius of convergence for the power series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{k(x - 6)^k}{3^k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\infty$"
+        },
+        {
+          "label": "D",
+          "text": "$6$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Approximate $e^{-0.1}$ using a 2nd-order Taylor polynomial centered at $a = 0$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0.895$"
+        },
+        {
+          "label": "B",
+          "text": "$0.91$"
+        },
+        {
+          "label": "C",
+          "text": "$0.89$"
+        },
+        {
+          "label": "D",
+          "text": "$0.915$"
+        },
+        {
+          "label": "E",
+          "text": "$0.905$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Compute:\n\n$$\n\\sum_{k=1}^{\\infty} \\ln(k) - \\ln(k + 1)\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{e}$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "Series diverges"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln(2)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Let $S = \\sum_{k=1}^{\\infty} \\frac{(-1)^k}{(2k + 1)^2}$ Use the Alternating Series Estimation Theorem to find the smallest integer $N$ such that we can be sure that $|S_N - S| < \\frac{1}{400}$, where $S_N$ is the $N$th partial sum.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$N = 12$"
+        },
+        {
+          "label": "B",
+          "text": "$N = 8$"
+        },
+        {
+          "label": "C",
+          "text": "$N = 9$"
+        },
+        {
+          "label": "D",
+          "text": "$N = 11$"
+        },
+        {
+          "label": "E",
+          "text": "$N = 10$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
