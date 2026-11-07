@@ -50,7 +50,7 @@ Facts that still fit the schema: `f2021` has 6 choices throughout. `s2017-e2` an
 
 **Points.** Use the booklet's stated points. Do not store free points: 12 questions at 8 points stores 96, not 100. Only `f2016-e1` is 100/12 per problem. `f2016-e2` and `f2016-e3` are 8 each. `s2017-e1` is 9 each. `s2024-*` are 1 each. `s2017-e2`, `s2017-e3`, and all of `f2024` and `f2025` print points per question.
 
-**Picture choices** (`f2017-final` Q12, `f2018-final` Q21, `f2019-final` Q25, `f2022-final` Q24, `f2023-final` Q25, `f2025-e2` Q4, `s2019-e3` Q10, `s2019-final` Q21). Crop one figure covering all the pictures with their letters, and use choice text such as "Graph A" or "Triangle A". The stem stays text. Other exams may have more; apply the same rule.
+**Picture choices** (`f2017-final` Q12, `f2018-final` Q21, `f2019-final` Q25, `f2022-final` Q24, `f2023-final` Q25, `f2025-e2` Q4, `s2019-e3` Q10, `s2019-final` Q21, `s2024-final` Q7). Crop one figure covering all the pictures with their letters, and use choice text such as "Graph A" or "Triangle A". The stem stays text. Other exams may have more; apply the same rule.
 
 **Duration.** Only `f2021-final`, `f2024-*`, `f2025-*`, and `s2024-*` state one. "10 minutes" and "20 minutes" on covers are no-leave windows, not durations. Use 60 for midterms and 120 for finals everywhere; that is what clock times imply.
 
@@ -105,12 +105,22 @@ A question gets a figure if a diagram carries information the text does not. Kee
 | Power series operations | L30 |
 | Taylor and Maclaurin series | L31 |
 | Applications of Taylor series | L32 |
-| Polar coordinates, polar curves | L33, L34 |
+| Polar coordinates: points, converting points and equations, identifying a curve by converting | L33 |
+| Graphing polar curves: roses, limaçons, cardioids | L34 |
 | Polar area and length | L35 |
 
 Questions may carry more than one lesson, but do not add a lesson as a hedge. A wrong tag sends a student to the wrong lesson.
 
-No lesson teaches center of mass or equations of a line. If an exam asks either, tag the nearest lesson (L9, or L1 and L2) and report it. A secant substitution has no worked example; tag L14 and report it.
+No lesson teaches center of mass or equations of a line. If an exam asks either, tag the nearest lesson (L9, or L1 and L2) and report it. Other gaps, tagged the same way and reported:
+
+- Circles in the plane (center, radius, how two circles relate): tag L2.
+- Symmetry of a polar curve: tag L34.
+- A secant substitution has no worked example: tag L14. If the radical must first be completed to $(x-a)^2-b^2$, tag L14 and L15, since both skills are tested.
+
+Series of an integral: tag by the model series, and do not tag both.
+
+- Integrating an integrand built from the Maclaurin table (sin, cos, $e^x$, arctan, ln), often after cancelling terms or dividing by a power of $x$: L32.
+- Differentiating or integrating the geometric series to reach a closed form such as $\frac{1}{(1-x)^2}$ or a log, or asking how endpoints change: L30.
 
 `keyIdeas` is empty for L1 to L18 and L33 to L35, so settle splits by reading the lesson's `notesUrl` page with base64 images stripped.
 
