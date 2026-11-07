@@ -46,11 +46,11 @@ Check this list before starting. These were confirmed by surveying every booklet
 - **`s2019-*.sol`** has no cover, so its pages run one behind the booklet. `sourcePage` always refers to the booklet.
 - **`f2022-e2`** is "Alternate Exam 2". Use it as published.
 
-Facts that still fit the schema: `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
+Facts that still fit the schema: `f2023-e1` Q3 and Q4 print vectors as `=< a, b, c >`, and Q5 prints "the area of the area of the triangle"; keep both as printed. `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
 
 **Points.** Use the booklet's stated points. Do not store free points: 12 questions at 8 points stores 96, not 100. Only `f2016-e1` is 100/12 per problem. `f2016-e2` and `f2016-e3` are 8 each. `s2017-e1` is 9 each. `s2024-*` are 1 each. `s2017-e2`, `s2017-e3`, and all of `f2024` and `f2025` print points per question.
 
-**Picture choices** (`f2017-final` Q12, `f2018-final` Q21, `f2019-final` Q25, `f2022-final` Q24, `f2023-final` Q25, `f2025-e2` Q4, `s2019-e3` Q10, `s2019-final` Q21, `s2024-final` Q7). Crop one figure covering all the pictures with their letters, and use choice text such as "Graph A" or "Triangle A". The stem stays text. Other exams may have more; apply the same rule.
+**Picture choices** (`f2017-final` Q12, `f2018-final` Q21, `f2019-final` Q25, `f2022-final` Q24, `f2023-final` Q25, `f2025-e2` Q4, `s2019-e3` Q10, `s2019-final` Q21, `s2024-final` Q7). Crop one figure covering all the pictures with their letters, and use choice text such as "Graph A" or "Triangle A". The stem stays text. Other exams may have more; apply the same rule. When a question prints a given graph as well as picture choices (`f2024-final` Q21), crop them separately as `q21a.png` and `q21b.png` and list both in `figures` in printed order.
 
 **Duration.** Only `f2021-final`, `f2024-*`, `f2025-*`, and `s2024-*` state one. "10 minutes" and "20 minutes" on covers are no-leave windows, not durations. Use 60 for midterms and 120 for finals everywhere; that is what clock times imply.
 
