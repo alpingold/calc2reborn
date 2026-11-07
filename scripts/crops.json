@@ -1,6 +1,7 @@
 [
   { "figure": "figures/f2022-final/q23.png", "examId": "f2022-final", "page": 13, "x": 300, "y": 740, "w": 620, "h": 460 },
   { "figure": "figures/f2022-final/q24.png", "examId": "f2022-final", "page": 14, "x": 415, "y": 415, "w": 390, "h": 465 },
+  { "figure": "figures/f2024-e1/q07.png", "examId": "f2024-e1", "page": 6, "x": 812, "y": 220, "w": 308, "h": 293 },
   { "figure": "figures/f2024-e1/q09.png", "examId": "f2024-e1", "page": 7, "x": 345, "y": 330, "w": 575, "h": 365 },
   { "figure": "figures/f2024-final/q05.png", "examId": "f2024-final", "page": 5, "x": 830, "y": 212, "w": 290, "h": 280 },
   { "figure": "figures/f2024-final/q13.png", "examId": "f2024-final", "page": 9, "x": 145, "y": 224, "w": 900, "h": 308 },
