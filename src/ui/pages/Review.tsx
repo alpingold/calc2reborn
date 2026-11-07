@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { dailyQueue } from '../../engine/queue'
 import type { Rating } from '../../engine/fsrs'
@@ -40,6 +40,8 @@ export function Review() {
   const [summary, setSummary] = useState({ due: 0, fresh: 0 })
   const [index, setIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const busy = useRef(false)
 
   useEffect(() => {
     let cancelled = false
@@ -82,10 +84,20 @@ export function Review() {
 
   const rate = useCallback(
     async (rating: Rating) => {
-      if (!current?.state || !revealed) return
+      if (busy.current || !current?.state || !revealed) return
+      busy.current = true
+      setError(null)
+      setRevealed(false)
       const t = now()
       const next = scheduler.review(current.state, rating, t)
-      await store.saveCardState(next)
+      try {
+        await store.saveCardState(next)
+      } catch {
+        setError('Could not save your rating. Try again.')
+        setRevealed(true)
+        busy.current = false
+        return
+      }
       setItems((prev) => {
         if (!prev) return prev
         const out = [...prev]
@@ -95,7 +107,7 @@ export function Review() {
         return out
       })
       setIndex((i) => i + 1)
-      setRevealed(false)
+      busy.current = false
     },
     [current, revealed, scheduler, store, now],
   )
@@ -141,6 +153,7 @@ export function Review() {
   return (
     <section>
       <h2>Review</h2>
+      {error && <p role="alert">{error}</p>}
       <p>{`Cards due: ${summary.due} · New: ${summary.fresh}`}</p>
       <Markdown text={current.card.front} />
       {!revealed ? (

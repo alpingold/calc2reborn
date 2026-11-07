@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router'
 import { Review } from './Review'
@@ -8,6 +8,7 @@ import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import { buildContent, loadContent } from '../../content'
 import { createScheduler } from '../../engine/fsrs'
+import type { Scheduler } from '../../engine/fsrs'
 import type { ConceptCard } from '../../content/schema'
 
 const lessons = loadContent().lessons
@@ -16,10 +17,11 @@ const cards: ConceptCard[] = [
   { id: 'L19-c02', lessonId: 'L19', front: 'Front two', back: 'Back two' },
 ]
 
-async function setup(opts: { cards?: ConceptCard[]; clock?: { t: Date } } = {}) {
-  const store = new MemoryStore()
+async function setup(opts: { cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void> } = {}) {
+  const store = opts.store ?? new MemoryStore()
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', dailyNewCards: 10 })
   const scheduler = await createScheduler()
+  await opts.seed?.(store, scheduler)
   const clock = opts.clock ?? { t: new Date('2026-11-06T12:00:00Z') }
   const content = buildContent(lessons, opts.cards ?? cards, [])
   render(
@@ -76,4 +78,70 @@ test('fresh card introducedAt is set at first reveal, not page load', async () =
 test('shows empty state when nothing is due', async () => {
   await setup({ cards: [] })
   expect(await screen.findByText('Nothing due. Come back tomorrow or practice instead.')).toBeInTheDocument()
+})
+
+test('double press of 3 saves only once', async () => {
+  const { store } = await setup()
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await act(async () => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: '3' }))
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: '3' }))
+  })
+  expect(await screen.findByText('Front two')).toBeInTheDocument()
+  expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(1)
+  expect(await store.getCardState('L19-c02')).toBeUndefined()
+})
+
+test('Again re-queues the card at the end with updated state', async () => {
+  const { store } = await setup()
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('1')
+  await screen.findByText('Front two')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('3')
+  expect(await screen.findByText('Front one')).toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: 'Done for today' })).not.toBeInTheDocument()
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('3')
+  expect(await screen.findByRole('heading', { name: 'Done for today' })).toBeInTheDocument()
+  expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(2)
+})
+
+test('due cards are shown in ascending dueAt order', async () => {
+  const seedOne = (id: string, dueAt: string) => async (s: MemoryStore, sch: Scheduler) => {
+    const st = sch.newState(id, new Date('2026-11-01T00:00:00Z'))
+    await s.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt } })
+  }
+  await setup({
+    seed: async (s, sch) => {
+      await seedOne('L19-c02', '2026-11-02T00:00:00.000Z')(s, sch)
+      await seedOne('L19-c01', '2026-11-03T00:00:00.000Z')(s, sch)
+    },
+  })
+  expect(await screen.findByText('Cards due: 2 · New: 0')).toBeInTheDocument()
+  expect(screen.getByText('Front two')).toBeInTheDocument()
+})
+
+test('save failure shows an alert and allows retry', async () => {
+  const store = new MemoryStore()
+  const real = store.saveCardState.bind(store)
+  let fail = true
+  store.saveCardState = async (s) => {
+    if (fail) {
+      fail = false
+      throw new Error('boom')
+    }
+    return real(s)
+  }
+  await setup({ store })
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('3')
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your rating. Try again.')
+  expect(screen.getByText('Back one')).toBeInTheDocument()
+  await userEvent.keyboard('3')
+  expect(await screen.findByText('Front two')).toBeInTheDocument()
+  expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(1)
 })
