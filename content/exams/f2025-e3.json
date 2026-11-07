@@ -1,0 +1,463 @@
+{
+  "id": "f2025-e3",
+  "term": "Fall",
+  "year": 2025,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2025.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2025.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2025-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Which of the following conclusion is correct if the ratio test is applied to the series\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{3^n \\cdot n^3}{n!} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The series is conditionally convergent because $r = 1$."
+        },
+        {
+          "label": "B",
+          "text": "The series is absolutely convergent because $r = 1/3$."
+        },
+        {
+          "label": "C",
+          "text": "The series is divergent because $r = 3$."
+        },
+        {
+          "label": "D",
+          "text": "The series is absolutely convergent because $r = 0$."
+        },
+        {
+          "label": "E",
+          "text": "The ratio test is inconclusive because $r = 1$."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "The sequence $\\{a_n\\}_{n=1}^{\\infty}$ defined by the explicit formula\n\n$$\na_n = \\frac{n}{n^2 + 1}\n$$\n\nhas a limit $L = 0$. What are all indices $n$ that satisfy $|a_n - L| < 0.1$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$n \\ge 5$"
+        },
+        {
+          "label": "B",
+          "text": "$n \\ge 10$"
+        },
+        {
+          "label": "C",
+          "text": "$n \\ge 15$"
+        },
+        {
+          "label": "D",
+          "text": "$n \\ge 20$"
+        },
+        {
+          "label": "E",
+          "text": "All positive integer $n$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q03",
+      "number": 3,
+      "points": 9,
+      "stem": "Given two arbitrary series $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$, determine which of the following three statements is/are always TRUE.\n\n(i) If $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are both convergent, then $\\sum_{n=1}^{\\infty} a_n - b_n$ is convergent.\n\n(ii) If $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are both divergent, then $\\sum_{n=1}^{\\infty} a_n + b_n$ is divergent.\n\n(iii) If $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are both divergent, then $\\sum_{n=1}^{\\infty} a_n b_n$ is divergent.\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q04",
+      "number": 4,
+      "points": 10,
+      "stem": "Determine whether each of the following series is absolutely convergent, conditionally convergent, or divergent.\n\n$$\nS_1 = \\sum_{n=1}^{\\infty} \\frac{(-3)^n}{2^{3n}}, \\quad \\text{and} \\quad S_2 = \\sum_{n=1}^{\\infty} \\frac{n^2 \\cos(n\\pi)}{n^3 + 1}\n$$\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$S_1$ is absolutely convergent; $S_2$ is absolutely convergent."
+        },
+        {
+          "label": "B",
+          "text": "$S_1$ is absolutely convergent; $S_2$ is conditionally convergent."
+        },
+        {
+          "label": "C",
+          "text": "$S_1$ is absolutely convergent; $S_2$ is divergent."
+        },
+        {
+          "label": "D",
+          "text": "$S_1$ is conditionally convergent; $S_2$ is absolutely convergent."
+        },
+        {
+          "label": "E",
+          "text": "$S_1$ is conditionally convergent; $S_2$ is conditionally convergent."
+        },
+        {
+          "label": "F",
+          "text": "$S_1$ is conditionally convergent; $S_2$ is divergent."
+        },
+        {
+          "label": "G",
+          "text": "$S_1$ is divergent; $S_2$ is absolutely convergent."
+        },
+        {
+          "label": "H",
+          "text": "$S_1$ is divergent; $S_2$ is conditionally convergent."
+        },
+        {
+          "label": "I",
+          "text": "$S_1$ is divergent; $S_2$ is divergent."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L24",
+        "L25"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "What is the result of using the third-order Taylor polynomial for $f(x) = \\cos(x)$ centered at the origin to approximate the value of $\\cos(1)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1/2$"
+        },
+        {
+          "label": "B",
+          "text": "$3/2$"
+        },
+        {
+          "label": "C",
+          "text": "$13/24$"
+        },
+        {
+          "label": "D",
+          "text": "$11/24$"
+        },
+        {
+          "label": "E",
+          "text": "$37/24$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "A sequence $\\{z_n\\}_{n=1}^{\\infty}$ is defined by the recurrence relation\n\n$$\nz_1 = -1, \\quad \\text{and} \\quad z_{n+1} = (z_n)^2 - 3.\n$$\n\nWhat is $z_{2025}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$-2$"
+        },
+        {
+          "label": "C",
+          "text": "$2022$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$-1$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "If we use the second-order Taylor polynomial $p_2(x)$ for $f(x) = \\sqrt{x}$ centered at $a = 4$ to approximate the value of $\\sqrt{4.1}$, which one of the following statements is a correct application of Taylor's remainder theorem about the remainder $R_2(4.1)$?\n\nThe derivatives of $f(x)$ are listed below:\n\n$$\nf'(x) = \\frac{1}{2}x^{-1/2}, \\quad f''(x) = -\\frac{1}{4}x^{-3/2}, \\quad \\text{and} \\quad f'''(x) = \\frac{3}{8}x^{-5/2}.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$|R_2(4.1)| = \\frac{|f''(c)|}{2!} \\cdot |4.1|^2 \\le \\frac{|f''(4.1)|}{2!} \\cdot (4.1)^2$ for some $4 \\le c \\le 4.1$."
+        },
+        {
+          "label": "B",
+          "text": "$|R_2(4.1)| = \\frac{|f''(c)|}{2!} \\cdot |0.1|^2 \\le \\frac{|f''(4)|}{2!} \\cdot (0.1)^2$ for some $4 \\le c \\le 4.1$."
+        },
+        {
+          "label": "C",
+          "text": "$|R_2(4.1)| = \\frac{|f'''(c)|}{3!} \\cdot |0.1|^3 \\le \\frac{|f'''(4.1)|}{3!} \\cdot (0.1)^3$ for some $4 \\le c \\le 4.1$."
+        },
+        {
+          "label": "D",
+          "text": "$|R_2(4.1)| = \\frac{|f'''(c)|}{3!} \\cdot |4.1|^3 \\le \\frac{|f'''(4)|}{3!} \\cdot (4.1)^3$ for some $4 \\le c \\le 4.1$."
+        },
+        {
+          "label": "E",
+          "text": "$|R_2(4.1)| = \\frac{|f'''(c)|}{3!} \\cdot |0.1|^3 \\le \\frac{|f'''(4)|}{3!} \\cdot (0.1)^3$ for some $4 \\le c \\le 4.1$."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L28"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Evaluate the limit of the sequence\n\n$$\n\\left\\{ \\frac{\\ln(n+3)}{\\ln(4n+1)} \\right\\}_{n=1}^{\\infty}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(4)$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$1/4$"
+        },
+        {
+          "label": "E",
+          "text": "The sequence is divergent."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "What are all values of $p$ that can make the following series convergent?\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(\\arctan(n))^p}{n^2 + 1}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$p < -1$"
+        },
+        {
+          "label": "B",
+          "text": "$p \\le -1$"
+        },
+        {
+          "label": "C",
+          "text": "$p > 1$"
+        },
+        {
+          "label": "D",
+          "text": "$p$ can be any real number."
+        },
+        {
+          "label": "E",
+          "text": "There is no value of $p$ that makes the series convergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q10",
+      "number": 10,
+      "points": 9,
+      "stem": "Which of the following convergence tests is/are applied correctly to determine that the following series is convergent?\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{e^n}{e^{2n} - 1}\n$$\n\n(i) The series is convergent by the integral test.\n\n(ii) The series is convergent by the ratio test.\n\n(iii) The series is convergent by the direct comparison test with $\\sum \\frac{1}{e^n}$.\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "None of the above"
+        },
+        {
+          "label": "B",
+          "text": "Only (i)"
+        },
+        {
+          "label": "C",
+          "text": "Only (ii)"
+        },
+        {
+          "label": "D",
+          "text": "Only (iii)"
+        },
+        {
+          "label": "E",
+          "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L22",
+        "L23",
+        "L25",
+        "L26"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Evaluate the sum of the series\n\n$$\n\\sum_{n=0}^{\\infty} \\frac{4 + (-2)^n}{3^n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$9$"
+        },
+        {
+          "label": "B",
+          "text": "$3/2$"
+        },
+        {
+          "label": "C",
+          "text": "$33/5$"
+        },
+        {
+          "label": "D",
+          "text": "$3/5$"
+        },
+        {
+          "label": "E",
+          "text": "The series is divergent."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Consider the series\n\n$$\nS = \\sum_{k=1}^{\\infty} \\frac{(-1)^k}{(4k+3)^2}.\n$$\n\nBy the error estimate for alternating series, how many terms are needed for the partial sum $S_n$ to get within $10^{-4}$ of the true sum $S$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$26$"
+        },
+        {
+          "label": "B",
+          "text": "$25$"
+        },
+        {
+          "label": "C",
+          "text": "$2499$"
+        },
+        {
+          "label": "D",
+          "text": "$24$"
+        },
+        {
+          "label": "E",
+          "text": "$2500$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    }
+  ]
+}
