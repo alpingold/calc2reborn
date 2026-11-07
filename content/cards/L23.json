@@ -53,7 +53,7 @@
     "id": "L23-c06",
     "lessonId": "L23",
     "front": "Limit Comparison gives $c = \\lim \\frac{a_k}{b_k} = \\infty$. What can you conclude?",
-    "back": "Only this: if $\\sum b_k$ diverges, then $\\sum a_k$ diverges ($a_k$ is eventually much bigger). If $\\sum b_k$ converges, no conclusion. Example: $\\frac{5}{k(\\ln k)^9}$ against $\\frac{5}{k^8}$ gives $c = \\lim \\frac{k^7}{(\\ln k)^9} = \\infty$ with a convergent $\\sum b_k$: inconclusive (the Integral Test shows it converges).",
+    "back": "Only this: if $\\sum b_k$ diverges, then $\\sum a_k$ diverges ($a_k$ is eventually much bigger). If $\\sum b_k$ converges, no conclusion. Example: $\\sum_{k=2}^{\\infty} \\frac{5}{k(\\ln k)^9}$ against $\\frac{5}{k^8}$ gives $c = \\lim \\frac{k^7}{(\\ln k)^9} = \\infty$ with a convergent $\\sum b_k$: inconclusive (the Integral Test shows it converges).",
     "tags": [
       "trap",
       "limit-comparison"

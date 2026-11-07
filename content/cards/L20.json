@@ -46,7 +46,7 @@
     "id": "L20-c05",
     "lessonId": "L20",
     "front": "State the Bounded Monotonic Sequence Theorem.",
-    "back": "If a sequence is monotonic (always increasing or always decreasing, at least from some point on) and bounded, then it converges. Example: $\\frac{n}{n+1}$ increases and stays between $\\frac{1}{2}$ and $1$, so it converges.",
+    "back": "If a sequence is monotonic (increasing for all $n$ or decreasing for all $n$) and bounded, then it converges. The theorem still holds if this is true only from some $n$ on. Example: $\\frac{n}{n+1}$ increases and stays between $\\frac{1}{2}$ and $1$, so it converges.",
     "tags": [
       "sequence",
       "monotonic"
@@ -67,7 +67,7 @@
     "id": "L20-c07",
     "lessonId": "L20",
     "front": "How do you find $\\lim_{n\\to\\infty} a_n$ when it has the form $1^\\infty$, $\\infty^0$, or $0^0$?",
-    "back": "Let $y = a_n$ and compute $L = \\lim_{n\\to\\infty} \\ln y$, usually by rewriting $\\ln y$ as a quotient and using L'Hospital. Then $\\lim_{n\\to\\infty} a_n = e^L$. The last step, exponentiating, is the one people forget.",
+    "back": "For $y = a_n > 0$, compute $L = \\lim_{n\\to\\infty} \\ln y$, usually by rewriting $\\ln y$ as a quotient and using L'Hospital. If $L$ is finite, $\\lim_{n\\to\\infty} a_n = e^L$; if $L = \\infty$ then $a_n \\to \\infty$, and if $L = -\\infty$ then $a_n \\to 0$. The last step, exponentiating, is the one people forget.",
     "tags": [
       "limit",
       "1-infinity"

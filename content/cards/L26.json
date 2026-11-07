@@ -35,7 +35,7 @@
     "id": "L26-c04",
     "lessonId": "L26",
     "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{5}{k(\\ln k)^9}$, and why?",
-    "back": "Integral Test: $u = \\ln x$ turns $\\int_2^{\\infty} \\frac{5}{x(\\ln x)^9}\\,dx$ into $\\int_{\\ln 2}^{\\infty} \\frac{5}{u^9}\\,du$, which is finite since $9 > 1$. So the series converges. Comparing with p-series does not settle it.",
+    "back": "Integral Test: $f(x) = \\frac{5}{x(\\ln x)^9}$ is positive, continuous, and decreasing on $[2, \\infty)$, and $u = \\ln x$ turns $\\int_2^{\\infty} \\frac{5}{x(\\ln x)^9}\\,dx$ into $\\int_{\\ln 2}^{\\infty} \\frac{5}{u^9}\\,du$, which is finite since $9 > 1$. So the series converges. Comparing with p-series does not settle it.",
     "tags": [
       "which-test",
       "integral-test"

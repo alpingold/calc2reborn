@@ -3,7 +3,7 @@
     "id": "L21-c01",
     "lessonId": "L21",
     "front": "When does the geometric series $\\sum_{k=0}^{\\infty} ar^k$ converge, and what is its sum?",
-    "back": "It converges if and only if $|r| < 1$, and then the sum is $\\frac{a}{1-r}$, where $a$ is the first term and $r$ the common ratio. If $|r| \\ge 1$ (with $a \\ne 0$) it diverges.",
+    "back": "For $a \\ne 0$, it converges if and only if $|r| < 1$, and then the sum is $\\frac{a}{1-r}$, where $a$ is the first term and $r$ the common ratio. If $|r| \\ge 1$ it diverges.",
     "tags": [
       "geometric",
       "series"
@@ -114,7 +114,7 @@
     "id": "L21-c12",
     "lessonId": "L21",
     "front": "Does removing the first $1000$ terms of a series change whether it converges? Does it change the sum?",
-    "back": "Convergence is unchanged: the starting index never affects convergence. The sum does change, by exactly the amount of the removed terms.",
+    "back": "Convergence is unchanged: the starting index never affects convergence. The sum changes by exactly the total of the removed terms.",
     "tags": [
       "series",
       "properties"

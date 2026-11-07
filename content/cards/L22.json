@@ -51,7 +51,7 @@
     "id": "L22-c06",
     "lessonId": "L22",
     "front": "The Integral Test gives $\\int_1^{\\infty} f(x)\\,dx = 1$. Is $\\sum_{k=1}^{\\infty} a_k = 1$?",
-    "back": "No. It only tells you the series converges. The sum lies between $\\int_1^{\\infty} f(x)\\,dx$ and $a_1 + \\int_1^{\\infty} f(x)\\,dx$; for example $\\sum \\frac{1}{k^2} = \\frac{\\pi^2}{6} \\approx 1.645$ while $\\int_1^{\\infty} \\frac{1}{x^2}\\,dx = 1$.",
+    "back": "No. It only tells you the series converges. If $f$ is decreasing on all of $[1, \\infty)$, the sum lies between $\\int_1^{\\infty} f(x)\\,dx$ and $a_1 + \\int_1^{\\infty} f(x)\\,dx$; for example $\\sum \\frac{1}{k^2} = \\frac{\\pi^2}{6} \\approx 1.645$ while $\\int_1^{\\infty} \\frac{1}{x^2}\\,dx = 1$.",
     "tags": [
       "trap",
       "integral-test"
@@ -110,7 +110,7 @@
     "id": "L22-c12",
     "lessonId": "L22",
     "front": "State the Integral Test remainder estimate for $R_n = S - S_n$.",
-    "back": "If $f$ is positive, continuous, and decreasing with $a_k = f(k)$, then $\\int_{n+1}^{\\infty} f(x)\\,dx \\le R_n \\le \\int_n^{\\infty} f(x)\\,dx$. For $\\sum \\frac{1}{k^2}$, $R_{10} \\le \\int_{10}^{\\infty} \\frac{dx}{x^2} = \\frac{1}{10}$.",
+    "back": "If $f$ is positive, continuous, and decreasing on $[n, \\infty)$ with $a_k = f(k)$, then $\\int_{n+1}^{\\infty} f(x)\\,dx \\le R_n \\le \\int_n^{\\infty} f(x)\\,dx$. For $\\sum \\frac{1}{k^2}$, $R_{10} \\le \\int_{10}^{\\infty} \\frac{dx}{x^2} = \\frac{1}{10}$.",
     "tags": [
       "integral-test",
       "error-bound"
