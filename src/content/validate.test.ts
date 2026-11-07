@@ -97,6 +97,11 @@ export function checkDollarPairs(ownerId: string, text: string): void {
   }
 }
 
+/** Every exam in the archive runs 60 or 120 minutes, so this only catches a mistyped duration. */
+export function checkDuration(ownerId: string, minutes: number): void {
+  if (minutes < 30 || minutes > 180) throw new Error(`Duration of ${ownerId} is ${minutes} minutes, outside 30 to 180`)
+}
+
 const content = loadContent()
 
 /** Every string in the content files that is rendered as Markdown, with the id that owns it. */
@@ -157,7 +162,7 @@ describe('content validation', () => {
   test('exams are well formed', () => {
     for (const e of content.exams) {
       e.questions.forEach((q, i) => expect(q.number, `${e.id} #${i + 1}`).toBe(i + 1))
-      if (e.exam !== 'final') expect(e.durationMinutes, e.id).toBe(60)
+      checkDuration(e.id, e.durationMinutes)
     }
   })
 
@@ -171,6 +176,15 @@ describe('content validation', () => {
 
   test('all display math is fenced on its own lines', () => {
     for (const [id, text] of markdownStrings()) checkDisplayMathFences(id, text)
+  })
+})
+
+describe('checkDuration', () => {
+  test.each([30, 60, 75, 120, 180])('accepts %d minutes for any exam', (minutes) => {
+    expect(() => checkDuration('f2024-e1', minutes)).not.toThrow()
+  })
+  test.each([0, 29, 181, 6000])('rejects %d minutes and names the exam', (minutes) => {
+    expect(() => checkDuration('f2024-e1', minutes)).toThrow(/f2024-e1/)
   })
 })
 

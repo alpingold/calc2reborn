@@ -44,6 +44,8 @@ export interface Question {
   stem: string
   choices: Choice[]
   answer: Choice['label']
+  /** Where `answer` came from. Absent means the official key. */
+  answerSource?: 'key' | 'derived'
   figures?: string[]
   lessonIds: string[]
   tags?: string[]
@@ -100,6 +102,7 @@ export const QuestionSchema = z
     stem: z.string(),
     choices: z.array(ChoiceSchema).min(2).max(10),
     answer: z.enum(CHOICE_LABELS),
+    answerSource: z.enum(['key', 'derived']).optional(),
     figures: z.array(z.string()).optional(),
     lessonIds: z.array(z.string()),
     tags: z.array(z.string()).optional(),

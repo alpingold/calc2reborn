@@ -41,7 +41,26 @@ const seedExam: Exam = {
   durationMinutes: 60,
   questions: Array.from({ length: 12 }, (_, i) => q(i + 1)),
 }
-const content = buildContent(fixtureLessons(), [], [seedExam])
+const fractionalExam: Exam = {
+  ...seedExam,
+  id: 'f2016-e1',
+  questions: Array.from({ length: 12 }, (_, i) => ({
+    ...q(i + 1),
+    id: `f2016-e1-q${i + 1}`,
+    points: 100 / 12,
+  })),
+}
+const content = buildContent(fixtureLessons(), [], [seedExam, fractionalExam])
+
+function fractionalSession(correct: number): ExamSession {
+  const questionIds = fractionalExam.questions.map((x) => x.id)
+  return {
+    ...session,
+    examId: fractionalExam.id,
+    questionIds,
+    answers: Object.fromEntries(questionIds.map((id, i) => [id, i < correct ? 'C' : 'A'])),
+  }
+}
 
 // 1 to 9 right, 10 and 11 wrong, 12 unanswered
 const answers: Record<string, Choice['label']> = {}
@@ -81,6 +100,16 @@ test('shows score and points from the session in location state', async () => {
   expect(screen.getByText('Points: 72 / 100')).toBeInTheDocument()
   expect(screen.getByRole('heading', { level: 2, name: 'Results' })).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Back to exams' })).toHaveAttribute('href', '/exams')
+})
+
+test('twelve correct at 100/12 each shows whole points, without float noise', async () => {
+  await renderResults({ pathname: '/results/s1', state: { session: fractionalSession(12) } })
+  expect(await screen.findByText('Points: 100 / 100')).toBeInTheDocument()
+})
+
+test('four correct at 100/12 each shows points to one decimal place', async () => {
+  await renderResults({ pathname: '/results/s1', state: { session: fractionalSession(4) } })
+  expect(await screen.findByText('Points: 33.3 / 100')).toBeInTheDocument()
 })
 
 test('an unanswered question says Not answered and reveals its correct choice', async () => {

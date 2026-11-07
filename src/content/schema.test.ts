@@ -51,6 +51,22 @@ describe('QuestionSchema', () => {
   })
 })
 
+describe('QuestionSchema answerSource', () => {
+  test('keeps key and derived', () => {
+    for (const answerSource of ['key', 'derived']) {
+      const parsed = QuestionSchema.safeParse({ ...q, answerSource })
+      expect(parsed.success && parsed.data.answerSource).toBe(answerSource)
+    }
+  })
+  test('is optional, and absent means nothing is added', () => {
+    const parsed = QuestionSchema.safeParse(q)
+    expect(parsed.success && 'answerSource' in parsed.data).toBe(false)
+  })
+  test('rejects any other value', () => {
+    expect(QuestionSchema.safeParse({ ...q, answerSource: 'guessed' }).success).toBe(false)
+  })
+})
+
 describe('LessonSchema', () => {
   test('accepts a valid lesson', () => {
     expect(LessonSchema.safeParse(lesson).success).toBe(true)

@@ -165,3 +165,35 @@ test('solution is hidden before reveal', async () => {
   expect(screen.queryByText('Use the ratio test.')).not.toBeInTheDocument()
   expect(screen.queryByRole('status')).not.toBeInTheDocument()
 })
+
+const DERIVED_NOTICE =
+  'No official answer key exists for this exam. This answer was worked out independently and may contain errors.'
+const derived: Question = { ...question, answerSource: 'derived' }
+
+test('a revealed derived answer shows the no-key notice', async () => {
+  await setup({ question: derived, chosen: 'C', revealed: true })
+  expect(screen.getByText(DERIVED_NOTICE)).toBeInTheDocument()
+})
+
+test('a revealed derived answer shows the notice on an exam results view too', async () => {
+  await setup({ question: derived, mode: 'deferred', revealed: true })
+  expect(screen.getByText(DERIVED_NOTICE)).toBeInTheDocument()
+})
+
+test.each([
+  ['absent', undefined],
+  ['key', 'key' as const],
+])('a revealed answer with answerSource %s shows no notice', async (_name, answerSource) => {
+  await setup({ question: { ...question, answerSource }, chosen: 'C', revealed: true })
+  expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
+})
+
+test('a derived answer shows no notice before reveal in practice', async () => {
+  await setup({ question: derived, chosen: 'C' })
+  expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
+})
+
+test('a derived answer shows no notice during a timed exam', async () => {
+  await setup({ question: derived, mode: 'deferred', chosen: 'C' })
+  expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
+})

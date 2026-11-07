@@ -109,6 +109,11 @@ export function scoreSession(
   return { correct, total: s.questionIds.length, points, maxPoints }
 }
 
+/** Points to at most one decimal place, with no trailing .0. A sum of 100/12 carries float noise. */
+export function formatPoints(points: number): string {
+  return String(Math.round(points * 10) / 10)
+}
+
 export function examLabel(exam: Exam): string {
   return exam.exam === 'final' ? 'Final' : `Exam ${exam.exam}`
 }

@@ -110,6 +110,9 @@ export function QuestionView({
       {revealed && (
         <div className="feedback">
           <p role="status">{isCorrect ? 'Correct' : 'Not quite'}</p>
+          {question.answerSource === 'derived' && (
+            <p>No official answer key exists for this exam. This answer was worked out independently and may contain errors.</p>
+          )}
           {question.solution && <Markdown text={question.solution} />}
           {lessonTitle && lessonHref && <Link to={lessonHref}>{lessonTitle}</Link>}
         </div>

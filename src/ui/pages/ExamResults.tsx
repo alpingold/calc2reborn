@@ -5,7 +5,7 @@ import type { Choice } from '../../content/schema'
 import { useContent, useStore } from '../../storage/context'
 import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
-import { examTitle, scoreSession } from '../examSession'
+import { examTitle, formatPoints, scoreSession } from '../examSession'
 import type { ExamSession } from '../examSession'
 
 const noop = () => {}
@@ -83,7 +83,7 @@ function ResultsView({ sessionId }: { sessionId: string }) {
       <h2>Results</h2>
       <p>{title}</p>
       <p>{`Score: ${score.correct} / ${score.total}`}</p>
-      <p>{`Points: ${score.points} / ${score.maxPoints}`}</p>
+      <p>{`Points: ${formatPoints(score.points)} / ${formatPoints(score.maxPoints)}`}</p>
       <ol className="results-list">
         {session.questionIds.map((id, i) => {
           const question = content.questionById.get(id)

@@ -1,4 +1,4 @@
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, describe, expect, test, vi } from 'vitest'
 import { buildContent } from '../content'
 import type { Choice, Exam, Question } from '../content/schema'
 import {
@@ -8,6 +8,7 @@ import {
   loadSession,
   remainingSeconds,
   saveSession,
+  formatPoints,
   scoreSession,
 } from './examSession'
 import type { ExamSession } from './examSession'
@@ -98,6 +99,27 @@ test('scoreSession counts correct answers and points', () => {
     total: 3,
     points: 18,
     maxPoints: 26,
+  })
+})
+
+describe('formatPoints', () => {
+  test.each([
+    [72, '72'],
+    [0, '0'],
+    [8.333333333333334, '8.3'],
+    [4 * 8.333333333333334, '33.3'],
+    [12 * 8.333333333333334, '100'],
+    [99.96, '100'],
+    [12.04, '12'],
+    [12.5, '12.5'],
+  ])('%d shows as %s', (points, shown) => {
+    expect(formatPoints(points)).toBe(shown)
+  })
+
+  test('summing 100/12 twelve times picks up float noise that display must hide', () => {
+    let sum = 0
+    for (let i = 0; i < 12; i++) sum += 8.333333333333334
+    expect(formatPoints(sum)).toBe('100')
   })
 })
 
