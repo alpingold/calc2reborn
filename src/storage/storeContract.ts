@@ -1,12 +1,26 @@
 import { beforeEach, describe, expect, test } from 'vitest'
 import { DEFAULT_SETTINGS } from './types'
-import type { Attempt, CardState, ProgressStore } from './types'
+import type { Attempt, CardState, ProgressStore, SerializedFsrsCard } from './types'
 
 function att(id: string, timestamp: string, extra: Partial<Attempt> = {}): Attempt {
   return { id, questionId: 'q1', chosen: 'A', correct: true, seconds: 30, timestamp, mode: 'practice', ...extra }
 }
-function card(cardId: string, extra: Record<string, unknown> = {}): CardState {
-  return { cardId, introducedAt: '2026-01-01T00:00:00.000Z', fsrs: { due: '2026-01-02T00:00:00.000Z', ...extra } }
+const BASE_FSRS: SerializedFsrsCard = {
+  dueAt: '2026-01-02T00:00:00.000Z',
+  lastReviewAt: null,
+  stability: 0,
+  stabilityFast: 0,
+  difficulty: 0,
+  state: 0,
+  scheduleStatus: 'new',
+  reps: 0,
+  lapses: 0,
+  scheduledDays: 0,
+  learningStep: 0,
+  cardId: '',
+}
+function card(cardId: string, extra: Partial<SerializedFsrsCard> = {}): CardState {
+  return { cardId, introducedAt: '2026-01-01T00:00:00.000Z', fsrs: { ...BASE_FSRS, cardId, ...extra } }
 }
 
 export function storeContract(name: string, make: () => Promise<ProgressStore>): void {

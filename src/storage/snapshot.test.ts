@@ -6,7 +6,7 @@ const attempt = { id: 'a1', questionId: 'q1', chosen: 'A', correct: true, second
 const valid = {
   version: 1,
   exportedAt: '2026-01-01T00:00:00.000Z',
-  cardStates: [{ cardId: 'c1', introducedAt: '2026-01-01T00:00:00.000Z', fsrs: { due: 'x' } }],
+  cardStates: [{ cardId: 'c1', introducedAt: '2026-01-01T00:00:00.000Z', fsrs: { dueAt: 'x', lastReviewAt: null, stability: 0, stabilityFast: 0, difficulty: 0, state: 0, scheduleStatus: 'new', reps: 0, lapses: 0, scheduledDays: 0, learningStep: 0, cardId: 'c1' } }],
   attempts: [attempt],
   settings: DEFAULT_SETTINGS,
 }

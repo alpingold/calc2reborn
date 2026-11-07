@@ -1,6 +1,19 @@
 import type { Choice } from '../content/schema'
 
-export type SerializedFsrsCard = Record<string, unknown>
+export type SerializedFsrsCard = {
+  dueAt: string
+  lastReviewAt: string | null
+  stability: number
+  stabilityFast: number
+  difficulty: number
+  state: number
+  scheduleStatus: string
+  reps: number
+  lapses: number
+  scheduledDays: number
+  learningStep: number
+  cardId: string
+}
 
 export interface CardState {
   cardId: string
