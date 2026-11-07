@@ -115,6 +115,7 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 
 - Circles in the plane (center, radius, how two circles relate): tag L2.
 - Symmetry of a polar curve: tag L34.
+- Binomial series (first terms of $(1+x)^p$): tag L31.
 - A completed square in the sine or tangent case is L15 only.
 - A secant substitution has no worked example: tag L14. If the radical must first be completed to $(x-a)^2-b^2$, tag L14 and L15, since both skills are tested.
 
