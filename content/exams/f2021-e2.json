@@ -1,0 +1,470 @@
+{
+  "id": "f2021-e2",
+  "term": "Fall",
+  "year": 2021,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2021.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2021.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2021-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "$$\n\\int_0^{1/2} \\left(\\frac{1}{\\sqrt{1-x^2}}\\right)^3 dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{3} + \\frac{1}{2}\\ln\\left(2 + \\sqrt{3}\\right)$"
+        },
+        {
+          "label": "D",
+          "text": "$1/\\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{1}{\\sqrt{3}} + \\frac{1}{2}\\ln\\left(2 + \\frac{1}{\\sqrt{3}}\\right)$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "$$\n\\int \\frac{x^3 + 3x^2 + 2x + 1}{x^3 + x}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x + \\ln|x| + \\ln(x^2+1) + 2\\tan^{-1}x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$x + \\ln|x| + \\ln(x^2+1) + \\tan^{-1}x + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln|x| + \\ln(x^2+1) + 2\\tan^{-1}x + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln|x| + \\ln(x^2+1) + \\tan^{-1}x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln|x| + 2\\ln(x^2+1) + 2\\tan^{-1}x + C$"
+        },
+        {
+          "label": "F",
+          "text": "$x + \\ln|x| + 2\\ln(x^2+1) + 2\\tan^{-1}x + C$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "$$\n\\int_0^{\\pi/3} \\tan^3 x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{\\sqrt{3}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{2} - \\ln 2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{9}{16}$"
+        },
+        {
+          "label": "D",
+          "text": "$(\\ln 2)^3$"
+        },
+        {
+          "label": "E",
+          "text": "$9$"
+        },
+        {
+          "label": "F",
+          "text": "$2 + \\ln\\frac{1}{2}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Find the correct form of the partial fraction decomposition of the following function:\n\n$$\n\\frac{x^6 + x^3 - x^2 + 1}{(x^5 + x^3)(x-1)^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{Ax+B}{x^5+x^3} + \\frac{C}{x-1} + \\frac{D}{(x-1)^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x^2+1} + \\frac{B}{x^3} + \\frac{C}{(x-1)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^3} + \\frac{D}{x^2+1} + \\frac{E}{x-1} + \\frac{F}{x+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{Ax+B}{x^5+x^3} + \\frac{C}{x+1} + \\frac{D}{x-1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{Ax+B}{(x-1)^2} + \\frac{Cx+D}{x^2+1} + \\frac{E}{x^3}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{Ax+B}{x^2+1} + \\frac{C}{x} + \\frac{D}{x^2} + \\frac{E}{x^3} + \\frac{F}{x-1} + \\frac{G}{(x-1)^2}$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "$$\n\\int_0^1 x^2 e^{x^3}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{e+2}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{e-1}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$e - 2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{e-2}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$e + 2$"
+        },
+        {
+          "label": "F",
+          "text": "$e - 1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "$$\n\\int \\frac{dx}{\\sqrt{x^2 - 6x + 10}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\sqrt{x^2-6x+10}}{x-3} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\tan^{-1}(x-3) + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\ln\\left|\\sqrt{x^2-6x+10}\\right|}{2x-6} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln\\left|x - 3 + \\sqrt{x^2-6x+10}\\right| + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3-x}{\\sqrt{x^2-6x+10}} + C$"
+        },
+        {
+          "label": "F",
+          "text": "$\\tan^{-1}(x-3) + \\ln\\left|\\sqrt{x^2-6x+10}\\right| + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "A trough filled with liquid has an isosceles triangle of width 3m and height 5m as one of its ends. Find the force due to pressure on this part of the trough. Use $\\rho$ for the liquid density (kg/m$^3$) and $g$ for the gravitation constant (N/kg).",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{25}{2}\\rho g$ N"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{81}{10}\\rho g$ N"
+        },
+        {
+          "label": "C",
+          "text": "$15\\rho g$ N"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{125}{18}\\rho g$ N"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{15}{2}\\rho g$ N"
+        },
+        {
+          "label": "F",
+          "text": "$25\\rho g$ N"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/f2021-e2/q07.png"
+      ],
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "$$\n\\int \\cos^5 x \\sin^2 x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{5}\\cos^5 x - \\frac{1}{3}\\cos^3 x - \\frac{1}{7}\\cos^7 x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3}\\sin^3 x - \\frac{1}{5}\\sin^5 x + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{7}\\sin^7 x - \\frac{2}{5}\\sin^5 x + \\frac{1}{3}\\sin^3 x + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{7}\\sin^7 x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{5}\\cos^5 x - \\frac{1}{3}\\cos^3 x + C$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{1}{6}\\cos^6 x + C$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "$$\n\\int_0^{\\pi/4} x \\sin x \\cos x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi+1}{8}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi+1}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{8}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{1}{8}$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "$$\n\\int_2^{\\infty} \\frac{dx}{x}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "This improper integral converges to $\\ln\\frac{1}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "This improper integral converges to $\\frac{1}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "This improper integral converges to $\\ln\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "This improper integral converges to $\\ln 2$"
+        },
+        {
+          "label": "E",
+          "text": "This improper integral diverges"
+        },
+        {
+          "label": "F",
+          "text": "This improper integral converges to $\\frac{1}{2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the first four terms of the **sequence of partial sums** associated with the series\n\n$$\n\\sum_{k=1}^{\\infty} (-1)^k\n$$\n\nHint: $\\{S_n\\}$, the sequence of partial sums of the series $\\sum_{k=1}^{\\infty} a_k$, is given by $S_n = \\sum_{k=1}^{n} a_k$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-1, 0, -1, 0$"
+        },
+        {
+          "label": "B",
+          "text": "$-1, 1, -1, 1$"
+        },
+        {
+          "label": "C",
+          "text": "$1, -1, 1, -1$"
+        },
+        {
+          "label": "D",
+          "text": "$0, -1, 0, -1$"
+        },
+        {
+          "label": "E",
+          "text": "$1, 0, 1, 0$"
+        },
+        {
+          "label": "F",
+          "text": "$0, 1, 0, 1$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Which of the following recurrence relations will generate a sequence with $a_3 = -3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$a_{n+1} = 1 - 2a_n;\\ a_1 = 1$"
+        },
+        {
+          "label": "B",
+          "text": "$a_{n+1} = -a_n;\\ a_1 = 1$"
+        },
+        {
+          "label": "C",
+          "text": "$a_{n+1} = a_n + 1;\\ a_1 = -5$"
+        },
+        {
+          "label": "D",
+          "text": "$a_{n+1} = 3a_n;\\ a_1 = -1$"
+        },
+        {
+          "label": "E",
+          "text": "$a_{n+1} = a_n - 3;\\ a_1 = 0$"
+        },
+        {
+          "label": "F",
+          "text": "$a_{n+1} = -9/a_n;\\ a_1 = 3$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
