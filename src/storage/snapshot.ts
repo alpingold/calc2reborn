@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { CHOICE_LABELS } from '../content/schema'
 import type { ProgressSnapshot } from './types'
 
 export const SNAPSHOT_VERSION = 1
@@ -28,7 +29,7 @@ const SnapshotSchema = z.object({
     z.object({
       id: z.string(),
       questionId: z.string(),
-      chosen: z.enum(['A', 'B', 'C', 'D', 'E']),
+      chosen: z.enum(CHOICE_LABELS),
       correct: z.boolean(),
       seconds: z.number(),
       timestamp: iso,

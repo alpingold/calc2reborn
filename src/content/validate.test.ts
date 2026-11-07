@@ -3,6 +3,7 @@ import path from 'node:path'
 import katex from 'katex'
 import { describe, expect, test } from 'vitest'
 import { loadContent } from './index'
+import { CHOICE_LABELS } from './schema'
 
 /** Extract `$$...$$` first, then `$...$` (single line, non-greedy). */
 export function extractMath(text: string): { fragment: string; displayMode: boolean }[] {
@@ -56,7 +57,9 @@ describe('content validation', () => {
 
   test('questions are well formed', () => {
     for (const q of content.questions) {
-      expect(q.choices.map((c) => c.label), q.id).toEqual(['A', 'B', 'C', 'D', 'E'])
+      const n = q.choices.length
+      expect(n >= 2 && n <= 10, `${q.id} has ${n} choices`).toBe(true)
+      expect(q.choices.map((c) => c.label), q.id).toEqual(CHOICE_LABELS.slice(0, n))
       expect(q.choices.map((c) => c.label), q.id).toContain(q.answer)
       for (const lid of q.lessonIds) expect(content.lessonById.has(lid), `${q.id} -> ${lid}`).toBe(true)
       for (const fig of q.figures ?? []) {

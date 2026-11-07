@@ -23,8 +23,11 @@ describe('parseSnapshot', () => {
     expect(r.ok).toBe(false)
     if (!r.ok) expect(r.error).toContain('version')
   })
+  test('accepts chosen H from an eight-choice question', () => {
+    expect(parseSnapshot({ ...valid, attempts: [{ ...attempt, chosen: 'H' }] }).ok).toBe(true)
+  })
   test('rejects invalid chosen', () => {
-    const r = parseSnapshot({ ...valid, attempts: [{ ...attempt, chosen: 'F' }] })
+    const r = parseSnapshot({ ...valid, attempts: [{ ...attempt, chosen: 'K' }] })
     expect(r.ok).toBe(false)
     if (!r.ok) expect(r.error).toContain('attempts[0].chosen')
   })

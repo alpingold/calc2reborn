@@ -10,7 +10,9 @@ export const UNITS = [
 ] as const
 export type Unit = (typeof UNITS)[number]
 
-const LABELS = ['A', 'B', 'C', 'D', 'E'] as const
+/** Choice labels in order; a question uses the first n of them (2 <= n <= 10). */
+export const CHOICE_LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'] as const
+export type ChoiceLabel = (typeof CHOICE_LABELS)[number]
 
 export interface Lesson {
   id: string
@@ -32,7 +34,7 @@ export interface ConceptCard {
   tags?: string[]
 }
 export interface Choice {
-  label: 'A' | 'B' | 'C' | 'D' | 'E'
+  label: ChoiceLabel
   text: string
 }
 export interface Question {
@@ -88,7 +90,7 @@ export const ConceptCardSchema = z.object({
   tags: z.array(z.string()).optional(),
 })
 
-const ChoiceSchema = z.object({ label: z.enum(LABELS), text: z.string() })
+const ChoiceSchema = z.object({ label: z.enum(CHOICE_LABELS), text: z.string() })
 
 export const QuestionSchema = z
   .object({
@@ -96,8 +98,8 @@ export const QuestionSchema = z
     number: z.number().int().positive(),
     points: z.number().positive(),
     stem: z.string(),
-    choices: z.array(ChoiceSchema).length(5),
-    answer: z.enum(LABELS),
+    choices: z.array(ChoiceSchema).min(2).max(10),
+    answer: z.enum(CHOICE_LABELS),
     figures: z.array(z.string()).optional(),
     lessonIds: z.array(z.string()),
     tags: z.array(z.string()).optional(),
@@ -106,8 +108,11 @@ export const QuestionSchema = z
     sourcePage: z.number().int().positive().optional(),
   })
   .superRefine((q, ctx) => {
-    if (q.choices.some((c, i) => c.label !== LABELS[i])) {
-      ctx.addIssue({ code: 'custom', path: ['choices'], message: 'choices must be labeled A..E in order' })
+    if (q.choices.some((c, i) => c.label !== CHOICE_LABELS[i])) {
+      ctx.addIssue({ code: 'custom', path: ['choices'], message: 'choices must be labeled consecutively from A' })
+    }
+    if (!q.choices.some((c) => c.label === q.answer)) {
+      ctx.addIssue({ code: 'custom', path: ['answer'], message: 'answer must be one of the choice labels' })
     }
   })
 

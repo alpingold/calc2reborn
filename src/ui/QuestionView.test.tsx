@@ -44,11 +44,11 @@ async function setup(props: Partial<QuestionViewProps> = {}, clock = { t: new Da
   return { onChoose, onSubmit, clock }
 }
 
-test('renders stem through Markdown, five choice buttons, and figures', async () => {
+test('renders stem through Markdown, one button per choice, and figures', async () => {
   await setup()
   expect(screen.getByText('converges').tagName).toBe('STRONG')
-  const choices = screen.getAllByRole('button', { name: /^[A-E]\b/ })
-  expect(choices.map((b) => b.textContent?.trim()[0])).toEqual(['A', 'B', 'C', 'D', 'E'])
+  const choices = screen.getAllByRole('button', { name: /^[A-J]\b/ })
+  expect(choices.map((b) => b.textContent?.trim()[0])).toEqual(question.choices.map((c) => c.label))
   expect(screen.getByRole('button', { name: /^B\b/ })).toHaveTextContent('beta')
   const imgs = screen.getAllByRole('img', { name: 'Figure for question 7' })
   expect(imgs.map((i) => i.getAttribute('src'))).toEqual(['/figures/q7a.png', '/figures/q7b.png'])
@@ -74,6 +74,23 @@ test('uppercase key chooses too; modifier keys and out-of-range letters are igno
   onChoose.mockClear()
   await userEvent.keyboard('{Control>}a{/Control}')
   await userEvent.keyboard('f')
+  expect(onChoose).not.toHaveBeenCalled()
+})
+
+test('an eight-choice question renders A..H and pressing h chooses H', async () => {
+  const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] as const
+  const eight: Question = {
+    ...question,
+    choices: labels.map((label) => ({ label, text: `option ${label}` })),
+    answer: 'H',
+  }
+  const { onChoose } = await setup({ question: eight })
+  const choices = screen.getAllByRole('button', { name: /^[A-J]\b/ })
+  expect(choices.map((b) => b.textContent?.trim()[0])).toEqual([...labels])
+  await userEvent.keyboard('h')
+  expect(onChoose).toHaveBeenCalledWith('H')
+  onChoose.mockClear()
+  await userEvent.keyboard('i')
   expect(onChoose).not.toHaveBeenCalled()
 })
 

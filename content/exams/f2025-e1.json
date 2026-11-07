@@ -276,6 +276,18 @@
         {
           "label": "E",
           "text": "Only (i) and (ii)"
+        },
+        {
+          "label": "F",
+          "text": "Only (i) and (iii)"
+        },
+        {
+          "label": "G",
+          "text": "Only (ii) and (iii)"
+        },
+        {
+          "label": "H",
+          "text": "All of (i), (ii), and (iii)"
         }
       ],
       "answer": "E",
@@ -283,7 +295,7 @@
         "L4"
       ],
       "sourcePage": 6,
-      "status": "transcribed"
+      "status": "reviewed"
     },
     {
       "id": "f2025-e1-q09",

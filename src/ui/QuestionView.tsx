@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { JSX } from 'react'
 import { Link } from 'react-router'
+import { CHOICE_LABELS } from '../content/schema'
 import type { Choice, Question } from '../content/schema'
 import { useNow } from '../storage/context'
 import { Markdown } from './Markdown'
@@ -16,7 +17,9 @@ export interface QuestionViewProps {
   lessonHref?: string
 }
 
-const KEY_TO_LABEL: Record<string, Choice['label']> = { a: 'A', b: 'B', c: 'C', d: 'D', e: 'E' }
+const KEY_TO_LABEL: Record<string, Choice['label']> = Object.fromEntries(
+  CHOICE_LABELS.map((label) => [label.toLowerCase(), label]),
+)
 
 function isFormField(t: EventTarget | null): boolean {
   const el = t as HTMLElement | null
