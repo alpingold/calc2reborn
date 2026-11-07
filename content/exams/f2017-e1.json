@@ -1,0 +1,420 @@
+{
+  "id": "f2017-e1",
+  "term": "Fall",
+  "year": 2017,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2017.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2017.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2017-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "The base of a solid is the region in the $xy$ plane above the $x$ axis but inside the circle $x^2 + y^2 = 1$. The cross sections of the solid perpendicular to the $y$ axis are squares with one side on the $xy$ plane. Find the volume of the solid.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5/3$"
+        },
+        {
+          "label": "B",
+          "text": "$8/3$"
+        },
+        {
+          "label": "C",
+          "text": "$3\\pi/2$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi/3$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\pi$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "For what values of $b$ are the vectors $< -6, b, 2 >$ and $< b, b^2, b >$ orthogonal?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$, $1$ and $-1$"
+        },
+        {
+          "label": "B",
+          "text": "$0$, $3$ and $-3$"
+        },
+        {
+          "label": "C",
+          "text": "$0$, $2$ and $-2$"
+        },
+        {
+          "label": "D",
+          "text": "$0$, $2\\sqrt{2}$ and $-2\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$0$, $1$ and $2$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "A basket is filled with 10 kg of dirt. We lift it at speed 1 m/s to a height of 4 m, but as we do so, the basket leaks 1 kg of dirt every second. How much work did this heavy lifting require? (Use the approximate value $g = 10$ m/s$^2$.)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "80 J"
+        },
+        {
+          "label": "B",
+          "text": "620 J"
+        },
+        {
+          "label": "C",
+          "text": "480 J"
+        },
+        {
+          "label": "D",
+          "text": "180 J"
+        },
+        {
+          "label": "E",
+          "text": "320 J"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "A sled is pulled 100 m along a horizontal path by a force of 30 N acting at an angle of 30 degrees above the horizontal. The work done by the force is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1500 J"
+        },
+        {
+          "label": "B",
+          "text": "150 J"
+        },
+        {
+          "label": "C",
+          "text": "$1500\\sqrt{2}$ J"
+        },
+        {
+          "label": "D",
+          "text": "$150\\sqrt{3}$ J"
+        },
+        {
+          "label": "E",
+          "text": "$1500\\sqrt{3}$ J"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "The volume of the parallelepiped determined by the vectors $\\mathbf{i} + \\mathbf{2j} + \\mathbf{2k}$, $2\\mathbf{i} + \\mathbf{j} + \\mathbf{k}$, and $\\mathbf{i} + \\mathbf{3k}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$7$"
+        },
+        {
+          "label": "B",
+          "text": "$9$"
+        },
+        {
+          "label": "C",
+          "text": "$-4$"
+        },
+        {
+          "label": "D",
+          "text": "$11$"
+        },
+        {
+          "label": "E",
+          "text": "$12$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "The area of the region bounded by the curves $x = y^2$ and $x = 3y - 2y^2$ is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$9/10$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$2/3$"
+        },
+        {
+          "label": "E",
+          "text": "$3/5$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "A region in the $xy$ plane is above the segment $[0,1]$ of the $x$ axis. From above it is bounded by the curve $y = 1 + 2x$, from below by the curve $y = \\sqrt{1 + x^2}$. Which integral represents the volume generated when the region is rotated about the $y$ axis?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^1 \\pi x^2(1 + 2x - \\sqrt{1 + x^2})\\, dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 \\pi(1 + 2x - \\sqrt{1 + x^2})^2\\, dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 2\\pi x(1 + 2x - \\sqrt{1 + x^2})^2\\, dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 \\pi x(\\sqrt{1 + x^2} - 1 - 2x)\\, dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^1 2\\pi x(1 + 2x - \\sqrt{1 + x^2})\\, dx$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "The area of the triangle with vertices at the points $(1, 1, 1)$, $(2, -2, 2)$ and $(0, 0, 0)$ is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$32$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\sqrt{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$4\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$9$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 5,
+      "solution": "The official key accepted every choice for this question.\n\nTwo sides of the triangle start at the origin: $\\vec{u} = \\langle 1, 1, 1 \\rangle$ and $\\vec{v} = \\langle 2, -2, 2 \\rangle$. Their cross product is\n\n$$\n\\vec{u} \\times \\vec{v} = \\langle 1 \\cdot 2 - 1 \\cdot (-2),\\ 1 \\cdot 2 - 1 \\cdot 2,\\ 1 \\cdot (-2) - 1 \\cdot 2 \\rangle = \\langle 4, 0, -4 \\rangle,\n$$\n\nso $|\\vec{u} \\times \\vec{v}| = \\sqrt{16 + 0 + 16} = 4\\sqrt{2}$. The triangle is half the parallelogram, so its area is $\\frac{1}{2} \\cdot 4\\sqrt{2} = 2\\sqrt{2}$, which is choice B.",
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "If it takes 3 J work to stretch a spring by 0.2 m beyond its natural length, how much work is required to stretch it an additional 0.2 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4 J"
+        },
+        {
+          "label": "B",
+          "text": "6 J"
+        },
+        {
+          "label": "C",
+          "text": "9 J"
+        },
+        {
+          "label": "D",
+          "text": "12 J"
+        },
+        {
+          "label": "E",
+          "text": "15 J"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The angle between $\\mathbf{a} =< 1, 0 >$ and $\\mathbf{b} =< 1, \\sqrt{3} >$ is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\pi/6$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/4$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi/2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi/6$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "The center and the radius of the sphere represented by\n\n$$\nx^2 + y^2 + z^2 + 8x - 6y + 2z + 17 = 0\n$$\n\nare:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(4, 3, 1)$ and $3$"
+        },
+        {
+          "label": "B",
+          "text": "$(4, -3, 1)$ and $3$"
+        },
+        {
+          "label": "C",
+          "text": "$(8, -6, 2)$ and $5$"
+        },
+        {
+          "label": "D",
+          "text": "$(-4, 3, -1)$ and $3$"
+        },
+        {
+          "label": "E",
+          "text": "$(4, -3, 1)$ and $\\sqrt{17}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "$\\int_1^8 \\sqrt[3]{x} \\ln x\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$12\\ln 8 - \\frac{135}{16}$"
+        },
+        {
+          "label": "B",
+          "text": "$16\\ln 8 - 8$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{27\\ln 2}{8} - 4$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{27\\ln 8}{8} - \\frac{152}{18}$"
+        },
+        {
+          "label": "E",
+          "text": "$16\\ln 2 - \\frac{72}{15}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
