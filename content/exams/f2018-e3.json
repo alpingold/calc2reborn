@@ -1,0 +1,420 @@
+{
+  "id": "f2018-e3",
+  "term": "Fall",
+  "year": 2018,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2018.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2018.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2018-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Determine which of the following statements are true and which are false.\n\n(I) $\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 1}$ is convergent by the ratio test.\n\n(II) $\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 1}$ is convergent by the limit comparison test with $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$.\n\n(III) $\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 1}$ is convergent by the direct comparison test with $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I is true; II and III are false."
+        },
+        {
+          "label": "B",
+          "text": "II is true; I and III are false."
+        },
+        {
+          "label": "C",
+          "text": "II and III are true; I is false."
+        },
+        {
+          "label": "D",
+          "text": "I and II are true; III is false."
+        },
+        {
+          "label": "E",
+          "text": "I, II, and III are false."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L23",
+        "L25"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Test the following series for convergence:\n\n(I) $\\sum_{n=1}^{\\infty} \\frac{1}{n + \\sqrt{n}}$\n\n(II) $\\sum_{n=1}^{\\infty} \\frac{2^n}{n + 3^n}$\n\n(III) $\\sum_{n=1}^{\\infty} \\frac{5 - 2\\sqrt{n}}{n^3}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I is divergent; II and III are convergent."
+        },
+        {
+          "label": "B",
+          "text": "I and II are convergent; III is divergent."
+        },
+        {
+          "label": "C",
+          "text": "I and III are divergent; II is convergent."
+        },
+        {
+          "label": "D",
+          "text": "I, II and III are divergent."
+        },
+        {
+          "label": "E",
+          "text": "I, II and III are convergent."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The series $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n^2}$ is convergent by the Alternating Series Test. According to the Alternating Series Estimation Theorem what is the smallest number of terms needed to find the sum of the series with error less than $1/15$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$4$"
+        },
+        {
+          "label": "C",
+          "text": "$5$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "$3$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Test the following series for convergence:\n\n(I) $\\sum_{n=1}^{\\infty} \\ln\\left(1 + \\frac{1}{n^2}\\right)$\n\n(II) $\\sum_{n=1}^{\\infty} \\sin\\left(\\frac{1}{n}\\right)$\n\n(III) $\\sum_{n=1}^{\\infty} \\left(\\sqrt{n^3} - \\sqrt{n^3 - 1}\\right)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I is convergent; II and III are divergent."
+        },
+        {
+          "label": "B",
+          "text": "I and III are convergent; II is divergent."
+        },
+        {
+          "label": "C",
+          "text": "I and III are divergent; II is convergent."
+        },
+        {
+          "label": "D",
+          "text": "I, II and III are divergent."
+        },
+        {
+          "label": "E",
+          "text": "I, II and III are convergent."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Determine whether the following series are absolutely convergent, conditionally convergent, or divergent:\n\n(I) $\\sum_{n=1}^{\\infty}(-1)^{n-1} \\cos(\\pi/n^2)$\n\n(II) $\\sum_{n=1}^{\\infty}(-1)^{n-1} \\sin(\\pi/n^2)$\n\n(III) $\\sum_{n=1}^{\\infty} \\cos(\\pi n)/n$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II are absolutely convergent; III is divergent."
+        },
+        {
+          "label": "B",
+          "text": "I and II are conditionally convergent; III is divergent."
+        },
+        {
+          "label": "C",
+          "text": "I and II are absolutely convergent; III is conditionally convergent."
+        },
+        {
+          "label": "D",
+          "text": "I is divergent; II is absolutely convergent; III is conditionally convergent."
+        },
+        {
+          "label": "E",
+          "text": "I and III are divergent; II is absolutely convergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "For which of the following series the ratio test is inconclusive?\n\n(I) $\\sum_{n=1}^{\\infty} \\frac{10^n}{n!}$\n\n(II) $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$\n\n(III) $\\sum_{n=1}^{\\infty} \\frac{\\ln(n)}{n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II"
+        },
+        {
+          "label": "E",
+          "text": "II and III"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "The first three terms of the binomial series for $f(x) = (1 + 3x)^{-1/3}$ are",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 - \\frac{1}{3}x + \\frac{4}{9}x^2$"
+        },
+        {
+          "label": "B",
+          "text": "$1 - 3x + 9x^2$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - 2x + 4x^2$"
+        },
+        {
+          "label": "D",
+          "text": "$1 - \\frac{1}{3}x + \\frac{2}{9}x^2$"
+        },
+        {
+          "label": "E",
+          "text": "$1 - x + 2x^2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the radius and interval of convergence of the power series $\\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{1}{n} (x + 3)^n$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "radius of convergence: 1; interval of convergence: (-4,-2)"
+        },
+        {
+          "label": "B",
+          "text": "radius of convergence: 1; interval of convergence: [-4,-2)"
+        },
+        {
+          "label": "C",
+          "text": "radius of convergence: $\\infty$; interval of convergence: $(-\\infty, \\infty)$"
+        },
+        {
+          "label": "D",
+          "text": "radius of convergence: 1; interval of convergence: (-4,-2]"
+        },
+        {
+          "label": "E",
+          "text": "radius of convergence: 3; interval of convergence: (-6,0)"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the power series for $f(x) = \\frac{x}{2 + 3x}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{3^n}{2^{n+1}} x^{n+1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n 3^n x^{n+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{3^n}{2^{n+1}} x^{n+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\left(\\frac{3}{2}\\right)^{n+1} x^{n+1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2^n}{3^{n+1}} x^n$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The Maclaurin series of $f(x) = x\\cos x - \\sin 3x$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2n - 3^{2n}}{(2n)!} x^{2n}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{n - 3^n}{(n)!} x^n$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2n + 1 - 3^{2n+1}}{(2n + 1)!} x^{2n+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{n - 3^n}{(n)!} x^n$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{2n - 3^{2n+1}}{(2n + 1)!} x^{2n+2}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "The Maclaurin series of $f(x) = \\int \\ln(1 + 2x)\\,dx$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{1}{(n + 1)(n + 2)} x^{n+2} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2^{n+1}}{n + 1} x^{n+2} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2^{n+1}}{(n + 1)!} x^{n+2} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2^{n+1}}{(n + 1)(n + 2)} x^{n+2} + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n \\frac{2^{n+1}}{(n + 1)!(n + 2)} x^{n+2} + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "The Maclaurin series for $f(x) = \\frac{x}{\\sqrt{3 + x}}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty} \\binom{-\\frac{1}{2}}{n} \\frac{1}{3^{n+\\frac{1}{2}}} x^{n+1}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} \\binom{-\\frac{1}{2}}{n} 3^{n+\\frac{1}{2}} x^{n+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} \\binom{-\\frac{1}{2}}{n} 3^{n+\\frac{1}{2}} x^n$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\binom{-\\frac{1}{2}}{n} \\frac{1}{\\sqrt{3}} x^{n+1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} \\binom{-\\frac{1}{2}}{n} \\frac{1}{3^{n+\\frac{1}{2}}} x^n$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
