@@ -1,0 +1,430 @@
+{
+  "id": "f2022-e3",
+  "term": "Fall",
+  "year": 2022,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2022.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2022-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Consider the two series\n\n$$\n\\sum_{n=0}^{\\infty} \\frac{3n^2 - 1}{n^5 + 1}, \\qquad \\sum_{n=0}^{\\infty} \\frac{1}{\\sqrt{n^2 + 2}}.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both are convergent"
+        },
+        {
+          "label": "B",
+          "text": "Both are divergent"
+        },
+        {
+          "label": "C",
+          "text": "The first one is convergent while the second one is divergent"
+        },
+        {
+          "label": "D",
+          "text": "The first one is divergent while the second one is convergent"
+        },
+        {
+          "label": "E",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Consider the two sequences\n\n$$\na_n = \\frac{1}{n} - \\frac{n}{\\ln n}, \\quad b_n = (\\frac{n + 1}{n})^n\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both are convergent"
+        },
+        {
+          "label": "B",
+          "text": "Both are divergent"
+        },
+        {
+          "label": "C",
+          "text": "The first one is convergent while the second one is divergent"
+        },
+        {
+          "label": "D",
+          "text": "The first one is divergent while the second one is convergent"
+        },
+        {
+          "label": "E",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find all $p$ such that the series $\\sum_{k=1}^{\\infty} \\sqrt{\\frac{k^3 + 2k^2}{k^p + 1}}$ converges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$p > 1$"
+        },
+        {
+          "label": "B",
+          "text": "$p > 6$"
+        },
+        {
+          "label": "C",
+          "text": "$p > 5$"
+        },
+        {
+          "label": "D",
+          "text": "$p \\ge 5$"
+        },
+        {
+          "label": "E",
+          "text": "$p > 7$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "$$\n\\sum_{k=0}^{\\infty} \\frac{2 + 2^k}{4^k} =\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\infty$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{14}{33}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{14}{3}$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the sum of the telescoping series $\\sum_{n=2}^{\\infty} \\frac{2}{n^2 - n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\infty$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "The series $\\sum_{k=2}^{\\infty} \\frac{1}{k\\ln k}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "divergent by comparison with $\\sum_{k=2}^{\\infty} \\frac{1}{k}$"
+        },
+        {
+          "label": "B",
+          "text": "convergent by comparison with $\\sum_{k=2}^{\\infty} \\frac{1}{k^2}$"
+        },
+        {
+          "label": "C",
+          "text": "divergent by integral test"
+        },
+        {
+          "label": "D",
+          "text": "convergent by integral test"
+        },
+        {
+          "label": "E",
+          "text": "a convergent $p$ series."
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Consider the alternating series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{k}\n$$\n\nWhich of the following statements is/are correct?\n\nI. The series converges absolutely\n\nII. The series converges because $\\lim_{k \\to +\\infty} \\frac{1}{k} = 0$ and $\\frac{1}{k}$ is always decreasing\n\nIII. The series diverges because $\\int_1^{\\infty} |a_k(x)|\\,dx = \\int_1^{\\infty} \\frac{1}{x}\\,dx$ diverges",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "I and II only"
+        },
+        {
+          "label": "D",
+          "text": "III only"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "What is the minimum number of terms to add in $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k + 1}$ to ensure that the partial sum is no more than 0.1 away from the sum of the infinity series?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8$"
+        },
+        {
+          "label": "B",
+          "text": "$9$"
+        },
+        {
+          "label": "C",
+          "text": "$10$"
+        },
+        {
+          "label": "D",
+          "text": "$11$"
+        },
+        {
+          "label": "E",
+          "text": "$12$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "**How many** of the following series are **conditionally** convergent?\n\n$$\n\\sum_{k=2}^{\\infty} \\frac{(-1)^k}{k\\ln k}\n$$\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-1)^k}{\\pi^k}\n$$\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{k^{0.998}}\n$$\n\n$$\n\\sum_{k=1337}^{\\infty} \\frac{-1}{k^2}\n$$\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-1)^k}{k^{\\pi}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "On which of the following intervals does $\\sum_{k=1}^{\\infty} \\frac{2^k(x - 1)^k}{k!}$ converge absolutely?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$[-1, 1]$ only"
+        },
+        {
+          "label": "B",
+          "text": "$[-1, 1)$ only"
+        },
+        {
+          "label": "C",
+          "text": "$(-1, 1]$ only"
+        },
+        {
+          "label": "D",
+          "text": "$(-\\infty, \\infty)$"
+        },
+        {
+          "label": "E",
+          "text": "This series never converges absolutely"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "The fourth-order Taylor polynomial of $f(x)$ centered at $x = \\frac{5\\pi}{6}$ is\n\n$$\nP_4(x) = \\frac{1}{2} - \\frac{\\sqrt{3}}{2}\\left(x - \\frac{5\\pi}{6}\\right) - \\frac{1}{4}\\left(x - \\frac{5\\pi}{6}\\right)^2 + \\frac{\\sqrt{3}}{12}\\left(x - \\frac{5\\pi}{6}\\right)^3 + \\frac{1}{48}\\left(x - \\frac{5\\pi}{6}\\right)^4\n$$\n\nWhat is $f'''\\left(\\frac{5\\pi}{6}\\right) =$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{48}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\sqrt{3}}{12}$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "If a second-order Taylor series of $f(x) = e^{-x}$ centered at $x = a = 0$ is used to estimate $e^{-0.1}$, what is the maximum absolute error according to Taylor's Estimation Theorem?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{6000}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2000}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{200}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{600}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{1000}$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L28"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
