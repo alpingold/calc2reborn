@@ -1,0 +1,422 @@
+{
+  "id": "s2024-e2",
+  "term": "Spring",
+  "year": 2024,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2024.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2024.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2024-e2-q01",
+      "number": 1,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int_0^2 \\frac{1}{(2x - 2)^2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$1/4$"
+        },
+        {
+          "label": "E",
+          "text": "The integral does not converge."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q02",
+      "number": 2,
+      "points": 1,
+      "stem": "What is the area of the region bounded by $y = 4\\tan^2(x)$, $y = 0$ and $x = \\pi/4$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4 + \\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$8 + 4\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$8 + 2\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$4 - \\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$8 - 2\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L5",
+        "L12"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q03",
+      "number": 3,
+      "points": 1,
+      "stem": "Find the value of $A$ if\n\n$$\n\\int_1^{e^4} x \\ln(x)\\,dx = A - \\int_1^{e^4} \\frac{x}{2}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{e^8}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{e^8}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$2e^8$"
+        },
+        {
+          "label": "D",
+          "text": "$e^8$"
+        },
+        {
+          "label": "E",
+          "text": "$4e^8$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q04",
+      "number": 4,
+      "points": 1,
+      "stem": "Which one of the following is the most appropriate substitution for the integral\n\n$$\n\\int \\frac{1}{\\sqrt{x^2 - 4x + 13}}\\,dx \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = 3\\tan(\\theta) - 2$"
+        },
+        {
+          "label": "B",
+          "text": "$x = 3\\tan(\\theta) + 2$"
+        },
+        {
+          "label": "C",
+          "text": "$x = 2\\tan(\\theta) - 2$"
+        },
+        {
+          "label": "D",
+          "text": "$x = 2\\tan(\\theta) + 3$"
+        },
+        {
+          "label": "E",
+          "text": "$x = 2\\tan(\\theta) - 3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q05",
+      "number": 5,
+      "points": 1,
+      "stem": "Which one of the following is the correct form of the partial fraction decompositon of\n\n$$\n\\frac{1}{x^5 + 2x^3 + x} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x} + \\frac{B}{x + 1} + \\frac{C}{x - 1} + \\frac{D}{(x + 1)^2} + \\frac{E}{(x - 1)^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2 + 1} + \\frac{C}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^3} + \\frac{D}{x^4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x} + \\frac{Bx + C}{x^2 + 1} + \\frac{Dx + E}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x} + \\frac{B}{x + 1} + \\frac{C}{x - 1}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q06",
+      "number": 6,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int \\frac{5x + 1}{(2x + 1)(x - 1)}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{10}\\ln|2x + 1| - 2\\ln|x - 1| + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}\\ln|2x + 1| + 5\\ln|x - 1| + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{10}\\ln|2x + 1| - 4\\ln|x - 1| + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2}\\ln|2x + 1| + 2\\ln|x - 1| + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{10}\\ln|2x + 1| + 4\\ln|x - 1| + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q07",
+      "number": 7,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\infty} x e^{-x^2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "The integral does not converge."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q08",
+      "number": 8,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\pi} \\cos^3(x)\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q09",
+      "number": 9,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\pi/4} 4x\\cos(2x)\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi - 2}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{4\\sqrt{2}} + \\frac{1}{\\sqrt{2}} - 1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "$-2$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q10",
+      "number": 10,
+      "points": 1,
+      "stem": "If\n\n$$\n\\frac{1}{x^2(x - 1)^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x - 1} + \\frac{D}{(x - 1)^2},\n$$\n\nwhat is the value of $A + B + C + D$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$-1$"
+        },
+        {
+          "label": "C",
+          "text": "$-2$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q11",
+      "number": 11,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int_{-\\infty}^{0} x^2 e^x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$6$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "The integral does not converge."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11",
+        "L18"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e2-q12",
+      "number": 12,
+      "points": 1,
+      "stem": "Evaluate\n\n$$\n\\int_{\\frac{1}{2}}^{1} \\frac{1}{x\\sqrt{4x^2 - 1}}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{\\sqrt{3}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\ln(3)}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "E",
+          "text": "The integral does not converge."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L14",
+        "L18"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
