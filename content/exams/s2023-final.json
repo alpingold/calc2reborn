@@ -500,7 +500,8 @@
       "answer": "A",
       "answerSource": "derived",
       "lessonIds": [
-        "L22"
+        "L22",
+        "L23"
       ],
       "sourcePage": 8,
       "status": "reviewed"

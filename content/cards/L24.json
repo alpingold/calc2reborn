@@ -74,7 +74,7 @@
     "id": "L24-c08",
     "lessonId": "L24",
     "front": "If $\\sum a_k$ converges, must $\\sum |a_k|$ converge?",
-    "back": "No. Only the other direction holds: absolute convergence implies convergence. $\\sum \\frac{(-1)^{k+1}}{\\sqrt[3]{k}}$ converges by the AST, but $\\sum \\frac{1}{\\sqrt[3]{k}}$ is a p-series with $p = \\frac{1}{3}$ and diverges.",
+    "back": "No. Only the other direction holds: absolute convergence implies convergence. The alternating harmonic series $\\sum \\frac{(-1)^{k+1}}{k}$ converges by the AST, but $\\sum \\frac{1}{k}$ diverges, so it is conditionally convergent, not absolutely.",
     "tags": [
       "trap",
       "absolute",

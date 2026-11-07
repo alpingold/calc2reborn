@@ -73,7 +73,8 @@
       ],
       "answer": "D",
       "lessonIds": [
-        "L22"
+        "L22",
+        "L25"
       ],
       "sourcePage": 3,
       "solution": "The integral test gives that $\\sum_{n=2}^{\\infty} \\frac{1}{n(\\ln n)^p}$ converges if $p > 1$. Here the series has $\\ln(2n)$ in place of $\\ln n$, and the same integral works: with $u = \\ln(2x)$, $du = \\frac{dx}{x}$,\n\n$$\n\\int_1^{\\infty} \\frac{dx}{x(\\ln(2x))^2} = \\int_{\\ln 2}^{\\infty} \\frac{du}{u^2} = \\frac{1}{\\ln 2},\n$$\n\nwhich is finite, so the series converges. The ratio test and the root test are inconclusive.",
