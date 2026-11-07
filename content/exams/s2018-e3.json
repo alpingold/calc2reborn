@@ -1,0 +1,420 @@
+{
+  "id": "s2018-e3",
+  "term": "Spring",
+  "year": 2018,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2018.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2018.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2018-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "For which values of $c$ is $\\sum_{n=1}^{\\infty} \\left(\\frac{2n}{n^2 + c^2}\\right)^n$ convergent?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All values of $c$."
+        },
+        {
+          "label": "B",
+          "text": "$|c| < 1$."
+        },
+        {
+          "label": "C",
+          "text": "$|c| < 2$."
+        },
+        {
+          "label": "D",
+          "text": "$|c| > 2$."
+        },
+        {
+          "label": "E",
+          "text": "No values of $c$."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "What are the radius of convergence $R$ and interval of convergence $I$ of the power series\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(x - 2)^n}{\\sqrt{n}\\,3^n}?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$R = 3$ and $I = (-1, 5]$"
+        },
+        {
+          "label": "B",
+          "text": "$R = 3$ and $I = [-1, 5)$"
+        },
+        {
+          "label": "C",
+          "text": "$R = 3$ and $I = (-1, 5)$"
+        },
+        {
+          "label": "D",
+          "text": "$R = \\infty$ and $I = (-\\infty, \\infty)$"
+        },
+        {
+          "label": "E",
+          "text": "$R = 1$ and $I = (1, 3)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Which of the following is true about the series $\\sum_{n=2}^{\\infty} \\frac{1}{n(\\ln n)^2}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Diverges by the comparison test using $\\sum_{n=1}^{\\infty} \\frac{1}{n}$."
+        },
+        {
+          "label": "B",
+          "text": "Converges by the limit comparison test using $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$."
+        },
+        {
+          "label": "C",
+          "text": "Diverges by the limit comparison test using $\\sum_{n=1}^{\\infty} \\frac{1}{n}$."
+        },
+        {
+          "label": "D",
+          "text": "Converges by the Integral Test."
+        },
+        {
+          "label": "E",
+          "text": "Diverges by the Integral Test."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "For which of the following series is the ratio test conclusive (that is, it really determines whether or not the series converges)?\n\n(i.) $\\sum_{n=1}^{\\infty} \\frac{1}{n}$\n\n(ii.) $\\sum_{n=1}^{\\infty} \\frac{(-2)^n}{n^2}$\n\n(iii.) $\\sum_{n=1}^{\\infty} \\frac{1}{2^n(1 + n)}$\n\n(iv.) $\\sum_{n=1}^{\\infty} \\frac{n^2}{3^n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(i) and (ii) only."
+        },
+        {
+          "label": "B",
+          "text": "(iii) and (iv) only."
+        },
+        {
+          "label": "C",
+          "text": "All of these series."
+        },
+        {
+          "label": "D",
+          "text": "None of these series."
+        },
+        {
+          "label": "E",
+          "text": "Another combination not listed above."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find all of the series below that are convergent but **not** absolutely convergent.\n\n(i.) $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n}$\n\n(ii.) $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{\\sqrt{n}}$\n\n(iii.) $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n^2}$\n\n(iv.) $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n^3 + 1}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(i) and (ii) only."
+        },
+        {
+          "label": "B",
+          "text": "(iii) and (iv) only."
+        },
+        {
+          "label": "C",
+          "text": "All of these series."
+        },
+        {
+          "label": "D",
+          "text": "None of these series."
+        },
+        {
+          "label": "E",
+          "text": "Another combination not listed above."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Which of the following represents the power series for the product of the two convergent power series\n\n$$\n\\frac{1}{1 - 2x} = 1 + 2x + 4x^2 + 8x^3 + \\cdots\n$$\n\n$$\n\\ln(1 + x) = x - \\frac{1}{2}x^2 + \\frac{1}{3}x^3 - \\frac{1}{4}x^4 + \\cdots\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 + 2x^2 - x^4 + \\cdots$"
+        },
+        {
+          "label": "B",
+          "text": "$x - x^2 + 2x^3 + \\cdots$"
+        },
+        {
+          "label": "C",
+          "text": "$x + \\frac{3}{2}x^2 + \\frac{10}{3}x^3 + \\cdots$"
+        },
+        {
+          "label": "D",
+          "text": "$x - x^3 + \\frac{4}{3}x^5 + \\cdots$"
+        },
+        {
+          "label": "E",
+          "text": "$1 + x + 3x^2 + 5x^3 + \\cdots$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 5,
+      "solution": "The official key accepted every choice for this question.\n\nMultiply the two series and collect terms up to $x^3$. The product has no constant term, since $\\ln(1 + x)$ has none.\n\n$$\n(1 + 2x + 4x^2 + \\cdots)\\left(x - \\frac{1}{2}x^2 + \\frac{1}{3}x^3 - \\cdots\\right)\n$$\n\n- $x$: $1 \\cdot x = x$\n- $x^2$: $1 \\cdot \\left(-\\frac{1}{2}\\right) + 2 \\cdot 1 = \\frac{3}{2}$\n- $x^3$: $1 \\cdot \\frac{1}{3} + 2 \\cdot \\left(-\\frac{1}{2}\\right) + 4 \\cdot 1 = \\frac{10}{3}$\n\nSo the product is $x + \\frac{3}{2}x^2 + \\frac{10}{3}x^3 + \\cdots$, which is choice C.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "To what simple function $f(x)$ does $\\sum_{n=1}^{\\infty} \\frac{x^n}{n\\,2^n}$ converge near $x = 0$?\n\nHints: What is $f'(x)$? What is $f(0)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}\\ln|1 - x|$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln 2 - \\ln|2 - x|$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{x}{1 - \\frac{x}{2}}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{(1 - \\frac{x}{2})^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{x}{(1 - \\frac{x}{2})^2}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the sum of the series $\\sum_{n=1}^{\\infty} \\frac{n}{2^n}$.\n\nHint: Let $f(x) = \\sum_{n=0}^{\\infty} x^n$, find $f'(x)$, and compare $f'(\\frac{1}{2})$ to the given series.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "In the Taylor series representation of $f(x) = \\ln x$ centered at $x = 1$, what is the coefficient of the term containing $(x - 1)^3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$-2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{1}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The Maclaurin series for $\\sin x$ is $\\sin x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n + 1)!} = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} + \\cdots$. If $f(x) = \\int \\sin(x^2)\\,dx$, what is coefficient of the $x^7$ term the Maclaurin series for $f(x)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{7!}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{7}$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{1}{42}$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{1}{7!}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "The Maclaurin series for an unknown function $f(x)$ is $1 + \\frac{2}{1!}x + \\frac{3}{2!}x^2 + \\frac{4}{3!}x^3 + \\cdots$. What is the value of $f^{(99)}(0)$ (the 99th derivative at $x = 0$)?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{99}{98!}$"
+        },
+        {
+          "label": "C",
+          "text": "$99$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{100}{99!}$"
+        },
+        {
+          "label": "E",
+          "text": "$100$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2018-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "The binomial series is\n\n$$\n(1 + x)^k = \\sum_{n=0}^{\\infty} \\binom{k}{n} x^n = 1 + kx + \\frac{k(k - 1)}{2!}x^2 + \\frac{k(k - 1)(k - 2)}{3!}x^3 + ....\n$$\n\nWhat is the power series representation of\n\n$$\nf(x) = \\frac{1}{\\sqrt[4]{1 + x}}?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n[1 \\cdot 5 \\cdot 9 \\cdot \\cdots \\cdot (4n + 1)]}{4^n n!}x^n$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n[1 \\cdot 3 \\cdot 5 \\cdot \\cdots \\cdot (2n + 1)]}{4^{n+1} n!}x^n$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n[1 \\cdot 3 \\cdot 5 \\cdot \\cdots \\cdot (2n - 1)]}{4^n n!}x^n$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n(4n - 3)}{4^n n!}x^n$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n[1 \\cdot 5 \\cdot 9 \\cdot \\cdots \\cdot (4n - 3)]}{4^n n!}x^n$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}
