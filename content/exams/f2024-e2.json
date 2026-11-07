@@ -1,0 +1,351 @@
+{
+  "id": "f2024-e2",
+  "term": "Fall",
+  "year": 2024,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2024.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2024.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2024-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Which of the following statement(s) is/are TRUE?\n\n(I) If $\\sum_{n=1}^{\\infty} a_n$ is divergent, then $\\lim_{n\\to\\infty} a_n \\ne 0$.\n\n(II) If $\\sum_{n=1}^{\\infty} a_n$ is divergent, then $\\sum_{n=43}^{\\infty} a_n$ is divergent.\n\n(III) If $\\lim_{n\\to\\infty} a_n$ does not exist, then $\\sum_{n=1}^{\\infty} a_n$ is divergent.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(I) only"
+        },
+        {
+          "label": "B",
+          "text": "(II) only"
+        },
+        {
+          "label": "C",
+          "text": "(III) only"
+        },
+        {
+          "label": "D",
+          "text": "All of (I), (II), and (III)"
+        },
+        {
+          "label": "E",
+          "text": "(II) and (III) only"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Express the repeated decimal $1.\\overline{30} = 1.3030303030\\ldots$ as a fraction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{13}{10}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{12}{11}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{34}{33}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{43}{33}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_1^{\\infty} \\frac{3x^2}{x^6 + 1}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt[3]{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/4$"
+        },
+        {
+          "label": "E",
+          "text": "The integral does not converge."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "What is the correct form for the partial fraction decomposition of\n\n$$\n\\frac{x^3 - 1}{x^4 + 16x^2} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x} + \\frac{Bx + C}{x^2 + 16}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 16}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x + 4} + \\frac{D}{x - 4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x} + \\frac{B}{x + 4} + \\frac{C}{(x + 4)^2}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^4 \\frac{2x}{x^2 - 4}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\arctan(4)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln(3)$"
+        },
+        {
+          "label": "C",
+          "text": "$2/3$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln(8)$"
+        },
+        {
+          "label": "E",
+          "text": "The integral does not converge."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "If\n\n$$\n\\frac{A}{x} + \\frac{B}{x - 1} + \\frac{C}{(x - 1)^2} = \\frac{3x^2 - x + 1}{x^3 - 2x^2 + x},\n$$\n\nfind the value of $A + B + C$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$6$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "For each one of the following three alternating series, is it absolutely convergent, conditionally convergent, or divergent?\n\n$$\nS_1 = \\sum_{k=1}^{\\infty} \\frac{(-1)^k}{\\sqrt{k}}, \\qquad S_2 = \\sum_{k=1}^{\\infty} \\frac{(-1)^k k}{k + 1}, \\qquad S_3 = \\sum_{k=1}^{\\infty} \\frac{(-1)^k}{2^k}.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$S_1$ is absolutely convergent; $S_2$ is divergent; $S_3$ is absolutely convergent."
+        },
+        {
+          "label": "B",
+          "text": "$S_1$ is absolutely convergent; $S_2$ is divergent; $S_3$ is conditionally convergent."
+        },
+        {
+          "label": "C",
+          "text": "$S_1$ is absolutely convergent; $S_2$ is conditionally convergent; $S_3$ is absolutely convergent."
+        },
+        {
+          "label": "D",
+          "text": "$S_1$ is conditionally convergent; $S_2$ is divergent; $S_3$ is absolutely convergent."
+        },
+        {
+          "label": "E",
+          "text": "$S_1$ is conditionally convergent; $S_2$ is divergent; $S_3$ is divergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "The sequence $\\{a_n\\}_{n=1}^{\\infty}$ is defined by the recurrence relation\n\n$$\na_1 = 0, \\quad \\text{and} \\quad a_{n+1} = (a_n)^2 - 2.\n$$\n\nWhat is $a_6$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2$"
+        },
+        {
+          "label": "B",
+          "text": "$-62$"
+        },
+        {
+          "label": "C",
+          "text": "$256$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "The series $\\sum_{k=1}^{\\infty} \\frac{1}{\\sqrt{k^2 + k}}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Divergent by the divergence test."
+        },
+        {
+          "label": "B",
+          "text": "Divergent by the limit comparison test with $\\sum_{k=1}^{\\infty} \\frac{1}{k}$."
+        },
+        {
+          "label": "C",
+          "text": "Convergent by the limit comparison test with $\\sum_{k=1}^{\\infty} \\frac{1}{k^2}$."
+        },
+        {
+          "label": "D",
+          "text": "Divergent by the comparison test with $\\sum_{k=1}^{\\infty} \\frac{1}{k}$."
+        },
+        {
+          "label": "E",
+          "text": "Convergent by the comparison test with $\\sum_{k=1}^{\\infty} \\frac{1}{k^2}$."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Which one of the following statements is TRUE?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "If the sequence $\\{a_n\\}_{n=1}^{\\infty}$ is divergent, then $\\{1/a_n\\}_{n=1}^{\\infty}$ must be convergent."
+        },
+        {
+          "label": "B",
+          "text": "If sequences $\\{a_n\\}_{n=1}^{\\infty}$ and $\\{b_n\\}_{n=1}^{\\infty}$ are divergent, then $\\{a_n - b_n\\}_{n=1}^{\\infty}$ is also divergent."
+        },
+        {
+          "label": "C",
+          "text": "If sequences $\\{a_n\\}_{n=1}^{\\infty}$ and $\\{b_n\\}_{n=1}^{\\infty}$ are divergent, then $\\{a_n b_n\\}_{n=1}^{\\infty}$ is also divergent."
+        },
+        {
+          "label": "D",
+          "text": "If sequences $\\{a_n\\}_{n=1}^{\\infty}$ and $\\{b_n\\}_{n=1}^{\\infty}$ are convergent, then $\\{a_n + b_n\\}_{n=1}^{\\infty}$ is also convergent."
+        },
+        {
+          "label": "E",
+          "text": "If sequences $\\{a_n\\}_{n=1}^{\\infty}$ and $\\{b_n\\}_{n=1}^{\\infty}$ are convergent, then $\\{a_n/b_n\\}_{n=1}^{\\infty}$ is also convergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
