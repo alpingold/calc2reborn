@@ -1,0 +1,433 @@
+{
+  "id": "s2019-e1",
+  "term": "Spring",
+  "year": 2019,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2019.pdf",
+  "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e1-s2019.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2019-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "The equation\n\n$$\nx^2 + y^2 + z^2 + 2x - 4y + 6z = C\n$$\n\nis a sphere of radius 2. What is $C$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$C = -12$"
+        },
+        {
+          "label": "B",
+          "text": "$C = 4$"
+        },
+        {
+          "label": "C",
+          "text": "$C = 14$"
+        },
+        {
+          "label": "D",
+          "text": "$C = 2$"
+        },
+        {
+          "label": "E",
+          "text": "$C = -10$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "solution": "Complete the square in each variable:\n\n$$\nx^2 + 2x + 1 + y^2 - 4y + 4 + z^2 + 6z + 9 = C + 1 + 4 + 9\n$$\n\n$$\n(x + 1)^2 + (y - 2)^2 + (z + 3)^2 = C + 14\n$$\n\nThe radius is 2, so $C + 14 = 2^2$ and $C = -10$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "$\\boldsymbol{\\vec{v}} = \\langle 2, 3, 6 \\rangle$ and $\\boldsymbol{\\vec{w}} = \\langle 1, -2, 3 \\rangle$. Find $\\text{proj}_{\\boldsymbol{\\vec{v}}}\\boldsymbol{\\vec{w}}$, the vector projection of $\\boldsymbol{\\vec{w}}$ onto $\\boldsymbol{\\vec{v}}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle 3, 0, -1 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle \\frac{2}{7}, \\frac{3}{7}, \\frac{6}{7} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle 2, -4, 6 \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle \\frac{4}{7}, \\frac{6}{7}, \\frac{12}{7} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 1, -2, 3 \\rangle$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 2,
+      "solution": "$\\vec{w} \\cdot \\vec{v} = 2 - 6 + 18 = 14$ and $|\\vec{v}| = \\sqrt{2^2 + 3^2 + 6^2} = 7$, so\n\n$$\n\\text{proj}_{\\vec{v}}\\vec{w} = \\frac{\\vec{w} \\cdot \\vec{v}}{|\\vec{v}|}\\left(\\frac{\\vec{v}}{|\\vec{v}|}\\right) = \\frac{2}{7}\\vec{v} = \\left\\langle \\frac{4}{7}, \\frac{6}{7}, \\frac{12}{7} \\right\\rangle\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Which of the following statements are true?\n\n(i) $2\\boldsymbol{\\vec{\\imath}}$ and $\\boldsymbol{\\vec{\\jmath}} + \\boldsymbol{\\vec{k}}$ are orthogonal vectors\n\n(ii) If $\\boldsymbol{\\vec{v}}$ is a vector in three dimensions, $\\boldsymbol{\\vec{v}} \\times \\boldsymbol{\\vec{v}} = \\boldsymbol{\\vec{0}}$\n\n(iii) If $\\boldsymbol{\\vec{w}}$ is a vector, $\\boldsymbol{\\vec{w}} \\cdot \\boldsymbol{\\vec{w}} = |\\boldsymbol{\\vec{w}}|$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(i) and (ii) only"
+        },
+        {
+          "label": "B",
+          "text": "(i) and (iii) only"
+        },
+        {
+          "label": "C",
+          "text": "Only one of the three statements is true"
+        },
+        {
+          "label": "D",
+          "text": "(ii) and (iii) only"
+        },
+        {
+          "label": "E",
+          "text": "(i), (ii), and (iii) are all true"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 3,
+      "solution": "The official solutions box choice A, (i) and (ii) only, and show no working.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Suppose $|\\boldsymbol{\\vec{a}}| = 4$ and $\\boldsymbol{\\vec{b}} = \\boldsymbol{\\vec{\\imath}} + 4\\boldsymbol{\\vec{\\jmath}} + 8\\boldsymbol{\\vec{k}}$ and the angle between $\\boldsymbol{\\vec{a}}$ and $\\boldsymbol{\\vec{b}}$ is $\\frac{\\pi}{6}$. What is $|\\boldsymbol{\\vec{a}} \\times \\boldsymbol{\\vec{b}}|$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$36$"
+        },
+        {
+          "label": "B",
+          "text": "$26$"
+        },
+        {
+          "label": "C",
+          "text": "$9\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$9$"
+        },
+        {
+          "label": "E",
+          "text": "$18$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "solution": "$|\\vec{b}| = \\sqrt{1^2 + 4^2 + 8^2} = 9$ and $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, so\n\n$$\n|\\vec{a} \\times \\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta = (4)(9)\\left(\\frac{1}{2}\\right) = 18\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "The area between the curves $y = x^2$ and $x + y = 2$ is given by",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_{-2}^1 (2 - x - x^2)\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^2 (\\sqrt{y} + y - 2)\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_{-2}^1 (x^2 + x - 2)\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_{-1}^2 (2 - x - x^2)\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_{-1}^2 (x^2 + x - 2)\\,dx$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "solution": "The curves meet where $x^2 = 2 - x$, so $x^2 + x - 2 = 0$ and $(x + 2)(x - 1) = 0$, giving $x = -2$ and $x = 1$. Between them the line $y = 2 - x$ lies above the parabola $y = x^2$, so the area is\n\n$$\n\\int_{-2}^1 (2 - x - x^2)\\,dx\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the area bounded by the curves $y = 2 - x^2$ and $y = |x|$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{10}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{7}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{13}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{13}{6}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "solution": "For $x \\ge 0$, $2 - x^2 = x$ gives $0 = x^2 + x - 2 = (x - 1)(x + 2)$, so $x = 1$. The region is symmetric about the $y$-axis, so the area is\n\n$$\n2\\int_0^1 \\left((2 - x^2) - x\\right)dx = 2\\left[2x - \\frac{1}{3}x^3 - \\frac{1}{2}x^2\\right]_0^1 = 2\\left(2 - \\frac{1}{3} - \\frac{1}{2}\\right) = 4 - \\frac{2}{3} - 1 = \\frac{7}{3}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Use cylindrical shells to find a formula for the volume of the following solid: the region bounded by $y = x^2$ and $y = 1$ is revolved about the line $y = 3$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_{-1}^1 2\\pi(1 - y)y^{1/2}\\,dy$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 2\\pi(3 - y)y^{1/2}\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 4\\pi(3 - y)y^{1/2}\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 2\\pi(3 - x)x^2\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_{-1}^1 \\pi(1 - x^2)\\,dx$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "solution": "For $0 \\le y \\le 1$ the region runs from $x = -\\sqrt{y}$ to $x = \\sqrt{y}$. A horizontal shell at height $y$ has radius $3 - y$ (the distance to the line $y = 3$) and length $\\sqrt{y} - (-\\sqrt{y})$, so\n\n$$\nV = \\int_0^1 2\\pi(3 - y)\\left[\\sqrt{y} - (-\\sqrt{y})\\right]dy = \\int_0^1 4\\pi(3 - y)y^{1/2}\\,dy\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "It requires a force of 12 N to hold a spring 0.1 m longer than its natural length. How much work (in N·m) is required to stretch it from its natural length into this position?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0.6$"
+        },
+        {
+          "label": "B",
+          "text": "$1.2$"
+        },
+        {
+          "label": "C",
+          "text": "$12$"
+        },
+        {
+          "label": "D",
+          "text": "$0.006$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 5,
+      "solution": "By Hooke's law $f = kx$, so $12 = k(0.1)$ and $k = 120$. Then\n\n$$\nW = \\int_0^{0.1} 120x\\,dx = \\left. 60x^2 \\right|_0^{0.1} = 60(0.01) - 0 = 0.6\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "What is the average value of the function $f(x) = \\sin^3 x$ over the interval $0 \\le x \\le \\pi$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{8\\pi}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{3\\pi}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\sqrt{2}}{4\\pi}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8}{3\\pi}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2\\pi}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 6,
+      "solution": "$$\n\\frac{1}{\\pi - 0}\\int_0^{\\pi} \\sin^3 x\\,dx = \\frac{1}{\\pi}\\int_0^{\\pi} \\sin^2 x\\sin x\\,dx = \\frac{1}{\\pi}\\int_0^{\\pi} (1 - \\cos^2 x)\\sin x\\,dx = \\frac{1}{\\pi}\\int_0^{\\pi} (\\sin x - \\cos^2 x\\sin x)\\,dx\n$$\n\n$$\n= \\left[-\\frac{1}{\\pi}\\cos x + \\frac{1}{\\pi}\\left(\\frac{1}{3}\\cos^3 x\\right)\\right]_0^{\\pi} = -\\frac{1}{\\pi}(-1 - 1) + \\frac{1}{\\pi}\\left(-\\frac{1}{3} - \\frac{1}{3}\\right) = \\frac{2}{\\pi} - \\frac{2}{3\\pi} = \\frac{4}{3\\pi}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Compute $\\int_0^{\\pi/4} \\tan x\\sec^3 x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\sqrt{2} - 1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sqrt{2}}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2\\sqrt{2} - 1}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 6,
+      "solution": "Write the integrand as $\\sec^2 x \\cdot \\sec x\\tan x$ and substitute $u = \\sec x$:\n\n$$\n\\int_0^{\\pi/4} \\sec^2 x\\sec x\\tan x\\,dx = \\left. \\frac{1}{3}\\sec^3 x \\right|_0^{\\pi/4} = \\frac{1}{3}(\\sqrt{2})^3 - \\frac{1}{3}(1)^3 = \\frac{2\\sqrt{2} - 1}{3}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the volume of the solid that results from rotating the area between the curves $y^2 = x - 1$ and $y = x - 1$ around the $y$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3\\pi}{7}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{7\\pi}{15}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{10}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 7,
+      "solution": "Write the curves as $x = y + 1$ and $x = y^2 + 1$. They meet where $y + 1 = y^2 + 1$, so $0 = y^2 - y$ and $y = 0$ or $y = 1$. Using washers in $y$:\n\n$$\n\\int_0^1 \\left(\\pi(y + 1)^2 - \\pi(y^2 + 1)^2\\right)dy = \\pi\\int_0^1 (y^2 + 2y + 1 - y^4 - 2y^2 - 1)\\,dy = \\pi\\int_0^1 (2y - y^4 - y^2)\\,dy\n$$\n\n$$\n= \\pi\\left[y^2 - \\frac{1}{5}y^5 - \\frac{1}{3}y^3\\right]_0^1 = \\pi\\left(1 - \\frac{1}{5} - \\frac{1}{3}\\right) = \\pi\\left(\\frac{15 - 3 - 5}{15}\\right) = \\frac{7\\pi}{15}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Find $\\int \\frac{\\cos(\\frac{x}{4})}{e^x}\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{4\\cos(\\frac{x}{4}) - 16\\sin(\\frac{x}{4})}{15e^x} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4\\sin(\\frac{x}{4}) - 16\\cos(\\frac{x}{4})}{17e^x} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4\\sin(\\frac{x}{4}) - 16\\cos(\\frac{x}{4})}{15e^x} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{16\\sin(\\frac{x}{4}) - 4\\cos(\\frac{x}{4})}{15e^x} + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{16\\sin(\\frac{x}{4}) - 4\\cos(\\frac{x}{4})}{17e^x} + C$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 7,
+      "solution": "Call the integral $I$ and integrate by parts twice. First take $u = e^{-x}$, $du = -e^{-x}\\,dx$, $dv = \\cos(\\frac{x}{4})\\,dx$, $v = 4\\sin(\\frac{x}{4})$:\n\n$$\nI = 4e^{-x}\\sin\\left(\\frac{x}{4}\\right) + \\int 4\\sin\\left(\\frac{x}{4}\\right)e^{-x}\\,dx\n$$\n\nThen take $u = e^{-x}$, $du = -e^{-x}\\,dx$, $dv = 4\\sin(\\frac{x}{4})\\,dx$, $v = -16\\cos(\\frac{x}{4})$:\n\n$$\nI = 4e^{-x}\\sin\\left(\\frac{x}{4}\\right) + \\left(-16e^{-x}\\cos\\left(\\frac{x}{4}\\right)\\right) - \\int \\left(-16\\cos\\left(\\frac{x}{4}\\right)\\right)\\left(-e^{-x}\\right)dx\n$$\n\n$$\n= \\frac{4\\sin(\\frac{x}{4})}{e^x} - \\frac{16\\cos(\\frac{x}{4})}{e^x} - 16\\int \\frac{\\cos(\\frac{x}{4})}{e^x}\\,dx\n$$\n\nSo $I = \\frac{4\\sin(\\frac{x}{4}) - 16\\cos(\\frac{x}{4})}{e^x} - 16I$, and solving for $I$ gives\n\n$$\nI = \\frac{4\\sin(\\frac{x}{4}) - 16\\cos(\\frac{x}{4})}{17e^x} + C\n$$",
+      "status": "reviewed"
+    }
+  ]
+}
