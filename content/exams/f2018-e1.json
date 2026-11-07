@@ -1,0 +1,419 @@
+{
+  "id": "f2018-e1",
+  "term": "Fall",
+  "year": 2018,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2018.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2018.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2018-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "The area of a triangle with vertices $(1, 1, 1)$, $(2, 2, 3)$ and $(1, 2, 2)$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{3}/2$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Given $|\\vec{u}| = 3$, $|\\vec{v}| = 4$ and the angle between $\\vec{u}$ and $\\vec{v}$ is $2\\pi/3$, find $|\\vec{u} + \\vec{v}|$.\n\nHint: $|\\vec{u} + \\vec{v}|^2 = (\\vec{u} + \\vec{v}) \\cdot (\\vec{u} + \\vec{v}) = \\vec{u} \\cdot \\vec{u} + 2\\vec{u} \\cdot \\vec{v} + \\vec{v} \\cdot \\vec{v}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{13}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{29}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{37}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Given $|\\vec{u}| = 1$, $|\\vec{v}| = 5$ and the angle between $\\vec{u}$ and $\\vec{v}$ is $\\pi/6$, find $|\\vec{u} \\times \\vec{v}|$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1/2$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$3/2$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "$5/2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "If $\\vec{a} = \\langle 1, 1, 1 \\rangle$ then the vector projection of $\\langle 1, 0, 1 \\rangle$ onto $\\vec{a}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle 1/3, 1/3, 1/3 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle 2/3, 2/3, 2/3 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle 1/\\sqrt{2}, 1/\\sqrt{2}, 1/\\sqrt{2} \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\langle 2/\\sqrt{3}, 2/\\sqrt{3}, 2/\\sqrt{3} \\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 2/\\sqrt{6}, 2/\\sqrt{6}, 2/\\sqrt{6} \\rangle$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "The angle between $\\vec{a} = \\langle 2, -1, 2 \\rangle$ and $\\vec{b} = \\langle 1, -1, 0 \\rangle$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi/4$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi/3$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\pi/4$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the volume of the parallelepiped with adjacent edges $PQ$, $PR$ and $PS$ where $P(-2, 1, 0)$, $Q(2, 3, 2)$, $R(1, 4, -1)$ and $S(3, 6, 1)$ are points in $\\mathbb{R}^3$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$4$"
+        },
+        {
+          "label": "C",
+          "text": "$8$"
+        },
+        {
+          "label": "D",
+          "text": "$16$"
+        },
+        {
+          "label": "E",
+          "text": "$32$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "The area of the region between the curves $y = x^3$ and $y = 4x$ is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8$"
+        },
+        {
+          "label": "B",
+          "text": "$4$"
+        },
+        {
+          "label": "C",
+          "text": "$6$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the volume of the region bounded by the curves $y = -x$ and $y = -x^2$ rotated about the $x$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\pi/8$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/8$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi/15$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\pi/3$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi/5$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Using the method of cylindrical shells, find the volume of the solid obtained by rotating the region bounded by $y = x^2$ and $y = x$ about $x = 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi \\int_0^1 (x - x^2)^2 \\, dx$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi \\int_0^1 x(x + 1)^2 \\, dx$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi \\int_0^1 x(x^2 - 4x + 2) \\, dx$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi \\int_0^1 x(x - x^2) \\, dx$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi \\int_0^1 x(x - 1)^2 \\, dx$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The base of a solid in the $xy$-place is bounded by $y = 4 - x^2$ and $y = 0$. Its cross sections perpendicular to the $y$-axis are squares. Find the volume of the solid:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_{-2}^{2} (4 - x^2)^2 \\, dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^2 (4 - x^2)^2 \\, dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^4 4(4 - y) \\, dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^2 4(4 - y) \\, dy$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^4 4(4 + y) \\, dy$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "A force of 4 pounds stretches a spring with natural length of 12 inches to 18 inches. Find the total work by stretching the spring from a length of 18 inches to 24 inches. Note: 1 ft = 12 in.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "5 ft-lb"
+        },
+        {
+          "label": "B",
+          "text": "3 ft-lb"
+        },
+        {
+          "label": "C",
+          "text": "8 ft-lb"
+        },
+        {
+          "label": "D",
+          "text": "6 ft-lb"
+        },
+        {
+          "label": "E",
+          "text": "3/2 ft-lb"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2018-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Evaluate the integral\n\n$$\n\\int_1^2 x^2 \\ln x \\, dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8\\ln 2 - \\frac{7}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{8}{3}\\ln 2 - \\frac{7}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$24\\ln 2 - 7$"
+        },
+        {
+          "label": "D",
+          "text": "$4\\ln 2$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{8}{3}\\ln 2$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
