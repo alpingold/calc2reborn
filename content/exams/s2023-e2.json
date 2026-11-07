@@ -1,0 +1,419 @@
+{
+  "id": "s2023-e2",
+  "term": "Spring",
+  "year": 2023,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2023.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2023.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2023-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Which of the following sequences converge?\n\nI. $\\left\\{\\frac{n}{2n + (-1)^n}\\right\\}_{n=1}^{\\infty}$\n\nII. $\\left\\{\\sin\\left(\\frac{n\\pi}{2}\\right)\\right\\}_{n=1}^{\\infty}$\n\nIII. $\\left\\{\\frac{(-2)^n}{3^{n+1}}\\right\\}_{n=1}^{\\infty}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "II and III only"
+        },
+        {
+          "label": "B",
+          "text": "I only"
+        },
+        {
+          "label": "C",
+          "text": "I and II only"
+        },
+        {
+          "label": "D",
+          "text": "III only"
+        },
+        {
+          "label": "E",
+          "text": "I and III only"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\frac{\\pi}{3}} \\sec^{\\frac{3}{2}}(x)\\tan(x)dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3\\sqrt{2} - \\frac{3}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4\\sqrt{2} - 2}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4\\sqrt{2}}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$3\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\sqrt{2} - 1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_1^e x^2\\ln(x)dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2e^3 + 1}{9}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2e^3}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{e^3}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2e^3 + 1}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3e^3 - 1}{9}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\infty} x^2 e^{-x^3}dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{e^3}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_1^2 \\frac{3x^2 - 1}{x^3 + x}dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln\\left(\\frac{5}{16}\\right)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln\\left(\\frac{25}{8}\\right)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln\\left(\\frac{25}{16}\\right)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln\\left(\\frac{5}{8}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln\\left(\\frac{5}{4}\\right)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^1 5x^2 e^{-x}dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{10}{e}$"
+        },
+        {
+          "label": "B",
+          "text": "$10 + \\frac{10}{e}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{25}{e}$"
+        },
+        {
+          "label": "D",
+          "text": "$-2 + \\frac{5}{e}$"
+        },
+        {
+          "label": "E",
+          "text": "$10 - \\frac{25}{e}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Which of the following improper integrals converge?\n\nI. $\\int_2^{\\infty} \\frac{dx}{x}$\n\nII. $\\int_0^1 \\frac{dx}{x^2}$\n\nIII. $\\int_3^5 \\frac{dx}{(x-3)^{1/2}}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II only"
+        },
+        {
+          "label": "B",
+          "text": "I and III only"
+        },
+        {
+          "label": "C",
+          "text": "II only"
+        },
+        {
+          "label": "D",
+          "text": "II and III only"
+        },
+        {
+          "label": "E",
+          "text": "III only"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "The following function has a partial fraction decomposition:\n\n$$\n\\frac{x^3 - 14x^2 - 3x + 2}{x^4 - x^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x-1} + \\frac{D}{x+1}\n$$\n\nFind $D$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$-7$"
+        },
+        {
+          "label": "D",
+          "text": "$-2$"
+        },
+        {
+          "label": "E",
+          "text": "$8$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_5^{10} \\frac{\\sqrt{x^2 - 25}}{x}dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5\\sqrt{3} - \\frac{5\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$5\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{3} + \\frac{\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$5\\sqrt{3} + \\frac{5\\pi}{6}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Which of the following recurrence relations will generate a sequence with $a_3 = \\frac{3}{4}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$a_{n+1} = (a_n)^2 + \\frac{1}{2}; \\quad a_1 = \\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$a_{n+1} = \\frac{a_n}{2}; \\quad a_1 = 1$"
+        },
+        {
+          "label": "C",
+          "text": "$a_{n+1} = -\\frac{3}{a_n}; \\quad a_1 = 1$"
+        },
+        {
+          "label": "D",
+          "text": "$a_{n+1} = a_n - \\frac{1}{4}; \\quad a_1 = 4$"
+        },
+        {
+          "label": "E",
+          "text": "$a_{n+1} = \\frac{a_n + 1}{2}; \\quad a_1 = 0$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int \\sin^4(x)dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3x}{8} - \\frac{\\sin(2x)}{4} + \\frac{\\sin(4x)}{32} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3x}{8} + \\frac{\\sin(2x)}{4} + \\frac{\\sin(4x)}{32} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3x}{8} + \\frac{\\cos(2x)}{4} + \\frac{\\cos(4x)}{32} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3x}{8} - \\frac{\\cos(2x)}{4} + \\frac{\\cos(4x)}{32} + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3x}{8} + \\frac{\\sin(4x)}{32} + C$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2023-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int \\frac{dx}{(1 + 9x^2)^{3/2}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{x}{3} - \\frac{1}{\\sqrt{1 + 9x^2}} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3\\sqrt{1 + 9x^2}} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{x}{\\sqrt{1 + 9x^2}} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sin\\left(\\sqrt{1 + 9x^2}\\right) + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\{\\tan^{-1}\\left(\\frac{x}{3}\\right)\\right\\}^2 + \\sqrt{1 + 9x^2} + C$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
