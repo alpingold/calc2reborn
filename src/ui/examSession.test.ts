@@ -1,0 +1,135 @@
+import { afterEach, expect, test, vi } from 'vitest'
+import { buildContent, loadContent } from '../content'
+import type { Choice, Exam, Question } from '../content/schema'
+import {
+  SESSION_KEY,
+  clearSession,
+  finishSession,
+  loadSession,
+  remainingSeconds,
+  saveSession,
+  scoreSession,
+} from './examSession'
+import type { ExamSession } from './examSession'
+
+const choices: Choice[] = (['A', 'B', 'C', 'D', 'E'] as const).map((label) => ({ label, text: label }))
+
+function q(n: number, points: number, answer: Choice['label']): Question {
+  return { id: `e-q${n}`, number: n, points, stem: `Stem ${n}`, choices, answer, lessonIds: ['L19'], status: 'reviewed' }
+}
+
+const exam: Exam = {
+  id: 'f2025-e1',
+  term: 'Fall',
+  year: 2025,
+  exam: '1',
+  examUrl: '',
+  durationMinutes: 60,
+  questions: [q(1, 8, 'A'), q(2, 8, 'B'), q(3, 10, 'C')],
+}
+const base = loadContent()
+const content = buildContent(base.lessons, base.cards, [exam])
+
+const START = '2026-11-06T12:00:00.000Z'
+
+function session(over: Partial<ExamSession> = {}): ExamSession {
+  return {
+    sessionId: 's1',
+    kind: 'exam',
+    examId: 'f2025-e1',
+    questionIds: ['e-q1', 'e-q2', 'e-q3'],
+    answers: {},
+    marked: [],
+    startedAt: START,
+    durationMinutes: 60,
+    ...over,
+  }
+}
+
+afterEach(() => {
+  sessionStorage.clear()
+  vi.restoreAllMocks()
+})
+
+test('remainingSeconds counts down whole seconds and stops at zero', () => {
+  const s = session()
+  expect(remainingSeconds(s, new Date(START))).toBe(3600)
+  expect(remainingSeconds(s, new Date(Date.parse(START) + 61_500))).toBe(3539)
+  expect(remainingSeconds(s, new Date(Date.parse(START) + 3600_000))).toBe(0)
+  expect(remainingSeconds(s, new Date(Date.parse(START) + 5000_000))).toBe(0)
+})
+
+test('finishSession logs one attempt per answered question with shared session fields', () => {
+  const now = new Date(Date.parse(START) + 600_000)
+  const attempts = finishSession(session({ answers: { 'e-q1': 'A', 'e-q3': 'D' } }), content, now)
+  expect(attempts).toHaveLength(2)
+  expect(attempts[0]).toMatchObject({
+    questionId: 'e-q1',
+    chosen: 'A',
+    correct: true,
+    seconds: 300,
+    timestamp: now.toISOString(),
+    mode: 'exam',
+    sessionId: 's1',
+    examId: 'f2025-e1',
+  })
+  expect(attempts[1]).toMatchObject({ questionId: 'e-q3', chosen: 'D', correct: false, mode: 'exam' })
+  expect(attempts[0].id).not.toBe(attempts[1].id)
+})
+
+test('finishSession for a mock omits examId and rounds seconds to one decimal', () => {
+  const now = new Date(Date.parse(START) + 100_000)
+  const attempts = finishSession(
+    session({ kind: 'mock', examId: undefined, answers: { 'e-q1': 'B', 'e-q2': 'B', 'e-q3': 'C' } }),
+    content,
+    now,
+  )
+  expect(attempts.map((a) => a.mode)).toEqual(['mock', 'mock', 'mock'])
+  expect(attempts.every((a) => a.examId === undefined && !('examId' in a))).toBe(true)
+  expect(attempts[0].seconds).toBe(33.3)
+})
+
+test('finishSession with nothing answered returns no attempts', () => {
+  expect(finishSession(session(), content, new Date(START))).toEqual([])
+})
+
+test('scoreSession counts correct answers and points', () => {
+  expect(scoreSession(session({ answers: { 'e-q1': 'A', 'e-q2': 'C', 'e-q3': 'C' } }), content)).toEqual({
+    correct: 2,
+    total: 3,
+    points: 18,
+    maxPoints: 26,
+  })
+})
+
+test('save, load and clear round-trip through sessionStorage', () => {
+  const s = session({ answers: { 'e-q1': 'B' }, marked: ['e-q2'] })
+  saveSession(s)
+  expect(sessionStorage.getItem(SESSION_KEY)).not.toBeNull()
+  expect(loadSession()).toEqual(s)
+  clearSession()
+  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(loadSession()).toBeNull()
+})
+
+test('loadSession treats corrupt data as no session', () => {
+  sessionStorage.setItem(SESSION_KEY, '{not json')
+  expect(loadSession()).toBeNull()
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ sessionId: 's1' }))
+  expect(loadSession()).toBeNull()
+})
+
+test('storage failures are swallowed', () => {
+  vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+    throw new Error('quota')
+  })
+  vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+    throw new Error('denied')
+  })
+  vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {
+    throw new Error('denied')
+  })
+  expect(() => saveSession(session())).not.toThrow()
+  expect(loadSession()).toBeNull()
+  expect(() => clearSession()).not.toThrow()
+})

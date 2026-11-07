@@ -133,3 +133,44 @@ a {
 .tile.current {
   outline: 2px solid var(--accent);
 }
+
+.exam-timer {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.exam-controls,
+.exam-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.exam-nav button {
+  min-width: 2.25rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--fg);
+}
+
+.exam-nav button.answered {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.exam-nav button.marked {
+  outline: 2px dashed var(--danger);
+  outline-offset: 2px;
+}
+
+.exam-nav button[aria-current='true'] {
+  font-weight: 700;
+  box-shadow: 0 0 0 2px var(--fg);
+}
+
+.results-list > li {
+  margin-bottom: 1.5rem;
+}
