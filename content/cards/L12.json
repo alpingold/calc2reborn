@@ -1,0 +1,127 @@
+[
+  {
+    "id": "L12-c01",
+    "lessonId": "L12",
+    "front": "Strategy for $\\int \\sin^m x\\cos^n x\\,dx$ when $m$ or $n$ is positive and odd?",
+    "back": "Save one factor of the function with the odd power, turn the remaining even power into the other function with $\\sin^2 x + \\cos^2 x = 1$, and substitute. Odd cosine: save $\\cos x$ and let $u = \\sin x$. Odd sine: save $\\sin x$ and let $u = \\cos x$, $du = -\\sin x\\,dx$.",
+    "tags": [
+      "sin-cos-powers"
+    ]
+  },
+  {
+    "id": "L12-c02",
+    "lessonId": "L12",
+    "front": "Strategy for $\\int \\sin^m x\\cos^n x\\,dx$ when $m$ and $n$ are both even?",
+    "back": "Use the half-angle identities $\\cos^2 x = \\frac{1 + \\cos 2x}{2}$ and $\\sin^2 x = \\frac{1 - \\cos 2x}{2}$, expand, and apply them again to any even power that remains (now with $4x$, and so on).",
+    "tags": [
+      "sin-cos-powers",
+      "half-angle"
+    ]
+  },
+  {
+    "id": "L12-c03",
+    "lessonId": "L12",
+    "front": "Which half-angle identity has the plus sign, and how can you check it?",
+    "back": "$\\cos^2 x = \\frac{1 + \\cos 2x}{2}$ (plus) and $\\sin^2 x = \\frac{1 - \\cos 2x}{2}$ (minus). Check at $x = 0$: $\\cos^2 0 = 1 = \\frac{1 + 1}{2}$ and $\\sin^2 0 = 0 = \\frac{1 - 1}{2}$.",
+    "tags": [
+      "trap",
+      "half-angle"
+    ]
+  },
+  {
+    "id": "L12-c04",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\sin^3 x\\cos^2 x\\,dx$.",
+    "back": "Sine has the odd power: save $\\sin x$ and write $\\sin^2 x = 1 - \\cos^2 x$. With $u = \\cos x$, $du = -\\sin x\\,dx$: $-\\int (1 - u^2)u^2\\,du = -\\frac{\\cos^3 x}{3} + \\frac{\\cos^5 x}{5} + C$.",
+    "tags": [
+      "sin-cos-powers",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L12-c05",
+    "lessonId": "L12",
+    "front": "Why does $u = \\cos x$ stall on $\\int \\sin^4 x\\cos^3 x\\,dx$? What works?",
+    "back": "$du = -\\sin x\\,dx$ uses one $\\sin x$, leaving $\\sin^3 x$, an odd power that becomes $(1 - \\cos^2 x)^{3/2}$. Save from the odd power instead: keep $\\cos x$ and let $u = \\sin x$. Then $\\int \\sin^4 x(1 - \\sin^2 x)\\cos x\\,dx = \\frac{\\sin^5 x}{5} - \\frac{\\sin^7 x}{7} + C$.",
+    "tags": [
+      "trap",
+      "sin-cos-powers"
+    ]
+  },
+  {
+    "id": "L12-c06",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\sin^2 x\\,dx$.",
+    "back": "Both powers are even (the cosine power is $0$): $\\int \\frac{1 - \\cos 2x}{2}\\,dx = \\frac{x}{2} - \\frac{\\sin 2x}{4} + C$. The $\\frac{1}{4}$ is the $\\frac{1}{2}$ from the identity times the $\\frac{1}{2}$ from integrating $\\cos 2x$.",
+    "tags": [
+      "half-angle",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L12-c07",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\cos^2(3x)\\,dx$.",
+    "back": "$\\cos^2(3x) = \\frac{1 + \\cos 6x}{2}$ (the angle doubles to $6x$), so the integral is $\\frac{x}{2} + \\frac{\\sin 6x}{12} + C$. Common slips: writing $\\cos 3x$ instead of $\\cos 6x$, or dropping the $\\frac{1}{6}$ from integrating $\\cos 6x$.",
+    "tags": [
+      "trap",
+      "half-angle"
+    ]
+  },
+  {
+    "id": "L12-c08",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\sin^2 x\\cos^2 x\\,dx$ quickly.",
+    "back": "$\\sin x\\cos x = \\frac{1}{2}\\sin 2x$, so the integrand is $\\frac{1}{4}\\sin^2 2x = \\frac{1}{8}(1 - \\cos 4x)$. The integral is $\\frac{x}{8} - \\frac{\\sin 4x}{32} + C$, the same as Chen's $\\frac{1}{8}\\left(x - \\frac{1}{4}\\sin 4x\\right) + C$.",
+    "tags": [
+      "half-angle"
+    ]
+  },
+  {
+    "id": "L12-c09",
+    "lessonId": "L12",
+    "front": "Both powers are odd in $\\int \\sin^3 x\\cos^3 x\\,dx$. Which factor do you save?",
+    "back": "Either. Saving $\\cos x$ with $u = \\sin x$ gives $\\frac{\\sin^4 x}{4} - \\frac{\\sin^6 x}{6} + C$. Saving $\\sin x$ with $u = \\cos x$ gives $-\\frac{\\cos^4 x}{4} + \\frac{\\cos^6 x}{6} + C$. The two differ by the constant $\\frac{1}{12}$, so both are right.",
+    "tags": [
+      "sin-cos-powers"
+    ]
+  },
+  {
+    "id": "L12-c10",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\tan x\\,dx$. What is easy to drop?",
+    "back": "Write it as $\\int \\frac{\\sin x}{\\cos x}\\,dx$ with $u = \\cos x$, $du = -\\sin x\\,dx$: $-\\ln|\\cos x| + C = \\ln|\\sec x| + C$. Keep the absolute value, since $\\cos x$ is negative on parts of the domain.",
+    "tags": [
+      "trap",
+      "absolute-value"
+    ]
+  },
+  {
+    "id": "L12-c11",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\frac{dx}{1 + \\sin x}$.",
+    "back": "Multiply by $\\frac{1 - \\sin x}{1 - \\sin x}$ to get $\\int \\frac{1 - \\sin x}{\\cos^2 x}\\,dx = \\int \\sec^2 x\\,dx - \\int \\frac{\\sin x}{\\cos^2 x}\\,dx$. With $u = \\cos x$ in the second piece, the answer is $\\tan x - \\frac{1}{\\cos x} + C = \\tan x - \\sec x + C$. (Chen does $\\frac{1}{1 - \\sin x}$ the same way.)",
+    "tags": [
+      "conjugate"
+    ]
+  },
+  {
+    "id": "L12-c12",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int_0^{\\pi}\\sqrt{1 + \\cos 2x}\\,dx$. What is the trap?",
+    "back": "$1 + \\cos 2x = 2\\cos^2 x$, so the integrand is $\\sqrt{2}\\,|\\cos x|$, not $\\sqrt{2}\\cos x$. Since $\\cos x < 0$ on $\\left(\\frac{\\pi}{2}, \\pi\\right)$, split: $\\sqrt{2}\\left(\\int_0^{\\pi/2}\\cos x\\,dx - \\int_{\\pi/2}^{\\pi}\\cos x\\,dx\\right) = 2\\sqrt{2}$. Dropping the absolute value gives $0$, impossible for a positive integrand.",
+    "tags": [
+      "trap",
+      "absolute-value"
+    ]
+  },
+  {
+    "id": "L12-c13",
+    "lessonId": "L12",
+    "front": "Evaluate $\\int \\cot x\\,dx$ and $\\int \\cot^2 x\\,dx$.",
+    "back": "$\\int \\frac{\\cos x}{\\sin x}\\,dx = \\ln|\\sin x| + C$ with $u = \\sin x$. For the square use $\\cot^2 x = \\csc^2 x - 1$: $\\int \\cot^2 x\\,dx = -\\cot x - x + C$, since $\\frac{d}{dx}\\cot x = -\\csc^2 x$.",
+    "tags": [
+      "cot"
+    ]
+  }
+]

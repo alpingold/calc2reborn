@@ -1,0 +1,125 @@
+[
+  {
+    "id": "L14-c01",
+    "lessonId": "L14",
+    "front": "Which substitution matches each radical: $\\sqrt{a^2 - x^2}$, $\\sqrt{a^2 + x^2}$, $\\sqrt{x^2 - a^2}$ (with $a > 0$)?",
+    "back": "$\\sqrt{a^2 - x^2}$: $x = a\\sin\\theta$, and the root becomes $a\\cos\\theta$. $\\sqrt{a^2 + x^2}$: $x = a\\tan\\theta$, and the root becomes $a\\sec\\theta$. $\\sqrt{x^2 - a^2}$: $x = a\\sec\\theta$, and the root becomes $a\\tan\\theta$ (for $x \\ge a$). Each uses $1 - \\sin^2\\theta = \\cos^2\\theta$, $1 + \\tan^2\\theta = \\sec^2\\theta$, or $\\sec^2\\theta - 1 = \\tan^2\\theta$.",
+    "tags": [
+      "which-sub"
+    ]
+  },
+  {
+    "id": "L14-c02",
+    "lessonId": "L14",
+    "front": "Quick decision: which substitution for $\\sqrt{16 - x^2}$, for $\\sqrt{x^2 + 16}$, and for $\\sqrt{x^2 - 16}$?",
+    "back": "$x = 4\\sin\\theta$, $x = 4\\tan\\theta$, and $x = 4\\sec\\theta$. Ask which side is the hypotenuse: the constant $4$ in the first, the radical in the second, and $x$ in the third.",
+    "tags": [
+      "trap",
+      "which-sub"
+    ]
+  },
+  {
+    "id": "L14-c03",
+    "lessonId": "L14",
+    "front": "Which substitution for $\\sqrt{9x^2 + 4}$?",
+    "back": "The squares are $(3x)^2$ and $2^2$, so set $3x = 2\\tan\\theta$: $x = \\frac{2}{3}\\tan\\theta$, $dx = \\frac{2}{3}\\sec^2\\theta\\,d\\theta$, and $\\sqrt{9x^2 + 4} = 2\\sec\\theta$. Writing $x = 2\\tan\\theta$ leaves $\\sqrt{36\\tan^2\\theta + 4}$, which does not simplify.",
+    "tags": [
+      "trap",
+      "which-sub"
+    ]
+  },
+  {
+    "id": "L14-c04",
+    "lessonId": "L14",
+    "front": "What are Chen's steps for building the triangle?",
+    "back": "(1) The sides are the radical, the variable part, and the constant, each the square root of a square. (2) The hypotenuse is the side whose square is the sum of the other two squares. (3) Put the constant, or the side containing a constant, adjacent to $\\theta$. (4) Relate $x$ and $\\theta$ with the two simplest sides, the ones without a radical.",
+    "tags": [
+      "triangle"
+    ]
+  },
+  {
+    "id": "L14-c05",
+    "lessonId": "L14",
+    "front": "With $x = 3\\sin\\theta$, write $\\cos\\theta$, $\\tan\\theta$, and $\\theta$ in terms of $x$.",
+    "back": "The triangle has hypotenuse $3$, opposite side $x$, and adjacent side $\\sqrt{9 - x^2}$. So $\\cos\\theta = \\frac{\\sqrt{9 - x^2}}{3}$, $\\tan\\theta = \\frac{x}{\\sqrt{9 - x^2}}$, and $\\theta = \\sin^{-1}\\left(\\frac{x}{3}\\right)$.",
+    "tags": [
+      "triangle"
+    ]
+  },
+  {
+    "id": "L14-c06",
+    "lessonId": "L14",
+    "front": "Evaluate $\\int_0^{3/2}\\frac{dx}{\\sqrt{9 - x^2}}$ by changing the limits.",
+    "back": "$x = 3\\sin\\theta$, $dx = 3\\cos\\theta\\,d\\theta$, and $\\sqrt{9 - x^2} = 3\\cos\\theta$. The limits: $x = 0$ gives $\\theta = 0$, and $x = \\frac{3}{2}$ gives $\\theta = \\sin^{-1}\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{6}$. So the integral is $\\int_0^{\\pi/6} d\\theta = \\frac{\\pi}{6}$. Never put the $x$-limits into a $\\theta$ antiderivative.",
+    "tags": [
+      "trap",
+      "definite"
+    ]
+  },
+  {
+    "id": "L14-c07",
+    "lessonId": "L14",
+    "front": "Evaluate $\\int \\frac{dx}{x^2\\sqrt{x^2 + 9}}$.",
+    "back": "$x = 3\\tan\\theta$, $dx = 3\\sec^2\\theta\\,d\\theta$, and the root is $3\\sec\\theta$, so the integral becomes $\\frac{1}{9}\\int \\frac{\\sec\\theta}{\\tan^2\\theta}\\,d\\theta = \\frac{1}{9}\\int \\frac{\\cos\\theta}{\\sin^2\\theta}\\,d\\theta = -\\frac{1}{9\\sin\\theta} + C$. The triangle gives $\\sin\\theta = \\frac{x}{\\sqrt{x^2 + 9}}$, so the answer is $-\\frac{\\sqrt{x^2 + 9}}{9x} + C$.",
+    "tags": [
+      "triangle"
+    ]
+  },
+  {
+    "id": "L14-c08",
+    "lessonId": "L14",
+    "front": "Evaluate $\\int \\frac{dx}{x^2\\sqrt{x^2 - 9}}$ for $x > 3$.",
+    "back": "$x = 3\\sec\\theta$, $dx = 3\\sec\\theta\\tan\\theta\\,d\\theta$, and the root is $3\\tan\\theta$, so the integral becomes $\\frac{1}{9}\\int \\cos\\theta\\,d\\theta = \\frac{\\sin\\theta}{9} + C$. The triangle has hypotenuse $x$, adjacent side $3$, and opposite side $\\sqrt{x^2 - 9}$, so the answer is $\\frac{\\sqrt{x^2 - 9}}{9x} + C$. (Chen's notes have no worked secant example.)",
+    "tags": [
+      "triangle",
+      "secant"
+    ]
+  },
+  {
+    "id": "L14-c09",
+    "lessonId": "L14",
+    "front": "Evaluate $\\int_0^2\\sqrt{4 - x^2}\\,dx$ and check the answer geometrically.",
+    "back": "$x = 2\\sin\\theta$ with limits $0$ and $\\frac{\\pi}{2}$: $\\int_0^{\\pi/2} 4\\cos^2\\theta\\,d\\theta = 2\\int_0^{\\pi/2}(1 + \\cos 2\\theta)\\,d\\theta = \\pi$. Check: the region is a quarter of a disk of radius $2$, with area $\\frac{1}{4}\\pi\\cdot 2^2 = \\pi$.",
+    "tags": [
+      "definite"
+    ]
+  },
+  {
+    "id": "L14-c10",
+    "lessonId": "L14",
+    "front": "State the arcsine and arctangent forms ($a > 0$). Which one has a $\\frac{1}{a}$?",
+    "back": "$\\int \\frac{dx}{\\sqrt{a^2 - x^2}} = \\sin^{-1}\\left(\\frac{x}{a}\\right) + C$ and $\\int \\frac{dx}{a^2 + x^2} = \\frac{1}{a}\\tan^{-1}\\left(\\frac{x}{a}\\right) + C$. Only the arctangent has the $\\frac{1}{a}$: $\\int \\frac{dx}{9 + x^2} = \\frac{1}{3}\\tan^{-1}\\left(\\frac{x}{3}\\right) + C$, but $\\int \\frac{dx}{\\sqrt{25 - x^2}} = \\sin^{-1}\\left(\\frac{x}{5}\\right) + C$.",
+    "tags": [
+      "trap",
+      "formula"
+    ]
+  },
+  {
+    "id": "L14-c11",
+    "lessonId": "L14",
+    "front": "With $x = a\\sin\\theta$, why is $\\sqrt{a^2 - x^2} = a\\cos\\theta$ and not $a|\\cos\\theta|$?",
+    "back": "In general $\\sqrt{a^2\\cos^2\\theta} = a|\\cos\\theta|$. But $\\theta = \\sin^{-1}\\left(\\frac{x}{a}\\right)$ lies in $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, where $\\cos\\theta \\ge 0$, so the absolute value can go. Likewise $x = a\\tan\\theta$ has $-\\frac{\\pi}{2} < \\theta < \\frac{\\pi}{2}$, where $\\sec\\theta > 0$. (Chen drops it without comment.)",
+    "tags": [
+      "trap",
+      "absolute-value"
+    ]
+  },
+  {
+    "id": "L14-c12",
+    "lessonId": "L14",
+    "front": "Do you need a trig substitution for $\\int \\frac{x}{\\sqrt{x^2 + 4}}\\,dx$?",
+    "back": "No. The numerator is half the derivative of $x^2 + 4$, so $u = x^2 + 4$ gives $\\frac{1}{2}\\int u^{-1/2}\\,du = \\sqrt{x^2 + 4} + C$. Try a plain substitution before reaching for a triangle.",
+    "tags": [
+      "which-method"
+    ]
+  },
+  {
+    "id": "L14-c13",
+    "lessonId": "L14",
+    "front": "Evaluate $\\int \\frac{dx}{(4 - x^2)^{3/2}}$.",
+    "back": "$x = 2\\sin\\theta$, $dx = 2\\cos\\theta\\,d\\theta$, and $(4 - x^2)^{3/2} = 8\\cos^3\\theta$, so the integral is $\\frac{1}{4}\\int \\sec^2\\theta\\,d\\theta = \\frac{1}{4}\\tan\\theta + C$. The triangle gives $\\tan\\theta = \\frac{x}{\\sqrt{4 - x^2}}$, so the answer is $\\frac{x}{4\\sqrt{4 - x^2}} + C$.",
+    "tags": [
+      "triangle"
+    ]
+  }
+]

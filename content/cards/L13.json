@@ -1,0 +1,117 @@
+[
+  {
+    "id": "L13-c01",
+    "lessonId": "L13",
+    "front": "Strategy for $\\int \\tan^m x\\sec^n x\\,dx$ when the power of $\\sec x$ is even and positive?",
+    "back": "Save $\\sec^2 x$, turn the other secants into tangents with $\\sec^2 x = \\tan^2 x + 1$, and let $u = \\tan x$, $du = \\sec^2 x\\,dx$.",
+    "tags": [
+      "tan-sec-powers"
+    ]
+  },
+  {
+    "id": "L13-c02",
+    "lessonId": "L13",
+    "front": "Strategy for $\\int \\tan^m x\\sec^n x\\,dx$ when the power of $\\tan x$ is odd and positive?",
+    "back": "Save $\\sec x\\tan x$, turn the other tangents into secants with $\\tan^2 x = \\sec^2 x - 1$, and let $u = \\sec x$, $du = \\sec x\\tan x\\,dx$. It works even with no secant in the integrand: Chen writes $\\tan^3 x = \\frac{\\tan^2 x}{\\sec x}\\cdot\\sec x\\tan x$.",
+    "tags": [
+      "tan-sec-powers"
+    ]
+  },
+  {
+    "id": "L13-c03",
+    "lessonId": "L13",
+    "front": "Evaluate $\\int \\tan^2 x\\sec^4 x\\,dx$.",
+    "back": "$\\sec x$ has an even power: save $\\sec^2 x$ and write the other $\\sec^2 x = \\tan^2 x + 1$. With $u = \\tan x$: $\\int u^2(u^2 + 1)\\,du = \\frac{\\tan^5 x}{5} + \\frac{\\tan^3 x}{3} + C$.",
+    "tags": [
+      "tan-sec-powers",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L13-c04",
+    "lessonId": "L13",
+    "front": "Which substitution fits $\\int \\tan^3 x\\sec^3 x\\,dx$, and why not the other?",
+    "back": "$\\sec x$ has an odd power, so saving $\\sec^2 x$ would leave a single $\\sec x$, which needs a square root in terms of $\\tan x$. $\\tan x$ has an odd power, so save $\\sec x\\tan x$ and let $u = \\sec x$: $\\int (u^2 - 1)u^2\\,du = \\frac{\\sec^5 x}{5} - \\frac{\\sec^3 x}{3} + C$.",
+    "tags": [
+      "trap",
+      "tan-sec-powers"
+    ]
+  },
+  {
+    "id": "L13-c05",
+    "lessonId": "L13",
+    "front": "Do Chen's two rules handle $\\int \\tan^2 x\\sec x\\,dx$?",
+    "back": "No: $\\tan x$ has an even power and $\\sec x$ an odd one. Saving $\\sec x\\tan x$ leaves an odd power of $\\tan x$, and there is no $\\sec^2 x$ to save. Rewriting gives $\\int \\sec^3 x\\,dx - \\int \\sec x\\,dx$, which needs parts and $\\int \\sec x\\,dx$ (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "tan-sec-powers"
+    ]
+  },
+  {
+    "id": "L13-c06",
+    "lessonId": "L13",
+    "front": "Evaluate $\\int \\tan x\\sec^3 x\\,dx$.",
+    "back": "$\\tan x$ has odd power $1$: save $\\sec x\\tan x$ and let $u = \\sec x$. Then $\\int \\sec^2 x\\cdot\\sec x\\tan x\\,dx = \\int u^2\\,du = \\frac{\\sec^3 x}{3} + C$.",
+    "tags": [
+      "tan-sec-powers",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L13-c07",
+    "lessonId": "L13",
+    "front": "Evaluate $\\int \\sec^4 x\\,dx$.",
+    "back": "There is no tangent, but $\\sec x$ has an even power: save $\\sec^2 x$, write the other $\\sec^2 x = \\tan^2 x + 1$, and let $u = \\tan x$. Then $\\int (u^2 + 1)\\,du = \\frac{\\tan^3 x}{3} + \\tan x + C$.",
+    "tags": [
+      "tan-sec-powers",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L13-c08",
+    "lessonId": "L13",
+    "front": "Evaluate $\\int \\tan^5 x\\,dx$.",
+    "back": "Split off $\\tan^2 x = \\sec^2 x - 1$: $\\int \\tan^3 x\\sec^2 x\\,dx - \\int \\tan^3 x\\,dx$. The first is $\\frac{\\tan^4 x}{4}$ (with $u = \\tan x$), and Chen's $\\int \\tan^3 x\\,dx = \\frac{1}{2}\\tan^2 x + \\ln|\\cos x|$. Total: $\\frac{\\tan^4 x}{4} - \\frac{\\tan^2 x}{2} - \\ln|\\cos x| + C$.",
+    "tags": [
+      "tan-sec-powers"
+    ]
+  },
+  {
+    "id": "L13-c09",
+    "lessonId": "L13",
+    "front": "Chen gets $\\int \\tan^3 x\\,dx = \\frac{1}{2}\\tan^2 x + \\ln|\\cos x| + C$ one way and $\\frac{1}{2}\\sec^2 x - \\ln|\\sec x| + C$ another. Which is right?",
+    "back": "Both. Since $\\sec^2 x = \\tan^2 x + 1$ and $-\\ln|\\sec x| = \\ln|\\cos x|$, the second is the first plus the constant $\\frac{1}{2}$, which the $+C$ absorbs. Antiderivatives that differ by a constant are equally correct.",
+    "tags": [
+      "trap",
+      "tan-sec-powers"
+    ]
+  },
+  {
+    "id": "L13-c10",
+    "lessonId": "L13",
+    "front": "State $\\int \\sec x\\,dx$ and check it.",
+    "back": "$\\int \\sec x\\,dx = \\ln|\\sec x + \\tan x| + C$ (beyond Chen's notes). Check: the derivative of $\\sec x + \\tan x$ is $\\sec x\\tan x + \\sec^2 x = \\sec x(\\sec x + \\tan x)$, so the derivative of the logarithm is $\\sec x$.",
+    "tags": [
+      "formula"
+    ]
+  },
+  {
+    "id": "L13-c11",
+    "lessonId": "L13",
+    "front": "Evaluate $\\int \\frac{\\sec x}{\\tan^2 x}\\,dx$.",
+    "back": "No power pattern fits, so rewrite in sine and cosine: $\\frac{\\sec x}{\\tan^2 x} = \\frac{1}{\\cos x}\\cdot\\frac{\\cos^2 x}{\\sin^2 x} = \\frac{\\cos x}{\\sin^2 x}$. With $u = \\sin x$: $\\int u^{-2}\\,du = -\\frac{1}{\\sin x} + C = -\\csc x + C$.",
+    "tags": [
+      "sin-cos-rewrite"
+    ]
+  },
+  {
+    "id": "L13-c12",
+    "lessonId": "L13",
+    "front": "Which sign: $\\int \\sec^2 x\\,dx$ versus $\\int \\csc^2 x\\,dx$?",
+    "back": "$\\int \\sec^2 x\\,dx = \\tan x + C$, but $\\int \\csc^2 x\\,dx = -\\cot x + C$, because $\\frac{d}{dx}\\cot x = -\\csc^2 x$. Likewise $\\int \\sec x\\tan x\\,dx = \\sec x + C$ while $\\int \\csc x\\cot x\\,dx = -\\csc x + C$.",
+    "tags": [
+      "trap",
+      "formula"
+    ]
+  }
+]

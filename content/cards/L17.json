@@ -1,0 +1,111 @@
+[
+  {
+    "id": "L17-c01",
+    "lessonId": "L17",
+    "front": "When must you use polynomial long division before partial fractions, and what form results?",
+    "back": "When the numerator's degree is at least the denominator's. Division gives $\\frac{N(x)}{D(x)} = q(x) + \\frac{r(x)}{D(x)}$ with $\\deg r < \\deg D$. Integrate $q$ directly and decompose $\\frac{r}{D}$.",
+    "tags": [
+      "trap",
+      "long-division"
+    ]
+  },
+  {
+    "id": "L17-c02",
+    "lessonId": "L17",
+    "front": "Evaluate $\\int \\frac{2x^2 + 3}{x^2 + 1}\\,dx$.",
+    "back": "The degrees are equal, so divide: $\\frac{2x^2 + 3}{x^2 + 1} = 2 + \\frac{1}{x^2 + 1}$. The integral is $2x + \\tan^{-1}x + C$.",
+    "tags": [
+      "long-division",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L17-c03",
+    "lessonId": "L17",
+    "front": "Evaluate $\\int \\frac{x^3 + x}{x - 1}\\,dx$.",
+    "back": "Divide: $x^3 + x = (x - 1)(x^2 + x + 2) + 2$, so the integrand is $x^2 + x + 2 + \\frac{2}{x - 1}$. The integral is $\\frac{x^3}{3} + \\frac{x^2}{2} + 2x + 2\\ln|x - 1| + C$.",
+    "tags": [
+      "long-division"
+    ]
+  },
+  {
+    "id": "L17-c04",
+    "lessonId": "L17",
+    "front": "Which are irreducible: $x^2 + 4$, $x^2 - 4$, $x^2 + x + 1$, $x^2 + 2x - 3$?",
+    "back": "Irreducible means no factoring into real linear factors; for $ax^2 + bx + c$ that is $b^2 - 4ac < 0$. So $x^2 + 4$ (discriminant $-16$) and $x^2 + x + 1$ (discriminant $-3$) are irreducible. $x^2 - 4 = (x - 2)(x + 2)$ and $x^2 + 2x - 3 = (x + 3)(x - 1)$ are not.",
+    "tags": [
+      "irreducible"
+    ]
+  },
+  {
+    "id": "L17-c05",
+    "lessonId": "L17",
+    "front": "What is the form for $\\frac{x + 3}{(x - 2)(x^2 + 5)}$?",
+    "back": "$\\frac{A}{x - 2} + \\frac{Bx + C}{x^2 + 5}$. An irreducible quadratic gets a linear numerator, one degree lower than the factor. A constant alone over $x^2 + 5$ cannot match every numerator.",
+    "tags": [
+      "trap",
+      "form",
+      "irreducible"
+    ]
+  },
+  {
+    "id": "L17-c06",
+    "lessonId": "L17",
+    "front": "What is the form for $\\frac{x^3 + 1}{(x^2 + 3)^3}$?",
+    "back": "$\\frac{Ax + B}{x^2 + 3} + \\frac{Cx + D}{(x^2 + 3)^2} + \\frac{Ex + F}{(x^2 + 3)^3}$: one term for each power of the repeated irreducible factor, each with a linear numerator.",
+    "tags": [
+      "form",
+      "repeated-quadratic"
+    ]
+  },
+  {
+    "id": "L17-c07",
+    "lessonId": "L17",
+    "front": "What is the form for $\\frac{1}{(x^2 - 4)(x^2 + 4)}$?",
+    "back": "Factor first: $x^2 - 4 = (x - 2)(x + 2)$ is reducible. The form is $\\frac{A}{x - 2} + \\frac{B}{x + 2} + \\frac{Cx + D}{x^2 + 4}$. A term $\\frac{Ex + F}{x^2 - 4}$ instead is not fully decomposed: its constant part still needs partial fractions before you can integrate it.",
+    "tags": [
+      "trap",
+      "form",
+      "irreducible"
+    ]
+  },
+  {
+    "id": "L17-c08",
+    "lessonId": "L17",
+    "front": "Evaluate $\\int \\frac{3x + 2}{x^2 + 4}\\,dx$.",
+    "back": "Split: $\\int \\frac{3x}{x^2 + 4}\\,dx + \\int \\frac{2}{x^2 + 4}\\,dx$. The first is $\\frac{3}{2}\\ln(x^2 + 4)$ by $u = x^2 + 4$; the second is $2\\cdot\\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right)$. Total: $\\frac{3}{2}\\ln(x^2 + 4) + \\tan^{-1}\\left(\\frac{x}{2}\\right) + C$.",
+    "tags": [
+      "irreducible",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L17-c09",
+    "lessonId": "L17",
+    "front": "Finish Chen's setup: evaluate $\\int \\frac{2x^2 - x + 4}{x(x^2 + 4)}\\,dx$.",
+    "back": "$2x^2 - x + 4 = A(x^2 + 4) + (Bx + C)x$. $x = 0$ gives $A = 1$; the $x^2$ terms give $A + B = 2$, so $B = 1$; the $x$ terms give $C = -1$. The integral is $\\ln|x| + \\frac{1}{2}\\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right) + D$. (Chen writes only the form.)",
+    "tags": [
+      "irreducible"
+    ]
+  },
+  {
+    "id": "L17-c10",
+    "lessonId": "L17",
+    "front": "Evaluate $\\int \\frac{x}{(x^2 + 4)^2}\\,dx$.",
+    "back": "$u = x^2 + 4$, $du = 2x\\,dx$: $\\frac{1}{2}\\int u^{-2}\\,du = -\\frac{1}{2(x^2 + 4)} + C$. Pieces $\\frac{Bx}{(x^2 + a^2)^k}$ from repeated quadratic factors integrate this way.",
+    "tags": [
+      "repeated-quadratic"
+    ]
+  },
+  {
+    "id": "L17-c11",
+    "lessonId": "L17",
+    "front": "Evaluate $\\int \\frac{x + 3}{x^2 + 2x + 5}\\,dx$.",
+    "back": "Complete the square: $x^2 + 2x + 5 = (x + 1)^2 + 4$, and write $x + 3 = (x + 1) + 2$. Then $\\int \\frac{x + 1}{(x + 1)^2 + 4}\\,dx + \\int \\frac{2}{(x + 1)^2 + 4}\\,dx = \\frac{1}{2}\\ln(x^2 + 2x + 5) + \\tan^{-1}\\left(\\frac{x + 1}{2}\\right) + C$.",
+    "tags": [
+      "trap",
+      "irreducible",
+      "complete-square"
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "L15-c01",
+    "lessonId": "L15",
+    "front": "How do you complete the square on $x^2 + bx + c$?",
+    "back": "Add and subtract $\\left(\\frac{b}{2}\\right)^2$: $x^2 + bx + c = \\left(x + \\frac{b}{2}\\right)^2 + c - \\frac{b^2}{4}$. Chen: $x^2 - 6x + 45 = (x - 3)^2 + 6^2$, which now fits a triangle.",
+    "tags": [
+      "complete-square"
+    ]
+  },
+  {
+    "id": "L15-c02",
+    "lessonId": "L15",
+    "front": "After completing the square, which substitution fits $a^2 - (x - h)^2$, $(x - h)^2 + a^2$, and $(x - h)^2 - a^2$?",
+    "back": "$x - h = a\\sin\\theta$, $x - h = a\\tan\\theta$, and $x - h = a\\sec\\theta$. Build the triangle the same way, with $x - h$ in place of $x$.",
+    "tags": [
+      "complete-square",
+      "which-sub"
+    ]
+  },
+  {
+    "id": "L15-c03",
+    "lessonId": "L15",
+    "front": "Evaluate $\\int \\frac{dx}{x^2 + 4x + 8}$.",
+    "back": "$x^2 + 4x + 8 = (x + 2)^2 + 2^2$. With $u = x + 2$ and the arctangent form (or $u = 2\\tan\\theta$): $\\frac{1}{2}\\tan^{-1}\\left(\\frac{x + 2}{2}\\right) + C$.",
+    "tags": [
+      "complete-square",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L15-c04",
+    "lessonId": "L15",
+    "front": "Complete the square under the radical in $\\int \\frac{dx}{\\sqrt{(x - 1)(7 - x)}}$, then evaluate.",
+    "back": "$(x - 1)(7 - x) = -x^2 + 8x - 7 = -(x^2 - 8x + 7) = -[(x - 4)^2 - 9] = 9 - (x - 4)^2$. Factor out the $-1$ before completing the square. Then $x - 4 = 3\\sin\\theta$ gives $\\sin^{-1}\\left(\\frac{x - 4}{3}\\right) + C$.",
+    "tags": [
+      "trap",
+      "factored-radical"
+    ]
+  },
+  {
+    "id": "L15-c05",
+    "lessonId": "L15",
+    "front": "Evaluate $\\int \\frac{dx}{4x^2 + 4x + 5}$.",
+    "back": "$4x^2 + 4x + 5 = (2x + 1)^2 + 4$. Let $u = 2x + 1$, so $du = 2\\,dx$: $\\frac{1}{2}\\int \\frac{du}{u^2 + 4} = \\frac{1}{4}\\tan^{-1}\\left(\\frac{2x + 1}{2}\\right) + C$. Two traps: the leading coefficient, and the $\\frac{1}{2}$ from $du = 2\\,dx$.",
+    "tags": [
+      "trap",
+      "complete-square"
+    ]
+  },
+  {
+    "id": "L15-c06",
+    "lessonId": "L15",
+    "front": "Find the length of $y = \\sqrt{4 - x^2}$ from $x = 0$ to $x = 1$.",
+    "back": "$y' = \\frac{-x}{\\sqrt{4 - x^2}}$, so $1 + (y')^2 = \\frac{4}{4 - x^2}$ and $L = \\int_0^1 \\frac{2}{\\sqrt{4 - x^2}}\\,dx$. With $x = 2\\sin\\theta$ the limits are $0$ and $\\frac{\\pi}{6}$, so $L = 2\\cdot\\frac{\\pi}{6} = \\frac{\\pi}{3}$. Check: an arc of a circle of radius $2$ through angle $\\frac{\\pi}{6}$ has length $\\frac{\\pi}{3}$.",
+    "tags": [
+      "arc-length"
+    ]
+  },
+  {
+    "id": "L15-c07",
+    "lessonId": "L15",
+    "front": "In Chen's $\\int_0^{1/\\sqrt{2}}\\frac{dx}{\\sqrt{1 - x^2}}$, what changes if you use $x = \\cos\\theta$ instead of $x = \\sin\\theta$?",
+    "back": "$dx = -\\sin\\theta\\,d\\theta$, and the limits become $\\theta = \\frac{\\pi}{2}$ (at $x = 0$) and $\\theta = \\frac{\\pi}{4}$ (at $x = \\frac{1}{\\sqrt{2}}$), so the upper limit is the smaller one. The integral is $\\int_{\\pi/2}^{\\pi/4} -d\\theta = \\frac{\\pi}{4}$, the same answer. Swapping the legs of the triangle gives cosine, cotangent, or cosecant substitutions.",
+    "tags": [
+      "triangle",
+      "definite"
+    ]
+  },
+  {
+    "id": "L15-c08",
+    "lessonId": "L15",
+    "front": "Evaluate $\\int_1^3\\frac{dx}{x^2 - 2x + 5}$.",
+    "back": "$x^2 - 2x + 5 = (x - 1)^2 + 4$. With $u = x - 1$ the limits become $0$ and $2$: $\\int_0^2 \\frac{du}{u^2 + 4} = \\frac{1}{2}\\tan^{-1}\\left(\\frac{u}{2}\\right)\\Big|_0^2 = \\frac{1}{2}\\cdot\\frac{\\pi}{4} = \\frac{\\pi}{8}$.",
+    "tags": [
+      "complete-square",
+      "definite"
+    ]
+  },
+  {
+    "id": "L15-c09",
+    "lessonId": "L15",
+    "front": "Completing the square gives $x^2 + 4x + 3 = (x + 2)^2 - 1$. Do you need a secant substitution for $\\int \\frac{dx}{x^2 + 4x + 3}$?",
+    "back": "No. There is no radical, and the quadratic factors as $(x + 1)(x + 3)$. Partial fractions give $\\frac{1}{2}\\left(\\frac{1}{x + 1} - \\frac{1}{x + 3}\\right)$, so the integral is $\\frac{1}{2}\\ln\\left|\\frac{x + 1}{x + 3}\\right| + C$. A secant substitution would also work, but takes longer.",
+    "tags": [
+      "trap",
+      "which-method"
+    ]
+  },
+  {
+    "id": "L15-c10",
+    "lessonId": "L15",
+    "front": "Evaluate $\\int \\frac{2x + 4}{x^2 + 4x + 8}\\,dx$.",
+    "back": "The numerator is exactly the derivative of the denominator, so $u = x^2 + 4x + 8$ gives $\\ln(x^2 + 4x + 8) + C$. No absolute value is needed, since $(x + 2)^2 + 4 > 0$. Completing the square and an arctangent are not needed here.",
+    "tags": [
+      "trap",
+      "which-method"
+    ]
+  }
+]

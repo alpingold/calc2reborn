@@ -1,0 +1,123 @@
+[
+  {
+    "id": "L18-c01",
+    "lessonId": "L18",
+    "front": "What are the two kinds of improper integral?",
+    "back": "(1) An infinite limit of integration, such as $\\int_1^\\infty$ or $\\int_{-\\infty}^\\infty$. (2) Finite limits, but the integrand goes to $\\pm\\infty$ somewhere on $[a, b]$, at an endpoint or inside. Each is defined by limits of ordinary integrals.",
+    "tags": [
+      "definition"
+    ]
+  },
+  {
+    "id": "L18-c02",
+    "lessonId": "L18",
+    "front": "Define $\\int_a^\\infty f(x)\\,dx$. When does it converge?",
+    "back": "$\\int_a^\\infty f(x)\\,dx = \\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx$. It converges if this limit is a finite number. It diverges if the limit is $\\pm\\infty$ or does not exist, as for $\\int_0^\\infty \\cos x\\,dx$, where $\\sin b$ oscillates (this last case is beyond Chen's notes).",
+    "tags": [
+      "definition"
+    ]
+  },
+  {
+    "id": "L18-c03",
+    "lessonId": "L18",
+    "front": "For which $p$ does $\\int_1^\\infty \\frac{dx}{x^p}$ converge?",
+    "back": "For $p > 1$, with value $\\frac{1}{p - 1}$; it diverges for $p \\le 1$. Chen: $\\int_1^\\infty \\frac{dx}{x^2} = 1$, while $\\int_1^\\infty \\frac{dx}{x} = \\lim_{b\\to\\infty}\\ln b = \\infty$. The same holds for any lower limit $a > 0$.",
+    "tags": [
+      "p-integral"
+    ]
+  },
+  {
+    "id": "L18-c04",
+    "lessonId": "L18",
+    "front": "For which $p$ does $\\int_0^1 \\frac{dx}{x^p}$ converge?",
+    "back": "For $p < 1$, the opposite of the $\\int_1^\\infty$ case; it diverges for $p \\ge 1$. For example $\\int_0^1 \\frac{dx}{\\sqrt{x}} = 2$, but $\\int_0^1 \\frac{dx}{x^3}$ diverges. At $p = 1$ both kinds diverge. (Beyond Chen's notes.)",
+    "tags": [
+      "trap",
+      "p-integral"
+    ]
+  },
+  {
+    "id": "L18-c05",
+    "lessonId": "L18",
+    "front": "What is wrong with $\\int_0^\\pi \\sec^2 x\\,dx = \\tan x\\Big|_0^\\pi = 0$?",
+    "back": "$\\sec^2 x \\to \\infty$ at $x = \\frac{\\pi}{2}$, inside the interval, so the integral is improper and the Fundamental Theorem does not apply directly. Split at $\\frac{\\pi}{2}$: $\\int_0^{\\pi/2}\\sec^2 x\\,dx = \\lim_{t\\to(\\pi/2)^-}\\tan t = \\infty$, so the integral diverges. A positive integrand with integral $0$ is the warning sign.",
+    "tags": [
+      "trap",
+      "discontinuity"
+    ]
+  },
+  {
+    "id": "L18-c06",
+    "lessonId": "L18",
+    "front": "Evaluate $\\int_{-1}^{8} x^{-2/3}\\,dx$.",
+    "back": "The integrand blows up at $x = 0$, inside $[-1, 8]$, so split there: $\\lim_{t\\to 0^-}3x^{1/3}\\Big|_{-1}^{t} + \\lim_{s\\to 0^+}3x^{1/3}\\Big|_{s}^{8} = 3 + 6 = 9$. Both pieces converge, so the integral converges to $9$.",
+    "tags": [
+      "discontinuity"
+    ]
+  },
+  {
+    "id": "L18-c07",
+    "lessonId": "L18",
+    "front": "Is $\\int_{-\\infty}^\\infty x\\,dx = \\lim_{R\\to\\infty}\\int_{-R}^R x\\,dx = 0$?",
+    "back": "No. Split at a point, say $0$: $\\int_0^\\infty x\\,dx = \\infty$, so the whole integral diverges. A two-sided integral converges only if both halves converge separately; a symmetric limit is not the definition. (This counterexample is beyond Chen's notes; Chen splits $\\int_{-\\infty}^\\infty \\frac{dx}{x^2 + 1}$ at $0$.)",
+    "tags": [
+      "trap",
+      "definition"
+    ]
+  },
+  {
+    "id": "L18-c08",
+    "lessonId": "L18",
+    "front": "Evaluate $\\int_0^\\infty e^{-3x}\\,dx$.",
+    "back": "$\\lim_{b\\to\\infty}\\left(-\\frac{1}{3}e^{-3x}\\right)\\Big|_0^b = \\lim_{b\\to\\infty}\\frac{1}{3}\\left(1 - e^{-3b}\\right) = \\frac{1}{3}$. It converges.",
+    "tags": [
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L18-c09",
+    "lessonId": "L18",
+    "front": "Evaluate $\\int_0^1 \\ln x\\,dx$.",
+    "back": "It is improper at $x = 0$, where $\\ln x \\to -\\infty$. By parts, $\\int \\ln x\\,dx = x\\ln x - x$, so the integral is $\\lim_{t\\to 0^+}\\left[(0 - 1) - (t\\ln t - t)\\right] = -1$, using $t\\ln t \\to 0$ (L'Hôpital). It converges to $-1$.",
+    "tags": [
+      "discontinuity"
+    ]
+  },
+  {
+    "id": "L18-c10",
+    "lessonId": "L18",
+    "front": "Does $\\int_1^\\infty \\frac{dx}{x^3 + 5}$ converge?",
+    "back": "Yes, by comparison: $0 \\le \\frac{1}{x^3 + 5} \\le \\frac{1}{x^3}$ for $x \\ge 1$, and $\\int_1^\\infty \\frac{dx}{x^3}$ converges ($p = 3 > 1$). A nonnegative function below a convergent integral has a convergent integral.",
+    "tags": [
+      "comparison"
+    ]
+  },
+  {
+    "id": "L18-c11",
+    "lessonId": "L18",
+    "front": "You show $0 \\le \\frac{1}{x^2 + \\sqrt{x}} \\le \\frac{1}{\\sqrt{x}}$ on $[1, \\infty)$. What can you conclude about $\\int_1^\\infty \\frac{dx}{x^2 + \\sqrt{x}}$?",
+    "back": "Nothing: $\\int_1^\\infty \\frac{dx}{\\sqrt{x}}$ diverges, and being below a divergent integral proves nothing. Compare with a convergent one instead: $\\frac{1}{x^2 + \\sqrt{x}} \\le \\frac{1}{x^2}$, and $\\int_1^\\infty \\frac{dx}{x^2} = 1$, so it converges.",
+    "tags": [
+      "trap",
+      "comparison"
+    ]
+  },
+  {
+    "id": "L18-c12",
+    "lessonId": "L18",
+    "front": "Evaluate $\\int_{-\\infty}^{3}\\frac{dx}{9 + x^2}$.",
+    "back": "$\\lim_{a\\to-\\infty}\\frac{1}{3}\\tan^{-1}\\left(\\frac{x}{3}\\right)\\Big|_a^3 = \\frac{1}{3}\\left(\\frac{\\pi}{4} - \\left(-\\frac{\\pi}{2}\\right)\\right) = \\frac{\\pi}{4}$, using $\\tan^{-1}a \\to -\\frac{\\pi}{2}$ as $a \\to -\\infty$. It converges.",
+    "tags": [
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L18-c13",
+    "lessonId": "L18",
+    "front": "For $x \\ge 1$, $e^{-x^2} \\le e^{-x}$. What does this show?",
+    "back": "$\\int_1^\\infty e^{-x}\\,dx = e^{-1}$ converges and $0 \\le e^{-x^2} \\le e^{-x}$, so $\\int_1^\\infty e^{-x^2}\\,dx$ converges by comparison, even though $e^{-x^2}$ has no elementary antiderivative.",
+    "tags": [
+      "comparison"
+    ]
+  }
+]

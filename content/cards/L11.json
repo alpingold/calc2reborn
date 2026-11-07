@@ -1,0 +1,127 @@
+[
+  {
+    "id": "L11-c01",
+    "lessonId": "L11",
+    "front": "State the integration by parts formula and the rule it reverses.",
+    "back": "$\\int u\\,dv = uv - \\int v\\,du$. It is the product rule in reverse: $d(uv) = u\\,dv + v\\,du$. For a definite integral, $\\int_a^b u\\,dv = uv\\Big|_a^b - \\int_a^b v\\,du$.",
+    "tags": [
+      "formula"
+    ]
+  },
+  {
+    "id": "L11-c02",
+    "lessonId": "L11",
+    "front": "What does LIATE stand for, and what is it for?",
+    "back": "Logarithmic, Inverse trig, Algebraic, Trig, Exponential: the order of preference for choosing $u$ in integration by parts. It is a rule of thumb. The goal is a $u$ that gets simpler when differentiated and a $dv$ that is easy to integrate.",
+    "tags": [
+      "liate"
+    ]
+  },
+  {
+    "id": "L11-c03",
+    "lessonId": "L11",
+    "front": "Choose $u$ and $dv$ for $\\int x^2\\ln x\\,dx$, then evaluate.",
+    "back": "$u = \\ln x$ (L before A) and $dv = x^2\\,dx$, so $du = \\frac{1}{x}\\,dx$ and $v = \\frac{x^3}{3}$. Then $\\int x^2\\ln x\\,dx = \\frac{x^3}{3}\\ln x - \\int \\frac{x^2}{3}\\,dx = \\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C$.",
+    "tags": [
+      "liate",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L11-c04",
+    "lessonId": "L11",
+    "front": "A student does $\\int x\\sin x\\,dx$ with $u = \\sin x$ and $dv = x\\,dx$. What goes wrong?",
+    "back": "Then $v = \\frac{x^2}{2}$ and the new integral is $\\int \\frac{x^2}{2}\\cos x\\,dx$, with a higher power of $x$: harder, not easier. Use $u = x$ (A before T) and $dv = \\sin x\\,dx$: $\\int x\\sin x\\,dx = -x\\cos x + \\sin x + C$.",
+    "tags": [
+      "trap",
+      "liate"
+    ]
+  },
+  {
+    "id": "L11-c05",
+    "lessonId": "L11",
+    "front": "How do you integrate $\\int \\ln x\\,dx$ by parts when there is only one factor?",
+    "back": "Take $u = \\ln x$ and $dv = dx$, so $v = x$. Then $\\int \\ln x\\,dx = x\\ln x - \\int x\\cdot\\frac{1}{x}\\,dx = x\\ln x - x + C$. (The $dv = dx$ choice is beyond Chen's notes.)",
+    "tags": [
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L11-c06",
+    "lessonId": "L11",
+    "front": "Evaluate $\\int_1^e \\ln x\\,dx$. Which step is easy to forget?",
+    "back": "Evaluating $uv$ at the limits too: $\\int_1^e \\ln x\\,dx = x\\ln x\\Big|_1^e - \\int_1^e 1\\,dx = (e - 0) - (e - 1) = 1$. Leaving $x\\ln x$ unevaluated mixes a function of $x$ into a number.",
+    "tags": [
+      "trap",
+      "definite"
+    ]
+  },
+  {
+    "id": "L11-c07",
+    "lessonId": "L11",
+    "front": "Evaluate $\\int_0^1 \\tan^{-1}x\\,dx$.",
+    "back": "$u = \\tan^{-1}x$ and $dv = dx$: $x\\tan^{-1}x\\Big|_0^1 - \\int_0^1 \\frac{x}{1 + x^2}\\,dx = \\frac{\\pi}{4} - \\frac{1}{2}\\ln(1 + x^2)\\Big|_0^1 = \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2$.",
+    "tags": [
+      "definite",
+      "quick-compute"
+    ]
+  },
+  {
+    "id": "L11-c08",
+    "lessonId": "L11",
+    "front": "How many rounds of parts does $\\int x^3\\sin x\\,dx$ need, and why?",
+    "back": "Three. With $u = x^3$ each round lowers the power of $x$ by one, until only $\\int \\sin x\\,dx$ or $\\int \\cos x\\,dx$ is left. Result: $-x^3\\cos x + 3x^2\\sin x + 6x\\cos x - 6\\sin x + C$.",
+    "tags": [
+      "repeated-parts"
+    ]
+  },
+  {
+    "id": "L11-c09",
+    "lessonId": "L11",
+    "front": "In $\\int x^2\\cos x\\,dx = x^2\\sin x - 2\\int x\\sin x\\,dx$, what is the common sign slip in the second round?",
+    "back": "$\\int x\\sin x\\,dx = -x\\cos x + \\sin x$, and the $-2$ multiplies all of it: $x^2\\sin x - 2(-x\\cos x + \\sin x) = x^2\\sin x + 2x\\cos x - 2\\sin x + C$. Applying the minus to only the first term gives the wrong sign on $\\sin x$.",
+    "tags": [
+      "trap",
+      "repeated-parts"
+    ]
+  },
+  {
+    "id": "L11-c10",
+    "lessonId": "L11",
+    "front": "Use the tabular method on $\\int x^3 e^{2x}\\,dx$.",
+    "back": "Derivatives of $x^3$: $x^3, 3x^2, 6x, 6, 0$. Integrals of $e^{2x}$: $\\frac{1}{2}e^{2x}, \\frac{1}{4}e^{2x}, \\frac{1}{8}e^{2x}, \\frac{1}{16}e^{2x}$. Multiply along the diagonals with signs $+, -, +, -$: $e^{2x}\\left(\\frac{x^3}{2} - \\frac{3x^2}{4} + \\frac{3x}{4} - \\frac{3}{8}\\right) + C$. (The table is beyond Chen's notes; it is repeated parts written compactly.)",
+    "tags": [
+      "tabular",
+      "repeated-parts"
+    ]
+  },
+  {
+    "id": "L11-c11",
+    "lessonId": "L11",
+    "front": "Evaluate $\\int e^x\\sin x\\,dx$.",
+    "back": "Parts twice with a trig $u$ both times ($u = \\sin x$, then $u = \\cos x$) gives $I = e^x\\sin x - e^x\\cos x - I$, where $I$ is the original integral. It has reappeared, so solve: $2I = e^x(\\sin x - \\cos x)$ and $I = \\frac{1}{2}e^x(\\sin x - \\cos x) + C$.",
+    "tags": [
+      "trap",
+      "cyclic"
+    ]
+  },
+  {
+    "id": "L11-c12",
+    "lessonId": "L11",
+    "front": "In a cyclic integral such as $\\int e^x\\cos x\\,dx$, what happens if you switch the type of $u$ in the second round?",
+    "back": "If round one uses $u = \\cos x$ and round two uses $u = e^x$, round two undoes round one and you get $I = I$, which says nothing. Keep the same type (trig both times, or exponential both times) until the original integral returns, then solve for it.",
+    "tags": [
+      "trap",
+      "cyclic"
+    ]
+  },
+  {
+    "id": "L11-c13",
+    "lessonId": "L11",
+    "front": "Parts or substitution for $\\int x\\cos(x^2)\\,dx$?",
+    "back": "Substitution: $u = x^2$, $du = 2x\\,dx$, so the integral is $\\frac{1}{2}\\int \\cos u\\,du = \\frac{1}{2}\\sin(x^2) + C$. Look for an inside function whose derivative is present before reaching for parts.",
+    "tags": [
+      "which-method"
+    ]
+  }
+]
