@@ -1,0 +1,634 @@
+[
+  {
+    "id": "L1",
+    "number": 1,
+    "title": "13.1 Vectors and 13.2 Vectors in Three Dimensions (part 1)",
+    "sections": [
+      "13.1",
+      "13.2"
+    ],
+    "unit": "Vectors",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_gueptc0u",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%201--13.1,%2013.2%281%29-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L2",
+    "number": 2,
+    "title": "13.2 Vectors in Three Dimensions (part 2)",
+    "sections": [
+      "13.2"
+    ],
+    "unit": "Vectors",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_vnu66x6j",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%202--13.2%282%29-acc.html",
+    "prerequisites": [
+      "L1"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L3",
+    "number": 3,
+    "title": "13.3 Dot Product",
+    "sections": [
+      "13.3"
+    ],
+    "unit": "Vectors",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_t4sab8oc",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%203--13.3-acc.html",
+    "prerequisites": [
+      "L2"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L4",
+    "number": 4,
+    "title": "13.4 Cross Product",
+    "sections": [
+      "13.4"
+    ],
+    "unit": "Vectors",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_lqsjwno3",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%204%20--13.4-acc.html",
+    "prerequisites": [
+      "L3"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L5",
+    "number": 5,
+    "title": "6.2 Region Between Curves",
+    "sections": [
+      "6.2"
+    ],
+    "unit": "Applications of Integration",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_x00wsnwp",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%205%20--%206.2-acc.html",
+    "prerequisites": [
+      "L4"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L6",
+    "number": 6,
+    "title": "6.3 Volumes by Slicing",
+    "sections": [
+      "6.3"
+    ],
+    "unit": "Applications of Integration",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_xh2ftjh2",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%206%20--%206.3-acc.html",
+    "prerequisites": [
+      "L5"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L7",
+    "number": 7,
+    "title": "6.4 Volumes by Shells",
+    "sections": [
+      "6.4"
+    ],
+    "unit": "Applications of Integration",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_ddjuekgr",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%207%20--%206.4-acc.html",
+    "prerequisites": [
+      "L6"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L8",
+    "number": 8,
+    "title": "6.5+6.6 Length and Surface Area",
+    "sections": [
+      "6.5",
+      "6.6"
+    ],
+    "unit": "Applications of Integration",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_o9v2dhts",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%208%20--%206.5+6.6-acc.html",
+    "prerequisites": [
+      "L7"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L9",
+    "number": 9,
+    "title": "6.7 Physical Applications (part 1)",
+    "sections": [
+      "6.7"
+    ],
+    "unit": "Applications of Integration",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_vnmsgw2k",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%209%20--%20%206.7%281%29-acc.html",
+    "prerequisites": [
+      "L8"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L10",
+    "number": 10,
+    "title": "6.7 Physical Applications (part 2)",
+    "sections": [
+      "6.7"
+    ],
+    "unit": "Applications of Integration",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_u00zv9zs",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2010%20--%206.7%282%29-acc.html",
+    "prerequisites": [
+      "L9"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L11",
+    "number": 11,
+    "title": "8.2 Integration by Parts",
+    "sections": [
+      "8.2"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_gzw2vvmo",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2011%20--%208.1+8.2-acc.html",
+    "prerequisites": [
+      "L10"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L12",
+    "number": 12,
+    "title": "8.3 Trig Integrals (part 1)",
+    "sections": [
+      "8.3"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_kumvzogm",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2012%20--%208.3%281%29-acc.html",
+    "prerequisites": [
+      "L11"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L13",
+    "number": 13,
+    "title": "8.3 Trig Integrals (part 2)",
+    "sections": [
+      "8.3"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_jqisolla",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2013%20--%208.3%282%29-acc.html",
+    "prerequisites": [
+      "L12"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L14",
+    "number": 14,
+    "title": "8.4 Trig Substitution (part 1)",
+    "sections": [
+      "8.4"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_9tihk9ax",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2014%20--%208.4%281%29-acc.html",
+    "prerequisites": [
+      "L13"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L15",
+    "number": 15,
+    "title": "8.4 Trig Substitution (part 2)",
+    "sections": [
+      "8.4"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_gak73vud",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2015%20--%208.4%282%29-acc.html",
+    "prerequisites": [
+      "L14"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L16",
+    "number": 16,
+    "title": "8.5 Partial Fractions (part 1)",
+    "sections": [
+      "8.5"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_zoufblgh",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2016%20--%208.5%281%29-acc.html",
+    "prerequisites": [
+      "L15"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L17",
+    "number": 17,
+    "title": "8.5 Partial Fractions (part 2)",
+    "sections": [
+      "8.5"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_4p1idbdv",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2017%20--%208.5%282%29-acc.html",
+    "prerequisites": [
+      "L16"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L18",
+    "number": 18,
+    "title": "8.9 Improper Integrals",
+    "sections": [
+      "8.9"
+    ],
+    "unit": "Integration Techniques",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_hdhgnd89",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2018%20--%208.9-acc.html",
+    "prerequisites": [
+      "L17"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L19",
+    "number": 19,
+    "title": "10.1 Sequences and Series: An Overview",
+    "sections": [
+      "10.1"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_f62v9vqx",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2019%20--%2010.1-acc.html",
+    "prerequisites": [
+      "L18"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L20",
+    "number": 20,
+    "title": "10.2 Sequences",
+    "sections": [
+      "10.2"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_dpsdun1a",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2020%20--%2010.2-acc.html",
+    "prerequisites": [
+      "L19"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L21",
+    "number": 21,
+    "title": "10.3 Infinite Series",
+    "sections": [
+      "10.3"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_ads48r7j",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2021%20--%2010.3-acc.html",
+    "prerequisites": [
+      "L20"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L22",
+    "number": 22,
+    "title": "10.4 The Divergence and Integral Tests",
+    "sections": [
+      "10.4"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_sa9i0u7q",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2022%20--%2010.4-acc.html",
+    "prerequisites": [
+      "L21"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L23",
+    "number": 23,
+    "title": "10.5 Comparison Tests",
+    "sections": [
+      "10.5"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_ifuqb3ie",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2023%20--%2010.5-acc.html",
+    "prerequisites": [
+      "L22"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L24",
+    "number": 24,
+    "title": "10.6 Alternating Series",
+    "sections": [
+      "10.6"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_3so2lpla",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2024%20--%2010.6-acc.html",
+    "prerequisites": [
+      "L23"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L25",
+    "number": 25,
+    "title": "10.7 Ratio and Root Tests",
+    "sections": [
+      "10.7"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_yid4fesj",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2025%20--%2010.7-acc.html",
+    "prerequisites": [
+      "L24"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L26",
+    "number": 26,
+    "title": "10.8 Choosing a Convergent Test",
+    "sections": [
+      "10.8"
+    ],
+    "unit": "Sequences and Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_rqy7aiib",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2026%20--%2010.8-acc.html",
+    "prerequisites": [
+      "L25"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L27",
+    "number": 27,
+    "title": "11.1 Approximating Functions Using Polynomials (part 1)",
+    "sections": [
+      "11.1"
+    ],
+    "unit": "Power and Taylor Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_q5s7t39f",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2027%20--%2011.1%281%29-acc.html",
+    "prerequisites": [
+      "L26"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L28",
+    "number": 28,
+    "title": "11.1 Approximating Functions Using Polynomials (part 2)",
+    "sections": [
+      "11.1"
+    ],
+    "unit": "Power and Taylor Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_q1gmmndr",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2028%20--%2011.1%282%29-acc.html",
+    "prerequisites": [
+      "L27"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L29",
+    "number": 29,
+    "title": "11.2 Properties of Power Series (part 1)",
+    "sections": [
+      "11.2"
+    ],
+    "unit": "Power and Taylor Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_gdr6dth7",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2029%20--%2011.2%281%29-acc.html",
+    "prerequisites": [
+      "L28"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L30",
+    "number": 30,
+    "title": "11.2 Properties of Power Series (part 2)",
+    "sections": [
+      "11.2"
+    ],
+    "unit": "Power and Taylor Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_xd69iu2l",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2030%20--%2011.2%282%29-acc.html",
+    "prerequisites": [
+      "L29"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L31",
+    "number": 31,
+    "title": "11.3 Taylor Series",
+    "sections": [
+      "11.3"
+    ],
+    "unit": "Power and Taylor Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_vh34epnt",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2031%20--%2011.3-acc.html",
+    "prerequisites": [
+      "L30"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L32",
+    "number": 32,
+    "title": "11.4 Working with Taylor Series",
+    "sections": [
+      "11.4"
+    ],
+    "unit": "Power and Taylor Series",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_h50jgrpw",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2032%20--%2011.4-acc.html",
+    "prerequisites": [
+      "L31"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L33",
+    "number": 33,
+    "title": "12.2 Polar Coordinates",
+    "sections": [
+      "12.2"
+    ],
+    "unit": "Polar",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_tat69phj",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2033%20--%2012.2%281%29-acc.html",
+    "prerequisites": [
+      "L32"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L34",
+    "number": 34,
+    "title": "12.2 Polar Coordinates (part 2)",
+    "sections": [
+      "12.2"
+    ],
+    "unit": "Polar",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_a5erupjk",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2034%20--%2012.2%282%29-acc.html",
+    "prerequisites": [
+      "L33"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "L35",
+    "number": 35,
+    "title": "12.3 Areas and Lengths in Polar Coordinates",
+    "sections": [
+      "12.3"
+    ],
+    "unit": "Polar",
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_0d40xilv",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%2035%20--%2012.3-acc.html",
+    "prerequisites": [
+      "L34"
+    ],
+    "keyIdeas": "",
+    "isReview": false
+  },
+  {
+    "id": "R-exam1",
+    "number": 36,
+    "title": "Exam 1 Review",
+    "sections": [],
+    "unit": null,
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_b7jm2fmu",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Exam%201%20Review-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": true
+  },
+  {
+    "id": "R-exam2",
+    "number": 37,
+    "title": "Exam 2 Review",
+    "sections": [],
+    "unit": null,
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_8ia71wuj",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Exam%202%20Review-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": true
+  },
+  {
+    "id": "R-exam3",
+    "number": 38,
+    "title": "Exam 3 Review",
+    "sections": [],
+    "unit": null,
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_zrla7n1x",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Exam%203%20Review-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": true
+  },
+  {
+    "id": "R-final1",
+    "number": 39,
+    "title": "Final Exam Review, Part 1",
+    "sections": [],
+    "unit": null,
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_4m1evp9b",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Final%20Review%201-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": true
+  },
+  {
+    "id": "R-final2",
+    "number": 40,
+    "title": "Final Exam Review, Part 2",
+    "sections": [],
+    "unit": null,
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_ozw9mevt",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Final%20Review%202-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": true
+  },
+  {
+    "id": "R-final3",
+    "number": 41,
+    "title": "Final Exam Review, Part 3",
+    "sections": [],
+    "unit": null,
+    "videoUrl": "https://mediaspace.itap.purdue.edu/media/Fall+2023+-+MA162+-+Chen+%287A27%29/1_tvb4ksbb",
+    "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Final%20Review%203-acc.html",
+    "prerequisites": [],
+    "keyIdeas": "",
+    "isReview": true
+  }
+]

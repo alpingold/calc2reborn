@@ -1,0 +1,16 @@
+[
+  {
+    "id": "L19-c01",
+    "lessonId": "L19",
+    "front": "What is the difference between the sequence of terms $a_n$ and the sequence of partial sums $S_n$?",
+    "back": "The terms $a_n$ are the individual numbers being added, while the partial sums are the running totals $S_n = a_1 + a_2 + \\cdots + a_n$. The series $\\sum a_n$ converges exactly when the sequence $S_n$ has a finite limit, and then $\\sum a_n = \\lim_{n\\to\\infty} S_n$.",
+    "tags": ["series", "partial-sums"]
+  },
+  {
+    "id": "L19-c02",
+    "lessonId": "L19",
+    "front": "If $\\lim a_n = 0$, what does that tell you about $\\sum a_n$?",
+    "back": "Nothing: the terms going to zero is necessary for convergence but not sufficient. For example, $a_n = 1/n \\to 0$ yet $\\sum 1/n$ diverges. The Divergence Test only works the other way: if $\\lim a_n \\neq 0$ (or does not exist), then $\\sum a_n$ diverges.",
+    "tags": ["series", "divergence-test"]
+  }
+]
