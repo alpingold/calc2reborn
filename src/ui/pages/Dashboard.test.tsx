@@ -7,7 +7,8 @@ import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import type { Settings } from '../../storage/types'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureCard, fixtureLessons, PLANNED_LESSON_COUNT } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -32,8 +33,7 @@ const seedExam: Exam = {
   durationMinutes: 60,
   questions: [q(1), q(2), q(3)],
 }
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [seedExam])
+const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam])
 
 async function setup(settings: Partial<Settings>, seed?: (s: MemoryStore) => Promise<void>) {
   const store = new MemoryStore()
@@ -55,7 +55,7 @@ test('first launch asks for the current lesson and hides the prompt after saving
   const { store } = await setup({})
   expect(screen.getByText('Where are you in the course?')).toBeInTheDocument()
   const select = screen.getByLabelText('Current lesson')
-  expect(within(select).getAllByRole('option')).toHaveLength(35)
+  expect(within(select).getAllByRole('option')).toHaveLength(PLANNED_LESSON_COUNT)
   await userEvent.selectOptions(select, 'L23')
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))
   await screen.findByText(/Cards due today/)
@@ -95,8 +95,9 @@ test('exam block lists weakest covered lessons, untested first', async () => {
   )
   expect(await screen.findByText('5 days until the exam')).toBeInTheDocument()
   const list = screen.getByRole('heading', { name: 'Weakest lessons' }).nextElementSibling as HTMLElement
-  const items = within(list).getAllByRole('listitem')
-  expect(items.map((li) => li.textContent)).toEqual(['L19 · 10.1 Sequences and Series: An Overview', 'L20 · 10.2 Sequences'])
-  expect(await screen.findByTitle('L20 · 10.2 Sequences · 51%')).toHaveClass('mastery-weak')
-  expect(screen.getByTitle('L19 · 10.1 Sequences and Series: An Overview · untested')).toHaveClass('mastery-untested')
+  // the exam line renders from settings; the list fills in once attempts have loaded
+  const items = await within(list).findAllByRole('listitem')
+  expect(items.map((li) => li.textContent)).toEqual(['L19 · Topic 19', 'L20 · Topic 20'])
+  expect(await screen.findByTitle('L20 · Topic 20 · 51%')).toHaveClass('mastery-weak')
+  expect(screen.getByTitle('L19 · Topic 19 · untested')).toHaveClass('mastery-untested')
 })

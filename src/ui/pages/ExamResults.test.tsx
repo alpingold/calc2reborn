@@ -4,7 +4,8 @@ import { MemoryRouter, Route, Routes } from 'react-router'
 import { ExamResults } from './ExamResults'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 import type { Attempt } from '../../storage/types'
@@ -40,8 +41,7 @@ const seedExam: Exam = {
   durationMinutes: 60,
   questions: Array.from({ length: 12 }, (_, i) => q(i + 1)),
 }
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [seedExam])
+const content = buildContent(fixtureLessons(), [], [seedExam])
 
 // 1 to 9 right, 10 and 11 wrong, 12 unanswered
 const answers: Record<string, Choice['label']> = {}
@@ -91,7 +91,7 @@ test('an unanswered question says Not answered and reveals its correct choice', 
   expect(screen.getAllByText('Not answered')).toHaveLength(1)
   const wrong = screen.getByRole('listitem', { name: 'Question 10' })
   expect(within(wrong).getByRole('button', { name: 'Your answer' })).toHaveTextContent('alpha')
-  expect(within(wrong).getByRole('link', { name: /Sequences and Series: An Overview/ })).toHaveAttribute(
+  expect(within(wrong).getByRole('link', { name: 'Lesson 19: Topic 19' })).toHaveAttribute(
     'href',
     '/course/L19',
   )

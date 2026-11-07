@@ -5,7 +5,8 @@ import { MemoryRouter, Route, Routes, useParams } from 'react-router'
 import { TakeExam } from './TakeExam'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureCard, fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Scheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
@@ -45,8 +46,7 @@ const seedExam: Exam = {
   questions: Array.from({ length: 12 }, (_, i) => q(i + 1)),
 }
 
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [seedExam])
+const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam])
 const now = () => new Date()
 const rng = () => 0
 

@@ -7,7 +7,8 @@ import { Practice } from './Practice'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureCard, fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -37,8 +38,7 @@ const seedExam: Exam = {
 }
 const STEMS = ['Stem one', 'Stem two', 'Stem three']
 
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [seedExam])
+const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam])
 
 async function setup(opts: { url?: string; store?: MemoryStore; extra?: ReactNode } = {}) {
   const store = opts.store ?? new MemoryStore()
@@ -94,7 +94,7 @@ test('revealed answer shows the lesson link', async () => {
   await setup()
   await userEvent.keyboard('a{Enter}')
   await screen.findByRole('status')
-  expect(screen.getByRole('link', { name: /Sequences and Series: An Overview/ })).toHaveAttribute(
+  expect(screen.getByRole('link', { name: 'Lesson 19: Topic 19' })).toHaveAttribute(
     'href',
     '/course/L19',
   )

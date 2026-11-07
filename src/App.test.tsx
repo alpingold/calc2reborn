@@ -5,6 +5,10 @@ import { App } from './App'
 import { routes } from './routes'
 import { StoreProvider } from './storage/context'
 import { MemoryStore } from './storage/memory'
+import { buildContent } from './content'
+import { fixtureLessons } from './test/fixtures'
+
+const content = buildContent(fixtureLessons(), [], [])
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -13,7 +17,7 @@ afterEach(() => {
 function renderAt(path: string, store?: MemoryStore) {
   const router = createMemoryRouter(routes, { initialEntries: [path] })
   return render(
-    <StoreProvider store={store}>
+    <StoreProvider store={store} content={content}>
       <RouterProvider router={router} />
     </StoreProvider>,
   )
@@ -43,7 +47,7 @@ test('shows the fallback banner when indexedDB is unavailable', async () => {
 test.each([
   ['/', 'Dashboard'],
   ['/course', 'Course'],
-  ['/course/L19', '10.1 Sequences and Series: An Overview'],
+  ['/course/L19', 'Topic 19'],
   ['/review', 'Review'],
   ['/practice?lesson=L23', 'Practice'],
   ['/exams', 'Exams'],

@@ -6,7 +6,7 @@ import { QuestionView } from './QuestionView'
 import type { QuestionViewProps } from './QuestionView'
 import { StoreProvider } from '../storage/context'
 import { MemoryStore } from '../storage/memory'
-import { buildContent, loadContent } from '../content'
+import { buildContent } from '../content'
 import type { Question } from '../content/schema'
 
 const question: Question = {
@@ -28,7 +28,7 @@ const question: Question = {
   status: 'reviewed',
 }
 
-const content = buildContent(loadContent().lessons, [], [])
+const content = buildContent([], [], [])
 
 async function setup(props: Partial<QuestionViewProps> = {}, clock = { t: new Date('2026-11-06T12:00:00Z') }) {
   const onChoose = vi.fn()

@@ -72,6 +72,9 @@ importers:
       pdfjs-dist:
         specifier: 6.5.438
         version: 6.5.438
+      scheduler:
+        specifier: 0.28.0
+        version: 0.28.0
       tsx:
         specifier: 4.23.15
         version: 4.23.15

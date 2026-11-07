@@ -5,10 +5,11 @@ import { Settings } from './Settings'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
-import { loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureLessons, PLANNED_LESSON_COUNT } from '../../test/fixtures'
 import type { Scheduler } from '../../engine/fsrs'
 
-const content = loadContent()
+const content = buildContent(fixtureLessons(), [], [])
 const scheduler = {} as Scheduler
 
 const realCreate = URL.createObjectURL
@@ -34,7 +35,7 @@ test('lists only non-review lessons and persists the chosen lesson', async () =>
   const store = await setup()
   const select = screen.getByLabelText('Current lesson') as HTMLSelectElement
   const lessonOptions = Array.from(select.options).filter((o) => o.value !== '')
-  expect(lessonOptions).toHaveLength(35)
+  expect(lessonOptions).toHaveLength(PLANNED_LESSON_COUNT)
   await userEvent.selectOptions(select, 'L23')
   expect(lessonOptions.find((o) => o.value === 'L23')!.textContent).toMatch(/^L23 · /)
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))

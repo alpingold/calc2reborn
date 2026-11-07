@@ -6,12 +6,13 @@ import { Review } from './Review'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Scheduler } from '../../engine/fsrs'
 import type { ConceptCard } from '../../content/schema'
 
-const lessons = loadContent().lessons
+const lessons = fixtureLessons()
 const cards: ConceptCard[] = [
   { id: 'L19-c01', lessonId: 'L19', front: 'Front one', back: 'Back one' },
   { id: 'L19-c02', lessonId: 'L19', front: 'Front two', back: 'Back two' },

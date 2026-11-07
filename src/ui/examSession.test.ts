@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { buildContent, loadContent } from '../content'
+import { buildContent } from '../content'
 import type { Choice, Exam, Question } from '../content/schema'
 import {
   SESSION_KEY,
@@ -27,8 +27,7 @@ const exam: Exam = {
   durationMinutes: 60,
   questions: [q(1, 8, 'A'), q(2, 8, 'B'), q(3, 10, 'C')],
 }
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [exam])
+const content = buildContent([], [], [exam])
 
 const START = '2026-11-06T12:00:00.000Z'
 

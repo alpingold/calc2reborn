@@ -5,7 +5,8 @@ import { createMemoryRouter, RouterProvider } from 'react-router'
 import { buildRoutes } from '../../routes'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -41,8 +42,8 @@ const exam: Exam = {
   durationMinutes: 60,
   questions: [q(1), q(2), q(3, { sourcePage: 3 }), q(4, { tags: undefined })],
 }
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [exam])
+const lessons = fixtureLessons()
+const content = buildContent(lessons, [], [exam])
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -110,6 +111,6 @@ test('Mark reviewed copies the JSON line and shows Copied', async () => {
 })
 
 test('empty state when there are no exams', async () => {
-  await renderAt('/dev/content', true, buildContent(base.lessons, base.cards, []))
+  await renderAt('/dev/content', true, buildContent(lessons, [], []))
   expect(await screen.findByText('No exams transcribed yet.')).toBeInTheDocument()
 })

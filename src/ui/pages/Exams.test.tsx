@@ -7,7 +7,8 @@ import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import type { Attempt } from '../../storage/types'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -27,8 +28,7 @@ function exam(id: string, year: number, term: Exam['term'], which: Exam['exam'],
   return { id, term, year, exam: which, examUrl: '', durationMinutes: 60, questions }
 }
 
-const base = loadContent()
-const content = buildContent(base.lessons, base.cards, [
+const content = buildContent(fixtureLessons(), [], [
   exam('f2025-e1', 2025, 'Fall', '1', 12),
   exam('f2025-final', 2025, 'Fall', 'final', 20),
   exam('s2024-e2', 2024, 'Spring', '2', 12),

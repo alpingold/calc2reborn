@@ -4,7 +4,8 @@ import { MemoryRouter, Route, Routes } from 'react-router'
 import { Lesson } from './Lesson'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
-import { buildContent, loadContent } from '../../content'
+import { buildContent } from '../../content'
+import { fixtureCard, fixtureLesson, fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -35,9 +36,16 @@ const seedExam: Exam = {
   durationMinutes: 60,
   questions: [question],
 }
-const base = loadContent()
-const lessons = base.lessons.map((l) => (l.id === 'L19' ? { ...l, keyIdeas: 'Compare **terms**.' } : l))
-const content = buildContent(lessons, [...base.cards, { id: 'L19-c99', lessonId: 'L19', front: 'extra', back: 'back' }], [seedExam])
+const lessons = [
+  ...fixtureLessons().map((l) => (l.id === 'L19' ? { ...l, keyIdeas: 'Compare **terms**.' } : l)),
+  // no key ideas, cards, or questions
+  fixtureLesson(100, { id: 'L-empty' }),
+]
+const content = buildContent(
+  lessons,
+  [fixtureCard('L19-c01', 'L19'), fixtureCard('L19-c02', 'L19'), fixtureCard('L19-c03', 'L19')],
+  [seedExam],
+)
 
 async function setup(path: string, seed?: (s: MemoryStore) => Promise<void>) {
   const store = new MemoryStore()
@@ -56,7 +64,6 @@ async function setup(path: string, seed?: (s: MemoryStore) => Promise<void>) {
 
 test('shows lesson details, cards with status, and exam questions', async () => {
   const cards = content.cardsByLesson.get('L19')!
-  expect(cards.length).toBeGreaterThanOrEqual(3)
   const lesson = content.lessonById.get('L19')!
   await setup('/course/L19', async (store) => {
     const scheduler = await createScheduler()
@@ -65,8 +72,8 @@ test('shows lesson details, cards with status, and exam questions', async () => 
     const later = scheduler.newState(cards[1].id, new Date(2026, 10, 1))
     await store.saveCardState({ ...later, fsrs: { ...later.fsrs, dueAt: new Date(2026, 10, 20).toISOString() } })
   })
-  expect(await screen.findByRole('heading', { level: 2, name: '10.1 Sequences and Series: An Overview' })).toBeInTheDocument()
-  expect(screen.getByText('Sections 10.1')).toBeInTheDocument()
+  expect(await screen.findByRole('heading', { level: 2, name: 'Topic 19' })).toBeInTheDocument()
+  expect(screen.getByText('Sections 19.1')).toBeInTheDocument()
   const video = screen.getByRole('link', { name: 'Video' })
   expect(video).toHaveAttribute('href', lesson.videoUrl)
   expect(video).toHaveAttribute('target', '_blank')
@@ -86,7 +93,7 @@ test('shows lesson details, cards with status, and exam questions', async () => 
 })
 
 test('shows empty states and unknown lesson', async () => {
-  await setup('/course/L23')
+  await setup('/course/L-empty')
   expect(await screen.findByText('No key ideas yet.')).toBeInTheDocument()
   expect(screen.getByText('No exam questions yet.')).toBeInTheDocument()
 })
