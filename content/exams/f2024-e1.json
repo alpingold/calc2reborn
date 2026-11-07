@@ -1,0 +1,356 @@
+{
+  "id": "f2024-e1",
+  "term": "Fall",
+  "year": 2024,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2024.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2024.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2024-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Compute the area of the region enclosed in between the curves $y = \\sqrt{x}$, $y = 2 - x$, and the $x$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2/3$"
+        },
+        {
+          "label": "B",
+          "text": "$7/6$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$9/2$"
+        },
+        {
+          "label": "E",
+          "text": "$1/3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "A 5 m deep aquarium is full of water. On one of its vertical walls, there is a square viewing window whose side length is 1 m. The lower edge of the window is at the bottom of the aquarium. How much force is exerted on the window due to water pressure?\n\n(Use $\\rho = 1000 \\,\\mathrm{kg/m^3}$ for the density of water, and $g = 10 \\,\\mathrm{m/s^2}$ for gravitational acceleration.)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "45000 N"
+        },
+        {
+          "label": "B",
+          "text": "80000 N"
+        },
+        {
+          "label": "C",
+          "text": "5000 N"
+        },
+        {
+          "label": "D",
+          "text": "90000 N"
+        },
+        {
+          "label": "E",
+          "text": "125000 N"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{1/2} \\frac{1}{(1 - x^2)^{3/2}}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2\\sqrt{3}} - 1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{\\sqrt{3}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{\\sqrt{3}} - 1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{\\sqrt{3}}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2\\sqrt{3}}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Find the value of $A$ in the equation\n\n$$\n\\int_1^{e^2} \\ln(x)^3\\,dx = A - \\int_1^{e^2} 3\\ln(x)^2\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$e^2 - 1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$e^2$"
+        },
+        {
+          "label": "E",
+          "text": "$8e^2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Which one of the following is the most appropriate substitution for the integral\n\n$$\n\\int \\sqrt{(x + 1)(x + 5)}\\,dx \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = 2\\cos(\\theta) - 3$"
+        },
+        {
+          "label": "B",
+          "text": "$x = 2\\tan(\\theta) - 3$"
+        },
+        {
+          "label": "C",
+          "text": "$x = \\sec(\\theta) + 5$"
+        },
+        {
+          "label": "D",
+          "text": "$x = 2\\sec(\\theta) - 3$"
+        },
+        {
+          "label": "E",
+          "text": "$x = \\cos(\\theta) + 5$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14",
+        "L15"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_{\\pi/6}^{\\pi/3} \\frac{\\tan(x)}{\\sec(x)^2}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1/2$"
+        },
+        {
+          "label": "B",
+          "text": "$4/3$"
+        },
+        {
+          "label": "C",
+          "text": "$2/\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln(3)$"
+        },
+        {
+          "label": "E",
+          "text": "$1/4$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "A parabolic cereal bowl is 10 cm tall and 10 cm in radius at the rim. The bowl could be considered the result of revolving the parabola $y = \\frac{x^2}{10}$ for $0 \\le x \\le 10$ around the $y$-axis. Milk is filled to exactly half the interior volume of the bowl. What is the depth of milk?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5\\sqrt{2}$ cm"
+        },
+        {
+          "label": "B",
+          "text": "5 cm"
+        },
+        {
+          "label": "C",
+          "text": "$5\\sqrt{3}$ cm"
+        },
+        {
+          "label": "D",
+          "text": "$20/3$ cm"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{10}$ cm"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "A thin bar of length 2 m has density $\\rho(x) = (x + 1)e^{-x}$ kg/m at $x$ meters away from its left end. What is the total mass of the bar?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(2 - 4e^{-2})$ kg"
+        },
+        {
+          "label": "B",
+          "text": "$(1 - 3e^{-2})$ kg"
+        },
+        {
+          "label": "C",
+          "text": "2 kg"
+        },
+        {
+          "label": "D",
+          "text": "$(1 + 3e^{-2})$ kg"
+        },
+        {
+          "label": "E",
+          "text": "$(2 - 2e^{-2})$ kg"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L9",
+        "L11"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "A string light is set up between two vertical posts in the backyard. If coordinate axes are set up as shown in the figure below, the string light will follow the function\n\n$$\nf(x) = e^{x/2} + e^{-x/2}\n$$\n\nbetween $x = -2$ and $x = 2$ (measured in meters). How long is the portion of the string light hanging in between the posts?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2(e + e^{-1})$ m"
+        },
+        {
+          "label": "B",
+          "text": "$2(e^{1/2} + e^{-1/2})$ m"
+        },
+        {
+          "label": "C",
+          "text": "$2(e^{1/2} + e^{-1/2})$ m"
+        },
+        {
+          "label": "D",
+          "text": "$2(e - e^{-1})$ m"
+        },
+        {
+          "label": "E",
+          "text": "$(e - e^{-1})$ m"
+        }
+      ],
+      "answer": "D",
+      "figures": [
+        "figures/f2024-e1/q09.png"
+      ],
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "A spring is compressed 0.8 m by a force of 40 N. How much work is needed to further compress it by another 0.4 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "20 J"
+        },
+        {
+          "label": "B",
+          "text": "40 J"
+        },
+        {
+          "label": "C",
+          "text": "36 J"
+        },
+        {
+          "label": "D",
+          "text": "50 J"
+        },
+        {
+          "label": "E",
+          "text": "16 J"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}
