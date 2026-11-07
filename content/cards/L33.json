@@ -1,0 +1,136 @@
+[
+  {
+    "id": "L33-c01",
+    "lessonId": "L33",
+    "front": "In polar coordinates $(r, \\theta)$, what do $r$ and $\\theta$ measure?",
+    "back": "$r$ is the signed distance from the origin (the pole) to the point, and $\\theta$ is the angle from the positive $x$-axis, counterclockwise positive. Both can be negative: for $r < 0$, go $|r|$ in the direction opposite to $\\theta$.",
+    "tags": [
+      "polar-coordinates"
+    ]
+  },
+  {
+    "id": "L33-c02",
+    "lessonId": "L33",
+    "front": "Formulas linking $(x, y)$ and $(r, \\theta)$.",
+    "back": "$x = r\\cos\\theta$, $y = r\\sin\\theta$, $x^2 + y^2 = r^2$, and $\\tan\\theta = \\frac{y}{x}$ for $x \\ne 0$.",
+    "tags": [
+      "conversion"
+    ]
+  },
+  {
+    "id": "L33-c03",
+    "lessonId": "L33",
+    "front": "Does a point have only one pair of polar coordinates?",
+    "back": "No, infinitely many. $(r, \\theta)$, $(r, \\theta + 2k\\pi)$, and $(-r, \\theta + (2k+1)\\pi)$ name the same point for every integer $k$. The pole is $(0, \\theta)$ for any $\\theta$.",
+    "tags": [
+      "trap",
+      "representations"
+    ]
+  },
+  {
+    "id": "L33-c04",
+    "lessonId": "L33",
+    "front": "Which quadrant holds the polar point $(-3, \\pi/4)$, and what are its Cartesian coordinates?",
+    "back": "Quadrant III: the angle $\\pi/4$ points into quadrant I, and $r < 0$ sends the point the opposite way. $x = -3\\cos\\frac{\\pi}{4} = -\\frac{3\\sqrt{2}}{2}$ and $y = -3\\sin\\frac{\\pi}{4} = -\\frac{3\\sqrt{2}}{2}$.",
+    "tags": [
+      "trap",
+      "negative-r",
+      "conversion"
+    ]
+  },
+  {
+    "id": "L33-c05",
+    "lessonId": "L33",
+    "front": "Give three other polar representations of $(-2, 3\\pi/4)$, at least one with $r > 0$.",
+    "back": "The point is $(\\sqrt{2}, -\\sqrt{2})$, in quadrant IV. For example $(2, -\\pi/4)$, $(2, 7\\pi/4)$, and $(-2, -5\\pi/4)$. Adding $\\pi$ to $\\theta$ flips the sign of $r$; adding $2\\pi$ keeps it.",
+    "tags": [
+      "trap",
+      "representations",
+      "negative-r"
+    ]
+  },
+  {
+    "id": "L33-c06",
+    "lessonId": "L33",
+    "front": "Why is $\\theta = \\tan^{-1}\\left(\\frac{y}{x}\\right)$ not always right when converting $(x, y)$ to polar?",
+    "back": "$\\tan^{-1}$ only returns angles in $(-\\pi/2, \\pi/2)$, which point to the right. For a point with $x < 0$ (quadrant II or III) it is off by $\\pi$: add $\\pi$ and keep $r > 0$, or keep the angle and take $r < 0$. Always check the point's quadrant.",
+    "tags": [
+      "trap",
+      "conversion",
+      "quadrant"
+    ]
+  },
+  {
+    "id": "L33-c07",
+    "lessonId": "L33",
+    "front": "Convert $(-\\sqrt{3}, 1)$ to polar coordinates with $r > 0$ and $0 \\le \\theta < 2\\pi$.",
+    "back": "$r = \\sqrt{3 + 1} = 2$. $\\tan^{-1}\\left(\\frac{1}{-\\sqrt{3}}\\right) = -\\frac{\\pi}{6}$ points into quadrant IV, but the point is in quadrant II, so $\\theta = -\\frac{\\pi}{6} + \\pi = \\frac{5\\pi}{6}$: the answer is $(2, 5\\pi/6)$. With $r < 0$ it is $(-2, -\\pi/6)$.",
+    "tags": [
+      "trap",
+      "conversion",
+      "quadrant"
+    ]
+  },
+  {
+    "id": "L33-c08",
+    "lessonId": "L33",
+    "front": "What curve is $r = 6\\sin\\theta$? Convert it to Cartesian form.",
+    "back": "Multiply by $r$: $r^2 = 6r\\sin\\theta$, so $x^2 + y^2 = 6y$, which is $x^2 + (y - 3)^2 = 9$. A circle with center $(0, 3)$ and radius 3, through the pole. Multiplying by $r$ adds only the pole, already on the curve at $\\theta = 0$.",
+    "tags": [
+      "trap",
+      "identify-curve",
+      "circle"
+    ]
+  },
+  {
+    "id": "L33-c09",
+    "lessonId": "L33",
+    "front": "What are the center and radius of $r = 10\\cos\\theta$?",
+    "back": "Center $(5, 0)$ and radius 5, not 10. From $x^2 + y^2 = 10x$, complete the square: $(x - 5)^2 + y^2 = 25$. In $r = 2a\\cos\\theta$ the diameter is $|2a|$.",
+    "tags": [
+      "trap",
+      "identify-curve",
+      "circle"
+    ]
+  },
+  {
+    "id": "L33-c10",
+    "lessonId": "L33",
+    "front": "What curve is $r = -4\\cos\\theta$?",
+    "back": "$x^2 + y^2 = -4x$, so $(x + 2)^2 + y^2 = 4$: the circle with center $(-2, 0)$ and radius 2. A negative coefficient moves the center to the other side of the pole; the radius stays positive.",
+    "tags": [
+      "identify-curve",
+      "circle"
+    ]
+  },
+  {
+    "id": "L33-c11",
+    "lessonId": "L33",
+    "front": "Convert $r = \\frac{6}{2\\sin\\theta + 3\\cos\\theta}$ to Cartesian form and name the curve.",
+    "back": "Multiply by the denominator: $2r\\sin\\theta + 3r\\cos\\theta = 6$, so $2y + 3x = 6$. It is a line.",
+    "tags": [
+      "identify-curve",
+      "line"
+    ]
+  },
+  {
+    "id": "L33-c12",
+    "lessonId": "L33",
+    "front": "What is the graph of the polar equation $\\theta = \\frac{\\pi}{3}$?",
+    "back": "The whole line $y = \\sqrt{3}\\,x$ through the origin, not just a ray. $r$ can be any real number, and $r < 0$ gives the half in quadrant III.",
+    "tags": [
+      "trap",
+      "identify-curve",
+      "line"
+    ]
+  },
+  {
+    "id": "L33-c13",
+    "lessonId": "L33",
+    "front": "Convert $y = x^2$ to a polar equation.",
+    "back": "$r\\sin\\theta = r^2\\cos^2\\theta$. Divide by $r\\cos^2\\theta$: $r = \\frac{\\sin\\theta}{\\cos^2\\theta} = \\tan\\theta\\sec\\theta$. Dividing by $r$ loses nothing, since $\\theta = 0$ still gives the pole.",
+    "tags": [
+      "conversion"
+    ]
+  }
+]

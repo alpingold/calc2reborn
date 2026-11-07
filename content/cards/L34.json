@@ -1,0 +1,140 @@
+[
+  {
+    "id": "L34-c01",
+    "lessonId": "L34",
+    "front": "How do you sketch a polar curve $r = f(\\theta)$ by hand?",
+    "back": "Make a table of $\\theta$ (steps of $\\pi/4$ or $\\pi/8$) and $r$, plot each $(r, \\theta)$, and join them in order of $\\theta$. Plot negative $r$ on the opposite ray. Add points where $r = 0$, where the curve passes through the pole.",
+    "tags": [
+      "graphing"
+    ]
+  },
+  {
+    "id": "L34-c02",
+    "lessonId": "L34",
+    "front": "Over what $\\theta$-interval does $r = 4\\sin\\theta$ trace its circle exactly once?",
+    "back": "$0 \\le \\theta \\le \\pi$. The circle has center $(0, 2)$ and radius 2. On $\\pi \\le \\theta \\le 2\\pi$, $r \\le 0$ and the same circle is traced again, so $0 \\le \\theta \\le 2\\pi$ goes around twice.",
+    "tags": [
+      "trap",
+      "circle",
+      "traced-once"
+    ]
+  },
+  {
+    "id": "L34-c03",
+    "lessonId": "L34",
+    "front": "How many petals does $r = 3\\cos 5\\theta$ have?",
+    "back": "5. For odd $n$, $r = a\\cos n\\theta$ has $n$ petals. Each petal has length 3.",
+    "tags": [
+      "trap",
+      "rose"
+    ]
+  },
+  {
+    "id": "L34-c04",
+    "lessonId": "L34",
+    "front": "How many petals does $r = \\sin 4\\theta$ have?",
+    "back": "8. For even $n$, $r = \\sin n\\theta$ has $2n$ petals.",
+    "tags": [
+      "trap",
+      "rose"
+    ]
+  },
+  {
+    "id": "L34-c05",
+    "lessonId": "L34",
+    "front": "Why does $r = \\cos n\\theta$ have $2n$ petals for even $n$ but only $n$ for odd $n$?",
+    "back": "Over $0 \\le \\theta \\le 2\\pi$ there are $2n$ arcs between zeros, each drawing a petal. For odd $n$ the arcs with $r < 0$ retrace petals already drawn (the whole rose is done by $\\theta = \\pi$). For even $n$ they land in new directions.",
+    "tags": [
+      "rose"
+    ]
+  },
+  {
+    "id": "L34-c06",
+    "lessonId": "L34",
+    "front": "For $r = 4\\cos 3\\theta$, give the petal length, the tip directions, and the $\\theta$-interval of the petal on the positive $x$-axis.",
+    "back": "Length 4. Tips point at angles $0$, $\\frac{2\\pi}{3}$, $\\frac{4\\pi}{3}$; at $\\theta = \\frac{\\pi}{3}$, $r = -4$ is plotted at angle $\\frac{4\\pi}{3}$, the same tip. The petal on the positive $x$-axis runs between the zeros $\\theta = -\\frac{\\pi}{6}$ and $\\frac{\\pi}{6}$.",
+    "tags": [
+      "rose"
+    ]
+  },
+  {
+    "id": "L34-c07",
+    "lessonId": "L34",
+    "front": "Shapes of $r = a + b\\cos\\theta$ with $a, b > 0$ (also $a - b\\cos\\theta$, $a \\pm b\\sin\\theta$)?",
+    "back": "$a < b$: limaçon with an inner loop. $a = b$: cardioid, with a cusp at the pole. $a > b$: limaçon with no inner loop that never reaches the pole. Chen shows one example of each of the first two; the general rule is beyond his notes.",
+    "tags": [
+      "limacon",
+      "cardioid"
+    ]
+  },
+  {
+    "id": "L34-c08",
+    "lessonId": "L34",
+    "front": "Does $r = 2 + 5\\cos\\theta$ have an inner loop? Where is it?",
+    "back": "Yes, since $2 < 5$. $r < 0$ when $\\cos\\theta < -\\frac{2}{5}$, around $\\theta = \\pi$. At $\\theta = \\pi$, $r = -3$ is plotted at $(3, 0)$, so the inner loop sits on the right inside the big loop, which reaches $(7, 0)$.",
+    "tags": [
+      "trap",
+      "limacon",
+      "inner-loop"
+    ]
+  },
+  {
+    "id": "L34-c09",
+    "lessonId": "L34",
+    "front": "Describe $r = 3 - 3\\sin\\theta$.",
+    "back": "A cardioid ($a = b = 3$). $r = 0$ only at $\\theta = \\frac{\\pi}{2}$, so the cusp is at the pole. The farthest point is $r = 6$ at $\\theta = \\frac{3\\pi}{2}$, the point $(0, -6)$.",
+    "tags": [
+      "trap",
+      "cardioid"
+    ]
+  },
+  {
+    "id": "L34-c10",
+    "lessonId": "L34",
+    "front": "Does $r = 4 + 2\\cos\\theta$ pass through the pole?",
+    "back": "No. $r \\ge 4 - 2 = 2 > 0$ for every $\\theta$, so there is no inner loop. It runs from $r = 6$ at $\\theta = 0$ to $r = 2$ at $\\theta = \\pi$, the point $(-2, 0)$.",
+    "tags": [
+      "limacon",
+      "inner-loop"
+    ]
+  },
+  {
+    "id": "L34-c11",
+    "lessonId": "L34",
+    "front": "Where does $r = 1 + 2\\sin\\theta$ pass through the pole, and which $\\theta$ draw its inner loop?",
+    "back": "$r = 0$ when $\\sin\\theta = -\\frac{1}{2}$: $\\theta = \\frac{7\\pi}{6}$ and $\\frac{11\\pi}{6}$. Between them $r < 0$, which draws the inner loop.",
+    "tags": [
+      "trap",
+      "limacon",
+      "inner-loop"
+    ]
+  },
+  {
+    "id": "L34-c12",
+    "lessonId": "L34",
+    "front": "Symmetry tests for a polar curve (beyond Chen's notes).",
+    "back": "$x$-axis: replacing $\\theta$ by $-\\theta$ gives an equivalent equation. $y$-axis: replacing $\\theta$ by $\\pi - \\theta$ does. Origin: replacing $r$ by $-r$, or $\\theta$ by $\\theta + \\pi$, does. Any two of the three symmetries imply the third.",
+    "tags": [
+      "symmetry"
+    ]
+  },
+  {
+    "id": "L34-c13",
+    "lessonId": "L34",
+    "front": "$r = \\sin 2\\theta$ fails the test of replacing $\\theta$ by $-\\theta$. Is the rose not symmetric about the $x$-axis?",
+    "back": "It is symmetric. A failed test proves nothing, since points have other representations. Replacing $(r, \\theta)$ by $(-r, \\pi - \\theta)$, the reflection across the $x$-axis, gives $-r = \\sin(2\\pi - 2\\theta) = -\\sin 2\\theta$, the same equation. (Beyond Chen's notes.)",
+    "tags": [
+      "trap",
+      "symmetry"
+    ]
+  },
+  {
+    "id": "L34-c14",
+    "lessonId": "L34",
+    "front": "Which symmetries does $r = 1 - 3\\cos\\theta$ have?",
+    "back": "Only about the $x$-axis: replacing $\\theta$ by $-\\theta$ leaves $\\cos\\theta$ unchanged. It is not symmetric about the $y$-axis or the origin: the farthest point $(-4, 0)$ is on the curve, but its mirror image $(4, 0)$ is not.",
+    "tags": [
+      "symmetry"
+    ]
+  }
+]
