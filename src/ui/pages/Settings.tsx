@@ -35,26 +35,35 @@ export function Settings() {
       return
     }
     setError(null)
-    await save({
-      currentLessonId: currentLessonId === '' ? null : currentLessonId,
-      examDate: examDate === '' ? null : examDate,
-      examLessonIds,
-      dailyNewCards: n,
-    })
+    try {
+      await save({
+        currentLessonId: currentLessonId === '' ? null : currentLessonId,
+        examDate: examDate === '' ? null : examDate,
+        examLessonIds,
+        dailyNewCards: n,
+      })
+    } catch {
+      setError('Could not save your settings.')
+      return
+    }
     setStatus('Saved')
   }
 
   async function onExport() {
     setError(null)
     setStatus(null)
-    const snapshot = await store.exportAll()
-    const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `ma16200-progress-${new Date().toISOString().slice(0, 10)}.json`
-    a.click()
-    URL.revokeObjectURL(url)
+    try {
+      const snapshot = await store.exportAll()
+      const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `ma16200-progress-${new Date().toISOString().slice(0, 10)}.json`
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch {
+      setError('Could not export progress.')
+    }
   }
 
   async function onImport(e: ChangeEvent<HTMLInputElement>) {
@@ -71,22 +80,39 @@ export function Settings() {
       input.value = ''
       return
     }
+    input.value = ''
     const parsed = parseSnapshot(raw)
     if (!parsed.ok) {
       setError(parsed.error)
-    } else {
-      await store.importAll(parsed.snapshot)
-      await save(parsed.snapshot.settings)
-      setStatus('Progress imported')
+      return
     }
-    input.value = ''
+    try {
+      // one transaction: a failure leaves the stored progress as it was
+      await store.importAll(parsed.snapshot)
+    } catch {
+      setError('Could not import progress. Your data was not changed.')
+      return
+    }
+    try {
+      await save(parsed.snapshot.settings)
+    } catch {
+      setError('Progress imported, but the settings could not be applied. Reload the page.')
+      return
+    }
+    setStatus('Progress imported')
   }
 
   async function onReset() {
     if (!window.confirm('Delete all progress? This cannot be undone.')) return
     setError(null)
-    await store.clear()
-    await save(DEFAULT_SETTINGS)
+    setStatus(null)
+    try {
+      await store.clear()
+      await save(DEFAULT_SETTINGS)
+    } catch {
+      setError('Could not reset progress.')
+      return
+    }
     setStatus('Progress reset')
   }
 

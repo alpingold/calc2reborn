@@ -36,6 +36,25 @@ const seedExam: Exam = {
   durationMinutes: 60,
   questions: [question],
 }
+// a final and a second midterm with questions on L19, so each link must name which exam it is
+const finalExam: Exam = {
+  id: 's2024-final',
+  term: 'Spring',
+  year: 2024,
+  exam: 'final',
+  examUrl: '',
+  durationMinutes: 120,
+  questions: [{ ...question, id: 's2024-final-q05', number: 5 }],
+}
+const secondExam: Exam = {
+  id: 'f2025-e2',
+  term: 'Fall',
+  year: 2025,
+  exam: '2',
+  examUrl: '',
+  durationMinutes: 60,
+  questions: [{ ...question, id: 'f2025-e2-q07', number: 7 }],
+}
 const lessons = [
   ...fixtureLessons().map((l) => (l.id === 'L19' ? { ...l, keyIdeas: 'Compare **terms**.' } : l)),
   // no key ideas, cards, or questions
@@ -44,7 +63,7 @@ const lessons = [
 const content = buildContent(
   lessons,
   [fixtureCard('L19-c01', 'L19'), fixtureCard('L19-c02', 'L19'), fixtureCard('L19-c03', 'L19')],
-  [seedExam],
+  [seedExam, secondExam, finalExam],
 )
 
 async function setup(path: string, seed?: (s: MemoryStore) => Promise<void>) {
@@ -89,7 +108,9 @@ test('shows lesson details, cards with status, and exam questions', async () => 
   expect(within(items[1]).getByText(new Date(2026, 10, 20).toLocaleDateString())).toBeInTheDocument()
   expect(within(items[2]).getByText('New')).toBeInTheDocument()
 
-  expect(screen.getByRole('link', { name: 'Exam Fall 2025 #3' })).toHaveAttribute('href', '/exams/f2025-e1')
+  expect(screen.getByRole('link', { name: 'Fall 2025 Exam 1 #3' })).toHaveAttribute('href', '/exams/f2025-e1')
+  expect(screen.getByRole('link', { name: 'Fall 2025 Exam 2 #7' })).toHaveAttribute('href', '/exams/f2025-e2')
+  expect(screen.getByRole('link', { name: 'Spring 2024 Final #5' })).toHaveAttribute('href', '/exams/s2024-final')
 })
 
 test('shows empty states and unknown lesson', async () => {

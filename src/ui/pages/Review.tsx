@@ -46,7 +46,13 @@ export function Review() {
   useEffect(() => {
     let cancelled = false
     ;(async () => {
-      const states = await store.listCardStates()
+      let states: CardState[]
+      try {
+        states = await store.listCardStates()
+      } catch {
+        if (!cancelled) setError('Could not load your cards.')
+        return
+      }
       const q = dailyQueue({
         now: now(),
         cards: content.cards,
@@ -129,7 +135,14 @@ export function Review() {
     return () => window.removeEventListener('keydown', onKey)
   }, [revealed, reveal, rate])
 
-  if (!items) return <h2>Review</h2>
+  if (!items) {
+    return (
+      <section>
+        <h2>Review</h2>
+        {error && <p role="alert">{error}</p>}
+      </section>
+    )
+  }
   if (items.length === 0) {
     return (
       <section>

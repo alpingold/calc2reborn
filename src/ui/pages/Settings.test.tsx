@@ -143,3 +143,83 @@ test('Reset progress confirms then clears the store', async () => {
   await vi.waitFor(() => expect(screen.getByLabelText('Daily new cards')).toHaveValue(DEFAULT_SETTINGS.dailyNewCards))
   expect(screen.getByLabelText('Current lesson')).toHaveValue('')
 })
+
+const validSnapshot = {
+  version: 1,
+  exportedAt: '2026-01-01T00:00:00.000Z',
+  cardStates: [],
+  attempts: [],
+  settings: { ...DEFAULT_SETTINGS, dailyNewCards: 33 },
+}
+const keptAttempt = {
+  id: 'a1',
+  questionId: 'q1',
+  chosen: 'A' as const,
+  correct: true,
+  seconds: 5,
+  timestamp: '2026-01-01T00:00:00.000Z',
+  mode: 'practice' as const,
+}
+
+test('a failed export shows an alert', async () => {
+  const store = new MemoryStore()
+  store.exportAll = async () => {
+    throw new Error('boom')
+  }
+  await setup(store)
+  await userEvent.click(screen.getByRole('button', { name: 'Export progress' }))
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not export progress.')
+})
+
+test('a failed import shows an alert and leaves progress and settings untouched', async () => {
+  const store = new MemoryStore()
+  await store.logAttempt(keptAttempt)
+  await store.saveSettings({ ...DEFAULT_SETTINGS, dailyNewCards: 12 })
+  store.importAll = async () => {
+    throw new Error('quota')
+  }
+  await setup(store)
+  const file = new File([JSON.stringify(validSnapshot)], 'p.json', { type: 'application/json' })
+  await userEvent.upload(screen.getByLabelText('Import progress'), file)
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not import progress. Your data was not changed.')
+  expect(screen.queryByRole('status')).not.toBeInTheDocument()
+  expect(await store.listAttempts()).toEqual([keptAttempt])
+  expect((await store.getSettings()).dailyNewCards).toBe(12)
+  expect(screen.getByLabelText('Daily new cards')).toHaveValue(12)
+})
+
+test('an import whose settings cannot be applied says so', async () => {
+  const store = new MemoryStore()
+  await setup(store)
+  store.saveSettings = async () => {
+    throw new Error('boom')
+  }
+  const file = new File([JSON.stringify(validSnapshot)], 'p.json', { type: 'application/json' })
+  await userEvent.upload(screen.getByLabelText('Import progress'), file)
+  expect(await screen.findByRole('alert')).toHaveTextContent(
+    'Progress imported, but the settings could not be applied. Reload the page.',
+  )
+})
+
+test('a failed reset shows an alert', async () => {
+  const store = new MemoryStore()
+  store.clear = async () => {
+    throw new Error('boom')
+  }
+  vi.stubGlobal('confirm', vi.fn(() => true))
+  await setup(store)
+  await userEvent.click(screen.getByRole('button', { name: 'Reset progress' }))
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not reset progress.')
+  expect(screen.queryByRole('status')).not.toBeInTheDocument()
+})
+
+test('a failed settings save shows an alert', async () => {
+  const store = new MemoryStore()
+  await setup(store)
+  store.saveSettings = async () => {
+    throw new Error('boom')
+  }
+  await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your settings.')
+  expect(screen.queryByRole('status')).not.toBeInTheDocument()
+})

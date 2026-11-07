@@ -166,6 +166,48 @@ describe('content validation', () => {
     }
   })
 
+  test('each exam id is its filename and spells its term, year, and exam', () => {
+    const dir = path.join(process.cwd(), 'content', 'exams')
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'))
+    expect(files).toHaveLength(content.exams.length)
+    for (const file of files) {
+      const raw = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8')) as { id: string }
+      expect(raw.id, file).toBe(file.replace(/\.json$/, ''))
+    }
+    for (const e of content.exams) {
+      const expected = `${e.term === 'Fall' ? 'f' : 's'}${e.year}-${e.exam === 'final' ? 'final' : `e${e.exam}`}`
+      expect(e.id, `${e.id} is ${e.term} ${e.year} ${e.exam}`).toBe(expected)
+    }
+  })
+
+  test('question ids are <examId>-qNN with NN the question number', () => {
+    for (const e of content.exams) {
+      for (const q of e.questions) expect(q.id).toBe(`${e.id}-q${String(q.number).padStart(2, '0')}`)
+    }
+  })
+
+  test('every question has been reviewed', () => {
+    expect(content.questions.filter((q) => q.status !== 'reviewed').map((q) => q.id)).toEqual([])
+  })
+
+  test('derived answers appear on every question of the six exams with no key, and nowhere else', () => {
+    const noKey = new Set(['f2023-e2', 'f2023-e3', 'f2023-final', 's2023-final', 'f2022-e2', 'f2022-e3'])
+    for (const e of content.exams) {
+      for (const q of e.questions) {
+        expect(q.answerSource, q.id).toBe(noKey.has(e.id) ? 'derived' : undefined)
+      }
+    }
+  })
+
+  test('questions and cards are tagged only with lessons L1 to L35, never a review', () => {
+    const planned = new Set(Array.from({ length: 35 }, (_, i) => `L${i + 1}`))
+    for (const q of content.questions) {
+      expect(q.lessonIds.length, q.id).toBeGreaterThan(0)
+      for (const lid of q.lessonIds) expect(planned.has(lid), `${q.id} -> ${lid}`).toBe(true)
+    }
+    for (const c of content.cards) expect(planned.has(c.lessonId), `${c.id} -> ${c.lessonId}`).toBe(true)
+  })
+
   test('all Markdown renders through KaTeX', () => {
     for (const [id, text] of markdownStrings()) checkMath(id, text)
   })

@@ -100,4 +100,7 @@ test('exam block lists weakest covered lessons, untested first', async () => {
   expect(items.map((li) => li.textContent)).toEqual(['L19 · Topic 19', 'L20 · Topic 20'])
   expect(await screen.findByTitle('L20 · Topic 20 · 51%')).toHaveClass('mastery-weak')
   expect(screen.getByTitle('L19 · Topic 19 · untested')).toHaveClass('mastery-untested')
+  // touch and screen reader users get the lesson title too, not only "L19"
+  expect(screen.getByRole('link', { name: 'L19 Topic 19, untested' })).toHaveAttribute('href', '/course/L19')
+  expect(screen.getByRole('link', { name: 'L20 Topic 20, 51%' })).toHaveTextContent(/^L20/)
 })

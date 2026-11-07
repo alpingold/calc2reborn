@@ -42,7 +42,8 @@ const SnapshotSchema = z.object({
     currentLessonId: z.string().nullable(),
     examDate: z.string().nullable(),
     examLessonIds: z.array(z.string()),
-    dailyNewCards: z.number(),
+    // the same bound the Settings form enforces
+    dailyNewCards: z.number().int().min(0).max(100),
   }),
 })
 

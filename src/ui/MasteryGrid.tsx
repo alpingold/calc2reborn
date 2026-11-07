@@ -36,7 +36,14 @@ export function MasteryGrid({
               const label = score === null ? 'untested' : `${Math.round(score * 100)}%`
               const cls = `tile mastery-${stateOf(score)}${l.id === currentLessonId ? ' current' : ''}`
               return (
-                <Link key={l.id} to={`/course/${l.id}`} className={cls} title={`L${l.number} · ${l.title} · ${label}`}>
+                // the tooltip is mouse-only, so the link's name also carries the title and score
+                <Link
+                  key={l.id}
+                  to={`/course/${l.id}`}
+                  className={cls}
+                  title={`L${l.number} · ${l.title} · ${label}`}
+                  aria-label={`L${l.number} ${l.title}, ${label}`}
+                >
                   {`L${l.number}`}
                 </Link>
               )

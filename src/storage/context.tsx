@@ -53,28 +53,34 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
   const resolvedContent = useMemo(() => content ?? loadContent(), [content])
   const [ready, setReady] = useState<Ready | null>(null)
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
     let cancelled = false
     let opened: DexieStore | undefined
     ;(async () => {
-      const { store: s, fallback } = store ? { store, fallback: false } : await openDefaultStore()
-      if (!store && s instanceof DexieStore) opened = s
-      if (cancelled) {
-        // cleanup ran while open() was pending (e.g. StrictMode remount): release the connection
-        opened?.close()
-        return
-      }
-      const sch = scheduler ?? (await createScheduler())
-      let loaded: Settings = DEFAULT_SETTINGS
       try {
-        loaded = await s.getSettings()
+        const { store: s, fallback } = store ? { store, fallback: false } : await openDefaultStore()
+        if (!store && s instanceof DexieStore) opened = s
+        if (cancelled) {
+          // cleanup ran while open() was pending (e.g. StrictMode remount): release the connection
+          opened?.close()
+          return
+        }
+        const sch = scheduler ?? (await createScheduler())
+        let loaded: Settings = DEFAULT_SETTINGS
+        try {
+          loaded = await s.getSettings()
+        } catch {
+          // keep defaults if the store cannot read settings
+        }
+        if (cancelled) return
+        setSettings(loaded)
+        setReady({ store: s, scheduler: sch, fallback })
       } catch {
-        // keep defaults if the store cannot read settings
+        // without a scheduler or store the app cannot run; say so rather than show Loading forever
+        if (!cancelled) setFailed(true)
       }
-      if (cancelled) return
-      setSettings(loaded)
-      setReady({ store: s, scheduler: sch, fallback })
     })()
     return () => {
       cancelled = true
@@ -107,6 +113,7 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
     [ready, resolvedContent, settings, save, rng, now],
   )
 
+  if (failed) return <p role="alert" className="banner">Could not start the app. Reload the page to try again.</p>
   if (!value) return <p className="loading">Loading</p>
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
 }

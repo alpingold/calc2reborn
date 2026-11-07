@@ -18,6 +18,7 @@ import {
   sessionUrl,
 } from '../examSession'
 import type { ExamSession, ResumeState, SessionRequest } from '../examSession'
+import { newId } from '../../ids'
 
 const MOCK_MINUTES = 60
 
@@ -140,7 +141,7 @@ function ExamSessionView({
             return
           }
           s = {
-            sessionId: crypto.randomUUID(),
+            sessionId: newId(),
             kind: 'exam',
             examId: exam.id,
             questionIds: exam.questions.map((q) => q.id),
@@ -163,7 +164,7 @@ function ExamSessionView({
             return
           }
           s = {
-            sessionId: crypto.randomUUID(),
+            sessionId: newId(),
             kind: 'mock',
             from: range.from,
             to: range.to,

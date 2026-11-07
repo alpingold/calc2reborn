@@ -7,6 +7,7 @@ import { pickPracticeQuestion } from '../../engine/select'
 import { useContent, useNow, useRng, useSettings, useStore } from '../../storage/context'
 import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
+import { newId } from '../../ids'
 
 // Route component: a change of `?lesson=` remounts the session so the question,
 // served set, and score never carry over between scopes.
@@ -86,7 +87,7 @@ function PracticeSession({ lessonParam }: { lessonParam: string | null }) {
       try {
         if (logged.current !== question.id) {
           const a: Attempt = {
-            id: crypto.randomUUID(),
+            id: newId(),
             questionId: question.id,
             chosen: label,
             correct,

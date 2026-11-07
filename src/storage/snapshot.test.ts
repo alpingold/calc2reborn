@@ -46,4 +46,12 @@ describe('parseSnapshot', () => {
     const st = s.review(s.newState('c1', new Date('2026-01-01T00:00:00Z')), 3, new Date('2026-01-01T00:00:00Z'))
     expect(parseSnapshot({ ...valid, cardStates: [st] }).ok).toBe(true)
   })
+  test.each([0, 10, 100])('accepts dailyNewCards %d', (n) => {
+    expect(parseSnapshot({ ...valid, settings: { ...DEFAULT_SETTINGS, dailyNewCards: n } }).ok).toBe(true)
+  })
+  test.each([-1, 101, 2.5, 1e9])('rejects dailyNewCards %d, which Settings would never save', (n) => {
+    const r = parseSnapshot({ ...valid, settings: { ...DEFAULT_SETTINGS, dailyNewCards: n } })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.error).toContain('settings.dailyNewCards')
+  })
 })

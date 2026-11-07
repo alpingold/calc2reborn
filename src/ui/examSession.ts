@@ -1,6 +1,7 @@
 import type { Content } from '../content'
 import type { Choice, Exam } from '../content/schema'
 import type { Attempt } from '../storage/types'
+import { newId } from '../ids'
 
 export interface ExamSession {
   sessionId: string
@@ -113,7 +114,7 @@ export function finishSession(s: ExamSession, content: Content, now: Date): Atte
   return answered.map((questionId) => {
     const chosen = s.answers[questionId]
     const a: Attempt = {
-      id: crypto.randomUUID(),
+      id: newId(),
       questionId,
       chosen,
       correct: chosen === content.questionById.get(questionId)!.answer,

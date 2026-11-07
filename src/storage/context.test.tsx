@@ -6,7 +6,13 @@ import { MemoryStore } from './memory'
 import { DEFAULT_SETTINGS } from './types'
 import type { ProgressStore } from './types'
 import { buildContent } from '../content'
+import { createScheduler } from '../engine/fsrs'
 import type { Scheduler } from '../engine/fsrs'
+
+vi.mock('../engine/fsrs', async (importOriginal) => {
+  const mod = await importOriginal<typeof import('../engine/fsrs')>()
+  return { ...mod, createScheduler: vi.fn(mod.createScheduler) }
+})
 
 const content = buildContent([], [], [])
 const fakeScheduler = {} as Scheduler
@@ -104,4 +110,29 @@ test('useRng and useNow return injected functions', async () => {
     </StoreProvider>,
   )
   expect(await screen.findByText('0.25|2026-01-02T03:04:05.000Z')).toBeInTheDocument()
+})
+
+test('shows an error instead of Loading when the scheduler cannot be created', async () => {
+  vi.mocked(createScheduler).mockRejectedValueOnce(new Error('wasm failed'))
+  render(
+    <StoreProvider store={new MemoryStore()} content={content}>
+      <p>ready</p>
+    </StoreProvider>,
+  )
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not start the app. Reload the page to try again.')
+  expect(screen.queryByText('Loading')).not.toBeInTheDocument()
+  expect(screen.queryByText('ready')).not.toBeInTheDocument()
+})
+
+test('shows an error instead of Loading when the default store cannot be set up', async () => {
+  vi.stubGlobal('indexedDB', undefined)
+  vi.mocked(createScheduler).mockImplementationOnce(() => {
+    throw new Error('sync failure')
+  })
+  render(
+    <StoreProvider content={content}>
+      <p>ready</p>
+    </StoreProvider>,
+  )
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not start the app. Reload the page to try again.')
 })

@@ -5,6 +5,7 @@ import type { Mastery } from '../../engine/mastery'
 import type { CardState } from '../../storage/types'
 import { useContent, useNow, useScheduler, useStore } from '../../storage/context'
 import { Markdown } from '../Markdown'
+import { examTitle } from '../examSession'
 
 export function Lesson() {
   const { lessonId } = useParams()
@@ -91,10 +92,9 @@ export function Lesson() {
           {questions.map((q) => {
             const exam = content.examByQuestionId.get(q.id)
             if (!exam) return null
-            const name = exam.exam === 'final' ? 'Final' : 'Exam'
             return (
               <li key={q.id}>
-                <Link to={`/exams/${exam.id}`}>{`${name} ${exam.term} ${exam.year} #${q.number}`}</Link>
+                <Link to={`/exams/${exam.id}`}>{`${examTitle(exam)} #${q.number}`}</Link>
               </li>
             )
           })}

@@ -146,3 +146,13 @@ test('save failure shows an alert and allows retry', async () => {
   expect(await screen.findByText('Front two')).toBeInTheDocument()
   expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(1)
 })
+
+test('a failing card load shows an alert instead of an empty page', async () => {
+  const store = new MemoryStore()
+  store.listCardStates = async () => {
+    throw new Error('boom')
+  }
+  await setup({ store })
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not load your cards.')
+  expect(screen.getByRole('heading', { name: 'Review' })).toBeInTheDocument()
+})
