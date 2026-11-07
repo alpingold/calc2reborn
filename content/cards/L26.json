@@ -64,8 +64,8 @@
   {
     "id": "L26-c07",
     "lessonId": "L26",
-    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{(-1)^k}{\\ln k}$, and why? Absolute or conditional?",
-    "back": "AST: $\\frac{1}{\\ln k}$ decreases to $0$, so it converges. But $\\frac{1}{\\ln k} > \\frac{1}{k}$ and $\\sum \\frac{1}{k}$ diverges, so $\\sum |a_k|$ diverges by Direct Comparison. Conditionally convergent.",
+    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{(-1)^k}{\\sqrt{\\ln k}}$, and why? Absolute or conditional?",
+    "back": "AST: $\\frac{1}{\\sqrt{\\ln k}}$ decreases to $0$, so it converges. But $\\frac{1}{\\sqrt{\\ln k}} > \\frac{1}{k}$ and $\\sum \\frac{1}{k}$ diverges, so $\\sum |a_k|$ diverges by Direct Comparison. Conditionally convergent.",
     "tags": [
       "which-test",
       "alternating",
@@ -129,8 +129,8 @@
   {
     "id": "L26-c13",
     "lessonId": "L26",
-    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k^2}$, and why?",
-    "back": "Limit Comparison with $\\frac{1}{k^{3/2}}$: $c = \\lim \\frac{\\ln k}{\\sqrt{k}} = 0$, and $\\sum \\frac{1}{k^{3/2}}$ converges, so (the $c = 0$ case) the series converges. Direct Comparison with $\\frac{\\sqrt{k}}{k^2}$, using $\\ln k < \\sqrt{k}$, also works.",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k^3}$, and why?",
+    "back": "Limit Comparison with $\\frac{1}{k^2}$: $c = \\lim \\frac{\\ln k}{k} = 0$, and $\\sum \\frac{1}{k^2}$ converges, so (the $c = 0$ case) the series converges. Direct Comparison with $\\frac{k}{k^3} = \\frac{1}{k^2}$, using $\\ln k < k$, also works.",
     "tags": [
       "which-test",
       "limit-comparison"

@@ -30,7 +30,7 @@
     "id": "L18-c04",
     "lessonId": "L18",
     "front": "For which $p$ does $\\int_0^1 \\frac{dx}{x^p}$ converge?",
-    "back": "For $p < 1$, the opposite of the $\\int_1^\\infty$ case; it diverges for $p \\ge 1$. For example $\\int_0^1 \\frac{dx}{\\sqrt{x}} = 2$, but $\\int_0^1 \\frac{dx}{x^3}$ diverges. At $p = 1$ both kinds diverge. (Beyond Chen's notes.)",
+    "back": "For $p < 1$, the opposite of the $\\int_1^\\infty$ case; it diverges for $p \\ge 1$. For example $\\int_0^1 \\frac{dx}{x^{3/4}} = 4$, but $\\int_0^1 \\frac{dx}{x^3}$ diverges. At $p = 1$ both kinds diverge. (Beyond Chen's notes.)",
     "tags": [
       "trap",
       "p-integral"
@@ -77,8 +77,8 @@
   {
     "id": "L18-c09",
     "lessonId": "L18",
-    "front": "Evaluate $\\int_0^1 \\ln x\\,dx$.",
-    "back": "It is improper at $x = 0$, where $\\ln x \\to -\\infty$. By parts, $\\int \\ln x\\,dx = x\\ln x - x$, so the integral is $\\lim_{t\\to 0^+}\\left[(0 - 1) - (t\\ln t - t)\\right] = -1$, using $t\\ln t \\to 0$ (L'Hôpital). It converges to $-1$.",
+    "front": "Evaluate $\\int_0^1 \\frac{\\ln x}{\\sqrt{x}}\\,dx$.",
+    "back": "It is improper at $x = 0$, where $\\frac{\\ln x}{\\sqrt{x}} \\to -\\infty$. By parts with $u = \\ln x$ and $dv = x^{-1/2}\\,dx$, $\\int \\frac{\\ln x}{\\sqrt{x}}\\,dx = 2\\sqrt{x}\\ln x - 4\\sqrt{x}$, so the integral is $\\lim_{t\\to 0^+}\\left[(0 - 4) - (2\\sqrt{t}\\ln t - 4\\sqrt{t})\\right] = -4$, using $\\sqrt{t}\\ln t \\to 0$ (L'Hôpital). It converges to $-4$.",
     "tags": [
       "discontinuity"
     ]

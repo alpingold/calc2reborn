@@ -64,8 +64,8 @@
   {
     "id": "L5-c07",
     "lessonId": "L5",
-    "front": "$\\int_{-2}^{2} (4x - x^3)\\,dx = 0$. Does this mean $y = 4x$ and $y = x^3$ enclose no area on $[-2, 2]$?",
-    "back": "No. They cross at $x = 0$, and the two signed pieces cancel. On $[-2, 0]$ the cubic is on top, and on $[0, 2]$ the line is. The area is $2\\int_0^2 (4x - x^3)\\,dx = 8$.",
+    "front": "$\\int_{-3}^{3} (9x - x^3)\\,dx = 0$. Does this mean $y = 9x$ and $y = x^3$ enclose no area on $[-3, 3]$?",
+    "back": "No. They cross at $x = 0$, and the two signed pieces cancel. On $[-3, 0]$ the cubic is on top, and on $[0, 3]$ the line is. The area is $2\\int_0^3 (9x - x^3)\\,dx = \\frac{81}{2}$.",
     "tags": [
       "trap",
       "crossing",

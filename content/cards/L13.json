@@ -50,8 +50,8 @@
   {
     "id": "L13-c06",
     "lessonId": "L13",
-    "front": "Evaluate $\\int \\tan x\\sec^3 x\\,dx$.",
-    "back": "$\\tan x$ has odd power $1$: save $\\sec x\\tan x$ and let $u = \\sec x$. Then $\\int \\sec^2 x\\cdot\\sec x\\tan x\\,dx = \\int u^2\\,du = \\frac{\\sec^3 x}{3} + C$.",
+    "front": "Evaluate $\\int \\tan x\\sec^5 x\\,dx$.",
+    "back": "$\\tan x$ has odd power $1$: save $\\sec x\\tan x$ and let $u = \\sec x$. Then $\\int \\sec^4 x\\cdot\\sec x\\tan x\\,dx = \\int u^4\\,du = \\frac{\\sec^5 x}{5} + C$.",
     "tags": [
       "tan-sec-powers",
       "quick-compute"
@@ -70,8 +70,8 @@
   {
     "id": "L13-c08",
     "lessonId": "L13",
-    "front": "Evaluate $\\int \\tan^5 x\\,dx$.",
-    "back": "Split off $\\tan^2 x = \\sec^2 x - 1$: $\\int \\tan^3 x\\sec^2 x\\,dx - \\int \\tan^3 x\\,dx$. The first is $\\frac{\\tan^4 x}{4}$ (with $u = \\tan x$), and Chen's $\\int \\tan^3 x\\,dx = \\frac{1}{2}\\tan^2 x + \\ln|\\cos x|$. Total: $\\frac{\\tan^4 x}{4} - \\frac{\\tan^2 x}{2} - \\ln|\\cos x| + C$.",
+    "front": "Evaluate $\\int \\tan^6 x\\,dx$.",
+    "back": "Split off $\\tan^2 x = \\sec^2 x - 1$ again and again: $\\int \\tan^6 x\\,dx = \\frac{\\tan^5 x}{5} - \\int \\tan^4 x\\,dx$, then $\\int \\tan^4 x\\,dx = \\frac{\\tan^3 x}{3} - \\int \\tan^2 x\\,dx$, and $\\int \\tan^2 x\\,dx = \\tan x - x$ (each $\\int \\tan^n x\\sec^2 x\\,dx$ uses $u = \\tan x$). Total: $\\frac{\\tan^5 x}{5} - \\frac{\\tan^3 x}{3} + \\tan x - x + C$.",
     "tags": [
       "tan-sec-powers"
     ]
@@ -79,8 +79,8 @@
   {
     "id": "L13-c09",
     "lessonId": "L13",
-    "front": "Chen gets $\\int \\tan^3 x\\,dx = \\frac{1}{2}\\tan^2 x + \\ln|\\cos x| + C$ one way and $\\frac{1}{2}\\sec^2 x - \\ln|\\sec x| + C$ another. Which is right?",
-    "back": "Both. Since $\\sec^2 x = \\tan^2 x + 1$ and $-\\ln|\\sec x| = \\ln|\\cos x|$, the second is the first plus the constant $\\frac{1}{2}$, which the $+C$ absorbs. Antiderivatives that differ by a constant are equally correct.",
+    "front": "With $u = \\tan x$, $\\int \\tan x\\sec^2 x\\,dx = \\frac{1}{2}\\tan^2 x + C$. With $u = \\sec x$, saving $\\sec x\\tan x$, it is $\\frac{1}{2}\\sec^2 x + C$. Which is right?",
+    "back": "Both. Since $\\sec^2 x = \\tan^2 x + 1$, the second is the first plus the constant $\\frac{1}{2}$, which the $+C$ absorbs. Antiderivatives that differ by a constant are equally correct.",
     "tags": [
       "trap",
       "tan-sec-powers"

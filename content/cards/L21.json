@@ -91,8 +91,8 @@
   {
     "id": "L21-c10",
     "lessonId": "L21",
-    "front": "Does $\\sum_{k=1}^{\\infty} \\ln\\left(\\frac{k}{k+1}\\right)$ converge?",
-    "back": "No. It telescopes: $\\ln k - \\ln(k+1)$, so $S_n = \\ln 1 - \\ln(n+1) = -\\ln(n+1) \\to -\\infty$. The terms go to $\\ln 1 = 0$, yet the series diverges.",
+    "front": "Does $\\sum_{k=1}^{\\infty} \\ln\\left(\\frac{k+2}{k}\\right)$ converge?",
+    "back": "No. It telescopes with a gap of two: $\\ln(k+2) - \\ln k$, so $S_n = \\ln(n+1) + \\ln(n+2) - \\ln 1 - \\ln 2 \\to \\infty$. The terms go to $\\ln 1 = 0$, yet the series diverges.",
     "tags": [
       "trap",
       "telescoping",

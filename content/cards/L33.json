@@ -74,8 +74,8 @@
   {
     "id": "L33-c08",
     "lessonId": "L33",
-    "front": "What curve is $r = 6\\sin\\theta$? Convert it to Cartesian form.",
-    "back": "Multiply by $r$: $r^2 = 6r\\sin\\theta$, so $x^2 + y^2 = 6y$, which is $x^2 + (y - 3)^2 = 9$. A circle with center $(0, 3)$ and radius 3, through the pole. Multiplying by $r$ adds only the pole, already on the curve at $\\theta = 0$.",
+    "front": "What curve is $r = 12\\sin\\theta$? Convert it to Cartesian form.",
+    "back": "Multiply by $r$: $r^2 = 12r\\sin\\theta$, so $x^2 + y^2 = 12y$, which is $x^2 + (y - 6)^2 = 36$. A circle with center $(0, 6)$ and radius 6, through the pole. Multiplying by $r$ adds only the pole, already on the curve at $\\theta = 0$.",
     "tags": [
       "trap",
       "identify-curve",
@@ -85,8 +85,8 @@
   {
     "id": "L33-c09",
     "lessonId": "L33",
-    "front": "What are the center and radius of $r = 10\\cos\\theta$?",
-    "back": "Center $(5, 0)$ and radius 5, not 10. From $x^2 + y^2 = 10x$, complete the square: $(x - 5)^2 + y^2 = 25$. In $r = 2a\\cos\\theta$ the diameter is $|2a|$.",
+    "front": "What are the center and radius of $r = 14\\cos\\theta$?",
+    "back": "Center $(7, 0)$ and radius 7, not 14. From $x^2 + y^2 = 14x$, complete the square: $(x - 7)^2 + y^2 = 49$. In $r = 2a\\cos\\theta$ the diameter is $|2a|$.",
     "tags": [
       "trap",
       "identify-curve",
@@ -127,8 +127,8 @@
   {
     "id": "L33-c13",
     "lessonId": "L33",
-    "front": "Convert $y = x^2$ to a polar equation.",
-    "back": "$r\\sin\\theta = r^2\\cos^2\\theta$. Divide by $r\\cos^2\\theta$: $r = \\frac{\\sin\\theta}{\\cos^2\\theta} = \\tan\\theta\\sec\\theta$. Dividing by $r$ loses nothing, since $\\theta = 0$ still gives the pole.",
+    "front": "Convert $x = y^2$ to a polar equation.",
+    "back": "$r\\cos\\theta = r^2\\sin^2\\theta$. Divide by $r\\sin^2\\theta$: $r = \\frac{\\cos\\theta}{\\sin^2\\theta} = \\cot\\theta\\csc\\theta$. Dividing by $r$ loses nothing, since $\\theta = \\frac{\\pi}{2}$ still gives the pole.",
     "tags": [
       "conversion"
     ]

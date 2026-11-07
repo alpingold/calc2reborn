@@ -94,8 +94,8 @@
   {
     "id": "L8-c10",
     "lessonId": "L8",
-    "front": "The curve $y = x^2$, $0 \\le x \\le 1$, is revolved about the $y$-axis. What is the radius in the surface area integral?",
-    "back": "The distance to the $y$-axis, which is $x$, not $y$. Chen's $y$-form uses radius $g(y) = \\sqrt{y}$, which is that same $x$. Written in $x$ (beyond Chen's notes): $\\int_0^1 2\\pi x\\sqrt{1 + 4x^2}\\,dx = \\frac{\\pi}{6}(5\\sqrt{5} - 1)$.",
+    "front": "The curve $y = x^2$, $0 \\le x \\le 2$, is revolved about the $y$-axis. What is the radius in the surface area integral?",
+    "back": "The distance to the $y$-axis, which is $x$, not $y$. Chen's $y$-form uses radius $g(y) = \\sqrt{y}$, which is that same $x$. Written in $x$ (beyond Chen's notes): $\\int_0^2 2\\pi x\\sqrt{1 + 4x^2}\\,dx = \\frac{\\pi}{6}(17\\sqrt{17} - 1)$.",
     "tags": [
       "trap",
       "surface-area"

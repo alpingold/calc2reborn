@@ -128,8 +128,8 @@
   {
     "id": "L35-c13",
     "lessonId": "L35",
-    "front": "Find the length of the cardioid $r = 1 + \\cos\\theta$.",
-    "back": "$r^2 + (r')^2 = (1 + \\cos\\theta)^2 + \\sin^2\\theta = 2 + 2\\cos\\theta = 4\\cos^2\\frac{\\theta}{2}$, so the integrand is $2\\left|\\cos\\frac{\\theta}{2}\\right|$. $L = \\int_0^{2\\pi} 2\\left|\\cos\\frac{\\theta}{2}\\right| d\\theta = 8$. Dropping the absolute value gives $0$.",
+    "front": "Find the length of the cardioid $r = 2 + 2\\cos\\theta$.",
+    "back": "$r^2 + (r')^2 = (2 + 2\\cos\\theta)^2 + 4\\sin^2\\theta = 8 + 8\\cos\\theta = 16\\cos^2\\frac{\\theta}{2}$, so the integrand is $4\\left|\\cos\\frac{\\theta}{2}\\right|$. $L = \\int_0^{2\\pi} 4\\left|\\cos\\frac{\\theta}{2}\\right| d\\theta = 16$. Dropping the absolute value gives $0$.",
     "tags": [
       "trap",
       "arc-length",
@@ -139,8 +139,8 @@
   {
     "id": "L35-c14",
     "lessonId": "L35",
-    "front": "Find the length of $r = \\theta^2$ for $0 \\le \\theta \\le \\sqrt{5}$.",
-    "back": "$\\sqrt{\\theta^4 + 4\\theta^2} = \\theta\\sqrt{\\theta^2 + 4}$ for $\\theta \\ge 0$. With $u = \\theta^2 + 4$: $L = \\frac{1}{3}(\\theta^2 + 4)^{3/2}\\Big|_0^{\\sqrt{5}} = \\frac{27 - 8}{3} = \\frac{19}{3}$.",
+    "front": "Find the length of $r = \\sin^3\\frac{\\theta}{3}$ for $0 \\le \\theta \\le 3\\pi$.",
+    "back": "$r' = \\sin^2\\frac{\\theta}{3}\\cos\\frac{\\theta}{3}$, so $r^2 + (r')^2 = \\sin^4\\frac{\\theta}{3}\\left(\\sin^2\\frac{\\theta}{3} + \\cos^2\\frac{\\theta}{3}\\right) = \\sin^4\\frac{\\theta}{3}$, and the integrand is $\\sin^2\\frac{\\theta}{3}$, which needs no absolute value. $L = \\int_0^{3\\pi} \\frac{1 - \\cos\\frac{2\\theta}{3}}{2}\\,d\\theta = \\frac{3\\pi}{2}$.",
     "tags": [
       "arc-length"
     ]

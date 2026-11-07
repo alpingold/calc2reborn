@@ -20,8 +20,8 @@
   {
     "id": "L11-c03",
     "lessonId": "L11",
-    "front": "Choose $u$ and $dv$ for $\\int x^2\\ln x\\,dx$, then evaluate.",
-    "back": "$u = \\ln x$ (L before A) and $dv = x^2\\,dx$, so $du = \\frac{1}{x}\\,dx$ and $v = \\frac{x^3}{3}$. Then $\\int x^2\\ln x\\,dx = \\frac{x^3}{3}\\ln x - \\int \\frac{x^2}{3}\\,dx = \\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C$.",
+    "front": "Choose $u$ and $dv$ for $\\int x^4\\ln x\\,dx$, then evaluate.",
+    "back": "$u = \\ln x$ (L before A) and $dv = x^4\\,dx$, so $du = \\frac{1}{x}\\,dx$ and $v = \\frac{x^5}{5}$. Then $\\int x^4\\ln x\\,dx = \\frac{x^5}{5}\\ln x - \\int \\frac{x^4}{5}\\,dx = \\frac{x^5}{5}\\ln x - \\frac{x^5}{25} + C$.",
     "tags": [
       "liate",
       "quick-compute"
@@ -40,8 +40,8 @@
   {
     "id": "L11-c05",
     "lessonId": "L11",
-    "front": "How do you integrate $\\int \\ln x\\,dx$ by parts when there is only one factor?",
-    "back": "Take $u = \\ln x$ and $dv = dx$, so $v = x$. Then $\\int \\ln x\\,dx = x\\ln x - \\int x\\cdot\\frac{1}{x}\\,dx = x\\ln x - x + C$. (The $dv = dx$ choice is beyond Chen's notes.)",
+    "front": "How do you integrate $\\int \\ln(2x)\\,dx$ by parts when there is only one factor?",
+    "back": "Take $u = \\ln(2x)$ and $dv = dx$, so $du = \\frac{1}{x}\\,dx$ and $v = x$. Then $\\int \\ln(2x)\\,dx = x\\ln(2x) - \\int x\\cdot\\frac{1}{x}\\,dx = x\\ln(2x) - x + C$. (The $dv = dx$ choice is beyond Chen's notes.)",
     "tags": [
       "quick-compute"
     ]
@@ -49,8 +49,8 @@
   {
     "id": "L11-c06",
     "lessonId": "L11",
-    "front": "Evaluate $\\int_1^e \\ln x\\,dx$. Which step is easy to forget?",
-    "back": "Evaluating $uv$ at the limits too: $\\int_1^e \\ln x\\,dx = x\\ln x\\Big|_1^e - \\int_1^e 1\\,dx = (e - 0) - (e - 1) = 1$. Leaving $x\\ln x$ unevaluated mixes a function of $x$ into a number.",
+    "front": "Evaluate $\\int_1^{e^4} \\ln x\\,dx$. Which step is easy to forget?",
+    "back": "Evaluating $uv$ at the limits too: $\\int_1^{e^4} \\ln x\\,dx = x\\ln x\\Big|_1^{e^4} - \\int_1^{e^4} 1\\,dx = (4e^4 - 0) - (e^4 - 1) = 3e^4 + 1$. Leaving $x\\ln x$ unevaluated mixes a function of $x$ into a number.",
     "tags": [
       "trap",
       "definite"
@@ -78,8 +78,8 @@
   {
     "id": "L11-c09",
     "lessonId": "L11",
-    "front": "In $\\int x^2\\cos x\\,dx = x^2\\sin x - 2\\int x\\sin x\\,dx$, what is the common sign slip in the second round?",
-    "back": "$\\int x\\sin x\\,dx = -x\\cos x + \\sin x$, and the $-2$ multiplies all of it: $x^2\\sin x - 2(-x\\cos x + \\sin x) = x^2\\sin x + 2x\\cos x - 2\\sin x + C$. Applying the minus to only the first term gives the wrong sign on $\\sin x$.",
+    "front": "In $\\int x^2\\cos 2x\\,dx = \\frac{1}{2}x^2\\sin 2x - \\int x\\sin 2x\\,dx$, what is the common sign slip in the second round?",
+    "back": "$\\int x\\sin 2x\\,dx = -\\frac{1}{2}x\\cos 2x + \\frac{1}{4}\\sin 2x$, and the minus sign multiplies all of it: $\\frac{1}{2}x^2\\sin 2x - \\left(-\\frac{1}{2}x\\cos 2x + \\frac{1}{4}\\sin 2x\\right) = \\frac{1}{2}x^2\\sin 2x + \\frac{1}{2}x\\cos 2x - \\frac{1}{4}\\sin 2x + C$. Applying the minus to only the first term gives the wrong sign on $\\frac{1}{4}\\sin 2x$.",
     "tags": [
       "trap",
       "repeated-parts"

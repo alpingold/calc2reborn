@@ -89,8 +89,8 @@
   {
     "id": "L22-c10",
     "lessonId": "L22",
-    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{1}{k \\ln k}$, and why?",
-    "back": "Integral Test: $f(x) = \\frac{1}{x \\ln x}$ is positive, continuous, decreasing for $x \\ge 2$, and $u = \\ln x$ gives $\\int_2^{\\infty} \\frac{dx}{x \\ln x} = \\lim_{b\\to\\infty} \\left(\\ln(\\ln b) - \\ln(\\ln 2)\\right) = \\infty$. So the series diverges.",
+    "front": "Which test for $\\sum_{k=2}^{\\infty} \\frac{1}{k(\\ln k)^{3/2}}$, and why?",
+    "back": "Integral Test: $f(x) = \\frac{1}{x(\\ln x)^{3/2}}$ is positive, continuous, decreasing for $x \\ge 2$, and $u = \\ln x$ gives $\\int_2^{\\infty} \\frac{dx}{x(\\ln x)^{3/2}} = \\int_{\\ln 2}^{\\infty} u^{-3/2}\\,du = \\frac{2}{\\sqrt{\\ln 2}}$, which is finite. So the series converges.",
     "tags": [
       "which-test",
       "integral-test"
@@ -99,8 +99,8 @@
   {
     "id": "L22-c11",
     "lessonId": "L22",
-    "front": "Which test for $\\sum_{k=1}^{\\infty} k e^{-k^2}$, and why?",
-    "back": "Integral Test: $f(x) = x e^{-x^2}$ is positive, continuous, and decreasing for $x \\ge 1$, and $\\int_1^{\\infty} x e^{-x^2}\\,dx = \\frac{1}{2e}$ is finite (with $u = x^2$). So the series converges.",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} k^3 e^{-k^4}$, and why?",
+    "back": "Integral Test: $f(x) = x^3 e^{-x^4}$ is positive, continuous, and decreasing for $x \\ge 1$, and $\\int_1^{\\infty} x^3 e^{-x^4}\\,dx = \\frac{1}{4e}$ is finite (with $u = x^4$). So the series converges.",
     "tags": [
       "which-test",
       "integral-test"
