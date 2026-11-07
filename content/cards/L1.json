@@ -1,0 +1,108 @@
+[
+  {
+    "id": "L1-c01",
+    "lessonId": "L1",
+    "front": "Find $\\vec{PQ}$ for $P(1, 2)$ and $Q(3, -4)$.",
+    "back": "End minus start: $\\vec{PQ} = \\langle 3-1, -4-2 \\rangle = \\langle 2, -6 \\rangle$. That is 2 units right and 6 units down.",
+    "tags": [
+      "components"
+    ]
+  },
+  {
+    "id": "L1-c02",
+    "lessonId": "L1",
+    "front": "You have $\\vec{PQ} = \\langle 2, -6 \\rangle$. What is $\\vec{QP}$, and what changes?",
+    "back": "$\\vec{QP} = -\\vec{PQ} = \\langle -2, 6 \\rangle$. The direction reverses and the length stays $\\sqrt{40}$. Subtracting start from end gives $\\vec{PQ}$; subtracting the other way gives the opposite vector.",
+    "tags": [
+      "trap",
+      "components"
+    ]
+  },
+  {
+    "id": "L1-c03",
+    "lessonId": "L1",
+    "front": "Find the lengths of $\\langle -2, 6 \\rangle$ and $\\langle 3, 4, 5 \\rangle$.",
+    "back": "$\\sqrt{(-2)^2 + 6^2} = \\sqrt{40}$ and $\\sqrt{3^2 + 4^2 + 5^2} = \\sqrt{50}$. Square the whole component: $(-2)^2 = 4$, not $-4$.",
+    "tags": [
+      "length"
+    ]
+  },
+  {
+    "id": "L1-c04",
+    "lessonId": "L1",
+    "front": "For $\\vec{u} = \\langle 1, 2 \\rangle$ and $\\vec{v} = \\langle 0, 3 \\rangle$, compute $2\\vec{u} - 3\\vec{v}$.",
+    "back": "$\\langle 2, 4 \\rangle - \\langle 0, 9 \\rangle = \\langle 2, -5 \\rangle$. Scale each vector first, then subtract component by component.",
+    "tags": [
+      "arithmetic"
+    ]
+  },
+  {
+    "id": "L1-c05",
+    "lessonId": "L1",
+    "front": "What are the triangle rule and the parallelogram rule for $\\vec{u} + \\vec{v}$?",
+    "back": "Triangle rule: put the tail of $\\vec{v}$ at the head of $\\vec{u}$; the sum runs from the tail of $\\vec{u}$ to the head of $\\vec{v}$. Parallelogram rule: put both tails at one point; the sum is the diagonal of the parallelogram starting at that point. Both give the same vector.",
+    "tags": [
+      "arithmetic",
+      "graphical"
+    ]
+  },
+  {
+    "id": "L1-c06",
+    "lessonId": "L1",
+    "front": "Is $\\left\\langle \\frac{3}{13}, \\frac{2}{13} \\right\\rangle$ the unit vector in the direction of $\\langle 3, 2 \\rangle$?",
+    "back": "No. Divide by the length, not its square. $|\\langle 3, 2 \\rangle| = \\sqrt{13}$, so the unit vector is $\\left\\langle \\frac{3}{\\sqrt{13}}, \\frac{2}{\\sqrt{13}} \\right\\rangle$. The vector given has length $\\frac{1}{\\sqrt{13}}$.",
+    "tags": [
+      "trap",
+      "unit-vector"
+    ]
+  },
+  {
+    "id": "L1-c07",
+    "lessonId": "L1",
+    "front": "For $\\vec{b} = \\langle 2, -1, 2 \\rangle$, find the unit vector opposite $\\vec{b}$ and the vector of length $3$ opposite $\\vec{b}$.",
+    "back": "$|\\vec{b}| = 3$. Unit vector opposite: $-\\frac{\\vec{b}}{|\\vec{b}|} = \\left\\langle -\\frac{2}{3}, \\frac{1}{3}, -\\frac{2}{3} \\right\\rangle$. Length $3$ opposite: $-3\\frac{\\vec{b}}{|\\vec{b}|} = \\langle -2, 1, -2 \\rangle$.",
+    "tags": [
+      "unit-vector"
+    ]
+  },
+  {
+    "id": "L1-c08",
+    "lessonId": "L1",
+    "front": "Write $2\\vec{i} - \\vec{k}$ in components.",
+    "back": "$\\langle 2, 0, -1 \\rangle$. The $\\vec{j}$ component is $0$ and must be written. $\\langle 2, -1 \\rangle$ is a different vector: $2\\vec{i} - \\vec{j}$ in 2D.",
+    "tags": [
+      "trap",
+      "components"
+    ]
+  },
+  {
+    "id": "L1-c09",
+    "lessonId": "L1",
+    "front": "What shape is $z = 5$ in 3D, and how does it compare with $y = 5$ in 2D?",
+    "back": "$z = 5$ in 3D is a horizontal plane, all points $(x, y, 5)$. $y = 5$ in 2D is a line. An equation that fixes one coordinate gives a line in 2D but a plane in 3D.",
+    "tags": [
+      "trap",
+      "3d"
+    ]
+  },
+  {
+    "id": "L1-c10",
+    "lessonId": "L1",
+    "front": "Is $|\\vec{u} + \\vec{v}| = |\\vec{u}| + |\\vec{v}|$?",
+    "back": "Not in general. $\\langle 3, 0 \\rangle + \\langle 0, 4 \\rangle = \\langle 3, 4 \\rangle$ has length $5$, while $3 + 4 = 7$. Add components first, then take the length. Equality needs one vector to be a nonnegative multiple of the other (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "length"
+    ]
+  },
+  {
+    "id": "L1-c11",
+    "lessonId": "L1",
+    "front": "$E$, $F$, $G$, $H$ are the midpoints of sides $AB$, $BC$, $CD$, $DA$ of a quadrilateral $ABCD$. What shape is $EFGH$, and why?",
+    "back": "A parallelogram. $\\vec{EF} = \\frac{1}{2}\\vec{AC}$ and $\\vec{HG} = \\frac{1}{2}\\vec{AC}$, so one pair of opposite sides is equal and parallel. It needs only vector arithmetic (beyond Chen's notes).",
+    "tags": [
+      "arithmetic",
+      "geometry"
+    ]
+  }
+]

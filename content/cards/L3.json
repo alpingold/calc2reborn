@@ -1,0 +1,144 @@
+[
+  {
+    "id": "L3-c01",
+    "lessonId": "L3",
+    "front": "Compute $\\langle 1, 2, 3 \\rangle \\cdot \\langle 4, 5, 7 \\rangle$.",
+    "back": "Multiply matching components and add: $4 + 10 + 21 = 35$. In 2D, $\\langle a, b \\rangle \\cdot \\langle c, d \\rangle = ac + bd$.",
+    "tags": [
+      "dot-product"
+    ]
+  },
+  {
+    "id": "L3-c02",
+    "lessonId": "L3",
+    "front": "A classmate writes $\\langle 1, 2, 3 \\rangle \\cdot \\langle 4, 5, 7 \\rangle = \\langle 4, 10, 21 \\rangle$. What is wrong?",
+    "back": "The dot product is a scalar, not a vector. After multiplying matching components you must add, which gives $35$. The cross product (L4) is the product that gives a vector.",
+    "tags": [
+      "trap",
+      "dot-product"
+    ]
+  },
+  {
+    "id": "L3-c03",
+    "lessonId": "L3",
+    "front": "Which of these make sense: $(\\vec{a} \\cdot \\vec{b}) \\cdot \\vec{c}$, $(\\vec{a} \\cdot \\vec{b})\\vec{c}$, and $\\vec{a} \\cdot \\vec{a}$?",
+    "back": "$(\\vec{a} \\cdot \\vec{b}) \\cdot \\vec{c}$ does not: $\\vec{a} \\cdot \\vec{b}$ is a scalar, and you cannot dot a scalar with a vector. $(\\vec{a} \\cdot \\vec{b})\\vec{c}$ is a scalar times a vector, so it is a vector. $\\vec{a} \\cdot \\vec{a} = |\\vec{a}|^2$ is a scalar.",
+    "tags": [
+      "trap",
+      "dot-product"
+    ]
+  },
+  {
+    "id": "L3-c04",
+    "lessonId": "L3",
+    "front": "State the geometric form of the dot product and the formula for the angle.",
+    "back": "$\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, where $\\theta$ is the included angle, $0 \\le \\theta \\le 180^\\circ$. For nonzero vectors, $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$.",
+    "tags": [
+      "angle"
+    ]
+  },
+  {
+    "id": "L3-c05",
+    "lessonId": "L3",
+    "front": "Find the angle between $\\langle 1, 2, -2 \\rangle$ and $\\langle 6, 0, -8 \\rangle$.",
+    "back": "The dot product is $6 + 0 + 16 = 22$ and the lengths are $3$ and $10$. So $\\cos\\theta = \\frac{22}{30}$ and $\\theta = \\cos^{-1}\\left(\\frac{22}{30}\\right) \\approx 43^\\circ$.",
+    "tags": [
+      "angle"
+    ]
+  },
+  {
+    "id": "L3-c06",
+    "lessonId": "L3",
+    "front": "Nonzero $\\vec{a}$ and $\\vec{b}$ have $\\vec{a} \\cdot \\vec{b} = -4$. Is the angle between them less than, equal to, or greater than $90^\\circ$?",
+    "back": "Greater than $90^\\circ$. $|\\vec{a}||\\vec{b}| > 0$, so $\\cos\\theta$ has the sign of the dot product, and $\\cos\\theta < 0$ means $\\theta > 90^\\circ$.",
+    "tags": [
+      "angle"
+    ]
+  },
+  {
+    "id": "L3-c07",
+    "lessonId": "L3",
+    "front": "Find the angle between $\\langle 3, 1, 5 \\rangle$ and the positive $x$-axis, then the negative $x$-axis.",
+    "back": "Positive axis, using $\\langle 1, 0, 0 \\rangle$: $\\cos\\theta = \\frac{3}{\\sqrt{35}}$, so $\\theta \\approx 60^\\circ$. Negative axis, using $\\langle -1, 0, 0 \\rangle$: $\\cos\\theta = -\\frac{3}{\\sqrt{35}}$, so $\\theta \\approx 120^\\circ$. Any $\\langle k, 0, 0 \\rangle$ gives the positive-axis angle only when $k > 0$.",
+    "tags": [
+      "trap",
+      "angle"
+    ]
+  },
+  {
+    "id": "L3-c08",
+    "lessonId": "L3",
+    "front": "What does $\\vec{a} \\cdot \\vec{b} = 0$ tell you?",
+    "back": "If both vectors are nonzero, they are perpendicular. If either is $\\vec{0}$, the dot product is $0$ automatically and no angle is defined, so you learn nothing about direction. Chen states the direction $\\vec{a} \\perp \\vec{b} \\Rightarrow \\vec{a} \\cdot \\vec{b} = 0$; the zero-vector case is beyond his notes.",
+    "tags": [
+      "trap",
+      "perpendicular"
+    ]
+  },
+  {
+    "id": "L3-c09",
+    "lessonId": "L3",
+    "front": "Find $c$ so that $\\langle 1, c, 2 \\rangle \\perp \\langle 3, -1, c \\rangle$.",
+    "back": "Set the dot product to $0$: $3 - c + 2c = 0$, so $c = -3$. Both vectors are then nonzero: $\\langle 1, -3, 2 \\rangle$ and $\\langle 3, -1, -3 \\rangle$.",
+    "tags": [
+      "perpendicular"
+    ]
+  },
+  {
+    "id": "L3-c10",
+    "lessonId": "L3",
+    "front": "State the scalar and vector projections of $\\vec{b}$ onto $\\vec{a}$.",
+    "back": "For $\\vec{a} \\ne \\vec{0}$:\n\n$$\n\\text{scal}_{\\vec{a}} \\vec{b} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}, \\quad \\text{proj}_{\\vec{a}} \\vec{b} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^2}\\vec{a}\n$$",
+    "tags": [
+      "projection"
+    ]
+  },
+  {
+    "id": "L3-c11",
+    "lessonId": "L3",
+    "front": "For $\\vec{a} = \\langle 1, 2 \\rangle$ and $\\vec{b} = \\langle 3, -4 \\rangle$, find the scalar and vector projections of $\\vec{b}$ onto $\\vec{a}$.",
+    "back": "$\\vec{a} \\cdot \\vec{b} = -5$ and $|\\vec{a}| = \\sqrt{5}$. $\\text{scal}_{\\vec{a}} \\vec{b} = \\frac{-5}{\\sqrt{5}} = -\\sqrt{5}$, a number. $\\text{proj}_{\\vec{a}} \\vec{b} = \\frac{-5}{5}\\langle 1, 2 \\rangle = \\langle -1, -2 \\rangle$, a vector.",
+    "tags": [
+      "trap",
+      "projection"
+    ]
+  },
+  {
+    "id": "L3-c12",
+    "lessonId": "L3",
+    "front": "With the same $\\vec{a} = \\langle 1, 2 \\rangle$ and $\\vec{b} = \\langle 3, -4 \\rangle$, find $\\text{scal}_{\\vec{b}} \\vec{a}$ and $\\text{proj}_{\\vec{b}} \\vec{a}$. Do they match the projections onto $\\vec{a}$?",
+    "back": "No. Now you project onto $\\vec{b}$, so $|\\vec{b}| = 5$ goes in the denominator: $\\text{scal}_{\\vec{b}} \\vec{a} = \\frac{-5}{5} = -1$ and $\\text{proj}_{\\vec{b}} \\vec{a} = \\frac{-5}{25}\\langle 3, -4 \\rangle = \\left\\langle -\\frac{3}{5}, \\frac{4}{5} \\right\\rangle$. Projections onto $\\vec{a}$ were $-\\sqrt{5}$ and $\\langle -1, -2 \\rangle$. The result of proj is a multiple of the subscript vector.",
+    "tags": [
+      "trap",
+      "projection"
+    ]
+  },
+  {
+    "id": "L3-c13",
+    "lessonId": "L3",
+    "front": "Can a scalar projection be negative? What does that do to the vector projection?",
+    "back": "Yes. $\\text{scal}_{\\vec{a}} \\vec{b} = |\\vec{b}|\\cos\\theta$ is negative when $\\theta > 90^\\circ$. Chen introduces it as the length of a shadow, but his own example gives $-\\sqrt{5}$, so read it as a signed length. Then $\\text{proj}_{\\vec{a}} \\vec{b}$ points opposite $\\vec{a}$.",
+    "tags": [
+      "trap",
+      "projection"
+    ]
+  },
+  {
+    "id": "L3-c14",
+    "lessonId": "L3",
+    "front": "Write $\\vec{u} = \\langle -1, -4, -1 \\rangle$ as $\\vec{p} + \\vec{n}$ with $\\vec{p}$ parallel to $\\vec{v} = \\langle 2, -2, 3 \\rangle$ and $\\vec{n}$ perpendicular to $\\vec{v}$.",
+    "back": "$\\vec{p} = \\text{proj}_{\\vec{v}} \\vec{u} = \\frac{3}{17}\\langle 2, -2, 3 \\rangle = \\left\\langle \\frac{6}{17}, -\\frac{6}{17}, \\frac{9}{17} \\right\\rangle$. $\\vec{n} = \\vec{u} - \\vec{p} = \\left\\langle -\\frac{23}{17}, -\\frac{62}{17}, -\\frac{26}{17} \\right\\rangle$. Check: $\\vec{n} \\cdot \\vec{v} = 0$.",
+    "tags": [
+      "projection"
+    ]
+  },
+  {
+    "id": "L3-c15",
+    "lessonId": "L3",
+    "front": "$|\\vec{v}| = 2$, $|\\vec{w}| = \\sqrt{3}$, and $|\\vec{v} + \\vec{w}| = 3$. Find $\\vec{v} \\cdot \\vec{w}$.",
+    "back": "Use $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ on $\\vec{u} = \\vec{v} + \\vec{w}$: $|\\vec{v} + \\vec{w}|^2 = |\\vec{v}|^2 + 2\\vec{v} \\cdot \\vec{w} + |\\vec{w}|^2$. So $9 = 4 + 2\\vec{v} \\cdot \\vec{w} + 3$, and $\\vec{v} \\cdot \\vec{w} = 1$. Expanding this way uses the distributive law (beyond Chen's notes).",
+    "tags": [
+      "dot-product"
+    ]
+  }
+]

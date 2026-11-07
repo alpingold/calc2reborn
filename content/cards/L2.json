@@ -1,0 +1,137 @@
+[
+  {
+    "id": "L2-c01",
+    "lessonId": "L2",
+    "front": "State the standard form of a sphere with center $C(h, k, l)$ and radius $r$, and say where it comes from.",
+    "back": "$(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$. Every point on the sphere has a vector from $C$ of length $r$: $|\\langle x-h, y-k, z-l \\rangle| = r$. Squaring gives the equation.",
+    "tags": [
+      "sphere"
+    ]
+  },
+  {
+    "id": "L2-c02",
+    "lessonId": "L2",
+    "front": "Find the center and radius of $(x-1)^2 + (y+2)^2 + (z-5)^2 = 25$.",
+    "back": "Center $(1, -2, 5)$, radius $5$. The center's signs are opposite those in the parentheses, since $y + 2 = y - (-2)$. The right side is $r^2$, so the radius is $5$, not $25$.",
+    "tags": [
+      "trap",
+      "sphere"
+    ]
+  },
+  {
+    "id": "L2-c03",
+    "lessonId": "L2",
+    "front": "Find the equation of the sphere with a diameter from $P(-2, 3, 6)$ to $Q(4, -7, 5)$.",
+    "back": "The center is the midpoint, $C\\left(1, -2, \\frac{11}{2}\\right)$. The radius is half of $|\\vec{PQ}| = |\\langle 6, -10, -1 \\rangle| = \\sqrt{137}$, so $r^2 = \\frac{137}{4}$. Equation: $(x-1)^2 + (y+2)^2 + \\left(z - \\frac{11}{2}\\right)^2 = \\frac{137}{4}$.",
+    "tags": [
+      "sphere",
+      "diameter"
+    ]
+  },
+  {
+    "id": "L2-c04",
+    "lessonId": "L2",
+    "front": "What must be true before you complete the square in a sphere equation, and what do you add?",
+    "back": "The coefficients of $x^2$, $y^2$, $z^2$ must be $1$, so divide first if needed. For each variable take half the linear coefficient, square it, and add it to both sides.",
+    "tags": [
+      "completing-square"
+    ]
+  },
+  {
+    "id": "L2-c05",
+    "lessonId": "L2",
+    "front": "Find the center and radius of $x^2 + y^2 + z^2 - 14x + 16y - 10z + 102 = 0$.",
+    "back": "Add $49$, $64$, $25$ to both sides: $(x-7)^2 + (y+8)^2 + (z-5)^2 = -102 + 138 = 36$. Center $(7, -8, 5)$, radius $6$. The constant moves across as $-102$, and half of $-14$ is $-7$, which puts $+7$ in the center.",
+    "tags": [
+      "trap",
+      "completing-square"
+    ]
+  },
+  {
+    "id": "L2-c06",
+    "lessonId": "L2",
+    "front": "Find the center and radius of $x^2 + y^2 + z^2 + 2y - 4z = 4$.",
+    "back": "$x^2 + (y+1)^2 + (z-2)^2 = 4 + 1 + 4 = 9$. Center $(0, -1, 2)$, radius $3$. No linear $x$ term means the $x$ coordinate of the center is $0$, and the radius comes from the right side after adding the squares, not from the original $4$.",
+    "tags": [
+      "trap",
+      "completing-square"
+    ]
+  },
+  {
+    "id": "L2-c07",
+    "lessonId": "L2",
+    "front": "Find the center and radius of $2x^2 + 2y^2 + 2z^2 - 4x + 8y - 12z + 10 = 0$.",
+    "back": "Divide by $2$ first: $x^2 + y^2 + z^2 - 2x + 4y - 6z + 5 = 0$. Then $(x-1)^2 + (y+2)^2 + (z-3)^2 = -5 + 1 + 4 + 9 = 9$. Center $(1, -2, 3)$, radius $3$.",
+    "tags": [
+      "trap",
+      "completing-square"
+    ]
+  },
+  {
+    "id": "L2-c08",
+    "lessonId": "L2",
+    "front": "Does every equation $x^2 + y^2 + z^2 + Ax + By + Cz + D = 0$ give a sphere?",
+    "back": "No. Complete the square and read the right side: positive is a sphere, $0$ is a single point, negative is no points. For example $x^2 + y^2 + z^2 - 2x + 6 = 0$ becomes $(x-1)^2 + y^2 + z^2 = -5$, which has no solutions (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "completing-square"
+    ]
+  },
+  {
+    "id": "L2-c09",
+    "lessonId": "L2",
+    "front": "Let $S = (x-h)^2 + (y-k)^2 + (z-l)^2$. What regions are $S \\le r^2$, $S < r^2$, and $S > r^2$?",
+    "back": "$S \\le r^2$: solid ball, the sphere plus all the space inside. $S < r^2$: the ball without its spherical skin. $S > r^2$: all space outside, not including the sphere.",
+    "tags": [
+      "regions"
+    ]
+  },
+  {
+    "id": "L2-c10",
+    "lessonId": "L2",
+    "front": "Describe the region $9 \\le (x-1)^2 + (y+2)^2 + (z-5)^2 \\le 25$.",
+    "back": "A solid spherical shell centered at $(1, -2, 5)$, between radius $3$ and radius $5$, including both bounding spheres. The bounds are $r^2$ values, so the radii are $3$ and $5$, not $9$ and $25$.",
+    "tags": [
+      "trap",
+      "regions"
+    ]
+  },
+  {
+    "id": "L2-c11",
+    "lessonId": "L2",
+    "front": "How do you test whether three points $P$, $Q$, $R$ are collinear?",
+    "back": "Check whether $\\vec{PQ} \\parallel \\vec{PR}$, that is $\\vec{PQ} = k\\vec{PR}$ for some constant $k$ (taking $R \\ne P$). The distances between the points do not matter.",
+    "tags": [
+      "collinear"
+    ]
+  },
+  {
+    "id": "L2-c12",
+    "lessonId": "L2",
+    "front": "$P(1, 3, 2)$, $Q(5, 1, 3)$, and $R(x, 2, z)$ are collinear. Find $x$ and $z$.",
+    "back": "$\\langle 4, -2, 1 \\rangle = k\\langle x-1, -1, z-2 \\rangle$. The $y$ component has no unknown: $-2 = -k$, so $k = 2$. Then $4 = 2(x-1)$ gives $x = 3$, and $1 = 2(z-2)$ gives $z = \\frac{5}{2}$.",
+    "tags": [
+      "collinear"
+    ]
+  },
+  {
+    "id": "L2-c13",
+    "lessonId": "L2",
+    "front": "Are $A(0, 0, 0)$, $B(2, 4, 6)$, and $C(1, 2, 4)$ collinear?",
+    "back": "No. $\\vec{AB} = \\langle 2, 4, 6 \\rangle$ and $\\vec{AC} = \\langle 1, 2, 4 \\rangle$. The first two components give $k = 2$ but the third gives $k = \\frac{3}{2}$. One $k$ must work in every component.",
+    "tags": [
+      "trap",
+      "collinear"
+    ]
+  },
+  {
+    "id": "L2-c14",
+    "lessonId": "L2",
+    "front": "Which coordinate planes does the sphere $(x-1)^2 + (y-2)^2 + (z+4)^2 = 9$ meet?",
+    "back": "Center $(1, 2, -4)$, radius $3$. The distances from the center to the $yz$-, $xz$-, and $xy$-planes are $1$, $2$, and $4$. It meets a plane when that distance is at most $r$, so it meets the $yz$- and $xz$-planes but not the $xy$-plane (beyond Chen's notes).",
+    "tags": [
+      "sphere",
+      "regions"
+    ]
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "id": "L4-c01",
+    "lessonId": "L4",
+    "front": "Is $\\vec{u} \\cdot \\vec{v}$ a scalar or a vector? And $\\vec{u} \\times \\vec{v}$? Give the magnitude formula for each.",
+    "back": "$\\vec{u} \\cdot \\vec{v}$ is a scalar: $|\\vec{u}||\\vec{v}|\\cos\\theta$. $\\vec{u} \\times \\vec{v}$ is a vector with magnitude $|\\vec{u}||\\vec{v}|\\sin\\theta$ and direction from the right-hand rule. Dot goes with cosine, cross with sine.",
+    "tags": [
+      "trap",
+      "cross-product"
+    ]
+  },
+  {
+    "id": "L4-c02",
+    "lessonId": "L4",
+    "front": "$\\vec{a}$ points left and $\\vec{b}$ points down, both in the plane of the page. Which way does $\\vec{a} \\times \\vec{b}$ point? And $\\vec{b} \\times \\vec{a}$?",
+    "back": "Sweep $\\vec{a}$ into $\\vec{b}$ with your right hand: the thumb comes out of the page, so $\\vec{a} \\times \\vec{b}$ points out of the page. $\\vec{b} \\times \\vec{a}$ points into the page.",
+    "tags": [
+      "trap",
+      "right-hand-rule"
+    ]
+  },
+  {
+    "id": "L4-c03",
+    "lessonId": "L4",
+    "front": "Find $\\vec{j} \\times \\vec{k}$, $\\vec{k} \\times \\vec{i}$, and $\\vec{i} \\times \\vec{k}$.",
+    "back": "$\\vec{j} \\times \\vec{k} = \\vec{i}$ and $\\vec{k} \\times \\vec{i} = \\vec{j}$. $\\vec{i} \\times \\vec{k} = -\\vec{j}$. Going forward around $\\vec{i} \\to \\vec{j} \\to \\vec{k} \\to \\vec{i}$ gives the next vector, and going backward adds a minus sign.",
+    "tags": [
+      "trap",
+      "right-hand-rule"
+    ]
+  },
+  {
+    "id": "L4-c04",
+    "lessonId": "L4",
+    "front": "If $\\vec{u} \\times \\vec{v} = \\langle 1, 8, -5 \\rangle$, what is $\\vec{v} \\times \\vec{u}$? Does the same thing happen with the dot product?",
+    "back": "$\\vec{v} \\times \\vec{u} = -(\\vec{u} \\times \\vec{v}) = \\langle -1, -8, 5 \\rangle$: same length, opposite direction. The dot product does not change: $\\vec{u} \\cdot \\vec{v} = \\vec{v} \\cdot \\vec{u}$.",
+    "tags": [
+      "trap",
+      "order"
+    ]
+  },
+  {
+    "id": "L4-c05",
+    "lessonId": "L4",
+    "front": "Expand $\\vec{u} \\times \\vec{v}$ for $\\vec{u} = \\langle a, b, c \\rangle$ and $\\vec{v} = \\langle d, e, f \\rangle$.",
+    "back": "$$\n\\vec{i}\\begin{vmatrix} b & c \\\\ e & f \\end{vmatrix} - \\vec{j}\\begin{vmatrix} a & c \\\\ d & f \\end{vmatrix} + \\vec{k}\\begin{vmatrix} a & b \\\\ d & e \\end{vmatrix}\n$$\n\nThat is $\\langle bf - ce, -(af - cd), ae - bd \\rangle$. The first vector is row 2, and the middle term has the minus sign.",
+    "tags": [
+      "trap",
+      "formula"
+    ]
+  },
+  {
+    "id": "L4-c06",
+    "lessonId": "L4",
+    "front": "Compute $\\langle 2, 1, 2 \\rangle \\times \\langle 5, 0, 1 \\rangle$.",
+    "back": "$\\vec{i}(1 \\cdot 1 - 2 \\cdot 0) - \\vec{j}(2 \\cdot 1 - 2 \\cdot 5) + \\vec{k}(2 \\cdot 0 - 1 \\cdot 5) = \\vec{i}(1) - \\vec{j}(-8) + \\vec{k}(-5)$. The result is $\\langle 1, 8, -5 \\rangle$.",
+    "tags": [
+      "formula"
+    ]
+  },
+  {
+    "id": "L4-c07",
+    "lessonId": "L4",
+    "front": "Compute $\\langle 1, 2, 3 \\rangle \\times \\langle 4, 5, 6 \\rangle$, watching the middle component.",
+    "back": "$\\vec{i}(12 - 15) - \\vec{j}(6 - 12) + \\vec{k}(5 - 8) = \\langle -3, 6, -3 \\rangle$. The middle determinant is $-6$, and the minus sign in front makes the component $+6$.",
+    "tags": [
+      "trap",
+      "formula"
+    ]
+  },
+  {
+    "id": "L4-c08",
+    "lessonId": "L4",
+    "front": "You compute $\\vec{u} \\times \\vec{v}$ and it is orthogonal to both $\\vec{u}$ and $\\vec{v}$. Does that prove your answer is right?",
+    "back": "No. A nonzero dot product shows an error, but passing the check is not proof. Any scalar multiple of the correct answer also passes, including $\\vec{v} \\times \\vec{u}$, so a swapped order goes unnoticed.",
+    "tags": [
+      "trap",
+      "orthogonal"
+    ]
+  },
+  {
+    "id": "L4-c09",
+    "lessonId": "L4",
+    "front": "What does $\\vec{a} \\times \\vec{b} = \\vec{0}$ tell you?",
+    "back": "If both vectors are nonzero, they are parallel: $\\theta = 0$ or $180^\\circ$, so $\\sin\\theta = 0$. If either is $\\vec{0}$, the cross product is $\\vec{0}$ automatically and no angle is defined. Chen states the direction parallel $\\Rightarrow$ cross product $\\vec{0}$; the zero-vector case is beyond his notes.",
+    "tags": [
+      "trap",
+      "parallel"
+    ]
+  },
+  {
+    "id": "L4-c10",
+    "lessonId": "L4",
+    "front": "Test $P(1, 3, 2)$, $Q(5, 1, 3)$, $R\\left(3, 2, \\frac{5}{2}\\right)$ for collinearity using a cross product.",
+    "back": "$\\vec{PQ} = \\langle 4, -2, 1 \\rangle$ and $\\vec{PR} = \\left\\langle 2, -1, \\frac{1}{2} \\right\\rangle$. $\\vec{PQ} \\times \\vec{PR} = \\vec{0}$, so the vectors are parallel and the points are collinear.",
+    "tags": [
+      "parallel",
+      "collinear"
+    ]
+  },
+  {
+    "id": "L4-c11",
+    "lessonId": "L4",
+    "front": "Find the area of the parallelogram with vertices $A(-3, 4)$, $B(-1, 7)$, $C(3, 5)$, $D(1, 2)$.",
+    "back": "Sides from $A$, with a $0$ added: $\\vec{AD} = \\langle 4, -2, 0 \\rangle$ and $\\vec{AB} = \\langle 2, 3, 0 \\rangle$. Their cross product is $\\langle 0, 0, 16 \\rangle$. The area is its magnitude, $16$.",
+    "tags": [
+      "area"
+    ]
+  },
+  {
+    "id": "L4-c12",
+    "lessonId": "L4",
+    "front": "Find the area of the triangle with vertices $(1, 1, 1)$, $(3, -1, 2)$, $(5, 1, -2)$.",
+    "back": "Sides from the first vertex: $\\langle 2, -2, 1 \\rangle$ and $\\langle 4, 0, -3 \\rangle$, with cross product $\\langle 6, 10, 8 \\rangle$ of magnitude $\\sqrt{200} = 10\\sqrt{2}$. That is the parallelogram, so the triangle is half: $5\\sqrt{2}$. The half comes from the diagonal splitting the parallelogram (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "area"
+    ]
+  },
+  {
+    "id": "L4-c13",
+    "lessonId": "L4",
+    "front": "Find the area of the parallelogram with vertices $(0, 0, 0)$, $(1, 0, -1)$, $(-1, 2, 0)$, $(0, 2, -1)$.",
+    "back": "Sides from the origin: $\\vec{u} = \\langle 1, 0, -1 \\rangle$ and $\\vec{v} = \\langle -1, 2, 0 \\rangle$, since $\\vec{u} + \\vec{v}$ reaches the fourth vertex. $\\vec{u} \\times \\vec{v} = \\langle 2, 1, 2 \\rangle$, so the area is $3$. No $\\frac{1}{2}$ for a parallelogram.",
+    "tags": [
+      "trap",
+      "area"
+    ]
+  },
+  {
+    "id": "L4-c14",
+    "lessonId": "L4",
+    "front": "$\\vec{v} \\cdot \\vec{w} = -3$ and $\\vec{v} \\times \\vec{w} = \\langle 1, -2, 2 \\rangle$. Find the angle between $\\vec{v}$ and $\\vec{w}$.",
+    "back": "$|\\vec{v} \\times \\vec{w}| = 3$, so $|\\vec{v}||\\vec{w}|\\sin\\theta = 3$ and $|\\vec{v}||\\vec{w}|\\cos\\theta = -3$. Dividing gives $\\tan\\theta = -1$. With $0 \\le \\theta \\le \\pi$ and a negative cosine, $\\theta = \\frac{3\\pi}{4}$; sine alone cannot separate this from $\\frac{\\pi}{4}$ (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "angle"
+    ]
+  },
+  {
+    "id": "L4-c15",
+    "lessonId": "L4",
+    "front": "How is the cross product used for torque?",
+    "back": "A force $\\vec{F}$ applied at $P$, with pivot $O$, has torque about the pivot $\\vec{OP} \\times \\vec{F}$. It is a vector, and the order is position first, then force. Its magnitude is $|\\vec{OP}||\\vec{F}|\\sin\\theta$.",
+    "tags": [
+      "application"
+    ]
+  }
+]
