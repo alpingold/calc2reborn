@@ -46,7 +46,7 @@ Check this list before starting. These were confirmed by surveying every booklet
 - **`s2019-*.sol`** has no cover, so its pages run one behind the booklet. `sourcePage` always refers to the booklet.
 - **`f2022-e2`** is "Alternate Exam 2". Use it as published.
 
-Facts that still fit the schema: `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
+Facts that still fit the schema: `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
 
 **Points.** Use the booklet's stated points. Do not store free points: 12 questions at 8 points stores 96, not 100. Only `f2016-e1` is 100/12 per problem. `f2016-e2` and `f2016-e3` are 8 each. `s2017-e1` is 9 each. `s2024-*` are 1 each. `s2017-e2`, `s2017-e3`, and all of `f2024` and `f2025` print points per question.
 
