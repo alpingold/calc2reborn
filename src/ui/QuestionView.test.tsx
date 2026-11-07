@@ -197,3 +197,30 @@ test('a derived answer shows no notice during a timed exam', async () => {
   await setup({ question: derived, mode: 'deferred', chosen: 'C' })
   expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
 })
+
+test('choices carry correct and wrong classes only once revealed', async () => {
+  await setup({ chosen: 'B' })
+  for (const b of screen.getAllByRole('button', { name: /^[A-E]\b/ })) {
+    expect(b).toHaveClass('choice')
+    expect(b).not.toHaveClass('correct')
+    expect(b).not.toHaveClass('wrong')
+  }
+})
+
+test('a revealed question marks the right choice correct and a wrong pick wrong', async () => {
+  await setup({ chosen: 'B', revealed: true })
+  expect(screen.getByRole('button', { name: 'Correct answer' })).toHaveClass('choice', 'correct')
+  expect(screen.getByRole('button', { name: 'Your answer' })).toHaveClass('choice', 'wrong')
+  for (const l of ['A', 'D', 'E']) {
+    const b = screen.getByRole('button', { name: new RegExp(`^${l}\\b`) })
+    expect(b).not.toHaveClass('correct')
+    expect(b).not.toHaveClass('wrong')
+  }
+})
+
+test('the choice label and its text are separate styled parts of the button', async () => {
+  await setup()
+  const b = screen.getByRole('button', { name: /^B\b/ })
+  expect(b.querySelector('.choice-label')).toHaveTextContent('B')
+  expect(b.querySelector('.choice-text')).toHaveTextContent('beta')
+})

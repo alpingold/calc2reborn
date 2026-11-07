@@ -4,6 +4,7 @@
   --muted: #5f6470;
   --accent: #8a6d1d;
   --danger: #b3261e;
+  --success: #2e7d32;
   --surface: #ffffff;
   --border: #dedad0;
   color-scheme: light;
@@ -16,6 +17,7 @@
     --muted: #a2a6b0;
     --accent: #d9b450;
     --danger: #f2877e;
+    --success: #7cc47f;
     --surface: #1e2126;
     --border: #33373e;
     color-scheme: dark;
@@ -94,6 +96,75 @@ a {
 .loading {
   padding: 16px;
   color: var(--muted);
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.choice {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.choice:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* the letter floats beside the text, so a wrapped choice keeps a hanging indent */
+.choice-label {
+  float: left;
+  width: 1.75em;
+}
+
+/* the choice text is Markdown: a block beside the letter with no paragraph margins */
+.choice .choice-text {
+  display: flow-root;
+}
+
+.choice .choice-text p {
+  margin: 0;
+}
+
+.choice[aria-pressed='true'] {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+}
+
+.choice:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.choice.correct {
+  border-color: var(--success);
+  box-shadow: inset 0 0 0 1px var(--success);
+  background: color-mix(in srgb, var(--success) 18%, var(--surface));
+}
+
+.choice.wrong {
+  border-color: var(--danger);
+  box-shadow: inset 0 0 0 1px var(--danger);
+  background: color-mix(in srgb, var(--danger) 16%, var(--surface));
 }
 
 .markdown .katex-display {

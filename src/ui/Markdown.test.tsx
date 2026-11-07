@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module'
 import { expect, test } from 'vitest'
 import { render } from '@testing-library/react'
 import { Markdown } from './Markdown'
@@ -40,4 +41,12 @@ test('renders bold as strong', () => {
 test('applies className to the wrapper', () => {
   const { container } = render(<Markdown text="hi" className="prose" />)
   expect(container.firstElementChild).toHaveClass('prose')
+})
+
+test('the KaTeX stylesheet comes from the same KaTeX version that rehype-katex renders with', () => {
+  // a mismatch shifts fraction and exponent boxes, so inline math overlaps on the page
+  const appRequire = createRequire(import.meta.url)
+  const appKatex = appRequire('katex/package.json').version
+  const rehypeRequire = createRequire(appRequire.resolve('rehype-katex'))
+  expect(rehypeRequire('katex/package.json').version).toBe(appKatex)
 })

@@ -81,6 +81,13 @@ export function QuestionView({
     return undefined
   }
 
+  function choiceClass(label: Choice['label']): string {
+    if (!revealed) return 'choice'
+    if (label === question.answer) return 'choice correct'
+    if (label === chosen) return 'choice wrong'
+    return 'choice'
+  }
+
   return (
     <article className="question">
       <Markdown text={question.stem} />
@@ -92,13 +99,13 @@ export function QuestionView({
           <button
             key={c.label}
             type="button"
-            className="choice"
+            className={choiceClass(c.label)}
             aria-pressed={chosen === c.label}
             aria-label={choiceAriaLabel(c.label)}
             disabled={revealed}
             onClick={() => onChoose(c.label)}
           >
-            <strong className="choice-label">{c.label}</strong> <Markdown text={c.text} />
+            <strong className="choice-label">{c.label}</strong> <Markdown text={c.text} className="choice-text" />
           </button>
         ))}
       </div>
