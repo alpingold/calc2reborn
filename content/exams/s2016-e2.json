@@ -1,0 +1,419 @@
+{
+  "id": "s2016-e2",
+  "term": "Spring",
+  "year": 2016,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2016.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2016.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2016-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find the integral $\\int_0^{\\pi/4} \\tan^5 x\\sec x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{15}(3\\sqrt{2} - 4)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{15}(4\\sqrt{2} - 5)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{15}(5\\sqrt{2} - 6)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{15}(6\\sqrt{2} - 7)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{15}(7\\sqrt{2} - 8)$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Find the integral $\\int_0^{\\pi/4} \\cos^4 x\\,dx$. You may need to use the half-angle identities\n\n$$\n\\cos^2 x = \\frac{1 + \\cos 2x}{2} \\quad \\text{and/or} \\quad \\sin^2 x = \\frac{1 - \\cos 2x}{2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{32}(\\pi + 5)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{32}(2\\pi + 7)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{32}(3\\pi + 8)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{32}(2\\pi + 5)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{32}(\\pi + 8)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "What does the integral $\\int x^4\\sqrt{1 + x^2}\\,dx$ become after a trigonometric substitution?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int \\sec^4\\theta\\tan^3\\theta\\,d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int \\sec^3\\theta\\tan^4\\theta\\,d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int \\sec^3\\theta\\tan^3\\theta\\,d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int \\sec^3\\theta\\tan^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int \\sec^2\\theta\\tan^3\\theta\\,d\\theta$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Compute $\\int_0^4 \\sqrt{16 - x^2}\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$6\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Which of the following is the partial fraction expansion of $\\frac{4x^3 - x}{x^2(x^2 + 1)^2}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x^2} + \\frac{B}{x^2 + 1} + \\frac{C}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^2 + 1} + \\frac{D}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^2 + 1} + \\frac{Dx + E}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 1} + \\frac{E}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 1} + \\frac{Ex + F}{(x^2 + 1)^2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Compute $\\int \\frac{3x + 1}{x^2 + x}\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$6\\ln|x| + 5\\ln|x + 1| + C$"
+        },
+        {
+          "label": "B",
+          "text": "$3\\ln(x^2) + \\ln|x| + C$"
+        },
+        {
+          "label": "C",
+          "text": "$3\\ln|x^2 + x| + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln|x| - \\ln|x + 1| + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln|x| + 2\\ln|x + 1| + C$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "For the function $f(x)$ whose values are given in the table below, approximate $\\int_0^4 f(x)\\,dx$ using the Midpoint Rule with 2 subintervals.\n\n$$\n\\begin{array}{|c|c|c|c|c|c|} \\hline x & 0 & 1 & 2 & 3 & 4 \\\\ \\hline f(x) & 0 & 1.2 & 4.3 & 6.5 & 1 \\\\ \\hline \\end{array}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$15.4$"
+        },
+        {
+          "label": "B",
+          "text": "$12.5$"
+        },
+        {
+          "label": "C",
+          "text": "$12$"
+        },
+        {
+          "label": "D",
+          "text": "$16.7$"
+        },
+        {
+          "label": "E",
+          "text": "$13$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Use the integral formula\n\n$$\n\\int \\frac{du}{\\sqrt{u^2 - a^2}} = \\ln|u + \\sqrt{u^2 - a^2}| + C\n$$\n\nto find $\\int \\frac{dx}{\\sqrt{8x^2 - 5}}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{\\sqrt{8}}\\ln|x + \\sqrt{8x^2 - 5}| + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{\\sqrt{8}}\\ln|x + \\sqrt{x^2 - \\frac{5}{8}}| + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{8}\\ln|x + \\sqrt{x^2 - \\frac{5}{8}}| + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln|x + \\sqrt{x^2 - \\frac{5}{8}}| + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln|\\frac{x}{\\sqrt{8}} + \\frac{1}{\\sqrt{8}}\\sqrt{x^2 - \\frac{5}{8}}| + C$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Which of the following improper integrals are convergent?\n\n$$\n\\text{I. } \\int_{-\\infty}^0 \\frac{1}{2 - 8x}\\,dx \\qquad \\text{II. } \\int_1^{\\infty} \\frac{e^{-\\sqrt{x}}}{\\sqrt{x}}\\,dx \\qquad \\text{III. } \\int_{-1}^2 \\frac{1}{x^2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I, II, III"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I, II only"
+        },
+        {
+          "label": "E",
+          "text": "II, III only"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The derivative of the function $g(x)$ is $g'(x) = \\sqrt{\\sec^2 x\\tan^2 x - 1}$. What is the length of the curve $y = g(x)$ on the interval $0 \\le x \\le \\frac{\\pi}{4}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{2} - 1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{2}}{2} - 1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "If the centroid of the region bounded by $y = x^2$ and $y = x$ is $(\\bar{x}, \\bar{y})$. Find $\\bar{y}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{5}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{12}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{15}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2016-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Which of the following statements is/are true about the sequence $a_n = \\frac{5n - 7}{7n + 3}$?\n\nI. The sequence is convergent\n\nII. The sequence is bounded\n\nIII. The sequence is not monotonic",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II only"
+        },
+        {
+          "label": "E",
+          "text": "I and III only"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    }
+  ]
+}
