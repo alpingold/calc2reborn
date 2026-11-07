@@ -1,0 +1,871 @@
+{
+  "id": "s2019-final",
+  "term": "Spring",
+  "year": 2019,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2019.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "s2019-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find a vector that has the same direction as $\\langle -2, 6, -3 \\rangle$ but has length 3.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left\\langle -\\frac{6}{7}, \\frac{18}{7}, -\\frac{9}{7} \\right\\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle -6, 18, -9 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left\\langle -\\frac{2}{\\sqrt{3}}, 2\\sqrt{3}, -\\sqrt{3} \\right\\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle -\\frac{2}{3}, 2, -1 \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle -\\frac{2}{7}, \\frac{6}{7}, -\\frac{3}{7} \\right\\rangle$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Suppose $\\boldsymbol{\\vec{a}} \\cdot \\boldsymbol{\\vec{b}} = 5$ and $\\boldsymbol{\\vec{a}} \\times \\boldsymbol{\\vec{b}} = \\boldsymbol{\\vec{\\imath}} + 5\\boldsymbol{\\vec{\\jmath}} + 7\\boldsymbol{\\vec{k}}$. What is the angle between $\\boldsymbol{\\vec{a}}$ and $\\boldsymbol{\\vec{b}}$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{2}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the area of the region bounded by the curve $y = xe^{-x}$ and the $x$-axis from $x = 0$ to $x = 4$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-5e^{-4}$"
+        },
+        {
+          "label": "B",
+          "text": "$4e^{-4}$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - 5e^{-4}$"
+        },
+        {
+          "label": "D",
+          "text": "$1 - 3e^{-4}$"
+        },
+        {
+          "label": "E",
+          "text": "$3e^{-4}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L5",
+        "L11"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "$$\n\\int x \\tan^2 x \\, dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sec^2 x - \\tan x - \\frac{x^2}{2} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$x \\tan x + \\ln|\\cos x| - \\frac{x^2}{2} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$x \\sec^2 x + \\ln|\\sec x| - \\frac{x^2}{2} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$x \\sec^2 x - \\tan x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$x \\tan x + \\ln|\\sec x + \\tan x| + C$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "$$\n\\int \\frac{dx}{x(x^2+1)^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln\\left(\\frac{|x|}{\\sqrt{x^2+1}}\\right) + \\frac{1}{2(x^2+1)} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln\\left(\\frac{|x|}{\\sqrt{x^2+1}}\\right) + \\frac{1}{(x^2+1)} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln\\left(\\frac{1}{\\sqrt{x^2+1}}\\right) + \\frac{1}{2(x^2+1)} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln\\left(\\frac{1}{\\sqrt{x^2+1}}\\right) + \\frac{1}{(x^2+1)} + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln\\left(\\frac{|x|}{\\sqrt{x^2+1}}\\right) + C$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the volume of the solid generated by revolving about the $x$-axis the region bounded by $y = \\sin x \\cos x$ and the $x$-axis, between $x = 0$ and $x = \\pi/2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi^2}{16}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi^2}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi^2}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi^2}{32}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi^2}{8}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6",
+        "L12"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "What is the **average value** of the function $f(x) = \\frac{1}{(1-x^2)^{3/2}}$ over the interval $0 \\le x \\le \\frac{3}{5}$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{4}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{4}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_{\\sqrt{2}}^{2} \\frac{dx}{x\\sqrt{x^2-1}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{12}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{8}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_1^3 \\frac{dx}{(x-1)^{2/3}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3\\sqrt{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$3\\sqrt{2}$"
+        },
+        {
+          "label": "C",
+          "text": "This improper integral diverges."
+        },
+        {
+          "label": "D",
+          "text": "$3\\sqrt[3]{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\sqrt[3]{2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Find the area of the surface obtained by rotating the curve $y = \\frac{x^3}{3}$ about the $x$-axis, for $0 \\le x \\le 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi\\sqrt{2}}{6} - \\frac{\\pi}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi \\cdot 2\\sqrt{2}}{9} - \\frac{\\pi}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi\\sqrt{2}}{6} - \\frac{\\pi}{12}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{12}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{9}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Let $a_n = \\frac{\\cos(1/n)}{2n+1}$. Which one of the following is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The sequence $\\{a_n\\}$ is divergent and the series $\\sum_{n=1}^{\\infty} a_n$ is divergent."
+        },
+        {
+          "label": "B",
+          "text": "The sequence $\\{a_n\\}$ is convergent and the series $\\sum_{n=1}^{\\infty} a_n$ is divergent."
+        },
+        {
+          "label": "C",
+          "text": "The sequence $\\{a_n\\}$ is divergent and the series $\\sum_{n=1}^{\\infty} a_n$ is convergent."
+        },
+        {
+          "label": "D",
+          "text": "The sequence $\\{a_n\\}$ is convergent and the series $\\sum_{n=1}^{\\infty} a_n$ is convergent."
+        },
+        {
+          "label": "E",
+          "text": "None of these statements are true."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L20",
+        "L23"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Which statement is true about these three series?\n\n$$\n(i) \\sum_{k=1}^{\\infty} k^2 e^{-k^3} \\quad , \\quad (ii) \\sum_{\\ell=2}^{\\infty} \\frac{1}{\\sqrt{\\ell - 1/\\ell}} \\quad , \\quad (iii) \\sum_{m=1}^{\\infty} \\frac{m!}{3^m}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(ii)$ converges. The others diverge."
+        },
+        {
+          "label": "B",
+          "text": "All three diverge."
+        },
+        {
+          "label": "C",
+          "text": "$(iii)$ converges. The others diverge."
+        },
+        {
+          "label": "D",
+          "text": "$(i)$ converges. The others diverge."
+        },
+        {
+          "label": "E",
+          "text": "Two of them converge and one diverges."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "Which statement is true about these two series?\n\n$$\n\\sum_{m=1}^{\\infty} \\frac{(-1)^m}{m} \\quad , \\quad \\sum_{n=2}^{\\infty} \\frac{(-1)^n}{\\ln n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both are conditionally convergent."
+        },
+        {
+          "label": "B",
+          "text": "One is conditionally convergent and one is divergent."
+        },
+        {
+          "label": "C",
+          "text": "One is conditionally convergent and one is absolutely convergent."
+        },
+        {
+          "label": "D",
+          "text": "One is divergent and one is absolutely convergent."
+        },
+        {
+          "label": "E",
+          "text": "Both are absolutely convergent."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "Only one of these series diverges. Which one?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{n^2}{e^n}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{1}{n\\sqrt{n^2+1}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=1}^{\\infty} \\frac{(1.01)^n}{n + 3^n}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=1}^{\\infty} \\tan(1/n)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=1}^{\\infty} \\left(e^{1/n} - 1\\right)^n$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "Find the sum.\n\n$$\n1 + 2 \\cdot \\frac{1}{3} + 3 \\cdot \\frac{1}{3^2} + 4 \\cdot \\frac{1}{3^3} + 5 \\cdot \\frac{1}{3^4} + \\ldots\n$$\n\nHint: What if the $\\frac{1}{3}$'s were $x$'s?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{9}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{2}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Find the interval of convergence for the power series $\\sum_{n=1}^{\\infty} n^n x^n$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(-1, 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$(-1, 1]$"
+        },
+        {
+          "label": "C",
+          "text": "$[-1, 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\{0\\}$"
+        },
+        {
+          "label": "E",
+          "text": "$[-1, 1]$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Find the first few terms of the Taylor series centered at $a = 2$ for the function $f(x) = 1/x$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{4}(x-2)^2 - \\frac{3}{8}(x-2)^3 + \\ldots$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{8}(x-2)^2 - \\frac{1}{16}(x-2)^3 + \\ldots$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{12}(x-2)^2 - \\frac{1}{48}(x-2)^3 + \\ldots$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{16}(x-2)^2 - \\frac{1}{96}(x-2)^3 + \\ldots$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{6}(x-2)^2 - \\frac{1}{8}(x-2)^3 + \\ldots$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "Find\n\n$$\n\\lim_{x\\to 0} \\frac{x^6 - 12x^2 + 24\\tan^{-1}(x^2/2)}{x^{10}}\n$$\n\nHint: $\\tan^{-1} x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{2n+1}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{16}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{20}$"
+        },
+        {
+          "label": "C",
+          "text": "The limit does not exist."
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3}{10}$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "Find the length of the curve $x = e^t \\cos t$, $y = e^t \\sin t$ for $0 \\le t \\le \\ln 2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "Find a Cartesian equation for the curve $r = \\tan\\theta \\sec\\theta$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$y = \\tan x$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{x^2 + y^2} = \\frac{y}{x^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$x = y^2$"
+        },
+        {
+          "label": "D",
+          "text": "$y = x^2$"
+        },
+        {
+          "label": "E",
+          "text": "$y = \\sqrt{1 + x^2}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "Find the graph of $r = 1 + \\sin\\theta$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Graph A"
+        },
+        {
+          "label": "B",
+          "text": "Graph B"
+        },
+        {
+          "label": "C",
+          "text": "Graph C"
+        },
+        {
+          "label": "D",
+          "text": "Graph D"
+        },
+        {
+          "label": "E",
+          "text": "Graph E"
+        }
+      ],
+      "answer": "E",
+      "figures": [
+        "figures/s2019-final/q21.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "The curve pictured below is $r = 2 + \\cos\\theta$. Find the area of the shaded region:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{9\\pi}{8} - 2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{9\\pi}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{9\\pi}{4} - 2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi - 1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9\\pi}{4}$"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/s2019-final/q22.png"
+      ],
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "Find the length of the polar curve $r = \\theta^2$, where $0 \\le \\theta \\le \\pi$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi^{3/2}}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi^3}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$(\\pi^2 + 4)^{3/2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{(\\pi^2 + 2)^{3/2} - 2\\sqrt{2}}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{(\\pi^2 + 4)^{3/2} - 8}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "Find one of the foci of the hyperbola\n\n$$\n3x^2 - y^2 - 18x - 6y + 9 = 0\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(3, -3)$"
+        },
+        {
+          "label": "B",
+          "text": "$(2\\sqrt{3}, -3)$"
+        },
+        {
+          "label": "C",
+          "text": "$(\\sqrt{3}, -3)$"
+        },
+        {
+          "label": "D",
+          "text": "$(3 + 2\\sqrt{3}, -3)$"
+        },
+        {
+          "label": "E",
+          "text": "$(3 + \\sqrt{3}, -3)$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "Four of these complex numbers are equal to each other. Which one is not?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2e^{2\\pi i/3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{-1 - \\sqrt{3}i}$"
+        },
+        {
+          "label": "C",
+          "text": "$-1 + \\sqrt{3}i$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\left(\\cos\\left(\\frac{2\\pi}{3}\\right) + i\\sin\\left(\\frac{2\\pi}{3}\\right)\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$2e^{4\\pi i/3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
