@@ -14,7 +14,7 @@ One screen per lesson, about 25 to 45 lines, in Markdown with `###` headings and
 
 8 to 15 cards per lesson in `content/cards/L<N>.json`: a JSON array, 2-space indent, trailing newline. Ids are `L<N>-c01` onward. Each card has `id`, `lessonId`, `front`, `back`, and optional `tags`.
 
-Do not reuse a question from `content/exams/` as a card, even with its wording changed. Use different numbers or a different setup, since seeing the answer on a card would spoil the exam question and distort the weakness tracking. Worked examples from Chen's notes are fine unless an exam repeats them.
+Do not reuse a question from `content/exams/` as a card, even with its wording changed. Use different numbers or a different setup, since seeing the answer on a card would spoil the exam question and distort the weakness tracking. Worked examples from Chen's notes are fine unless an exam repeats them. The rule covers specific exam problems, not fundamental named results the lessons teach: the harmonic and alternating harmonic series, geometric series, p-series, and the standard Maclaurin series and their intervals stay in the cards and key ideas even when an exam asks about them, because knowing them is the point of the course.
 
 The front is a question or prompt. The back is two to four sentences or a short formula block. No multiple choice. Mix recall, trap, and quick-decision or quick-compute cards. Tags are short lowercase strings, with `"trap"` on trap cards.
 
