@@ -1,0 +1,892 @@
+{
+  "id": "f2023-final",
+  "term": "Fall",
+  "year": 2023,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2023.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "f2023-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "For what value of $t$ is the vector $< 2, t, -1 >$ perpendicular to the vector $< t, 1, 1 >$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "A parallelogram in the $xy-$plane has the vertices $(1, 1)$, $(2, 3)$, $(3, 2)$, and $(4, 4)$. What is the area of that parallelogram?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{2}$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the volume of the solid obtained by revolving the region under the graph of $y = \\frac{1}{x}$, $1 \\le x \\le 2$, about the $x-$axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3\\pi}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Find the area of the region in the first quadrant of the $xy-$plane bounded above by $y = \\frac{\\pi}{2}x$ and below by $y = \\sin^{-1} x$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 - \\frac{\\pi}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{2} - 1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi^2}{4} - 1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{4}$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the volume of the solid obtained by revolving the region in the first quadrant of the $xy-$plane bounded by the curves $y = x$ and $y = x^2$ about the $y-$axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the length of the curve $y = \\frac{e^x + e^{-x}}{2}$, $0 \\le x \\le 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$e + \\frac{1}{e}$"
+        },
+        {
+          "label": "B",
+          "text": "$e - \\frac{1}{e}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{e}{2} + \\frac{1}{2e}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{e}{2} - \\frac{1}{2e}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{e}{4} - \\frac{1}{4e}$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "A tank in the shape of a rectangular box has a square base with sides 1 m and a height of 4 m. If it is half full of a liquid that weighs 3 N/m$^3$, how much work in Nm is needed to pump out all the liquid over the top of the tank?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$12$"
+        },
+        {
+          "label": "B",
+          "text": "$16$"
+        },
+        {
+          "label": "C",
+          "text": "$18$"
+        },
+        {
+          "label": "D",
+          "text": "$20$"
+        },
+        {
+          "label": "E",
+          "text": "$24$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the area of the surface obtained by revolving the graph $y = x^2$, $0 \\le x \\le 1$, about the $y-$axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{6}(5\\sqrt{5} - 1)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{3}(5\\sqrt{5} - 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{4}(5\\sqrt{5} - 1)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Evaluate $\\int_1^e x\\ln x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{e^2 - 1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{e^2 + 1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{e^2 - 1}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{e^2 + 1}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{e^2}{4}$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Evaluate $\\int_0^{\\frac{\\pi}{2}} \\sqrt{\\sin x}\\cos^3 x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{15}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{15}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4}{21}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8}{21}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{10}$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^1 \\frac{1}{x^2 + 5x + 4}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln 2 - \\frac{1}{3}\\ln 5$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3}\\ln 2 - \\frac{1}{3}\\ln 5$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{3}\\ln 2 - \\frac{1}{3}\\ln 5$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{3}\\ln 2 - \\frac{2}{3}\\ln 5$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{3}\\ln 2 - \\frac{2}{3}\\ln 5$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "What substitution should one make to compute\n\n$$\n\\int \\frac{1}{\\sqrt{-x^2 + 4x - 3}}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = 2 + \\sec\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$x = 2 + \\tan\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$x = \\sqrt{3} - \\sin\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$x = \\sqrt{3} + \\tan\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$x = 2 + \\sin\\theta$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "Which of the following improper integrals converge?\n\nI. $\\int_1^{\\infty} \\frac{1}{2 + x^2}\\,dx$\n\nII. $\\int_{-10}^{10} \\frac{1}{x^5}\\,dx$\n\nIII. $\\int_{-\\infty}^{0} \\frac{1}{\\sqrt{3 - x}}\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II only"
+        },
+        {
+          "label": "E",
+          "text": "I, II, and III"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "Consider the sequence $\\left\\{\\frac{1 - 2n}{1 + 3n}\\right\\}_{n=1}^{\\infty}$. Which of the following statements are true?\n\nI. The sequence is increasing.\n\nII. The sequence is bounded.\n\nIII. The sequence is convergent.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II only"
+        },
+        {
+          "label": "B",
+          "text": "I and III only"
+        },
+        {
+          "label": "C",
+          "text": "II and III only"
+        },
+        {
+          "label": "D",
+          "text": "I, II, and III"
+        },
+        {
+          "label": "E",
+          "text": "None are true."
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "For which values of $p$ does the series $\\sum_{n=2}^{\\infty} \\frac{1}{n(\\ln n)^p}$ converge? Hint: consider using the Integral Test.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$p < 1$"
+        },
+        {
+          "label": "B",
+          "text": "$p < 2$"
+        },
+        {
+          "label": "C",
+          "text": "$p \\neq 0$"
+        },
+        {
+          "label": "D",
+          "text": "$p > 1$"
+        },
+        {
+          "label": "E",
+          "text": "$p > 2$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Determine whether the series converges or diverges. If it is convergent, find its sum.\n\n$$\n-5 + 2 - \\frac{4}{5} + \\frac{8}{25} - \\frac{16}{125} + - \\cdots\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "converges to $-\\frac{2}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "converges to $0$"
+        },
+        {
+          "label": "C",
+          "text": "converges to $-\\frac{25}{7}$"
+        },
+        {
+          "label": "D",
+          "text": "converges to $\\frac{5}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "diverges"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Which of the following statements is/are true?\n\nI. $\\sum_{n=1}^{\\infty} \\frac{n}{9^n}$ is absolutely convergent\n\nII. $\\sum_{n=3}^{\\infty} \\frac{(-5)^{n+1}}{\\sqrt{n}}$ is conditionally convergent\n\nIII. the Ratio Test is inconclusive with $\\sum_{n=3}^{\\infty} \\frac{10\\sqrt{n}}{1 + n^2}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and III only"
+        },
+        {
+          "label": "E",
+          "text": "I, II, and III"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24",
+        "L25"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "What is the coefficient of the term containing $(x - 1)^2$ in the Taylor series representation of the function $f(x) = \\frac{-1}{x^2}$ centered at $a = 1$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-3$"
+        },
+        {
+          "label": "B",
+          "text": "$-2$"
+        },
+        {
+          "label": "C",
+          "text": "$-1$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "If the Maclaurin series of a function $f(x)$ is\n\n$$\n\\sum_{n=1}^{\\infty}(-1)^n \\frac{x^n}{3n(n + 6)},\n$$\n\nthen $f^{(6)}(0)$ (that is, the sixth derivative of $f(x)$ at $0$) is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5/3$"
+        },
+        {
+          "label": "B",
+          "text": "$-15/6$"
+        },
+        {
+          "label": "C",
+          "text": "$10/3$"
+        },
+        {
+          "label": "D",
+          "text": "$9/7$"
+        },
+        {
+          "label": "E",
+          "text": "$8/5$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "The first 3 terms of the Maclaurin series of $f(x) = \\frac{x}{1 + x^3}$ are",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x + x^4 + x^7$"
+        },
+        {
+          "label": "B",
+          "text": "$x - x^4 + x^7$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - x^3 + x^6$"
+        },
+        {
+          "label": "D",
+          "text": "$1 + x^3 + x^6$"
+        },
+        {
+          "label": "E",
+          "text": "$-x - x^4 - x^7$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "Which of the following could be the Maclaurin series for the function graphed below?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x + \\frac{1}{2}x^2 + \\frac{1}{8}x^3 + \\cdots$"
+        },
+        {
+          "label": "B",
+          "text": "$x - \\frac{1}{2}x^2 + \\frac{1}{8}x^3 - \\cdots$"
+        },
+        {
+          "label": "C",
+          "text": "$2x - \\frac{4}{3}x^3 + \\frac{4}{15}x^5 + \\cdots$"
+        },
+        {
+          "label": "D",
+          "text": "$x^2 + \\frac{1}{2}x^3 + \\frac{1}{8}x^4 + \\cdots$"
+        },
+        {
+          "label": "E",
+          "text": "$-x^2 - \\frac{1}{2}x^3 - \\frac{1}{8}x^4 - \\cdots$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "figures": [
+        "figures/f2023-final/q21.png"
+      ],
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "In the power series representation of $\\int x^2e^x\\,dx$, what is the term that contains $x^6$? Note that $e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{x^6}{20}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{x^6}{24}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{x^6}{28}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{x^6}{32}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{x^6}{36}$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "What is $(\\sqrt{2}, \\sqrt{6})$ in polar coordinates?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(2\\sqrt{2}, \\frac{\\pi}{6})$"
+        },
+        {
+          "label": "B",
+          "text": "$(2\\sqrt{2}, \\frac{\\pi}{3})$"
+        },
+        {
+          "label": "C",
+          "text": "$(2\\sqrt{2}, \\frac{\\pi}{2})$"
+        },
+        {
+          "label": "D",
+          "text": "$(8, \\frac{\\pi}{6})$"
+        },
+        {
+          "label": "E",
+          "text": "$(8, \\frac{\\pi}{3})$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "Liam and Alex are traveling in a spacecraft that follows a path given by the polar equation $r = e^{\\theta}$, $0 \\le \\theta \\le \\frac{\\pi}{2}$. What is the distance traveled by the spacecraft?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{2}(e^{\\frac{\\pi}{2}})$"
+        },
+        {
+          "label": "B",
+          "text": "$e^{\\frac{\\pi}{2}} + 1$"
+        },
+        {
+          "label": "C",
+          "text": "$e^{\\pi} - \\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$e^{\\frac{\\pi}{2}} - 1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{2}(e^{\\frac{\\pi}{2}} - 1)$"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "Which of the following is the graph of $r = 4\\sin(3\\theta)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Graph A"
+        },
+        {
+          "label": "B",
+          "text": "Graph B"
+        },
+        {
+          "label": "C",
+          "text": "Graph C"
+        },
+        {
+          "label": "D",
+          "text": "Graph D"
+        },
+        {
+          "label": "E",
+          "text": "Graph E"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "figures": [
+        "figures/f2023-final/q25.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
