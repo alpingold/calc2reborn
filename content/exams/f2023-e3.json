@@ -1,0 +1,430 @@
+{
+  "id": "f2023-e3",
+  "term": "Fall",
+  "year": 2023,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2023.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2023-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Which of the following sequences are convergent?\n\nI. $\\left\\{a_k = \\frac{2k}{3k + 5}\\right\\}$\n\nII. $\\{a_k = \\cos k\\pi\\}$\n\nIII. $\\left\\{a_k = k\\tan\\left(\\frac{1}{k}\\right)\\right\\}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II only"
+        },
+        {
+          "label": "B",
+          "text": "II and III only"
+        },
+        {
+          "label": "C",
+          "text": "I and III only"
+        },
+        {
+          "label": "D",
+          "text": "I only"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Determine if the sequence $\\left\\{a_k = \\sqrt[k]{k^2} + \\frac{(-1)^k\\sqrt{k}}{k+1}\\right\\}$ for $k = 1, 2, 3, ...$ converges. And if it does, find what it converges to.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "converges to $1$"
+        },
+        {
+          "label": "B",
+          "text": "converges to $2$"
+        },
+        {
+          "label": "C",
+          "text": "converges to $0$"
+        },
+        {
+          "label": "D",
+          "text": "converges to $-1$"
+        },
+        {
+          "label": "E",
+          "text": "the sequence diverges"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the sum of the following convergent telescoping series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{3}{k(k + 3)} = \\sum_{k=1}^{\\infty} \\left(\\frac{1}{k} - \\frac{1}{k + 3}\\right)\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{7}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7}{12}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{11}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{7}{4}$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{1}{(k^{3p} + 1)^{1/6}}\n$$\n\nis convergent if and only if",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$p > \\frac{1}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$p > \\frac{1}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$p > \\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$p > 2$"
+        },
+        {
+          "label": "E",
+          "text": "$p > 3$"
+        }
+      ],
+      "answer": "D",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the sum of the following convergent series\n\n$$\n\\sum_{k=0}^{\\infty} (-1)^k\\frac{8}{3^k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$12$"
+        },
+        {
+          "label": "B",
+          "text": "$6$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Which of the following series converge by **the integral test**?\n\nI. $\\sum_{k=2} \\frac{1}{k\\ln k}$\n\nII. $\\sum_{k=2} \\frac{1}{k\\ln(k^2)}$\n\nIII. $\\sum_{k=2} \\frac{1}{k(\\ln k)^2}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "II and III only"
+        },
+        {
+          "label": "B",
+          "text": "III only"
+        },
+        {
+          "label": "C",
+          "text": "II only"
+        },
+        {
+          "label": "D",
+          "text": "I only"
+        },
+        {
+          "label": "E",
+          "text": "none of them"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Which of the following series converge by the **limit comparison test**?\n\nI. $\\sum_{k=2}^{\\infty} \\frac{1}{\\sqrt{k} - 1}$\n\nII. $\\sum_{k=1}^{\\infty} \\frac{2^k + 1}{3^k}$\n\nIII. $\\sum_{k=4}^{\\infty} \\frac{k + 15}{k(k - 3)(k + 2)}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of them"
+        },
+        {
+          "label": "B",
+          "text": "None of them"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II only"
+        },
+        {
+          "label": "E",
+          "text": "II and III only"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Consider the series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{10 + 7\\cos(k\\pi)}{k^2 + \\sqrt{k}}\n$$\n\nWhich of the following statements is correct?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The series converges by a comparison to $\\sum_{k=1}^{\\infty} \\frac{17}{k^2}$"
+        },
+        {
+          "label": "B",
+          "text": "The series diverges by a comparison to $\\sum_{k=1}^{\\infty} \\frac{17}{\\sqrt{k}}$"
+        },
+        {
+          "label": "C",
+          "text": "The series diverges by a comparison to $\\sum_{k=1}^{\\infty} \\frac{3}{k^2}$"
+        },
+        {
+          "label": "D",
+          "text": "The series converges by a comparison to $\\sum_{k=1}^{\\infty} \\frac{17}{\\sqrt{k}}$"
+        },
+        {
+          "label": "E",
+          "text": "The series diverges because $\\lim_{k\\to\\infty} \\frac{10 + 7\\cos(k\\pi)}{k^2 + \\sqrt{k}}$ does not exist"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "What is the minimum number of terms needed to estimate the sum of the series $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k-1}}{k^3}$ with $|\\,\\text{error}\\,| < \\frac{1}{1000}$ (that is, the absolute value of the error is **strictly less than** $\\frac{1}{1000}$)?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$9$"
+        },
+        {
+          "label": "B",
+          "text": "$10$"
+        },
+        {
+          "label": "C",
+          "text": "$11$"
+        },
+        {
+          "label": "D",
+          "text": "$1000$"
+        },
+        {
+          "label": "E",
+          "text": "$999$"
+        }
+      ],
+      "answer": "B",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Consider the following two alternating series:\n\nI. $\\sum_{k=1}^{\\infty} (-1)^k\\frac{\\pi}{k^4}$\n\nII. $\\sum_{k=1}^{\\infty} (-1)^{k-1}\\frac{k}{k^2 + 4k + 5}$\n\nWhich of the following statements is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II are absolutely convergent"
+        },
+        {
+          "label": "B",
+          "text": "I is conditionally convergent and II is absolutely convergent"
+        },
+        {
+          "label": "C",
+          "text": "I and II are conditionally convergent"
+        },
+        {
+          "label": "D",
+          "text": "I is absolutely convergent and II is divergent"
+        },
+        {
+          "label": "E",
+          "text": "I is absolutely convergent and II is conditionally convergent"
+        }
+      ],
+      "answer": "E",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "For **how many** of the following series does the **root test** show that the series converges?\n\nI. $\\sum_{k=1}^{\\infty} \\left(\\frac{k}{k + 5}\\right)^{2k^2}$\n\nII. $\\sum_{k=1}^{\\infty} \\left(1 + \\frac{19}{k}\\right)^{k^2}$\n\nIII. $\\sum_{k=1}^{\\infty} \\left(\\frac{k - 4}{k}\\right)^k$\n\nIV. $\\sum_{k=1}^{\\infty} \\left(\\frac{1}{k} - \\frac{1}{k^2}\\right)^k$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "C",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2023-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "On which of the following intervals does the series $\\sum_{k=1}^{\\infty} \\frac{3x^k}{2k^2}$ converge?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-1 \\le x \\le 1$"
+        },
+        {
+          "label": "B",
+          "text": "$-1 < x \\le 1$"
+        },
+        {
+          "label": "C",
+          "text": "$-1 < x < 1$"
+        },
+        {
+          "label": "D",
+          "text": "$-1 \\le x < 1$"
+        },
+        {
+          "label": "E",
+          "text": "Converges for all $x$"
+        }
+      ],
+      "answer": "A",
+      "answerSource": "derived",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
