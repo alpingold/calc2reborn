@@ -32,7 +32,7 @@
     "id": "L2-c04",
     "lessonId": "L2",
     "front": "What must be true before you complete the square in a sphere equation, and what do you add?",
-    "back": "The coefficients of $x^2$, $y^2$, $z^2$ must be $1$, so divide first if needed. For each variable take half the linear coefficient, square it, and add it to both sides.",
+    "back": "The coefficients of $x^2$, $y^2$, $z^2$ must be equal, or it is not a sphere: $x^2 + 2y^2 + z^2 = 1$ cannot be fixed by dividing. If they are equal but not $1$, divide by that coefficient first. For each variable take half the linear coefficient, square it, and add it to both sides.",
     "tags": [
       "completing-square"
     ]
@@ -118,7 +118,7 @@
     "id": "L2-c13",
     "lessonId": "L2",
     "front": "Are $A(0, 0, 0)$, $B(2, 4, 6)$, and $C(1, 2, 4)$ collinear?",
-    "back": "No. $\\vec{AB} = \\langle 2, 4, 6 \\rangle$ and $\\vec{AC} = \\langle 1, 2, 4 \\rangle$. The first two components give $k = 2$ but the third gives $k = \\frac{3}{2}$. One $k$ must work in every component.",
+    "back": "No. $\\vec{AB} = \\langle 2, 4, 6 \\rangle$ and $\\vec{AC} = \\langle 1, 2, 4 \\rangle$. If $\\vec{AB} = k\\vec{AC}$, the first two components give $k = 2$ but the third gives $k = \\frac{3}{2}$. One $k$ must work in every component.",
     "tags": [
       "trap",
       "collinear"

@@ -117,7 +117,7 @@
     "id": "L3-c13",
     "lessonId": "L3",
     "front": "Can a scalar projection be negative? What does that do to the vector projection?",
-    "back": "Yes. $\\text{scal}_{\\vec{a}} \\vec{b} = |\\vec{b}|\\cos\\theta$ is negative when $\\theta > 90^\\circ$. Chen introduces it as the length of a shadow, but his own example gives $-\\sqrt{5}$, so read it as a signed length. Then $\\text{proj}_{\\vec{a}} \\vec{b}$ points opposite $\\vec{a}$.",
+    "back": "Yes. $\\text{scal}_{\\vec{a}} \\vec{b} = |\\vec{b}|\\cos\\theta$ is negative when the angle $\\theta$ between the vectors is more than $90^\\circ$. Chen introduces it as the length of a shadow; his example gets $-\\sqrt{5}$, negative because the angle is obtuse, so read it as a signed length. Then $\\text{proj}_{\\vec{a}} \\vec{b}$ points opposite $\\vec{a}$.",
     "tags": [
       "trap",
       "projection"

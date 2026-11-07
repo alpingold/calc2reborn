@@ -2,8 +2,8 @@
   {
     "id": "L4-c01",
     "lessonId": "L4",
-    "front": "Is $\\vec{u} \\cdot \\vec{v}$ a scalar or a vector? And $\\vec{u} \\times \\vec{v}$? Give the magnitude formula for each.",
-    "back": "$\\vec{u} \\cdot \\vec{v}$ is a scalar: $|\\vec{u}||\\vec{v}|\\cos\\theta$. $\\vec{u} \\times \\vec{v}$ is a vector with magnitude $|\\vec{u}||\\vec{v}|\\sin\\theta$ and direction from the right-hand rule. Dot goes with cosine, cross with sine.",
+    "front": "Is $\\vec{u} \\cdot \\vec{v}$ a scalar or a vector? And $\\vec{u} \\times \\vec{v}$? Give the geometric formula for $\\vec{u} \\cdot \\vec{v}$ and the magnitude of $\\vec{u} \\times \\vec{v}$.",
+    "back": "$\\vec{u} \\cdot \\vec{v}$ is a scalar: $|\\vec{u}||\\vec{v}|\\cos\\theta$, where $\\theta$ is the angle between the vectors. $\\vec{u} \\times \\vec{v}$ is a vector with magnitude $|\\vec{u}||\\vec{v}|\\sin\\theta$ and direction from the right-hand rule. Dot goes with cosine, cross with sine.",
     "tags": [
       "trap",
       "cross-product"
@@ -82,7 +82,7 @@
     "id": "L4-c09",
     "lessonId": "L4",
     "front": "What does $\\vec{a} \\times \\vec{b} = \\vec{0}$ tell you?",
-    "back": "If both vectors are nonzero, they are parallel: $\\theta = 0$ or $180^\\circ$, so $\\sin\\theta = 0$. If either is $\\vec{0}$, the cross product is $\\vec{0}$ automatically and no angle is defined. Chen states the direction parallel $\\Rightarrow$ cross product $\\vec{0}$; the zero-vector case is beyond his notes.",
+    "back": "If both vectors are nonzero, they are parallel: the angle between them is $\\theta = 0$ or $180^\\circ$, so $\\sin\\theta = 0$. If either is $\\vec{0}$, the cross product is $\\vec{0}$ automatically and no angle is defined. Chen states the direction parallel $\\Rightarrow$ cross product $\\vec{0}$; the zero-vector case is beyond his notes.",
     "tags": [
       "trap",
       "parallel"
@@ -141,7 +141,7 @@
     "id": "L4-c15",
     "lessonId": "L4",
     "front": "How is the cross product used for torque?",
-    "back": "A force $\\vec{F}$ applied at $P$, with pivot $O$, has torque about the pivot $\\vec{OP} \\times \\vec{F}$. It is a vector, and the order is position first, then force. Its magnitude is $|\\vec{OP}||\\vec{F}|\\sin\\theta$.",
+    "back": "A force $\\vec{F}$ applied at $P$, with pivot $O$, has torque about the pivot $\\vec{OP} \\times \\vec{F}$. It is a vector, and the order is position first, then force. Its magnitude is $|\\vec{OP}||\\vec{F}|\\sin\\theta$, where $\\theta$ is the angle between $\\vec{OP}$ and $\\vec{F}$.",
     "tags": [
       "application"
     ]
