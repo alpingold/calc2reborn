@@ -113,7 +113,7 @@
     "id": "L34-c12",
     "lessonId": "L34",
     "front": "Symmetry tests for a polar curve (beyond Chen's notes).",
-    "back": "$x$-axis: replacing $\\theta$ by $-\\theta$ gives an equivalent equation. $y$-axis: replacing $\\theta$ by $\\pi - \\theta$ does. Origin: replacing $r$ by $-r$, or $\\theta$ by $\\theta + \\pi$, does. Any two of the three symmetries imply the third.",
+    "back": "$x$-axis: replacing $\\theta$ by $-\\theta$ gives an equivalent equation; $y$-axis: replacing $\\theta$ by $\\pi - \\theta$ does; origin: replacing $r$ by $-r$, or $\\theta$ by $\\theta + \\pi$, does. A test that passes proves the symmetry; one that fails proves nothing. Any two of the three symmetries imply the third.",
     "tags": [
       "symmetry"
     ]

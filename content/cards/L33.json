@@ -53,7 +53,7 @@
     "id": "L33-c06",
     "lessonId": "L33",
     "front": "Why is $\\theta = \\tan^{-1}\\left(\\frac{y}{x}\\right)$ not always right when converting $(x, y)$ to polar?",
-    "back": "$\\tan^{-1}$ only returns angles in $(-\\pi/2, \\pi/2)$, which point to the right. For a point with $x < 0$ (quadrant II or III) it is off by $\\pi$: add $\\pi$ and keep $r > 0$, or keep the angle and take $r < 0$. Always check the point's quadrant.",
+    "back": "$\\tan^{-1}$ only returns angles in $(-\\pi/2, \\pi/2)$, which point to the right. For a point with $x < 0$ (quadrant II or III, or the negative $x$-axis) it is off by $\\pi$: add $\\pi$ and keep $r > 0$, or keep the angle and take $r < 0$. Always check the point's quadrant.",
     "tags": [
       "trap",
       "conversion",
