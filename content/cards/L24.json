@@ -33,7 +33,7 @@
     "id": "L24-c04",
     "lessonId": "L24",
     "front": "State the error bound for an alternating series that satisfies the AST.",
-    "back": "If $a_k$ is nonincreasing from $k = n+1$ onward and $a_k \\to 0$, then $S$ lies between $S_n$ and $S_{n+1}$, and $|S - S_n| \\le a_{n+1}$. So the error is at most the magnitude of the first omitted term (the formula assumes the sum starts at $k = 1$). It can fail for $n$ before the magnitudes stop increasing.",
+    "back": "Let $S$ be the sum and $S_n$ the $n$th partial sum. If $a_k$ is nonincreasing from $k = n+1$ onward and $a_k \\to 0$, then $S$ lies between $S_n$ and $S_{n+1}$, and $|S - S_n| \\le a_{n+1}$. So the error is at most the magnitude of the first omitted term (the formula assumes the sum starts at $k = 1$). It can fail for $n$ before the magnitudes stop increasing.",
     "tags": [
       "alternating",
       "error-bound"
