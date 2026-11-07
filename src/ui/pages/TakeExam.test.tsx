@@ -47,7 +47,23 @@ const seedExam: Exam = {
   questions: Array.from({ length: 12 }, (_, i) => (i === 0 ? { ...q(1), answerSource: 'derived' as const } : q(i + 1))),
 }
 
-const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam])
+// a second exam, all on L21, for switching between exams
+const otherExam: Exam = {
+  id: 'f2024-e1',
+  term: 'Fall',
+  year: 2024,
+  exam: '1',
+  examUrl: '',
+  durationMinutes: 60,
+  questions: Array.from({ length: 4 }, (_, i) => ({
+    ...q(i + 1),
+    id: `f2024-e1-q${i + 1}`,
+    stem: `Other stem ${i + 1}`,
+    lessonIds: ['L21'],
+  })),
+}
+
+const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam, otherExam])
 const now = () => new Date()
 const rng = () => 0
 
@@ -277,4 +293,134 @@ test('an unknown exam id shows not found', async () => {
   renderAt('/exams/nope', new MemoryStore())
   expect(await screen.findByText('Exam not found')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Back to exams' })).toHaveAttribute('href', '/exams')
+})
+
+async function conflictAt(url: string, store = new MemoryStore()) {
+  const view = renderAt(url, store)
+  await screen.findByRole('button', { name: 'Discard and start this one' })
+  return { store, view }
+}
+
+test('(a) a mock for another lesson range does not silently serve the saved mock', async () => {
+  const { view } = await start('/exams/mock?from=L19&to=L19')
+  expect(screen.getByRole('heading', { name: 'Question 1 of 3' })).toBeInTheDocument()
+  view.unmount()
+
+  await conflictAt('/exams/mock?from=L20&to=L20')
+  expect(screen.queryByRole('heading', { name: /Question 1 of/ })).not.toBeInTheDocument()
+  expect(screen.getByText(/Mock exam, Lesson 19/)).toHaveTextContent('0 of 3 answered')
+  expect(screen.getByRole('link', { name: 'Resume' })).toHaveAttribute('href', '/exams/mock?from=L19&to=L19')
+
+  const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
+  expect(confirm).toHaveBeenCalledWith('Discard your answers to Mock exam, Lesson 19? This cannot be undone.')
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 9' })).toBeInTheDocument()
+  expect(screen.getByText(/^Stem (\d+)$/).textContent).toMatch(/^Stem ([4-9]|1[0-2])$/)
+  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({ kind: 'mock', from: 'L20', to: 'L20' })
+})
+
+test('declining the discard keeps the saved session', async () => {
+  const { view } = await start('/exams/mock?from=L19&to=L19')
+  const saved = sessionStorage.getItem(SESSION_KEY)
+  view.unmount()
+  await conflictAt('/exams/mock?from=L20&to=L20')
+  vi.spyOn(window, 'confirm').mockReturnValue(false)
+  await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
+  expect(screen.getByRole('button', { name: 'Discard and start this one' })).toBeInTheDocument()
+  expect(sessionStorage.getItem(SESSION_KEY)).toBe(saved)
+})
+
+test('(b) an expired saved mock does not jump to results for a new request', async () => {
+  const store = new MemoryStore()
+  const { view } = await start('/exams/mock?from=L19&to=L19', store)
+  await user().keyboard('a')
+  view.unmount()
+  vi.setSystemTime(new Date(NOW.getTime() + 61 * 60 * 1000))
+
+  const other = renderAt('/exams/mock?from=L20&to=L20', store)
+  await screen.findByRole('button', { name: 'Discard and start this one' })
+  expect(screen.getByText(/ran out of time/)).toHaveTextContent('Mock exam, Lesson 19 ran out of time before it was submitted')
+  expect(screen.queryByText(/^results:/)).not.toBeInTheDocument()
+  other.unmount()
+
+  // the same range is a new request too: it asks rather than submitting a score of zero
+  renderAt('/exams/mock?from=L19&to=L19', store)
+  await screen.findByRole('button', { name: 'Discard and start this one' })
+  expect(screen.queryByText(/^results:/)).not.toBeInTheDocument()
+  expect(await store.listAttempts()).toHaveLength(0)
+})
+
+test('resuming an expired session submits it', async () => {
+  const store = new MemoryStore()
+  const { view } = await start('/exams/mock?from=L19&to=L19', store)
+  await user().keyboard('a')
+  view.unmount()
+  vi.setSystemTime(new Date(NOW.getTime() + 61 * 60 * 1000))
+  await conflictAt('/exams/mock?from=L20&to=L20', store)
+  await user().click(screen.getByRole('link', { name: 'Resume' }))
+  await screen.findByText(/^results:/)
+  const attempts = await store.listAttempts()
+  expect(attempts).toHaveLength(1)
+  expect(attempts[0]).toMatchObject({ mode: 'mock', chosen: 'A' })
+  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+})
+
+test('(c) opening another exam keeps the answers of the one in progress', async () => {
+  const { view } = await start('/exams/f2025-e1')
+  await user().keyboard('b')
+  view.unmount()
+
+  await conflictAt('/exams/f2024-e1')
+  expect(screen.getByRole('heading', { level: 2, name: 'Fall 2024 Exam 1' })).toBeInTheDocument()
+  expect(screen.getByText(/Fall 2025 Exam 1/)).toHaveTextContent('1 of 12 answered')
+  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({
+    examId: 'f2025-e1',
+    answers: { 'f2025-e1-q1': 'B' },
+  })
+})
+
+test('Resume returns to the session in progress with its answers', async () => {
+  const { view } = await start('/exams/f2025-e1')
+  await user().keyboard('b')
+  view.unmount()
+
+  await conflictAt('/exams/f2024-e1')
+  await user().click(screen.getByRole('link', { name: 'Resume' }))
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 12' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { level: 2, name: 'Fall 2025 Exam 1' })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /beta/ })).toHaveAttribute('aria-pressed', 'true')
+})
+
+test('Discard and start this one replaces the exam in progress', async () => {
+  const { view } = await start('/exams/f2025-e1')
+  await user().keyboard('b')
+  view.unmount()
+
+  await conflictAt('/exams/f2024-e1')
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 4' })).toBeInTheDocument()
+  expect(screen.getByText('Other stem 1')).toBeInTheDocument()
+  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({ examId: 'f2024-e1', answers: {} })
+})
+
+test('an older saved mock with no lesson range asks instead of being restored, and can resume', async () => {
+  sessionStorage.setItem(
+    SESSION_KEY,
+    JSON.stringify({
+      sessionId: 'old-mock',
+      kind: 'mock',
+      questionIds: ['f2025-e1-q1', 'f2025-e1-q2'],
+      answers: { 'f2025-e1-q2': 'D' },
+      marked: [],
+      startedAt: NOW.toISOString(),
+      durationMinutes: 60,
+    }),
+  )
+  await conflictAt('/exams/mock?from=L19&to=L19')
+  expect(screen.getByText(/Mock exam/, { selector: 'p' })).toHaveTextContent('1 of 2 answered')
+  const resume = screen.getByRole('link', { name: 'Resume' })
+  expect(resume).toHaveAttribute('href', '/exams/mock')
+  await user().click(resume)
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 2' })).toBeInTheDocument()
 })

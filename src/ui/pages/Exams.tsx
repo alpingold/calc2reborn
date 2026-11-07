@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router'
 import type { Exam } from '../../content/schema'
-import { useContent, useSettings, useStore } from '../../storage/context'
-import { examLabel } from '../examSession'
+import { useContent, useNow, useSettings, useStore } from '../../storage/context'
+import { examLabel, loadSession, remainingSeconds, sessionTitle, sessionUrl } from '../examSession'
+import type { ResumeState } from '../examSession'
 
 function bestByExam(attempts: { examId?: string; sessionId?: string; correct: boolean }[]): Map<string, number> {
   const perSession = new Map<string, { examId: string; correct: number }>()
@@ -23,6 +24,8 @@ export function Exams() {
   const content = useContent()
   const { settings } = useSettings()
   const navigate = useNavigate()
+  const now = useNow()
+  const [inProgress] = useState(loadSession)
 
   const planned = useMemo(() => content.lessons.filter((l) => !l.isReview), [content.lessons])
   const current = settings.currentLessonId ? content.lessonById.get(settings.currentLessonId) : undefined
@@ -73,6 +76,17 @@ export function Exams() {
     <section className="exams">
       <h2>Exams</h2>
       {error && <p role="alert">{error}</p>}
+      {inProgress && (
+        <p>
+          {`In progress: ${sessionTitle(inProgress, content)}`}
+          {remainingSeconds(inProgress, now()) > 0
+            ? `, ${inProgress.questionIds.filter((id) => inProgress.answers[id]).length} of ${inProgress.questionIds.length} answered. `
+            : '. Its time is up; resuming submits it. '}
+          <Link to={sessionUrl(inProgress)} state={{ resume: inProgress.sessionId } satisfies ResumeState}>
+            Resume
+          </Link>
+        </p>
+      )}
       <form className="mock-form" onSubmit={onGenerate}>
         <h3>Mock exam</h3>
         <label>

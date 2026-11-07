@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { afterEach, expect, test } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router'
@@ -11,6 +11,7 @@ import { buildContent } from '../../content'
 import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
+import { saveSession } from '../examSession'
 
 const choices: Choice[] = (['A', 'B', 'C', 'D', 'E'] as const).map((label) => ({ label, text: label }))
 
@@ -50,8 +51,13 @@ function attempt(sessionId: string, examId: string, n: number, correct: boolean,
 
 function Where() {
   const loc = useLocation()
-  return <p>{`at:${loc.pathname}${loc.search}`}</p>
+  const resume = (loc.state as { resume?: string } | null)?.resume
+  return <p>{`at:${loc.pathname}${loc.search}${resume ? ` resume:${resume}` : ''}`}</p>
 }
+
+afterEach(() => {
+  sessionStorage.clear()
+})
 
 async function setup(store = new MemoryStore()) {
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L26' })
@@ -95,4 +101,46 @@ test('Generate mock exam navigates with the chosen lesson range', async () => {
   await u.selectOptions(screen.getByRole('combobox', { name: 'From' }), 'L19')
   await u.click(screen.getByRole('button', { name: 'Generate mock exam' }))
   expect(await screen.findByText('at:/exams/mock?from=L19&to=L26')).toBeInTheDocument()
+})
+
+test('shows no Resume link when no exam is in progress', async () => {
+  await setup()
+  expect(screen.queryByRole('link', { name: 'Resume' })).not.toBeInTheDocument()
+})
+
+test('shows a Resume link for the exam in progress', async () => {
+  saveSession({
+    sessionId: 's-live',
+    kind: 'exam',
+    examId: 'f2025-e1',
+    questionIds: ['f2025-e1-q1', 'f2025-e1-q2'],
+    answers: { 'f2025-e1-q1': 'B' },
+    marked: [],
+    startedAt: new Date().toISOString(),
+    durationMinutes: 60,
+  })
+  await setup()
+  const resume = screen.getByRole('link', { name: 'Resume' })
+  expect(resume.closest('p')).toHaveTextContent('In progress: Fall 2025 Exam 1, 1 of 2 answered.')
+  expect(resume).toHaveAttribute('href', '/exams/f2025-e1')
+  await userEvent.click(resume)
+  expect(await screen.findByText('at:/exams/f2025-e1 resume:s-live')).toBeInTheDocument()
+})
+
+test('a Resume link for a mock leads back to its lesson range', async () => {
+  saveSession({
+    sessionId: 's-mock',
+    kind: 'mock',
+    from: 'L19',
+    to: 'L26',
+    questionIds: ['f2025-e1-q1'],
+    answers: {},
+    marked: [],
+    startedAt: '2000-01-01T00:00:00.000Z',
+    durationMinutes: 60,
+  })
+  await setup()
+  const resume = screen.getByRole('link', { name: 'Resume' })
+  expect(resume.closest('p')).toHaveTextContent('In progress: Mock exam, Lessons 19 to 26. Its time is up; resuming submits it.')
+  expect(resume).toHaveAttribute('href', '/exams/mock?from=L19&to=L26')
 })

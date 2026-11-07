@@ -1,15 +1,19 @@
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { buildContent } from '../content'
 import type { Choice, Exam, Question } from '../content/schema'
+import { fixtureLessons } from '../test/fixtures'
 import {
   SESSION_KEY,
   clearSession,
   finishSession,
   loadSession,
+  matchesRequest,
   remainingSeconds,
   saveSession,
   formatPoints,
   scoreSession,
+  sessionTitle,
+  sessionUrl,
 } from './examSession'
 import type { ExamSession } from './examSession'
 
@@ -28,7 +32,7 @@ const exam: Exam = {
   durationMinutes: 60,
   questions: [q(1, 8, 'A'), q(2, 8, 'B'), q(3, 10, 'C')],
 }
-const content = buildContent([], [], [exam])
+const content = buildContent(fixtureLessons(), [], [exam])
 
 const START = '2026-11-06T12:00:00.000Z'
 
@@ -153,4 +157,60 @@ test('storage failures are swallowed', () => {
   expect(() => saveSession(session())).not.toThrow()
   expect(loadSession()).toBeNull()
   expect(() => clearSession()).not.toThrow()
+})
+
+test('a mock session round-trips its lesson range', () => {
+  const s = session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L26' })
+  saveSession(s)
+  expect(loadSession()).toEqual(s)
+})
+
+test('loadSession accepts an older saved mock with no lesson range', () => {
+  const s = session({ kind: 'mock', examId: undefined })
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(s))
+  expect(loadSession()).toEqual(s)
+})
+
+test('loadSession rejects a lesson range that is not a string', () => {
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...session({ kind: 'mock' }), from: 19 }))
+  expect(loadSession()).toBeNull()
+})
+
+describe('matchesRequest', () => {
+  const mock = session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L26' })
+  test('an exam session matches only the same exam', () => {
+    expect(matchesRequest(session(), { kind: 'exam', examId: 'f2025-e1' })).toBe(true)
+    expect(matchesRequest(session(), { kind: 'exam', examId: 'f2024-e1' })).toBe(false)
+    expect(matchesRequest(session(), { kind: 'mock', from: 'L19', to: 'L26' })).toBe(false)
+  })
+  test('a mock session matches only the same lesson range', () => {
+    expect(matchesRequest(mock, { kind: 'mock', from: 'L19', to: 'L26' })).toBe(true)
+    expect(matchesRequest(mock, { kind: 'mock', from: 'L1', to: 'L4' })).toBe(false)
+    expect(matchesRequest(mock, { kind: 'mock', from: 'L19', to: 'L20' })).toBe(false)
+    expect(matchesRequest(mock, { kind: 'exam', examId: 'f2025-e1' })).toBe(false)
+  })
+  test('an older mock with no lesson range matches no mock request', () => {
+    const old = session({ kind: 'mock', examId: undefined })
+    expect(matchesRequest(old, { kind: 'mock', from: 'L19', to: 'L26' })).toBe(false)
+  })
+})
+
+test('sessionUrl leads back to the page that resumes the session', () => {
+  expect(sessionUrl(session())).toBe('/exams/f2025-e1')
+  expect(sessionUrl(session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L26' }))).toBe(
+    '/exams/mock?from=L19&to=L26',
+  )
+  expect(sessionUrl(session({ kind: 'mock', examId: undefined }))).toBe('/exams/mock')
+})
+
+test('sessionTitle names the exam or the mock range', () => {
+  expect(sessionTitle(session(), content)).toBe('Fall 2025 Exam 1')
+  expect(sessionTitle(session({ examId: 'gone' }), content)).toBe('An exam')
+  expect(sessionTitle(session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L26' }), content)).toBe(
+    'Mock exam, Lessons 19 to 26',
+  )
+  expect(sessionTitle(session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L19' }), content)).toBe(
+    'Mock exam, Lesson 19',
+  )
+  expect(sessionTitle(session({ kind: 'mock', examId: undefined }), content)).toBe('Mock exam')
 })

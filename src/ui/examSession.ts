@@ -6,6 +6,9 @@ export interface ExamSession {
   sessionId: string
   kind: 'exam' | 'mock'
   examId?: string
+  // a mock's lesson range; sessions saved before ranges were stored have none and match no mock request
+  from?: string
+  to?: string
   questionIds: string[]
   answers: Record<string, Choice['label']>
   marked: string[]
@@ -32,6 +35,8 @@ function isSession(v: unknown): v is ExamSession {
     typeof s.sessionId === 'string' &&
     (s.kind === 'exam' || s.kind === 'mock') &&
     (s.examId === undefined || typeof s.examId === 'string') &&
+    (s.from === undefined || typeof s.from === 'string') &&
+    (s.to === undefined || typeof s.to === 'string') &&
     Array.isArray(s.questionIds) &&
     s.questionIds.every((id) => typeof id === 'string') &&
     !!s.answers &&
@@ -61,6 +66,38 @@ export function clearSession(): void {
   } catch {
     // nothing to clear if storage is unavailable
   }
+}
+
+/** Navigation state that resumes the saved session with this id, even one whose time is up. */
+export interface ResumeState {
+  resume: string
+}
+
+export type SessionRequest = { kind: 'exam'; examId: string } | { kind: 'mock'; from: string; to: string }
+
+/** Whether a saved session is the one this request asks for, so it may be restored without asking. */
+export function matchesRequest(s: ExamSession, request: SessionRequest): boolean {
+  if (request.kind === 'exam') return s.kind === 'exam' && s.examId === request.examId
+  return s.kind === 'mock' && s.from !== undefined && s.from === request.from && s.to === request.to
+}
+
+/** The page that resumes a session. */
+export function sessionUrl(s: ExamSession): string {
+  if (s.kind === 'exam') return `/exams/${s.examId ?? ''}`
+  if (s.from === undefined || s.to === undefined) return '/exams/mock'
+  return `/exams/mock?${new URLSearchParams({ from: s.from, to: s.to }).toString()}`
+}
+
+/** A name for a session in progress, such as "Fall 2025 Exam 1" or "Mock exam, Lessons 19 to 26". */
+export function sessionTitle(s: ExamSession, content: Content): string {
+  if (s.kind === 'exam') {
+    const exam = content.exams.find((e) => e.id === s.examId)
+    return exam ? examTitle(exam) : 'An exam'
+  }
+  const from = s.from ? content.lessonById.get(s.from) : undefined
+  const to = s.to ? content.lessonById.get(s.to) : undefined
+  if (!from || !to) return 'Mock exam'
+  return from.id === to.id ? `Mock exam, Lesson ${from.number}` : `Mock exam, Lessons ${from.number} to ${to.number}`
 }
 
 export function remainingSeconds(s: ExamSession, now: Date): number {

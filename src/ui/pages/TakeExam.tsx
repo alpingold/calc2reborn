@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
+import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router'
 import type { Choice } from '../../content/schema'
 import { sampleMockExam } from '../../engine/mock'
 import { pullForward } from '../../engine/queue'
@@ -11,10 +11,13 @@ import {
   examTitle,
   finishSession,
   loadSession,
+  matchesRequest,
   remainingSeconds,
   saveSession,
+  sessionTitle,
+  sessionUrl,
 } from '../examSession'
-import type { ExamSession } from '../examSession'
+import type { ExamSession, ResumeState, SessionRequest } from '../examSession'
 
 const MOCK_MINUTES = 60
 
@@ -24,28 +27,42 @@ function formatClock(total: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
 }
 
-// Route component: a different exam or mock range remounts the session view.
+// Route component: every navigation remounts the session view, so a Resume link to the same URL
+// starts over from the saved session and state never carries over between exams.
 export function TakeExam({ mode = 'exam' }: { mode?: 'exam' | 'mock' }) {
   const { examId } = useParams()
   const [searchParams] = useSearchParams()
+  const location = useLocation()
   const from = searchParams.get('from')
   const to = searchParams.get('to')
-  const key = mode === 'mock' ? `mock:${from}:${to}` : `exam:${examId}`
-  return <ExamSessionView key={key} mode={mode} examId={examId} from={from} to={to} />
+  const resume = (location.state as Partial<ResumeState> | null)?.resume
+  const key = `${mode === 'mock' ? `mock:${from}:${to}` : `exam:${examId}`}:${location.key}`
+  return (
+    <ExamSessionView
+      key={key}
+      mode={mode}
+      examId={examId}
+      from={from}
+      to={to}
+      resumeId={typeof resume === 'string' ? resume : undefined}
+    />
+  )
 }
 
-type Status = 'loading' | 'ready' | 'notfound' | 'empty'
+type Status = 'loading' | 'ready' | 'notfound' | 'empty' | 'conflict'
 
 function ExamSessionView({
   mode,
   examId,
   from,
   to,
+  resumeId,
 }: {
   mode: 'exam' | 'mock'
   examId?: string
   from: string | null
   to: string | null
+  resumeId?: string
 }) {
   const store = useStore()
   const content = useContent()
@@ -58,6 +75,9 @@ function ExamSessionView({
   const [session, setSession] = useState<ExamSession | null>(null)
   const [remaining, setRemaining] = useState(0)
   const [error, setError] = useState<string | null>(null)
+  // the saved session in the way of this request, shown with Resume and Discard
+  const [conflict, setConflict] = useState<ExamSession | null>(null)
+  const alive = useRef(true)
   const sessionRef = useRef<ExamSession | null>(null)
   const busy = useRef(false)
   const autoSubmitted = useRef(false)
@@ -75,18 +95,46 @@ function ExamSessionView({
     saveSession(next)
   }, [])
 
-  useEffect(() => {
-    let cancelled = false
-    ;(async () => {
+  // the lesson range a mock request resolves to, with the lesson ids of its ends
+  const range = useMemo(() => {
+    if (mode !== 'mock') return null
+    const planned = content.lessons.filter((l) => !l.isReview)
+    const numberOf = (id: string | null) => {
+      const l = id ? content.lessonById.get(id) : undefined
+      return l && !l.isReview ? l.number : undefined
+    }
+    const lo = numberOf(from) ?? planned[0]?.number ?? 1
+    const hi = numberOf(to) ?? numberOf(settings.currentLessonId) ?? planned[planned.length - 1]?.number ?? lo
+    const [a, b] = lo <= hi ? [lo, hi] : [hi, lo]
+    const lessons = planned.filter((l) => l.number >= a && l.number <= b)
+    return { lessonIds: lessons.map((l) => l.id), from: lessons[0]?.id, to: lessons[lessons.length - 1]?.id }
+    // the range is resolved once on mount, like the session
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const request: SessionRequest | null =
+    mode === 'exam'
+      ? exam
+        ? { kind: 'exam', examId: exam.id }
+        : null
+      : range?.from && range.to
+        ? { kind: 'mock', from: range.from, to: range.to }
+        : null
+
+  const open = useCallback(
+    (s: ExamSession) => {
+      commit(s)
+      setRemaining(remainingSeconds(s, now()))
+      setStatus('ready')
+    },
+    [commit, now],
+  )
+
+  const startNew = useCallback(
+    async (isCancelled: () => boolean) => {
       try {
-        const saved = loadSession()
-        const matches =
-          saved &&
-          (mode === 'mock' ? saved.kind === 'mock' : saved.kind === 'exam' && saved.examId === examId)
         let s: ExamSession
-        if (saved && matches) {
-          s = saved
-        } else if (mode === 'exam') {
+        if (mode === 'exam') {
           if (!exam) {
             setStatus('notfound')
             return
@@ -103,29 +151,22 @@ function ExamSessionView({
             current: 0,
           }
         } else {
-          const planned = content.lessons.filter((l) => !l.isReview)
-          const numberOf = (id: string | null) => {
-            const l = id ? content.lessonById.get(id) : undefined
-            return l && !l.isReview ? l.number : undefined
-          }
-          const lo = numberOf(from) ?? planned[0]?.number ?? 1
-          const hi = numberOf(to) ?? numberOf(settings.currentLessonId) ?? planned[planned.length - 1]?.number ?? lo
-          const [a, b] = lo <= hi ? [lo, hi] : [hi, lo]
-          const lessonIds = planned.filter((l) => l.number >= a && l.number <= b).map((l) => l.id)
           const questions = sampleMockExam({
-            lessonIds,
+            lessonIds: range?.lessonIds ?? [],
             questionsByLesson: content.questionsByLesson,
             attempts: await store.listAttempts(),
             rng,
           })
-          if (cancelled) return
-          if (questions.length === 0) {
+          if (isCancelled()) return
+          if (questions.length === 0 || !range?.from || !range.to) {
             setStatus('empty')
             return
           }
           s = {
             sessionId: crypto.randomUUID(),
             kind: 'mock',
+            from: range.from,
+            to: range.to,
             questionIds: questions.map((q) => q.id),
             answers: {},
             marked: [],
@@ -134,20 +175,51 @@ function ExamSessionView({
             current: 0,
           }
         }
-        if (cancelled) return
-        commit(s)
-        setRemaining(remainingSeconds(s, now()))
-        setStatus('ready')
+        if (isCancelled()) return
+        open(s)
       } catch {
-        if (!cancelled) setError('Could not start the exam. Try again.')
+        if (!isCancelled()) setError('Could not start the exam. Try again.')
       }
-    })()
+    },
+    [mode, exam, range, content, store, rng, now, open],
+  )
+
+  useEffect(() => {
+    alive.current = true
+    let cancelled = false
+    const saved = loadSession()
+    if (saved && saved.sessionId === resumeId) {
+      // asked for by a Resume link: restore it even if its time is up, which submits it
+      open(saved)
+    } else if (mode === 'exam' && !exam) {
+      setStatus('notfound')
+    } else if (saved && request && matchesRequest(saved, request) && remainingSeconds(saved, now()) > 0) {
+      // a reload of the session in progress
+      open(saved)
+    } else if (saved) {
+      // another session, or this one with its time up: never discard or submit it unasked
+      setConflict(saved)
+      setStatus('conflict')
+    } else {
+      void startNew(() => cancelled)
+    }
     return () => {
       cancelled = true
+      alive.current = false
     }
     // the session is created or restored once on mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  async function discardAndStart() {
+    if (!conflict) return
+    const title = sessionTitle(conflict, content)
+    if (!window.confirm(`Discard your answers to ${title}? This cannot be undone.`)) return
+    clearSession()
+    setConflict(null)
+    setStatus('loading')
+    await startNew(() => !alive.current)
+  }
 
   const sessionId = session?.sessionId
   useEffect(() => {
@@ -246,6 +318,31 @@ function ExamSessionView({
   const heading = mode === 'mock' ? 'Mock exam' : exam ? examTitle(exam) : 'Exam'
   const errorLine = error && <p role="alert">{error}</p>
 
+  if (status === 'conflict' && conflict) {
+    const title = sessionTitle(conflict, content)
+    const left = remainingSeconds(conflict, now())
+    const answered = conflict.questionIds.filter((id) => conflict.answers[id]).length
+    const resumeState: ResumeState = { resume: conflict.sessionId }
+    return (
+      <section>
+        <h2>{heading}</h2>
+        {errorLine}
+        <p>
+          {left > 0
+            ? `You have ${title} in progress, ${answered} of ${conflict.questionIds.length} answered, with ${formatClock(left)} left.`
+            : `${title} ran out of time before it was submitted. Resuming submits it.`}
+        </p>
+        <p className="exam-controls">
+          <Link to={sessionUrl(conflict)} state={resumeState}>
+            Resume
+          </Link>
+          <button type="button" onClick={() => void discardAndStart()}>
+            Discard and start this one
+          </button>
+        </p>
+      </section>
+    )
+  }
   if (status === 'notfound' || status === 'empty') {
     return (
       <section>
