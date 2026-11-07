@@ -12,7 +12,7 @@
   {
     "id": "L16-c02",
     "lessonId": "L16",
-    "front": "What form does a numerator of degree at most $2$ over $(x - 1)(x + 2)(x - 4)$ take?",
+    "front": "What is the form of a fraction with a numerator of degree at most $2$ over $(x - 1)(x + 2)(x - 4)$?",
     "back": "One constant over each distinct linear factor: $\\frac{A}{x - 1} + \\frac{B}{x + 2} + \\frac{C}{x - 4}$.",
     "tags": [
       "form"

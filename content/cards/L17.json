@@ -83,7 +83,7 @@
     "id": "L17-c09",
     "lessonId": "L17",
     "front": "Finish Chen's setup: evaluate $\\int \\frac{2x^2 - x + 4}{x(x^2 + 4)}\\,dx$.",
-    "back": "$2x^2 - x + 4 = A(x^2 + 4) + (Bx + C)x$. $x = 0$ gives $A = 1$; the $x^2$ terms give $A + B = 2$, so $B = 1$; the $x$ terms give $C = -1$. The integral is $\\ln|x| + \\frac{1}{2}\\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right) + D$. (Chen writes only the form.)",
+    "back": "$2x^2 - x + 4 = A(x^2 + 4) + (Bx + C)x$. $x = 0$ gives $A = 1$; the $x^2$ terms give $A + B = 2$, so $B = 1$; the $x$ terms give $C = -1$. The integral is $\\ln|x| + \\frac{1}{2}\\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right) + D$. (The finish is beyond Chen's notes.)",
     "tags": [
       "irreducible"
     ]

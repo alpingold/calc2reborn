@@ -80,8 +80,8 @@
   {
     "id": "L15-c09",
     "lessonId": "L15",
-    "front": "Completing the square gives $x^2 + 4x + 3 = (x + 2)^2 - 1$. Do you need a secant substitution for $\\int \\frac{dx}{x^2 + 4x + 3}$?",
-    "back": "No. There is no radical, and the quadratic factors as $(x + 1)(x + 3)$. Partial fractions give $\\frac{1}{2}\\left(\\frac{1}{x + 1} - \\frac{1}{x + 3}\\right)$, so the integral is $\\frac{1}{2}\\ln\\left|\\frac{x + 1}{x + 3}\\right| + C$. A secant substitution would also work, but takes longer.",
+    "front": "Completing the square gives $x^2 + 2x - 8 = (x + 1)^2 - 9$. Do you need a trig substitution for $\\int \\frac{dx}{x^2 + 2x - 8}$?",
+    "back": "No. There is no radical, and the quadratic factors as $(x - 2)(x + 4)$. Partial fractions give $\\frac{1}{6}\\left(\\frac{1}{x - 2} - \\frac{1}{x + 4}\\right)$, so the integral is $\\frac{1}{6}\\ln\\left|\\frac{x - 2}{x + 4}\\right| + C$. Save trig substitution for radicals and for irreducible quadratics.",
     "tags": [
       "trap",
       "which-method"

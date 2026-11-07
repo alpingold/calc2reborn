@@ -98,7 +98,7 @@
     "id": "L14-c11",
     "lessonId": "L14",
     "front": "With $x = a\\sin\\theta$, why is $\\sqrt{a^2 - x^2} = a\\cos\\theta$ and not $a|\\cos\\theta|$?",
-    "back": "In general $\\sqrt{a^2\\cos^2\\theta} = a|\\cos\\theta|$. But $\\theta = \\sin^{-1}\\left(\\frac{x}{a}\\right)$ lies in $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, where $\\cos\\theta \\ge 0$, so the absolute value can go. Likewise $x = a\\tan\\theta$ has $-\\frac{\\pi}{2} < \\theta < \\frac{\\pi}{2}$, where $\\sec\\theta > 0$. (Chen drops it without comment.)",
+    "back": "In general $\\sqrt{a^2\\cos^2\\theta} = a|\\cos\\theta|$. But $\\theta = \\sin^{-1}\\left(\\frac{x}{a}\\right)$ lies in $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, where $\\cos\\theta \\ge 0$, so the absolute value can go. Likewise $x = a\\tan\\theta$ has $-\\frac{\\pi}{2} < \\theta < \\frac{\\pi}{2}$, where $\\sec\\theta > 0$.",
     "tags": [
       "trap",
       "absolute-value"
