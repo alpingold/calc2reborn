@@ -63,8 +63,8 @@
   {
     "id": "L19-c07",
     "lessonId": "L19",
-    "front": "Does $\\sum_{n=1}^{\\infty} \\cos\\left(\\frac{n\\pi}{2}\\right)$ converge?",
-    "back": "No. The terms are $0, -1, 0, 1, \\dots$, so the partial sums are $0, -1, -1, 0, 0, -1, \\dots$ and never settle. Also $\\lim_{n\\to\\infty} \\cos\\left(\\frac{n\\pi}{2}\\right)$ does not exist, so the Divergence Test confirms divergence.",
+    "front": "Does $\\sum_{n=1}^{\\infty} \\cos\\left(\\frac{2n\\pi}{3}\\right)$ converge?",
+    "back": "No. The terms are $-\\frac{1}{2}, -\\frac{1}{2}, 1$, repeating, so the partial sums are $-\\frac{1}{2}, -1, 0$, repeating, and never settle. Also $\\lim_{n\\to\\infty} \\cos\\left(\\frac{2n\\pi}{3}\\right)$ does not exist, so the Divergence Test confirms divergence.",
     "tags": [
       "series",
       "partial-sums",
