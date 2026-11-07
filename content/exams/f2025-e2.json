@@ -1,0 +1,439 @@
+{
+  "id": "f2025-e2",
+  "term": "Fall",
+  "year": 2025,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2025.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2025.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2025-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Perform polynomial long division to obtain polynomials $q(x)$ and $r(x)$ that satisfy\n\n$$\n\\frac{x^3}{x^2 + x - 3} = q(x) + \\frac{r(x)}{x^2 + x - 3}\n$$\n\nand that the degree of $r(x)$ is strictly less than 2. What is $r(x)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r(x) = 4x - 3$"
+        },
+        {
+          "label": "B",
+          "text": "$r(x) = 4x + 3$"
+        },
+        {
+          "label": "C",
+          "text": "$r(x) = -4x$"
+        },
+        {
+          "label": "D",
+          "text": "$r(x) = 3$"
+        },
+        {
+          "label": "E",
+          "text": "$r(x) = -4x + 3$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\infty} \\frac{3x^2}{(x^3 + 1)^3}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$-1/2$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q03",
+      "number": 3,
+      "points": 12,
+      "stem": "Which of the following statements about the integrals\n\n$$\n\\text{(i)} \\int_{-1}^{1} \\frac{1}{x^2}\\,dx, \\quad \\text{and} \\quad \\text{(ii)} \\int_{0}^{1} \\frac{1}{e^{-x} + e^{x}}\\,dx\n$$\n\nare correct?\n\nNote: Partial credit is possible for this question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(i) is not an improper integral; (ii) is not an improper integral."
+        },
+        {
+          "label": "B",
+          "text": "(i) is not an improper integral; (ii) is a convergent improper integral."
+        },
+        {
+          "label": "C",
+          "text": "(i) is not an improper integral; (ii) is a divergent improper integral."
+        },
+        {
+          "label": "D",
+          "text": "(i) is a convergent improper integral; (ii) is not an improper integral."
+        },
+        {
+          "label": "E",
+          "text": "(i) is a convergent improper integral; (ii) is a convergent improper integral."
+        },
+        {
+          "label": "F",
+          "text": "(i) is a convergent improper integral; (ii) is a divergent improper integral."
+        },
+        {
+          "label": "G",
+          "text": "(i) is a divergent improper integral; (ii) is not an improper integral."
+        },
+        {
+          "label": "H",
+          "text": "(i) is a divergent improper integral; (ii) is a convergent improper integral."
+        },
+        {
+          "label": "I",
+          "text": "(i) is a divergent improper integral; (ii) is a divergent improper integral."
+        }
+      ],
+      "answer": "G",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Which one of the following triangle is most suitable for setting up a trigonometric substitution on the integral\n\n$$\n\\int \\sqrt{x(x - 2)}\\,dx\n$$\n\ninto the variable $\\theta$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Triangle A"
+        },
+        {
+          "label": "B",
+          "text": "Triangle B"
+        },
+        {
+          "label": "C",
+          "text": "Triangle C"
+        },
+        {
+          "label": "D",
+          "text": "Triangle D"
+        },
+        {
+          "label": "E",
+          "text": "Triangle E"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/f2025-e2/q04.png"
+      ],
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Which one of the following is the correct form of the partial fraction decomposition of the rational function\n\n$$\n\\frac{1}{x^5 + 4x^3 + 4x} \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x} + \\frac{B}{x + 2} + \\frac{C}{(x + 2)^2} + \\frac{D}{x - 2} + \\frac{E}{(x - 2)^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x} + \\frac{Bx + C}{x^2 + 2} + \\frac{Dx + E}{(x^2 + 2)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x} + \\frac{B}{x + \\sqrt{2}} + \\frac{Cx + D}{(x + \\sqrt{2})^2} + \\frac{E}{x - \\sqrt{2}} + \\frac{Fx + G}{(x - \\sqrt{2})^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2 + 2} + \\frac{C}{(x^2 + 2)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x} + \\frac{B}{x + \\sqrt{2}} + \\frac{C}{(x + \\sqrt{2})^2} + \\frac{D}{x - \\sqrt{2}} + \\frac{E}{(x - \\sqrt{2})^2}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^1 x^3 \\sqrt{1 - x^2}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2/15$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$1/3$"
+        },
+        {
+          "label": "D",
+          "text": "$1/5$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_{-1}^{2} \\frac{3x - 4}{(x - 3)(x + 2)}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(3) + \\ln(2)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln(3) - \\ln(2)$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln(4)$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find the value of $A$ if\n\n$$\n\\int_0^{\\pi/4} x \\sec(x)^2\\,dx = A - \\int_0^{\\pi/4} \\tan(x)\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$A = \\sqrt{3}\\pi/4$"
+        },
+        {
+          "label": "B",
+          "text": "$A = \\pi/4$"
+        },
+        {
+          "label": "C",
+          "text": "$A = 1$"
+        },
+        {
+          "label": "D",
+          "text": "$A = \\sqrt{2}\\pi/2$"
+        },
+        {
+          "label": "E",
+          "text": "$A = \\sqrt{2}\\pi/4$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int x e^x\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x e^x + e^x + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{x^2 e^x}{2} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$-x e^x + e^x + C$"
+        },
+        {
+          "label": "D",
+          "text": "$x e^x - e^x + C$"
+        },
+        {
+          "label": "E",
+          "text": "$-x e^x - e^x + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^1 \\frac{1}{x^2 - x}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$-1$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L16",
+        "L18"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^1 \\frac{1}{(x^2 + 1)^2}\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{8} + \\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{4} + \\frac{1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{8} + \\frac{1}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{8}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{4}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2025-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_0^{\\pi/2} \\cos(x)^3\\,dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2/3$"
+        },
+        {
+          "label": "B",
+          "text": "$2/3$"
+        },
+        {
+          "label": "C",
+          "text": "$1/4$"
+        },
+        {
+          "label": "D",
+          "text": "$-1/4$"
+        },
+        {
+          "label": "E",
+          "text": "$0$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    }
+  ]
+}
