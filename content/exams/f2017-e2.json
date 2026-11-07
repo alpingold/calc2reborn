@@ -1,0 +1,420 @@
+{
+  "id": "f2017-e2",
+  "term": "Fall",
+  "year": 2017,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2017.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2017.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2017-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "$\\int_0^{3/2} \\frac{1}{4y^2 + 9}\\, dy =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "B",
+          "text": "$3\\pi/16$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi/24$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/12$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi/9$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "$\\int_2^{\\infty} \\frac{2 + u}{u^2}\\, du =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "The integral is divergent"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln 2$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the $x$-coordinate, $\\bar{x}$, of the centroid for the region bounded by $y = 2x$ and $y = x^2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2/3$"
+        },
+        {
+          "label": "B",
+          "text": "$5/3$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3/2$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Consider the two series\n\n$$\n\\sum_{n=0}^{\\infty} \\frac{n^2 - 1}{3n^4 + 1}, \\qquad \\sum_{n=0}^{\\infty} \\frac{1}{\\sqrt{n^2 + 1}}.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both are convergent"
+        },
+        {
+          "label": "B",
+          "text": "Both are divergent"
+        },
+        {
+          "label": "C",
+          "text": "The first one is convergent while the second one is divergent"
+        },
+        {
+          "label": "D",
+          "text": "The first one is divergent while the second one is convergent"
+        },
+        {
+          "label": "E",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the length of the curve $y = f(x)$ from $x = 0$ to $x = \\pi/3$, given its derivative $f'(x) = \\sqrt{\\sec^2 x \\tan^2 x - 1}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{3}/3$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "The area of the surface obtained by revolving the curve $y = 2\\sqrt{x}$ from $(0, 0)$ to $(1, 2)$ about the $x-$axis is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi/3$"
+        },
+        {
+          "label": "B",
+          "text": "$8\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$8\\pi(\\sqrt{2} - 1)/3$"
+        },
+        {
+          "label": "D",
+          "text": "$8\\pi(2\\sqrt{2} - 1)/3$"
+        },
+        {
+          "label": "E",
+          "text": "$4\\pi(\\sqrt{2} - 1)/3$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "$\\int_0^{\\pi/2} \\cos^4 x\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi/9$"
+        },
+        {
+          "label": "C",
+          "text": "$3\\pi/16$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/5$"
+        },
+        {
+          "label": "E",
+          "text": "$5\\pi/8$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "To compute $\\int \\frac{x^2 + 1}{x^2 - 4x + 4}\\, dx$, one should reduce the integrand to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x-2} + \\frac{B}{x-2}$"
+        },
+        {
+          "label": "B",
+          "text": "$x + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x-2} + \\frac{B}{(x-2)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$1 + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x^2} + \\frac{B}{x} + C$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L16",
+        "L17"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "$\\int_0^{\\pi/2} \\sin^3 t \\cos^4 t\\, dt =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5/12$"
+        },
+        {
+          "label": "B",
+          "text": "$1/7$"
+        },
+        {
+          "label": "C",
+          "text": "$2/35$"
+        },
+        {
+          "label": "D",
+          "text": "$3/28$"
+        },
+        {
+          "label": "E",
+          "text": "$5/16$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "To compute $\\int_0^1 \\frac{x^2}{\\sqrt{x^2 - 2x + 2}}\\, dx$, the first step is to reduce the integral to:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\pi/2} \\sin^2 t \\tan t\\, dt$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_{-\\pi/4}^{\\pi/4} (1 + \\sin t)^2 \\tan t\\, dt$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_{-\\pi/4}^0 (1 + \\tan t)^2 \\sec t\\, dt$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\pi/4} \\tan^2 t \\sec t\\, dt$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\pi/2} \\sin^2 t(1 + \\sec t)\\, dt$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find all $p$ such that the series $\\sum_{k=1}^{\\infty} \\sqrt{\\frac{k^4}{k^p + 2}}$ converges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$p > 1$"
+        },
+        {
+          "label": "B",
+          "text": "$p > 5$"
+        },
+        {
+          "label": "C",
+          "text": "$p \\ge 6$"
+        },
+        {
+          "label": "D",
+          "text": "$p > 6$"
+        },
+        {
+          "label": "E",
+          "text": "$p > 7$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2017-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "$\\sum_{k=0}^{\\infty} \\frac{2 + 2^k}{3^k} =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\infty$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$8/3$"
+        },
+        {
+          "label": "D",
+          "text": "$6$"
+        },
+        {
+          "label": "E",
+          "text": "$14/33$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
