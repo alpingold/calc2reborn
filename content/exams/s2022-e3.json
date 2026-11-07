@@ -1,0 +1,415 @@
+{
+  "id": "s2022-e3",
+  "term": "Spring",
+  "year": 2022,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2022.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2022.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2022-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Suppose $b_n > 0$ for each n and $\\lim_{n \\to \\infty} \\left(\\frac{b_{n+1}}{b_n}\\right) = \\frac{1}{3}$.\n\nWe know that the series $\\sum_{n=0}^{\\infty} (-1)^n b_n$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "must be absolutely convergent."
+        },
+        {
+          "label": "B",
+          "text": "must be divergent."
+        },
+        {
+          "label": "C",
+          "text": "must be conditionally convergent."
+        },
+        {
+          "label": "D",
+          "text": "converges or diverges; the given information is inconclusive."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Assume that the alternating series $\\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n}$ converges to $\\ln 2$. For which $n$ is the following true?\n\n$$\n\\left|\\ln(2) - \\left(1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\frac{1}{5} - \\frac{1}{6} + \\ldots + \\frac{(-1)^{n+1}}{n}\\right)\\right| \\le 0.01\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$n \\ge 11$"
+        },
+        {
+          "label": "B",
+          "text": "$n \\ge 10$"
+        },
+        {
+          "label": "C",
+          "text": "$n \\ge 27$"
+        },
+        {
+          "label": "D",
+          "text": "$n \\ge 99$"
+        },
+        {
+          "label": "E",
+          "text": "$n \\ge 9$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The Ratio Test for the series $\\sum_{k=1}^{\\infty} \\frac{(k!)^2}{(2k)!}$ gives a resulting limit of",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r < 1$ and therefore the series diverges."
+        },
+        {
+          "label": "B",
+          "text": "$r = 1$ and the series diverges."
+        },
+        {
+          "label": "C",
+          "text": "$r < 1$ and therefore the series converges."
+        },
+        {
+          "label": "D",
+          "text": "$r > 1$ and therefore the series diverges."
+        },
+        {
+          "label": "E",
+          "text": "$r = 1$ and the series converges."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Which of the following statements are true?\n\nI). If the sequence $a_1, a_2, a_3, \\ldots$ converges, then the series $a_1 + a_2 + a_3 + \\ldots$ converges.\n\nII). If the sequence $a_1, a_2, a_3, \\ldots$ diverges, then the series $a_1 + a_2 + a_3 + \\ldots$ diverges.\n\nIII). If the series $a_1 + a_2 + a_3 + \\ldots$ converges, then the sequence $a_1, a_2, a_3, \\ldots$ converges.\n\nIV). If the series $a_1 + a_2 + a_3 + \\ldots$ diverges, then the sequence $a_1, a_2, a_3, \\ldots$ diverges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(I) and (IV)"
+        },
+        {
+          "label": "B",
+          "text": "(II) and (III)"
+        },
+        {
+          "label": "C",
+          "text": "(III) and (IV)"
+        },
+        {
+          "label": "D",
+          "text": "(II) and (IV)"
+        },
+        {
+          "label": "E",
+          "text": "(I) and (II)"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "What is the interval of convergence of the series\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{n(x-1)^n}{n^2+1}?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$[0, 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$[0, 2]$"
+        },
+        {
+          "label": "C",
+          "text": "$[0, 1]$"
+        },
+        {
+          "label": "D",
+          "text": "$(0, 1]$"
+        },
+        {
+          "label": "E",
+          "text": "$[0, 2)$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "For which of the following series the ratio test is inconclusive?\n\nI). $\\sum_{k=1}^{\\infty} \\frac{10^k}{k!}$\n\nII). $\\sum_{k=1}^{\\infty} \\frac{1}{k^2}$\n\nIII). $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II"
+        },
+        {
+          "label": "E",
+          "text": "II and III"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Determine whether the following series are absolutely convergent, conditionally convergent, or divergent:\n\n(I) $\\sum_{n=1}^{\\infty} \\frac{\\cos(n)}{n^2+1}$\n\n(II) $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{2n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I is absolutely convergent; II is divergent."
+        },
+        {
+          "label": "B",
+          "text": "I is conditionally convergent; II is divergent."
+        },
+        {
+          "label": "C",
+          "text": "I is absolutely convergent; II is conditionally convergent."
+        },
+        {
+          "label": "D",
+          "text": "I is divergent; II is conditionally convergent."
+        },
+        {
+          "label": "E",
+          "text": "I and II are conditionally convergent."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Evaluate $5 - \\frac{10}{3} + \\frac{20}{9} - \\frac{40}{27} + \\frac{80}{81} - \\frac{160}{243} + \\ldots$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3"
+        },
+        {
+          "label": "B",
+          "text": "5/3"
+        },
+        {
+          "label": "C",
+          "text": "15"
+        },
+        {
+          "label": "D",
+          "text": "10"
+        },
+        {
+          "label": "E",
+          "text": "10/3"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "If $f(0) = 0$, $f'(0) = 7$, $f''(0) = 0$, and $f'''(0) = 2$ then which of the following is the third order Taylor polynomial generated by $f(x)$ at center $a = 0$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{3}x^3 + 7x$"
+        },
+        {
+          "label": "B",
+          "text": "$2x^3 + x$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{3}x^3 + \\frac{1}{2}x$"
+        },
+        {
+          "label": "D",
+          "text": "$2x^3 - x$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{3}x^3 + \\frac{1}{7}x$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The series $\\sum_{k=0}^{\\infty} k^2 e^{-k^3}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "divergent by comparison with $\\sum_{k=1}^{\\infty} \\frac{1}{k}$"
+        },
+        {
+          "label": "B",
+          "text": "divergent by comparison with $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k}$"
+        },
+        {
+          "label": "C",
+          "text": "divergent by integral test"
+        },
+        {
+          "label": "D",
+          "text": "convergent by integral test"
+        },
+        {
+          "label": "E",
+          "text": "a convergent geometric series."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the remainder term, $R_n(x)$, in the $n$-th order Taylor polynomial centered at $a = 2$ for the function $f(x) = e^{-3x}$. In the choices below $c$ is some number between $x$ and 2.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$R_n(x) = \\frac{(-3)^n e^{-3c}}{(n+1)!}(x-2)^{n+1}$"
+        },
+        {
+          "label": "B",
+          "text": "$R_n(x) = \\frac{(-3)^n e^{-3c}}{(n+1)!}(x-2)^n$"
+        },
+        {
+          "label": "C",
+          "text": "$R_n(x) = \\frac{(-3)^{(n+1)} e^{-3c}}{(n+1)!}(x-2)^{n+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$R_n(x) = \\frac{(-3)^{(n+1)} e^{3c}}{(n+1)!}(x-2)^{n+1}$"
+        },
+        {
+          "label": "E",
+          "text": "$R_n(x) = \\frac{(-3)^{(n+1)} e^{3c}}{(n+1)!}(x-2)^n$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L28"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Use the power series $f(x) = \\ln(1-x) = -\\sum_{k=1}^{\\infty} \\frac{x^k}{k}$, for $-1 \\le x < 1$, to find the power series representation for the function $p(x) = 5x^6 \\ln(1-x)$ centered at $a = 0$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-5\\sum_{k=1}^{\\infty} \\frac{x^{6k}}{k}$"
+        },
+        {
+          "label": "B",
+          "text": "$-5\\sum_{k=1}^{\\infty} \\frac{x^{6+k}}{k}$"
+        },
+        {
+          "label": "C",
+          "text": "$-6\\sum_{k=1}^{\\infty} \\frac{x^{5k}}{k}$"
+        },
+        {
+          "label": "D",
+          "text": "$-5\\sum_{k=1}^{\\infty} \\frac{x^{5k}}{6k}$"
+        },
+        {
+          "label": "E",
+          "text": "$-6\\sum_{k=1}^{\\infty} \\frac{x^{6k}}{k}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
