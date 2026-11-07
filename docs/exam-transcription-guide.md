@@ -116,6 +116,8 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - Circles in the plane (center, radius, how two circles relate): tag L2.
 - Symmetry of a polar curve: tag L34.
 - Binomial series (first terms of $(1+x)^p$): tag L31.
+- Constant-force work along a displacement at an angle ($W=\vec F\cdot\vec d=|\vec F||\vec d|\cos\theta$): tag L3, not L9.
+- An improper integral whose antiderivative needs another lesson's technique (integration by parts, partial fractions, trig substitution): tag that lesson and L18. A plain $u$-substitution inside an improper integral stays L18 only.
 - A plain $u$-substitution that needs no other technique (such as $\int_0^1 x^2e^{x^3}\,dx$): tag L11, whose key ideas say to use a substitution instead of parts when one works. When the substitution is only a step inside another lesson's technique (powers of sine and cosine, tan and sec, an improper integral), tag that lesson instead.
 - A completed square in the sine or tangent case is L15 only.
 - A secant substitution has no worked example: tag L14. If the radical must first be completed to $(x-a)^2-b^2$, tag L14 and L15, since both skills are tested.
@@ -124,6 +126,7 @@ Series of an integral: tag by the model series, and do not tag both.
 
 - Integrating an integrand built from the Maclaurin table (sin, cos, $e^x$, arctan, ln), often after cancelling terms or dividing by a power of $x$: L32.
 - Differentiating or integrating the geometric series to reach a closed form such as $\frac{1}{(1-x)^2}$ or a log, or asking how endpoints change: L30.
+- Differentiating a given or tabled non-geometric series, with or without a substitution (such as $\sec^2(x^3)$ from the series for $\tan x$): L32.
 
 `keyIdeas` is empty for L1 to L18 and L33 to L35, so settle splits by reading the lesson's `notesUrl` page with base64 images stripped.
 
