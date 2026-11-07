@@ -121,6 +121,8 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - An improper integral whose antiderivative needs another lesson's technique (integration by parts, partial fractions, trig substitution): tag that lesson and L18. A plain $u$-substitution inside an improper integral stays L18 only.
 - Parametric curves (graphs, tangents, concavity, arc length of $x(t)$, $y(t)$): no lesson teaches them; tag L34 and report it.
 - Centroid: tag L9 and report it.
+- Numerical integration (Midpoint, Trapezoid, or Simpson's Rule): tag L5 and report it.
+- Choosing or applying a formula from an integral table: tag the lesson of the technique the formula replaces, such as L14 for a secant or sine form.
 - Conic sections (ellipse, hyperbola, parabola, foci): tag L2 and report it.
 - Complex numbers, including exponential form $re^{i\theta}$: tag L33 and report it.
 - Multiplying two Maclaurin series: L32.
