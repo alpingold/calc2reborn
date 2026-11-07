@@ -1,0 +1,401 @@
+{
+  "id": "s2017-e1",
+  "term": "Spring",
+  "year": 2017,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2017.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2017.pdf",
+  "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e1-s2017.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2017-e1-q01",
+      "number": 1,
+      "points": 9,
+      "stem": "Let $\\vec{F}$ and $\\vec{G}$ be the two-dimensional vectors shown in the figure above. The tangent of the angle the vector $\\vec{F} + \\vec{G}$ makes with the positive part of the $x$-axis is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1 + 2\\sqrt{3}}{2 - \\sqrt{3}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1 - 2\\sqrt{3}}{2 + \\sqrt{3}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1 + 5\\sqrt{3}}{2 + 3\\sqrt{3}}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1 - 5\\sqrt{3}}{2 - 3\\sqrt{3}}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1 - 4\\sqrt{3}}{2 + \\sqrt{3}}$"
+        }
+      ],
+      "answer": "B",
+      "figures": [
+        "figures/s2017-e1/q01.png"
+      ],
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "solution": "$\\vec{F}$ has length 10 and points $30^\\circ$ above the positive $x$-axis; $\\vec{G}$ has length 20 and points $60^\\circ$ below it:\n\n$$\n\\vec{F} = 10\\cos 30^\\circ\\,\\vec{i} + 10\\sin 30^\\circ\\,\\vec{j} = 5\\sqrt{3}\\,\\vec{i} + 5\\,\\vec{j}\n$$\n\n$$\n\\vec{G} = 20\\cos 60^\\circ\\,\\vec{i} - 20\\sin 60^\\circ\\,\\vec{j} = 10\\,\\vec{i} - 10\\sqrt{3}\\,\\vec{j}\n$$\n\nSo $\\vec{F} + \\vec{G} = (5\\sqrt{3} + 10)\\,\\vec{i} + (5 - 10\\sqrt{3})\\,\\vec{j}$, and\n\n$$\n\\tan\\theta = \\frac{5 - 10\\sqrt{3}}{5\\sqrt{3} + 10} = \\frac{5(1 - 2\\sqrt{3})}{5(\\sqrt{3} + 2)} = \\frac{1 - 2\\sqrt{3}}{2 + \\sqrt{3}}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q02",
+      "number": 2,
+      "points": 9,
+      "stem": "Find the center and the radius of the sphere $4x^2 + 4y^2 + 4z^2 - 4x - 12y + 8z = 2$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Center $(\\frac{1}{2}, -\\frac{5}{4}, -1)$ and radius $2$"
+        },
+        {
+          "label": "B",
+          "text": "Center $(\\frac{1}{2}, \\frac{3}{4}, 1)$ and radius $2$"
+        },
+        {
+          "label": "C",
+          "text": "Center $(\\frac{1}{2}, \\frac{3}{4}, 1)$ and radius $4$"
+        },
+        {
+          "label": "D",
+          "text": "Center $(\\frac{1}{2}, \\frac{3}{2}, -1)$ and radius $2$"
+        },
+        {
+          "label": "E",
+          "text": "Center $(\\frac{1}{2}, \\frac{3}{2}, -1)$ and radius $4$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "solution": "Divide the equation by 4:\n\n$$\nx^2 + y^2 + z^2 - x - 3y + 2z = \\frac{1}{2}\n$$\n\nComplete the square in each variable:\n\n$$\n\\left(x - \\frac{1}{2}\\right)^2 - \\frac{1}{4} + \\left(y - \\frac{3}{2}\\right)^2 - \\frac{9}{4} + (z + 1)^2 - 1 = \\frac{1}{2}\n$$\n\n$$\n\\left(x - \\frac{1}{2}\\right)^2 + \\left(y - \\frac{3}{2}\\right)^2 + (z + 1)^2 = \\frac{1}{2} + \\frac{10}{4} + 1 = 4\n$$\n\nCenter $\\left(\\frac{1}{2}, \\frac{3}{2}, -1\\right)$, radius $2$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q03",
+      "number": 3,
+      "points": 9,
+      "stem": "Find the number $b$ such that the angle between the vectors $\\vec{u} = \\vec{i} + \\vec{j} + \\vec{k}$ and $\\vec{v} = b\\vec{i} - \\vec{j} + \\vec{k}$ is equal to $\\frac{\\pi}{3}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$b = 1$"
+        },
+        {
+          "label": "B",
+          "text": "$b = -\\sqrt{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$b = \\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$b = \\sqrt{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$b = -\\sqrt{2}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "solution": "Use $\\vec{u} \\cdot \\vec{v} = |\\vec{u}|\\,|\\vec{v}|\\cos\\theta$ with\n\n$$\n\\vec{u} \\cdot \\vec{v} = b, \\quad |\\vec{u}| = \\sqrt{3}, \\quad |\\vec{v}| = \\sqrt{b^2 + 2}.\n$$\n\nWith $\\theta = \\frac{\\pi}{3}$, $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$, so\n\n$$\nb = \\sqrt{3}\\,\\sqrt{b^2 + 2} \\cdot \\frac{1}{2}, \\qquad 2b = \\sqrt{3}\\,\\sqrt{b^2 + 2}.\n$$\n\nSquaring, $4b^2 = 3(b^2 + 2) = 3b^2 + 6$, so $b^2 = 6$. The left side $2b$ must be positive, so $b = \\sqrt{6}$. (If $b = -\\sqrt{6}$, then $\\cos\\theta = -\\frac{1}{2}$.)",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q04",
+      "number": 4,
+      "points": 9,
+      "stem": "Which of the following statements are correct?\n\nI) The vectors $\\vec{u} = 3\\vec{i} + 2\\vec{j} - 2\\vec{k}$ and $\\vec{v} = 2\\vec{i} - 2\\vec{j} + \\vec{k}$ are perpendicular.\n\nII) The area of the parallelogram defined by $\\vec{a} = \\vec{i} + 2\\vec{j} + \\sqrt{5}\\,\\vec{k}$ and $\\vec{i}$ is equal to 3.\n\nIII) The volume of the parallelepiped defined by $\\vec{a} = \\vec{i} + \\vec{j} + \\vec{k}$, $\\vec{b} = 2\\vec{i} - \\vec{j}$ and $\\vec{c} = -3\\vec{i} + \\vec{j}$ is equal to 1.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II only"
+        },
+        {
+          "label": "B",
+          "text": "I and III only"
+        },
+        {
+          "label": "C",
+          "text": "I, II and III"
+        },
+        {
+          "label": "D",
+          "text": "II and III only"
+        },
+        {
+          "label": "E",
+          "text": "III only"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 3,
+      "solution": "(I) $\\vec{u} \\cdot \\vec{v} = 6 - 4 - 2 = 0$, so $\\vec{u}$ and $\\vec{v}$ are perpendicular. True.\n\n(II)\n\n$$\n\\vec{a} \\times \\vec{i} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 2 & \\sqrt{5} \\\\ 1 & 0 & 0 \\end{vmatrix} = \\sqrt{5}\\,\\vec{j} - 2\\vec{k}\n$$\n\nso the area is $|\\vec{a} \\times \\vec{i}| = \\sqrt{5 + 4} = 3$. True.\n\n(III)\n\n$$\n|\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})| = \\left|\\begin{vmatrix} 1 & 1 & 1 \\\\ 2 & -1 & 0 \\\\ -3 & 1 & 0 \\end{vmatrix}\\right| = |-1| = 1\n$$\n\nTrue. All three statements are correct.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q05",
+      "number": 5,
+      "points": 9,
+      "stem": "Find the area enclosed by the curves $x = 2y - y^2$ and $x = y^2$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5}{3}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "solution": "Intersections: $y^2 = 2y - y^2$, so $2y^2 = 2y$, giving $y = 0$ and $y = 1$. For $0 \\le y \\le 1$ the curve $x = 2y - y^2$ is to the right of $x = y^2$, so integrate in $y$:\n\n$$\nA = \\int_0^1 (2y - y^2 - y^2)\\,dy = \\int_0^1 (2y - 2y^2)\\,dy = 2\\left(\\frac{1}{2} - \\frac{1}{3}\\right) = \\frac{1}{3}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q06",
+      "number": 6,
+      "points": 9,
+      "stem": "Find the area of the region between the graph of $y = x^2 - 4x + 3$, $-1 \\le x \\le 1$, and the $x$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{11}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{19}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{20}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{22}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{26}{3}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "solution": "$y = x^2 - 4x + 3 = (x - 1)(x - 3)$ crosses the $x$-axis at $x = 1$ and $x = 3$, so it is above the axis on $-1 \\le x \\le 1$:\n\n$$\nA = \\int_{-1}^1 (x^2 - 4x + 3)\\,dx.\n$$\n\n$4x$ is odd, so $\\int_{-1}^1 4x\\,dx = 0$, and $x^2 + 3$ is even, so\n\n$$\nA = 2\\int_0^1 (x^2 + 3)\\,dx = 2\\left(3 + \\frac{1}{3}\\right) = \\frac{20}{3}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q07",
+      "number": 7,
+      "points": 9,
+      "stem": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{x}$, $x = 0$ and $y = 2$ about the $y$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8}{3}\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{16}{5}\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{16}{3}\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{32}{5}\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{4}{5}\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "solution": "The region lies between the $y$-axis and $x = y^2$ for $0 \\le y \\le 2$. A cross section at height $y$ is a disk of radius $y^2$, with area $A(y) = \\pi y^4$:\n\n$$\nV = \\int_0^2 \\pi y^4\\,dy = \\pi \\frac{y^5}{5}\\Big|_0^2 = \\frac{32\\pi}{5}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q08",
+      "number": 8,
+      "points": 9,
+      "stem": "Use the method of cylindrical shells to find the volume generated by rotating the region bounded by the curves $y = x - x^2$ and $y = 0$, about the line $x = -1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3\\pi}{4}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "solution": "The region runs from $x = 0$ to $x = 1$. A shell at $x$ has radius $1 + x$ and height $x - x^2$:\n\n$$\nV = 2\\pi \\int_0^1 (1 + x)(x - x^2)\\,dx = 2\\pi \\int_0^1 x(1 + x)(1 - x)\\,dx = 2\\pi \\int_0^1 x(1 - x^2)\\,dx\n$$\n\n$$\n= 2\\pi\\left(\\frac{1}{2} - \\frac{1}{4}\\right) = \\frac{\\pi}{2}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q09",
+      "number": 9,
+      "points": 9,
+      "stem": "A force of 50 N is required to hold a spring that has been stretched from its natural length of 1 m to a length of 1.5 m. How much work is done (in joules) by stretching the spring from a length of 2 m to a length of 3 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$75$"
+        },
+        {
+          "label": "B",
+          "text": "$125$"
+        },
+        {
+          "label": "C",
+          "text": "$150$"
+        },
+        {
+          "label": "D",
+          "text": "$250$"
+        },
+        {
+          "label": "E",
+          "text": "$300$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 6,
+      "solution": "$F = kx$ with $F = 50$ N at $x = \\frac{1}{2}$ m, so $50 = \\frac{k}{2}$ and $k = 100$. Lengths 2 m and 3 m are stretches of 1 m and 2 m:\n\n$$\nW = \\int_1^2 100x\\,dx = 50x^2\\Big|_1^2 = 50(4 - 1) = 150 \\text{ J}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q10",
+      "number": 10,
+      "points": 9,
+      "stem": "A circular tank containing a liquid of density 10 lb/ft$^3$ has a radius of 2 ft. Its sides are 5 ft. high and the depth of the liquid is 4 ft. How much work is required (in ft.-lbs.) to pump all the liquid out over the top of the tank?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$240\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$960\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$1{,}000\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$480\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$640\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 6,
+      "solution": "Measure $x$ down from the top of the tank. The liquid fills $1 \\le x \\le 5$. A slab at depth $x$ has volume $4\\pi\\,dx$ and weight $4\\pi\\,dx \\cdot 10 = 40\\pi\\,dx$, and it moves up a distance $x$ to the top of the tank:\n\n$$\nW = \\int_1^5 40\\pi x\\,dx = 40\\pi \\cdot \\frac{x^2}{2}\\Big|_1^5 = 20\\pi(25 - 1) = 480\\pi.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e1-q11",
+      "number": 11,
+      "points": 9,
+      "stem": "On a day in January, the temperature $t$ hours after 8:00 am was $T(t) = -10 + t^2$ degrees Fahrenheit. What was the average temperature between 8:00 am and 2:00 pm?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-4$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$8$"
+        },
+        {
+          "label": "E",
+          "text": "$12$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 7,
+      "solution": "2:00 pm is 14:00, so the time interval is $0 \\le t \\le 6$ hours:\n\n$$\n\\text{Average} = \\frac{1}{6}\\int_0^6 (t^2 - 10)\\,dt = \\frac{1}{6}\\left(\\frac{t^3}{3} - 10t\\right)\\Big|_0^6 = \\frac{1}{6}\\left(\\frac{6^3}{3} - 10 \\cdot 6\\right) = \\frac{6^2}{3} - 10 = 12 - 10 = 2.\n$$",
+      "status": "reviewed"
+    }
+  ]
+}
