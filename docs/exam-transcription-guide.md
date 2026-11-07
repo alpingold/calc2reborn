@@ -25,6 +25,7 @@ Many exams have several test versions, marked "TEST NUMBER 01" or "VERSION 01" o
 - `id` `<examId>-qNN`, sequential `number`.
 - `points` from the booklet (see Known exceptions). For `f2016-e1` store the JSON number `8.333333333333334`.
 - `stem` and `choices` reproduce the printed mathematics exactly: same bounds, constants, signs, and units. Keep printed quirks. Do not fix a typo in a question; note it in your report.
+- A text hyphen printed where a minus sign is plainly meant (`f2018-final` Q7 choice D "-15", Q12 choice E "- 5/64") is stored as a math minus, such as `$-15$`. This is typography, not a fix to the question.
 - `choices` have 2 to 10 entries labeled consecutively from A. Store every printed choice in printed order.
 - `answer` comes from the key. Solve at least the quick questions yourself. If your answer disagrees with the key, keep the key's letter and report the disagreement.
 - `lessonIds`: one or more, chosen by reading the question against the lesson titles, not by keywords. Tag the skill the question tests. See below.
@@ -46,7 +47,7 @@ Check this list before starting. These were confirmed by surveying every booklet
 - **`s2019-*.sol`** has no cover, so its pages run one behind the booklet. `sourcePage` always refers to the booklet.
 - **`f2022-e2`** is "Alternate Exam 2". Use it as published.
 
-Facts that still fit the schema: `s2022-e2` Q12 prints the density as $\rho\,\frac{kg}{m^2}$, `s2022-e1` Q4 choice A prints a stray outer $2\pi$, `s2022-e1` Q10 choice D prints `π/27(10^{3/2} − 1)` inline, and `s2022-final` Q15 choice E prints "I, II and II"; keep all as printed. `s2022-e3` Q1 has four choices. `f2022-final` printed Q6 says "wench" and printed Q14 says "Which of the following statement is true?"; keep both as printed. `f2023-e1` Q3 and Q4 print vectors as `=< a, b, c >`, and Q5 prints "the area of the area of the triangle"; keep both as printed. `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
+Facts that still fit the schema: `f2018-final` Q3 prints "nature length", `s2018-e1` Q2 prints $\langle 1, 2, -2, \rangle$ with a trailing comma, and `s2018-e1` Q3 choice E prints "$x = 5-, -5$"; keep all as printed. `s2022-e2` Q12 prints the density as $\rho\,\frac{kg}{m^2}$, `s2022-e1` Q4 choice A prints a stray outer $2\pi$, `s2022-e1` Q10 choice D prints `π/27(10^{3/2} − 1)` inline, and `s2022-final` Q15 choice E prints "I, II and II"; keep all as printed. `s2022-e3` Q1 has four choices. `f2022-final` printed Q6 says "wench" and printed Q14 says "Which of the following statement is true?"; keep both as printed. `f2023-e1` Q3 and Q4 print vectors as `=< a, b, c >`, and Q5 prints "the area of the area of the triangle"; keep both as printed. `f2024-e1` Q9 prints choices B and C identically; store both as printed. `f2021` has 6 choices throughout. `s2017-e2` and `s2017-e3` Q12 to Q14 are True/False, stored as A. True, B. False. Some `f2025` questions have 8 or 9 choices and print "Partial credit is possible"; keep that text. The app scores all or nothing.
 
 **Points.** Use the booklet's stated points. Do not store free points: 12 questions at 8 points stores 96, not 100. Only `f2016-e1` is 100/12 per problem. `f2016-e2` and `f2016-e3` are 8 each. `s2017-e1` is 9 each. `s2024-*` are 1 each. `s2017-e2`, `s2017-e3`, and all of `f2024` and `f2025` print points per question.
 
@@ -122,6 +123,7 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - Centroid: tag L9 and report it.
 - Conic sections (ellipse, hyperbola, parabola, foci): tag L2 and report it.
 - Complex numbers, including exponential form $re^{i\theta}$: tag L33 and report it.
+- Multiplying two Maclaurin series: L32.
 - Average value of a function: no lesson teaches it; tag the lesson of the integration technique it needs and report it.
 - Partial fractions with an irreducible quadratic factor alongside linear or repeated linear factors: L17 only. A question that mentions long division but asks only for a linear-factor coefficient: L16 only.
 - A list of true/false statements about several convergence tests: tag the lesson of each test the statements use. Add L26 only when the question asks which test to choose.
