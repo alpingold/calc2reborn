@@ -1,0 +1,867 @@
+{
+  "id": "f2019-final",
+  "term": "Fall",
+  "year": 2019,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2019.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "f2019-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "What is the angle, in radians, between the vectors $< 3, 0, -3 >$ and $< 1, -1, 0 >$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3\\pi}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Find the area of the parallelogram with vertices $A(0, 0, 0)$, $B(1, 1, 1)$, $C(1, 2, 1)$, and $D(2, 3, 2)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{6}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The base of a solid $S$ is a triangular region with vertices at $(0, 0)$, $(0, 1)$, and $(2, 1)$. If the cross-sections perpendicular to the $x$-axis are squares, calculate the volume of $S$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{4}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Find the area of the region bounded by $y = \\cos 2x$, $y = \\sin 4x$, between $x = 0$ and $x = \\frac{\\pi}{4}$. You may need to use the double-angle identity $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{8}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{6}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "The area between the graphs of $y = x^2$ and $y = 2x$ is revolved around the $x$-axis. If the method of cylindrical shells is used, the integral representing the volume of the resulting solid is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^4 2\\pi y(y - \\frac{y^2}{4})\\,dy$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^4 \\pi(y^4 - 4y^2)\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^2 2\\pi y(y^2 - 2y)\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^4 2\\pi y(\\sqrt{y} - \\frac{y}{2})\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^2 \\pi(y^2 - 2y)\\,dy$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "What value of the positive constant $c$ makes the volume of the solid obtained by rotating the area between $x = 0$, $y = e^{3x}$, and $x = c$ about the $x$-axis equal to $\\pi$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{6}\\ln 2$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3}\\ln\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{6}\\ln 7$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{7}\\ln 6$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{6}\\ln\\pi$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the integral: $\\int_1^e x^{1/2}\\ln x\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{9}e^{3/2} + \\frac{4}{9}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{9}e^{3/2} + \\frac{4}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4}{9}e^{3/2} + \\frac{4}{9}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{5}{9}e^{3/2} + \\frac{4}{9}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{7}{9}e^{3/2} + \\frac{4}{9}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Which of the following is the partial fraction expansion of $\\frac{4x^3 - x}{x^2(x^2 + 1)^2}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x^2} + \\frac{B}{x^2 + 1} + \\frac{C}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^2 + 1} + \\frac{D}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^2 + 1} + \\frac{Dx + E}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 1} + \\frac{E}{(x^2 + 1)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 1} + \\frac{Ex + F}{(x^2 + 1)^2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Use a long division to compute $\\int \\frac{x^2}{x + 2}\\,dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{x^2}{2} - 2x + 4\\ln|x + 2| + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{6}x^3 + 2\\ln|x + 2| + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{x^2}{2} + \\frac{1}{6}x^3 + C$"
+        },
+        {
+          "label": "D",
+          "text": "$x + 4\\ln|x + 2| + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{3}x^3 + \\ln|x + 2| + C$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Which of the following statements are true?\n\nI. $u = \\tan x$ is an appropriate substitution for the integral $\\int \\tan^3 x\\sec^4 x\\,dx$\n\nII. $u = \\sin(3x)$ is an appropriate substitution for the integral $\\int \\cos^5(3x)\\sin^4(3x)\\,dx$\n\nIII. $\\int_0^{\\pi/2} \\sin^2\\theta\\,d\\theta = \\frac{\\pi}{4}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II only"
+        },
+        {
+          "label": "B",
+          "text": "I and III only"
+        },
+        {
+          "label": "C",
+          "text": "II and III only"
+        },
+        {
+          "label": "D",
+          "text": "None is true"
+        },
+        {
+          "label": "E",
+          "text": "All are true"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L12",
+        "L13"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "What does the integral $\\int \\frac{x^2}{\\sqrt{x^2 + 25}}\\,dx$ become after a trigonometric substitution?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$25\\int (\\tan^2\\theta)(\\sec\\theta)\\,d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$5\\int (\\tan^2\\theta)(\\sec\\theta)\\,d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$25\\int \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\int \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$25\\int \\sin^2\\theta\\,d\\theta$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "A spring has a natural length of 10 m. If the **work** done in stretching the spring from 10 m (its natural length) to 11 m is $\\frac{5}{2}$ joules, what is the **force** in newtons needed to stretch the spring from its natural length to a length of 20 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$100$"
+        },
+        {
+          "label": "B",
+          "text": "$125$"
+        },
+        {
+          "label": "C",
+          "text": "$50$"
+        },
+        {
+          "label": "D",
+          "text": "$25$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "How many of the following statements are FALSE?\n\nI. If $f$ is continuous and $0 < f(x) < g(x)$ on the interval $[0, \\infty)$, and $\\int_0^{\\infty} g(x)\\,dx = M < \\infty$, then $\\int_0^{\\infty} f(x)\\,dx$ exists.\n\nII. If $\\lim_{x \\to \\infty} f(x) = 1$, then $\\int_0^{\\infty} f(x)\\,dx$ exists.\n\nIII. If $\\int_0^1 \\frac{1}{x^p}\\,dx$ exists, then $\\int_0^1 \\frac{1}{x^q}\\,dx$ exists, where $q > p$.\n\nIV. If $\\int_0^{\\infty} \\frac{1}{x^p}\\,dx$ exists, then $\\int_0^{\\infty} \\frac{1}{x^q}\\,dx$ exists, where $q > p$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "$$\nI.\\ \\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{\\sqrt{n} - 3}{n}; \\quad II.\\ \\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{1}{[\\ln(n + 1)]^2}; \\quad III.\\ \\sum_{n=1}^{\\infty}(-1)^{n-1}\\sin(n).\n$$\n\nWhich of the following statements is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All three are convergent"
+        },
+        {
+          "label": "B",
+          "text": "Only II is convergent"
+        },
+        {
+          "label": "C",
+          "text": "I and II are convergent"
+        },
+        {
+          "label": "D",
+          "text": "II and III are convergent"
+        },
+        {
+          "label": "E",
+          "text": "All three are divergent"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "Determine if the geometric series converges or diverges. If it converges, find its sum.\n\n$$\n\\frac{1}{3} + \\left(\\frac{1}{3}\\right)^2 + \\left(\\frac{1}{3}\\right)^3 + \\cdots\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Converges to $\\frac{2}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "Converges to $2$"
+        },
+        {
+          "label": "C",
+          "text": "Converges to $\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "Converges to $\\frac{3}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "Diverges"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Let $S_N$ be the N-th partial sum of the series\n\n$$\n\\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{1}{2n - 1}\n$$\n\nCompute $S_{50} - S_{49}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\frac{1}{50}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{1}{99}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{97}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{101}$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Which of the following statements are correct?\n\nI. $\\sum_{n=9001}^{\\infty} \\frac{\\cos(n\\pi)}{n^2}$ converges conditionally\n\nII. The ratio test can be used to show that $\\sum_{n=1}^{\\infty} \\frac{1}{n^{10}}$ converges\n\nIII. A series is convergent if the sequence of its partial sums is bounded",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of them"
+        },
+        {
+          "label": "B",
+          "text": "None of them"
+        },
+        {
+          "label": "C",
+          "text": "I and II only"
+        },
+        {
+          "label": "D",
+          "text": "II and III only"
+        },
+        {
+          "label": "E",
+          "text": "III only"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L19",
+        "L24",
+        "L25"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "Find the interval of convergence for the series $\\sum_{n=0}^{\\infty} \\frac{(x - 4)^n}{n^5 3^n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$[3, 5]$"
+        },
+        {
+          "label": "B",
+          "text": "$(-7, 7)$"
+        },
+        {
+          "label": "C",
+          "text": "$(-\\infty, 7)$"
+        },
+        {
+          "label": "D",
+          "text": "$[1, 7]$"
+        },
+        {
+          "label": "E",
+          "text": "$(1, 7)$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "Find the Taylor series for $f = \\frac{1}{x}$ centered at $x = 3$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(x - 3)^n}{3^{n+1}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(x - 3)^n}{3^n}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n(x - 3)^n}{3^{n+1}}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n(x - 3)^n}{3^n}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(x + 3)^n}{3^{n+1}}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "Find the Taylor polynomial for $f(x) = \\frac{1}{2 - x}$ of degree 3 centered at $x = 0$. Recall that if $|x| < 1$ then $\\sum_{k=0}^{\\infty} x = \\frac{1}{1 - x}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{x}{2} + \\frac{x^2}{4} + \\frac{x^3}{8} + \\frac{x^4}{16}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{x}{2} - \\frac{x^2}{4} + \\frac{x^3}{8} - \\frac{x^4}{16}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2} - \\frac{x}{4} + \\frac{x^2}{8} - \\frac{x^3}{16}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2} + \\frac{x}{4} + \\frac{x^2}{8} + \\frac{x^3}{16}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2} + \\frac{x}{4} + \\frac{x^2}{16} + \\frac{x^3}{96}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "Which of the following is equal to $\\int_0^1 \\frac{\\sin x}{x}\\,dx$? Recall that $\\sin x = \\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{(2n + 1)!}$ for all $x$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n\\frac{1}{(4n + 1)(2n + 1)!}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n\\frac{1}{(2n + 1)(2n + 1)!}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n\\frac{2}{(8n + 1)(2n + 1)!}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n\\frac{2}{(2n + 1)(2n + 1)!}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty}(-1)^n\\frac{2}{(4n + 1)(2n + 1)!}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "In polar coordinates, the equation $r = \\sin(\\theta) + 2\\cos(\\theta)$ represents a circle with radius",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{2}}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\sqrt{5}}{2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "Find the length of the following curve\n\n$$\nr = e^{4\\theta}, \\qquad 0 \\le \\theta \\le \\pi\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{16}(e^{8\\pi} - 1)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{17}}{4}(e^{4\\pi} - 1)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{32}{3}(\\pi^2 - 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$e^{8\\pi} - \\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{17}(e^{4\\pi} - 1)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "Find the area of the region inside both $r = 8\\cos(\\theta)$ and $r = 8\\sin(\\theta)$. You may find the following results useful in your calculation: $\\int \\cos^2(x)\\,dx = \\frac{1}{2}x + \\frac{1}{4}\\sin(2x) + C$, $\\int \\sin^2(x)\\,dx = \\frac{1}{2}x - \\frac{1}{4}\\sin(2x) + C$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8(\\pi - 2)$"
+        },
+        {
+          "label": "B",
+          "text": "$8(\\pi + 2)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{8}{3}(4\\pi - 3\\sqrt{3})$"
+        },
+        {
+          "label": "D",
+          "text": "$4(2 - \\sqrt{2})$"
+        },
+        {
+          "label": "E",
+          "text": "$16\\pi$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "Which of the following is the graph of $r = -4\\cos(3\\theta)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Graph A"
+        },
+        {
+          "label": "B",
+          "text": "Graph B"
+        },
+        {
+          "label": "C",
+          "text": "Graph C"
+        },
+        {
+          "label": "D",
+          "text": "Graph D"
+        },
+        {
+          "label": "E",
+          "text": "Graph E"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/f2019-final/q25.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    }
+  ]
+}

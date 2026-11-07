@@ -22,5 +22,6 @@
   { "figure": "figures/f2021-final/q03.png", "examId": "f2021-final", "page": 3, "x": 135, "y": 188, "w": 485, "h": 170 },
   { "figure": "figures/f2021-final/q17.png", "examId": "f2021-final", "page": 10, "x": 655, "y": 160, "w": 355, "h": 295 },
   { "figure": "figures/f2021-final/q24.png", "examId": "f2021-final", "page": 13, "x": 135, "y": 775, "w": 425, "h": 220 },
-  { "figure": "figures/f2019-e1/q04.png", "examId": "f2019-e1", "page": 3, "x": 420, "y": 835, "w": 380, "h": 270 }
+  { "figure": "figures/f2019-e1/q04.png", "examId": "f2019-e1", "page": 3, "x": 420, "y": 835, "w": 380, "h": 270 },
+  { "figure": "figures/f2019-final/q25.png", "examId": "f2019-final", "page": 15, "x": 175, "y": 318, "w": 860, "h": 592 }
 ]
