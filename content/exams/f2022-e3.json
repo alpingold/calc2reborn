@@ -285,6 +285,7 @@
         "L24"
       ],
       "sourcePage": 5,
+      "solution": "**Note on this question:** The course counts terms by the alternating series bound $|S-S_n|\\le b_{n+1}$, as Purdue's own keys do for the same question (Spring 2024 Exam 3 Q9, Spring 2016 Exam 3 Q5): the terms are $b_m=\\frac{1}{m}$ with $m=k+1$, so $n$ terms leave an error of at most $b_{n+1}=\\frac{1}{n+1}$, and $\\frac{1}{n+1}\\le 0.1$ needs $n+1\\ge 10$, so $n=9$. The true error is already within $0.1$ after $5$ terms ($|\\ln 2-S_5|\\approx 0.090$), but $5$ is not a choice, so the answer follows the bound.",
       "status": "reviewed"
     },
     {
