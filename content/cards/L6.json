@@ -1,0 +1,138 @@
+[
+  {
+    "id": "L6-c01",
+    "lessonId": "L6",
+    "front": "What is the slicing formula for volume, and what does each part mean?",
+    "back": "$V = \\int_a^b A(x)\\,dx$. $A(x)$ is the cross-sectional area at $x$ and $dx$ is the thickness, so $A(x)\\,dx$ is the volume of one slice. Integrating accumulates the slices.",
+    "tags": [
+      "slicing",
+      "formula"
+    ]
+  },
+  {
+    "id": "L6-c02",
+    "lessonId": "L6",
+    "front": "A solid's base is between $y = \\sqrt{x}$ and $y = -\\sqrt{x}$ for $0 \\le x \\le 4$. Slices perpendicular to the $x$-axis are semicircles with the bar as diameter. Find the volume.",
+    "back": "The bar has length $2\\sqrt{x}$ and it is the diameter, so the radius is $\\sqrt{x}$. Then $A(x) = \\frac{1}{2}\\pi x$ and $V = \\int_0^4 \\frac{1}{2}\\pi x\\,dx = 4\\pi$. Using the whole bar as the radius is the usual error.",
+    "tags": [
+      "trap",
+      "slicing"
+    ]
+  },
+  {
+    "id": "L6-c03",
+    "lessonId": "L6",
+    "front": "A solid's base is between $y = x^2$ and $y = 1$. Slices perpendicular to the $y$-axis are equilateral triangles with one side on the base. Find the volume.",
+    "back": "Slices perpendicular to the $y$-axis mean $dy$: the bar runs from $x = -\\sqrt{y}$ to $x = \\sqrt{y}$, so the side is $2\\sqrt{y}$. An equilateral triangle has area $\\frac{\\sqrt{3}}{4}s^2 = \\sqrt{3}\\,y$, so $V = \\int_0^1 \\sqrt{3}\\,y\\,dy = \\frac{\\sqrt{3}}{2}$.",
+    "tags": [
+      "slicing",
+      "compute"
+    ]
+  },
+  {
+    "id": "L6-c04",
+    "lessonId": "L6",
+    "front": "Region under $y = x^2$ on $[0, 1]$ is revolved about the $x$-axis. Disk or washer? Find the volume.",
+    "back": "Disk: the slice reaches the axis. Radius $x^2$, thickness $dx$: $V = \\int_0^1 \\pi(x^2)^2\\,dx = \\frac{\\pi}{5}$.",
+    "tags": [
+      "disk",
+      "compute"
+    ]
+  },
+  {
+    "id": "L6-c05",
+    "lessonId": "L6",
+    "front": "Region bounded by $y = x^3$, $y = 8$, and $x = 0$ is revolved about the $y$-axis. Set up by disks and find the volume.",
+    "back": "Slices perpendicular to the $y$-axis have thickness $dy$, so write the radius in $y$: $x = y^{1/3}$. Then $V = \\int_0^8 \\pi y^{2/3}\\,dy = \\frac{96\\pi}{5}$. Limits are $y$-values, and no $x$ remains.",
+    "tags": [
+      "trap",
+      "disk",
+      "which-variable"
+    ]
+  },
+  {
+    "id": "L6-c06",
+    "lessonId": "L6",
+    "front": "State the washer formula, and how to tell a disk from a washer.",
+    "back": "$V = \\int_a^b \\left[\\pi(\\text{outer})^2 - \\pi(\\text{inner})^2\\right]dx$ (or $dy$ for a vertical axis), with each radius measured from the axis. Draw a slice perpendicular to the axis: if it reaches the axis it is a disk, and if there is a gap it is a washer.",
+    "tags": [
+      "washer",
+      "formula"
+    ]
+  },
+  {
+    "id": "L6-c07",
+    "lessonId": "L6",
+    "front": "Region bounded by $y = \\sqrt{x}$, $y = 0$, $x = 4$. Is it disks or washers about the $x$-axis? About $y = -1$?",
+    "back": "About the $x$-axis: disks, since the slice reaches the axis. About $y = -1$: washers, since the gap between $y = -1$ and $y = 0$ leaves a hole of radius $1$.",
+    "tags": [
+      "trap",
+      "washer",
+      "quick-decision"
+    ]
+  },
+  {
+    "id": "L6-c08",
+    "lessonId": "L6",
+    "front": "For $y = \\sqrt{x}$ and $y = x$ about the $x$-axis, a student writes $\\int_0^1 \\pi(\\sqrt{x} - x)^2\\,dx$. What is wrong?",
+    "back": "A washer's area is big circle minus small circle, $\\pi(\\text{outer})^2 - \\pi(\\text{inner})^2$, not $\\pi(\\text{outer} - \\text{inner})^2$. Correct: $\\int_0^1 (\\pi x - \\pi x^2)\\,dx = \\frac{\\pi}{6}$. The student's integral gives $\\frac{\\pi}{30}$.",
+    "tags": [
+      "trap",
+      "washer"
+    ]
+  },
+  {
+    "id": "L6-c09",
+    "lessonId": "L6",
+    "front": "Region bounded by $y = \\sqrt{x}$, $y = 0$, $x = 4$ is revolved about $y = -1$. Give both radii and the volume.",
+    "back": "Each radius adds the gap of $1$: outer $= \\sqrt{x} + 1$ and inner $= 0 + 1 = 1$. Then $V = \\int_0^4 \\pi\\left[(\\sqrt{x}+1)^2 - 1^2\\right]dx = \\frac{56\\pi}{3}$.",
+    "tags": [
+      "trap",
+      "shifted-axis",
+      "washer"
+    ]
+  },
+  {
+    "id": "L6-c10",
+    "lessonId": "L6",
+    "front": "The same region, bounded by $y = \\sqrt{x}$, $y = 0$, $x = 4$, is revolved about $y = 3$. Which curve gives the outer radius?",
+    "back": "The bottom one, $y = 0$, since it is farther from the axis: outer $= 3$ and inner $= 3 - \\sqrt{x}$. Then $V = \\int_0^4 \\pi\\left[3^2 - (3 - \\sqrt{x})^2\\right]dx = 24\\pi$. With the axis above the region, the top curve gives the inner radius.",
+    "tags": [
+      "trap",
+      "shifted-axis",
+      "washer"
+    ]
+  },
+  {
+    "id": "L6-c11",
+    "lessonId": "L6",
+    "front": "Region bounded by $y = 1$, $y = x$, $x = 0$ is revolved about $y = 1$. What is the radius, and is this a disk or a washer?",
+    "back": "Disk, because the region touches the axis $y = 1$ along its top edge. The radius is measured from the axis: $1 - x$, not $x$. So $V = \\int_0^1 \\pi(1-x)^2\\,dx = \\frac{\\pi}{3}$.",
+    "tags": [
+      "trap",
+      "shifted-axis",
+      "disk"
+    ]
+  },
+  {
+    "id": "L6-c12",
+    "lessonId": "L6",
+    "front": "Region bounded by $y = x^3$, $y = 8$, $x = 0$ is revolved about $x = -2$. Give the washer radii and the volume.",
+    "back": "The axis is vertical, so use $dy$. Outer $= y^{1/3} + 2$ and inner $= 2$, since the edge $x = 0$ is $2$ from the axis. Then $V = \\int_0^8 \\pi\\left[(y^{1/3}+2)^2 - 2^2\\right]dy = \\frac{336\\pi}{5}$.",
+    "tags": [
+      "trap",
+      "shifted-axis",
+      "washer"
+    ]
+  },
+  {
+    "id": "L6-c13",
+    "lessonId": "L6",
+    "front": "Chen's triangle under $y = 2 - x$ on $[0, 2]$, revolved about the $x$-axis, sweeps out a cone. Check the disk integral against the cone formula.",
+    "back": "$\\int_0^2 \\pi(2-x)^2\\,dx = \\frac{8\\pi}{3}$, and $\\frac{1}{3}\\pi r^2 h$ with $r = 2$ and $h = 2$ gives $\\frac{8\\pi}{3}$. The radius at $x$ is the height of the bar, $2 - x$.",
+    "tags": [
+      "disk",
+      "check"
+    ]
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "id": "L10-c01",
+    "lessonId": "L10",
+    "front": "Give the steps for the work to pump liquid out of a tank.",
+    "back": "Take a horizontal slice at height $y$, thickness $dy$. Mass $=$ density $\\cdot$ volume, weight $=$ mass $\\cdot\\, g$, and work $=$ weight $\\cdot$ distance to go. Integrate over the slices that hold liquid.",
+    "tags": [
+      "pumping",
+      "formula"
+    ]
+  },
+  {
+    "id": "L10-c02",
+    "lessonId": "L10",
+    "front": "A cylindrical tank stands upright, with radius $2$ m and height $5$ m, and is full of water. Set up the work to pump it over the top, with $y$ up from the bottom.",
+    "back": "Each slice has volume $4\\pi\\,dy$, weight $4\\pi\\rho g\\,dy$, and distance $5 - y$. So $W = \\int_0^5 4\\pi\\rho g(5 - y)\\,dy = 50\\pi\\rho g$ J.",
+    "tags": [
+      "pumping",
+      "compute"
+    ]
+  },
+  {
+    "id": "L10-c03",
+    "lessonId": "L10",
+    "front": "The same full tank (radius $2$ m, height $5$ m) is pumped out through a spout $1$ m above the top. What changes?",
+    "back": "Only the distance: $6 - y$ instead of $5 - y$. The limits stay $0$ to $5$, since the water still occupies that range: $W = \\int_0^5 4\\pi\\rho g(6 - y)\\,dy = 70\\pi\\rho g$ J.",
+    "tags": [
+      "trap",
+      "pumping",
+      "limits"
+    ]
+  },
+  {
+    "id": "L10-c04",
+    "lessonId": "L10",
+    "front": "The same tank (radius $2$ m, height $5$ m) holds water only $3$ m deep and is pumped over the top. What changes?",
+    "back": "The upper limit is the water surface, $3$. The distance is still to the top, $5 - y$, not $3 - y$: $W = \\int_0^3 4\\pi\\rho g(5 - y)\\,dy = 42\\pi\\rho g$ J.",
+    "tags": [
+      "trap",
+      "pumping",
+      "limits"
+    ]
+  },
+  {
+    "id": "L10-c05",
+    "lessonId": "L10",
+    "front": "Redo that $3$ m deep tank (radius $2$ m, height $5$ m) with $y$ measured down from the top. What are the distance and limits?",
+    "back": "The distance to go is now $y$, and the water lies from $y = 2$ to $y = 5$: $W = \\int_2^5 4\\pi\\rho g\\,y\\,dy = 42\\pi\\rho g$ J. The answer is the same as long as the limits, the slice area, and the distance all use one origin.",
+    "tags": [
+      "trap",
+      "pumping",
+      "origin"
+    ]
+  },
+  {
+    "id": "L10-c06",
+    "lessonId": "L10",
+    "front": "Chen's cone (vertex up, height $8$ m, base radius $1$ m) takes $16\\pi\\rho g$ J when full. Half full by height, is it half the work?",
+    "back": "No: changing the upper limit to $4$ gives $15\\pi\\rho g$ J. In a vertex-up cone the bottom half by height holds $\\frac{7}{8}$ of the water. The distance stays $8 - y$.",
+    "tags": [
+      "trap",
+      "pumping"
+    ]
+  },
+  {
+    "id": "L10-c07",
+    "lessonId": "L10",
+    "front": "A cone with vertex **down** has height $6$ m and top radius $2$ m, and is full. Find the slice radius and the work to pump over the top, with $y$ up from the vertex.",
+    "back": "Similar triangles give $\\frac{r}{y} = \\frac{2}{6}$, so $r = \\frac{y}{3}$, growing with $y$. (In Chen's vertex-up cone the radius shrinks as $y$ grows.) Then $W = \\int_0^6 \\pi\\rho g\\left(\\frac{y}{3}\\right)^2(6 - y)\\,dy = 12\\pi\\rho g$ J.",
+    "tags": [
+      "trap",
+      "pumping"
+    ]
+  },
+  {
+    "id": "L10-c08",
+    "lessonId": "L10",
+    "front": "Water has $\\rho = 1000\\,\\mathrm{kg/m^3}$. Is that the slice's weight per volume? What are the units of $\\rho g$?",
+    "back": "No. $\\rho$ is mass per volume, so weight per volume is $\\rho g$: $(\\mathrm{kg/m^3})(\\mathrm{m/s^2}) = \\mathrm{N/m^3}$. With $g = 9.8$, that is $9800\\,\\mathrm{N/m^3}$. Forgetting $g$ gives a mass, not a force.",
+    "tags": [
+      "trap",
+      "density",
+      "units"
+    ]
+  },
+  {
+    "id": "L10-c09",
+    "lessonId": "L10",
+    "front": "A tank problem in feet gives water as $62.4\\,\\mathrm{lb/ft^3}$. Do you multiply by $g$?",
+    "back": "No. Pounds are a force, so this is already weight per volume and plays the role of $\\rho g$. Work then comes out in ft$\\cdot$lb (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "density",
+      "units"
+    ]
+  },
+  {
+    "id": "L10-c10",
+    "lessonId": "L10",
+    "front": "Work on a slice and hydrostatic force on a strip both contain $\\rho g$. How do the units come out, and what are the two integrands?",
+    "back": "Work: $\\rho g\\,A(y)\\,D(y)\\,dy$, with slice area and distance, in $\\mathrm{N/m^3} \\cdot \\mathrm{m^3} \\cdot \\mathrm{m} = \\mathrm{J}$. Force: $\\rho g\\,(\\text{depth})(\\text{width})\\,dy$, in $\\mathrm{N/m^3} \\cdot \\mathrm{m} \\cdot \\mathrm{m^2} = \\mathrm{N}$.",
+    "tags": [
+      "units",
+      "pumping",
+      "hydrostatic"
+    ]
+  },
+  {
+    "id": "L10-c11",
+    "lessonId": "L10",
+    "front": "State Chen's formulas for hydrostatic pressure and force. Why integrate?",
+    "back": "Pressure $= \\rho g \\cdot (\\text{depth below the water surface})$, and force $=$ pressure $\\cdot$ area. Depth varies over a vertical plate, so slice it into horizontal strips, each at one depth, and accumulate $\\rho g\\,(\\text{depth})(\\text{width})\\,dy$.",
+    "tags": [
+      "hydrostatic",
+      "formula"
+    ]
+  },
+  {
+    "id": "L10-c12",
+    "lessonId": "L10",
+    "front": "A vertical rectangular plate, $4$ m wide and $3$ m tall, has its top edge $2$ m below the water surface. With $y$ up from the bottom edge, what is the depth of a strip? Find the force.",
+    "back": "The surface is at $y = 5$, so the depth is $5 - y$, not $y$: pressure depends on depth below the surface, not height above the bottom. Then $F = \\int_0^3 \\rho g(5 - y)(4)\\,dy = 42\\rho g$ N.",
+    "tags": [
+      "trap",
+      "hydrostatic"
+    ]
+  },
+  {
+    "id": "L10-c13",
+    "lessonId": "L10",
+    "front": "A vertical gate is $6$ m wide and $3$ m tall, with water only $2$ m deep against it. Find the force.",
+    "back": "Only the wet part counts. With $y$ up from the bottom, the surface is at $y = 2$, so the limits are $0$ to $2$ and the depth is $2 - y$: $F = \\int_0^2 \\rho g(2 - y)(6)\\,dy = 12\\rho g$ N.",
+    "tags": [
+      "trap",
+      "hydrostatic",
+      "limits"
+    ]
+  },
+  {
+    "id": "L10-c14",
+    "lessonId": "L10",
+    "front": "A triangular gate has its vertex down, with height $3$ m and top width $6$ m, and water even with the top. Find the force.",
+    "back": "With $y$ up from the vertex, the width grows as $2y$ and the depth is $3 - y$. Then $F = \\int_0^3 \\rho g(3 - y)(2y)\\,dy = 9\\rho g$ N. Both the depth and the width vary with $y$.",
+    "tags": [
+      "trap",
+      "hydrostatic"
+    ]
+  }
+]

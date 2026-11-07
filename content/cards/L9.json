@@ -1,0 +1,146 @@
+[
+  {
+    "id": "L9-c01",
+    "lessonId": "L9",
+    "front": "How do you find the mass of a thin bar of length $L$, with constant density and with variable density?",
+    "back": "Constant: $m = \\rho L$. Variable: a thin segment has mass $\\rho(x)\\,dx$, so $m = \\int_0^L \\rho(x)\\,dx$. Density here is per length (kg/m), because the bar is so thin that only its length matters.",
+    "tags": [
+      "density",
+      "formula"
+    ]
+  },
+  {
+    "id": "L9-c02",
+    "lessonId": "L9",
+    "front": "A $10$ m wire has density equal to $3$ times the distance from its **right** end. With $x$ measured from the left end, find the mass of the left $4$ m.",
+    "back": "Distance from the right end is $10 - x$, so $\\rho(x) = 3(10 - x)$, not $3x$. Then $m = \\int_0^4 3(10 - x)\\,dx = 96$ kg.",
+    "tags": [
+      "trap",
+      "density"
+    ]
+  },
+  {
+    "id": "L9-c03",
+    "lessonId": "L9",
+    "front": "A $4$ m rod has $\\rho(x) = 1 + x^2$ kg/m. Find its mass. Is half the rod half the mass?",
+    "back": "$m = \\int_0^4 (1 + x^2)\\,dx = \\frac{76}{3}$ kg. Half the rod is not half the mass here: the left half $\\int_0^2 (1 + x^2)\\,dx = \\frac{14}{3}$ is much less than half, since the density grows along the rod.",
+    "tags": [
+      "trap",
+      "density"
+    ]
+  },
+  {
+    "id": "L9-c04",
+    "lessonId": "L9",
+    "front": "When does work $=$ force $\\cdot$ distance apply, and what replaces it otherwise?",
+    "back": "Only for a constant force. For a varying force, $W = \\int_a^b F(x)\\,dx$. Units are N$\\cdot$m, or joules.",
+    "tags": [
+      "work",
+      "formula"
+    ]
+  },
+  {
+    "id": "L9-c05",
+    "lessonId": "L9",
+    "front": "State Hooke's law, including what $x$ means.",
+    "back": "$F = kx$, where $k$ is the spring constant (stiffness) and $x$ is the deviation from the equilibrium position. At equilibrium the spring has its natural length and no force is involved.",
+    "tags": [
+      "spring",
+      "formula"
+    ]
+  },
+  {
+    "id": "L9-c06",
+    "lessonId": "L9",
+    "front": "A spring has natural length $0.5$ m. A $30$ N force holds it at a total length of $0.8$ m. Find $k$.",
+    "back": "$x$ is the deviation from natural length: $x = 0.8 - 0.5 = 0.3$ m, not $0.8$. So $30 = k(0.3)$ and $k = 100$ N/m.",
+    "tags": [
+      "trap",
+      "spring"
+    ]
+  },
+  {
+    "id": "L9-c07",
+    "lessonId": "L9",
+    "front": "For that spring ($k = 100$ N/m, natural length $0.5$ m), find the work to stretch it from a length of $0.7$ m to a length of $0.9$ m.",
+    "back": "The limits are measured from natural length: $a = 0.2$ and $b = 0.4$. So $W = \\int_{0.2}^{0.4} 100x\\,dx = 6$ J. Using the lengths $0.7$ and $0.9$ as limits would wrongly give $16$ J.",
+    "tags": [
+      "trap",
+      "spring",
+      "limits"
+    ]
+  },
+  {
+    "id": "L9-c08",
+    "lessonId": "L9",
+    "front": "Stretching a spring from natural length to $0.3$ m beyond it takes $9$ J. How much more work stretches it to $0.4$ m beyond natural length?",
+    "back": "First $9 = \\int_0^{0.3} kx\\,dx = \\frac{k}{2}(0.09)$, so $k = 200$ N/m. The next part starts at $x = 0.3$, not $0$: $W = \\int_{0.3}^{0.4} 200x\\,dx = 7$ J. Starting at $0$ would give $1$ J, and scaling $9$ J by distance would give $3$ J.",
+    "tags": [
+      "trap",
+      "spring",
+      "limits"
+    ]
+  },
+  {
+    "id": "L9-c09",
+    "lessonId": "L9",
+    "front": "A spring with $k = 300$ N/m and natural length $2$ m is compressed from natural length to a length of $1.6$ m. Set up the work.",
+    "back": "Compression makes $x$ negative, with $x = 1.6 - 2 = -0.4$: $W = \\int_0^{-0.4} 300x\\,dx = 24$ J. The result is positive because the spring moves away from equilibrium.",
+    "tags": [
+      "trap",
+      "spring",
+      "limits"
+    ]
+  },
+  {
+    "id": "L9-c10",
+    "lessonId": "L9",
+    "front": "In Chen's spring ($k = 400$), compressing the first $0.5$ m takes $50$ J and the next $0.5$ m takes $150$ J. Why the difference?",
+    "back": "The force $F = kx$ grows with the deviation, so the second $0.5$ m pushes against a larger force the whole way. Work is $\\frac{k}{2}\\left(b^2 - a^2\\right)$, not a constant force times distance.",
+    "tags": [
+      "trap",
+      "spring"
+    ]
+  },
+  {
+    "id": "L9-c11",
+    "lessonId": "L9",
+    "front": "How much work lifts a $20$ kg mass $12$ m off the ground? State the assumption.",
+    "back": "The force is the weight $20g$, so $W = (20g)(12) = 240g$, about $2352$ J with $g = 9.8$. This treats $g$ as constant, which is fine when the change in height is small compared to the size of the Earth.",
+    "tags": [
+      "gravity",
+      "compute"
+    ]
+  },
+  {
+    "id": "L9-c12",
+    "lessonId": "L9",
+    "front": "An object weighs $50$ N and is lifted $3$ m. Is the work $(50g)(3)$?",
+    "back": "No. Newtons are already a force, so $W = (50)(3) = 150$ J. Multiply by $g$ only when you are given a mass in kg.",
+    "tags": [
+      "trap",
+      "gravity"
+    ]
+  },
+  {
+    "id": "L9-c13",
+    "lessonId": "L9",
+    "front": "A $30$ m cable of density $2$ kg/m hangs from a roof. Why does its work need an integral, and what is the work to wind it all up?",
+    "back": "Each piece rises a different distance. A slice $y$ below the top has weight $2g\\,dy$ and rises $y$: $W = \\int_0^{30} 2gy\\,dy = 900g$. Chen names this example; the worked numbers are beyond his notes.",
+    "tags": [
+      "gravity",
+      "cable"
+    ]
+  },
+  {
+    "id": "L9-c14",
+    "lessonId": "L9",
+    "front": "For that $30$ m, $2$ kg/m cable, what is the work to wind up only the top $10$ m?",
+    "back": "Top $10$ m: each slice rises $y$, giving $\\int_0^{10} 2gy\\,dy = 100g$. The lower $20$ m weighs $40g$ and every part rises $10$ m, giving $400g$. The total is $500g$. Slices below the top $10$ m rise only $10$ m, not $y$ (beyond Chen's notes).",
+    "tags": [
+      "trap",
+      "gravity",
+      "cable"
+    ]
+  }
+]

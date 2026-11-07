@@ -1,0 +1,138 @@
+[
+  {
+    "id": "L5-c01",
+    "lessonId": "L5",
+    "front": "State the area between $y = f(x)$ and $y = g(x)$ on $[a, b]$ when $f(x) \\ge g(x)$.",
+    "back": "Area $= \\int_a^b [f(x) - g(x)]\\,dx$: top minus bottom. Each thin vertical rectangle has height $f(x) - g(x)$ and width $dx$, and integrating accumulates them.",
+    "tags": [
+      "area",
+      "formula"
+    ]
+  },
+  {
+    "id": "L5-c02",
+    "lessonId": "L5",
+    "front": "A student finds the area between $y = x^2 - 4$ and the $x$-axis as $\\int_{-2}^{2} (x^2 - 4)\\,dx = -\\frac{32}{3}$. What went wrong?",
+    "back": "The order. On $[-2, 2]$ the parabola is below the axis, so top minus bottom is $0 - (x^2 - 4)$, and the area is $\\int_{-2}^{2} (4 - x^2)\\,dx = \\frac{32}{3}$. A negative answer signals top and bottom are reversed.",
+    "tags": [
+      "trap",
+      "area"
+    ]
+  },
+  {
+    "id": "L5-c03",
+    "lessonId": "L5",
+    "front": "Find the area between $y = 6 - x^2$ and $y = x$.",
+    "back": "$6 - x^2 = x$ gives $x = -3, 2$, and the parabola is on top (at $x = 0$: $6 > 0$). Area $= \\int_{-3}^{2} (6 - x^2 - x)\\,dx = \\frac{125}{6}$.",
+    "tags": [
+      "area",
+      "compute"
+    ]
+  },
+  {
+    "id": "L5-c04",
+    "lessonId": "L5",
+    "front": "For the region bounded by $y = x^2 - 2x$ and $y = 2x$, the parabola crosses the $x$-axis at $x = 2$. Is $x = 2$ a limit or a place to split?",
+    "back": "Neither. The $x$-axis is not a boundary here, and top and bottom do not change at $x = 2$. Only the intersections of the two curves, $x = 0$ and $x = 4$, matter: $\\int_0^4 (4x - x^2)\\,dx = \\frac{32}{3}$.",
+    "tags": [
+      "trap",
+      "area",
+      "limits"
+    ]
+  },
+  {
+    "id": "L5-c05",
+    "lessonId": "L5",
+    "front": "How do you tell which curve is on top when two continuous curves cross?",
+    "back": "Find the intersections, then test one $x$ in each interval between them. The order can change only at an intersection. Start a new integral wherever it changes.",
+    "tags": [
+      "crossing",
+      "area"
+    ]
+  },
+  {
+    "id": "L5-c06",
+    "lessonId": "L5",
+    "front": "Find the area between $y = x$ and $y = x^3$ on $[0, 2]$. Why is $\\left|\\int_0^2 (x - x^3)\\,dx\\right| = 2$ wrong?",
+    "back": "They cross at $x = 1$, and that one integral lets the two pieces cancel. Split: $\\int_0^1 (x - x^3)\\,dx + \\int_1^2 (x^3 - x)\\,dx = \\frac{1}{4} + \\frac{9}{4} = \\frac{5}{2}$.",
+    "tags": [
+      "trap",
+      "crossing",
+      "area"
+    ]
+  },
+  {
+    "id": "L5-c07",
+    "lessonId": "L5",
+    "front": "$\\int_{-2}^{2} (4x - x^3)\\,dx = 0$. Does this mean $y = 4x$ and $y = x^3$ enclose no area on $[-2, 2]$?",
+    "back": "No. They cross at $x = 0$, and the two signed pieces cancel. On $[-2, 0]$ the cubic is on top, and on $[0, 2]$ the line is. The area is $2\\int_0^2 (4x - x^3)\\,dx = 8$.",
+    "tags": [
+      "trap",
+      "crossing",
+      "area"
+    ]
+  },
+  {
+    "id": "L5-c08",
+    "lessonId": "L5",
+    "front": "Solving $\\cos x = \\sin 2x$ on $\\left[0, \\frac{\\pi}{2}\\right]$, why not divide both sides by $\\cos x$?",
+    "back": "With $\\sin 2x = 2\\sin x\\cos x$, dividing leaves only $\\sin x = \\frac{1}{2}$, losing the solution where $\\cos x = 0$. Factor instead: $\\cos x(1 - 2\\sin x) = 0$ gives $x = \\frac{\\pi}{2}$ and $x = \\frac{\\pi}{6}$.",
+    "tags": [
+      "trap",
+      "crossing",
+      "intersections"
+    ]
+  },
+  {
+    "id": "L5-c09",
+    "lessonId": "L5",
+    "front": "What is the area between $y = \\cos x$ and $y = \\sin 2x$ on $\\left[0, \\frac{\\pi}{2}\\right]$, and what does one integral across the whole interval give?",
+    "back": "Split at $x = \\frac{\\pi}{6}$: $\\int_0^{\\pi/6} (\\cos x - \\sin 2x)\\,dx + \\int_{\\pi/6}^{\\pi/2} (\\sin 2x - \\cos x)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$. One integral $\\int_0^{\\pi/2} (\\cos x - \\sin 2x)\\,dx$ gives $0$, because the pieces cancel.",
+    "tags": [
+      "crossing",
+      "area"
+    ]
+  },
+  {
+    "id": "L5-c10",
+    "lessonId": "L5",
+    "front": "State the area formula when integrating with respect to $y$.",
+    "back": "Area $= \\int_c^d [f(y) - g(y)]\\,dy$, where $x = f(y)$ is the right curve and $x = g(y)$ the left. It is right minus left, with $y$-values as limits and every curve written as $x = \\ldots$.",
+    "tags": [
+      "area-in-y",
+      "formula"
+    ]
+  },
+  {
+    "id": "L5-c11",
+    "lessonId": "L5",
+    "front": "For the region between $x = y^2 - 1$ and $y = x - 1$, integrate in $x$ or in $y$? Why?",
+    "back": "In $y$. With vertical rectangles the bottom curve changes at $x = 0$, from the lower branch of the parabola to the line, needing two integrals. Horizontally the right is always $x = y + 1$ and the left $x = y^2 - 1$: $\\int_{-1}^{2} (y + 2 - y^2)\\,dy = \\frac{9}{2}$.",
+    "tags": [
+      "trap",
+      "area-in-y",
+      "which-variable"
+    ]
+  },
+  {
+    "id": "L5-c12",
+    "lessonId": "L5",
+    "front": "For the region between $x = y^2 - 6$ and $x = y$, why are the limits $y = -2$ and $y = 3$ and not $y = \\pm\\sqrt{6}$?",
+    "back": "Limits come from where the two curves meet: $y^2 - 6 = y$ gives $y = -2, 3$. The values $\\pm\\sqrt{6}$ are only where the parabola meets the $y$-axis, which is not a boundary. The area is $\\frac{125}{6}$.",
+    "tags": [
+      "trap",
+      "area-in-y",
+      "limits"
+    ]
+  },
+  {
+    "id": "L5-c13",
+    "lessonId": "L5",
+    "front": "Find the area between $x = 4 - y^2$ and the $y$-axis. What plays the role of top minus bottom?",
+    "back": "Right minus left, with the $y$-axis as $x = 0$. The curves meet at $y = \\pm 2$, so the area is $\\int_{-2}^{2} [(4 - y^2) - 0]\\,dy = \\frac{32}{3}$.",
+    "tags": [
+      "area-in-y",
+      "compute"
+    ]
+  }
+]
