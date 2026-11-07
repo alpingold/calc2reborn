@@ -77,8 +77,8 @@
   {
     "id": "L18-c09",
     "lessonId": "L18",
-    "front": "Evaluate $\\int_0^1 \\frac{\\ln x}{\\sqrt{x}}\\,dx$.",
-    "back": "It is improper at $x = 0$, where $\\frac{\\ln x}{\\sqrt{x}} \\to -\\infty$. By parts with $u = \\ln x$ and $dv = x^{-1/2}\\,dx$, $\\int \\frac{\\ln x}{\\sqrt{x}}\\,dx = 2\\sqrt{x}\\ln x - 4\\sqrt{x}$, so the integral is $\\lim_{t\\to 0^+}\\left[(0 - 4) - (2\\sqrt{t}\\ln t - 4\\sqrt{t})\\right] = -4$, using $\\sqrt{t}\\ln t \\to 0$ (L'Hôpital). It converges to $-4$.",
+    "front": "Evaluate $\\int_0^1 \\frac{\\ln x}{x^{3/4}}\\,dx$.",
+    "back": "It is improper at $x = 0$, where $\\frac{\\ln x}{x^{3/4}} \\to -\\infty$. By parts with $u = \\ln x$ and $dv = x^{-3/4}\\,dx$, $\\int \\frac{\\ln x}{x^{3/4}}\\,dx = 4x^{1/4}\\ln x - 16x^{1/4}$, so the integral is $\\lim_{t\\to 0^+}\\left[(0 - 16) - (4t^{1/4}\\ln t - 16t^{1/4})\\right] = -16$, using $t^{1/4}\\ln t \\to 0$ (L'Hôpital). It converges to $-16$.",
     "tags": [
       "discontinuity"
     ]

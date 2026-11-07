@@ -59,8 +59,8 @@
   {
     "id": "L11-c07",
     "lessonId": "L11",
-    "front": "Evaluate $\\int_0^1 \\tan^{-1}x\\,dx$.",
-    "back": "$u = \\tan^{-1}x$ and $dv = dx$: $x\\tan^{-1}x\\Big|_0^1 - \\int_0^1 \\frac{x}{1 + x^2}\\,dx = \\frac{\\pi}{4} - \\frac{1}{2}\\ln(1 + x^2)\\Big|_0^1 = \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2$.",
+    "front": "Evaluate $\\int_0^2 \\ln(x + 1)\\,dx$.",
+    "back": "$u = \\ln(x + 1)$ and $dv = dx$: $x\\ln(x + 1)\\Big|_0^2 - \\int_0^2 \\frac{x}{x + 1}\\,dx$. Write $\\frac{x}{x + 1} = 1 - \\frac{1}{x + 1}$, so the second integral is $2 - \\ln 3$. The answer is $2\\ln 3 - (2 - \\ln 3) = 3\\ln 3 - 2$.",
     "tags": [
       "definite",
       "quick-compute"

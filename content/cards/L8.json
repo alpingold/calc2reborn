@@ -22,8 +22,8 @@
   {
     "id": "L8-c03",
     "lessonId": "L8",
-    "front": "Find the arc length of $y = \\ln(\\cos x)$ on $\\left[0, \\frac{\\pi}{4}\\right]$.",
-    "back": "$y' = -\\tan x$, so $1 + (y')^2 = \\sec^2 x$, and $\\sec x > 0$ here. Then $L = \\int_0^{\\pi/4} \\sec x\\,dx = \\ln(\\sqrt{2} + 1)$, using $\\int \\sec x\\,dx = \\ln|\\sec x + \\tan x| + C$ (trig integrals start in L12).",
+    "front": "Find the arc length of $y = \\ln(\\cos x)$ on $\\left[0, \\frac{\\pi}{6}\\right]$.",
+    "back": "$y' = -\\tan x$, so $1 + (y')^2 = \\sec^2 x$, and $\\sec x > 0$ here. Then $L = \\int_0^{\\pi/6} \\sec x\\,dx = \\ln\\left(\\frac{2}{\\sqrt{3}} + \\frac{1}{\\sqrt{3}}\\right) = \\ln\\sqrt{3} = \\frac{1}{2}\\ln 3$, using $\\int \\sec x\\,dx = \\ln|\\sec x + \\tan x| + C$ (trig integrals start in L12).",
     "tags": [
       "arc-length",
       "compute"

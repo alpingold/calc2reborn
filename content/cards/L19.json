@@ -63,8 +63,8 @@
   {
     "id": "L19-c07",
     "lessonId": "L19",
-    "front": "Does $\\sum_{n=1}^{\\infty} \\cos(n\\pi)$ converge?",
-    "back": "No. The terms are $-1, 1, -1, 1, \\dots$, so the partial sums are $-1, 0, -1, 0, \\dots$ and never settle. Also $\\lim_{n\\to\\infty} \\cos(n\\pi)$ does not exist, so the Divergence Test confirms divergence.",
+    "front": "Does $\\sum_{n=1}^{\\infty} \\cos\\left(\\frac{n\\pi}{2}\\right)$ converge?",
+    "back": "No. The terms are $0, -1, 0, 1, \\dots$, so the partial sums are $0, -1, -1, 0, 0, -1, \\dots$ and never settle. Also $\\lim_{n\\to\\infty} \\cos\\left(\\frac{n\\pi}{2}\\right)$ does not exist, so the Divergence Test confirms divergence.",
     "tags": [
       "series",
       "partial-sums",
@@ -95,8 +95,8 @@
   {
     "id": "L19-c10",
     "lessonId": "L19",
-    "front": "Does the sequence $a_n = (-1)^n \\frac{n}{n+1}$ converge?",
-    "back": "No. The magnitude $\\frac{n}{n+1} \\to 1$, so the terms jump between values near $-1$ and near $1$ and have no single limit. A $(-1)^n$ factor is harmless only when the magnitude goes to $0$.",
+    "front": "Does the sequence $a_n = (-1)^n \\frac{2n}{n+3}$ converge?",
+    "back": "No. The magnitude $\\frac{2n}{n+3} \\to 2$, so the terms jump between values near $-2$ and near $2$ and have no single limit. A $(-1)^n$ factor is harmless only when the magnitude goes to $0$.",
     "tags": [
       "trap",
       "sequence",

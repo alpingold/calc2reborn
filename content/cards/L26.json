@@ -129,8 +129,8 @@
   {
     "id": "L26-c13",
     "lessonId": "L26",
-    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k^3}$, and why?",
-    "back": "Limit Comparison with $\\frac{1}{k^2}$: $c = \\lim \\frac{\\ln k}{k} = 0$, and $\\sum \\frac{1}{k^2}$ converges, so (the $c = 0$ case) the series converges. Direct Comparison with $\\frac{k}{k^3} = \\frac{1}{k^2}$, using $\\ln k < k$, also works.",
+    "front": "Which test for $\\sum_{k=1}^{\\infty} \\frac{\\ln k}{k^{3/2}}$, and why?",
+    "back": "Limit Comparison with $\\frac{1}{k^{5/4}}$, a power between $1$ and $\\frac{3}{2}$: $c = \\lim \\frac{\\ln k}{k^{1/4}} = 0$, and $\\sum \\frac{1}{k^{5/4}}$ converges ($p = \\frac{5}{4} > 1$), so (the $c = 0$ case) the series converges. Comparing with $\\frac{1}{k^{3/2}}$ itself gives $c = \\infty$, and with $\\frac{1}{k}$ gives $c = 0$ against a divergent series: neither says anything.",
     "tags": [
       "which-test",
       "limit-comparison"

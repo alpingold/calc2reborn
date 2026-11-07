@@ -74,8 +74,8 @@
   {
     "id": "L6-c08",
     "lessonId": "L6",
-    "front": "For $y = \\sqrt{x}$ and $y = x$ about the $x$-axis, a student writes $\\int_0^1 \\pi(\\sqrt{x} - x)^2\\,dx$. What is wrong?",
-    "back": "A washer's area is big circle minus small circle, $\\pi(\\text{outer})^2 - \\pi(\\text{inner})^2$, not $\\pi(\\text{outer} - \\text{inner})^2$. Correct: $\\int_0^1 (\\pi x - \\pi x^2)\\,dx = \\frac{\\pi}{6}$. The student's integral gives $\\frac{\\pi}{30}$.",
+    "front": "For $y = 2\\sqrt{x}$ and $y = x$ about the $x$-axis, a student writes $\\int_0^4 \\pi(2\\sqrt{x} - x)^2\\,dx$. What is wrong?",
+    "back": "A washer's area is big circle minus small circle, $\\pi(\\text{outer})^2 - \\pi(\\text{inner})^2$, not $\\pi(\\text{outer} - \\text{inner})^2$. Correct: $\\int_0^4 (4\\pi x - \\pi x^2)\\,dx = \\frac{32\\pi}{3}$. The student's integral gives $\\frac{32\\pi}{15}$.",
     "tags": [
       "trap",
       "washer"
