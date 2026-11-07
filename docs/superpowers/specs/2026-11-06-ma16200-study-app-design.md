@@ -212,7 +212,10 @@ Client-side routing. Six screens.
 - **Exams.** Past exams by semester with best score; take one; results
   with per-question review. Mock-exam generator with a lesson range.
 - **Settings.** Current lesson, exam date and covered lessons, daily
-  new-card cap, export progress to JSON, import from JSON, reset.
+  new-card cap, export progress to JSON, import from JSON, reset. On
+  first launch the dashboard asks for the current lesson; until it is
+  set, the current lesson defaults to the last lesson, so every lesson
+  counts as covered.
 - **Content review (dev only).** Each transcribed question rendered beside
   its source page image, with a button to mark it reviewed. Not linked in
   production builds.
