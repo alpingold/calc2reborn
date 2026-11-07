@@ -1,0 +1,419 @@
+{
+  "id": "s2022-e2",
+  "term": "Spring",
+  "year": 2022,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2022.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2022.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2022-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Evaluate the following definite integral: $\\int_0^3 \\frac{dx}{(9+x^2)^{3/2}}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\sqrt{2}}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sqrt{2}}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sqrt{2}}{27}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\sqrt{2}}{18}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Which integral arises after making an appropriate substitution to evaluate $\\int \\sqrt{9 - x^2}dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int 9\\sin\\theta d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int 9\\cos\\theta d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int 9\\cos^2\\theta d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int \\frac{1}{9}\\sin^2\\theta d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int \\frac{1}{9}\\cos^2\\theta d\\theta$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "The partial fraction decomposition of $\\frac{1}{x+x^3}$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{x^3} - \\frac{1}{x}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{x^3} + \\frac{1}{2x^2} - \\frac{1}{x}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{x} - \\frac{x}{x^2+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{1+x^2} - \\frac{3}{x}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{x} - \\frac{2}{x^2} + \\frac{3}{1+x^2}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "$\\int_0^1 \\sqrt{3 + 2x - x^2}dx=$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\sqrt{3}}{2} + \\frac{\\pi}{3}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Evaluate $\\int_0^{\\pi/3} \\sqrt{\\sec^2\\theta - 1}d\\theta$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln 4$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln 1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln 2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln 3$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln 6$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Evaluate $\\int_0^2 (3x - 1)e^{x/2}dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$5e + 1$"
+        },
+        {
+          "label": "B",
+          "text": "$5 + 10e$"
+        },
+        {
+          "label": "C",
+          "text": "$10 - 2e$"
+        },
+        {
+          "label": "D",
+          "text": "$10 - 22e$"
+        },
+        {
+          "label": "E",
+          "text": "$14 - 2e$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Evaluate $\\int_0^1 \\frac{x+2}{(x+1)(x+3)}dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}\\ln\\left(\\frac{8}{3}\\right)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln(2\\sqrt{3})$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln\\left(\\frac{2}{\\sqrt{3}}\\right)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2}\\ln(8\\sqrt{3})$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln\\left(\\frac{4}{\\sqrt{3}}\\right)$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Evaluate $\\int_{-1}^1 \\frac{1}{x^4}dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$0$"
+        },
+        {
+          "label": "C",
+          "text": "$-\\frac{2}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "Divergent"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Evaluate $\\int_0^{\\pi/2} \\sin^3 x \\cos^4 x dx$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5}{12}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{7}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{35}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3}{28}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5}{16}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Which of the following recurrence relations will generate a sequence with $a_3 = -3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$a_{n+1} = 1 - 2a_n$; $a_1 = 1$"
+        },
+        {
+          "label": "B",
+          "text": "$a_{n+1} = -a_n$; $a_1 = 1$"
+        },
+        {
+          "label": "C",
+          "text": "$a_{n+1} = a_n + 1$; $a_1 = -5$"
+        },
+        {
+          "label": "D",
+          "text": "$a_{n+1} = -3 + a_n$; $a_1 = 0$"
+        },
+        {
+          "label": "E",
+          "text": "$a_{n+1} = 3a_n$; $a_1 = -1$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L19"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Evaluate $\\lim_{n\\to\\infty} \\frac{\\ln(4n+5)}{n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{\\ln 4}{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\ln 5}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "Limit does not exist."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "A cylindrical water tank has the height $8m$ and the radius $2m$. It is half full of water. Water has the density $\\rho \\, \\frac{kg}{m^2}$ and the acceleration due to gravity is $g \\, \\frac{m}{s^2}$. The work done pumping all the water to the top of the tank is:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$32\\pi \\, \\rho g$ J"
+        },
+        {
+          "label": "B",
+          "text": "$64\\pi \\, \\rho g$ J"
+        },
+        {
+          "label": "C",
+          "text": "$128\\pi \\, \\rho g$ J"
+        },
+        {
+          "label": "D",
+          "text": "$256\\pi \\, \\rho g$ J"
+        },
+        {
+          "label": "E",
+          "text": "$96\\pi \\, \\rho g$ J"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
