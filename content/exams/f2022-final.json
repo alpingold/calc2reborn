@@ -1,0 +1,835 @@
+{
+  "id": "f2022-final",
+  "term": "Fall",
+  "year": 2022,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2022.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2022.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "f2022-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Find an equation for a sphere with center $(0, -8, -5)$ and radius $8$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x^2 + y^2 + z^2 + 16y + 10z = -25$"
+        },
+        {
+          "label": "B",
+          "text": "$x^2 + y^2 + z^2 + 16y - 10z = -25$"
+        },
+        {
+          "label": "C",
+          "text": "$x^2 + y^2 + z^2 - 16y + 10z = -25$"
+        },
+        {
+          "label": "D",
+          "text": "$x^2 + y^2 + 8z^2 + 16y - 10z = -25$"
+        },
+        {
+          "label": "E",
+          "text": "$x^2 + y^2 + 8z^2 + 16y + 10z = -25$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "If $\\vec{v} =< x, 2 >$ and $\\vec{w} =< 1, x >$, find a positive $x$ such that $|\\vec{v} + \\vec{w}| = \\sqrt{61}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4$"
+        },
+        {
+          "label": "B",
+          "text": "$5$"
+        },
+        {
+          "label": "C",
+          "text": "$6$"
+        },
+        {
+          "label": "D",
+          "text": "$7$"
+        },
+        {
+          "label": "E",
+          "text": "$8$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Find the volume of the solid obtained by revolving the region in the first quadrant bounded by $y = \\frac{2}{x}$, $x = 2$, and $y = 2$ about the $y-$axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4}{3}\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$6\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Find the volume of the solid obtained by revolving the region bounded by $y = e^{x/2} + 1$, $y = 3$, $x = 0$, and $x = 1$ about the line $y = 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi(5 - e)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi(e^2 - 4)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi(e - 4)$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi(e - 4)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi(7 - e)$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "A $10-$m chain hangs from a wench. If the chain weighs $1.5$ kg/m, find the work in J to wind up the entire chain. Use $g = 10$ m/s$^2$ in your calculation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$500$"
+        },
+        {
+          "label": "B",
+          "text": "$750$"
+        },
+        {
+          "label": "C",
+          "text": "$1000$"
+        },
+        {
+          "label": "D",
+          "text": "$1250$"
+        },
+        {
+          "label": "E",
+          "text": "$1500$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "What is the most appropriate substitution or procedure to compute\n\n$$\n\\int \\sin^6 x \\cos^7 x\\, dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "substitution with $u = \\cos x$"
+        },
+        {
+          "label": "B",
+          "text": "substitution with $u = \\sin x$"
+        },
+        {
+          "label": "C",
+          "text": "substitution with $u = \\sin^4 x$"
+        },
+        {
+          "label": "D",
+          "text": "substitution with $u = \\cos^5 x$"
+        },
+        {
+          "label": "E",
+          "text": "use the identities $\\sin^2 x = \\frac{1 - \\cos 2x}{2}$ and $\\cos^2 x = \\frac{1 + \\cos 2x}{2}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "$\\int_0^1 x e^{3x}\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{9}e^3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{9} + \\frac{2}{9}e^3$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{9}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{9}e^3 - 1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "What is the most appropriate substitution to compute\n\n$$\n\\int_0^{\\frac{\\pi}{4}} \\sec^6 x\\, dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$u = \\tan x$"
+        },
+        {
+          "label": "B",
+          "text": "$u = \\sec x$"
+        },
+        {
+          "label": "C",
+          "text": "$u = \\tan^2 x$"
+        },
+        {
+          "label": "D",
+          "text": "$u = \\sec^2 x$"
+        },
+        {
+          "label": "E",
+          "text": "$u = \\cos^2 x$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "To compute $\\int \\frac{2x^3 + 1}{x^2 - 4x + 4}\\, dx$, one should reduce the integrand to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2x + \\frac{A}{x^2} + \\frac{B}{x} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$2x + 8 + \\frac{A}{x-2} + \\frac{B}{x-2}$"
+        },
+        {
+          "label": "C",
+          "text": "$2 + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$2x + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$2x + 8 + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L16",
+        "L17"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "$\\int \\frac{1}{x^2\\sqrt{4x^2 + 1}}\\, dx =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-\\sqrt{4x^2 + 1} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{\\sqrt{4x^2+1}}{x} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$-2\\sin^{-1} x + C$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{2}{x} + C$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{x}{\\sqrt{4x^2+1}} + C$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "To compute $\\int_0^1 \\frac{x^3}{\\sqrt{x^2 - 2x + 2}}\\, dx$, the first step is to transform the integral to:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\pi/2} \\sin^3 t \\tan t\\, dt$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_{-\\pi/4}^0 (1 + \\sin t)^3 \\tan t\\, dt$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_{-\\pi/4}^0 (1 + \\tan t)^3 \\sec t\\, dt$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\pi/2} \\sin^3 t(1 + \\sec t)\\, dt$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\pi/4} \\tan^3 t \\sec t\\, dt$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "$\\int_1^\\infty \\frac{3t + 1}{t^2}\\, dt =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1/2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln 2$"
+        },
+        {
+          "label": "E",
+          "text": "The integral is divergent"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "$$\nI.\\ \\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{\\sqrt{n} - 3}{n}; \\quad II.\\ \\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{1}{\\ln^2(n+1)}; \\quad III.\\ \\sum_{n=1}^{\\infty} (-1)^{n-1} \\sin(n).\n$$\n\nWhich of the following statement is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All three are convergent"
+        },
+        {
+          "label": "B",
+          "text": "Only II is convergent"
+        },
+        {
+          "label": "C",
+          "text": "II and III are convergent"
+        },
+        {
+          "label": "D",
+          "text": "All three are divergent"
+        },
+        {
+          "label": "E",
+          "text": "I and II are convergent"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "Consider $S = \\sum_{m=1}^{\\infty} (-1)^{m-1} \\frac{1}{m^3}$ and its partial sum $S_n$. Determine the least number $n$ such that $|S - S_n| \\le 8 \\times 10^{-6}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$n = 101$"
+        },
+        {
+          "label": "B",
+          "text": "$n = 49$"
+        },
+        {
+          "label": "C",
+          "text": "$n = 99$"
+        },
+        {
+          "label": "D",
+          "text": "$n = 51$"
+        },
+        {
+          "label": "E",
+          "text": "$n = 999$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "Determine which of the following statements are true and which are false.\n\n(I) If $\\sum_{n=1}^{\\infty} a_n$ is convergent, then $\\sum_{n=1}^{\\infty} |a_n|$ is convergent.\n\n(II) If $a_n > 0$, $b_n > 0$, $\\sum_{n=1}^{\\infty} b_n$ is convergent, and $b_n \\le a_n$, then $\\sum_{n=1}^{\\infty} a_n$ is convergent.\n\n(III) If $a_n > 0$, $b_n > 0$, $\\sum_{n=1}^{\\infty} b_n$ is convergent, and $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\frac{1}{2}$, then $\\sum_{n=1}^{\\infty} a_n$ is convergent.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "II is true; I and III are false."
+        },
+        {
+          "label": "B",
+          "text": "III is true; I and II are false."
+        },
+        {
+          "label": "C",
+          "text": "I is true; II and III are false."
+        },
+        {
+          "label": "D",
+          "text": "I and II are true; III is false."
+        },
+        {
+          "label": "E",
+          "text": "I, II, and III are false."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23",
+        "L24"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Determine if the series converges or diverges. If it converges, find its sum.\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{3}{n(n+3)}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Converges to $3/2$."
+        },
+        {
+          "label": "B",
+          "text": "Converges to $33/6$."
+        },
+        {
+          "label": "C",
+          "text": "Converges to $11/6$."
+        },
+        {
+          "label": "D",
+          "text": "Converges to $9/2$."
+        },
+        {
+          "label": "E",
+          "text": "Diverges."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Find the interval of convergence of the power series\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{(x-9)^k}{9 + 7k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(8, 10)$"
+        },
+        {
+          "label": "B",
+          "text": "$[8, 10)$"
+        },
+        {
+          "label": "C",
+          "text": "$(8, 10]$"
+        },
+        {
+          "label": "D",
+          "text": "$[8, 10]$"
+        },
+        {
+          "label": "E",
+          "text": "$(-\\infty, \\infty)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "What is the fourth term of the Taylor series representation of the function $f(x) = \\ln x$ centered at $a = 2$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{6}(x - 2)^3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{12}(x - 2)^3$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{24}(x - 2)^3$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{1}{3}(x - 2)^3$"
+        },
+        {
+          "label": "E",
+          "text": "$-(x - 2)^3$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "Using the fact that $\\frac{1}{1 - x} = \\sum_{k=0}^{\\infty} x^k$, $|x| < 1$, what is the coefficient of the term containing $x^6$ in the power series representation of $f(x) = \\frac{1}{(1 - x^2)^2}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "Using the fact that $\\tan^{-1} x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{2k + 1} x^{2k+1}$, $|x| \\le 1$, use the first two terms of the Maclaurin series for $3x^3 \\tan^{-1}(2x)$ to estimate\n\n$$\n\\int_0^1 3x^3 \\tan^{-1}(2x)\\, dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{37}{50}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{64}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{84}{35}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{35}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{3}{5}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "The center and radius of the circle $r = -6\\sin\\theta + 8\\cos\\theta$ in polar coordinates is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(4,3)$ and $5$"
+        },
+        {
+          "label": "B",
+          "text": "$(-6,8)$ and $10$"
+        },
+        {
+          "label": "C",
+          "text": "$(8,-6)$ and $10$"
+        },
+        {
+          "label": "D",
+          "text": "$(-3,4)$ and $5$"
+        },
+        {
+          "label": "E",
+          "text": "$(4,-3)$ and $5$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "The arc length of the cardioid $r = 3 + 3\\cos\\theta$ for $0 \\le \\theta \\le 2\\pi$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$16$"
+        },
+        {
+          "label": "B",
+          "text": "$8$"
+        },
+        {
+          "label": "C",
+          "text": "$24$"
+        },
+        {
+          "label": "D",
+          "text": "$12$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "Which of the following pictures represents the curve given by the equation $r = 2 + 2\\sin\\theta$ with $-\\pi \\le \\theta \\le \\pi$ in polar coordinates ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Graph A"
+        },
+        {
+          "label": "B",
+          "text": "Graph B"
+        },
+        {
+          "label": "C",
+          "text": "Graph C"
+        },
+        {
+          "label": "D",
+          "text": "Graph D"
+        },
+        {
+          "label": "E",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "D",
+      "figures": [
+        "figures/f2022-final/q23.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2022-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "The area of the shaded region is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2} \\int_{\\pi/2}^{\\pi} [1 - (1 + \\cos\\theta)^2] d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_{\\pi/2}^{\\pi} (1 + \\cos\\theta)^2 d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{4} - \\frac{1}{2} \\int_{\\pi/2}^{\\pi} (1 + \\cos\\theta)^2 d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{2} - \\int_{\\pi/2}^{\\pi} (1 + \\cos\\theta)^2 d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{2} - \\int_0^{\\pi} (1 + \\cos\\theta)^2 d\\theta$"
+        }
+      ],
+      "answer": "D",
+      "figures": [
+        "figures/f2022-final/q24.png"
+      ],
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
