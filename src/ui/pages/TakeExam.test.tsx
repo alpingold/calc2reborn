@@ -43,7 +43,8 @@ const seedExam: Exam = {
   exam: '1',
   examUrl: '',
   durationMinutes: 60,
-  questions: Array.from({ length: 12 }, (_, i) => q(i + 1)),
+  // question 1 has a worked-out answer: its notice must stay hidden while the exam runs
+  questions: Array.from({ length: 12 }, (_, i) => (i === 0 ? { ...q(1), answerSource: 'derived' as const } : q(i + 1))),
 }
 
 const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam])
@@ -105,6 +106,16 @@ test('renders question 1 and a timer that counts down', async () => {
     vi.advanceTimersByTime(61_000)
   })
   expect(screen.getByRole('timer')).toHaveTextContent('58:59')
+})
+
+test('a derived answer shows no notice during the timed exam, even once chosen', async () => {
+  expect(content.questionById.get('f2025-e1-q1')?.answerSource).toBe('derived')
+  await start()
+  expect(screen.getByText('Stem 1')).toBeInTheDocument()
+  expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
+  await user().click(screen.getByRole('button', { name: /^C\b/ }))
+  expect(screen.getByRole('button', { name: /^C\b/ })).toHaveAttribute('aria-pressed', 'true')
+  expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
 })
 
 test('navigator moves between questions and marks answered and flagged ones', async () => {

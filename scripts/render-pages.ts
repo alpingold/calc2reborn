@@ -33,10 +33,16 @@ function fail(where: string, problem: string): void {
   console.error(`RENDER FAILED ${where}: ${problem}`)
 }
 
-/**
- * Renders one page and checks it. A page that fails is kept only as p<N>.failed.png, so nothing can read
- * it as a good p<N>.png. Pages are always re-rendered: a PNG left by an earlier run may be a broken one.
- */
+const GOOD_PAGE = /^p\d+\.png$/
+const ANY_PAGE = /^p\d+(\.failed)?\.png$/
+
+function removePages(outDir: string, pattern: RegExp): void {
+  for (const name of fs.readdirSync(outDir)) {
+    if (pattern.test(name)) fs.rmSync(path.join(outDir, name))
+  }
+}
+
+/** Renders one page and checks it. A page that fails is kept only as p<N>.failed.png. */
 async function renderPage(doc: pdfjs.PDFDocumentProxy, n: number, label: string, outDir: string): Promise<string[]> {
   const page = await doc.getPage(n)
   const viewport = page.getViewport({ scale: 2 })
@@ -53,25 +59,29 @@ async function renderPage(doc: pdfjs.PDFDocumentProxy, n: number, label: string,
     darkPixels: countDarkPixels(data),
     textChars,
     warnings: pageWarnings,
+    pdf: label,
   })
   for (const problem of problems) fail(`${label} p${n}`, problem)
-  const good = path.join(outDir, `p${n}.png`)
-  const failed = path.join(outDir, `p${n}.failed.png`)
-  fs.rmSync(problems.length ? good : failed, { force: true })
-  fs.writeFileSync(problems.length ? failed : good, canvas.toBuffer('image/png'))
+  fs.writeFileSync(path.join(outDir, problems.length ? `p${n}.failed.png` : `p${n}.png`), canvas.toBuffer('image/png'))
   page.cleanup()
   return pageWarnings
 }
 
+/**
+ * Clears the folder first, so that afterwards a p<N>.png exists only if this run rendered it and it passed.
+ * A PNG left by an earlier run may be a broken one, or from a PDF that has since changed.
+ */
 async function renderPdf(file: string, label: string, outDir: string): Promise<number> {
   fs.mkdirSync(outDir, { recursive: true })
-  const task = pdfjs.getDocument({
-    data: new Uint8Array(fs.readFileSync(path.join(examsDir, file))),
-    ...pdfjsResourceOptions(),
-  })
+  removePages(outDir, ANY_PAGE)
   const seen: string[] = []
   let numPages = 0
+  let task: pdfjs.PDFDocumentLoadingTask | undefined
   try {
+    task = pdfjs.getDocument({
+      data: new Uint8Array(fs.readFileSync(path.join(examsDir, file))),
+      ...pdfjsResourceOptions(),
+    })
     const doc = await task.promise
     numPages = doc.numPages
     for (let n = 1; n <= numPages; n++) {
@@ -84,14 +94,18 @@ async function renderPdf(file: string, label: string, outDir: string): Promise<n
   } catch (e) {
     fail(label, `could not open: ${e}`)
   } finally {
-    await task.destroy()
+    await task?.destroy()
   }
   for (const { message, count } of tallyWarnings(takeWarnings())) {
     seen.push(message)
-    if (classifyWarning(message) === 'failure') fail(label, `PDF.js: ${message} (x${count})`)
+    if (classifyWarning(message, label) === 'failure') {
+      // it arrived after the pages were checked and could belong to any of them
+      fail(label, `PDF.js: ${message} (x${count})`)
+      removePages(outDir, GOOD_PAGE)
+    }
   }
   console.log(`${label}: ${numPages} pages`)
-  for (const { message, count } of tallyWarnings(seen.filter((m) => classifyWarning(m) === 'benign'))) {
+  for (const { message, count } of tallyWarnings(seen.filter((m) => classifyWarning(m, label) === 'benign'))) {
     console.log(`  PDF.js warning, known harmless: ${message} (x${count})`)
   }
   return numPages

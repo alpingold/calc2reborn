@@ -17,14 +17,21 @@ const MAX_DARK_FRACTION = 0.5
 const MIN_DARK_PER_CHAR = 10
 const MIN_CHARS_FOR_TEXT_CHECK = 20
 
-/** Warnings checked against a second renderer on every page that produces them. Anything else fails the run. */
-const BENIGN_WARNINGS = [
-  /^TT: undefined function: \d+$/, // TrueType hinting instructions, unused at this scale
-  /^decodeScan - unexpected MCU data/, // 0xFF fill bytes in f2022-e3's JPEG layers
-]
+/** Harmless on any PDF. Anything not allowed here or below fails the run. */
+const BENIGN_WARNINGS = [/^TT: undefined function: \d+$/] // TrueType hinting instructions, unused at this scale
 
-export function classifyWarning(message: string): 'benign' | 'failure' {
-  return BENIGN_WARNINGS.some((pattern) => pattern.test(message)) ? 'benign' : 'failure'
+/**
+ * Harmless only on these PDFs, each compared with a second renderer page by page. Elsewhere the same
+ * warning could mean a truncated JPEG, which the ink check alone might not catch.
+ */
+const BENIGN_WARNINGS_BY_PDF = new Map([
+  ['f2022-e3', [/^decodeScan - unexpected MCU data, current marker is: ffff$/]], // 0xFF fill bytes in its JPEG layers
+])
+
+/** `pdf` is the page folder name: the exam id, plus .ans or .sol for those files. */
+export function classifyWarning(message: string, pdf: string): 'benign' | 'failure' {
+  const benign = [...BENIGN_WARNINGS, ...(BENIGN_WARNINGS_BY_PDF.get(pdf) ?? [])]
+  return benign.some((pattern) => pattern.test(message)) ? 'benign' : 'failure'
 }
 
 export function tallyWarnings(messages: string[]): { message: string; count: number }[] {
@@ -45,6 +52,8 @@ export function countDarkPixels(rgba: ArrayLike<number>): number {
 }
 
 export interface PageEvidence {
+  /** The page folder name, as for classifyWarning. */
+  pdf: string
   width: number
   height: number
   darkPixels: number
@@ -54,7 +63,7 @@ export interface PageEvidence {
 }
 
 /** What is wrong with a rendered page; an empty list means it is usable. */
-export function assessPage({ width, height, darkPixels, textChars, warnings }: PageEvidence): string[] {
+export function assessPage({ pdf, width, height, darkPixels, textChars, warnings }: PageEvidence): string[] {
   const problems: string[] = []
   const fraction = darkPixels / (width * height)
   const percent = `${(100 * fraction).toFixed(3)}% dark`
@@ -64,7 +73,7 @@ export function assessPage({ width, height, darkPixels, textChars, warnings }: P
     problems.push(`too little ink for ${textChars} characters in the text layer: ${darkPixels} dark pixels`)
   }
   for (const { message, count } of tallyWarnings(warnings)) {
-    if (classifyWarning(message) === 'failure') problems.push(`PDF.js: ${message}${count > 1 ? ` (x${count})` : ''}`)
+    if (classifyWarning(message, pdf) === 'failure') problems.push(`PDF.js: ${message}${count > 1 ? ` (x${count})` : ''}`)
   }
   return problems
 }

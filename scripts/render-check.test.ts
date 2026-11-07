@@ -1,9 +1,12 @@
 // @vitest-environment node
+import fs from 'node:fs'
 import { describe, expect, test } from 'vitest'
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs'
 import { createCanvas } from '@napi-rs/canvas'
 import { assessPage, classifyWarning, countDarkPixels, pdfjsResourceOptions, tallyWarnings } from './render-check'
+import { buildPdf, stream } from './test-pdf'
 
+const DECODE_SCAN_FF = 'decodeScan - unexpected MCU data, current marker is: ffff'
 const WIDTH = 1224
 const HEIGHT = 1584
 
@@ -32,7 +35,7 @@ describe('countDarkPixels', () => {
 })
 
 describe('assessPage', () => {
-  const page = { width: WIDTH, height: HEIGHT, textChars: 0, warnings: [] as string[] }
+  const page = { pdf: 'f2025-e1', width: WIDTH, height: HEIGHT, textChars: 0, warnings: [] as string[] }
 
   test('passes the lightest genuine page in the archive: a 48 character page', () => {
     expect(assessPage({ ...page, textChars: 48, darkPixels: 1737 })).toEqual([])
@@ -70,14 +73,29 @@ describe('assessPage', () => {
   test('accepts a warning known to be harmless', () => {
     expect(assessPage({ ...page, darkPixels: 50000, warnings: ['TT: undefined function: 32'] })).toEqual([])
   })
+
+  test('judges a warning by the PDF the page belongs to', () => {
+    const warnings = [DECODE_SCAN_FF]
+    expect(assessPage({ ...page, pdf: 'f2022-e3', darkPixels: 50000, warnings })).toEqual([])
+    expect(assessPage({ ...page, pdf: 'f2023-final', darkPixels: 50000, warnings })[0]).toMatch(/decodeScan/)
+  })
 })
 
 describe('classifyWarning', () => {
-  test.each([
-    'TT: undefined function: 32',
-    'decodeScan - unexpected MCU data, current marker is: ffff',
-  ])('harmless: %s', (message) => {
-    expect(classifyWarning(message)).toBe('benign')
+  test('TrueType hinting warnings are harmless on any PDF', () => {
+    expect(classifyWarning('TT: undefined function: 32', 'f2025-e1.ans')).toBe('benign')
+  })
+
+  test('JPEG fill bytes are harmless on f2022-e3, the one PDF checked against a second renderer', () => {
+    expect(classifyWarning(DECODE_SCAN_FF, 'f2022-e3')).toBe('benign')
+  })
+
+  test.each(['f2023-final', 'f2022-e3.ans', 'f2022-e3.sol', 'x-f2022-e3'])('JPEG fill bytes fail on %s', (pdf) => {
+    expect(classifyWarning(DECODE_SCAN_FF, pdf)).toBe('failure')
+  })
+
+  test('any other JPEG marker fails, even on f2022-e3', () => {
+    expect(classifyWarning('decodeScan - unexpected MCU data, current marker is: ffd9', 'f2022-e3')).toBe('failure')
   })
 
   test.each([
@@ -87,7 +105,7 @@ describe('classifyWarning', () => {
     'UnknownErrorException: Ensure that the `standardFontDataUrl` API parameter is provided.',
     'something PDF.js may say in a later version',
   ])('failure: %s', (message) => {
-    expect(classifyWarning(message)).toBe('failure')
+    expect(classifyWarning(message, 'f2022-e3')).toBe('failure')
   })
 })
 
@@ -104,31 +122,26 @@ test('tallyWarnings folds repeats, keeping order of first appearance', () => {
  * a missing one leaves the page white. PDF.js decodes CCITT and JBIG2 with the same WebAssembly module.
  */
 function ccittPdf(): Uint8Array {
-  const image = String.fromCharCode(0xff, 0xff)
-  const content = 'q 100 0 0 100 0 0 cm /I Do Q'
-  const objects = [
+  return buildPdf([
     '<< /Type /Catalog /Pages 2 0 R >>',
     '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
     '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 100 100] /Contents 4 0 R /Resources << /XObject << /I 5 0 R >> >> >>',
-    `<< /Length ${content.length} >>\nstream\n${content}\nendstream`,
-    `<< /Type /XObject /Subtype /Image /Width 8 /Height 8 /BitsPerComponent 1 /ColorSpace /DeviceGray /Filter /CCITTFaxDecode /DecodeParms << /K -1 /Columns 8 /Rows 8 /BlackIs1 true >> /Length ${image.length} >>\nstream\n${image}\nendstream`,
-  ]
-  let body = '%PDF-1.5\n'
-  const offsets = objects.map((object, i) => {
-    const offset = body.length
-    body += `${i + 1} 0 obj\n${object}\nendobj\n`
-    return offset
-  })
-  const xref = body.length
-  body += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`
-  for (const offset of offsets) body += `${String(offset).padStart(10, '0')} 00000 n \n`
-  body += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`
-  return Uint8Array.from(body, (c) => c.charCodeAt(0))
+    stream('q 100 0 0 100 0 0 cm /I Do Q'),
+    stream(
+      String.fromCharCode(0xff, 0xff),
+      '/Type /XObject /Subtype /Image /Width 8 /Height 8 /BitsPerComponent 1 /ColorSpace /DeviceGray /Filter /CCITTFaxDecode /DecodeParms << /K -1 /Columns 8 /Rows 8 /BlackIs1 true >>',
+    ),
+  ])
 }
 
 describe('pdfjsResourceOptions', () => {
   test('gives PDF.js directories it can read, each with the trailing slash it demands', () => {
-    for (const url of Object.values(pdfjsResourceOptions())) expect(url).toMatch(/\/$/)
+    const options = Object.entries(pdfjsResourceOptions())
+    expect(options.map(([name]) => name).sort()).toEqual(['cMapUrl', 'iccUrl', 'standardFontDataUrl', 'wasmUrl'])
+    for (const [name, url] of options) {
+      expect(url, name).toMatch(/\/$/)
+      expect(fs.existsSync(url), `${name}: ${url}`).toBe(true)
+    }
   })
 
   test('lets PDF.js decode a CCITT image in Node', async () => {
