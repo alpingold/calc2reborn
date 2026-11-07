@@ -1,0 +1,471 @@
+{
+  "id": "f2021-e1",
+  "term": "Fall",
+  "year": 2021,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2021.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2021.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2021-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "The point $(2, 0, -3)$ lies on a sphere centered at $(1, 1, 1)$. What is the radius of the sphere?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{14}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$18$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\sqrt{2}$"
+        },
+        {
+          "label": "F",
+          "text": "$6$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Which of these three-dimensional vectors is **not** a unit vector?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left\\langle 0, \\frac{4}{5}, \\frac{3}{5} \\right\\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle \\frac{2}{7}, -\\frac{3}{7}, \\frac{6}{7} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\vec{\\jmath}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{\\sqrt{3}}\\left(\\vec{\\imath} + \\vec{\\jmath} + \\vec{k}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle \\cos\\frac{\\pi}{10}, 0, \\sin\\frac{\\pi}{10} \\right\\rangle$"
+        },
+        {
+          "label": "F",
+          "text": "$\\left\\langle \\frac{1}{3}, \\frac{1}{3}, \\frac{1}{3} \\right\\rangle$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "$\\vec{v} = \\langle -1, -2 \\rangle$ and $\\vec{w} = \\langle 2, 3 \\rangle$. Find $\\operatorname{proj}_{\\vec{v}} \\vec{w}$, the vector projection of $\\vec{w}$ onto $\\vec{v}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left\\langle \\frac{8}{13}, \\frac{16}{13} \\right\\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle \\frac{8}{5}, \\frac{16}{5} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle -2, -6 \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle \\frac{4}{5}, \\frac{8}{5} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle \\frac{4}{13}, \\frac{8}{13} \\right\\rangle$"
+        },
+        {
+          "label": "F",
+          "text": "$\\left\\langle -\\frac{16}{\\sqrt{13}}, -\\frac{24}{\\sqrt{13}} \\right\\rangle$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "The three points $(0, 0, 0)$, $(1, 1, 1)$, and $(a, 7, 5)$ form the vertices of a triangle with area $\\frac{\\sqrt{6}}{2}$. Select the value of $a$ from the following choices:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$a = 6$"
+        },
+        {
+          "label": "B",
+          "text": "$a = 3$"
+        },
+        {
+          "label": "C",
+          "text": "$a = 4$"
+        },
+        {
+          "label": "D",
+          "text": "$a = 2$"
+        },
+        {
+          "label": "E",
+          "text": "$a = 12$"
+        },
+        {
+          "label": "F",
+          "text": "$a = 1$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Suppose $|\\vec{v} \\times \\vec{w}| = 3$ and $\\tan\\theta = \\sqrt{3}$, where $\\theta$ is the angle between $\\vec{v}$ and $\\vec{w}$. Find $\\vec{v} \\cdot \\vec{w}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$3\\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{3}/2$"
+        },
+        {
+          "label": "F",
+          "text": "$1/\\sqrt{3}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the area of the region bounded by the curves $y = e^x$, $y = e^{-x}$, and $x = 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$e - 1/e$"
+        },
+        {
+          "label": "B",
+          "text": "$e + 1/e$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{(e+1)^2}{e}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{(e-1)^2}{e}$"
+        },
+        {
+          "label": "E",
+          "text": "$1 - 1/e$"
+        },
+        {
+          "label": "F",
+          "text": "$1 + 1/e$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the volume of the solid whose base is the region bounded by $y = \\sqrt{\\cos x}$ and the $x$-axis on $[-\\pi/2, \\pi/2]$, and whose cross sections through the solid perpendicular to the $x$-axis are isosceles right triangles with a horizontal leg in the $xy$-plane and a vertical leg above the $x$-axis. (Hint: an isosceles right triangle has legs of equal length).",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{\\pi}{2}$"
+        }
+      ],
+      "answer": "B",
+      "figures": [
+        "figures/f2021-e1/q07.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Find a formula for the volume of the following solid:\n\nThe region bounded by $y = \\sqrt{x}$, the $x$-axis, and $x = 1$, is revolved about the line $y = 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^1 2\\pi(1-y)(1-y^2)\\,dy$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 2\\pi(1-x)(1-\\sqrt{x})\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 2\\pi y(1-y^2)\\,dy$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 2\\pi x(1-\\sqrt{x})\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^1 2\\pi y^3\\,dy$"
+        },
+        {
+          "label": "F",
+          "text": "$\\int_0^1 2\\pi x^{3/2}\\,dx$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find a function whose arc length on the interval $[a, b]$ is given by the following integral:\n\n$$\n\\int_a^b \\sqrt{9x^4 + 6x^2 + 2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$y = 9x^4 + 6x^2 + 1$"
+        },
+        {
+          "label": "B",
+          "text": "$y = 3x^2 + 1$"
+        },
+        {
+          "label": "C",
+          "text": "$y = 6x + 1$"
+        },
+        {
+          "label": "D",
+          "text": "$y = \\frac{9}{5}x^5 + 2x^3 + x$"
+        },
+        {
+          "label": "E",
+          "text": "$y = x^3 + x$"
+        },
+        {
+          "label": "F",
+          "text": "$y = 3x^2 + \\sqrt{6}x + 1$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Find the area of the surface obtained by rotating the curve $y = \\frac{x^3}{3}$ about the $x$-axis, for $0 \\le x \\le \\sqrt[4]{3}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi \\cdot 3^{-13/8}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{24}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7\\pi}{9}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8\\pi}{9}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left(\\sqrt[4]{3}\\sqrt{1+\\sqrt{3}}\\right)\\pi$"
+        },
+        {
+          "label": "F",
+          "text": "$\\left[\\sqrt[4]{3}\\sqrt{1+\\sqrt{3}} + \\ln\\left(\\sqrt{1+\\sqrt{3}} + \\sqrt[4]{3}\\right)\\right]\\pi$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Find the volume of the solid generated when the region bounded by the following curves is revolved about the $x$-axis:\n\n$y = x + 2$, $y = x$, $x = 0$, $x = 2$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$6\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$24\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$12\\pi$"
+        },
+        {
+          "label": "F",
+          "text": "$16\\pi$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "A force of 40 N is holding a spring 0.1 m from its equilibrium position. How much work is needed to stretch the spring an **additional** 0.1 m, so that it is 0.2 m from equilibrium?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2 N·m"
+        },
+        {
+          "label": "B",
+          "text": "4 N·m"
+        },
+        {
+          "label": "C",
+          "text": "6 N·m"
+        },
+        {
+          "label": "D",
+          "text": "20 N·m"
+        },
+        {
+          "label": "E",
+          "text": "40 N·m"
+        },
+        {
+          "label": "F",
+          "text": "60 N·m"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
