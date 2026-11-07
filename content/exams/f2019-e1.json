@@ -1,0 +1,423 @@
+{
+  "id": "f2019-e1",
+  "term": "Fall",
+  "year": 2019,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2019.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "f2019-e1-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "A sphere is described by the equation $x^2 + y^2 + z^2 + ax + 6y - 8z = -1$. Find $a$ so that the sphere has a radius of 5 and its center has an $x-$coordinate of $-1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$-2$"
+        },
+        {
+          "label": "D",
+          "text": "$1$"
+        },
+        {
+          "label": "E",
+          "text": "$-1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "An object is acted on by the forces $\\boldsymbol{F_1} = 2\\boldsymbol{i} - \\boldsymbol{j}$, $\\boldsymbol{F_2} = 3\\boldsymbol{j} + \\boldsymbol{k}$, $\\boldsymbol{F_3} = 4\\boldsymbol{j} + 2\\boldsymbol{k}$. Find the magnitude of the force $\\boldsymbol{F_4}$ that must act on the object so that the net force is zero.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{7}$"
+        },
+        {
+          "label": "B",
+          "text": "$7$"
+        },
+        {
+          "label": "C",
+          "text": "$11$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{11}$"
+        },
+        {
+          "label": "E",
+          "text": "$49$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "How many of the following expressions are mathematically meaningful?\n\nI. $\\boldsymbol{a} \\cdot (\\boldsymbol{b} \\times \\boldsymbol{c})$\n\nII. $\\boldsymbol{a} \\times (\\boldsymbol{b} \\cdot \\boldsymbol{c})$\n\nIII. $\\boldsymbol{a} \\times (\\boldsymbol{b} \\times \\boldsymbol{c})$\n\nIV. $(\\boldsymbol{a} \\cdot \\boldsymbol{b}) \\times (\\boldsymbol{c} \\cdot \\boldsymbol{d})$\n\nV. $(\\boldsymbol{a} \\times \\boldsymbol{b}) \\cdot (\\boldsymbol{c} \\times \\boldsymbol{d})$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$3$"
+        },
+        {
+          "label": "D",
+          "text": "$4$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Use the figure below to write $\\vec{OQ} - \\vec{QR}$ in terms of $\\boldsymbol{v}$ and $\\boldsymbol{w}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\boldsymbol{v} - 3\\boldsymbol{w}$"
+        },
+        {
+          "label": "B",
+          "text": "$4\\boldsymbol{v} + \\boldsymbol{w}$"
+        },
+        {
+          "label": "C",
+          "text": "$-2\\boldsymbol{v} + 3\\boldsymbol{w}$"
+        },
+        {
+          "label": "D",
+          "text": "$-4\\boldsymbol{v} - \\boldsymbol{w}$"
+        },
+        {
+          "label": "E",
+          "text": "$3\\boldsymbol{v} + 2\\boldsymbol{w}$"
+        }
+      ],
+      "answer": "A",
+      "figures": [
+        "figures/f2019-e1/q04.png"
+      ],
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Let $\\boldsymbol{a} =< 1, 2, 3 >$ and $\\boldsymbol{b} =< 2, -1, 2 >$. If $\\text{proj}_{\\boldsymbol{b}} \\boldsymbol{a} = c\\boldsymbol{b}$, what is $c$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the area of the triangle whose sides are the vectors $\\boldsymbol{u} =< 1, 1, 1 >$, $\\boldsymbol{v} =< 2, 0, 2 >$, and $\\boldsymbol{u} - \\boldsymbol{v}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\sqrt{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{5}$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\sqrt{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the area of the region bounded by $y = x + 1$ and $y = (x - 1)^2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{13}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{5}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{11}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{7}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9}{2}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "The region bounded by $y = e^x$, $y = 1$, and $x = 2$ is revolved about the $x$-axis. If the washer method is used, the volume of the solid generated is given by the integral",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi \\int_0^2 e^{2x}\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi \\int_1^{e^2} (2 - \\ln y)(y - 1)\\,dy$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi \\int_0^2 (e^{2x} - 1)\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi \\int_0^{e^2} y(2 - \\ln y)\\,dy$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi \\int_0^2 (e^x - 1)^2\\,dx$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the volume generated by rotating the region bounded by the curves\n\n$$\ny = x^2, \\quad y = 0, \\quad x = 1\n$$\n\nabout the line $x = -1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{7\\pi}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{11\\pi}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{13\\pi}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{17\\pi}{6}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "The height of a monument is 3 meters. A horizontal cross-section at a distance $x$ meters from the top is an equilateral triangle with each side being $x$ meters. Find the volume (in $\\text{m}^3$) of the monument.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$8$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{9}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3\\sqrt{3}}{8}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sqrt{3}}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9\\sqrt{3}}{4}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "A spring has a natural length of 5 m. If a 25-N force is required to keep it stretched to a length of 10 m, how much work (in joules) is required to stretch it from 5 m to 6 m?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{55}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{55}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{5}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2019-e1-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "The derivative of the function $g(x)$ is $g'(x) = \\sqrt{\\sec^4 x - 1}$. What is the length of the curve $y = g(x)$ on the interval $0 \\le x \\le \\frac{\\pi}{4}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{2}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
