@@ -12,9 +12,9 @@ import { Review } from './ui/pages/Review'
 import { Settings } from './ui/pages/Settings'
 import { TakeExam } from './ui/pages/TakeExam'
 
-const devRoutes: RouteObject[] = import.meta.env.DEV ? [{ path: 'dev/content', element: <ContentReview /> }] : []
-
-export const routes: RouteObject[] = [
+export function buildRoutes(dev: boolean): RouteObject[] {
+  const devRoutes: RouteObject[] = dev ? [{ path: 'dev/content', element: <ContentReview /> }] : []
+  return [
   {
     path: '/',
     element: <Layout />,
@@ -34,3 +34,6 @@ export const routes: RouteObject[] = [
     ],
   },
 ]
+}
+
+export const routes: RouteObject[] = buildRoutes(import.meta.env.DEV)

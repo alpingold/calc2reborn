@@ -51,7 +51,7 @@ test.each([
   ['/exams/mock?from=L19&to=L26', 'Mock exam'],
   ['/results/abc', 'Results'],
   ['/settings', 'Settings'],
-  ['/dev/content', 'ContentReview'],
+  ['/dev/content', 'Content review'],
   ['/nope', 'Not found'],
 ])('route %s renders %s', async (path, name) => {
   renderAt(path, new MemoryStore())
