@@ -1,0 +1,972 @@
+{
+  "id": "f2021-final",
+  "term": "Fall",
+  "year": 2021,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2021.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2021.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "f2021-final-q01",
+      "number": 1,
+      "points": 4,
+      "stem": "$$\n\\int e^{3x} \\sin x\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{e^{3x}(\\sin x + 3\\cos x)}{8} + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{e^{3x}(\\sin x + \\cos x)}{10} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{e^{3x}(3\\sin x - \\cos x)}{10} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{e^{3x}(\\sin x + 3\\cos x)}{10} + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{e^{3x}(\\sin x + \\cos x)}{8} + C$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{e^{3x}(\\cos x - 3\\sin x)}{8} + C$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q02",
+      "number": 2,
+      "points": 4,
+      "stem": "$$\n\\int_1^4 \\frac{\\sqrt{x^2 + 4x - 5}}{x + 2}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3\\sqrt{3} - \\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sqrt{3} - \\frac{\\pi}{3}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{\\sqrt{3}}{3}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L14",
+        "L15"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q03",
+      "number": 3,
+      "points": 4,
+      "stem": "The graph below is $r = \\theta$. Find the area of the small shaded region.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{4\\pi^3}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi^3}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi^3}{48}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi^3}{24}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi^3}{12}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{\\pi^3}{6}$"
+        }
+      ],
+      "answer": "D",
+      "figures": [
+        "figures/f2021-final/q03.png"
+      ],
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q04",
+      "number": 4,
+      "points": 4,
+      "stem": "Find the function $f(x)$ represented by the following power series\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{x^{2k+3}}{2^k}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$f(x) = \\frac{x^3}{2 - x^2}$ for $|x| < \\sqrt{2}$."
+        },
+        {
+          "label": "B",
+          "text": "$f(x) = \\frac{2}{2 - x^2}$ for $|x| < \\sqrt{2}$."
+        },
+        {
+          "label": "C",
+          "text": "$f(x) = \\frac{2x^3}{2 - x^2}$ for $|x| < \\sqrt{2}$."
+        },
+        {
+          "label": "D",
+          "text": "$f(x) = \\frac{2}{2 - x}$ for $|x| < 2$."
+        },
+        {
+          "label": "E",
+          "text": "$f(x) = \\frac{2x^3}{2 - x}$ for $|x| < 2$."
+        },
+        {
+          "label": "F",
+          "text": "$f(x) = \\frac{x^3}{2 - x}$ for $|x| < 2$."
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q05",
+      "number": 5,
+      "points": 4,
+      "stem": "Find the volume of the solid generated when the region bounded by the following two curves is revolved about the $y$-axis: $y = x - x^2$, $y = 0$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{11\\pi}{30}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2\\pi}{15}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{5\\pi}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi}{30}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q06",
+      "number": 6,
+      "points": 4,
+      "stem": "Find the length of the \"cardioid\" curve given by\n\n$$\nr = 1 + \\cos\\theta\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$8$"
+        },
+        {
+          "label": "C",
+          "text": "$4$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$5\\pi/4$"
+        },
+        {
+          "label": "F",
+          "text": "$6$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q07",
+      "number": 7,
+      "points": 4,
+      "stem": "Convert the polar equation\n\n$$\nr = \\frac{1}{\\cos\\theta + \\sin\\theta}\n$$\n\nto a Cartesian equation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x^3 + x^2y + xy^2 + y^3 = 1$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{x^2 + y^2} = \\frac{1}{x + y}$"
+        },
+        {
+          "label": "C",
+          "text": "$y = 1 - x$"
+        },
+        {
+          "label": "D",
+          "text": "$y = \\sqrt{1 - x^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left(x - \\frac{1}{2}\\right)^2 + \\left(y - \\frac{1}{2}\\right)^2 = \\frac{1}{2}$"
+        },
+        {
+          "label": "F",
+          "text": "$y = x + 1$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q08",
+      "number": 8,
+      "points": 4,
+      "stem": "Which of the following represents $(x, y) = (-\\sqrt{3}, -3)$ in polar coordinates?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(r, \\theta) = \\left(-\\sqrt{3}, \\frac{\\pi}{3}\\right)$"
+        },
+        {
+          "label": "B",
+          "text": "$(r, \\theta) = \\left(-2\\sqrt{3}, -\\frac{\\pi}{3}\\right)$"
+        },
+        {
+          "label": "C",
+          "text": "$(r, \\theta) = \\left(\\sqrt{3}, -\\frac{\\pi}{3}\\right)$"
+        },
+        {
+          "label": "D",
+          "text": "$(r, \\theta) = \\left(2\\sqrt{3}, \\frac{\\pi}{3}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$(r, \\theta) = \\left(2\\sqrt{3}, \\frac{4\\pi}{3}\\right)$"
+        },
+        {
+          "label": "F",
+          "text": "$(r, \\theta) = \\left(-2\\sqrt{3}, \\frac{4\\pi}{3}\\right)$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q09",
+      "number": 9,
+      "points": 4,
+      "stem": "$$\n\\int_0^{\\pi/4} \\sin^2\\theta \\cos^2\\theta\\,d\\theta\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3\\pi}{32}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi}{32}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3\\pi + 8}{32}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi + 1}{32}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi - 1}{32}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{3\\pi - 8}{32}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q10",
+      "number": 10,
+      "points": 4,
+      "stem": "Evaluate (find the sum) of the following series:\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{1}{2^{2k+1}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "F",
+          "text": "$1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q11",
+      "number": 11,
+      "points": 4,
+      "stem": "Find a series expression for\n\n$$\n\\int_0^1 \\tan^{-1}(x^2)\\,dx\n$$\n\n*Hint:* $\\tan^{-1} x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{2k+1}$ for $|x| \\le 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2 \\cdot 1} - \\frac{1}{4 \\cdot 3} + \\frac{1}{6 \\cdot 5} - \\frac{1}{8 \\cdot 7} + \\frac{1}{10 \\cdot 9} - \\dots$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{3 \\cdot 2} - \\frac{1}{7 \\cdot 4} + \\frac{1}{11 \\cdot 6} - \\frac{1}{15 \\cdot 8} + \\frac{1}{19 \\cdot 10} - \\dots$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{3 \\cdot 2} - \\frac{1}{5 \\cdot 4} + \\frac{1}{7 \\cdot 6} - \\frac{1}{9 \\cdot 8} + \\frac{1}{11 \\cdot 10} - \\dots$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{3 \\cdot 1} - \\frac{1}{5 \\cdot 3} + \\frac{1}{7 \\cdot 5} - \\frac{1}{9 \\cdot 7} + \\frac{1}{11 \\cdot 9} - \\dots$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2 \\cdot 1} - \\frac{1}{6 \\cdot 3} + \\frac{1}{10 \\cdot 5} - \\frac{1}{14 \\cdot 7} + \\frac{1}{18 \\cdot 9} - \\dots$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{1}{3 \\cdot 1} - \\frac{1}{7 \\cdot 3} + \\frac{1}{11 \\cdot 5} - \\frac{1}{15 \\cdot 7} + \\frac{1}{19 \\cdot 9} - \\dots$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q12",
+      "number": 12,
+      "points": 4,
+      "stem": "Five of these series converge, and one diverges. Which series **diverges**?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{4^2} + \\frac{2}{5^2} + \\frac{3}{6^2} + \\frac{4}{7^2} + \\frac{5}{8^2} + \\frac{6}{9^2} + \\dots$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2}{1!} + \\frac{2^2}{2!} + \\frac{2^3}{3!} + \\frac{2^4}{4!} + \\frac{2^5}{5!} + \\frac{2^6}{6!} + \\dots$"
+        },
+        {
+          "label": "C",
+          "text": "$1 + \\frac{1}{2\\sqrt{2}} + \\frac{1}{3\\sqrt{3}} + \\frac{1}{4\\sqrt{4}} + \\frac{1}{5\\sqrt{5}} + \\frac{1}{6\\sqrt{6}} + \\dots$"
+        },
+        {
+          "label": "D",
+          "text": "$1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\frac{1}{5} - \\frac{1}{6} + \\dots$"
+        },
+        {
+          "label": "E",
+          "text": "$0.9 + (0.9)^2 + (0.9)^3 + (0.9)^4 + (0.9)^5 + (0.9)^6 + \\dots$"
+        },
+        {
+          "label": "F",
+          "text": "$-\\frac{1}{\\ln 1.2} + \\frac{1}{\\ln 1.4} - \\frac{1}{\\ln 1.6} + \\frac{1}{\\ln 1.8} - \\frac{1}{\\ln 2} + \\frac{1}{\\ln 2.2} - \\dots$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q13",
+      "number": 13,
+      "points": 4,
+      "stem": "A cylindrical tank (resting on its circular base) has height 4m and radius 1m. If the tank is **half** full of water, how much work is required to pump all the water out the top? Use $\\rho$ for the liquid density (kg/m$^3$) and $g$ for the gravitation constant (N/kg).",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$10\\pi\\rho g$ N·m"
+        },
+        {
+          "label": "B",
+          "text": "$12\\pi\\rho g$ N·m"
+        },
+        {
+          "label": "C",
+          "text": "$4\\pi\\rho g$ N·m"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi\\rho g$ N·m"
+        },
+        {
+          "label": "E",
+          "text": "$8\\pi\\rho g$ N·m"
+        },
+        {
+          "label": "F",
+          "text": "$6\\pi\\rho g$ N·m"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q14",
+      "number": 14,
+      "points": 4,
+      "stem": "$\\vec{a} = \\langle \\frac{5}{2}, 3, 4 \\rangle$ and $\\vec{b} = \\langle 1, 2, 2 \\rangle$. Find a unit vector normal to $\\vec{a}$ and $\\vec{b}$. (\"Normal\" means orthogonal to $\\vec{a}$ and orthogonal to $\\vec{b}$)",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left\\langle -\\frac{2}{5}, -\\frac{1}{5}, \\frac{2}{5} \\right\\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle -\\frac{4}{9}, -\\frac{2}{9}, \\frac{4}{9} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left\\langle -\\frac{4}{33}, -\\frac{2}{33}, \\frac{4}{33} \\right\\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle \\frac{4}{9}, \\frac{2}{9}, -\\frac{4}{9} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle -\\frac{2}{3}, \\frac{1}{3}, \\frac{2}{3} \\right\\rangle$"
+        },
+        {
+          "label": "F",
+          "text": "$\\left\\langle \\frac{2}{3}, \\frac{1}{3}, -\\frac{2}{3} \\right\\rangle$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q15",
+      "number": 15,
+      "points": 4,
+      "stem": "Find the length of the curve $y = \\ln(\\sec x)$ from $(0, 0)$ to $\\left(\\frac{\\pi}{4}, \\frac{\\ln 2}{2}\\right)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(1 + \\sqrt{2})$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sqrt{4 - 2\\sqrt{2}}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{6} + \\frac{1}{2}\\ln\\left(\\frac{\\sqrt{3} + 1}{\\sqrt{3} - 1}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi + \\ln 4}{4}$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{\\pi + 4}{4}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q16",
+      "number": 16,
+      "points": 4,
+      "stem": "Recall that $\\cos x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!}$ for all $x$, and $\\tan^{-1} x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{2k+1}$ for $|x| \\le 1$.\n\nFind the limit\n\n$$\n\\lim_{x \\to 0} \\frac{\\cos(x^3) + \\tan^{-1}\\left(\\frac{x^6}{2}\\right) - 1}{x^{12}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{7}{24}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\infty$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{24}$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{1}{3}$"
+        },
+        {
+          "label": "F",
+          "text": "$0$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q17",
+      "number": 17,
+      "points": 4,
+      "stem": "Find the volume of a solid whose base is the region in the first quadrant bounded by the curve $y = \\sqrt{3 - x}$ and the line $x = 2$, and whose cross sections through the solid perpendicular to the $x$-axis are squares.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\sqrt{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$6$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\sqrt{3} - \\frac{2}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "F",
+          "text": "$4$"
+        }
+      ],
+      "answer": "F",
+      "figures": [
+        "figures/f2021-final/q17.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q18",
+      "number": 18,
+      "points": 4,
+      "stem": "Find the Taylor Series for $f(x) = \\sin(\\pi x)$ centered at $a = 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^{k+1}\\pi^k}{k!}(x - 1)^k$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^{k+1}\\pi^{2k+1}}{(2k+1)!}(x - 1)^{2k+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k\\pi^k}{(2k+1)!}(x - 1)^{2k+1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k\\pi^{2k+1}}{(2k+1)!}(x - 1)^{2k+1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^k\\pi^k}{k!}(x - 1)^k$"
+        },
+        {
+          "label": "F",
+          "text": "$\\sum_{k=0}^{\\infty} \\frac{(-1)^{k+1}\\pi^k}{(2k+1)!}(x - 1)^{2k+1}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q19",
+      "number": 19,
+      "points": 4,
+      "stem": "Describe the following two series:\n\n$$\n\\sum_{k=1}^{\\infty} (-1)^k \\tan\\left(\\frac{1}{k}\\right) \\qquad \\text{and} \\qquad \\sum_{k=2}^{\\infty} \\left(\\frac{-1}{\\ln k}\\right)^k\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "One series converges conditionally, and one series converges absolutely."
+        },
+        {
+          "label": "B",
+          "text": "Both series converge conditionally."
+        },
+        {
+          "label": "C",
+          "text": "One series diverges, and one series converges conditionally."
+        },
+        {
+          "label": "D",
+          "text": "Both series converge absolutely."
+        },
+        {
+          "label": "E",
+          "text": "One series diverges, and one series converges absolutely."
+        },
+        {
+          "label": "F",
+          "text": "Both series diverge."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L24",
+        "L25"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q20",
+      "number": 20,
+      "points": 4,
+      "stem": "The angle between vector $\\vec{v}$ and vector $\\vec{w}$ is $\\frac{\\pi}{3}$. Suppose $\\vec{w} \\cdot \\vec{u} = 6$ where $\\vec{u}$ is the unit vector that points in the direction of $\\vec{v}$. Find $|\\vec{w}|$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$6$"
+        },
+        {
+          "label": "C",
+          "text": "$6\\sqrt{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$12$"
+        },
+        {
+          "label": "E",
+          "text": "$6\\sqrt{2}$"
+        },
+        {
+          "label": "F",
+          "text": "$4\\sqrt{3}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q21",
+      "number": 21,
+      "points": 4,
+      "stem": "$$\n\\int \\frac{3x^2 + 2x + 3}{x^4 + 2x^2 + 1}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\tan^{-1}\\left(\\frac{1}{x^2 + 1}\\right) + C$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3\\tan^{-1} x}{x^2 + 1} + C$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\tan^{-1} x}{x^2 + 1} + C$"
+        },
+        {
+          "label": "D",
+          "text": "$3\\tan^{-1}\\left(\\frac{1}{x^2 + 1}\\right) + C$"
+        },
+        {
+          "label": "E",
+          "text": "$\\tan^{-1} x - \\frac{3}{x^2 + 1} + C$"
+        },
+        {
+          "label": "F",
+          "text": "$3\\tan^{-1} x - \\frac{1}{x^2 + 1} + C$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q22",
+      "number": 22,
+      "points": 4,
+      "stem": "Suppose $p_2(x)$ is the Taylor polynomial of order $n = 2$ centered at $a = 1$ for the function\n\n$$\nf(x) = x^{10}.\n$$\n\nCompute $p_2(0)$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$101$"
+        },
+        {
+          "label": "D",
+          "text": "$81$"
+        },
+        {
+          "label": "E",
+          "text": "$56$"
+        },
+        {
+          "label": "F",
+          "text": "$36$"
+        }
+      ],
+      "answer": "F",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q23",
+      "number": 23,
+      "points": 4,
+      "stem": "Find the interval of convergence for the following power series:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{x^k}{\\sqrt{k}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Only $x = 0$"
+        },
+        {
+          "label": "B",
+          "text": "$(-\\infty, \\infty)$"
+        },
+        {
+          "label": "C",
+          "text": "$[-1, 1)$"
+        },
+        {
+          "label": "D",
+          "text": "$(-1, 1)$"
+        },
+        {
+          "label": "E",
+          "text": "$[-1, 1]$"
+        },
+        {
+          "label": "F",
+          "text": "$(-1, 1]$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q24",
+      "number": 24,
+      "points": 4,
+      "stem": "Find the polar equation with a graph given by the following curve:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r = 1 + 3\\sin(2\\theta)$"
+        },
+        {
+          "label": "B",
+          "text": "$r = 1 + 2\\sin(3\\theta)$"
+        },
+        {
+          "label": "C",
+          "text": "$r = 2 + 3\\cos(\\theta)$"
+        },
+        {
+          "label": "D",
+          "text": "$r = 1 + 2\\cos(3\\theta)$"
+        },
+        {
+          "label": "E",
+          "text": "$r = 2 + 3\\sin(\\theta)$"
+        },
+        {
+          "label": "F",
+          "text": "$r = 1 + 3\\cos(2\\theta)$"
+        }
+      ],
+      "answer": "F",
+      "figures": [
+        "figures/f2021-final/q24.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2021-final-q25",
+      "number": 25,
+      "points": 4,
+      "stem": "The MacLaurin series for $\\tan x$ is as follows:\n\n$$\n\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + \\frac{17x^7}{315} + \\dots, \\quad \\text{for } |x| < \\frac{\\pi}{2}\n$$\n\nWhich of the following is the MacLaurin series for $\\sec^2(x^3)$ ?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 + x^5 + \\frac{2x^7}{3} + \\frac{17x^9}{45} + \\dots$"
+        },
+        {
+          "label": "B",
+          "text": "$1 + x^6 + \\frac{2x^{12}}{3} + \\frac{17x^{18}}{45} + \\dots$"
+        },
+        {
+          "label": "C",
+          "text": "$3x^2 + 3x^8 + 2x^{14} + \\frac{17x^{20}}{15} + \\dots$"
+        },
+        {
+          "label": "D",
+          "text": "$1 + \\frac{x^6}{2} + \\frac{x^{12}}{12} + \\frac{x^{18}}{45} + \\dots$"
+        },
+        {
+          "label": "E",
+          "text": "$x^3 + x^5 + \\frac{2x^7}{3} + \\frac{119x^9}{315} + \\dots$"
+        },
+        {
+          "label": "F",
+          "text": "$\\frac{x^4}{6} + \\frac{x^{10}}{36} + \\frac{x^{16}}{135} + \\frac{17x^{22}}{7560} + \\dots$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    }
+  ]
+}
