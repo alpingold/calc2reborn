@@ -1,0 +1,435 @@
+{
+  "id": "s2019-e3",
+  "term": "Spring",
+  "year": 2019,
+  "exam": "3",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2019.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2019.pdf",
+  "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e3-s2019.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2019-e3-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Which statement is true about these two series?\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(-1.5)^n}{n^3} \\quad \\text{and} \\quad \\sum_{n=2}^{\\infty} \\frac{(-1)^n}{\\ln n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both are conditionally convergent."
+        },
+        {
+          "label": "B",
+          "text": "One is divergent and one is absolutely convergent."
+        },
+        {
+          "label": "C",
+          "text": "Both are absolutely convergent."
+        },
+        {
+          "label": "D",
+          "text": "One is absolutely convergent and one is conditionally convergent."
+        },
+        {
+          "label": "E",
+          "text": "One is conditionally convergent and one is is divergent."
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 2,
+      "solution": "For $\\sum_{n=1}^{\\infty} \\frac{(-1.5)^n}{n^3}$, the Ratio Test gives\n\n$$\n\\lim_{n\\to\\infty}\\left|\\frac{(-1.5)^{n+1}/(n+1)^3}{(-1.5)^n/n^3}\\right| = \\lim_{n\\to\\infty} 1.5\\left(\\frac{n}{n+1}\\right)^3 = 1.5 > 1,\n$$\n\nso it diverges.\n\nFor $\\sum_{n=2}^{\\infty} \\frac{(-1)^n}{\\ln n}$: $\\frac{1}{\\ln(n+1)} < \\frac{1}{\\ln n}$ and $\\lim_{n\\to\\infty}\\frac{1}{\\ln n} = 0$, so it converges by the Alternating Series Test. Since $n > \\ln n$, $\\frac{1}{n} < \\frac{1}{\\ln n}$, and $\\sum\\frac{1}{n}$ diverges, so by Direct Comparison $\\sum\\frac{1}{\\ln n}$ diverges. This series is conditionally convergent.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Suppose $b_n > 0$ for each $n$, and\n\n$$\n\\lim_{n\\to\\infty} \\frac{b_{n+1}}{b_n} = \\frac{1}{3}.\n$$\n\nWe know that the series $\\sum_{n=0}^{\\infty} (-1)^n b_n$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "must be absolutely convergent."
+        },
+        {
+          "label": "B",
+          "text": "must be divergent."
+        },
+        {
+          "label": "C",
+          "text": "must be conditionally convergent."
+        },
+        {
+          "label": "D",
+          "text": "converges or diverges; the given information is inconclusive."
+        },
+        {
+          "label": "E",
+          "text": "converges; either conditional or absolute convergence can occur."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 2,
+      "solution": "By the Ratio Test,\n\n$$\n\\lim_{n\\to\\infty}\\left|\\frac{(-1)^{n+1} b_{n+1}}{(-1)^n b_n}\\right| = \\lim_{n\\to\\infty}\\frac{b_{n+1}}{b_n} = \\frac{1}{3} < 1,\n$$\n\nso the series must be absolutely convergent.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "How many of these series converge?\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{k!}{(k+2)!}, \\quad \\sum_{\\ell=0}^{\\infty} \\frac{1}{\\ell + 2^{\\ell}}, \\quad \\sum_{m=1}^{\\infty} \\frac{m!}{m^m}, \\quad \\sum_{n=1}^{\\infty} \\frac{n^3 3^n}{2^{2n}}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "only two"
+        },
+        {
+          "label": "B",
+          "text": "all four"
+        },
+        {
+          "label": "C",
+          "text": "only one"
+        },
+        {
+          "label": "D",
+          "text": "only three"
+        },
+        {
+          "label": "E",
+          "text": "none"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L26"
+      ],
+      "sourcePage": 3,
+      "solution": "All four converge.\n\n- $\\frac{k!}{(k+2)!} = \\frac{1}{(k+1)(k+2)} < \\frac{1}{k^2}$ and $\\sum\\frac{1}{k^2}$ converges ($p = 2 > 1$), so $\\sum\\frac{k!}{(k+2)!}$ converges.\n- $\\frac{1}{\\ell + 2^{\\ell}} < \\left(\\frac{1}{2}\\right)^{\\ell}$ and $\\sum\\left(\\frac{1}{2}\\right)^{\\ell}$ converges ($|r| = \\frac{1}{2} < 1$), so $\\sum\\frac{1}{\\ell + 2^{\\ell}}$ converges.\n- $\\frac{m!}{m^m} = \\frac{m(m-1)(m-2)\\cdots(2)(1)}{m(m)(m)\\cdots(m)(m)} \\le \\frac{2}{m^2}$ and $\\sum\\frac{2}{m^2}$ converges ($p = 2 > 1$). Or, by the Ratio Test, $\\frac{(m+1)!}{(m+1)^{m+1}}\\cdot\\frac{m^m}{m!} = \\frac{(m+1)m^m}{(m+1)^{m+1}} = \\left(\\frac{m}{m+1}\\right)^m = \\left(1 + \\frac{1}{m}\\right)^{-m} \\to e^{-1} < 1$.\n- $\\frac{n^3 3^n}{2^{2n}} = n^3\\left(\\frac{3}{4}\\right)^n$, and the Root or Ratio Test gives $\\frac{3}{4} < 1$, so it converges.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "According to the Alternating Series Estimation Theorem, for which $n$ is the following true?\n\n$$\n\\left|\\ln 2 - \\left(1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\frac{1}{5} - \\frac{1}{6} + \\ldots + \\frac{(-1)^{n+1}}{n}\\right)\\right| \\le 0.01\n$$\n\nHint: $\\ln(1+x) = \\sum_{n=1}^{\\infty} (-1)^{n-1}\\frac{x^n}{n}$ with interval of convergence $(-1, 1]$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$n \\ge 10$"
+        },
+        {
+          "label": "B",
+          "text": "$n \\ge 27$"
+        },
+        {
+          "label": "C",
+          "text": "$n \\ge 99$"
+        },
+        {
+          "label": "D",
+          "text": "$n \\ge 11$"
+        },
+        {
+          "label": "E",
+          "text": "$n \\ge 9$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 3,
+      "solution": "The error is at most the first omitted term, so we need\n\n$$\n\\frac{1}{n+1} \\le 0.01 = \\frac{1}{100},\n$$\n\nthat is, $100 \\le n + 1$, or $n \\ge 99$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Which of these $x$ values is in the interval of convergence of the following power series?\n\n$$\n\\sum_{n=0}^{\\infty} (-1)^n \\frac{(x+2)^n}{3n+1}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x = -1$"
+        },
+        {
+          "label": "B",
+          "text": "$x = 0$"
+        },
+        {
+          "label": "C",
+          "text": "$x = 1$"
+        },
+        {
+          "label": "D",
+          "text": "$x = -3$"
+        },
+        {
+          "label": "E",
+          "text": "$x = 2$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 4,
+      "solution": "The center is $a = -2$. By the Ratio Test,\n\n$$\n\\lim_{n\\to\\infty}\\left|\\frac{(-1)^{n+1}(x+2)^{n+1}}{3(n+1)+1}\\cdot\\frac{3n+1}{(-1)^n(x+2)^n}\\right| = \\lim_{n\\to\\infty}\\frac{3n+1}{3n+4}\\,|x+2| = |x+2| < 1,\n$$\n\nso the radius of convergence is 1. Endpoints:\n\n- $x = -3$: $\\sum(-1)^n\\frac{(-3+2)^n}{3n+1} = \\sum\\frac{1}{3n+1}$ diverges.\n- $x = -1$: $\\sum(-1)^n\\frac{(-1+2)^n}{3n+1} = \\sum\\frac{(-1)^n}{3n+1}$ converges by the Alternating Series Test.\n\nThe interval of convergence is $(-3, -1]$, which contains $x = -1$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Find the Maclaurin series for\n\n$$\nf(x) = \\frac{3x^2}{(1+x^3)^2}\n$$\n\nHint: $f$ is the derivative of a function with an easy Maclaurin formula",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{n=2}^{\\infty} (-1)^n 3x^{6n}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^{n+1} \\frac{x^{3n+1}}{3n+1}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{n=1}^{\\infty} (-1)^n n x^{3n-3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=1}^{\\infty} (-1)^{n+1} 3n x^{3n-1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{n=0}^{\\infty} (-1)^{n+1} x^{3n}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 4,
+      "solution": "$$\nf(x) = \\frac{d}{dx}\\left[-\\frac{1}{1+x^3}\\right] = \\frac{d}{dx}\\left[-\\sum_{n=0}^{\\infty}(-x^3)^n\\right] = \\frac{d}{dx}\\sum_{n=0}^{\\infty}(-1)^{n+1}x^{3n} = \\sum_{n=1}^{\\infty}(-1)^{n+1}3n\\,x^{3n-1}\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Find the first few terms of the Taylor series centered at $a = \\frac{1}{4}$ for the function $f(x) = \\sqrt{x}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2} + \\frac{1}{2}\\left(x - \\frac{1}{4}\\right) - \\frac{1}{4}\\left(x - \\frac{1}{4}\\right)^2 + \\frac{3}{8}\\left(x - \\frac{1}{4}\\right)^3 - \\ldots$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2} + \\frac{1}{2}\\left(x - \\frac{1}{4}\\right) - \\frac{1}{8}\\left(x - \\frac{1}{4}\\right)^2 + \\frac{1}{16}\\left(x - \\frac{1}{4}\\right)^3 - \\ldots$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2} + \\left(x - \\frac{1}{4}\\right) - 2\\left(x - \\frac{1}{4}\\right)^2 + 12\\left(x - \\frac{1}{4}\\right)^3 - \\ldots$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2} + \\left(x - \\frac{1}{4}\\right) - \\frac{1}{2}\\left(x - \\frac{1}{4}\\right)^2 + \\frac{1}{6}\\left(x - \\frac{1}{4}\\right)^3 - \\ldots$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2} + \\left(x - \\frac{1}{4}\\right) - \\left(x - \\frac{1}{4}\\right)^2 + 2\\left(x - \\frac{1}{4}\\right)^3 - \\ldots$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 5,
+      "solution": "$$\nf(x) = \\sqrt{x}, \\quad f'(x) = \\frac{1}{2\\sqrt{x}}, \\quad f''(x) = -\\frac{1}{4}x^{-3/2}, \\quad f'''(x) = \\frac{3}{8}x^{-5/2}\n$$\n\nAt $x = \\frac{1}{4}$ these are $\\frac{1}{2}$, $\\frac{1}{2(1/2)} = 1$, $-\\frac{1}{4(1/2)^3} = -2$, and $\\frac{3}{8(1/2)^5} = 12$. So the series is\n\n$$\n\\frac{1}{2} + \\frac{1}{1!}\\left(x - \\frac{1}{4}\\right) - \\frac{2}{2!}\\left(x - \\frac{1}{4}\\right)^2 + \\frac{12}{3!}\\left(x - \\frac{1}{4}\\right)^3 - \\cdots = \\frac{1}{2} + \\left(x - \\frac{1}{4}\\right) - \\left(x - \\frac{1}{4}\\right)^2 + 2\\left(x - \\frac{1}{4}\\right)^3 - \\cdots\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Use a Maclaurin series to choose the best estimate of\n\n$$\n\\int_0^{0.1} \\sin(x^2)\\,dx\n$$\n\nHint: $\\cos x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n}}{(2n)!}$ and $\\sin x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!}$ for all $x$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{(0.1)^3}{3} - \\frac{(0.1)^7}{42}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{(0.1)^4}{2} - \\frac{(0.1)^8}{24}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{(0.1)^2}{2} - \\frac{(0.1)^4}{24}$"
+        },
+        {
+          "label": "D",
+          "text": "$(0.1)^2 - \\frac{(0.1)^6}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$(0.1)^3 - \\frac{(0.1)^5}{6}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 5,
+      "solution": "$$\n\\sin(x^2) = \\sum_{n=0}^{\\infty}(-1)^n\\frac{(x^2)^{2n+1}}{(2n+1)!} = \\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{4n+2}}{(2n+1)!}\n$$\n\n$$\n\\int_0^{0.1}\\sin(x^2)\\,dx = \\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{4n+3}}{(4n+3)(2n+1)!}\\Bigg|_{x=0}^{x=0.1} = \\sum_{n=0}^{\\infty}(-1)^n\\frac{(0.1)^{4n+3}}{(4n+3)(2n+1)!}\n$$\n\nUsing the first two terms gives $\\frac{(0.1)^3}{3} - \\frac{(0.1)^7}{42}$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the Maclaurin series for $f(x) = \\frac{1}{\\sqrt{1+x}}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 - \\frac{1}{2}x + \\sum_{n=2}^{\\infty} \\frac{(-1)^n 1\\cdot 3\\cdot 5\\cdots(2n-3)}{2^n n!} x^n$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n 1\\cdot 3\\cdot 5\\cdots(2n+1)}{2^n n!} x^n$"
+        },
+        {
+          "label": "C",
+          "text": "$1 + \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}(2n-1)(2n-3)}{2^n} x^n$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{n=0}^{\\infty} \\frac{(-1)^n(2n+1)}{2^n} x^n$"
+        },
+        {
+          "label": "E",
+          "text": "$1 + \\sum_{n=1}^{\\infty} \\frac{(-1)^n 1\\cdot 3\\cdot 5\\cdots(2n-1)}{2^n n!} x^n$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 6,
+      "solution": "$$\n\\frac{1}{\\sqrt{1+x}} = (1+x)^{-1/2} = \\sum_{n=0}^{\\infty}\\binom{-1/2}{n}x^n\n$$\n\nwhere, for $n \\ge 1$,\n\n$$\n\\binom{-1/2}{n} = \\frac{\\left(-\\frac{1}{2}\\right)\\left(-\\frac{3}{2}\\right)\\left(-\\frac{5}{2}\\right)\\cdots\\left(-\\frac{1}{2} - n + 1\\right)}{n!} = \\frac{\\left(-\\frac{1}{2}\\right)\\left(-\\frac{3}{2}\\right)\\left(-\\frac{5}{2}\\right)\\cdots\\left(-\\frac{2n-1}{2}\\right)}{n!} = \\frac{(-1)^n\\,1\\cdot 3\\cdot 5\\cdots(2n-1)}{2^n\\,n!}\n$$\n\nand the $n = 0$ term is $1$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Match the parametric equations with the correct graph.\n\n$$\nx = \\frac{\\sin 2t}{4+t^2}, \\quad y = \\frac{\\cos 2t}{4+t^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Graph A"
+        },
+        {
+          "label": "B",
+          "text": "Graph B"
+        },
+        {
+          "label": "C",
+          "text": "Graph C"
+        },
+        {
+          "label": "D",
+          "text": "Graph D"
+        },
+        {
+          "label": "E",
+          "text": "Graph E"
+        }
+      ],
+      "answer": "C",
+      "figures": [
+        "figures/s2019-e3/q10.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 6,
+      "solution": "The point $(x, y)$ is in all four quadrants, and $\\lim_{t\\to\\pm\\infty}(x, y) = (0, 0)$. Only Graph C has both properties.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Consider the parametric equations\n\n$$\nx = 2t^3 + 3t^2 - 12t, \\quad y = 2t^3 + 3t^2 + 2.\n$$\n\nFind a point $(x, y)$ where the tangent is vertical.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(52, -2)$"
+        },
+        {
+          "label": "B",
+          "text": "$(-7, 7)$"
+        },
+        {
+          "label": "C",
+          "text": "$(13, 3)$"
+        },
+        {
+          "label": "D",
+          "text": "$(4, 30)$"
+        },
+        {
+          "label": "E",
+          "text": "$(0, 2)$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 7,
+      "solution": "$$\n\\frac{dx}{dt} = 6t^2 + 6t - 12 = 6(t^2 + t - 2) = 6(t+2)(t-1),\n$$\n\nso $\\frac{dx}{dt} = 0$ at $t = 1$ or $t = -2$. Also $\\frac{dy}{dt} = 6t^2 + 6t = 6t(t+1)$, and $\\frac{dy}{dt}\\Big|_{t=1} = 12 \\ne 0$, so $\\frac{dy}{dx}$ is infinite (undefined) at $t = 1$: $\\lim_{t\\to 1^{\\pm}}\\frac{dy}{dx} = \\pm\\infty$.\n\nAt $t = 1$, $x = 2 + 3 - 12 = -7$ and $y = 2 + 3 + 2 = 7$, giving the point $(-7, 7)$.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2019-e3-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "A curve $C$ is defined by the parametric equations $x = t^3 - 12t$, $y = t^2 - 1$. Find all the values of $t$ for which $C$ is concave down.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$t < -2$ and $t > 2$"
+        },
+        {
+          "label": "B",
+          "text": "$t < -2$"
+        },
+        {
+          "label": "C",
+          "text": "all real $t$"
+        },
+        {
+          "label": "D",
+          "text": "$-2 < t < 2$"
+        },
+        {
+          "label": "E",
+          "text": "$t > 2$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 7,
+      "solution": "$\\frac{dx}{dt} = 3t^2 - 12$ and $\\frac{dy}{dt} = 2t$, so $\\frac{dy}{dx} = \\frac{2t}{3t^2 - 12}$ and\n\n$$\n\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right)}{\\frac{dx}{dt}} = \\frac{\\frac{d}{dt}\\left(\\frac{2t}{3t^2-12}\\right)}{3t^2-12} = \\frac{(3t^2-12)(2) - (2t)(6t)}{(3t^2-12)^3} = \\frac{-6(t^2+4)}{(3t^2-12)^3}\n$$\n\nThe numerator is always negative, so the curve is concave down when the denominator is positive: $3t^2 - 12 > 0$, so $3t^2 > 12$ and $t^2 > 4$, that is, $t < -2$ or $t > 2$.",
+      "status": "reviewed"
+    }
+  ]
+}
