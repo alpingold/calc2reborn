@@ -69,6 +69,9 @@
         }
       ],
       "answer": "D",
+      "figures": [
+        "figures/s2024-e2/q02.png"
+      ],
       "lessonIds": [
         "L5",
         "L12"
