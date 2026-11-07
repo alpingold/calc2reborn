@@ -67,7 +67,7 @@ Six exams have neither: `f2023-e2`, `f2023-e3`, `f2023-final`, `s2023-final`, `f
 
 ## Figures
 
-A question gets a figure if a diagram carries information the text does not. Keep a printed graph if the stem leaves a boundary, intersection, or orientation for the student to work out, since exam takers had it. Add a rectangle to `scripts/crops.json`, run `pnpm content:crop`, view the PNG, and adjust until it holds the whole diagram with a small margin and no stray text. Reference it as `"figures": ["figures/<examId>/q02.png"]`. Coordinates are in pixels on the 1224 x 1584 page image. Do not paste a whole question as an image.
+A question gets a figure if a diagram carries information the text does not. Keep a printed graph if the stem leaves a boundary, intersection, or orientation for the student to work out, since exam takers had it. Add a rectangle to `scripts/crops.json`, run `pnpm content:crop`, view the PNG, and adjust until it holds the whole diagram with a small margin and no stray text. Reference it as `"figures": ["figures/<examId>/q02.png"]`. Coordinates are in pixels on the rendered page image: 1224 x 1584 for letter pages, 1190 x 1683 for A4 pages such as `f2018-e1`. Check the image size before cropping. Do not paste a whole question as an image.
 
 ## Lesson tags
 
@@ -120,6 +120,8 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - An improper integral whose antiderivative needs another lesson's technique (integration by parts, partial fractions, trig substitution): tag that lesson and L18. A plain $u$-substitution inside an improper integral stays L18 only.
 - Parametric curves (graphs, tangents, concavity, arc length of $x(t)$, $y(t)$): no lesson teaches them; tag L34 and report it.
 - Centroid: tag L9 and report it.
+- Conic sections (ellipse, hyperbola, parabola, foci): tag L2 and report it.
+- Complex numbers, including exponential form $re^{i\theta}$: tag L33 and report it.
 - Average value of a function: no lesson teaches it; tag the lesson of the integration technique it needs and report it.
 - Partial fractions with an irreducible quadratic factor alongside linear or repeated linear factors: L17 only. A question that mentions long division but asks only for a linear-factor coefficient: L16 only.
 - A list of true/false statements about several convergence tests: tag the lesson of each test the statements use. Add L26 only when the question asks which test to choose.
