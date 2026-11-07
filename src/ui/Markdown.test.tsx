@@ -14,6 +14,18 @@ test('renders invalid math as a katex-error span with the raw source, without th
   expect(err!.textContent).toContain('\\frac{')
 })
 
+test('a fenced $$ block renders as display math', () => {
+  const { container } = render(<Markdown text={'Sum:\n\n$$\nx^2\n$$\n\nDone.'} />)
+  expect(container.querySelector('.katex-display')).not.toBeNull()
+  expect(container.textContent).not.toContain('$$')
+})
+
+test('a one-line $$...$$ renders inline, which is why content must fence display math', () => {
+  const { container } = render(<Markdown text={'Sum:\n\n$$x^2$$\n\nDone.'} />)
+  expect(container.querySelector('.katex')).not.toBeNull()
+  expect(container.querySelector('.katex-display')).toBeNull()
+})
+
 test('renders bold as strong', () => {
   const { container } = render(<Markdown text="**bold**" />)
   expect(container.querySelector('strong')?.textContent).toBe('bold')
