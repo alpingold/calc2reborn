@@ -1,0 +1,464 @@
+{
+  "id": "s2017-e2",
+  "term": "Spring",
+  "year": 2017,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2017.pdf",
+  "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e2-s2017.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2017-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Compute $\\int_0^1 xe^{2x}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1+e^2}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1+3e^2}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$1+2e^2$"
+        },
+        {
+          "label": "D",
+          "text": "$1+3e^2$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1+2e^2}{4}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "solution": "Integrate by parts with $u = x$, $dv = e^{2x}\\,dx$, so $du = dx$ and $v = \\frac{1}{2}e^{2x}$:\n\n$$\n\\int xe^{2x}\\,dx = \\frac{x}{2}e^{2x} - \\frac{1}{2}\\int e^{2x}\\,dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x}.\n$$\n\nSo\n\n$$\n\\int_0^1 xe^{2x}\\,dx = \\left(\\frac{e^2}{2} - \\frac{1}{4}e^2\\right) - \\left(0 - \\frac{1}{4}\\right) = \\frac{1}{4}e^2 + \\frac{1}{4} = \\frac{1+e^2}{4}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Compute $\\int_0^{\\frac{\\pi}{4}} 5(\\sec^4 x)(\\tan^2 x)\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5}{8}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L13"
+      ],
+      "sourcePage": 2,
+      "solution": "Use $\\sec^2 x = 1 + \\tan^2 x$:\n\n$$\n\\int_0^{\\pi/4} 5\\sec^4 x\\tan^2 x\\,dx = 5\\int_0^{\\pi/4} \\sec^2 x\\,(1 + \\tan^2 x)\\tan^2 x\\,dx.\n$$\n\nWith $u = \\tan x$, $du = \\sec^2 x\\,dx$, the bounds become $0$ and $1$:\n\n$$\n5\\int_0^1 u^2(1 + u^2)\\,du = 5\\left(\\frac{u^3}{3} + \\frac{u^5}{5}\\right)\\Big|_0^1 = 5\\left(\\frac{1}{3} + \\frac{1}{5}\\right) = 5 \\cdot \\frac{8}{15} = \\frac{8}{3}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "If we use a trigonometric substitution to evaluate $\\int \\frac{\\sqrt{x^2+4}}{x^2}\\,dx$ the integral becomes",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int \\frac{\\sec\\theta}{2\\tan^2\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int \\frac{\\tan\\theta}{4\\sec^2\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int \\frac{\\sec^2\\theta}{\\tan\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int \\frac{\\sec^3\\theta}{\\tan^2\\theta}\\,d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 3,
+      "solution": "Let $x = 2\\tan\\theta$, $dx = 2\\sec^2\\theta\\,d\\theta$. Then\n\n$$\nx^2 + 4 = 4\\tan^2\\theta + 4 = 4(1 + \\tan^2\\theta) = 4\\sec^2\\theta,\n$$\n\nso\n\n$$\n\\int \\frac{\\sqrt{x^2+4}}{x^2}\\,dx = \\int \\frac{2\\sec\\theta \\cdot 2\\sec^2\\theta}{4\\tan^2\\theta}\\,d\\theta = \\int \\frac{\\sec^3\\theta}{\\tan^2\\theta}\\,d\\theta.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Compute $\\int_0^{\\frac{1}{2}} \\frac{x^3}{(1-x^2)^{\\frac{3}{2}}}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5\\sqrt{3}-8}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4\\sqrt{3}-5}{6}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4\\sqrt{3}-3}{6}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{6\\sqrt{3}-7}{6}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{7\\sqrt{3}-12}{6}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 3,
+      "solution": "Let $x = \\sin\\theta$, $dx = \\cos\\theta\\,d\\theta$; $x = \\frac{1}{2}$ gives $\\theta = \\frac{\\pi}{6}$:\n\n$$\n\\int_0^{1/2} \\frac{x^3}{(1-x^2)^{3/2}}\\,dx = \\int_0^{\\pi/6} \\frac{\\sin^3\\theta\\cos\\theta}{\\cos^3\\theta}\\,d\\theta = \\int_0^{\\pi/6} \\frac{\\sin^3\\theta}{\\cos^2\\theta}\\,d\\theta = \\int_0^{\\pi/6} \\frac{\\sin\\theta\\,(1 - \\cos^2\\theta)}{\\cos^2\\theta}\\,d\\theta.\n$$\n\nSet $u = \\cos\\theta$, $du = -\\sin\\theta\\,d\\theta$; the bounds become $1$ and $\\frac{\\sqrt{3}}{2}$:\n\n$$\n\\int_{\\sqrt{3}/2}^{1} \\frac{1 - u^2}{u^2}\\,du = \\int_{\\sqrt{3}/2}^{1} \\left(u^{-2} - 1\\right)du = -\\left(u^{-1} + u\\right)\\Big|_{\\sqrt{3}/2}^{1}\n$$\n\n$$\n= -\\left[2 - \\left(\\frac{2}{\\sqrt{3}} + \\frac{\\sqrt{3}}{2}\\right)\\right] = -\\frac{4\\sqrt{3} - 7}{2\\sqrt{3}} = \\frac{7\\sqrt{3} - 12}{6}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "Find the length of the curve $y = \\frac{3}{8}\\left(x^{4/3} - 2x^{2/3}\\right)$ for $0 \\le x \\le 1$. The arc-length formula holds in this case.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{5}{8}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{13}{8}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7}{8}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{9}{8}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{11}{8}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 4,
+      "solution": "$$\ny' = \\frac{3}{8} \\cdot \\frac{4}{3}x^{1/3} - \\frac{3}{4} \\cdot \\frac{2}{3}x^{-1/3} = \\frac{1}{2}x^{1/3} - \\frac{1}{2}x^{-1/3}\n$$\n\n$$\n1 + (y')^2 = 1 + \\frac{1}{4}\\left(x^{1/3} - x^{-1/3}\\right)^2 = 1 + \\frac{1}{4}x^{2/3} + \\frac{1}{4}x^{-2/3} - \\frac{1}{2} = \\frac{1}{4}x^{2/3} + \\frac{1}{4}x^{-2/3} + \\frac{1}{2} = \\frac{1}{4}\\left(x^{1/3} + x^{-1/3}\\right)^2\n$$\n\nSo $\\sqrt{1 + (y')^2} = \\frac{1}{2}\\left(x^{1/3} + x^{-1/3}\\right)$ and\n\n$$\nL = \\int_0^1 \\frac{1}{2}\\left(x^{1/3} + x^{-1/3}\\right)dx = \\left(\\frac{1}{2} \\cdot \\frac{3}{4}x^{4/3} + \\frac{1}{2} \\cdot \\frac{3}{2}x^{2/3}\\right)\\Big|_0^1 = \\frac{3}{8} + \\frac{3}{4} = \\frac{9}{8}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Which of the following improper integrals are convergent?\n\n$$\n\\text{I. } \\int_0^{\\infty} xe^{-x^2}\\,dx \\qquad \\text{II. } \\int_0^{\\infty} \\frac{1}{1+x^2}\\,dx \\qquad \\text{III. } \\int_3^{\\infty} \\frac{1}{2-x}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I and II only"
+        },
+        {
+          "label": "B",
+          "text": "II and III only"
+        },
+        {
+          "label": "C",
+          "text": "II only"
+        },
+        {
+          "label": "D",
+          "text": "None of them"
+        },
+        {
+          "label": "E",
+          "text": "All of them"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 4,
+      "solution": "I. With $u = x^2$:\n\n$$\n\\int_0^{\\infty} xe^{-x^2}\\,dx = \\int_0^{\\infty} \\frac{1}{2}e^{-u}\\,du = \\frac{1}{2}.\n$$\n\nII.\n\n$$\n\\int_0^{\\infty} \\frac{1}{1+x^2}\\,dx = \\tan^{-1}x\\Big|_0^{\\infty} = \\frac{\\pi}{2}.\n$$\n\nIII. With $u = x - 2$:\n\n$$\n\\int_3^{\\infty} \\frac{1}{2-x}\\,dx = -\\int_1^{\\infty} \\frac{du}{u},\n$$\n\nwhich diverges. So I and II only.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Compute the integral $\\int_1^2 \\frac{1}{x^2+4x+3}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}\\ln(\\frac{3}{4})$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}\\ln(\\frac{2}{5})$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}\\ln(\\frac{6}{5})$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{2}\\ln(\\frac{3}{5})$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{2}\\ln(\\frac{3}{8})$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "solution": "$x^2 + 4x + 3 = (x+1)(x+3)$, and\n\n$$\n\\frac{1}{x^2+4x+3} = \\frac{1}{2}\\left(\\frac{1}{x+1} - \\frac{1}{x+3}\\right).\n$$\n\n$$\n\\int_1^2 \\frac{1}{x^2+4x+3}\\,dx = \\frac{1}{2}\\left(\\ln|x+1| - \\ln|x+3|\\right)\\Big|_1^2 = \\frac{1}{2}\\ln\\left|\\frac{x+1}{x+3}\\right|\\Big|_1^2 = \\frac{1}{2}\\left(\\ln\\frac{3}{5} - \\ln\\frac{2}{4}\\right) = \\frac{1}{2}\\ln\\left(\\frac{3}{5} \\cdot \\frac{4}{2}\\right) = \\frac{1}{2}\\ln\\frac{6}{5}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "In order to evaluate the integral $\\int \\frac{4x^3-5x^2+8x-10}{(x+2)(x-2)^3}\\,dx$, how do you express the integrand as sum of partial fractions?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{A}{x+2} + \\frac{B}{x-2} + \\frac{C}{(x-2)^2} + \\frac{D}{(x-2)^3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{A}{x+2} + \\frac{B}{x-2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{A}{x+2} + \\frac{B}{x-2} + \\frac{C}{(x-2)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{A}{x+2} + \\frac{B}{x-2} + \\frac{C}{(x-2)^2} + \\frac{D}{(x+2)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{A}{x+2} + \\frac{B}{(x-2)^3}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "The area of the region of the plane bounded by the curves $y = 4x - x^2$ and $y = x^2$ is equal to $\\frac{8}{3}$. The $y$-coordinate of its centroid is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "label": "E",
+          "text": "$2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L9"
+      ],
+      "sourcePage": 6,
+      "solution": "The curves meet where $4x - x^2 = x^2$, so $4x = 2x^2$: $x = 0$ and $x = 2$. On $[0, 2]$ the parabola $y = 4x - x^2$ is on top and $y = x^2$ is below. With $A = \\frac{8}{3}$,\n\n$$\n\\bar{y} = \\frac{1}{A}\\int_0^2 \\frac{1}{2}\\left[(4x - x^2)^2 - x^4\\right]dx = \\frac{3}{16}\\int_0^2 (4x - 2x^2)\\,4x\\,dx = \\frac{3}{2}\\int_0^2 (2x^2 - x^3)\\,dx\n$$\n\n$$\n= \\frac{3}{2}\\left(\\frac{2}{3}x^3 - \\frac{x^4}{4}\\right)\\Big|_0^2 = \\frac{3}{2}\\left(\\frac{16}{3} - \\frac{16}{4}\\right) = 24\\left(\\frac{1}{3} - \\frac{1}{4}\\right) = 2.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Compute $\\lim_{n\\to\\infty} \\left(\\frac{n^2+2n-4}{2n-5} - \\frac{n}{2}\\right)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{9}{4}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{7}{4}$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "$\\infty$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 6,
+      "solution": "$$\n\\lim_{n\\to\\infty} \\left(\\frac{n^2+2n-4}{2n-5} - \\frac{n}{2}\\right) = \\lim_{n\\to\\infty} \\frac{2n^2 + 4n - 8 - 2n^2 + 5n}{2(2n-5)} = \\lim_{n\\to\\infty} \\frac{9n - 8}{4n - 10} = \\frac{9}{4}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "The sum of the series $\\sum_{n=1}^{\\infty} \\frac{1+2^n}{5^n}$ is equal to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{6}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{9}{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{11}{12}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{12}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{8}{9}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 7,
+      "solution": "$$\n\\sum_{n=1}^{\\infty} \\frac{1+2^n}{5^n} = \\sum_{n=1}^{\\infty} \\left(\\frac{1}{5}\\right)^n + \\sum_{n=1}^{\\infty} \\left(\\frac{2}{5}\\right)^n = \\frac{1/5}{1 - 1/5} + \\frac{2/5}{1 - 2/5} = \\frac{1/5}{4/5} + \\frac{2/5}{3/5} = \\frac{1}{4} + \\frac{2}{3} = \\frac{3 + 8}{12} = \\frac{11}{12}.\n$$",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q12",
+      "number": 12,
+      "points": 4,
+      "stem": "The series $\\sum_{n=1}^{\\infty} \\frac{4n+5}{n^2}$ converges by the integral test",
+      "choices": [
+        {
+          "label": "A",
+          "text": "True"
+        },
+        {
+          "label": "B",
+          "text": "False"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 7,
+      "solution": "False: the series diverges. For large $n$, $\\frac{4n+5}{n^2}$ behaves like $\\frac{1}{n}$, and\n\n$$\n\\int_1^{\\infty} \\frac{4x+5}{x^2}\\,dx = \\int_1^{\\infty} \\frac{4}{x}\\,dx + \\int_1^{\\infty} \\frac{5}{x^2}\\,dx,\n$$\n\nwhere the first integral diverges.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q13",
+      "number": 13,
+      "points": 4,
+      "stem": "If the series $\\sum_{k=1{,}000{,}000{,}000}^{\\infty} a_k$ diverges, one cannot say whether the series $\\sum_{k=1}^{\\infty} a_k$ converges or diverges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "True"
+        },
+        {
+          "label": "B",
+          "text": "False"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 7,
+      "solution": "False. The difference of the two sums is finite: if one diverges, so does the other.",
+      "status": "reviewed"
+    },
+    {
+      "id": "s2017-e2-q14",
+      "number": 14,
+      "points": 4,
+      "stem": "The series $\\sum_{n=1} \\cos(\\frac{1}{n})$ converges.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "True"
+        },
+        {
+          "label": "B",
+          "text": "False"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L22"
+      ],
+      "sourcePage": 7,
+      "solution": "False. $\\lim_{n\\to\\infty} \\cos\\left(\\frac{1}{n}\\right) = 1 \\ne 0$, so the series diverges.",
+      "status": "reviewed"
+    }
+  ]
+}
