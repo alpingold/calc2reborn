@@ -1,0 +1,523 @@
+[
+  {
+    "examId": "f2025-e1",
+    "term": "Fall",
+    "year": 2025,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2025.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2025.pdf"
+  },
+  {
+    "examId": "f2025-e2",
+    "term": "Fall",
+    "year": 2025,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2025.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2025.pdf"
+  },
+  {
+    "examId": "f2025-e3",
+    "term": "Fall",
+    "year": 2025,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2025.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2025.pdf"
+  },
+  {
+    "examId": "f2025-final",
+    "term": "Fall",
+    "year": 2025,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2025.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2025.pdf"
+  },
+  {
+    "examId": "f2024-e1",
+    "term": "Fall",
+    "year": 2024,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2024.pdf"
+  },
+  {
+    "examId": "f2024-e2",
+    "term": "Fall",
+    "year": 2024,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2024.pdf"
+  },
+  {
+    "examId": "f2024-e3",
+    "term": "Fall",
+    "year": 2024,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2024.pdf"
+  },
+  {
+    "examId": "f2024-final",
+    "term": "Fall",
+    "year": 2024,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2024.pdf"
+  },
+  {
+    "examId": "s2024-e1",
+    "term": "Spring",
+    "year": 2024,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2024.pdf"
+  },
+  {
+    "examId": "s2024-e2",
+    "term": "Spring",
+    "year": 2024,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2024.pdf"
+  },
+  {
+    "examId": "s2024-e3",
+    "term": "Spring",
+    "year": 2024,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2024.pdf"
+  },
+  {
+    "examId": "s2024-final",
+    "term": "Spring",
+    "year": 2024,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2024.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2024.pdf"
+  },
+  {
+    "examId": "f2023-e1",
+    "term": "Fall",
+    "year": 2023,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2023.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2023.pdf"
+  },
+  {
+    "examId": "f2023-e2",
+    "term": "Fall",
+    "year": 2023,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2023.pdf"
+  },
+  {
+    "examId": "f2023-e3",
+    "term": "Fall",
+    "year": 2023,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2023.pdf"
+  },
+  {
+    "examId": "f2023-final",
+    "term": "Fall",
+    "year": 2023,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2023.pdf"
+  },
+  {
+    "examId": "s2023-e1",
+    "term": "Spring",
+    "year": 2023,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2023.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2023.pdf"
+  },
+  {
+    "examId": "s2023-e2",
+    "term": "Spring",
+    "year": 2023,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2023.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2023.pdf"
+  },
+  {
+    "examId": "s2023-e3",
+    "term": "Spring",
+    "year": 2023,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2023.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2023.pdf"
+  },
+  {
+    "examId": "s2023-final",
+    "term": "Spring",
+    "year": 2023,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2023.pdf"
+  },
+  {
+    "examId": "f2022-e1",
+    "term": "Fall",
+    "year": 2022,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2022.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2022.pdf"
+  },
+  {
+    "examId": "f2022-e2",
+    "term": "Fall",
+    "year": 2022,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2022.pdf"
+  },
+  {
+    "examId": "f2022-e3",
+    "term": "Fall",
+    "year": 2022,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2022.pdf"
+  },
+  {
+    "examId": "f2022-final",
+    "term": "Fall",
+    "year": 2022,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2022.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2022.pdf"
+  },
+  {
+    "examId": "s2022-e1",
+    "term": "Spring",
+    "year": 2022,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2022.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2022.pdf"
+  },
+  {
+    "examId": "s2022-e2",
+    "term": "Spring",
+    "year": 2022,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2022.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2022.pdf"
+  },
+  {
+    "examId": "s2022-e3",
+    "term": "Spring",
+    "year": 2022,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2022.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2022.pdf"
+  },
+  {
+    "examId": "s2022-final",
+    "term": "Spring",
+    "year": 2022,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2022.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2022.pdf"
+  },
+  {
+    "examId": "f2021-e1",
+    "term": "Fall",
+    "year": 2021,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2021.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2021.pdf"
+  },
+  {
+    "examId": "f2021-e2",
+    "term": "Fall",
+    "year": 2021,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2021.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2021.pdf"
+  },
+  {
+    "examId": "f2021-e3",
+    "term": "Fall",
+    "year": 2021,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2021.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2021.pdf"
+  },
+  {
+    "examId": "f2021-final",
+    "term": "Fall",
+    "year": 2021,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2021.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2021.pdf"
+  },
+  {
+    "examId": "s2020-e1",
+    "term": "Spring",
+    "year": 2020,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2020.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2020.pdf"
+  },
+  {
+    "examId": "s2020-e2",
+    "term": "Spring",
+    "year": 2020,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2020.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2020.pdf"
+  },
+  {
+    "examId": "f2019-e1",
+    "term": "Fall",
+    "year": 2019,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2019.pdf"
+  },
+  {
+    "examId": "f2019-e2",
+    "term": "Fall",
+    "year": 2019,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2019.pdf"
+  },
+  {
+    "examId": "f2019-e3",
+    "term": "Fall",
+    "year": 2019,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2019.pdf"
+  },
+  {
+    "examId": "f2019-final",
+    "term": "Fall",
+    "year": 2019,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2019.pdf"
+  },
+  {
+    "examId": "s2019-e1",
+    "term": "Spring",
+    "year": 2019,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2019.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e1-s2019.pdf"
+  },
+  {
+    "examId": "s2019-e2",
+    "term": "Spring",
+    "year": 2019,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2019.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e2-s2019.pdf"
+  },
+  {
+    "examId": "s2019-e3",
+    "term": "Spring",
+    "year": 2019,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2019.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e3-s2019.pdf"
+  },
+  {
+    "examId": "s2019-final",
+    "term": "Spring",
+    "year": 2019,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2019.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2019.pdf"
+  },
+  {
+    "examId": "f2018-e1",
+    "term": "Fall",
+    "year": 2018,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2018.pdf"
+  },
+  {
+    "examId": "f2018-e2",
+    "term": "Fall",
+    "year": 2018,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2018.pdf"
+  },
+  {
+    "examId": "f2018-e3",
+    "term": "Fall",
+    "year": 2018,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2018.pdf"
+  },
+  {
+    "examId": "f2018-final",
+    "term": "Fall",
+    "year": 2018,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2018.pdf"
+  },
+  {
+    "examId": "s2018-e1",
+    "term": "Spring",
+    "year": 2018,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2018.pdf"
+  },
+  {
+    "examId": "s2018-e2",
+    "term": "Spring",
+    "year": 2018,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2018.pdf"
+  },
+  {
+    "examId": "s2018-e3",
+    "term": "Spring",
+    "year": 2018,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2018.pdf"
+  },
+  {
+    "examId": "s2018-final",
+    "term": "Spring",
+    "year": 2018,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2018.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2018.pdf"
+  },
+  {
+    "examId": "f2017-e1",
+    "term": "Fall",
+    "year": 2017,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2017.pdf"
+  },
+  {
+    "examId": "f2017-e2",
+    "term": "Fall",
+    "year": 2017,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-f2017.pdf"
+  },
+  {
+    "examId": "f2017-e3",
+    "term": "Fall",
+    "year": 2017,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2017.pdf"
+  },
+  {
+    "examId": "f2017-final",
+    "term": "Fall",
+    "year": 2017,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2017.pdf"
+  },
+  {
+    "examId": "s2017-e1",
+    "term": "Spring",
+    "year": 2017,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2017.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e1-s2017.pdf"
+  },
+  {
+    "examId": "s2017-e2",
+    "term": "Spring",
+    "year": 2017,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2017.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e2-s2017.pdf"
+  },
+  {
+    "examId": "s2017-e3",
+    "term": "Spring",
+    "year": 2017,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2017.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e3-s2017.pdf"
+  },
+  {
+    "examId": "s2017-final",
+    "term": "Spring",
+    "year": 2017,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2017.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2017.pdf"
+  },
+  {
+    "examId": "f2016-e1",
+    "term": "Fall",
+    "year": 2016,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-f2016.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-f2016.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e1-f2016.pdf"
+  },
+  {
+    "examId": "f2016-e2",
+    "term": "Fall",
+    "year": 2016,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-f2016.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e2-f2016.pdf"
+  },
+  {
+    "examId": "f2016-e3",
+    "term": "Fall",
+    "year": 2016,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-f2016.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-f2016.pdf",
+    "solutionsUrl": "https://www.math.purdue.edu/academic/courses/past-exams/sol-16200e3-f2016.pdf"
+  },
+  {
+    "examId": "s2016-e1",
+    "term": "Spring",
+    "year": 2016,
+    "exam": "1",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2016.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2016.pdf"
+  },
+  {
+    "examId": "s2016-e2",
+    "term": "Spring",
+    "year": 2016,
+    "exam": "2",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2016.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2016.pdf"
+  },
+  {
+    "examId": "s2016-e3",
+    "term": "Spring",
+    "year": 2016,
+    "exam": "3",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e3-s2016.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e3-s2016.pdf"
+  },
+  {
+    "examId": "s2016-final",
+    "term": "Spring",
+    "year": 2016,
+    "exam": "final",
+    "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2016.pdf",
+    "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2016.pdf"
+  }
+]

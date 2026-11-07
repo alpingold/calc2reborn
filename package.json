@@ -38,6 +38,10 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "content:manifest": "tsx scripts/exam-manifest.ts",
+    "content:fetch": "tsx scripts/fetch-exams.ts",
+    "content:render": "tsx scripts/render-pages.ts",
+    "content:crop": "tsx scripts/crop-figures.ts"
   }
 }
