@@ -687,6 +687,7 @@
         "L32"
       ],
       "sourcePage": 12,
+      "solution": "**Note on this question:** The Maclaurin series for $\\tan^{-1}(2x)$ converges only for $|2x|\\le1$, that is $|x|\\le\\frac{1}{2}$, but the integral runs up to $x=1$, where two terms of the series are not a reliable estimate. Following the procedure the stem asks for gives $\\int_0^1(6x^4-8x^6)\\,dx=\\frac{6}{5}-\\frac{8}{7}=\\frac{2}{35}$, choice D, which is the stored answer; the true value of the integral is about $0.747$, close to choice A.",
       "status": "reviewed"
     },
     {

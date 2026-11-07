@@ -347,6 +347,7 @@
         "L9"
       ],
       "sourcePage": 7,
+      "solution": "**Note on this question:** The printed hint $\\int_1^e x^2\\ln x\\,dx=\\frac{2(1+e^3)}{9}$ is wrong; integration by parts gives $\\left[\\frac{x^3}{3}\\ln x-\\frac{x^3}{9}\\right]_1^e=\\frac{2e^3+1}{9}$. The centroid does not need this integral, and only the wrong choice E uses the printed value, so the answer A is unaffected.",
       "status": "reviewed"
     },
     {

@@ -175,6 +175,7 @@
         "L22"
       ],
       "sourcePage": 4,
+      "solution": "**Note on this question:** At $n=1$ the term is $\\frac{(\\ln 1)^p}{1}=0^p$, which is undefined for every $p<0$, including the keyed values $p<-1$. Read the series as starting at $n=2$: the Integral Test with $u=\\ln x$ turns $\\int_2^\\infty\\frac{(\\ln x)^p}{x}\\,dx$ into $\\int_{\\ln 2}^\\infty u^p\\,du$, which converges exactly when $p<-1$, so the intended answer is B.",
       "status": "reviewed"
     },
     {

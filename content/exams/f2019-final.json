@@ -620,6 +620,7 @@
         "L29"
       ],
       "sourcePage": 11,
+      "solution": "**Note on this question:** As printed, the sum starts at $n=0$, where the denominator $n^5 3^n$ is $0$, so its first term is undefined. The intended reading starts at $n=1$, which gives the keyed interval $[1,7]$: the Ratio Test gives radius $3$ about $x=4$, and both endpoints converge absolutely, since there $\\left|\\frac{(x-4)^n}{n^5 3^n}\\right|=\\frac{1}{n^5}$.",
       "status": "reviewed"
     },
     {
