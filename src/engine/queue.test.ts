@@ -1,0 +1,99 @@
+import { describe, expect, it } from 'vitest'
+import type { CardState, Settings } from '../storage/types'
+import type { ConceptCard, Lesson } from '../content/schema'
+import { coveredLessonIds, dailyQueue, isSameLocalDay, pullForward } from './queue'
+
+function lesson(number: number, isReview = false): Lesson {
+  return { id: isReview ? `R-${number}` : `L${number}`, number, isReview } as unknown as Lesson
+}
+function card(id: string, lessonId: string): ConceptCard {
+  return { id, lessonId, front: 'f', back: 'b' } as unknown as ConceptCard
+}
+function state(cardId: string, dueAt: string, introducedAt = '2026-01-01T00:00:00.000Z'): CardState {
+  return { cardId, introducedAt, fsrs: { dueAt } } as unknown as CardState
+}
+const settings = (n: number) => ({ currentLessonId: null, dailyNewCards: n }) as unknown as Settings
+const lessons: Lesson[] = [
+  ...Array.from({ length: 35 }, (_, i) => lesson(i + 1)),
+  lesson(10, true),
+]
+const now = new Date(2026, 0, 10, 12, 0)
+const isDue = (s: CardState, n: Date) => new Date(s.fsrs.dueAt) <= n
+
+describe('coveredLessonIds', () => {
+  it('up to current', () => {
+    expect(coveredLessonIds(lessons, 'L3')).toEqual(['L1', 'L2', 'L3'])
+  })
+  it('null gives all 35 non-review', () => {
+    const ids = coveredLessonIds(lessons, null)
+    expect(ids).toHaveLength(35)
+    expect(ids.some((i) => i.startsWith('R-'))).toBe(false)
+  })
+  it('unknown or review current gives all non-review', () => {
+    expect(coveredLessonIds(lessons, 'nope')).toHaveLength(35)
+    expect(coveredLessonIds(lessons, 'R-10')).toHaveLength(35)
+  })
+})
+
+describe('isSameLocalDay', () => {
+  it('compares local calendar days', () => {
+    expect(isSameLocalDay(new Date(2026, 0, 1, 0, 1), new Date(2026, 0, 1, 23, 59))).toBe(true)
+    expect(isSameLocalDay(new Date(2026, 0, 1, 23, 59), new Date(2026, 0, 2, 0, 1))).toBe(false)
+  })
+})
+
+describe('dailyQueue', () => {
+  const cards = [card('a', 'L1'), card('b', 'L1'), card('c', 'L1'), card('d', 'L2'), card('x', 'L9')]
+  const args = (over: object = {}) => ({
+    now, cards, states: [] as CardState[], lessons, settings: { ...settings(2), currentLessonId: 'L2' }, isDue, ...over,
+  })
+
+  it('due sorted ascending, excludes future', () => {
+    const states = [
+      state('a', '2026-01-09T00:00:00.000Z'),
+      state('b', '2026-01-05T00:00:00.000Z'),
+      state('c', '2026-02-01T00:00:00.000Z'),
+    ]
+    expect(dailyQueue(args({ states })).due.map((s) => s.cardId)).toEqual(['b', 'a'])
+  })
+  it('fresh respects cap and covered range', () => {
+    expect(dailyQueue(args()).fresh.map((c) => c.id)).toEqual(['a', 'b'])
+    const all = dailyQueue(args({ settings: { ...settings(10), currentLessonId: 'L2' } })).fresh.map((c) => c.id)
+    expect(all).toEqual(['a', 'b', 'c', 'd'])
+  })
+  it('cards with state are not fresh', () => {
+    const states = [state('a', '2026-02-01T00:00:00.000Z')]
+    expect(dailyQueue(args({ states })).fresh.map((c) => c.id)).toEqual(['b', 'c'])
+  })
+  it('introduced today counts against cap', () => {
+    const intro = now.toISOString()
+    const states = [state('a', '2026-02-01T00:00:00.000Z', intro), state('b', '2026-02-01T00:00:00.000Z', intro)]
+    const r = dailyQueue(args({ states, settings: { ...settings(3), currentLessonId: 'L2' } }))
+    expect(r.fresh).toHaveLength(1)
+  })
+  it('Review Focus 1: introduced 23:50 yesterday local does not count', () => {
+    const states = [state('a', '2026-02-01T00:00:00.000Z', new Date(2026, 0, 1, 23, 50).toISOString())]
+    const r = dailyQueue(args({ states, now: new Date(2026, 0, 2, 0, 10), settings: { ...settings(1), currentLessonId: 'L2' } }))
+    expect(r.fresh.map((c) => c.id)).toEqual(['b'])
+  })
+  it('cap never negative', () => {
+    const intro = now.toISOString()
+    const states = [state('a', '2026-02-01T00:00:00.000Z', intro), state('b', '2026-02-01T00:00:00.000Z', intro)]
+    expect(dailyQueue(args({ states, settings: { ...settings(1), currentLessonId: 'L2' } })).fresh).toEqual([])
+  })
+})
+
+describe('pullForward', () => {
+  const cards = [card('a', 'L23'), card('b', 'L23'), card('c', 'L5')]
+  it('moves future states in listed lessons only, without mutating', () => {
+    const tomorrow = '2026-01-11T12:00:00.000Z'
+    const states = [state('a', tomorrow), state('b', '2026-01-01T00:00:00.000Z'), state('c', tomorrow)]
+    const snapshot = JSON.stringify(states)
+    const out = pullForward(states, cards, ['L23'], now)
+    expect(out).toHaveLength(1)
+    expect(out[0].cardId).toBe('a')
+    expect(out[0].fsrs.dueAt).toBe(now.toISOString())
+    expect(JSON.stringify(states)).toBe(snapshot)
+    expect(out[0]).not.toBe(states[0])
+  })
+})
