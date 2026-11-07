@@ -1,0 +1,874 @@
+{
+  "id": "f2024-final",
+  "term": "Fall",
+  "year": 2024,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-f2024.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-f2024.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "f2024-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "What is the radius of convergence of the power series\n\n$$\n\\sum_{k=1}^{\\infty} \\left(\\frac{k+1}{k}\\right)^{k^2} x^k \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\infty$"
+        },
+        {
+          "label": "B",
+          "text": "$1/e$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$e$"
+        },
+        {
+          "label": "E",
+          "text": "$1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L29"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Convert the polar coordinates $(r, \\theta) = (-3\\sqrt{2}, 3\\pi/4)$ into Cartesian coordinates.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$(x, y) = (3\\sqrt{2}, -3\\sqrt{2})$"
+        },
+        {
+          "label": "B",
+          "text": "$(x, y) = (-3, -3)$"
+        },
+        {
+          "label": "C",
+          "text": "$(x, y) = (3, -3)$"
+        },
+        {
+          "label": "D",
+          "text": "$(x, y) = (-3\\sqrt{2}, 3\\sqrt{2})$"
+        },
+        {
+          "label": "E",
+          "text": "$(x, y) = (-3, 3)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n \\cdot 2^n}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(3/2)$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln(1/2)$"
+        },
+        {
+          "label": "D",
+          "text": "$1/3$"
+        },
+        {
+          "label": "E",
+          "text": "The series is divergent."
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Consider the series\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{1}{2^n \\cdot n^2}\n$$\n\nWhich of the following applications of convergence tests is/are correct?\n\n(I) The series is convergent by the **comparison test** with $\\sum \\frac{1}{2^n}$\n\n(II) The series is convergent by the **comparison test** with $\\sum \\frac{1}{n^2}$\n\n(III) The series is convergent by the **limit comparison test** with $\\sum \\frac{1}{2^n}$\n\n(IV) The series is convergent by the **limit comparison test** with $\\sum \\frac{1}{n^2}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of (I), (II), (III), and (IV)"
+        },
+        {
+          "label": "B",
+          "text": "(I), (II), and (III)"
+        },
+        {
+          "label": "C",
+          "text": "(III) and (IV)"
+        },
+        {
+          "label": "D",
+          "text": "(I) and (II)"
+        },
+        {
+          "label": "E",
+          "text": "(I) and (III)"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "A parabolic cereal bowl is 4 cm tall and 4 cm in radius at the rim. The bowl could be considered the result of revolving the parabola $y = \\frac{x^2}{4}$ for $0 \\le x \\le 4$ around the $y$-axis. What is the internal volume of the bowl?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1024}{3}\\pi \\text{ cm}^3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{16}{3}\\pi \\text{ cm}^3$"
+        },
+        {
+          "label": "C",
+          "text": "$4\\pi \\text{ cm}^3$"
+        },
+        {
+          "label": "D",
+          "text": "$80\\pi \\text{ cm}^3$"
+        },
+        {
+          "label": "E",
+          "text": "$32\\pi \\text{ cm}^3$"
+        }
+      ],
+      "answer": "E",
+      "figures": [
+        "figures/f2024-final/q05.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\sum_{n=2}^{\\infty} \\frac{2}{n^2 - 1}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(3)$"
+        },
+        {
+          "label": "B",
+          "text": "$3/2$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "The series is divergent."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Three vertices of a triangle are at\n\n$$\nA = (0, 0, 0), \\quad B = (2, -1, 1), \\quad C = (3, 0, 4).\n$$\n\nWhat is the area of this triangle?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$10$"
+        },
+        {
+          "label": "B",
+          "text": "$5$"
+        },
+        {
+          "label": "C",
+          "text": "$5\\sqrt{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\sqrt{2}/2$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Given a sequence $\\{a_n\\}_{n=1}^{\\infty}$ whose terms are all positive, which of the following statements is/are true?\n\n(I) If $\\{a_n\\}_{n=1}^{\\infty}$ is convergent, then $\\left\\{\\frac{a_n}{n}\\right\\}_{n=1}^{\\infty}$ is convergent.\n\n(II) If $\\sum_{n=1}^{\\infty} a_n$ is convergent, then $\\{a_n\\}_{n=1}^{\\infty}$ is convergent.\n\n(III) If $\\sum_{n=1}^{\\infty} a_n$ is convergent, then $\\sum_{n=1}^{\\infty} \\frac{a_n}{n}$ is convergent.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(II) only"
+        },
+        {
+          "label": "B",
+          "text": "(I) and (II)"
+        },
+        {
+          "label": "C",
+          "text": "All of (I), (II), and (III)"
+        },
+        {
+          "label": "D",
+          "text": "(I) and (III)"
+        },
+        {
+          "label": "E",
+          "text": "(I) only"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L20",
+        "L22",
+        "L23"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Find the value of $A$ in the equation\n\n$$\n\\int_0^1 x^2 e^{-2x}\\,dx = A + \\int_0^1 x e^{-2x}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{e^2}$"
+        },
+        {
+          "label": "B",
+          "text": "$-\\frac{1}{2e^2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2e^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{1}{e^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$-\\frac{2}{e^2}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Three vertices of a triangle are at\n\n$$\nA = (1, 2, 3), \\quad B = (0, 2, 4), \\quad C = (2, 4, 1).\n$$\n\nWhat is the angle at the vertex $A$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi/6$"
+        },
+        {
+          "label": "B",
+          "text": "$3\\pi/4$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi/3$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi/4$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi/3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Which of the following polar coordinates correspond(s) to the point $(x, y) = (-\\sqrt{3}, 3)$ in Cartesian coordinates?\n\n(I) $P_1(r, \\theta) = (-2\\sqrt{3}, -2\\pi/3)$\n\n(II) $P_2(r, \\theta) = (2\\sqrt{3}, -4\\pi/3)$\n\n(III) $P_3(r, \\theta) = (6, 2\\pi/3)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$P_1$ only"
+        },
+        {
+          "label": "B",
+          "text": "$P_2$ only"
+        },
+        {
+          "label": "C",
+          "text": "$P_3$ only"
+        },
+        {
+          "label": "D",
+          "text": "$P_1$ and $P_2$"
+        },
+        {
+          "label": "E",
+          "text": "All of $P_1$, $P_2$, and $P_3$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "What is the result of approximating the value of the integral\n\n$$\n\\int_0^1 e^x\\,dx\n$$\n\nusing the second-order Taylor polynomial of $e^x$ centered at the origin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2/3$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$5/3$"
+        },
+        {
+          "label": "D",
+          "text": "$3/2$"
+        },
+        {
+          "label": "E",
+          "text": "$5/2$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L27"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "Which one of the following right triangles is most suitable for a trigonometric substitution on the integral\n\n$$\n\\int \\frac{1}{(4 - x^2)^{3/2}}\\,dx \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Triangle A"
+        },
+        {
+          "label": "B",
+          "text": "Triangle B"
+        },
+        {
+          "label": "C",
+          "text": "Triangle C"
+        },
+        {
+          "label": "D",
+          "text": "Triangle D"
+        },
+        {
+          "label": "E",
+          "text": "Triangle E"
+        }
+      ],
+      "answer": "C",
+      "figures": [
+        "figures/f2024-final/q13.png"
+      ],
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "Which one of the following polar curves is a horizontal line?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$r = \\cos(\\theta)$"
+        },
+        {
+          "label": "B",
+          "text": "$r = \\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$r = 1$"
+        },
+        {
+          "label": "D",
+          "text": "$r = \\sec(\\theta)$"
+        },
+        {
+          "label": "E",
+          "text": "$r = \\csc(\\theta)$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "A cylindrical tank has height 4 m and base radius 3 m. The tank is completely filled with water. Compute the work required to pump all water out through the top rim of the tank.\n\n[Use $\\rho = 1000 \\text{ kg/m}^3$ for the density of water, and $g = 10 \\text{ m/s}^2$ for gravitational acceleration.]",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$240000\\pi$ J"
+        },
+        {
+          "label": "B",
+          "text": "$480000\\pi$ J"
+        },
+        {
+          "label": "C",
+          "text": "$1440000\\pi$ J"
+        },
+        {
+          "label": "D",
+          "text": "$720000\\pi$ J"
+        },
+        {
+          "label": "E",
+          "text": "$360000\\pi$ J"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Given two points $P = (2, -1, 2)$ and $Q = (-2, 0, -6)$, find a unit vector in the $\\overrightarrow{PQ}$ direction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\left\\langle \\frac{2}{3}, -\\frac{1}{3}, \\frac{2}{3} \\right\\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\left\\langle \\frac{4}{9}, -\\frac{1}{9}, \\frac{8}{9} \\right\\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\left\\langle \\frac{4}{9}, \\frac{1}{9}, \\frac{8}{9} \\right\\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\left\\langle -\\frac{4}{9}, \\frac{1}{9}, -\\frac{8}{9} \\right\\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\left\\langle -\\frac{1}{\\sqrt{10}}, 0, -\\frac{3}{\\sqrt{10}} \\right\\rangle$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L1"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Let $f(x) = \\sum_{k=1}^{\\infty} \\frac{1}{k^2} x^k$ be a function defined by power series. Evaluate\n\n$$\n\\lim_{x \\to 0} \\frac{f(x) + f(-x)}{x^2}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1/4$"
+        },
+        {
+          "label": "B",
+          "text": "$1/2$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$2$"
+        },
+        {
+          "label": "E",
+          "text": "The limit does not exist."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "Find the arc length of the polar curve $r = \\sin(\\theta) - \\cos(\\theta)$, where $0 \\le \\theta \\le \\pi$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\sqrt{2}\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sqrt{2}\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sqrt{2}\\pi/2$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "If $\\vec{u} = \\langle 1, 3 \\rangle$, $\\vec{v} = \\langle 0, 2 \\rangle$, and $\\vec{w} = \\langle 3, 4 \\rangle$, evaluate\n\n$$\n(\\vec{u} - 2\\vec{v}) \\cdot \\vec{w}\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$7$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle 3, -4 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$-1$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 0, 0, 7 \\rangle$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "Given vectors $\\vec{v}$ and $\\vec{w}$ in 3D, which of the following statements is/are true?\n\n(I) If $\\vec{v} \\cdot \\vec{w} = 0$, then $|\\vec{v} \\times \\vec{w}| = |\\vec{v}||\\vec{w}|$.\n\n(II) If $\\vec{v} \\times \\vec{w} = \\vec{0}$, then $|\\vec{v} \\cdot \\vec{w}| = |\\vec{v}||\\vec{w}|$.\n\n(III) If $|\\vec{v}| = |\\vec{w}| = 1$, then $\\vec{v} \\cdot \\vec{w} \\le 1$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(III) only"
+        },
+        {
+          "label": "B",
+          "text": "All of (I), (II), and (III)"
+        },
+        {
+          "label": "C",
+          "text": "(I) only"
+        },
+        {
+          "label": "D",
+          "text": "(I) and (II)"
+        },
+        {
+          "label": "E",
+          "text": "(II) only"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "Let $f(x)$ be a function with the following graph in Cartesian coordinates.\n\nWhich one of the following shows the polar curve $r = f(\\theta)$ relative to the coordinate axes?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Graph A"
+        },
+        {
+          "label": "B",
+          "text": "Graph B"
+        },
+        {
+          "label": "C",
+          "text": "Graph C"
+        },
+        {
+          "label": "D",
+          "text": "Graph D"
+        },
+        {
+          "label": "E",
+          "text": "Graph E"
+        }
+      ],
+      "answer": "E",
+      "figures": [
+        "figures/f2024-final/q21a.png",
+        "figures/f2024-final/q21b.png"
+      ],
+      "lessonIds": [
+        "L34"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "Evaluate\n\n$$\n\\int_1^{\\infty} \\frac{x - 1}{x^4}\\,dx\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The integral is divergent."
+        },
+        {
+          "label": "B",
+          "text": "$5/6$"
+        },
+        {
+          "label": "C",
+          "text": "$1/6$"
+        },
+        {
+          "label": "D",
+          "text": "$1/2$"
+        },
+        {
+          "label": "E",
+          "text": "$1/3$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "Among the vectors\n\n$$\n\\vec{a} = \\langle -1, -1, -1 \\rangle, \\quad \\vec{b} = \\langle 1, 2, -3 \\rangle, \\quad \\vec{c} = \\langle -1, 0, 1 \\rangle, \\quad \\vec{d} = \\langle 0, 0, 0 \\rangle,\n$$\n\nwhich one(s) is/are orthogonal to the vector $\\langle 1, 1, 1 \\rangle$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of $\\vec{a}$, $\\vec{b}$, $\\vec{c}$, and $\\vec{d}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\vec{a}$ and $\\vec{b}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\vec{b}$, $\\vec{c}$, and $\\vec{d}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\vec{b}$ and $\\vec{c}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\vec{a}$ only"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "Consider the series\n\n$$\nS = \\sum_{n=1}^{\\infty} \\frac{(-1)^n}{2^n + 7}.\n$$\n\nBy the error estimate for alternating series, how many terms are needed for the partial sum $S_n$ to get within $0.01$ of the true sum $S$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$10$"
+        },
+        {
+          "label": "B",
+          "text": "$9$"
+        },
+        {
+          "label": "C",
+          "text": "$8$"
+        },
+        {
+          "label": "D",
+          "text": "$7$"
+        },
+        {
+          "label": "E",
+          "text": "$6$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    },
+    {
+      "id": "f2024-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "Find the area of the region enclosed by the polar curve $r = 2 + \\cos(\\theta)$, $0 \\le \\theta \\le 2\\pi$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$9\\pi/2$"
+        },
+        {
+          "label": "B",
+          "text": "$17\\pi/2$"
+        },
+        {
+          "label": "C",
+          "text": "$8\\pi$"
+        },
+        {
+          "label": "D",
+          "text": "$4\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$9\\pi$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    }
+  ]
+}

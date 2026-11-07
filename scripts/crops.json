@@ -1,5 +1,9 @@
 [
   { "figure": "figures/f2024-e1/q09.png", "examId": "f2024-e1", "page": 7, "x": 345, "y": 330, "w": 575, "h": 365 },
+  { "figure": "figures/f2024-final/q05.png", "examId": "f2024-final", "page": 5, "x": 830, "y": 212, "w": 290, "h": 280 },
+  { "figure": "figures/f2024-final/q13.png", "examId": "f2024-final", "page": 9, "x": 145, "y": 224, "w": 900, "h": 308 },
+  { "figure": "figures/f2024-final/q21a.png", "examId": "f2024-final", "page": 13, "x": 450, "y": 160, "w": 365, "h": 225 },
+  { "figure": "figures/f2024-final/q21b.png", "examId": "f2024-final", "page": 13, "x": 145, "y": 443, "w": 240, "h": 972 },
   { "figure": "figures/f2025-e1/q02.png", "examId": "f2025-e1", "page": 3, "x": 755, "y": 933, "w": 380, "h": 212 },
   { "figure": "figures/f2025-e1/q05.png", "examId": "f2025-e1", "page": 5, "x": 770, "y": 185, "w": 360, "h": 265 },
   { "figure": "figures/f2025-e2/q04.png", "examId": "f2025-e2", "page": 5, "x": 148, "y": 259, "w": 292, "h": 748 },
