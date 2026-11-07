@@ -135,8 +135,8 @@
   {
     "id": "L3-c15",
     "lessonId": "L3",
-    "front": "$|\\vec{v}| = 2$, $|\\vec{w}| = \\sqrt{3}$, and $|\\vec{v} + \\vec{w}| = 3$. Find $\\vec{v} \\cdot \\vec{w}$.",
-    "back": "Use $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ on $\\vec{u} = \\vec{v} + \\vec{w}$: $|\\vec{v} + \\vec{w}|^2 = |\\vec{v}|^2 + 2\\vec{v} \\cdot \\vec{w} + |\\vec{w}|^2$. So $9 = 4 + 2\\vec{v} \\cdot \\vec{w} + 3$, and $\\vec{v} \\cdot \\vec{w} = 1$. Expanding this way uses the distributive law (beyond Chen's notes).",
+    "front": "$|\\vec{v}| = 3$, $|\\vec{w}| = 2$, and $|\\vec{v} - \\vec{w}| = 4$. Find $\\vec{v} \\cdot \\vec{w}$.",
+    "back": "Use $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ on $\\vec{u} = \\vec{v} - \\vec{w}$: $|\\vec{v} - \\vec{w}|^2 = |\\vec{v}|^2 - 2\\vec{v} \\cdot \\vec{w} + |\\vec{w}|^2$. So $16 = 9 - 2\\vec{v} \\cdot \\vec{w} + 4$, and $\\vec{v} \\cdot \\vec{w} = -\\frac{3}{2}$. Expanding this way uses the distributive law (beyond Chen's notes).",
     "tags": [
       "dot-product"
     ]

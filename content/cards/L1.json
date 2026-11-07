@@ -98,8 +98,8 @@
   {
     "id": "L1-c11",
     "lessonId": "L1",
-    "front": "$E$, $F$, $G$, $H$ are the midpoints of sides $AB$, $BC$, $CD$, $DA$ of a quadrilateral $ABCD$. What shape is $EFGH$, and why?",
-    "back": "A parallelogram. $\\vec{EF} = \\frac{1}{2}\\vec{AC}$ and $\\vec{HG} = \\frac{1}{2}\\vec{AC}$, so one pair of opposite sides is equal and parallel. It needs only vector arithmetic (beyond Chen's notes).",
+    "front": "In triangle $ABC$, $M$ and $N$ are the midpoints of $AB$ and $AC$. How is $\\vec{MN}$ related to $\\vec{BC}$, and why?",
+    "back": "$\\vec{MN} = \\frac{1}{2}\\vec{BC}$, so $MN$ is parallel to $BC$ and half as long. Write $\\vec{MN} = \\vec{AN} - \\vec{AM} = \\frac{1}{2}\\vec{AC} - \\frac{1}{2}\\vec{AB} = \\frac{1}{2}(\\vec{AC} - \\vec{AB})$, and $\\vec{AC} - \\vec{AB} = \\vec{BC}$. It needs only vector arithmetic (beyond Chen's notes).",
     "tags": [
       "arithmetic",
       "geometry"

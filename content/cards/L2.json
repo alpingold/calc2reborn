@@ -50,8 +50,8 @@
   {
     "id": "L2-c06",
     "lessonId": "L2",
-    "front": "Find the center and radius of $x^2 + y^2 + z^2 + 2y - 4z = 4$.",
-    "back": "$x^2 + (y+1)^2 + (z-2)^2 = 4 + 1 + 4 = 9$. Center $(0, -1, 2)$, radius $3$. No linear $x$ term means the $x$ coordinate of the center is $0$, and the radius comes from the right side after adding the squares, not from the original $4$.",
+    "front": "Find the center and radius of $x^2 + y^2 + z^2 - 6x + 2z = 6$.",
+    "back": "$(x-3)^2 + y^2 + (z+1)^2 = 6 + 9 + 1 = 16$. Center $(3, 0, -1)$, radius $4$. No linear $y$ term means the $y$ coordinate of the center is $0$, and the radius comes from the right side after adding the squares, not from the original $6$.",
     "tags": [
       "trap",
       "completing-square"
@@ -127,8 +127,8 @@
   {
     "id": "L2-c14",
     "lessonId": "L2",
-    "front": "Which coordinate planes does the sphere $(x-1)^2 + (y-2)^2 + (z+4)^2 = 9$ meet?",
-    "back": "Center $(1, 2, -4)$, radius $3$. The distances from the center to the $yz$-, $xz$-, and $xy$-planes are $1$, $2$, and $4$. It meets a plane when that distance is at most $r$, so it meets the $yz$- and $xz$-planes but not the $xy$-plane (beyond Chen's notes).",
+    "front": "Which coordinate planes does the sphere $(x+3)^2 + (y-1)^2 + (z-2)^2 = 4$ meet?",
+    "back": "Center $(-3, 1, 2)$, radius $2$. The distances from the center to the $yz$-, $xz$-, and $xy$-planes are $3$, $1$, and $2$. It meets a plane when that distance is at most $r$: it misses the $yz$-plane, cuts the $xz$-plane in a circle, and touches the $xy$-plane at the single point $(-3, 1, 0)$ (beyond Chen's notes).",
     "tags": [
       "sphere",
       "regions"
