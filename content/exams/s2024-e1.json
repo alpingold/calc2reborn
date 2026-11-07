@@ -1,0 +1,427 @@
+{
+  "id": "s2024-e1",
+  "term": "Spring",
+  "year": 2024,
+  "exam": "1",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e1-s2024.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e1-s2024.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2024-e1-q01",
+      "number": 1,
+      "points": 1,
+      "stem": "Consider the sphere $(x - 1)^2 + (y - 2)^2 + (z + 4)^2 = 9$. Which of the following is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The sphere intersects the $xy$-plane but not the $yz$-plane or the $xz$-plane."
+        },
+        {
+          "label": "B",
+          "text": "The sphere intersects the $xy$-plane and the $yz$-plane but does not intersect the $xz$-plane."
+        },
+        {
+          "label": "C",
+          "text": "The sphere intersects the $xz$-plane but not the $yz$-plane or the $xy$-plane."
+        },
+        {
+          "label": "D",
+          "text": "The sphere intersects the $xz$-plane and the $yz$-plane but does not intersect the $xy$-plane."
+        },
+        {
+          "label": "E",
+          "text": "The sphere intersects the $xz$-plane and the $xy$-plane but does not intersect the $yz$-plane."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L2"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q02",
+      "number": 2,
+      "points": 1,
+      "stem": "A cubic tank whose sides are 1 m long sits on the ground and is filled with a liquid of density $100 \\,\\mathrm{kg/m^3}$. Assume gravitational acceleration $g = 10 \\,\\mathrm{m/s^2}$, compute the the total force on one of its side walls due to pressure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "300 N"
+        },
+        {
+          "label": "B",
+          "text": "500 N"
+        },
+        {
+          "label": "C",
+          "text": "800 N"
+        },
+        {
+          "label": "D",
+          "text": "200 N"
+        },
+        {
+          "label": "E",
+          "text": "400 N"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q03",
+      "number": 3,
+      "points": 1,
+      "stem": "Find the area of the region enclosed by $x = y^2$ and $x = 8 - y^2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{16}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{64}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{32}{3}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q04",
+      "number": 4,
+      "points": 1,
+      "stem": "An object weighing 30 N is suspended by a spring from the ceiling. The spring is stretched beyond its equilibrium position by 0.1 m due to the weight of the object. How much work is needed to return the spring to its equilibrium position?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1.5 J"
+        },
+        {
+          "label": "B",
+          "text": "15 J"
+        },
+        {
+          "label": "C",
+          "text": "30 J"
+        },
+        {
+          "label": "D",
+          "text": "3 J"
+        },
+        {
+          "label": "E",
+          "text": "10 J"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L9",
+        "L10"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q05",
+      "number": 5,
+      "points": 1,
+      "stem": "What is the angle between the vectors $\\vec{a} = 3\\vec{\\imath}$ and $\\vec{b} = -\\vec{\\imath} - \\sqrt{2}\\vec{\\jmath} + \\vec{k}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi/3$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi/3$"
+        },
+        {
+          "label": "C",
+          "text": "$0$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\pi/6$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi/6$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L3"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q06",
+      "number": 6,
+      "points": 1,
+      "stem": "What is the area of the triangle with vertices $(1, 1, 1)$, $(3, -1, 2)$, and $(5, 1, -2)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$10\\sqrt{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$3$"
+        },
+        {
+          "label": "C",
+          "text": "$10$"
+        },
+        {
+          "label": "D",
+          "text": "$5\\sqrt{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$5$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q07",
+      "number": 7,
+      "points": 1,
+      "stem": "Let $R$ be the region bounded by $y = x^2$, $y = 2$, and the $y$-axis. What is the volume of the solid obtained by revolving $R$ around the $y$-axis?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{8\\pi}{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2\\sqrt{2}\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{4\\sqrt{2}\\pi}{3}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q08",
+      "number": 8,
+      "points": 1,
+      "stem": "A solid has a semicircular base of radius 3. Cross sections perpendicular to the base and parallel to the straight edge of the semicircle are squares. What is the volume of the solid?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{9\\pi}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$72$"
+        },
+        {
+          "label": "C",
+          "text": "$18$"
+        },
+        {
+          "label": "D",
+          "text": "$27\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{9\\pi}{4}$"
+        }
+      ],
+      "answer": "B",
+      "figures": [
+        "figures/s2024-e1/q08.png"
+      ],
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q09",
+      "number": 9,
+      "points": 1,
+      "stem": "Find the surface area of the surface generated when the curve\n\n$$\ny = \\frac{x^3}{3}, \\quad 0 \\le x \\le 1\n$$\n\nis rotated about the $x$-axis.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi(2\\sqrt{2} - 1)}{27}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\pi(2\\sqrt{2} - 1)}{9}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi(2\\sqrt{2} - 1)}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi(2\\sqrt{2} - 1)}{287}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\pi(2\\sqrt{2} - 1)}{81}$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q10",
+      "number": 10,
+      "points": 1,
+      "stem": "Which one of the following integrals equals the arc length of the curve\n\n$$\ny = x^3 + 1, \\quad 1 \\le x \\le 2 \\quad ?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_1^2 x^3 + 1\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_1^2 \\sqrt{9x^4 + 1}\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_1^2 3x^2\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_1^2 \\sqrt{x^3 + 2}\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_1^2 \\sqrt{x^3 + 1}\\,dx$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q11",
+      "number": 11,
+      "points": 1,
+      "stem": "Which one of the following integrals equals the volume of the solid obtained by rotating the region bounded by $y = x^2$ and $y = x$ about the line $x = 3$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^1 2\\pi(3 - x)(1 - x^2)\\,dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^1 2\\pi(3 - x)^2(x - x^2)^2\\,dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^1 2\\pi(3 - x)(x - x^2)^2\\,dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^1 2\\pi(3 - x)(x - x^2)\\,dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^1 2\\pi(3 - x^2)(x - x^2)\\,dx$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2024-e1-q12",
+      "number": 12,
+      "points": 1,
+      "stem": "A thin metal bar of length 2 m pivots around a hinge on the floor. At $x$ meters away from the hinge, the bar has density $\\rho(x) = 10 + x$ kg/m. Assume gravitational acceleration $g = 10 \\,\\mathrm{m/s^2}$. How much work *against gravity* is required to pivot the bar upright from a horizontal position?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "22 joules"
+        },
+        {
+          "label": "B",
+          "text": "220 joules"
+        },
+        {
+          "label": "C",
+          "text": "440 joules"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{520}{3}$ joules"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{680}{3}$ joules"
+        }
+      ],
+      "answer": "E",
+      "figures": [
+        "figures/s2024-e1/q12.png"
+      ],
+      "lessonIds": [
+        "L9",
+        "L10"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
