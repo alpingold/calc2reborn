@@ -1,0 +1,419 @@
+{
+  "id": "s2020-e2",
+  "term": "Spring",
+  "year": 2020,
+  "exam": "2",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200e2-s2020.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200e2-s2020.pdf",
+  "durationMinutes": 60,
+  "questions": [
+    {
+      "id": "s2020-e2-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Compute the value of the integral $\\int_1^e 2x \\ln x\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1 - e^2}{2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1 + e^2}{2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{3e^2 - 1}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{e^2}{2}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Which of the following is the value of the integral $\\int \\frac{x^2}{x^2 + 1}\\,dx$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$x - \\tan^{-1} x + c$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{x}{x^2 + 1} + c$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{2}\\ln(x^2 + 1) + c$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{x^3}{3} + x + c$"
+        },
+        {
+          "label": "E",
+          "text": "$x + \\tan^{-1} x + c$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L17"
+      ],
+      "sourcePage": 2,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Which of the following is the value of the integral $\\int \\cos^3 x \\sqrt{\\sin x}\\,dx$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2}{3}\\cos^{3/2} x - \\frac{2}{7}\\cos^{7/2} x + c$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sin x - \\frac{1}{3}\\sin^3 x + c$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2}{3}\\sin^{3/2} x - \\frac{1}{3}\\sin^3 x + c$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2}{3}\\sin^{3/2} x + \\frac{2}{7}\\sin^{7/2} x + c$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{2}{3}\\sin^{3/2} x - \\frac{2}{7}\\sin^{7/2} x + c$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L12"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Which of the following is the value of the integral $\\int \\tan^{-1} x\\,dx$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(\\tan x) + c$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln(\\sin x) + c$"
+        },
+        {
+          "label": "C",
+          "text": "$x\\tan^{-1} x - \\frac{1}{2}\\ln(x^2 + 1) + c$"
+        },
+        {
+          "label": "D",
+          "text": "$x\\tan^{-1} x + \\frac{1}{2}\\ln(x^2 + 1) + c$"
+        },
+        {
+          "label": "E",
+          "text": "$x\\tan^{-1} x - 2\\ln(x^2 + 1) + c$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "An olympic size swimming pool is 50 meters long, 25 meters wide and 2 meters deep. Assume that the pool is filled with water. How much work is done pumping all of the water out of the pool? Use the approximate values 1000 kg/m$^3$ for the density of water and 10 m/s$^2$ for acceleration due to gravity.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$80{,}000(25)^2$ J"
+        },
+        {
+          "label": "B",
+          "text": "$80{,}000(25)^3$ J"
+        },
+        {
+          "label": "C",
+          "text": "$20{,}000(25)^3$ J"
+        },
+        {
+          "label": "D",
+          "text": "$40{,}000(25)^2$ J"
+        },
+        {
+          "label": "E",
+          "text": "$40{,}000(25)^3$ J"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Compute the integral $\\int_2^3 \\frac{x+5}{x^2+x-2}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln(16/5)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln(9/5)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln(8/5)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln(12/5)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln(4/5)$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "A trigonometric substitution of the form $x = \\sin\\theta$, $x = \\tan\\theta$ or $x = \\sec\\theta$ is used to compute the integral $\\int_{\\sqrt{2}}^2 \\frac{1}{x^3\\sqrt{x^2-1}}\\,dx$. Which of the following integrals will be generated by this substitution?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_{\\frac{\\pi}{6}}^{\\frac{\\pi}{3}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_{\\frac{\\pi}{6}}^{\\frac{\\pi}{4}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^{\\frac{\\pi}{4}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\frac{\\pi}{6}} \\cos^2\\theta\\,d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} \\cos^2\\theta\\,d\\theta$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L14"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "A partial fraction decomposition is used to write $\\frac{1}{x^2(x-1)^2}$ as a sum of partial fractions:\n\n$$\n\\frac{1}{x^2(x - 1)^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x - 1} + \\frac{D}{(x - 1)^2},\n$$\n\nwhere $A$, $B$, $C$ and $D$ are constants. What is $A + B + C + D$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$-2$"
+        },
+        {
+          "label": "B",
+          "text": "$2$"
+        },
+        {
+          "label": "C",
+          "text": "$1$"
+        },
+        {
+          "label": "D",
+          "text": "$0$"
+        },
+        {
+          "label": "E",
+          "text": "$-1$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "Compute the improper integral $\\int_0^{\\infty} xe^{-5x}\\,dx$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{5}$"
+        },
+        {
+          "label": "B",
+          "text": "The integral is divergent."
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{10}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{6}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{1}{25}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "Each of the following statements is either true or false. Determine which are true and which are false.\n\n(i) $\\int_0^1 \\ln(x)\\,dx$ is divergent\n\n(ii) $\\int_1^{\\infty} \\frac{1}{x^p}\\,dx$ is convergent for $p > 1$\n\n(iii) $\\int_1^{\\infty} \\frac{1}{\\sqrt{x}}\\,dx$ is convergent",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(i) and (ii) are true; (iii) is false"
+        },
+        {
+          "label": "B",
+          "text": "(i) is true; (ii) and (iii) are false"
+        },
+        {
+          "label": "C",
+          "text": "(ii) is true; (i) and (iii) are false"
+        },
+        {
+          "label": "D",
+          "text": "(i) and (iii) are true; (ii) is false"
+        },
+        {
+          "label": "E",
+          "text": "(ii) and (iii) are true; (i) is false"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "Which of the following sequences converge?\n\n(i) $\\left\\{\\frac{n^2}{n^3+1}\\right\\}_{n=1}^{\\infty}$\n\n(ii) $\\left\\{\\frac{1+(-1)^n}{2}\\right\\}_{n=1}^{\\infty}$\n\n(iii) $\\left\\{\\frac{\\cos n}{n+1}\\right\\}_{n=1}^{\\infty}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All of them"
+        },
+        {
+          "label": "B",
+          "text": "(ii) only"
+        },
+        {
+          "label": "C",
+          "text": "(i) only"
+        },
+        {
+          "label": "D",
+          "text": "(ii) and (iii) only"
+        },
+        {
+          "label": "E",
+          "text": "(i) and (iii) only"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2020-e2-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "How many of the following statements are correct?\n\n(i) $\\lim_{n\\to\\infty} (1 + \\frac{1}{n})^n = 0$\n\n(ii) $\\lim_{n\\to\\infty} e^{-n} = 0$\n\n(iii) $\\lim_{n\\to\\infty} \\tan^{-1}(n) = \\frac{\\pi}{2}$\n\n(iv) $\\lim_{n\\to\\infty} \\frac{n}{n+1} = 1$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$0$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$2$"
+        },
+        {
+          "label": "D",
+          "text": "$3$"
+        },
+        {
+          "label": "E",
+          "text": "$4$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L20"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    }
+  ]
+}
