@@ -1,0 +1,863 @@
+{
+  "id": "s2022-final",
+  "term": "Spring",
+  "year": 2022,
+  "exam": "final",
+  "examUrl": "https://www.math.purdue.edu/academic/courses/past-exams/16200fe-s2022.pdf",
+  "answersUrl": "https://www.math.purdue.edu/academic/courses/past-exams/ans-16200fe-s2022.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "id": "s2022-final-q01",
+      "number": 1,
+      "points": 8,
+      "stem": "Which vector is perpendicular to the plane which contains the points $P(-1, -1, 1)$, $Q(1, 2, 3)$, and $R(3, 2, -1)$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\langle 2, 4, -1 \\rangle$"
+        },
+        {
+          "label": "B",
+          "text": "$\\langle -2, 1, 1 \\rangle$"
+        },
+        {
+          "label": "C",
+          "text": "$\\langle 2, -1, 3 \\rangle$"
+        },
+        {
+          "label": "D",
+          "text": "$\\langle -1, 1, 3 \\rangle$"
+        },
+        {
+          "label": "E",
+          "text": "$\\langle 2, -2, 1 \\rangle$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L4"
+      ],
+      "sourcePage": 3,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q02",
+      "number": 2,
+      "points": 8,
+      "stem": "Which of the following are true and which are false?\n\n(I) For every $\\vec{u}$ and $\\vec{v}$ the orthogonal vector projection of $\\vec{u}$ onto $\\vec{v}$, $\\operatorname{proj}_{\\vec{v}} \\vec{u}$, is equal to the orthogonal vector projection of $\\vec{u}$ onto $2\\vec{v}$, $\\operatorname{proj}_{2\\vec{v}} \\vec{u}$.\n\n(II) $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ for every vector $\\vec{u}$.\n\n(III) $(\\vec{u} \\times \\vec{v}) \\cdot \\vec{v} = 0$ for every pair of vectors $\\vec{u}$ and $\\vec{v}$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "(I) and (III) are true; (II) is false."
+        },
+        {
+          "label": "B",
+          "text": "(I) and (II) are true; (III) is false."
+        },
+        {
+          "label": "C",
+          "text": "(II) and (III) are true; (I) is false."
+        },
+        {
+          "label": "D",
+          "text": "All are true."
+        },
+        {
+          "label": "E",
+          "text": "(II) is true; (I) and (III) false."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 4,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q03",
+      "number": 3,
+      "points": 8,
+      "stem": "Suppose $\\vec{u} \\cdot \\vec{v} = \\sqrt{3}$ and $\\vec{u} \\times \\vec{v} = \\langle 1, 2, 2 \\rangle$. What is the angle between $\\vec{u}$ and $\\vec{v}$?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{6}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2\\pi}{3}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{5\\pi}{6}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L3",
+        "L4"
+      ],
+      "sourcePage": 5,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q04",
+      "number": 4,
+      "points": 8,
+      "stem": "Find the area of the region bounded by the curves $x = 4y - y^2$ and $x = y^2 - 2y$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "24"
+        },
+        {
+          "label": "B",
+          "text": "9"
+        },
+        {
+          "label": "C",
+          "text": "15"
+        },
+        {
+          "label": "D",
+          "text": "12"
+        },
+        {
+          "label": "E",
+          "text": "6"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L5"
+      ],
+      "sourcePage": 6,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q05",
+      "number": 5,
+      "points": 8,
+      "stem": "The region in the first quadrant bounded by the curves $y = x^2$ and $x = y$ is rotated about the axis $y = 0$. Find the volume of the resulting solid.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{2\\pi}{15}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4\\pi}{15}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2\\pi}{5}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{4\\pi}{5}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{8\\pi}{5}$"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L6"
+      ],
+      "sourcePage": 7,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q06",
+      "number": 6,
+      "points": 8,
+      "stem": "Evaluate the integral\n\n$$\n\\int_0^1 x2^x dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\ln 2 - 1}{\\ln 2}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2\\ln 2 - 1}{2\\ln 2}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\ln 2 - 1}{(\\ln 2)^2}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{2\\ln 2 - 1}{(\\ln 2)^2}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{\\ln 2 - 1}{2\\ln 2}$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L11"
+      ],
+      "sourcePage": 8,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q07",
+      "number": 7,
+      "points": 8,
+      "stem": "Evaluate the integral\n\n$$\n\\int_2^3 \\frac{2x+2}{x^2-x}dx.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\ln\\left(\\frac{16}{9}\\right)$"
+        },
+        {
+          "label": "B",
+          "text": "$\\ln\\left(\\frac{4}{9}\\right)$"
+        },
+        {
+          "label": "C",
+          "text": "$\\ln\\left(\\frac{64}{9}\\right)$"
+        },
+        {
+          "label": "D",
+          "text": "$\\ln\\left(\\frac{25}{9}\\right)$"
+        },
+        {
+          "label": "E",
+          "text": "$\\ln\\left(\\frac{100}{9}\\right)$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L16"
+      ],
+      "sourcePage": 9,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q08",
+      "number": 8,
+      "points": 8,
+      "stem": "Use the method of cylindrical shells to find the volume of the solid obtained by rotating the region bounded by the curves $y = x^3$, $y = 0$, and $x = 1$ about the line $x = 1$. Express your answer as a definite integral.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$2\\pi \\int_0^2 (1-x)x^2 dx$"
+        },
+        {
+          "label": "B",
+          "text": "$2\\pi \\int_1^2 (1-x)x^3 dx$"
+        },
+        {
+          "label": "C",
+          "text": "$2\\pi \\int_0^1 (1-x)^2 x^3 dx$"
+        },
+        {
+          "label": "D",
+          "text": "$2\\pi \\int_1^2 (1-x)^2 x^2 dx$"
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi \\int_0^1 (1-x)x^3 dx$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L7"
+      ],
+      "sourcePage": 10,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q09",
+      "number": 9,
+      "points": 8,
+      "stem": "A tank of height 10 m and whose horizontal cross sections are squares of side 2 m is filled with water. How much work is required to pump all of the water out of the tank? Assume that water has density $\\rho$ kg/m$^3$ and that the acceleration due to gravity is $g$ m/s$^2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$25\\rho g$ J"
+        },
+        {
+          "label": "B",
+          "text": "$50\\rho g$ J"
+        },
+        {
+          "label": "C",
+          "text": "$200\\rho g$ J"
+        },
+        {
+          "label": "D",
+          "text": "$100\\rho g$ J"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{25}{2}\\rho g$ J"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 11,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q10",
+      "number": 10,
+      "points": 8,
+      "stem": "A trigonometric substitution can be used to convert the definite integral\n\n$$\n\\int_2^5 \\frac{dx}{\\sqrt{x^2 - 4x + 13}}\n$$\n\ninto which of the following definite integrals?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\int_0^{\\pi/4} \\sin(\\theta)\\, d\\theta$"
+        },
+        {
+          "label": "B",
+          "text": "$\\int_0^{\\pi/4} \\sec(\\theta)\\, d\\theta$"
+        },
+        {
+          "label": "C",
+          "text": "$\\int_0^{\\pi/4} \\cos(\\theta)\\, d\\theta$"
+        },
+        {
+          "label": "D",
+          "text": "$\\int_0^{\\pi/4} \\tan(\\theta)\\, d\\theta$"
+        },
+        {
+          "label": "E",
+          "text": "$\\int_0^{\\pi/4} \\cot(\\theta)\\, d\\theta$"
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L15"
+      ],
+      "sourcePage": 12,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q11",
+      "number": 11,
+      "points": 8,
+      "stem": "A swimming pool 100 m long, 10 m wide and 2 m deep is filled with water. Calculate the total force against a wall that has dimensions 10 m by 2 m. Assume that water has density $\\rho$ kg/m$^3$ and that the acceleration due to gravity is $g$ m/s$^2$.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$60\\rho g$ N"
+        },
+        {
+          "label": "B",
+          "text": "$80\\rho g$ N"
+        },
+        {
+          "label": "C",
+          "text": "$120\\rho g$ N"
+        },
+        {
+          "label": "D",
+          "text": "$20\\rho g$ N"
+        },
+        {
+          "label": "E",
+          "text": "$40\\rho g$ N"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L10"
+      ],
+      "sourcePage": 13,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q12",
+      "number": 12,
+      "points": 8,
+      "stem": "Evaluate the improper integral if it converges. If it does not converge, state that it diverges.\n\n$$\n\\int_0^{\\pi/2} \\tan(\\theta)\\, d\\theta.\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi$"
+        },
+        {
+          "label": "B",
+          "text": "$1$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi/2$"
+        },
+        {
+          "label": "D",
+          "text": "The integral diverges."
+        },
+        {
+          "label": "E",
+          "text": "$2\\pi$"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L18"
+      ],
+      "sourcePage": 14,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q13",
+      "number": 13,
+      "points": 8,
+      "stem": "Compute the surface area of the solid obtained by rotating the curve $y = \\frac{1}{3}x^3$, $0 \\le x \\le 1$, about the x-axis. Express your answer as a definite integral.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\pi}{3} \\int_0^1 x^3\\sqrt{x^4+1}\\, dx$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{4\\pi}{3} \\int_0^1 x^3\\sqrt{x^4+1}\\, dx$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{2\\pi}{3} \\int_0^1 x^3\\sqrt{x^4+1}\\, dx$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{8\\pi}{3} \\int_0^1 x^3\\sqrt{x^4+1}\\, dx$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{16\\pi}{3} \\int_0^1 x^3\\sqrt{x^4+1}\\, dx$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L8"
+      ],
+      "sourcePage": 15,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q14",
+      "number": 14,
+      "points": 8,
+      "stem": "Find the sum of telescopic series $\\sum_{n=1}^{\\infty} \\frac{1}{n^2+n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1/2"
+        },
+        {
+          "label": "B",
+          "text": "2/3"
+        },
+        {
+          "label": "C",
+          "text": "3/4"
+        },
+        {
+          "label": "D",
+          "text": "1"
+        },
+        {
+          "label": "E",
+          "text": "3/2"
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 16,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q15",
+      "number": 15,
+      "points": 8,
+      "stem": "Test the following series for convergence:\n\n(I) $\\sum_{n=1}^{\\infty} \\ln\\left(1 + \\frac{1}{n^2}\\right)$\n\n(II) $\\sum_{n=1}^{\\infty} \\sin\\left(\\frac{1}{n}\\right)$\n\n(III) $\\sum_{n=1}^{\\infty} (\\sqrt{n^3} - \\sqrt{n^3 - 1})$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I is convergent; II and III are divergent."
+        },
+        {
+          "label": "B",
+          "text": "I and III are convergent; II is divergent."
+        },
+        {
+          "label": "C",
+          "text": "I and III are divergent; II is convergent."
+        },
+        {
+          "label": "D",
+          "text": "I, II and III are divergent."
+        },
+        {
+          "label": "E",
+          "text": "I, II and II are convergent."
+        }
+      ],
+      "answer": "B",
+      "lessonIds": [
+        "L23"
+      ],
+      "sourcePage": 17,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q16",
+      "number": 16,
+      "points": 8,
+      "stem": "Represent $\\int_0^1 \\cos x^2 dx$ as an infinite series.\n\nHint: $\\cos x = \\sum_{k=0}^{\\infty} (-1)^k \\frac{x^{2k}}{(2k)!}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1}{(2k)!}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1}{(2k+1)!}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1}{(4k)!}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1}{(4k+1)!}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\frac{1}{(2k)!(4k+1)}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L32"
+      ],
+      "sourcePage": 18,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q17",
+      "number": 17,
+      "points": 8,
+      "stem": "Compute the power series that represents $\\frac{1}{(1+2x)^2}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\sum_{k=0}^{\\infty} (2x)^{2k}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\sum_{k=0}^{\\infty} 2k(2x)^k$"
+        },
+        {
+          "label": "C",
+          "text": "$\\sum_{k=1}^{\\infty} k(-2)^{k-1}x^{k-1}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\sum_{k=1}^{\\infty} k^2(2)^{-k}x^{2k-1}$"
+        },
+        {
+          "label": "E",
+          "text": "$\\sum_{k=1}^{\\infty} (-1)^k(2)^{2k-1}x^{2k+1}$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L30"
+      ],
+      "sourcePage": 19,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q18",
+      "number": 18,
+      "points": 8,
+      "stem": "The first three terms of the Maclaurin series for $f(x) = (1+3x)^{-\\frac{1}{3}}$ are",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$1 - \\frac{1}{3}x + \\frac{4}{9}x^2$"
+        },
+        {
+          "label": "B",
+          "text": "$1 - 3x + 9x^2$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - 2x + 4x^2$"
+        },
+        {
+          "label": "D",
+          "text": "$1 - \\frac{1}{3}x + \\frac{2}{9}x^2$"
+        },
+        {
+          "label": "E",
+          "text": "$1 - x + 2x^2$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L31"
+      ],
+      "sourcePage": 20,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q19",
+      "number": 19,
+      "points": 8,
+      "stem": "Suppose we want to approximate the sum of the series $\\sum_{k=1}^{\\infty} \\frac{(-1)^k}{k^3}$ by the sum $s_m = \\sum_{k=1}^{m} \\frac{(-1)^k}{k^3}$ of the first $m$ terms. By the theory of alternating series, the error will be less than or equal to $10^{-3}$ provided $m =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4"
+        },
+        {
+          "label": "B",
+          "text": "5"
+        },
+        {
+          "label": "C",
+          "text": "6"
+        },
+        {
+          "label": "D",
+          "text": "7"
+        },
+        {
+          "label": "E",
+          "text": "9"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L24"
+      ],
+      "sourcePage": 21,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q20",
+      "number": 20,
+      "points": 8,
+      "stem": "The equation $4\\cos\\theta + \\sin\\theta = \\frac{2}{r}$ in polar coordinates represents a part of",
+      "choices": [
+        {
+          "label": "A",
+          "text": "a straight line"
+        },
+        {
+          "label": "B",
+          "text": "a circle"
+        },
+        {
+          "label": "C",
+          "text": "a parabola"
+        },
+        {
+          "label": "D",
+          "text": "an ellipse which is not a circle"
+        },
+        {
+          "label": "E",
+          "text": "a cycloid"
+        }
+      ],
+      "answer": "A",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 22,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q21",
+      "number": 21,
+      "points": 8,
+      "stem": "What is the length of arc of the spiral given in polar coordinates by\n\n$$\nr = e^{-2\\theta}, 0 \\le \\theta \\le 1/2?\n$$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\frac{1+e}{\\sqrt{6}}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1-e}{2\\sqrt{3}}$"
+        },
+        {
+          "label": "C",
+          "text": "$4(1 - e^{-1})$"
+        },
+        {
+          "label": "D",
+          "text": "$e^2 - 1$"
+        },
+        {
+          "label": "E",
+          "text": "$\\frac{(e-1)\\sqrt{5}}{2e}$"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 23,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q22",
+      "number": 22,
+      "points": 8,
+      "stem": "$\\sum_{n=1}^{\\infty} \\frac{3+2^n}{2^{2n}} =$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1"
+        },
+        {
+          "label": "B",
+          "text": "4/3"
+        },
+        {
+          "label": "C",
+          "text": "5/2"
+        },
+        {
+          "label": "D",
+          "text": "3/2"
+        },
+        {
+          "label": "E",
+          "text": "2"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L21"
+      ],
+      "sourcePage": 24,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q23",
+      "number": 23,
+      "points": 8,
+      "stem": "For which of the following series the ratio test is inconclusive?\n\n(I) $\\sum_{n=1}^{\\infty} \\frac{7^n}{n!}$\n\n(II) $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$\n\n(III) $\\sum_{n=1}^{\\infty} \\frac{\\ln n}{n}$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "I only"
+        },
+        {
+          "label": "B",
+          "text": "II only"
+        },
+        {
+          "label": "C",
+          "text": "III only"
+        },
+        {
+          "label": "D",
+          "text": "I and II"
+        },
+        {
+          "label": "E",
+          "text": "II and III"
+        }
+      ],
+      "answer": "E",
+      "lessonIds": [
+        "L25"
+      ],
+      "sourcePage": 25,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q24",
+      "number": 24,
+      "points": 8,
+      "stem": "The area between the spirals $r = \\theta$ and $r = 2\\theta$, $0 \\le \\theta \\le \\pi/2$ is",
+      "choices": [
+        {
+          "label": "A",
+          "text": "$\\pi^2/4$"
+        },
+        {
+          "label": "B",
+          "text": "$\\pi^2 - 2$"
+        },
+        {
+          "label": "C",
+          "text": "$\\pi^3/16$"
+        },
+        {
+          "label": "D",
+          "text": "$\\pi^3 + 4\\pi$"
+        },
+        {
+          "label": "E",
+          "text": "$\\pi^4/8$"
+        }
+      ],
+      "answer": "C",
+      "lessonIds": [
+        "L35"
+      ],
+      "sourcePage": 26,
+      "status": "reviewed"
+    },
+    {
+      "id": "s2022-final-q25",
+      "number": 25,
+      "points": 8,
+      "stem": "Which is true? The point whose Cartesian coordinates are $(1, \\sqrt{3})$ has polar coordinates\n\nI. $(2, \\pi/3)$\n\nII. $(2, -5\\pi/3)$\n\nIII. $(2, 4\\pi/3)$",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Only I."
+        },
+        {
+          "label": "B",
+          "text": "Only II."
+        },
+        {
+          "label": "C",
+          "text": "Only III."
+        },
+        {
+          "label": "D",
+          "text": "Only I and II."
+        },
+        {
+          "label": "E",
+          "text": "All are true."
+        }
+      ],
+      "answer": "D",
+      "lessonIds": [
+        "L33"
+      ],
+      "sourcePage": 27,
+      "status": "reviewed"
+    }
+  ]
+}
