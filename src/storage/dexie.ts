@@ -1,5 +1,5 @@
 import Dexie from 'dexie'
-import type { Table } from 'dexie'
+import type { PromiseExtended, Table } from 'dexie'
 import { DEFAULT_SETTINGS } from './types'
 import type { Attempt, AttemptFilter, CardState, ProgressSnapshot, ProgressStore, Settings } from './types'
 import { SNAPSHOT_VERSION } from './snapshot'
@@ -21,6 +21,15 @@ export class DexieStore extends Dexie implements ProgressStore {
       attempts: 'id, questionId, timestamp, sessionId, mode',
       settings: 'key',
     })
+  }
+
+  // Dexie captures indexedDB when its module loads, so check the live global: when it is gone
+  // (private modes, sandboxed frames) open() must reject instead of using a stale reference.
+  override open(): PromiseExtended<Dexie> {
+    if (typeof globalThis.indexedDB === 'undefined' || globalThis.indexedDB === null) {
+      return Dexie.Promise.reject(new Dexie.MissingAPIError('IndexedDB is not available'))
+    }
+    return super.open()
   }
 
   getCardState(cardId: string) {
