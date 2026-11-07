@@ -36,5 +36,10 @@
   { "figure": "figures/f2023-final/q21.png", "examId": "f2023-final", "page": 12, "x": 462, "y": 270, "w": 330, "h": 328 },
   { "figure": "figures/f2023-final/q25.png", "examId": "f2023-final", "page": 14, "x": 175, "y": 865, "w": 860, "h": 585 },
   { "figure": "figures/s2023-final/q04.png", "examId": "s2023-final", "page": 3, "x": 132, "y": 684, "w": 394, "h": 442 },
-  { "figure": "figures/s2023-final/q07.png", "examId": "s2023-final", "page": 5, "x": 140, "y": 262, "w": 250, "h": 206 }
+  { "figure": "figures/s2023-final/q07.png", "examId": "s2023-final", "page": 5, "x": 140, "y": 262, "w": 250, "h": 206 },
+  { "figure": "figures/s2017-final/q06-formulas-a.png", "examId": "s2017-final", "page": 2, "x": 135, "y": 217, "w": 710, "h": 70 },
+  { "figure": "figures/s2017-final/q06-formulas-b.png", "examId": "s2017-final", "page": 2, "x": 135, "y": 526, "w": 412, "h": 71 },
+  { "figure": "figures/s2017-final/q07-formulas-a.png", "examId": "s2017-final", "page": 2, "x": 135, "y": 217, "w": 710, "h": 70 },
+  { "figure": "figures/s2017-final/q07-formulas-b.png", "examId": "s2017-final", "page": 2, "x": 134, "y": 344, "w": 760, "h": 80 },
+  { "figure": "figures/s2017-final/q13-formulas.png", "examId": "s2017-final", "page": 2, "x": 135, "y": 596, "w": 495, "h": 68 }
 ]

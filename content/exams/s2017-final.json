@@ -206,6 +206,10 @@
         }
       ],
       "answer": "C",
+      "figures": [
+        "figures/s2017-final/q06-formulas-a.png",
+        "figures/s2017-final/q06-formulas-b.png"
+      ],
       "lessonIds": [
         "L8"
       ],
@@ -240,6 +244,10 @@
         }
       ],
       "answer": "D",
+      "figures": [
+        "figures/s2017-final/q07-formulas-a.png",
+        "figures/s2017-final/q07-formulas-b.png"
+      ],
       "lessonIds": [
         "L9",
         "L12"
@@ -446,6 +454,9 @@
         }
       ],
       "answer": "C",
+      "figures": [
+        "figures/s2017-final/q13-formulas.png"
+      ],
       "lessonIds": [
         "L8"
       ],
