@@ -58,7 +58,7 @@ test('first launch asks for the current lesson and hides the prompt after saving
   expect(within(select).getAllByRole('option')).toHaveLength(PLANNED_LESSON_COUNT)
   await userEvent.selectOptions(select, 'L23')
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))
-  await screen.findByText(/Cards due today/)
+  await screen.findByText(/due today/)
   expect(screen.queryByText('Where are you in the course?')).not.toBeInTheDocument()
   expect((await store.getSettings()).currentLessonId).toBe('L23')
 })
@@ -69,7 +69,7 @@ test('shows due count and practice link', async () => {
     const st = scheduler.newState('L19-c01', new Date(2026, 10, 1))
     await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: new Date(2026, 10, 6).toISOString() } })
   })
-  expect(await screen.findByText('Cards due today: 1')).toBeInTheDocument()
+  expect(await screen.findByText('1 card due today')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Start smart practice' })).toHaveAttribute('href', '/practice')
   expect(screen.getByRole('link', { name: 'Review cards' })).toHaveAttribute('href', '/review')
   expect(screen.queryByText(/until the exam/)).not.toBeInTheDocument()
@@ -97,9 +97,9 @@ test('exam block lists weakest covered lessons, untested first', async () => {
   const list = screen.getByRole('heading', { name: 'Weakest lessons' }).nextElementSibling as HTMLElement
   // the exam line renders from settings; the list fills in once attempts have loaded
   const items = await within(list).findAllByRole('listitem')
-  expect(items.map((li) => li.textContent)).toEqual(['L19 · Topic 19', 'L20 · Topic 20'])
-  expect(await screen.findByTitle('L20 · Topic 20 · 51%')).toHaveClass('mastery-weak')
-  expect(screen.getByTitle('L19 · Topic 19 · untested')).toHaveClass('mastery-untested')
+  expect(items.map((li) => li.textContent)).toEqual(['L19: Topic 19', 'L20: Topic 20'])
+  expect(await screen.findByTitle('L20: Topic 20, 51%')).toHaveClass('mastery-weak')
+  expect(screen.getByTitle('L19: Topic 19, untested')).toHaveClass('mastery-untested')
   // touch and screen reader users get the lesson title too, not only "L19"
   expect(screen.getByRole('link', { name: 'L19 Topic 19, untested' })).toHaveAttribute('href', '/course/L19')
   expect(screen.getByRole('link', { name: 'L20 Topic 20, 51%' })).toHaveTextContent(/^L20/)

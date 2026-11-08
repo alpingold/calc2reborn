@@ -440,7 +440,7 @@ test('the start screen describes the exam and starts nothing until Start', async
   renderAt('/exams/f2025-e1', new MemoryStore())
   const startButton = await screen.findByRole('button', { name: 'Start' })
   expect(screen.getByRole('heading', { level: 2, name: 'Fall 2025 Exam 1' })).toBeInTheDocument()
-  expect(screen.getByText('12 questions · 60 minutes')).toBeInTheDocument()
+  expect(screen.getByText('12 questions, 60 minutes')).toBeInTheDocument()
   expect(screen.getByRole('checkbox', { name: /Show feedback after each answer \(untimed\)/ })).not.toBeChecked()
   expect(screen.queryByRole('timer')).not.toBeInTheDocument()
   expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
@@ -452,7 +452,7 @@ test('the start screen describes the exam and starts nothing until Start', async
 test('the mock start screen names the lesson range', async () => {
   renderAt('/exams/mock?from=L19&to=L20', new MemoryStore())
   await screen.findByRole('button', { name: 'Start' })
-  expect(screen.getByText('Lessons 19 to 20 · 60 minutes')).toBeInTheDocument()
+  expect(screen.getByText('Lessons 19 to 20, 60 minutes')).toBeInTheDocument()
 })
 
 test('feedback mode: Check reveals the answer and locks it, with an elapsed clock', async () => {

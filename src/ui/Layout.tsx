@@ -14,9 +14,12 @@ export function Layout() {
   const fallback = useStorageFallback()
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>MA 16200</h1>
-        <nav aria-label="Main">
+      <header className="title-block">
+        <div className="title-cell">
+          <h1>MA 16200</h1>
+          <p>Calculus II study notebook</p>
+        </div>
+        <nav aria-label="Main" className="title-nav">
           {NAV.map((item) => (
             <NavLink key={item.to} to={item.to} end={item.end}>
               {item.label}

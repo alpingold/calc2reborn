@@ -27,9 +27,26 @@ export function MasteryGrid({
   }
   return (
     <div className="mastery-grid">
+      <div className="mastery-head">
+        <h3>Mastery by lesson</h3>
+        <ul className="mastery-legend" aria-label="Legend">
+          <li>
+            <span className="swatch mastery-untested" /> Not enough attempts
+          </li>
+          <li>
+            <span className="swatch mastery-weak" /> Below 70%
+          </li>
+          <li>
+            <span className="swatch mastery-ok" /> 70 to 89%
+          </li>
+          <li>
+            <span className="swatch mastery-strong" /> 90% and up
+          </li>
+        </ul>
+      </div>
       {[...units].map(([unit, ls]) => (
-        <section key={unit}>
-          <h3>{unit}</h3>
+        <section key={unit} className="mastery-unit">
+          <h4>{unit}</h4>
           <div className="tiles">
             {ls.map((l) => {
               const score = mastery.get(l.id)?.score ?? null
@@ -41,7 +58,7 @@ export function MasteryGrid({
                   key={l.id}
                   to={`/course/${l.id}`}
                   className={cls}
-                  title={`L${l.number} · ${l.title} · ${label}`}
+                  title={`L${l.number}: ${l.title}, ${label}`}
                   aria-label={`L${l.number} ${l.title}, ${label}`}
                 >
                   {`L${l.number}`}

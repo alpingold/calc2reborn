@@ -1,6 +1,6 @@
 # MA 16200 Study
 
-A study app for Purdue's MA 16200 (Calculus II). It has 65 past exams transcribed from Purdue's archive, a lesson outline that follows Dr. Chen's course, and 456 concept flashcards scheduled with FSRS spaced repetition. You can review cards, practice exam questions by lesson, take a past exam under its time limit, or generate a timed mock exam from a range of lessons. Mastery per lesson is tracked from your answers.
+A study app for Purdue's MA 16200 (Calculus II). It has 65 past exams transcribed from Purdue's archive, a lesson outline that follows Dr. Chen's course, and 456 concept flashcards scheduled with FSRS spaced repetition. You can review cards, practice exam questions by lesson, take a past exam under its time limit, or generate a timed mock exam from a range of lessons. Any exam can instead be taken untimed with feedback after each answer. Mastery per lesson is tracked from your answers.
 
 It is a Vite + React + TypeScript single-page app with no backend.
 

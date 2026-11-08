@@ -37,7 +37,7 @@ test('lists only non-review lessons and persists the chosen lesson', async () =>
   const lessonOptions = Array.from(select.options).filter((o) => o.value !== '')
   expect(lessonOptions).toHaveLength(PLANNED_LESSON_COUNT)
   await userEvent.selectOptions(select, 'L23')
-  expect(lessonOptions.find((o) => o.value === 'L23')!.textContent).toMatch(/^L23 · /)
+  expect(lessonOptions.find((o) => o.value === 'L23')!.textContent).toMatch(/^L23: /)
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))
   expect(await screen.findByRole('status')).toHaveTextContent('Saved')
   expect((await store.getSettings()).currentLessonId).toBe('L23')

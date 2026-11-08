@@ -20,6 +20,11 @@ function examLine(days: number): string {
   return `${days} ${days === 1 ? 'day' : 'days'} until the exam`
 }
 
+function dueLine(n: number): string {
+  if (n === 0) return 'No cards due today'
+  return `${n} ${n === 1 ? 'card' : 'cards'} due today`
+}
+
 export function Dashboard() {
   const store = useStore()
   const scheduler = useScheduler()
@@ -92,41 +97,55 @@ export function Dashboard() {
       .map((x) => content.lessonById.get(x.id)!)
   }, [mastery, settings.examLessonIds, settings.currentLessonId, content])
 
+  const current = settings.currentLessonId ? content.lessonById.get(settings.currentLessonId) : undefined
+
   return (
-    <section>
+    <section className="dashboard">
       <h2>Dashboard</h2>
       {error && <p role="alert">{error}</p>}
       {settings.currentLessonId === null && (
-        <form onSubmit={(e) => void onSave(e)}>
+        <form className="panel onboarding" onSubmit={(e) => void onSave(e)}>
           <p>Where are you in the course?</p>
           <label>
             Current lesson
             <select value={pick || planned[0]?.id} onChange={(e) => setPick(e.target.value)}>
               {planned.map((l) => (
-                <option key={l.id} value={l.id}>{`L${l.number} · ${l.title}`}</option>
+                <option key={l.id} value={l.id}>{`L${l.number}: ${l.title}`}</option>
               ))}
             </select>
           </label>
-          <button type="submit">Save</button>
+          <button type="submit" className="primary">
+            Save
+          </button>
         </form>
       )}
-      {dueCount !== null && <p>{`Cards due today: ${dueCount}`}</p>}
-      <p>
-        <Link to="/review">Review cards</Link> <Link to="/practice">Start smart practice</Link>
-      </p>
-      {settings.examDate && (
-        <div>
-          <p>{examLine(daysUntil(settings.examDate, now()))}</p>
-          <h3>Weakest lessons</h3>
-          <ul>
-            {weakest.map((l) => (
-              <li key={l.id}>
-                <Link to={`/course/${l.id}`}>{`L${l.number} · ${l.title}`}</Link>
-              </li>
-            ))}
-          </ul>
+      <div className="today">
+        <div className="today-main">
+          {dueCount !== null && <p className="due-line">{dueLine(dueCount)}</p>}
+          {current && <p className="today-where">{`You are on Lesson ${current.number}: ${current.title}.`}</p>}
+          <p className="actions">
+            <Link to="/review" className="button primary">
+              Review cards
+            </Link>
+            <Link to="/practice" className="button">
+              Start smart practice
+            </Link>
+          </p>
         </div>
-      )}
+        {settings.examDate && (
+          <aside className="exam-countdown" aria-label="Next exam">
+            <p className="countdown-line">{examLine(daysUntil(settings.examDate, now()))}</p>
+            <h3>Weakest lessons</h3>
+            <ol>
+              {weakest.map((l) => (
+                <li key={l.id}>
+                  <Link to={`/course/${l.id}`}>{`L${l.number}: ${l.title}`}</Link>
+                </li>
+              ))}
+            </ol>
+          </aside>
+        )}
+      </div>
       <MasteryGrid lessons={content.lessons} mastery={mastery ?? new Map()} currentLessonId={settings.currentLessonId} />
     </section>
   )

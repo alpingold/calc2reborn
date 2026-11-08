@@ -82,10 +82,12 @@ function ResultsView({ sessionId }: { sessionId: string }) {
   return (
     <section className="results">
       <h2>Results</h2>
-      <p>{title}</p>
-      {session.feedback && <p>With feedback</p>}
-      <p>{`Score: ${score.correct} / ${score.total}`}</p>
-      <p>{`Points: ${formatPoints(score.points)} / ${formatPoints(score.maxPoints)}`}</p>
+      <div className="results-summary">
+        <p className="results-title">{title}</p>
+        {session.feedback && <p className="results-tag">With feedback</p>}
+        <p className="results-score">{`Score: ${score.correct} / ${score.total}`}</p>
+        <p className="results-points">{`Points: ${formatPoints(score.points)} / ${formatPoints(score.maxPoints)}`}</p>
+      </div>
       <ol className="results-list">
         {session.questionIds.map((id, i) => {
           const question = content.questionById.get(id)

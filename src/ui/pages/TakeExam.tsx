@@ -393,13 +393,13 @@ function ExamSessionView({
   if (status === 'intro') {
     const summary =
       mode === 'exam' && exam
-        ? `${exam.questions.length} questions · ${exam.durationMinutes} minutes`
-        : `${mockRangeLabel()} · ${MOCK_MINUTES} minutes`
+        ? `${exam.questions.length} questions, ${exam.durationMinutes} minutes`
+        : `${mockRangeLabel()}, ${MOCK_MINUTES} minutes`
     return (
-      <section className="exam-intro">
+      <section className="panel exam-intro">
         <h2>{heading}</h2>
         {errorLine}
-        <p>{summary}</p>
+        <p className="exam-intro-summary">{summary}</p>
         <label className="exam-intro-option">
           <input type="checkbox" checked={feedback} onChange={(e) => setFeedback(e.target.checked)} />{' '}
           Show feedback after each answer (untimed)
@@ -410,7 +410,7 @@ function ExamSessionView({
             : 'A timed exam like the real one. Answers and solutions appear after you submit.'}
         </p>
         <p className="exam-controls">
-          <button type="button" onClick={() => void begin()}>
+          <button type="button" className="primary" onClick={() => void begin()}>
             Start
           </button>
           <Link to="/exams">Back to exams</Link>

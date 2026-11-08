@@ -77,7 +77,7 @@ export function Exams() {
       <h2>Exams</h2>
       {error && <p role="alert">{error}</p>}
       {inProgress && (
-        <p>
+        <p className="note">
           {`In progress: ${sessionTitle(inProgress, content)}${inProgress.feedback ? ' with feedback' : ''}`}
           {!timeIsUp(inProgress, now())
             ? `, ${inProgress.questionIds.filter((id) => inProgress.answers[id]).length} of ${inProgress.questionIds.length} answered. `
@@ -87,8 +87,13 @@ export function Exams() {
           </Link>
         </p>
       )}
-      <form className="mock-form" onSubmit={onGenerate}>
-        <h3>Mock exam</h3>
+      <form className="panel mock-form" onSubmit={onGenerate}>
+        <div className="mock-head">
+          <h3>Mock exam</h3>
+          <p className="panel-hint">
+            Twelve questions from past exams on the lessons you pick, skipping questions from your last two mocks.
+          </p>
+        </div>
         <label>
           From{' '}
           <select value={from} onChange={(e) => setFrom(e.target.value)}>
@@ -109,26 +114,30 @@ export function Exams() {
             ))}
           </select>
         </label>{' '}
-        <button type="submit">Generate mock exam</button>
+        <button type="submit" className="primary">
+          Generate mock exam
+        </button>
       </form>
       {byYear.length === 0 && <p>No past exams yet</p>}
-      {byYear.map(([year, terms]) => (
-        <section key={year}>
-          <h3>{year}</h3>
-          {[...terms.entries()].map(([term, exams]) => (
-            <div key={term}>
-              <h4>{term}</h4>
-              <ul>
-                {exams.map((exam) => (
-                  <li key={exam.id}>
-                    <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link> <span>{bestLine(exam)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-      ))}
+      <div className="exam-years">
+        {byYear.map(([year, terms]) => (
+          <section key={year} className="exam-year">
+            <h3>{year}</h3>
+            {[...terms.entries()].map(([term, exams]) => (
+              <div key={term} className="term-row">
+                <h4>{term}</h4>
+                <ul className="exam-cells">
+                  {exams.map((exam) => (
+                    <li key={exam.id}>
+                      <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link> <span className="best">{bestLine(exam)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
     </section>
   )
 }

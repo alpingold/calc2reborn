@@ -117,9 +117,10 @@ export function Settings() {
   }
 
   return (
-    <section>
+    <section className="settings">
       <h2>Settings</h2>
-      <form onSubmit={onSave}>
+      <form className="settings-group" onSubmit={onSave}>
+        <h3>Study plan</h3>
         <p>
           <label>
             Current lesson
@@ -127,7 +128,7 @@ export function Settings() {
               <option value="">Not set</option>
               {lessons.map((l) => (
                 <option key={l.id} value={l.id}>
-                  {`${l.id} · ${l.title}`}
+                  {`${l.id}: ${l.title}`}
                 </option>
               ))}
             </select>
@@ -155,31 +156,36 @@ export function Settings() {
             >
               {lessons.map((l) => (
                 <option key={l.id} value={l.id}>
-                  {`${l.id} · ${l.title}`}
+                  {`${l.id}: ${l.title}`}
                 </option>
               ))}
             </select>
           </label>
         </p>
-        <button type="submit">Save</button>
+        <button type="submit" className="primary">
+          Save
+        </button>
       </form>
-      <h3>Your data</h3>
-      <p>
-        <button type="button" onClick={onExport}>
-          Export progress
-        </button>
-      </p>
-      <p>
-        <label>
-          Import progress
-          <input type="file" accept="application/json" onChange={onImport} />
-        </label>
-      </p>
-      <p>
-        <button type="button" onClick={onReset}>
-          Reset progress
-        </button>
-      </p>
+      <section className="settings-group">
+        <h3>Your data</h3>
+        <p className="panel-hint">Progress lives in this browser only. Export it to move it to another device or keep a backup.</p>
+        <p>
+          <button type="button" onClick={onExport}>
+            Export progress
+          </button>
+        </p>
+        <p>
+          <label>
+            Import progress
+            <input type="file" accept="application/json" onChange={onImport} />
+          </label>
+        </p>
+        <p className="danger-zone">
+          <button type="button" className="danger" onClick={onReset}>
+            Reset progress
+          </button>
+        </p>
+      </section>
       {error && <p role="alert">{error}</p>}
       {status && <p role="status">{status}</p>}
     </section>

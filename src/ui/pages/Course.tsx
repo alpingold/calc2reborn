@@ -11,21 +11,26 @@ export function Course() {
     units.set(l.unit, [...(units.get(l.unit) ?? []), l])
   }
   return (
-    <section>
+    <section className="course">
       <h2>Course</h2>
-      {[...units].map(([unit, ls]) => (
-        <div key={unit}>
-          <h3>{unit}</h3>
-          <ol>
-            {ls.map((l) => (
-              <li key={l.id}>
-                <Link to={`/course/${l.id}`}>{`L${l.number} · ${l.title}`}</Link>
-                {l.id === settings.currentLessonId && <> <span>Current</span></>}
-              </li>
-            ))}
-          </ol>
-        </div>
-      ))}
+      <p className="page-lede">Dr. Chen's Fall 2023 lessons, with notes, videos and practice for each.</p>
+      <div className="units">
+        {[...units].map(([unit, ls]) => (
+          <section key={unit} className="unit">
+            <h3>{unit}</h3>
+            <ol className="lesson-list">
+              {ls.map((l) => (
+                <li key={l.id} className={l.id === settings.currentLessonId ? 'current' : undefined}>
+                  <Link to={`/course/${l.id}`}>
+                    <span className="lesson-num">{`L${l.number}`}</span> <span className="lesson-title">{l.title}</span>
+                  </Link>
+                  {l.id === settings.currentLessonId && <span className="current-tag">Current</span>}
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
     </section>
   )
 }
