@@ -15,6 +15,8 @@ export interface QuestionViewProps {
   revealed?: boolean
   lessonTitle?: string
   lessonHref?: string
+  // the label of the button that reveals feedback in immediate mode
+  submitLabel?: string
 }
 
 const KEY_TO_LABEL: Record<string, Choice['label']> = Object.fromEntries(
@@ -35,6 +37,7 @@ export function QuestionView({
   revealed = false,
   lessonTitle,
   lessonHref,
+  submitLabel = 'Submit',
 }: QuestionViewProps): JSX.Element {
   const now = useNow()
   const startedAt = useRef(0)
@@ -111,7 +114,7 @@ export function QuestionView({
       </div>
       {mode === 'immediate' && onSubmit && !revealed && (
         <button type="button" disabled={!chosen} onClick={submit}>
-          Submit
+          {submitLabel}
         </button>
       )}
       {revealed && (

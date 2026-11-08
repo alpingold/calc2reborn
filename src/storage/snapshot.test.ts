@@ -31,6 +31,12 @@ describe('parseSnapshot', () => {
     expect(r.ok).toBe(false)
     if (!r.ok) expect(r.error).toContain('attempts[0].chosen')
   })
+  test('keeps the feedback flag on an exam attempt', () => {
+    const fb = { ...attempt, mode: 'exam', sessionId: 's1', examId: 'f2025-e1', feedback: true }
+    const r = parseSnapshot({ ...valid, attempts: [fb] })
+    expect(r.ok).toBe(true)
+    if (r.ok) expect(r.snapshot.attempts[0]).toEqual(fb)
+  })
   test('rejects non-object', () => {
     expect(parseSnapshot('nope').ok).toBe(false)
     expect(parseSnapshot(null).ok).toBe(false)

@@ -36,6 +36,7 @@ const SnapshotSchema = z.object({
       mode: z.enum(['practice', 'lesson', 'exam', 'mock']),
       sessionId: z.string().optional(),
       examId: z.string().optional(),
+      feedback: z.boolean().optional(),
     }),
   ),
   settings: z.object({

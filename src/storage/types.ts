@@ -31,6 +31,8 @@ export interface Attempt {
   mode: AttemptMode
   sessionId?: string
   examId?: string
+  // set on attempts from an exam taken with feedback after each answer
+  feedback?: boolean
 }
 export interface Settings {
   currentLessonId: string | null

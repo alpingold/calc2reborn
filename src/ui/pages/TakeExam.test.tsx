@@ -106,10 +106,18 @@ function user() {
   return userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
 }
 
-async function start(url = '/exams/f2025-e1', store = new MemoryStore()) {
+async function start(url = '/exams/f2025-e1', store = new MemoryStore(), { feedback = false } = {}) {
   const view = renderAt(url, store)
-  await screen.findByRole('heading', { name: /Question 1 of/ })
+  await clickStart({ feedback })
   return { store, view }
+}
+
+async function clickStart({ feedback = false } = {}) {
+  const u = user()
+  const button = await screen.findByRole('button', { name: 'Start' })
+  if (feedback) await u.click(screen.getByRole('checkbox', { name: /Show feedback after each answer/ }))
+  await u.click(button)
+  await screen.findByRole('heading', { name: /Question 1 of/ })
 }
 
 test('renders question 1 and a timer that counts down', async () => {
@@ -314,7 +322,9 @@ test('(a) a mock for another lesson range does not silently serve the saved mock
   const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true)
   await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
   expect(confirm).toHaveBeenCalledWith('Discard your answers to Mock exam, Lesson 19? This cannot be undone.')
-  expect(await screen.findByRole('heading', { name: 'Question 1 of 9' })).toBeInTheDocument()
+  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  await clickStart()
+  expect(screen.getByRole('heading', { name: 'Question 1 of 9' })).toBeInTheDocument()
   expect(screen.getByText(/^Stem (\d+)$/).textContent).toMatch(/^Stem ([4-9]|1[0-2])$/)
   expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({ kind: 'mock', from: 'L20', to: 'L20' })
 })
@@ -399,7 +409,8 @@ test('Discard and start this one replaces the exam in progress', async () => {
   await conflictAt('/exams/f2024-e1')
   vi.spyOn(window, 'confirm').mockReturnValue(true)
   await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
-  expect(await screen.findByRole('heading', { name: 'Question 1 of 4' })).toBeInTheDocument()
+  await clickStart()
+  expect(screen.getByRole('heading', { name: 'Question 1 of 4' })).toBeInTheDocument()
   expect(screen.getByText('Other stem 1')).toBeInTheDocument()
   expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({ examId: 'f2024-e1', answers: {} })
 })
@@ -423,4 +434,97 @@ test('an older saved mock with no lesson range asks instead of being restored, a
   expect(resume).toHaveAttribute('href', '/exams/mock')
   await user().click(resume)
   expect(await screen.findByRole('heading', { name: 'Question 1 of 2' })).toBeInTheDocument()
+})
+
+test('the start screen describes the exam and starts nothing until Start', async () => {
+  renderAt('/exams/f2025-e1', new MemoryStore())
+  const startButton = await screen.findByRole('button', { name: 'Start' })
+  expect(screen.getByRole('heading', { level: 2, name: 'Fall 2025 Exam 1' })).toBeInTheDocument()
+  expect(screen.getByText('12 questions · 60 minutes')).toBeInTheDocument()
+  expect(screen.getByRole('checkbox', { name: /Show feedback after each answer \(untimed\)/ })).not.toBeChecked()
+  expect(screen.queryByRole('timer')).not.toBeInTheDocument()
+  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  await user().click(startButton)
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 12' })).toBeInTheDocument()
+  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).not.toHaveProperty('feedback', true)
+})
+
+test('the mock start screen names the lesson range', async () => {
+  renderAt('/exams/mock?from=L19&to=L20', new MemoryStore())
+  await screen.findByRole('button', { name: 'Start' })
+  expect(screen.getByText('Lessons 19 to 20 · 60 minutes')).toBeInTheDocument()
+})
+
+test('feedback mode: Check reveals the answer and locks it, with an elapsed clock', async () => {
+  await start('/exams/f2025-e1', new MemoryStore(), { feedback: true })
+  const u = user()
+  const timer = screen.getByRole('timer', { name: 'Time elapsed' })
+  expect(timer).toHaveTextContent('00:00')
+  const check = screen.getByRole('button', { name: 'Check' })
+  expect(check).toBeDisabled()
+  await u.click(screen.getByRole('button', { name: /^B\b/ }))
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  expect(screen.getByRole('status')).toHaveTextContent('Not quite')
+  expect(screen.getByRole('button', { name: 'Correct answer' })).toBeDisabled()
+  expect(screen.getByRole('button', { name: 'Your answer' })).toBeDisabled()
+  expect(screen.queryByRole('button', { name: 'Check' })).not.toBeInTheDocument()
+  await u.keyboard('c')
+  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({
+    feedback: true,
+    checked: ['f2025-e1-q1'],
+    answers: { 'f2025-e1-q1': 'B' },
+  })
+  await act(async () => {
+    vi.advanceTimersByTime(61_000)
+  })
+  expect(screen.getByRole('timer', { name: 'Time elapsed' })).toHaveTextContent('01:01')
+  await u.click(screen.getByRole('button', { name: 'Next' }))
+  expect(screen.getByRole('button', { name: 'Check' })).toBeDisabled()
+})
+
+test('feedback mode: a reload keeps checked questions revealed', async () => {
+  const store = new MemoryStore()
+  const { view } = await start('/exams/f2025-e1', store, { feedback: true })
+  const u = user()
+  await u.keyboard('c')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  view.unmount()
+  renderAt('/exams/f2025-e1', store)
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 12' })).toBeInTheDocument()
+  expect(screen.getByRole('status')).toHaveTextContent('Correct')
+  expect(screen.getByRole('timer', { name: 'Time elapsed' })).toBeInTheDocument()
+})
+
+test('feedback mode never runs out of time and submits attempts marked as feedback', async () => {
+  const store = new MemoryStore()
+  const { view } = await start('/exams/f2025-e1', store, { feedback: true })
+  const u = user()
+  await u.keyboard('c')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  await act(async () => {
+    vi.advanceTimersByTime(2 * 60 * 60 * 1000)
+  })
+  expect(screen.queryByText(/^results:/)).not.toBeInTheDocument()
+  expect(await store.listAttempts()).toHaveLength(0)
+  view.unmount()
+
+  // two hours later, a reload still restores it instead of asking
+  renderAt('/exams/f2025-e1', store)
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 12' })).toBeInTheDocument()
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  const attempts = await store.listAttempts()
+  expect(attempts).toHaveLength(1)
+  expect(attempts[0]).toMatchObject({ questionId: 'f2025-e1-q1', chosen: 'C', correct: true, feedback: true })
+})
+
+test('a saved feedback session blocking another exam is described without a deadline', async () => {
+  const { view } = await start('/exams/f2025-e1', new MemoryStore(), { feedback: true })
+  view.unmount()
+  vi.setSystemTime(new Date(NOW.getTime() + 3 * 60 * 60 * 1000))
+  await conflictAt('/exams/f2024-e1')
+  expect(screen.getByText(/Fall 2025 Exam 1/)).toHaveTextContent(
+    'You have Fall 2025 Exam 1 in progress with feedback, 0 of 12 answered.',
+  )
 })

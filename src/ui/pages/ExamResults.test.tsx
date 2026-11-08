@@ -149,6 +149,35 @@ test('rebuilds the summary from attempts when location state is missing', async 
   expect(within(item).getByText('Not answered')).toBeInTheDocument()
 })
 
+test('a feedback session is labelled With feedback, from state or rebuilt from attempts', async () => {
+  await renderResults({ pathname: '/results/s1', state: { session: { ...session, feedback: true } } })
+  expect(await screen.findByText('With feedback')).toBeInTheDocument()
+})
+
+test('a rebuilt feedback session keeps its label', async () => {
+  const store = new MemoryStore()
+  await store.logAttempt({
+    id: 'a1',
+    questionId: 'f2025-e1-q1',
+    chosen: 'C',
+    correct: true,
+    seconds: 30,
+    timestamp: '2026-11-06T12:30:00.000Z',
+    mode: 'exam',
+    sessionId: 's1',
+    examId: 'f2025-e1',
+    feedback: true,
+  })
+  await renderResults('/results/s1', store)
+  expect(await screen.findByText('With feedback')).toBeInTheDocument()
+})
+
+test('a timed session has no feedback label', async () => {
+  await renderResults({ pathname: '/results/s1', state: { session } })
+  await screen.findByText('Score: 9 / 12')
+  expect(screen.queryByText('With feedback')).not.toBeInTheDocument()
+})
+
 test('an unknown session says there are no results', async () => {
   await renderResults('/results/zzz')
   expect(await screen.findByText('No results for this session')).toBeInTheDocument()

@@ -8,6 +8,7 @@ import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
 import {
   clearSession,
+  elapsedSeconds,
   examTitle,
   finishSession,
   loadSession,
@@ -16,6 +17,7 @@ import {
   saveSession,
   sessionTitle,
   sessionUrl,
+  timeIsUp,
 } from '../examSession'
 import type { ExamSession, ResumeState, SessionRequest } from '../examSession'
 import { newId } from '../../ids'
@@ -50,7 +52,7 @@ export function TakeExam({ mode = 'exam' }: { mode?: 'exam' | 'mock' }) {
   )
 }
 
-type Status = 'loading' | 'ready' | 'notfound' | 'empty' | 'conflict'
+type Status = 'loading' | 'intro' | 'ready' | 'notfound' | 'empty' | 'conflict'
 
 function ExamSessionView({
   mode,
@@ -74,7 +76,10 @@ function ExamSessionView({
 
   const [status, setStatus] = useState<Status>('loading')
   const [session, setSession] = useState<ExamSession | null>(null)
-  const [remaining, setRemaining] = useState(0)
+  // seconds left on a timed session, or seconds spent on a feedback session
+  const [clock, setClock] = useState(0)
+  // the start screen's choice of feedback after each answer
+  const [feedback, setFeedback] = useState(false)
   const [error, setError] = useState<string | null>(null)
   // the saved session in the way of this request, shown with Resume and Discard
   const [conflict, setConflict] = useState<ExamSession | null>(null)
@@ -122,17 +127,32 @@ function ExamSessionView({
         ? { kind: 'mock', from: range.from, to: range.to }
         : null
 
+  const clockFor = useCallback(
+    (s: ExamSession) => (s.feedback ? elapsedSeconds(s, now()) : remainingSeconds(s, now())),
+    [now],
+  )
+
   const open = useCallback(
     (s: ExamSession) => {
       commit(s)
-      setRemaining(remainingSeconds(s, now()))
+      setClock(clockFor(s))
       setStatus('ready')
     },
-    [commit, now],
+    [commit, clockFor],
   )
 
+  // the start screen, or the empty-range notice for a mock with nothing to sample
+  const showIntro = useCallback(() => {
+    if (mode === 'mock' && !range?.lessonIds.some((id) => (content.questionsByLesson.get(id) ?? []).length > 0)) {
+      setStatus('empty')
+    } else {
+      setStatus('intro')
+    }
+  }, [mode, range, content.questionsByLesson])
+
   const startNew = useCallback(
-    async (isCancelled: () => boolean) => {
+    async (isCancelled: () => boolean, withFeedback: boolean) => {
+      const feedbackFields = withFeedback ? { feedback: true, checked: [] } : {}
       try {
         let s: ExamSession
         if (mode === 'exam') {
@@ -150,6 +170,7 @@ function ExamSessionView({
             startedAt: now().toISOString(),
             durationMinutes: exam.durationMinutes,
             current: 0,
+            ...feedbackFields,
           }
         } else {
           const questions = sampleMockExam({
@@ -174,6 +195,7 @@ function ExamSessionView({
             startedAt: now().toISOString(),
             durationMinutes: MOCK_MINUTES,
             current: 0,
+            ...feedbackFields,
           }
         }
         if (isCancelled()) return
@@ -194,7 +216,7 @@ function ExamSessionView({
       open(saved)
     } else if (mode === 'exam' && !exam) {
       setStatus('notfound')
-    } else if (saved && request && matchesRequest(saved, request) && remainingSeconds(saved, now()) > 0) {
+    } else if (saved && request && matchesRequest(saved, request) && !timeIsUp(saved, now())) {
       // a reload of the session in progress
       open(saved)
     } else if (saved) {
@@ -202,7 +224,7 @@ function ExamSessionView({
       setConflict(saved)
       setStatus('conflict')
     } else {
-      void startNew(() => cancelled)
+      showIntro()
     }
     return () => {
       cancelled = true
@@ -218,8 +240,12 @@ function ExamSessionView({
     if (!window.confirm(`Discard your answers to ${title}? This cannot be undone.`)) return
     clearSession()
     setConflict(null)
+    showIntro()
+  }
+
+  async function begin() {
     setStatus('loading')
-    await startNew(() => !alive.current)
+    await startNew(() => !alive.current, feedback)
   }
 
   const sessionId = session?.sessionId
@@ -227,10 +253,10 @@ function ExamSessionView({
     if (!sessionId) return
     const id = setInterval(() => {
       const s = sessionRef.current
-      if (s) setRemaining(remainingSeconds(s, now()))
+      if (s) setClock(clockFor(s))
     }, 1000)
     return () => clearInterval(id)
-  }, [sessionId, now])
+  }, [sessionId, clockFor])
 
   const submit = useCallback(
     async (auto: boolean) => {
@@ -240,7 +266,7 @@ function ExamSessionView({
         const unanswered = s.questionIds.filter((id) => !s.answers[id]).length
         if (
           unanswered > 0 &&
-          remainingSeconds(s, now()) > 0 &&
+          !timeIsUp(s, now()) &&
           !window.confirm(`You have ${unanswered} unanswered questions. Submit anyway?`)
         ) {
           return
@@ -281,23 +307,34 @@ function ExamSessionView({
     [now, content, store, navigate],
   )
 
+  const untimed = session?.feedback === true
   useEffect(() => {
-    if (status !== 'ready' || remaining > 0 || autoSubmitted.current) return
+    if (status !== 'ready' || untimed || clock > 0 || autoSubmitted.current) return
     autoSubmitted.current = true
     void submit(true)
-  }, [status, remaining, submit])
+  }, [status, untimed, clock, submit])
 
-  const locked = pending.current !== null || (status === 'ready' && remaining === 0)
+  const locked = pending.current !== null || (status === 'ready' && !untimed && clock === 0)
 
   const choose = useCallback(
     (label: Choice['label']) => {
       const s = sessionRef.current
       if (!s || locked) return
       const id = s.questionIds[s.current ?? 0]
+      if (s.checked?.includes(id)) return
       commit({ ...s, answers: { ...s.answers, [id]: label } })
     },
     [commit, locked],
   )
+
+  // feedback mode: reveal the current question's answer and lock it
+  const check = useCallback(() => {
+    const s = sessionRef.current
+    if (!s || locked) return
+    const id = s.questionIds[s.current ?? 0]
+    if (!s.answers[id] || s.checked?.includes(id)) return
+    commit({ ...s, checked: [...(s.checked ?? []), id] })
+  }, [commit, locked])
 
   const goTo = useCallback(
     (index: number) => {
@@ -317,6 +354,13 @@ function ExamSessionView({
   }, [commit])
 
   const heading = mode === 'mock' ? 'Mock exam' : exam ? examTitle(exam) : 'Exam'
+
+  function mockRangeLabel(): string {
+    const a = range?.from ? content.lessonById.get(range.from) : undefined
+    const b = range?.to ? content.lessonById.get(range.to) : undefined
+    if (!a || !b) return 'Mock exam'
+    return a.id === b.id ? `Lesson ${a.number}` : `Lessons ${a.number} to ${b.number}`
+  }
   const errorLine = error && <p role="alert">{error}</p>
 
   if (status === 'conflict' && conflict) {
@@ -329,9 +373,11 @@ function ExamSessionView({
         <h2>{heading}</h2>
         {errorLine}
         <p>
-          {left > 0
-            ? `You have ${title} in progress, ${answered} of ${conflict.questionIds.length} answered, with ${formatClock(left)} left.`
-            : `${title} ran out of time before it was submitted. Resuming submits it.`}
+          {conflict.feedback
+            ? `You have ${title} in progress with feedback, ${answered} of ${conflict.questionIds.length} answered.`
+            : left > 0
+              ? `You have ${title} in progress, ${answered} of ${conflict.questionIds.length} answered, with ${formatClock(left)} left.`
+              : `${title} ran out of time before it was submitted. Resuming submits it.`}
         </p>
         <p className="exam-controls">
           <Link to={sessionUrl(conflict)} state={resumeState}>
@@ -340,6 +386,34 @@ function ExamSessionView({
           <button type="button" onClick={() => void discardAndStart()}>
             Discard and start this one
           </button>
+        </p>
+      </section>
+    )
+  }
+  if (status === 'intro') {
+    const summary =
+      mode === 'exam' && exam
+        ? `${exam.questions.length} questions · ${exam.durationMinutes} minutes`
+        : `${mockRangeLabel()} · ${MOCK_MINUTES} minutes`
+    return (
+      <section className="exam-intro">
+        <h2>{heading}</h2>
+        {errorLine}
+        <p>{summary}</p>
+        <label className="exam-intro-option">
+          <input type="checkbox" checked={feedback} onChange={(e) => setFeedback(e.target.checked)} />{' '}
+          Show feedback after each answer (untimed)
+        </label>
+        <p className="exam-intro-hint">
+          {feedback
+            ? 'Check each answer to see whether it is right and read the solution. Checked answers lock, and there is no time limit.'
+            : 'A timed exam like the real one. Answers and solutions appear after you submit.'}
+        </p>
+        <p className="exam-controls">
+          <button type="button" onClick={() => void begin()}>
+            Start
+          </button>
+          <Link to="/exams">Back to exams</Link>
         </p>
       </section>
     )
@@ -367,17 +441,34 @@ function ExamSessionView({
   const questionId = session.questionIds[index]
   const question = content.questionById.get(questionId)
   const isMarked = session.marked.includes(questionId)
+  const isChecked = untimed && (session.checked ?? []).includes(questionId)
+  const lesson = question?.lessonIds[0] ? content.lessonById.get(question.lessonIds[0]) : undefined
 
   return (
     <section className="exam">
       <h2>{heading}</h2>
       {errorLine}
-      <p className="exam-timer" role="timer" aria-label="Time remaining">
-        {formatClock(remaining)}
+      <p className="exam-timer" role="timer" aria-label={untimed ? 'Time elapsed' : 'Time remaining'}>
+        {formatClock(clock)}
       </p>
       <h3>{`Question ${index + 1} of ${total}`}</h3>
       {question ? (
-        <QuestionView key={question.id} question={question} mode="deferred" chosen={session.answers[questionId]} onChoose={choose} />
+        untimed ? (
+          <QuestionView
+            key={question.id}
+            question={question}
+            mode="immediate"
+            chosen={session.answers[questionId]}
+            onChoose={choose}
+            onSubmit={check}
+            submitLabel="Check"
+            revealed={isChecked}
+            lessonTitle={lesson && `Lesson ${lesson.number}: ${lesson.title}`}
+            lessonHref={lesson && `/course/${lesson.id}`}
+          />
+        ) : (
+          <QuestionView key={question.id} question={question} mode="deferred" chosen={session.answers[questionId]} onChoose={choose} />
+        )
       ) : (
         <p>This question is no longer available</p>
       )}

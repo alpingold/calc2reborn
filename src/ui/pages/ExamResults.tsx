@@ -26,6 +26,7 @@ function rebuild(sessionId: string, attempts: Attempt[], content: Content): Exam
     marked: [],
     startedAt: first.timestamp,
     durationMinutes: exam?.durationMinutes ?? 60,
+    ...(attempts.some((a) => a.feedback) ? { feedback: true } : {}),
   }
 }
 
@@ -82,6 +83,7 @@ function ResultsView({ sessionId }: { sessionId: string }) {
     <section className="results">
       <h2>Results</h2>
       <p>{title}</p>
+      {session.feedback && <p>With feedback</p>}
       <p>{`Score: ${score.correct} / ${score.total}`}</p>
       <p>{`Points: ${formatPoints(score.points)} / ${formatPoints(score.maxPoints)}`}</p>
       <ol className="results-list">

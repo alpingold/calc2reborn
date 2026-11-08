@@ -17,6 +17,9 @@ export interface ExamSession {
   durationMinutes: number
   // index of the question on screen, so a reload returns to it
   current?: number
+  // feedback after each answer: untimed, and checked questions show their answer and lock
+  feedback?: boolean
+  checked?: string[]
 }
 
 export const SESSION_KEY = 'ma16200-exam-in-progress'
@@ -46,7 +49,9 @@ function isSession(v: unknown): v is ExamSession {
     typeof s.startedAt === 'string' &&
     !Number.isNaN(Date.parse(s.startedAt)) &&
     typeof s.durationMinutes === 'number' &&
-    (s.current === undefined || typeof s.current === 'number')
+    (s.current === undefined || typeof s.current === 'number') &&
+    (s.feedback === undefined || typeof s.feedback === 'boolean') &&
+    (s.checked === undefined || (Array.isArray(s.checked) && s.checked.every((id) => typeof id === 'string')))
   )
 }
 
@@ -106,6 +111,15 @@ export function remainingSeconds(s: ExamSession, now: Date): number {
   return Math.max(0, s.durationMinutes * 60 - elapsed)
 }
 
+export function elapsedSeconds(s: ExamSession, now: Date): number {
+  return Math.max(0, Math.floor((now.getTime() - Date.parse(s.startedAt)) / 1000))
+}
+
+/** Whether a timed session has run out. A feedback session is untimed and never does. */
+export function timeIsUp(s: ExamSession, now: Date): boolean {
+  return !s.feedback && remainingSeconds(s, now) <= 0
+}
+
 export function finishSession(s: ExamSession, content: Content, now: Date): Attempt[] {
   const answered = s.questionIds.filter((id) => s.answers[id] && content.questionById.has(id))
   const elapsed = Math.max(0, (now.getTime() - Date.parse(s.startedAt)) / 1000)
@@ -124,6 +138,7 @@ export function finishSession(s: ExamSession, content: Content, now: Date): Atte
       sessionId: s.sessionId,
     }
     if (s.kind === 'exam' && s.examId) a.examId = s.examId
+    if (s.feedback) a.feedback = true
     return a
   })
 }

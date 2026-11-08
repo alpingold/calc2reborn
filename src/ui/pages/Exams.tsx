@@ -3,7 +3,7 @@ import type { FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router'
 import type { Exam } from '../../content/schema'
 import { useContent, useNow, useSettings, useStore } from '../../storage/context'
-import { examLabel, loadSession, remainingSeconds, sessionTitle, sessionUrl } from '../examSession'
+import { examLabel, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
 import type { ResumeState } from '../examSession'
 
 function bestByExam(attempts: { examId?: string; sessionId?: string; correct: boolean }[]): Map<string, number> {
@@ -78,8 +78,8 @@ export function Exams() {
       {error && <p role="alert">{error}</p>}
       {inProgress && (
         <p>
-          {`In progress: ${sessionTitle(inProgress, content)}`}
-          {remainingSeconds(inProgress, now()) > 0
+          {`In progress: ${sessionTitle(inProgress, content)}${inProgress.feedback ? ' with feedback' : ''}`}
+          {!timeIsUp(inProgress, now())
             ? `, ${inProgress.questionIds.filter((id) => inProgress.answers[id]).length} of ${inProgress.questionIds.length} answered. `
             : '. Its time is up; resuming submits it. '}
           <Link to={sessionUrl(inProgress)} state={{ resume: inProgress.sessionId } satisfies ResumeState}>

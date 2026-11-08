@@ -144,3 +144,21 @@ test('a Resume link for a mock leads back to its lesson range', async () => {
   expect(resume.closest('p')).toHaveTextContent('In progress: Mock exam, Lessons 19 to 26. Its time is up; resuming submits it.')
   expect(resume).toHaveAttribute('href', '/exams/mock?from=L19&to=L26')
 })
+
+test('a feedback session in progress is never described as out of time', async () => {
+  saveSession({
+    sessionId: 's-fb',
+    kind: 'exam',
+    examId: 'f2025-e1',
+    questionIds: ['f2025-e1-q1', 'f2025-e1-q2'],
+    answers: {},
+    marked: [],
+    startedAt: '2000-01-01T00:00:00.000Z',
+    durationMinutes: 60,
+    feedback: true,
+    checked: [],
+  })
+  await setup()
+  const resume = screen.getByRole('link', { name: 'Resume' })
+  expect(resume.closest('p')).toHaveTextContent('In progress: Fall 2025 Exam 1 with feedback, 0 of 2 answered.')
+})

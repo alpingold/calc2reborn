@@ -14,6 +14,7 @@ import {
   scoreSession,
   sessionTitle,
   sessionUrl,
+  timeIsUp,
 } from './examSession'
 import type { ExamSession } from './examSession'
 
@@ -213,4 +214,29 @@ test('sessionTitle names the exam or the mock range', () => {
     'Mock exam, Lesson 19',
   )
   expect(sessionTitle(session({ kind: 'mock', examId: undefined }), content)).toBe('Mock exam')
+})
+
+test('timeIsUp: a timed session expires, a feedback session never does', () => {
+  const later = new Date(Date.parse(START) + 3 * 3600_000)
+  expect(timeIsUp(session(), new Date(START))).toBe(false)
+  expect(timeIsUp(session(), later)).toBe(true)
+  expect(timeIsUp(session({ feedback: true }), later)).toBe(false)
+})
+
+test('a feedback session round-trips its checked questions', () => {
+  const s = session({ feedback: true, checked: ['e-q1'] })
+  saveSession(s)
+  expect(loadSession()).toEqual(s)
+})
+
+test('loadSession rejects checked questions that are not strings', () => {
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...session(), feedback: true, checked: [1] }))
+  expect(loadSession()).toBeNull()
+})
+
+test('finishSession marks attempts from a feedback session', () => {
+  const attempts = finishSession(session({ feedback: true, answers: { 'e-q1': 'A' } }), content, new Date(START))
+  expect(attempts[0]).toMatchObject({ feedback: true })
+  const timed = finishSession(session({ answers: { 'e-q1': 'A' } }), content, new Date(START))
+  expect(timed[0]).not.toHaveProperty('feedback')
 })
