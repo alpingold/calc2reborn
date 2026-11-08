@@ -16,6 +16,9 @@ export function Lesson() {
   const [mastery, setMastery] = useState<Mastery | null>(null)
   const [states, setStates] = useState<Map<string, CardState> | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [showCards, setShowCards] = useState(false)
+  // cards flipped to show their answer
+  const [openCards, setOpenCards] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!lessonId) return
@@ -50,13 +53,38 @@ export function Lesson() {
   const cards = content.cardsByLesson.get(lesson.id) ?? []
   const questions = content.questionsByLesson.get(lesson.id) ?? []
 
-  function cardStatus(cardId: string): string | null {
+  type CardStage = 'due' | 'later' | 'new'
+  function stageOf(cardId: string): CardStage | null {
     if (!states) return null
     const s = states.get(cardId)
-    if (!s) return 'New'
-    if (scheduler.isDue(s, now())) return 'Due'
-    return new Date(s.fsrs.dueAt).toLocaleDateString()
+    if (!s) return 'new'
+    return scheduler.isDue(s, now()) ? 'due' : 'later'
   }
+
+  function cardTag(cardId: string): string | null {
+    const stage = stageOf(cardId)
+    if (stage === 'new') return 'Not started'
+    if (stage === 'due') return 'Due today'
+    if (stage === 'later') {
+      const when = new Date(states!.get(cardId)!.fsrs.dueAt)
+      return `Next review ${when.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`
+    }
+    return null
+  }
+
+  const counts = { due: 0, later: 0, new: 0 }
+  for (const c of cards) {
+    const stage = stageOf(c.id)
+    if (stage) counts[stage]++
+  }
+  const summaryParts = [
+    counts.due > 0 && `${counts.due} due today`,
+    counts.later > 0 && `${counts.later} scheduled later`,
+    counts.new > 0 && `${counts.new} not started yet`,
+  ].filter(Boolean)
+  const cardSummary = `${cards.length} ${cards.length === 1 ? 'flashcard' : 'flashcards'}${
+    states && summaryParts.length ? `: ${summaryParts.join(', ')}` : ''
+  }`
 
   return (
     <section>
@@ -83,17 +111,64 @@ export function Lesson() {
       <h3>Key ideas</h3>
       {lesson.keyIdeas ? <Markdown text={lesson.keyIdeas} /> : <p>No key ideas yet.</p>}
       {!lesson.isExtra && (
-        <>
-          <h3>Cards</h3>
-          <ul>
-            {cards.map((c) => (
-              <li key={c.id}>
-                <Markdown text={c.front} />
-                <span>{cardStatus(c.id)}</span>
-              </li>
-            ))}
-          </ul>
-        </>
+        <section className="lesson-cards">
+          <h3>Flashcards</h3>
+          {cards.length === 0 ? (
+            <p>No flashcards for this lesson yet.</p>
+          ) : (
+            <>
+              <p className="cards-summary">
+                {cardSummary}
+                {counts.due > 0 && (
+                  <>
+                    {' '}
+                    <Link to="/review">Open Review</Link>
+                  </>
+                )}
+              </p>
+              <p className="panel-hint">
+                Review schedules these cards for you. Opening one here is for reading and does not count as a review.
+              </p>
+              <button
+                type="button"
+                className="link-button"
+                aria-expanded={showCards}
+                onClick={() => setShowCards((v) => !v)}
+              >
+                {showCards ? 'Hide the cards' : 'Show the cards'}
+              </button>
+              {showCards && (
+                <ul className="flashcard-list" aria-label="Flashcards">
+                  {cards.map((c) => {
+                    const open = openCards.has(c.id)
+                    const tag = cardTag(c.id)
+                    return (
+                      <li key={c.id} className={open ? 'open' : undefined}>
+                        <button
+                          type="button"
+                          className="flashcard-front"
+                          aria-expanded={open}
+                          onClick={() =>
+                            setOpenCards((prev) => {
+                              const next = new Set(prev)
+                              if (next.has(c.id)) next.delete(c.id)
+                              else next.add(c.id)
+                              return next
+                            })
+                          }
+                        >
+                          <Markdown text={c.front} className="flashcard-text" />
+                          {tag && <span className={`card-tag card-tag-${stageOf(c.id)}`}>{tag}</span>}
+                        </button>
+                        {open && <Markdown text={c.back} className="flashcard-back" />}
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </>
+          )}
+        </section>
       )}
       <h3>Exam questions</h3>
       {questions.length === 0 ? (

@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router'
 import { Lesson } from './Lesson'
 import { StoreProvider } from '../../storage/context'
@@ -101,12 +102,30 @@ test('shows lesson details, cards with status, and exam questions', async () => 
   expect(screen.getByRole('link', { name: 'Practice this lesson' })).toHaveAttribute('href', '/practice?lesson=L19')
   expect(await screen.findByText('Untested')).toBeInTheDocument()
 
-  const cardList = screen.getByRole('heading', { name: 'Cards' }).nextElementSibling as HTMLElement
-  const items = await within(cardList).findAllByRole('listitem')
+  expect(await screen.findByText('3 flashcards: 1 due today, 1 scheduled later, 1 not started yet')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Open Review' })).toHaveAttribute('href', '/review')
+  // the list starts collapsed
+  const toggle = screen.getByRole('button', { name: 'Show the cards' })
+  expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  expect(screen.queryByText('Front of L19-c01')).not.toBeInTheDocument()
+  await userEvent.click(toggle)
+  expect(screen.getByRole('button', { name: 'Hide the cards' })).toHaveAttribute('aria-expanded', 'true')
+  const list = screen.getByRole('list', { name: 'Flashcards' })
+  const items = within(list).getAllByRole('listitem')
   expect(items).toHaveLength(cards.length)
-  expect(within(items[0]).getByText('Due')).toBeInTheDocument()
-  expect(within(items[1]).getByText(new Date(2026, 10, 20).toLocaleDateString())).toBeInTheDocument()
-  expect(within(items[2]).getByText('New')).toBeInTheDocument()
+  expect(within(items[0]).getByText('Due today')).toBeInTheDocument()
+  const later = new Date(2026, 10, 20).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+  expect(within(items[1]).getByText(`Next review ${later}`)).toBeInTheDocument()
+  expect(within(items[2]).getByText('Not started')).toBeInTheDocument()
+  // a card flips to show its answer, and flips back
+  const card = within(items[0]).getByRole('button', { name: /Front of L19-c01/ })
+  expect(card).toHaveAttribute('aria-expanded', 'false')
+  expect(within(items[0]).queryByText('Back of L19-c01')).not.toBeInTheDocument()
+  await userEvent.click(card)
+  expect(card).toHaveAttribute('aria-expanded', 'true')
+  expect(within(items[0]).getByText('Back of L19-c01')).toBeInTheDocument()
+  await userEvent.click(card)
+  expect(within(items[0]).queryByText('Back of L19-c01')).not.toBeInTheDocument()
 
   expect(screen.getByRole('link', { name: 'Fall 2025 Exam 1 #3' })).toHaveAttribute('href', '/exams/f2025-e1')
   expect(screen.getByRole('link', { name: 'Fall 2025 Exam 2 #7' })).toHaveAttribute('href', '/exams/f2025-e2')
@@ -116,6 +135,7 @@ test('shows lesson details, cards with status, and exam questions', async () => 
 test('shows empty states and unknown lesson', async () => {
   await setup('/course/L-empty')
   expect(await screen.findByText('No key ideas yet.')).toBeInTheDocument()
+  expect(screen.getByText('No flashcards for this lesson yet.')).toBeInTheDocument()
   expect(screen.getByText('No exam questions yet.')).toBeInTheDocument()
 })
 
@@ -132,4 +152,10 @@ test('an extra topic says it is outside the lessons, has no video or notes, and 
   expect(screen.queryByRole('link', { name: 'Notes' })).not.toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Practice this topic' })).toHaveAttribute('href', '/practice?lesson=X1')
   expect(screen.queryByRole('heading', { name: 'Cards' })).not.toBeInTheDocument()
+})
+
+test('with nothing due, the summary leaves out due cards and there is no Review link', async () => {
+  await setup('/course/L19')
+  expect(await screen.findByText('3 flashcards: 3 not started yet')).toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: 'Open Review' })).not.toBeInTheDocument()
 })

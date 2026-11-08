@@ -1075,3 +1075,90 @@ legend {
 .settings-group h4 {
   margin: 20px 0 6px;
 }
+
+/* flashcards on a lesson page */
+.cards-summary {
+  margin-bottom: 4px;
+}
+
+.lesson-cards .panel-hint {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+}
+
+.flashcard-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.flashcard-list li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.flashcard-front {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+  width: 100%;
+  min-height: 0;
+  padding: 10px 2px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--fg);
+  text-align: left;
+}
+
+.flashcard-front:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--gold-fill) 18%, transparent);
+}
+
+.flashcard-text {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.flashcard-text p,
+.flashcard-back p:first-child {
+  margin-top: 0;
+}
+
+.flashcard-text p:last-child,
+.flashcard-back p:last-child {
+  margin-bottom: 0;
+}
+
+.card-tag {
+  flex: none;
+  padding: 0 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.card-tag-due {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.flashcard-back {
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+@media (max-width: 680px) {
+  .flashcard-front {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
