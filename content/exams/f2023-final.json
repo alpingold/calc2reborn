@@ -45,7 +45,7 @@
       "id": "f2023-final-q02",
       "number": 2,
       "points": 8,
-      "stem": "A parallelogram in the $xy-$plane has the vertices $(1, 1)$, $(2, 3)$, $(3, 2)$, and $(4, 4)$. What is the area of that parallelogram?",
+      "stem": "A parallelogram in the $xy$-plane has the vertices $(1, 1)$, $(2, 3)$, $(3, 2)$, and $(4, 4)$. What is the area of that parallelogram?",
       "choices": [
         {
           "label": "A",
@@ -80,7 +80,7 @@
       "id": "f2023-final-q03",
       "number": 3,
       "points": 8,
-      "stem": "Find the volume of the solid obtained by revolving the region under the graph of $y = \\frac{1}{x}$, $1 \\le x \\le 2$, about the $x-$axis.",
+      "stem": "Find the volume of the solid obtained by revolving the region under the graph of $y = \\frac{1}{x}$, $1 \\le x \\le 2$, about the $x$-axis.",
       "choices": [
         {
           "label": "A",
@@ -115,7 +115,7 @@
       "id": "f2023-final-q04",
       "number": 4,
       "points": 8,
-      "stem": "Find the area of the region in the first quadrant of the $xy-$plane bounded above by $y = \\frac{\\pi}{2}x$ and below by $y = \\sin^{-1} x$.",
+      "stem": "Find the area of the region in the first quadrant of the $xy$-plane bounded above by $y = \\frac{\\pi}{2}x$ and below by $y = \\sin^{-1} x$.",
       "choices": [
         {
           "label": "A",
@@ -150,7 +150,7 @@
       "id": "f2023-final-q05",
       "number": 5,
       "points": 8,
-      "stem": "Find the volume of the solid obtained by revolving the region in the first quadrant of the $xy-$plane bounded by the curves $y = x$ and $y = x^2$ about the $y-$axis.",
+      "stem": "Find the volume of the solid obtained by revolving the region in the first quadrant of the $xy$-plane bounded by the curves $y = x$ and $y = x^2$ about the $y$-axis.",
       "choices": [
         {
           "label": "A",
@@ -255,7 +255,7 @@
       "id": "f2023-final-q08",
       "number": 8,
       "points": 8,
-      "stem": "Find the area of the surface obtained by revolving the graph $y = x^2$, $0 \\le x \\le 1$, about the $y-$axis.",
+      "stem": "Find the area of the surface obtained by revolving the graph $y = x^2$, $0 \\le x \\le 1$, about the $y$-axis.",
       "choices": [
         {
           "label": "A",

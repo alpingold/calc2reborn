@@ -181,7 +181,7 @@
       "id": "f2023-e1-q06",
       "number": 6,
       "points": 8,
-      "stem": "The area of the region bounded by $y = \\cos x$, $y = \\sin x$, and the $x-$axis, $0 \\le x \\le \\frac{\\pi}{2}$ is given by",
+      "stem": "The area of the region bounded by $y = \\cos x$, $y = \\sin x$, and the $x$-axis, $0 \\le x \\le \\frac{\\pi}{2}$ is given by",
       "choices": [
         {
           "label": "A",

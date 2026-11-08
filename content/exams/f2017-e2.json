@@ -182,7 +182,7 @@
       "id": "f2017-e2-q06",
       "number": 6,
       "points": 8,
-      "stem": "The area of the surface obtained by revolving the curve $y = 2\\sqrt{x}$ from $(0, 0)$ to $(1, 2)$ about the $x-$axis is:",
+      "stem": "The area of the surface obtained by revolving the curve $y = 2\\sqrt{x}$ from $(0, 0)$ to $(1, 2)$ about the $x$-axis is:",
       "choices": [
         {
           "label": "A",

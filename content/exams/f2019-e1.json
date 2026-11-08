@@ -11,7 +11,7 @@
       "id": "f2019-e1-q01",
       "number": 1,
       "points": 8,
-      "stem": "A sphere is described by the equation $x^2 + y^2 + z^2 + ax + 6y - 8z = -1$. Find $a$ so that the sphere has a radius of 5 and its center has an $x-$coordinate of $-1$.",
+      "stem": "A sphere is described by the equation $x^2 + y^2 + z^2 + ax + 6y - 8z = -1$. Find $a$ so that the sphere has a radius of 5 and its center has an $x$-coordinate of $-1$.",
       "choices": [
         {
           "label": "A",

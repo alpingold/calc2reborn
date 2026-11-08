@@ -79,7 +79,7 @@
       "id": "f2022-final-q03",
       "number": 3,
       "points": 8,
-      "stem": "Find the volume of the solid obtained by revolving the region in the first quadrant bounded by $y = \\frac{2}{x}$, $x = 2$, and $y = 2$ about the $y-$axis.",
+      "stem": "Find the volume of the solid obtained by revolving the region in the first quadrant bounded by $y = \\frac{2}{x}$, $x = 2$, and $y = 2$ about the $y$-axis.",
       "choices": [
         {
           "label": "A",
@@ -147,7 +147,7 @@
       "id": "f2022-final-q05",
       "number": 5,
       "points": 8,
-      "stem": "A $10-$m chain hangs from a wench. If the chain weighs $1.5$ kg/m, find the work in J to wind up the entire chain. Use $g = 10$ m/s$^2$ in your calculation.",
+      "stem": "A $10$-m chain hangs from a wench. If the chain weighs $1.5$ kg/m, find the work in J to wind up the entire chain. Use $g = 10$ m/s$^2$ in your calculation.",
       "choices": [
         {
           "label": "A",

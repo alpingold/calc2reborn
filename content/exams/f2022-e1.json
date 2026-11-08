@@ -249,7 +249,7 @@
       "id": "f2022-e1-q08",
       "number": 8,
       "points": 8,
-      "stem": "If the method of washers is used to find the volume of a solid obtained by revolving the triangular region with vertices $(0, 0)$, $(0, 1)$, and $(1, 1)$ about the $x-$axis, the integral that represents the volume of this solid is",
+      "stem": "If the method of washers is used to find the volume of a solid obtained by revolving the triangular region with vertices $(0, 0)$, $(0, 1)$, and $(1, 1)$ about the $x$-axis, the integral that represents the volume of this solid is",
       "choices": [
         {
           "label": "A",
@@ -317,7 +317,7 @@
       "id": "f2022-e1-q10",
       "number": 10,
       "points": 8,
-      "stem": "If the method of washers is used, the volume of a solid obtained by revolving a certain region about the $x-$axis is given by\n\n$$\n\\pi \\int_0^1 (x - x^4)\\, dx\n$$\n\nWhat integral below represents the same volume if the method of cylindrical shells is used?",
+      "stem": "If the method of washers is used, the volume of a solid obtained by revolving a certain region about the $x$-axis is given by\n\n$$\n\\pi \\int_0^1 (x - x^4)\\, dx\n$$\n\nWhat integral below represents the same volume if the method of cylindrical shells is used?",
       "choices": [
         {
           "label": "A",
