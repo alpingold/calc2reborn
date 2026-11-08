@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router'
+import { isPlanned } from '../../content/schema'
 import type { Exam } from '../../content/schema'
 import { useContent, useNow, useSettings, useStore } from '../../storage/context'
 import { examLabel, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
@@ -28,9 +29,9 @@ export function Exams() {
   const now = useNow()
   const [inProgress] = useState(loadSession)
 
-  const planned = useMemo(() => content.lessons.filter((l) => !l.isReview), [content.lessons])
+  const planned = useMemo(() => content.lessons.filter(isPlanned), [content.lessons])
   const current = settings.currentLessonId ? content.lessonById.get(settings.currentLessonId) : undefined
-  const defaultTo = current && !current.isReview ? current.id : (planned[planned.length - 1]?.id ?? '')
+  const defaultTo = current && isPlanned(current) ? current.id : (planned[planned.length - 1]?.id ?? '')
   // the mock range starts on the exam's lessons while an exam is ahead
   const scope = examScope(settings, content.lessons, now())
   const [from, setFrom] = useState(scope.active ? scope.lessonIds[0] : (planned[0]?.id ?? ''))

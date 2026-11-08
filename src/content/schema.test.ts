@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { CHOICE_LABELS, LessonSchema, QuestionSchema } from './schema'
+import { CHOICE_LABELS, LessonSchema, QuestionSchema, isPlanned, lessonLabel } from './schema'
+import type { Lesson } from './schema'
 
 const labeled = (n: number) => CHOICE_LABELS.slice(0, n).map((label) => ({ label, text: label }))
 
@@ -80,5 +81,27 @@ describe('LessonSchema', () => {
   })
   test('a review may still carry a unit', () => {
     expect(LessonSchema.safeParse({ ...lesson, isReview: true }).success).toBe(true)
+  })
+})
+
+describe('extra topics', () => {
+  const extra = { ...lesson, id: 'X1', number: 42, title: '12.1 Parametric Equations', unit: 'Other topics', videoUrl: '', notesUrl: '', isExtra: true }
+  test('an extra has the Other topics unit and no video or notes', () => {
+    expect(LessonSchema.safeParse(extra).success).toBe(true)
+    expect(LessonSchema.safeParse({ ...extra, videoUrl: 'https://v' }).success).toBe(false)
+    expect(LessonSchema.safeParse({ ...extra, unit: 'Polar' }).success).toBe(false)
+    expect(LessonSchema.safeParse({ ...extra, isReview: true }).success).toBe(false)
+  })
+  test('only an extra may use the Other topics unit', () => {
+    expect(LessonSchema.safeParse({ ...lesson, unit: 'Other topics' }).success).toBe(false)
+  })
+  test('isPlanned leaves out reviews and extras', () => {
+    expect(isPlanned(lesson as Lesson)).toBe(true)
+    expect(isPlanned({ ...lesson, isReview: true } as Lesson)).toBe(false)
+    expect(isPlanned(extra as Lesson)).toBe(false)
+  })
+  test('lessonLabel names a lesson by number and an extra by title', () => {
+    expect(lessonLabel(lesson as Lesson)).toBe('Lesson 1: 13.1 Vectors')
+    expect(lessonLabel(extra as Lesson)).toBe('12.1 Parametric Equations')
   })
 })

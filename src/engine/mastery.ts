@@ -1,4 +1,5 @@
 import type { Attempt } from '../storage/types'
+import { isPlanned } from '../content/schema'
 import type { Lesson, Question, Unit } from '../content/schema'
 
 export interface Mastery {
@@ -39,7 +40,7 @@ export function lessonMastery(
 export function unitMastery(lessons: Lesson[], byLesson: Map<string, Mastery>): Map<Unit, Mastery> {
   const groups = new Map<Unit, Mastery[]>()
   for (const l of lessons) {
-    if (l.isReview || l.unit === null) continue
+    if (!isPlanned(l) || l.unit === null) continue
     const list = groups.get(l.unit) ?? []
     list.push(byLesson.get(l.id) ?? { score: null, attempts: 0 })
     groups.set(l.unit, list)

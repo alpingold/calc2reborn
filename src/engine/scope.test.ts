@@ -58,3 +58,11 @@ describe('examScope', () => {
     ])
   })
 })
+
+describe('extra topics', () => {
+  it('are never part of a lesson range or an exam scope', () => {
+    expect(lessonRange(lessons, 'X1', 'L3')).toEqual([])
+    expect(rangeEnds(lessons, ['X1'])).toBeNull()
+    expect(examScope(settings({ examLessonIds: ['L34', 'X1'] }), lessons, now).lessonIds).toEqual(['L34'])
+  })
+})

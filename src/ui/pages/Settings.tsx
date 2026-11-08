@@ -3,6 +3,7 @@ import type { ChangeEvent, FormEvent } from 'react'
 import { useContent, useSettings, useStore } from '../../storage/context'
 import { parseSnapshot } from '../../storage/snapshot'
 import { DEFAULT_SETTINGS } from '../../storage/types'
+import { isPlanned } from '../../content/schema'
 import { lessonRange, rangeEnds } from '../../engine/scope'
 
 const DAILY_ERROR = 'Enter a number from 0 to 100'
@@ -11,7 +12,7 @@ export function Settings() {
   const { settings, save } = useSettings()
   const store = useStore()
   const content = useContent()
-  const lessons = useMemo(() => content.lessons.filter((l) => !l.isReview), [content])
+  const lessons = useMemo(() => content.lessons.filter(isPlanned), [content])
 
   const [currentLessonId, setCurrentLessonId] = useState(settings.currentLessonId ?? '')
   const [daily, setDaily] = useState(String(settings.dailyNewCards))

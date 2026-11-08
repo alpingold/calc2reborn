@@ -113,6 +113,17 @@ A question gets a figure if a diagram carries information the text does not. Kee
 
 Questions may carry more than one lesson, but do not add a lesson as a hedge. A wrong tag sends a student to the wrong lesson.
 
+Four exam topics have no lesson at all and get their own extra topic instead of a nearest lesson. Tag such a question with its extra topic alone, so a miss never lowers a lesson's mastery:
+
+| Topic | Tag |
+|---|---|
+| Parametric curves: graphs, direction, tangents, concavity, arc length of $x(t)$, $y(t)$ | X1 |
+| Conic sections: parabola, ellipse, hyperbola, foci, vertices, a center found by completing the square | X2 |
+| Complex numbers, including the form $re^{i\theta}$ and roots of $z^n = w$ | X3 |
+| Numerical integration: Midpoint, Trapezoid, or Simpson's Rule | X4 |
+
+A polar equation that turns out to be a line, circle, or conic in Cartesian form is a polar conversion (L33), not X2.
+
 No lesson teaches center of mass or equations of a line. If an exam asks either, tag the nearest lesson (L9, or L1 and L2) and report it. Other gaps, tagged the same way and reported:
 
 - Circles in the plane (center, radius, how two circles relate): tag L2.
@@ -120,14 +131,10 @@ No lesson teaches center of mass or equations of a line. If an exam asks either,
 - Binomial series (first terms of $(1+x)^p$): tag L31.
 - Constant-force work along a displacement at an angle ($W=\vec F\cdot\vec d=|\vec F||\vec d|\cos\theta$): tag L3, not L9.
 - An improper integral whose antiderivative needs another lesson's technique (integration by parts, partial fractions, trig substitution): tag that lesson and L18. A plain $u$-substitution inside an improper integral stays L18 only.
-- Parametric curves (graphs, tangents, concavity, arc length of $x(t)$, $y(t)$): no lesson teaches them; tag L34 and report it.
 - Centroid: tag L9 and report it.
 - An area between curves that needs integration by parts in $x$ but none in $y$: L5 only. When parts cannot be avoided: L5 and L11.
 - A statement that a series converges conditionally, even when another test settles it: L24.
-- Numerical integration (Midpoint, Trapezoid, or Simpson's Rule): tag L5 and report it.
 - Choosing or applying a formula from an integral table: tag the lesson of the technique the formula replaces, such as L14 for a secant or sine form.
-- Conic sections (ellipse, hyperbola, parabola, foci): tag L2 and report it.
-- Complex numbers, including exponential form $re^{i\theta}$: tag L33 and report it.
 - Multiplying two Maclaurin series: L32.
 - A statement that a series and its tail from some $k=N$ converge or diverge together: L21.
 - Average value of a function: no lesson teaches it; tag the lesson of the integration technique it needs and report it. If it needs no technique (a polynomial), tag L5.

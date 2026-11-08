@@ -1,10 +1,11 @@
 import type { CardState, Settings } from '../storage/types'
+import { isPlanned } from '../content/schema'
 import type { ConceptCard, Lesson } from '../content/schema'
 
 export function coveredLessonIds(lessons: Lesson[], currentLessonId: string | null): string[] {
-  const sorted = lessons.filter((l) => !l.isReview).sort((a, b) => a.number - b.number)
+  const sorted = lessons.filter(isPlanned).sort((a, b) => a.number - b.number)
   const current = currentLessonId === null ? undefined : lessons.find((l) => l.id === currentLessonId)
-  const limit = current && !current.isReview ? current.number : Infinity
+  const limit = current && isPlanned(current) ? current.number : Infinity
   return sorted.filter((l) => l.number <= limit).map((l) => l.id)
 }
 

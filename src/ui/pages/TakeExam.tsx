@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router'
+import { isPlanned, lessonLabel } from '../../content/schema'
 import type { Choice } from '../../content/schema'
 import { sampleMockExam } from '../../engine/mock'
 import { pullForward } from '../../engine/queue'
@@ -105,10 +106,10 @@ function ExamSessionView({
   // the lesson range a mock request resolves to, with the lesson ids of its ends
   const range = useMemo(() => {
     if (mode !== 'mock') return null
-    const planned = content.lessons.filter((l) => !l.isReview)
+    const planned = content.lessons.filter(isPlanned)
     const numberOf = (id: string | null) => {
       const l = id ? content.lessonById.get(id) : undefined
-      return l && !l.isReview ? l.number : undefined
+      return l && isPlanned(l) ? l.number : undefined
     }
     const lo = numberOf(from) ?? planned[0]?.number ?? 1
     const hi = numberOf(to) ?? numberOf(settings.currentLessonId) ?? planned[planned.length - 1]?.number ?? lo
@@ -470,7 +471,7 @@ function ExamSessionView({
             onSubmit={check}
             submitLabel="Check"
             revealed={isChecked}
-            lessonTitle={lesson && `Lesson ${lesson.number}: ${lesson.title}`}
+            lessonTitle={lesson && lessonLabel(lesson)}
             lessonHref={lesson && `/course/${lesson.id}`}
           />
         ) : (

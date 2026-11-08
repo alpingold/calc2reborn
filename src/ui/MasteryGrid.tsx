@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import { isPlanned } from '../content/schema'
 import type { Lesson } from '../content/schema'
 import type { Mastery } from '../engine/mastery'
 
@@ -20,7 +21,7 @@ export function MasteryGrid({
 }) {
   const units = new Map<string, Lesson[]>()
   for (const l of lessons) {
-    if (l.isReview || l.unit === null) continue
+    if (!isPlanned(l) || l.unit === null) continue
     const list = units.get(l.unit) ?? []
     list.push(l)
     units.set(l.unit, list)

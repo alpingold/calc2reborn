@@ -207,13 +207,26 @@ describe('content validation', () => {
     }
   })
 
-  test('questions and cards are tagged only with lessons L1 to L35, never a review', () => {
+  test('questions are tagged with planned lessons or one extra topic, never a review; cards only with planned lessons', () => {
     const planned = new Set(Array.from({ length: 35 }, (_, i) => `L${i + 1}`))
+    const extras = new Set(content.lessons.filter((l) => l.isExtra).map((l) => l.id))
     for (const q of content.questions) {
       expect(q.lessonIds.length, q.id).toBeGreaterThan(0)
-      for (const lid of q.lessonIds) expect(planned.has(lid), `${q.id} -> ${lid}`).toBe(true)
+      const extraTags = q.lessonIds.filter((lid) => extras.has(lid))
+      if (extraTags.length > 0) {
+        // an off-syllabus question is attributed to its topic alone, so it never lowers a lesson's mastery
+        expect(q.lessonIds, q.id).toEqual(extraTags.slice(0, 1))
+      } else {
+        for (const lid of q.lessonIds) expect(planned.has(lid), `${q.id} -> ${lid}`).toBe(true)
+      }
     }
     for (const c of content.cards) expect(planned.has(c.lessonId), `${c.id} -> ${c.lessonId}`).toBe(true)
+  })
+
+  test('the four extra topics hold the off-syllabus questions found in the audit', () => {
+    const count = (id: string) => content.questions.filter((q) => q.lessonIds.includes(id)).length
+    expect(content.lessons.filter((l) => l.isExtra).map((l) => l.id)).toEqual(['X1', 'X2', 'X3', 'X4'])
+    expect([count('X1'), count('X2'), count('X3'), count('X4')]).toEqual([12, 6, 5, 1])
   })
 
   test('all Markdown renders through KaTeX', () => {

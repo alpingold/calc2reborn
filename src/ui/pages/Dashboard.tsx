@@ -5,6 +5,7 @@ import { lessonMastery } from '../../engine/mastery'
 import type { Mastery } from '../../engine/mastery'
 import { coveredLessonIds, dailyQueue } from '../../engine/queue'
 import { daysUntil } from '../../engine/scope'
+import { isPlanned } from '../../content/schema'
 import { useContent, useNow, useScheduler, useSettings, useStore } from '../../storage/context'
 import { MasteryGrid } from '../MasteryGrid'
 
@@ -30,7 +31,7 @@ export function Dashboard() {
   const [pick, setPick] = useState('')
   const [error, setError] = useState<string | null>(null)
 
-  const planned = useMemo(() => content.lessons.filter((l) => !l.isReview), [content.lessons])
+  const planned = useMemo(() => content.lessons.filter(isPlanned), [content.lessons])
 
   useEffect(() => {
     let cancelled = false

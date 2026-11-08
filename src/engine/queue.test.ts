@@ -29,6 +29,11 @@ describe('coveredLessonIds', () => {
     expect(ids).toHaveLength(35)
     expect(ids.some((i) => i.startsWith('R-'))).toBe(false)
   })
+  it('never includes an extra topic', () => {
+    const withExtra = [...lessons, { id: 'X1', number: 42, isReview: false, isExtra: true } as unknown as Lesson]
+    expect(coveredLessonIds(withExtra, null)).not.toContain('X1')
+    expect(coveredLessonIds(withExtra, 'X1')).toHaveLength(35)
+  })
   it('unknown or review current gives all non-review', () => {
     expect(coveredLessonIds(lessons, 'nope')).toHaveLength(35)
     expect(coveredLessonIds(lessons, 'R-10')).toHaveLength(35)

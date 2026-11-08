@@ -121,3 +121,10 @@ test('a load error clears once progress loads after a settings change', async ()
   await screen.findByText(/due today/)
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 })
+
+test('the mastery grid leaves out extra topics', async () => {
+  await setup({ currentLessonId: 'L19' })
+  await screen.findByText(/due today/)
+  expect(screen.queryByRole('heading', { name: 'Other topics' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: /Parametric/ })).not.toBeInTheDocument()
+})

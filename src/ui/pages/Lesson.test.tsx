@@ -123,3 +123,13 @@ test('unknown lesson id', async () => {
   await setup('/course/nope')
   expect(await screen.findByText('Lesson not found')).toBeInTheDocument()
 })
+
+test('an extra topic says it is outside the lessons, has no video or notes, and offers practice', async () => {
+  await setup('/course/X1')
+  expect(await screen.findByRole('heading', { level: 2, name: '12.1 Parametric Equations' })).toBeInTheDocument()
+  expect(screen.getByText(/not part of Dr\. Chen's Fall 2023 lessons/)).toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: 'Video' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: 'Notes' })).not.toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Practice this topic' })).toHaveAttribute('href', '/practice?lesson=X1')
+  expect(screen.queryByRole('heading', { name: 'Cards' })).not.toBeInTheDocument()
+})

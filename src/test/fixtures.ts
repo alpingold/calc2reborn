@@ -20,7 +20,23 @@ export function fixtureLesson(number: number, over: Partial<Lesson> = {}): Lesso
   }
 }
 
-/** L1 to L35 plus one review lesson, in the shape of the real course list. */
+/** An exam topic outside Dr. Chen's lessons, in the shape of the real extras. */
+export function fixtureExtra(): Lesson {
+  return fixtureLesson(PLANNED_LESSON_COUNT + 2, {
+    id: 'X1',
+    title: '12.1 Parametric Equations',
+    sections: ['12.1'],
+    unit: 'Other topics',
+    videoUrl: '',
+    notesUrl: '',
+    isExtra: true,
+  })
+}
+
+/**
+ * L1 to L35, one review lesson, and one extra topic, in the shape of the real course list. The extra
+ * is here so every test that counts or ranges lessons also checks that extras stay out.
+ */
 export function fixtureLessons(): Lesson[] {
   const planned = Array.from({ length: PLANNED_LESSON_COUNT }, (_, i) => fixtureLesson(i + 1))
   const review = fixtureLesson(PLANNED_LESSON_COUNT + 1, {
@@ -29,7 +45,7 @@ export function fixtureLessons(): Lesson[] {
     unit: null,
     isReview: true,
   })
-  return [...planned, review]
+  return [...planned, review, fixtureExtra()]
 }
 
 export function fixtureCard(id: string, lessonId: string): ConceptCard {

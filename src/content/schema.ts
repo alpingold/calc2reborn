@@ -7,6 +7,8 @@ export const UNITS = [
   'Sequences and Series',
   'Power and Taylor Series',
   'Polar',
+  // exam topics outside Dr. Chen's lessons; only extras use it
+  'Other topics',
 ] as const
 export type Unit = (typeof UNITS)[number]
 
@@ -25,7 +27,20 @@ export interface Lesson {
   prerequisites: string[]
   keyIdeas: string
   isReview: boolean
+  /** An exam topic outside Dr. Chen's lessons: no video or notes, and kept out of mastery and ranges. */
+  isExtra?: boolean
 }
+
+/** A lesson in Dr. Chen's planned sequence: not an exam review and not an extra topic. */
+export function isPlanned(l: Lesson): boolean {
+  return !l.isReview && !l.isExtra
+}
+
+/** How a question's lesson is named in links: "Lesson 19: ..." for a lesson, the title for an extra. */
+export function lessonLabel(l: Lesson): string {
+  return l.isExtra ? l.title : `Lesson ${l.number}: ${l.title}`
+}
+
 export interface ConceptCard {
   id: string
   lessonId: string
@@ -77,10 +92,22 @@ export const LessonSchema = z
     prerequisites: z.array(z.string()),
     keyIdeas: z.string(),
     isReview: z.boolean(),
+    isExtra: z.boolean().optional(),
   })
   .superRefine((l, ctx) => {
     if (l.unit === null && !l.isReview) {
       ctx.addIssue({ code: 'custom', path: ['unit'], message: 'unit may be null only for reviews' })
+    }
+    if (l.isExtra) {
+      if (l.isReview) ctx.addIssue({ code: 'custom', path: ['isReview'], message: 'an extra topic is not a review' })
+      if (l.unit !== 'Other topics') {
+        ctx.addIssue({ code: 'custom', path: ['unit'], message: 'an extra topic belongs to Other topics' })
+      }
+      if (l.videoUrl || l.notesUrl) {
+        ctx.addIssue({ code: 'custom', path: ['videoUrl'], message: 'an extra topic has no video or notes' })
+      }
+    } else if (l.unit === 'Other topics') {
+      ctx.addIssue({ code: 'custom', path: ['unit'], message: 'only an extra topic belongs to Other topics' })
     }
   })
 

@@ -63,4 +63,9 @@ describe('unitMastery', () => {
     expect(u.get('Polar')!.attempts).toBe(10)
     expect(u.get('Sequences and Series')).toEqual({ score: null, attempts: 2 })
   })
+  it('leaves out extra topics', () => {
+    const extra = { ...lesson('x', 'Other topics'), isExtra: true }
+    const u = unitMastery([extra], new Map([['x', { score: 0.2, attempts: 5 }]]))
+    expect(u.has('Other topics')).toBe(false)
+  })
 })

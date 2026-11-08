@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router'
 import type { FormEvent } from 'react'
+import { isPlanned, lessonLabel } from '../../content/schema'
 import type { Choice, Question } from '../../content/schema'
 import { lessonMastery } from '../../engine/mastery'
 import { coveredLessonIds, pullForward } from '../../engine/queue'
@@ -55,7 +56,7 @@ function PracticeSetup() {
   const navigate = useNavigate()
   const scope = useMemo(() => examScope(settings, content.lessons, now()), [settings, content.lessons, now])
   const covered = useMemo(() => coveredLessonIds(content.lessons, settings.currentLessonId), [content.lessons, settings])
-  const planned = useMemo(() => content.lessons.filter((l) => !l.isReview), [content.lessons])
+  const planned = useMemo(() => content.lessons.filter(isPlanned), [content.lessons])
   const [mode, setMode] = useState<'exam' | 'covered' | 'range'>(scope.active ? 'exam' : 'covered')
   const start = scope.active ? scope.lessonIds : covered
   const [from, setFrom] = useState(start[0] ?? '')
@@ -353,7 +354,7 @@ function PracticeSession({
             <ul>
               {lessonsToRevisit.map((l) => (
                 <li key={l.id}>
-                  <Link to={`/course/${l.id}`}>{`Lesson ${l.number}: ${l.title}`}</Link>
+                  <Link to={`/course/${l.id}`}>{lessonLabel(l)}</Link>
                 </li>
               ))}
             </ul>
@@ -410,7 +411,7 @@ function PracticeSession({
         onChoose={setChosen}
         onSubmit={(label, seconds) => void submit(label, seconds)}
         revealed={revealed}
-        lessonTitle={lesson && `Lesson ${lesson.number}: ${lesson.title}`}
+        lessonTitle={lesson && lessonLabel(lesson)}
         lessonHref={lesson && `/course/${lesson.id}`}
       />
       <p className="exam-controls">

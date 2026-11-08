@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router'
 import type { Content } from '../../content'
+import { lessonLabel } from '../../content/schema'
 import type { Choice } from '../../content/schema'
 import { useContent, useStore } from '../../storage/context'
 import type { Attempt } from '../../storage/types'
@@ -107,7 +108,7 @@ function ResultsView({ sessionId }: { sessionId: string }) {
                 chosen={chosen}
                 onChoose={noop}
                 revealed
-                lessonTitle={lesson && `Lesson ${lesson.number}: ${lesson.title}`}
+                lessonTitle={lesson && lessonLabel(lesson)}
                 lessonHref={lesson && `/course/${lesson.id}`}
               />
             </li>

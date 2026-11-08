@@ -1,8 +1,9 @@
+import { isPlanned } from '../content/schema'
 import type { Lesson } from '../content/schema'
 import type { Settings } from '../storage/types'
 
 function planned(lessons: Lesson[]): Lesson[] {
-  return lessons.filter((l) => !l.isReview).sort((a, b) => a.number - b.number)
+  return lessons.filter(isPlanned).sort((a, b) => a.number - b.number)
 }
 
 /** The planned lessons from one end to the other, inclusive, in course order. Empty if either end is unknown. */

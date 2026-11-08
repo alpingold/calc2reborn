@@ -62,28 +62,39 @@ export function Lesson() {
     <section>
       <h2>{lesson.title}</h2>
       {error && <p role="alert">{error}</p>}
-      <p>{`Sections ${lesson.sections.join(', ')}`}</p>
-      <p>
-        <a href={lesson.videoUrl} target="_blank" rel="noreferrer">
-          Video
-        </a>{' '}
-        <a href={lesson.notesUrl} target="_blank" rel="noreferrer">
-          Notes
-        </a>
-      </p>
+      {lesson.sections.length > 0 && <p>{`Sections ${lesson.sections.join(', ')}`}</p>}
+      {lesson.isExtra ? (
+        <p className="note">
+          This topic is on older MA 16200 exams but is not part of Dr. Chen's Fall 2023 lessons, so it has no video,
+          notes, or flashcards, and it doesn't count toward lesson mastery.
+        </p>
+      ) : (
+        <p>
+          <a href={lesson.videoUrl} target="_blank" rel="noreferrer">
+            Video
+          </a>{' '}
+          <a href={lesson.notesUrl} target="_blank" rel="noreferrer">
+            Notes
+          </a>
+        </p>
+      )}
       {mastery && <p>{mastery.score === null ? 'Untested' : `Mastery: ${Math.round(mastery.score * 100)}%`}</p>}
-      <Link to={`/practice?lesson=${lesson.id}`}>Practice this lesson</Link>
+      <Link to={`/practice?lesson=${lesson.id}`}>{lesson.isExtra ? 'Practice this topic' : 'Practice this lesson'}</Link>
       <h3>Key ideas</h3>
       {lesson.keyIdeas ? <Markdown text={lesson.keyIdeas} /> : <p>No key ideas yet.</p>}
-      <h3>Cards</h3>
-      <ul>
-        {cards.map((c) => (
-          <li key={c.id}>
-            <Markdown text={c.front} />
-            <span>{cardStatus(c.id)}</span>
-          </li>
-        ))}
-      </ul>
+      {!lesson.isExtra && (
+        <>
+          <h3>Cards</h3>
+          <ul>
+            {cards.map((c) => (
+              <li key={c.id}>
+                <Markdown text={c.front} />
+                <span>{cardStatus(c.id)}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <h3>Exam questions</h3>
       {questions.length === 0 ? (
         <p>No exam questions yet.</p>

@@ -84,7 +84,7 @@ All small and independent. Do them as one batch, each with a test that fails bef
 ### Phase 3: content (items 3.1 to 3.4)
 1. Re-run the spoiler scans and fix hits (3.4). Done on 2026-11-07: all 456 cards and 41 sets of key ideas were checked against the 970 questions. After setting aside notation shared by three or more questions, 185 matches remained. All were common notation, a different problem reaching the same number, or a standard result the spoiler rule exempts. Nothing needed rewriting.
 2. Fix the small leftovers (3.3). Done on 2026-11-07: 13 hyphens moved out of math (`$x$-axis`, `$xy$-plane`, `$10$-m`). L34-c12 and L33-c06 had already been fixed. The `<` and `≤` in s2019-e3 Q3 are each correct where they are used: the `≤` lines reach equality at ℓ = 0 and m = 1, 2.
-3. Add the "Other topics" group and move the coverage-gap questions into it (3.1). This changes the content schema slightly, so it gets its own short design.
+3. Add the "Other topics" group and move the coverage-gap questions into it (3.1). Done on 2026-11-07: four extra topics, X1 to X4, with key ideas and no flashcards. 24 questions were retagged after a check by hand: 12 parametric, 6 conic sections, 5 complex numbers, 1 numerical integration.
 4. Add "Flag this question" (3.2).
 
 ### Phase 4: performance (item 5.1)
