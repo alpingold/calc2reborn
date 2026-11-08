@@ -40,7 +40,7 @@ The `raw/` folder is never committed. Transcription follows `docs/exam-transcrip
 
 ## Deployment
 
-`pnpm deploy` runs the tests, builds, and publishes `dist/` to Vercel as a static site (project `ma16200-study`). The first time, log in with `npx vercel@65.12.1 login`; the script then links the project and deploys. `public/vercel.json` sends unknown paths to `index.html`, and the page carries a `noindex` tag so the shared link stays out of search results.
+`pnpm site:deploy` runs the tests, builds, and publishes `dist/` to Vercel as a static site (project `ma16200-study`). The first time, log in with `npx vercel@65.12.1 login`; the script then links the project and deploys. `public/vercel.json` sends unknown paths to `index.html`, and the page carries a `noindex` tag so the shared link stays out of search results.
 
 `pnpm build` produces a static site in `dist/`. Any static host works if it serves `index.html` for unknown paths, since the app uses browser history routing. A host that serves the app from a sub-path, such as GitHub Pages at `/<repo>/`, also needs Vite's `base` option set to that path and a matching `basename` for the router in `src/App.tsx`. Figure paths are root-relative (`/figures/...`), so they need that prefix too.
 
