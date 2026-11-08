@@ -46,12 +46,23 @@ export const DEFAULT_SETTINGS: Settings = {
   examLessonIds: [],
   dailyNewCards: 10,
 }
+export type FlagReason = 'answer' | 'display' | 'unclear'
+/** A problem a student reported with a question, kept in this browser and carried in the export. */
+export interface Flag {
+  id: string
+  questionId: string
+  reason: FlagReason
+  note: string
+  timestamp: string
+}
 export interface ProgressSnapshot {
   version: 1
   exportedAt: string
   cardStates: CardState[]
   attempts: Attempt[]
   settings: Settings
+  /** absent in files exported before reports existed */
+  flags?: Flag[]
 }
 export interface AttemptFilter {
   questionIds?: string[]
@@ -67,6 +78,10 @@ export interface ProgressStore {
   listAttempts(filter?: AttemptFilter): Promise<Attempt[]>
   getSettings(): Promise<Settings>
   saveSettings(s: Settings): Promise<void>
+  saveFlag(f: Flag): Promise<void>
+  /** oldest first */
+  listFlags(): Promise<Flag[]>
+  deleteFlag(id: string): Promise<void>
   exportAll(): Promise<ProgressSnapshot>
   importAll(s: ProgressSnapshot): Promise<void>
   clear(): Promise<void>

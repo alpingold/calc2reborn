@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { useContent, useSettings, useStore } from '../../storage/context'
 import { parseSnapshot } from '../../storage/snapshot'
 import { DEFAULT_SETTINGS } from '../../storage/types'
+import type { Flag } from '../../storage/types'
+import { REASON_LABELS } from '../ReportProblem'
+import { examTitle } from '../examSession'
 import { isPlanned } from '../../content/schema'
 import { lessonRange, rangeEnds } from '../../engine/scope'
 
@@ -21,6 +24,60 @@ export function Settings() {
   const [examFrom, setExamFrom] = useState(ends(settings.examLessonIds)?.from ?? '')
   const [examTo, setExamTo] = useState(ends(settings.examLessonIds)?.to ?? '')
   const [error, setError] = useState<string | null>(null)
+  const [flags, setFlags] = useState<Flag[]>([])
+  // shown when the clipboard is unavailable, so the report can still be copied by hand
+  const [manualCopy, setManualCopy] = useState(false)
+
+  const loadFlags = useCallback(async () => {
+    try {
+      setFlags(await store.listFlags())
+    } catch {
+      // the list stays as it was; reports are a convenience, not progress
+    }
+  }, [store])
+
+  useEffect(() => {
+    void loadFlags()
+  }, [loadFlags])
+
+  function questionLabel(questionId: string): string {
+    const q = content.questionById.get(questionId)
+    const exam = content.examByQuestionId.get(questionId)
+    return q && exam ? `${questionId} (${examTitle(exam)} #${q.number})` : questionId
+  }
+
+  function flagLine(f: Flag): string {
+    return `${questionLabel(f.questionId)}: ${REASON_LABELS[f.reason]}.${f.note ? ` ${f.note}` : ''}`
+  }
+
+  const reportText = [
+    `MA 16200 study app: ${flags.length} reported ${flags.length === 1 ? 'problem' : 'problems'}`,
+    ...flags.map((f) => `- ${flagLine(f)}`),
+  ].join('\n')
+
+  async function onCopyReport() {
+    setError(null)
+    setStatus(null)
+    try {
+      await navigator.clipboard.writeText(reportText)
+    } catch {
+      setManualCopy(true)
+      setError('Could not copy. Select the text below and copy it.')
+      return
+    }
+    setStatus('Report copied')
+  }
+
+  async function onRemoveFlag(id: string) {
+    try {
+      await store.deleteFlag(id)
+    } catch {
+      setError('Could not remove the report.')
+      return
+    }
+    await loadFlags()
+  }
+
   // the daily-cards value failed the last save; cleared as soon as it is edited
   const [dailyInvalid, setDailyInvalid] = useState(false)
   const [status, setStatus] = useState<string | null>(null)
@@ -114,6 +171,7 @@ export function Settings() {
       setError('Progress imported, but the settings could not be applied. Reload the page.')
       return
     }
+    await loadFlags()
     setStatus('Progress imported')
   }
 
@@ -128,6 +186,7 @@ export function Settings() {
       setError('Could not reset progress.')
       return
     }
+    await loadFlags()
     setStatus('Progress reset')
   }
 
@@ -223,6 +282,29 @@ export function Settings() {
             <input type="file" accept="application/json" onChange={onImport} />
           </label>
         </p>
+        <h4>Reported problems</h4>
+        {flags.length === 0 ? (
+          <p className="panel-hint">No reported problems.</p>
+        ) : (
+          <>
+            <ul className="report-list" aria-label="Reported problems">
+              {flags.map((f) => (
+                <li key={f.id}>
+                  <span>{flagLine(f)}</span>
+                  <button type="button" onClick={() => void onRemoveFlag(f.id)}>
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <p>
+              <button type="button" onClick={() => void onCopyReport()}>
+                Copy report
+              </button>
+            </p>
+            {manualCopy && <textarea className="report-text" readOnly rows={4} value={reportText} aria-label="Report text" />}
+          </>
+        )}
         <p className="danger-zone">
           <button type="button" className="danger" onClick={onReset}>
             Reset progress

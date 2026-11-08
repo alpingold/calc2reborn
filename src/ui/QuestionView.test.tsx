@@ -30,12 +30,16 @@ const question: Question = {
 
 const content = buildContent([], [], [])
 
-async function setup(props: Partial<QuestionViewProps> = {}, clock = { t: new Date('2026-11-06T12:00:00Z') }) {
+async function setup(
+  props: Partial<QuestionViewProps> = {},
+  clock = { t: new Date('2026-11-06T12:00:00Z') },
+  store = new MemoryStore(),
+) {
   const onChoose = vi.fn()
   const onSubmit = vi.fn()
   render(
     <MemoryRouter>
-      <StoreProvider store={new MemoryStore()} content={content} now={() => clock.t}>
+      <StoreProvider store={store} content={content} now={() => clock.t}>
         <QuestionView question={question} mode="immediate" onChoose={onChoose} onSubmit={onSubmit} {...props} />
       </StoreProvider>
     </MemoryRouter>,
@@ -143,7 +147,10 @@ test('revealed marks correct and chosen answers, shows feedback, solution, and l
   expect(correct).toHaveTextContent('gamma')
   const mine = screen.getByRole('button', { name: 'Your answer' })
   expect(mine).toHaveTextContent(/^B/)
-  for (const b of screen.getAllByRole('button')) expect(b).toBeDisabled()
+  // the choices lock; only Report a problem stays usable
+  const choiceButtons = screen.getAllByRole('button').filter((b) => b.classList.contains('choice'))
+  expect(choiceButtons).toHaveLength(5)
+  for (const b of choiceButtons) expect(b).toBeDisabled()
   expect(screen.getByRole('status')).toHaveTextContent('Not quite')
   expect(screen.getByText('Use the ratio test.')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Lesson 19' })).toHaveAttribute('href', '/course/L19')
@@ -223,4 +230,42 @@ test('the choice label and its text are separate styled parts of the button', as
   const b = screen.getByRole('button', { name: /^B\b/ })
   expect(b.querySelector('.choice-label')).toHaveTextContent('B')
   expect(b.querySelector('.choice-text')).toHaveTextContent('beta')
+})
+
+test('a revealed question offers Report a problem, which saves a report in the browser', async () => {
+  const store = new MemoryStore()
+  await setup({ chosen: 'A', revealed: true }, undefined, store)
+  await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }))
+  const form = screen.getByRole('group', { name: 'What is wrong?' })
+  expect(form).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('radio', { name: 'Wrong answer' }))
+  await userEvent.type(screen.getByLabelText('Note (optional)'), 'I get B')
+  await userEvent.click(screen.getByRole('button', { name: 'Save report' }))
+  expect(await screen.findByText(/Report saved/)).toBeInTheDocument()
+  const flags = await store.listFlags()
+  expect(flags).toHaveLength(1)
+  expect(flags[0]).toMatchObject({ questionId: 'q-test-1', reason: 'answer', note: 'I get B', timestamp: '2026-11-06T12:00:00.000Z' })
+  expect(screen.queryByRole('button', { name: 'Report a problem' })).not.toBeInTheDocument()
+})
+
+test('Save report needs a reason, and Cancel closes the form without saving', async () => {
+  const store = new MemoryStore()
+  await setup({ chosen: 'A', revealed: true }, undefined, store)
+  await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }))
+  expect(screen.getByRole('button', { name: 'Save report' })).toBeDisabled()
+  await userEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+  expect(screen.queryByRole('group', { name: 'What is wrong?' })).not.toBeInTheDocument()
+  expect(await store.listFlags()).toHaveLength(0)
+})
+
+test('Report a problem appears only once the answer is shown', async () => {
+  await setup({ chosen: 'A' })
+  expect(screen.queryByRole('button', { name: 'Report a problem' })).not.toBeInTheDocument()
+})
+
+test('typing a note does not pick a choice', async () => {
+  const { onChoose } = await setup({ chosen: 'A', revealed: true })
+  await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }))
+  await userEvent.type(screen.getByLabelText('Note (optional)'), 'abc')
+  expect(onChoose).not.toHaveBeenCalled()
 })

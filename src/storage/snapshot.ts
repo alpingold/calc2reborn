@@ -46,6 +46,17 @@ const SnapshotSchema = z.object({
     // the same bound the Settings form enforces
     dailyNewCards: z.number().int().min(0).max(100),
   }),
+  flags: z
+    .array(
+      z.object({
+        id: z.string(),
+        questionId: z.string(),
+        reason: z.enum(['answer', 'display', 'unclear']),
+        note: z.string(),
+        timestamp: iso,
+      }),
+    )
+    .optional(),
 })
 
 function formatPath(path: PropertyKey[]): string {
@@ -72,6 +83,11 @@ export function parseSnapshot(
     for (const c of r.data.cardStates) {
       if (cardIds.has(c.cardId)) return { ok: false, error: `Duplicate card state ${c.cardId}` }
       cardIds.add(c.cardId)
+    }
+    const flagIds = new Set<string>()
+    for (const f of r.data.flags ?? []) {
+      if (flagIds.has(f.id)) return { ok: false, error: `Duplicate report ${f.id}` }
+      flagIds.add(f.id)
     }
     return { ok: true, snapshot: r.data as ProgressSnapshot }
   }

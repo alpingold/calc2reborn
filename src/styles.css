@@ -1002,3 +1002,76 @@ legend {
   color: var(--danger);
   font-size: 0.9rem;
 }
+
+/* reporting a problem with a question */
+.link-button {
+  min-height: 0;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.link-button:hover:not(:disabled) {
+  color: var(--fg);
+}
+
+.report-form {
+  max-width: 32rem;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px dashed var(--rule-strong);
+  border-radius: 3px;
+}
+
+.report-form fieldset {
+  margin-bottom: 10px;
+}
+
+.report-note {
+  display: grid;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+.report-note textarea,
+.report-text {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.report-saved {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.report-list {
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.report-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+  overflow-wrap: anywhere;
+}
+
+.settings-group h4 {
+  margin: 20px 0 6px;
+}

@@ -1,7 +1,7 @@
 import Dexie from 'dexie'
 import type { PromiseExtended, Table } from 'dexie'
 import { DEFAULT_SETTINGS } from './types'
-import type { Attempt, AttemptFilter, CardState, ProgressSnapshot, ProgressStore, Settings } from './types'
+import type { Attempt, AttemptFilter, CardState, Flag, ProgressSnapshot, ProgressStore, Settings } from './types'
 import { SNAPSHOT_VERSION } from './snapshot'
 import { filterAttempts } from './filter'
 
@@ -13,6 +13,7 @@ export class DexieStore extends Dexie implements ProgressStore {
   cardStates!: Table<CardState, string>
   attempts!: Table<Attempt, string>
   settings!: Table<SettingsRow, string>
+  flags!: Table<Flag, string>
 
   constructor(dbName = 'ma16200-progress') {
     super(dbName)
@@ -21,6 +22,8 @@ export class DexieStore extends Dexie implements ProgressStore {
       attempts: 'id, questionId, timestamp, sessionId, mode',
       settings: 'key',
     })
+    // version 2 adds reported problems; existing data is untouched
+    this.version(2).stores({ flags: 'id, timestamp' })
   }
 
   // Dexie captures indexedDB when its module loads, so check the live global: when it is gone
@@ -57,6 +60,15 @@ export class DexieStore extends Dexie implements ProgressStore {
   async saveSettings(s: Settings) {
     await this.settings.put({ ...s, key: 'settings' })
   }
+  async saveFlag(f: Flag) {
+    await this.flags.put(f)
+  }
+  listFlags() {
+    return this.flags.orderBy('timestamp').toArray()
+  }
+  async deleteFlag(id: string) {
+    await this.flags.delete(id)
+  }
   async exportAll(): Promise<ProgressSnapshot> {
     return {
       version: SNAPSHOT_VERSION,
@@ -64,19 +76,21 @@ export class DexieStore extends Dexie implements ProgressStore {
       cardStates: await this.listCardStates(),
       attempts: await this.listAttempts(),
       settings: await this.getSettings(),
+      flags: await this.listFlags(),
     }
   }
   async importAll(s: ProgressSnapshot) {
-    await this.transaction('rw', this.cardStates, this.attempts, this.settings, async () => {
-      await Promise.all([this.cardStates.clear(), this.attempts.clear(), this.settings.clear()])
+    await this.transaction('rw', [this.cardStates, this.attempts, this.settings, this.flags], async () => {
+      await Promise.all([this.cardStates.clear(), this.attempts.clear(), this.settings.clear(), this.flags.clear()])
       await this.cardStates.bulkAdd(s.cardStates)
       await this.attempts.bulkAdd(s.attempts)
       await this.settings.add({ ...s.settings, key: 'settings' })
+      await this.flags.bulkAdd(s.flags ?? [])
     })
   }
   async clear() {
-    await this.transaction('rw', this.cardStates, this.attempts, this.settings, async () => {
-      await Promise.all([this.cardStates.clear(), this.attempts.clear(), this.settings.clear()])
+    await this.transaction('rw', [this.cardStates, this.attempts, this.settings, this.flags], async () => {
+      await Promise.all([this.cardStates.clear(), this.attempts.clear(), this.settings.clear(), this.flags.clear()])
     })
   }
 }

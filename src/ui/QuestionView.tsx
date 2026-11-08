@@ -5,6 +5,7 @@ import { CHOICE_LABELS } from '../content/schema'
 import type { Choice, Question } from '../content/schema'
 import { useNow } from '../storage/context'
 import { Markdown } from './Markdown'
+import { ReportProblem } from './ReportProblem'
 
 export interface QuestionViewProps {
   question: Question
@@ -126,6 +127,7 @@ export function QuestionView({
           )}
           {question.solution && <Markdown text={question.solution} />}
           {lessonTitle && lessonHref && <Link to={lessonHref}>{lessonTitle}</Link>}
+          <ReportProblem key={question.id} questionId={question.id} />
         </div>
       )}
     </article>

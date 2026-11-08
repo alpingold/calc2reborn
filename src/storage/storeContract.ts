@@ -1,9 +1,12 @@
 import { beforeEach, describe, expect, test } from 'vitest'
 import { DEFAULT_SETTINGS } from './types'
-import type { Attempt, CardState, ProgressStore, SerializedFsrsCard } from './types'
+import type { Attempt, CardState, Flag, ProgressStore, SerializedFsrsCard } from './types'
 
 function att(id: string, timestamp: string, extra: Partial<Attempt> = {}): Attempt {
   return { id, questionId: 'q1', chosen: 'A', correct: true, seconds: 30, timestamp, mode: 'practice', ...extra }
+}
+function flag(id: string, timestamp: string): Flag {
+  return { id, questionId: 'q1', reason: 'answer', note: 'B looks right to me', timestamp }
 }
 const BASE_FSRS: SerializedFsrsCard = {
   dueAt: '2026-01-02T00:00:00.000Z',
@@ -114,6 +117,30 @@ export function storeContract(name: string, make: () => Promise<ProgressStore>):
       })
       expect((await store.listAttempts()).map((x) => x.id)).toEqual(['new'])
       expect((await store.listCardStates()).map((x) => x.cardId)).toEqual(['new'])
+    })
+
+    test('flags are saved, listed oldest first, and deleted', async () => {
+      await store.saveFlag(flag('f2', '2026-01-02T00:00:00.000Z'))
+      await store.saveFlag(flag('f1', '2026-01-01T00:00:00.000Z'))
+      expect((await store.listFlags()).map((f) => f.id)).toEqual(['f1', 'f2'])
+      await store.deleteFlag('f1')
+      expect(await store.listFlags()).toEqual([flag('f2', '2026-01-02T00:00:00.000Z')])
+    })
+
+    test('flags travel with export and import, and clear removes them', async () => {
+      await store.saveFlag(flag('f1', '2026-01-01T00:00:00.000Z'))
+      const snap = await store.exportAll()
+      expect(snap.flags).toEqual([flag('f1', '2026-01-01T00:00:00.000Z')])
+      await store.clear()
+      expect(await store.listFlags()).toEqual([])
+      await store.importAll(snap)
+      expect((await store.listFlags()).map((f) => f.id)).toEqual(['f1'])
+    })
+
+    test('importing a file saved before flags existed leaves no flags', async () => {
+      await store.saveFlag(flag('old', '2026-01-01T00:00:00.000Z'))
+      await store.importAll({ version: 1, exportedAt: '2026-02-01T00:00:00.000Z', cardStates: [], attempts: [], settings: DEFAULT_SETTINGS })
+      expect(await store.listFlags()).toEqual([])
     })
   })
 }

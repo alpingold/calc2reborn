@@ -264,3 +264,29 @@ test('daily new cards is bounded and an invalid value is flagged on the field', 
   await userEvent.type(input, '12')
   expect(input).not.toHaveAttribute('aria-invalid')
 })
+
+test('reported problems are listed, copied as text, and removed', async () => {
+  const store = new MemoryStore()
+  await store.saveFlag({ id: 'f1', questionId: 'x-q1', reason: 'answer', note: 'I get B', timestamp: '2026-11-06T12:00:00.000Z' })
+  await store.saveFlag({ id: 'f2', questionId: 'x-q2', reason: 'display', note: '', timestamp: '2026-11-06T13:00:00.000Z' })
+  const writeText = vi.fn().mockResolvedValue(undefined)
+  vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText } })
+  await setup(store)
+  const list = await screen.findByRole('list', { name: 'Reported problems' })
+  expect(within(list).getAllByRole('listitem')).toHaveLength(2)
+  expect(within(list).getByText(/x-q1: Wrong answer\. I get B/)).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: 'Copy report' }))
+  expect(writeText).toHaveBeenCalledWith(
+    'MA 16200 study app: 2 reported problems\n- x-q1: Wrong answer. I get B\n- x-q2: Typo or math display.',
+  )
+  expect(await screen.findByRole('status')).toHaveTextContent('Report copied')
+  await userEvent.click(within(list).getAllByRole('button', { name: 'Remove' })[0])
+  expect(await store.listFlags()).toHaveLength(1)
+  expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+})
+
+test('with nothing reported, the list is absent', async () => {
+  await setup()
+  expect(screen.queryByRole('list', { name: 'Reported problems' })).not.toBeInTheDocument()
+  expect(screen.getByText('No reported problems.')).toBeInTheDocument()
+})

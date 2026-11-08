@@ -47,6 +47,16 @@ describe('parseSnapshot', () => {
     expect(r.ok).toBe(false)
     if (!r.ok) expect(r.error).toContain('Duplicate card state c1')
   })
+  test('accepts reported problems and rejects a repeated one', () => {
+    const f = { id: 'f1', questionId: 'q1', reason: 'display', note: '', timestamp: '2026-01-01T00:00:00.000Z' }
+    const ok = parseSnapshot({ ...valid, flags: [f] })
+    expect(ok.ok).toBe(true)
+    if (ok.ok) expect(ok.snapshot.flags).toEqual([f])
+    const dup = parseSnapshot({ ...valid, flags: [f, f] })
+    expect(dup.ok).toBe(false)
+    if (!dup.ok) expect(dup.error).toContain('Duplicate report f1')
+    expect(parseSnapshot({ ...valid, flags: [{ ...f, reason: 'spam' }] }).ok).toBe(false)
+  })
   test('rejects non-object', () => {
     expect(parseSnapshot('nope').ok).toBe(false)
     expect(parseSnapshot(null).ok).toBe(false)
