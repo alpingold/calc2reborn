@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { dailyQueue } from '../../engine/queue'
+import { examScope } from '../../engine/scope'
 import type { Rating } from '../../engine/fsrs'
 import type { ConceptCard } from '../../content/schema'
 import type { CardState } from '../../storage/types'
@@ -53,7 +54,9 @@ export function Review() {
         if (!cancelled) setError('Could not load your cards.')
         return
       }
+      const scope = examScope(settings, content.lessons, now())
       const q = dailyQueue({
+        focusLessonIds: scope.active ? scope.lessonIds : undefined,
         now: now(),
         cards: content.cards,
         states,

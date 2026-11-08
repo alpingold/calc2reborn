@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Attempt } from '../storage/types'
 import type { Question } from '../content/schema'
 import type { Mastery } from './mastery'
-import { lessonWeight, pickPracticeQuestion, type SelectArgs } from './select'
+import { lessonWeight, nextRetry, pickPracticeQuestion, type SelectArgs } from './select'
 
 function q(id: string, lessonId: string): Question {
   return { id, lessonIds: [lessonId] } as unknown as Question
@@ -61,9 +61,22 @@ describe('pickPracticeQuestion', () => {
     )
     expect(r?.id).toBe('wrong')
   })
-  it('missed yesterday does not outrank never-seen', () => {
+  it('a miss earlier today waits behind never-seen and older questions', () => {
     const m = new Map([['L1', [q('missed', 'L1'), q('new', 'L1')]]])
+    const hoursAgo = new Date(now.getTime() - 3 * 3600000).toISOString()
+    const r = pickPracticeQuestion(args({ questionsByLesson: m, attempts: [att('missed', false, hoursAgo)] }))
+    expect(r?.id).toBe('new')
+  })
+  it('a miss a day or more ago comes back before never-seen questions', () => {
+    const m = new Map([['L1', [q('new', 'L1'), q('missed', 'L1')]]])
     const r = pickPracticeQuestion(args({ questionsByLesson: m, attempts: [att('missed', false, daysAgo(1))] }))
+    expect(r?.id).toBe('missed')
+  })
+  it('a missed question answered right later is back in the normal order', () => {
+    const m = new Map([['L1', [q('new', 'L1'), q('fixed', 'L1')]]])
+    const r = pickPracticeQuestion(
+      args({ questionsByLesson: m, attempts: [att('fixed', false, daysAgo(3)), att('fixed', true, daysAgo(2))] }),
+    )
     expect(r?.id).toBe('new')
   })
   it('uses the latest attempt per question, then oldest last-seen', () => {
@@ -93,5 +106,23 @@ describe('pickPracticeQuestion', () => {
     pickPracticeQuestion(args({ questionsByLesson: new Map([['L1', list]]), attempts }))
     expect(list.map((x) => x.id)).toEqual(['a', 'b'])
     expect(attempts.map((x) => x.questionId)).toEqual(['a', 'b'])
+  })
+})
+
+describe('nextRetry', () => {
+  const pending = [
+    { questionId: 'a', after: 4 },
+    { questionId: 'b', after: 6 },
+  ]
+  it('serves a retry once three other questions have been answered', () => {
+    expect(nextRetry(pending, 3, false)).toBeNull()
+    expect(nextRetry(pending, 4, false)).toBe('a')
+    expect(nextRetry(pending, 7, false)).toBe('a')
+  })
+  it('serves the earliest retry early when nothing else is left', () => {
+    expect(nextRetry(pending, 1, true)).toBe('a')
+  })
+  it('is null with nothing pending', () => {
+    expect(nextRetry([], 9, true)).toBeNull()
   })
 })

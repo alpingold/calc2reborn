@@ -59,8 +59,9 @@ export function QuestionView({
       if (isFormField(e.target) || revealed) return
       if (e.ctrlKey || e.metaKey || e.altKey) return
       if (e.key === 'Enter') {
-        // a focused link keeps its own Enter behavior
-        if ((e.target as HTMLElement | null)?.tagName === 'A') return
+        // a focused link, or a control marked data-own-enter, keeps its own Enter behavior
+        const target = e.target as HTMLElement | null
+        if (target?.tagName === 'A' || target?.closest?.('[data-own-enter]')) return
         if (mode === 'immediate' && chosen) {
           // keep a focused button from also activating on this Enter
           e.preventDefault()

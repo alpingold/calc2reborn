@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { act, render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { Link, MemoryRouter } from 'react-router'
+import { Link, MemoryRouter, useLocation } from 'react-router'
 import type { ReactNode } from 'react'
 import { Practice } from './Practice'
 import { StoreProvider } from '../../storage/context'
@@ -37,26 +37,44 @@ const seedExam: Exam = {
   questions: [q(1, 'Stem one', 'C'), q(2, 'Stem two', 'A'), q(3, 'Stem three', 'E')],
 }
 const STEMS = ['Stem one', 'Stem two', 'Stem three']
+const RIGHT: Record<string, string> = { 'Stem one': 'c', 'Stem two': 'a', 'Stem three': 'e' }
+const RANGE = '/practice?from=L19&to=L19'
 
 const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam])
 
-async function setup(opts: { url?: string; store?: MemoryStore; extra?: ReactNode } = {}) {
+function Where() {
+  const l = useLocation()
+  return <p>{`at:${l.pathname}${l.search}`}</p>
+}
+
+async function setup(
+  opts: { url?: string; store?: MemoryStore; extra?: ReactNode; settings?: Partial<typeof DEFAULT_SETTINGS>; wait?: string } = {},
+) {
   const store = opts.store ?? new MemoryStore()
-  await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19' })
+  await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', ...opts.settings })
   const scheduler = await createScheduler()
   const st = scheduler.newState('L19-c01', new Date('2026-11-01T00:00:00Z'))
   await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: TOMORROW } })
   const clock = { t: NOW }
   render(
-    <MemoryRouter initialEntries={[opts.url ?? '/practice']}>
+    <MemoryRouter initialEntries={[opts.url ?? RANGE]}>
       <StoreProvider store={store} scheduler={scheduler} content={content} rng={() => 0} now={() => clock.t}>
         <Practice />
         {opts.extra}
       </StoreProvider>
     </MemoryRouter>,
   )
-  await screen.findByText('Stem one')
+  await screen.findByText(opts.wait ?? 'Stem one')
   return { store, clock }
+}
+
+function currentStem(): string {
+  return STEMS.find((s) => screen.queryByText(s))!
+}
+
+async function answer(key: string) {
+  await userEvent.keyboard(`${key}{Enter}`)
+  await screen.findByRole('status')
 }
 
 test('answering wrong logs a practice attempt and pulls the L19 card forward to now', async () => {
@@ -104,11 +122,10 @@ test('no question repeats within a session; then shows No more questions in rang
   await setup()
   const seen: string[] = []
   for (let i = 0; i < 3; i++) {
-    const stem = STEMS.find((s) => screen.queryByText(s))!
+    const stem = currentStem()
     expect(stem).toBeDefined()
     seen.push(stem)
-    await userEvent.keyboard('a{Enter}')
-    await screen.findByRole('status')
+    await answer(RIGHT[stem])
     if (i < 2) {
       await userEvent.click(screen.getByRole('button', { name: 'Next' }))
       await screen.findByRole('button', { name: 'Submit' })
@@ -118,6 +135,8 @@ test('no question repeats within a session; then shows No more questions in rang
   }
   expect(new Set(seen).size).toBe(3)
   expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
+  expect(screen.getByText('Correct 3 of 3')).toBeInTheDocument()
+  expect(screen.getByText('No misses this session.')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Back to dashboard' })).toHaveAttribute('href', '/')
 })
 
@@ -140,17 +159,23 @@ test('?lesson=L19 logs mode lesson', async () => {
   expect(attempts[0].mode).toBe('lesson')
 })
 
-test('Stop links to the dashboard', async () => {
+test('Stop ends the session with a summary', async () => {
   await setup()
-  expect(screen.getByRole('link', { name: 'Stop' })).toHaveAttribute('href', '/')
+  await answer('a')
+  await userEvent.click(screen.getByRole('button', { name: 'Stop' }))
+  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'Lessons to revisit' })).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Lesson 19: Topic 19' })).toHaveAttribute('href', '/course/L19')
+  expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
 })
 
-test('Enter on the focused Stop link does not submit', async () => {
+test('Enter on the focused Stop button does not submit', async () => {
   const { store } = await setup()
   await userEvent.keyboard('a')
-  screen.getByRole('link', { name: 'Stop' }).focus()
+  const stop = screen.getByRole('button', { name: 'Stop' })
+  stop.focus()
   await act(async () => {
-    screen.getByRole('link', { name: 'Stop' }).dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }))
+    stop.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }))
   })
   expect(screen.queryByRole('status')).not.toBeInTheDocument()
   expect(await store.listAttempts()).toHaveLength(0)
@@ -190,18 +215,107 @@ test('save failure shows an alert and allows retry', async () => {
   expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
 })
 
-test('changing the lesson param starts a fresh session', async () => {
-  await setup({ url: '/practice?lesson=L19', extra: <Link to="/practice">All lessons</Link> })
+test('changing the scope in the address starts a fresh session', async () => {
+  await setup({ url: '/practice?lesson=L19', extra: <Link to={RANGE}>All lessons</Link> })
   for (let i = 0; i < 3; i++) {
-    await userEvent.keyboard('a{Enter}')
-    await screen.findByRole('status')
+    await answer(RIGHT[currentStem()])
     await userEvent.keyboard('{Enter}')
     if (i < 2) await screen.findByRole('button', { name: 'Submit' })
   }
   expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
-  expect(screen.getByText('Correct 1 of 3')).toBeInTheDocument()
+  expect(screen.getByText('Correct 3 of 3')).toBeInTheDocument()
   await userEvent.click(screen.getByRole('link', { name: 'All lessons' }))
   expect(await screen.findByText('Stem one')).toBeInTheDocument()
   expect(screen.getByText('Correct 0 of 0')).toBeInTheDocument()
   expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
+})
+
+test('a missed question comes back once the others run out, marked as a second try', async () => {
+  const { store } = await setup()
+  await answer('a') // Stem one, wrong
+  for (let i = 0; i < 2; i++) {
+    await userEvent.keyboard('{Enter}')
+    await screen.findByRole('button', { name: 'Submit' })
+    await answer(RIGHT[currentStem()])
+  }
+  await userEvent.keyboard('{Enter}')
+  expect(await screen.findByText('Stem one')).toBeInTheDocument()
+  expect(screen.getByText(/Second try/)).toBeInTheDocument()
+  await answer('c')
+  expect(screen.getByRole('status')).toHaveTextContent('Correct')
+  await userEvent.keyboard('{Enter}')
+  expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
+  expect(screen.getByText('Correct 3 of 4')).toBeInTheDocument()
+  const attempts = await store.listAttempts()
+  expect(attempts.filter((a) => a.questionId === 't-q1').map((a) => a.correct)).toEqual([false, true])
+})
+
+test('a question missed twice in a session is not retried again', async () => {
+  await setup()
+  await answer('a') // Stem one, wrong
+  for (let i = 0; i < 2; i++) {
+    await userEvent.keyboard('{Enter}')
+    await screen.findByRole('button', { name: 'Submit' })
+    await answer(RIGHT[currentStem()])
+  }
+  await userEvent.keyboard('{Enter}')
+  await screen.findByText(/Second try/)
+  await answer('a')
+  await userEvent.keyboard('{Enter}')
+  expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
+  expect(screen.getByText('Correct 2 of 4')).toBeInTheDocument()
+})
+
+test('a session with a length ends there with a summary, and Practice again starts over', async () => {
+  await setup({ url: '/practice?from=L19&to=L19&n=2' })
+  expect(screen.getByText('Question 1 of 2')).toBeInTheDocument()
+  await answer('a')
+  await userEvent.keyboard('{Enter}')
+  await screen.findByText('Question 2 of 2')
+  await answer(RIGHT[currentStem()])
+  await userEvent.keyboard('{Enter}')
+  expect(await screen.findByText('Correct 1 of 2')).toBeInTheDocument()
+  expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Lesson 19: Topic 19' })).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('link', { name: 'Practice again' }))
+  expect(await screen.findByText('Correct 0 of 0')).toBeInTheDocument()
+  expect(screen.getByText('Question 1 of 2')).toBeInTheDocument()
+})
+
+test('the setup screen defaults to everything so far and 20 questions', async () => {
+  await setup({ url: '/practice', wait: 'Start', extra: <Where /> })
+  expect(screen.queryByRole('radio', { name: /Exam lessons/ })).not.toBeInTheDocument()
+  expect(screen.getByRole('radio', { name: 'Everything so far (L1 to L19)' })).toBeChecked()
+  expect(screen.getByRole('radio', { name: '20 questions' })).toBeChecked()
+  await userEvent.click(screen.getByRole('button', { name: 'Start' }))
+  expect(await screen.findByText('at:/practice?from=L1&to=L19&n=20')).toBeInTheDocument()
+  expect(await screen.findByText('Question 1 of 20')).toBeInTheDocument()
+})
+
+test('the setup screen defaults to the exam lessons while an exam is ahead', async () => {
+  await setup({
+    url: '/practice',
+    wait: 'Start',
+    extra: <Where />,
+    settings: { examDate: '2026-11-09', examLessonIds: ['L19', 'L20'] },
+  })
+  expect(screen.getByRole('radio', { name: 'Exam lessons (L19 to L20)' })).toBeChecked()
+  await userEvent.click(screen.getByRole('radio', { name: 'No limit' }))
+  await userEvent.click(screen.getByRole('button', { name: 'Start' }))
+  expect(await screen.findByText('at:/practice?from=L19&to=L20')).toBeInTheDocument()
+})
+
+test('the setup screen ignores an exam whose date has passed', async () => {
+  await setup({ url: '/practice', wait: 'Start', settings: { examDate: '2026-11-01', examLessonIds: ['L19'] } })
+  expect(screen.queryByRole('radio', { name: /Exam lessons/ })).not.toBeInTheDocument()
+})
+
+test('Choose a range picks the lessons', async () => {
+  await setup({ url: '/practice', wait: 'Start', extra: <Where /> })
+  await userEvent.click(screen.getByRole('radio', { name: 'Choose a range' }))
+  await userEvent.selectOptions(screen.getByLabelText('From'), 'L19')
+  await userEvent.selectOptions(screen.getByLabelText('To'), 'L21')
+  await userEvent.click(screen.getByRole('radio', { name: '10 questions' }))
+  await userEvent.click(screen.getByRole('button', { name: 'Start' }))
+  expect(await screen.findByText('at:/practice?from=L19&to=L21&n=10')).toBeInTheDocument()
 })

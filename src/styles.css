@@ -901,3 +901,99 @@ input[type='checkbox'] {
 .results-list > li {
   margin-bottom: 1.5rem;
 }
+
+/* lesson ranges and the practice setup */
+fieldset {
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 6px;
+  padding: 0;
+  font-weight: 700;
+}
+
+.lesson-range {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.lesson-range legend {
+  float: left;
+  width: 100%;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.lesson-range label {
+  flex: 1 1 14rem;
+}
+
+.lesson-range .panel-hint {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.practice-setup {
+  max-width: 36rem;
+}
+
+.practice-setup .panel-hint {
+  margin-top: 0;
+}
+
+.choice-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  cursor: pointer;
+}
+
+.choice-row input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.range-pickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 6px 0 0 28px;
+}
+
+.range-pickers label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  flex: 1 1 12rem;
+  gap: 4px;
+  min-width: 0;
+  font-size: 0.9rem;
+}
+
+.range-pickers select {
+  width: 100%;
+}
+
+.practice-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  color: var(--muted);
+}
+
+.practice-status p {
+  margin: 0 0 8px;
+}
+
+.practice-summary .practice-score {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+}

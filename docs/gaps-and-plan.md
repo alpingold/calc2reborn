@@ -69,7 +69,7 @@ None of these has been seen to cause a problem. They are edge cases the task rev
 
 The order is by value to you while studying, then by risk. Each phase gets its own short design for your approval before any code, following the same process as the feedback-mode change. Phases 1 to 3 are small enough to agree in chat; phases 5 and 6 each need a written spec.
 
-### Phase 1: exam focus (items 1.1 to 1.5, 2.1)
+### Phase 1: exam focus (items 1.1 to 1.5, 2.1). Done on 2026-11-07
 1. Turn "Lessons on the exam" into a From/To range in Settings (1.1).
 2. Add the scope picker and optional session length to Practice, defaulting to the exam lessons when an exam date is set (1.3, 1.4).
 3. Use the exam range as the default for the mock-exam form, and put exam-lesson cards first in Review (1.2).

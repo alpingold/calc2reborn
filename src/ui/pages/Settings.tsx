@@ -3,6 +3,7 @@ import type { ChangeEvent, FormEvent } from 'react'
 import { useContent, useSettings, useStore } from '../../storage/context'
 import { parseSnapshot } from '../../storage/snapshot'
 import { DEFAULT_SETTINGS } from '../../storage/types'
+import { lessonRange, rangeEnds } from '../../engine/scope'
 
 const DAILY_ERROR = 'Enter a number from 0 to 100'
 
@@ -15,7 +16,9 @@ export function Settings() {
   const [currentLessonId, setCurrentLessonId] = useState(settings.currentLessonId ?? '')
   const [daily, setDaily] = useState(String(settings.dailyNewCards))
   const [examDate, setExamDate] = useState(settings.examDate ?? '')
-  const [examLessonIds, setExamLessonIds] = useState<string[]>(settings.examLessonIds)
+  const ends = (ids: string[]) => rangeEnds(content.lessons, ids)
+  const [examFrom, setExamFrom] = useState(ends(settings.examLessonIds)?.from ?? '')
+  const [examTo, setExamTo] = useState(ends(settings.examLessonIds)?.to ?? '')
   const [error, setError] = useState<string | null>(null)
   const [status, setStatus] = useState<string | null>(null)
 
@@ -23,8 +26,16 @@ export function Settings() {
     setCurrentLessonId(settings.currentLessonId ?? '')
     setDaily(String(settings.dailyNewCards))
     setExamDate(settings.examDate ?? '')
-    setExamLessonIds(settings.examLessonIds)
-  }, [settings])
+    setExamFrom(rangeEnds(content.lessons, settings.examLessonIds)?.from ?? '')
+    setExamTo(rangeEnds(content.lessons, settings.examLessonIds)?.to ?? '')
+  }, [settings, content.lessons])
+
+  function onExamFrom(id: string) {
+    setExamFrom(id)
+    // a new start fills an empty end, so one choice is already a valid range
+    if (id !== '' && examTo === '') setExamTo(id)
+    if (id === '') setExamTo('')
+  }
 
   async function onSave(e: FormEvent) {
     e.preventDefault()
@@ -39,7 +50,7 @@ export function Settings() {
       await save({
         currentLessonId: currentLessonId === '' ? null : currentLessonId,
         examDate: examDate === '' ? null : examDate,
-        examLessonIds,
+        examLessonIds: examFrom && examTo ? lessonRange(content.lessons, examFrom, examTo) : [],
         dailyNewCards: n,
       })
     } catch {
@@ -146,14 +157,12 @@ export function Settings() {
             <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} />
           </label>
         </p>
-        <p>
+        <fieldset className="lesson-range">
+          <legend>Lessons on the exam</legend>
           <label>
-            Lessons on the exam
-            <select
-              multiple
-              value={examLessonIds}
-              onChange={(e) => setExamLessonIds(Array.from(e.target.selectedOptions, (o) => o.value))}
-            >
+            From
+            <select value={examFrom} onChange={(e) => onExamFrom(e.target.value)}>
+              <option value="">No specific exam</option>
               {lessons.map((l) => (
                 <option key={l.id} value={l.id}>
                   {`${l.id}: ${l.title}`}
@@ -161,7 +170,20 @@ export function Settings() {
               ))}
             </select>
           </label>
-        </p>
+          {examFrom !== '' && (
+            <label>
+              To
+              <select value={examTo} onChange={(e) => setExamTo(e.target.value)}>
+                {lessons.map((l) => (
+                  <option key={l.id} value={l.id}>
+                    {`${l.id}: ${l.title}`}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+          <p className="panel-hint">Practice, Review and the mock-exam form focus on these lessons until the exam date passes.</p>
+        </fieldset>
         <button type="submit" className="primary">
           Save
         </button>

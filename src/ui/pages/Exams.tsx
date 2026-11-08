@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import type { Exam } from '../../content/schema'
 import { useContent, useNow, useSettings, useStore } from '../../storage/context'
 import { examLabel, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
+import { examScope } from '../../engine/scope'
 import type { ResumeState } from '../examSession'
 
 function bestByExam(attempts: { examId?: string; sessionId?: string; correct: boolean }[]): Map<string, number> {
@@ -30,9 +31,12 @@ export function Exams() {
   const planned = useMemo(() => content.lessons.filter((l) => !l.isReview), [content.lessons])
   const current = settings.currentLessonId ? content.lessonById.get(settings.currentLessonId) : undefined
   const defaultTo = current && !current.isReview ? current.id : (planned[planned.length - 1]?.id ?? '')
-  const [from, setFrom] = useState(planned[0]?.id ?? '')
-  const [to, setTo] = useState(defaultTo)
-  const [best, setBest] = useState<Map<string, number> | null>(null)
+  // the mock range starts on the exam's lessons while an exam is ahead
+  const scope = examScope(settings, content.lessons, now())
+  const [from, setFrom] = useState(scope.active ? scope.lessonIds[0] : (planned[0]?.id ?? ''))
+  const [to, setTo] = useState(scope.active ? scope.lessonIds[scope.lessonIds.length - 1] : defaultTo)
+  // best correct counts from timed attempts, and from attempts taken with feedback
+  const [best, setBest] = useState<{ timed: Map<string, number>; feedback: Map<string, number> } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -40,7 +44,12 @@ export function Exams() {
     ;(async () => {
       try {
         const attempts = await store.listAttempts({ mode: 'exam' })
-        if (!cancelled) setBest(bestByExam(attempts))
+        if (!cancelled) {
+          setBest({
+            timed: bestByExam(attempts.filter((a) => !a.feedback)),
+            feedback: bestByExam(attempts.filter((a) => a.feedback)),
+          })
+        }
       } catch {
         if (!cancelled) setError('Could not load your exam history.')
       }
@@ -68,8 +77,11 @@ export function Exams() {
 
   function bestLine(exam: Exam): string {
     if (!best) return ''
-    const n = best.get(exam.id)
-    return n === undefined ? 'Not taken' : `Best: ${n}/${exam.questions.length}`
+    const timed = best.timed.get(exam.id)
+    if (timed !== undefined) return `Best: ${timed}/${exam.questions.length}`
+    const withFeedback = best.feedback.get(exam.id)
+    if (withFeedback !== undefined) return `Best with feedback: ${withFeedback}/${exam.questions.length}`
+    return 'Not taken'
   }
 
   return (

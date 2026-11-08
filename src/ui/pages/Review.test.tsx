@@ -18,9 +18,9 @@ const cards: ConceptCard[] = [
   { id: 'L19-c02', lessonId: 'L19', front: 'Front two', back: 'Back two' },
 ]
 
-async function setup(opts: { cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void> } = {}) {
+async function setup(opts: { cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void>; settings?: Partial<typeof DEFAULT_SETTINGS> } = {}) {
   const store = opts.store ?? new MemoryStore()
-  await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', dailyNewCards: 10 })
+  await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', dailyNewCards: 10, ...opts.settings })
   const scheduler = await createScheduler()
   await opts.seed?.(store, scheduler)
   const clock = opts.clock ?? { t: new Date('2026-11-06T12:00:00Z') }
@@ -155,4 +155,22 @@ test('a failing card load shows an alert instead of an empty page', async () => 
   await setup({ store })
   expect(await screen.findByRole('alert')).toHaveTextContent('Could not load your cards.')
   expect(screen.getByRole('heading', { name: 'Review' })).toBeInTheDocument()
+})
+
+test('while an exam is ahead, new cards from exam lessons come first', async () => {
+  const mixed: ConceptCard[] = [
+    { id: 'L18-c01', lessonId: 'L18', front: 'Earlier lesson', back: 'b' },
+    { id: 'L19-c01', lessonId: 'L19', front: 'Exam lesson', back: 'b' },
+  ]
+  await setup({ cards: mixed, settings: { examDate: '2026-11-09', examLessonIds: ['L19'] } })
+  expect(await screen.findByText('Exam lesson')).toBeInTheDocument()
+})
+
+test('after the exam date, cards return to course order', async () => {
+  const mixed: ConceptCard[] = [
+    { id: 'L18-c01', lessonId: 'L18', front: 'Earlier lesson', back: 'b' },
+    { id: 'L19-c01', lessonId: 'L19', front: 'Exam lesson', back: 'b' },
+  ]
+  await setup({ cards: mixed, settings: { examDate: '2026-11-01', examLessonIds: ['L19'] } })
+  expect(await screen.findByText('Earlier lesson')).toBeInTheDocument()
 })

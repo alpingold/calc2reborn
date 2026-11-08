@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { Settings } from './Settings'
 import { StoreProvider } from '../../storage/context'
@@ -62,15 +62,40 @@ test('daily new cards persists and invalid values are rejected', async () => {
   expect((await store.getSettings()).dailyNewCards).toBe(15)
 })
 
-test('exam date and exam lessons persist', async () => {
+test('exam date and an exam lesson range persist', async () => {
   const store = await setup()
   await userEvent.type(screen.getByLabelText('Exam date'), '2026-12-10')
-  await userEvent.selectOptions(screen.getByLabelText('Lessons on the exam'), ['L1', 'L2'])
+  const exam = screen.getByRole('group', { name: 'Lessons on the exam' })
+  expect(within(exam).queryByLabelText('To')).not.toBeInTheDocument()
+  await userEvent.selectOptions(within(exam).getByLabelText('From'), 'L19')
+  // picking a start fills the end with the same lesson
+  expect(within(exam).getByLabelText('To')).toHaveValue('L19')
+  await userEvent.selectOptions(within(exam).getByLabelText('To'), 'L21')
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))
   expect(await screen.findByRole('status')).toHaveTextContent('Saved')
   const s = await store.getSettings()
   expect(s.examDate).toBe('2026-12-10')
-  expect(s.examLessonIds).toEqual(['L1', 'L2'])
+  expect(s.examLessonIds).toEqual(['L19', 'L20', 'L21'])
+})
+
+test('No specific exam clears the exam lessons', async () => {
+  const store = new MemoryStore()
+  await store.saveSettings({ ...DEFAULT_SETTINGS, examLessonIds: ['L19', 'L20'] })
+  await setup(store)
+  const exam = screen.getByRole('group', { name: 'Lessons on the exam' })
+  await userEvent.selectOptions(within(exam).getByLabelText('From'), '')
+  await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+  expect(await screen.findByRole('status')).toHaveTextContent('Saved')
+  expect((await store.getSettings()).examLessonIds).toEqual([])
+})
+
+test('lessons saved by the old list show as the span from lowest to highest', async () => {
+  const store = new MemoryStore()
+  await store.saveSettings({ ...DEFAULT_SETTINGS, examLessonIds: ['L23', 'L19'] })
+  await setup(store)
+  const exam = screen.getByRole('group', { name: 'Lessons on the exam' })
+  expect(within(exam).getByLabelText('From')).toHaveValue('L19')
+  expect(within(exam).getByLabelText('To')).toHaveValue('L23')
 })
 
 test('Export progress downloads a version 1 snapshot', async () => {

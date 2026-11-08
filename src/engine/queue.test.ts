@@ -56,6 +56,17 @@ describe('dailyQueue', () => {
     ]
     expect(dailyQueue(args({ states })).due.map((s) => s.cardId)).toEqual(['b', 'a'])
   })
+  it('with a focus, due cards from focus lessons come first, each group by due date', () => {
+    const states = [
+      state('a', '2026-01-05T00:00:00.000Z'),
+      state('d', '2026-01-09T00:00:00.000Z'),
+      state('b', '2026-01-07T00:00:00.000Z'),
+    ]
+    expect(dailyQueue(args({ states, focusLessonIds: ['L2'] })).due.map((s) => s.cardId)).toEqual(['d', 'a', 'b'])
+  })
+  it('with a focus, new cards from focus lessons are introduced first', () => {
+    expect(dailyQueue(args({ focusLessonIds: ['L2'] })).fresh.map((c) => c.id)).toEqual(['d', 'a'])
+  })
   it('fresh respects cap and covered range', () => {
     expect(dailyQueue(args()).fresh.map((c) => c.id)).toEqual(['a', 'b'])
     const all = dailyQueue(args({ settings: { ...settings(10), currentLessonId: 'L2' } })).fresh.map((c) => c.id)

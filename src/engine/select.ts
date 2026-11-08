@@ -2,7 +2,10 @@ import type { Attempt } from '../storage/types'
 import type { Question } from '../content/schema'
 import { isWeak, type Mastery } from './mastery'
 
-export const MISSED_RECENCY_DAYS = 7
+// a missed question becomes a priority again this many days after the miss
+export const MISS_RETURN_DAYS = 1
+// a question missed in a practice session comes back after this many other answers
+export const RETRY_AFTER = 3
 const DAY_MS = 86400000
 
 export interface SelectArgs {
@@ -51,12 +54,13 @@ export function pickPracticeQuestion(args: SelectArgs): Question | null {
   }
 
   const last = lastAttempts(args.attempts)
-  const cutoff = now.getTime() - MISSED_RECENCY_DAYS * DAY_MS
+  const cutoff = now.getTime() - MISS_RETURN_DAYS * DAY_MS
+  // tier 0: last answer wrong, at least a day ago; tier 1: never answered; tier 2: the rest, oldest first
   const ranked = available(lessonId).map((question) => {
     const a = last.get(question.id)
     let tier = 2
-    if (!a) tier = 0
-    else if (!a.correct && new Date(a.timestamp).getTime() < cutoff) tier = 1
+    if (!a) tier = 1
+    else if (!a.correct && new Date(a.timestamp).getTime() <= cutoff) tier = 0
     return { question, tier, ts: a?.timestamp ?? '', key: rng() }
   })
   ranked.sort((x, y) => {
@@ -65,4 +69,20 @@ export function pickPracticeQuestion(args: SelectArgs): Question | null {
     return x.key - y.key
   })
   return ranked[0].question
+}
+
+export interface PendingRetry {
+  questionId: string
+  /** the number of answers in the session after which it may be served */
+  after: number
+}
+
+/**
+ * The missed question to serve next, if any: the earliest one whose turn has come, or the earliest
+ * one at all when nothing else is left to serve.
+ */
+export function nextRetry(pending: PendingRetry[], answered: number, exhausted: boolean): string | null {
+  if (pending.length === 0) return null
+  const first = pending.reduce((a, b) => (b.after < a.after ? b : a))
+  return first.after <= answered || exhausted ? first.questionId : null
 }

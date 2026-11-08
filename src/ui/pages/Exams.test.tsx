@@ -59,8 +59,8 @@ afterEach(() => {
   sessionStorage.clear()
 })
 
-async function setup(store = new MemoryStore()) {
-  await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L26' })
+async function setup(store = new MemoryStore(), settings: Partial<typeof DEFAULT_SETTINGS> = {}) {
+  await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L26', ...settings })
   render(
     <MemoryRouter initialEntries={['/exams']}>
       <StoreProvider store={store} scheduler={await createScheduler()} content={content}>
@@ -161,4 +161,24 @@ test('a feedback session in progress is never described as out of time', async (
   await setup()
   const resume = screen.getByRole('link', { name: 'Resume' })
   expect(resume.closest('p')).toHaveTextContent('In progress: Fall 2025 Exam 1 with feedback, 0 of 2 answered.')
+})
+
+test('best scores: timed attempts first, feedback-only exams labelled', async () => {
+  const store = new MemoryStore()
+  // f2025-e1: a timed run with 5 right and a feedback run with 11 right
+  for (let n = 1; n <= 12; n++) await store.logAttempt(attempt('t', 'f2025-e1', n, n <= 5))
+  for (let n = 1; n <= 12; n++) await store.logAttempt({ ...attempt('f', 'f2025-e1', n, n <= 11), feedback: true })
+  // f2025-final: only a feedback run
+  for (let n = 1; n <= 3; n++) await store.logAttempt({ ...attempt('g', 'f2025-final', n, true), feedback: true })
+  await setup(store)
+  const e1 = screen.getByRole('link', { name: 'Exam 1' })
+  expect(await within(e1.closest('li')!).findByText('Best: 5/12')).toBeInTheDocument()
+  const final = screen.getByRole('link', { name: 'Final' })
+  expect(within(final.closest('li')!).getByText('Best with feedback: 3/20')).toBeInTheDocument()
+})
+
+test('the mock form defaults to the exam lessons while an exam is ahead', async () => {
+  await setup(new MemoryStore(), { examDate: '2099-01-01', examLessonIds: ['L21', 'L22', 'L23'] })
+  expect(screen.getByRole('combobox', { name: 'From' })).toHaveValue('L21')
+  expect(screen.getByRole('combobox', { name: 'To' })).toHaveValue('L23')
 })

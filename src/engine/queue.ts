@@ -26,11 +26,20 @@ export function dailyQueue(args: {
   lessons: Lesson[]
   settings: Settings
   isDue: (s: CardState, now: Date) => boolean
+  /** lessons to serve first, such as the lessons on an upcoming exam */
+  focusLessonIds?: string[]
 }): DailyQueue {
   const { now, cards, states, lessons, settings, isDue } = args
+  const focus = new Set(args.focusLessonIds ?? [])
+  const lessonOfCard = new Map(cards.map((c) => [c.id, c.lessonId]))
+  const unfocused = (lessonId: string | undefined) => (lessonId !== undefined && focus.has(lessonId) ? 0 : 1)
   const due = states
     .filter((s) => isDue(s, now))
-    .sort((a, b) => new Date(a.fsrs.dueAt).getTime() - new Date(b.fsrs.dueAt).getTime())
+    .sort(
+      (a, b) =>
+        unfocused(lessonOfCard.get(a.cardId)) - unfocused(lessonOfCard.get(b.cardId)) ||
+        new Date(a.fsrs.dueAt).getTime() - new Date(b.fsrs.dueAt).getTime(),
+    )
 
   const introducedToday = states.filter((s) => isSameLocalDay(new Date(s.introducedAt), now)).length
   const remaining = Math.max(0, settings.dailyNewCards - introducedToday)
@@ -42,7 +51,12 @@ export function dailyQueue(args: {
   const fresh = cards
     .map((c, i) => ({ c, i }))
     .filter(({ c }) => coveredSet.has(c.lessonId) && !haveState.has(c.id))
-    .sort((x, y) => numberById.get(x.c.lessonId)! - numberById.get(y.c.lessonId)! || x.i - y.i)
+    .sort(
+      (x, y) =>
+        unfocused(x.c.lessonId) - unfocused(y.c.lessonId) ||
+        numberById.get(x.c.lessonId)! - numberById.get(y.c.lessonId)! ||
+        x.i - y.i,
+    )
     .slice(0, remaining)
     .map(({ c }) => c)
   return { due, fresh }
