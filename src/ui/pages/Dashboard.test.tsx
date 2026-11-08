@@ -104,3 +104,20 @@ test('exam block lists weakest covered lessons, untested first', async () => {
   expect(screen.getByRole('link', { name: 'L19 Topic 19, untested' })).toHaveAttribute('href', '/course/L19')
   expect(screen.getByRole('link', { name: 'L20 Topic 20, 51%' })).toHaveTextContent(/^L20/)
 })
+
+test('a load error clears once progress loads after a settings change', async () => {
+  let fail = true
+  await setup({}, async (s) => {
+    const real = s.listAttempts.bind(s)
+    s.listAttempts = async (f) => {
+      if (fail) throw new Error('boom')
+      return real(f)
+    }
+  })
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not load your progress.')
+  fail = false
+  await userEvent.selectOptions(screen.getByLabelText('Current lesson'), 'L20')
+  await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+  await screen.findByText(/due today/)
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})

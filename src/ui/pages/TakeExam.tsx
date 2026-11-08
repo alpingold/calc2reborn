@@ -14,6 +14,7 @@ import {
   loadSession,
   matchesRequest,
   remainingSeconds,
+  rememberMockQuestions,
   saveSession,
   sessionTitle,
   sessionUrl,
@@ -302,7 +303,9 @@ function ExamSessionView({
         return
       }
       clearSession()
-      navigate('/results/' + s.sessionId, { state: { session: s } })
+      if (s.kind === 'mock') rememberMockQuestions(s.sessionId, s.questionIds)
+      // replace: Back from the results should not land on the finished exam
+      navigate('/results/' + s.sessionId, { state: { session: s }, replace: true })
     },
     [now, content, store, navigate],
   )
@@ -319,7 +322,8 @@ function ExamSessionView({
   const choose = useCallback(
     (label: Choice['label']) => {
       const s = sessionRef.current
-      if (!s || locked) return
+      // pending is read from the ref: a submit in progress has not re-rendered yet
+      if (!s || locked || pending.current !== null) return
       const id = s.questionIds[s.current ?? 0]
       if (s.checked?.includes(id)) return
       commit({ ...s, answers: { ...s.answers, [id]: label } })
@@ -328,13 +332,16 @@ function ExamSessionView({
   )
 
   // feedback mode: reveal the current question's answer and lock it
-  const check = useCallback(() => {
-    const s = sessionRef.current
-    if (!s || locked) return
-    const id = s.questionIds[s.current ?? 0]
-    if (!s.answers[id] || s.checked?.includes(id)) return
-    commit({ ...s, checked: [...(s.checked ?? []), id] })
-  }, [commit, locked])
+  const check = useCallback(
+    (_label: Choice['label'], seconds: number) => {
+      const s = sessionRef.current
+      if (!s || locked || pending.current !== null) return
+      const id = s.questionIds[s.current ?? 0]
+      if (!s.answers[id] || s.checked?.includes(id)) return
+      commit({ ...s, checked: [...(s.checked ?? []), id], seconds: { ...s.seconds, [id]: seconds } })
+    },
+    [commit, locked],
+  )
 
   const goTo = useCallback(
     (index: number) => {

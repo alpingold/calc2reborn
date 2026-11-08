@@ -36,11 +36,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "pnpm typecheck && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
     "content:manifest": "tsx scripts/exam-manifest.ts",
     "content:fetch": "tsx scripts/fetch-exams.ts",
     "content:render": "tsx scripts/render-pages.ts",

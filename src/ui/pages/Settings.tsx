@@ -20,6 +20,8 @@ export function Settings() {
   const [examFrom, setExamFrom] = useState(ends(settings.examLessonIds)?.from ?? '')
   const [examTo, setExamTo] = useState(ends(settings.examLessonIds)?.to ?? '')
   const [error, setError] = useState<string | null>(null)
+  // the daily-cards value failed the last save; cleared as soon as it is edited
+  const [dailyInvalid, setDailyInvalid] = useState(false)
   const [status, setStatus] = useState<string | null>(null)
 
   useEffect(() => {
@@ -43,6 +45,7 @@ export function Settings() {
     const n = Number(daily)
     if (daily.trim() === '' || !Number.isInteger(n) || n < 0 || n > 100) {
       setError(DAILY_ERROR)
+      setDailyInvalid(true)
       return
     }
     setError(null)
@@ -130,7 +133,7 @@ export function Settings() {
   return (
     <section className="settings">
       <h2>Settings</h2>
-      <form className="settings-group" onSubmit={onSave}>
+      <form className="settings-group" onSubmit={onSave} noValidate>
         <h3>Study plan</h3>
         <p>
           <label>
@@ -148,7 +151,24 @@ export function Settings() {
         <p>
           <label>
             Daily new cards
-            <input type="number" value={daily} onChange={(e) => setDaily(e.target.value)} />
+            <input
+              type="number"
+              min={0}
+              max={100}
+              step={1}
+              value={daily}
+              aria-invalid={dailyInvalid || undefined}
+              aria-describedby={dailyInvalid ? 'daily-error' : undefined}
+              onChange={(e) => {
+                setDaily(e.target.value)
+                setDailyInvalid(false)
+              }}
+            />
+            {dailyInvalid && (
+              <span id="daily-error" className="field-error">
+                {DAILY_ERROR}
+              </span>
+            )}
           </label>
         </p>
         <p>

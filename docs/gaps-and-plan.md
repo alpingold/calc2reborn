@@ -31,7 +31,7 @@ Most of the gaps that matter day to day are here. The app knows the exam date an
 |---|-----|--------------|-----|------|
 | 3.1 | Exam topics Dr. Chen's lessons don't teach: parametric curves (s2019-e3 Q10–12), conics (s2019-final Q24), complex numbers (s2019-final Q25), Midpoint Rule (s2016-e2 Q7) | They are tagged to the nearest lesson (L34, L2, L33, L5), so a miss there marks that lesson as weak | Add an "Other topics" group with its own tags that is excluded from lesson mastery and the mastery grid, still practicable on its own | M |
 | 3.2 | Six exams have worked-out answers, not official keys (f2022-e2, f2022-e3, f2023-e2, f2023-e3, f2023-final, s2023-final) | Each answer was solved twice independently, but an error would mark correct students wrong | Add a "Flag this question" button that records a note locally and includes it in the progress export, so problems can be collected and fixed | S |
-| 3.3 | Small leftovers from content review | s2019-e3 Q3's solution mixes `<` and `≤` across its two lines. Cards: L34-c12's symmetry tests read as "if and only if"; L33-c06 leaves out the negative x-axis | Fix in one content pass | S |
+| 3.3 | Small leftovers from content review | s2019-e3 Q3's solution mixes `<` and `≤` across its two lines. Cards: L34-c12's symmetry tests read as "if and only if"; L33-c06 leaves out the negative x-axis. Eleven exam questions write `$xy-$plane` or `$x-$axis`, which renders a minus sign where a hyphen belongs | Fix in one content pass | S |
 | 3.4 | The spoiler check (cards must not give away exam answers) was last run before all 65 exams were in | A few cards may give away an answer on one of the later exams | Re-run the exam-reuse and numeric-equivalence scans against all 65 exams, and rewrite any hits | S |
 
 ## 4. Robustness (deferred review findings)
@@ -49,7 +49,7 @@ None of these has been seen to cause a problem. They are edge cases the task rev
 | 4.7 | Review: keyboard shortcuts fire with modifier keys and on key repeat; cards whose id no longer exists are counted in the summary | Ignore modifiers and repeats; drop unknown cards from the counts | S |
 | 4.8 | Settings: no `min`/`max` on the daily-cards field and no field-level error messages; the Dashboard keeps an old error message after the lesson changes | Add bounds, `aria-invalid` and a message under the field; clear the error on change | S |
 | 4.9 | `tsc --noEmit` doesn't check `vite.config.ts` or `scripts/` | Add a second tsconfig for them to `pnpm typecheck` | S |
-| 4.10 | The content checks accept `$5+$x` as math and don't check code-fence indentation | Tighten the dollar-sign rule and add the indentation check | S |
+| 4.10 | The content checks accept `$5+$x` as math and don't check code-fence indentation | Indentation check added. The dollar-sign rule was left as is: rejecting a letter after closing math would flag 36 correct uses such as `$n$th`, and the app's content has no dollar amounts | S |
 | 4.11 | Content pipeline scripts exit 0 when a download fails or an exam id is unknown | Exit non-zero and list what failed | S |
 
 ## 5. Performance
@@ -78,7 +78,7 @@ The order is by value to you while studying, then by risk. Each phase gets its o
 
 Testing: tests written first for each picker and default; then a browser check of Settings, Practice and Exams at phone and desktop widths. Practice gains a scope picker, so its screen changes. The question view itself stays as it is.
 
-### Phase 2: robustness fixes (items 4.1 to 4.11, 2.2)
+### Phase 2: robustness fixes (items 4.1 to 4.11, 2.2). Done on 2026-11-07
 All small and independent. Do them as one batch, each with a test that fails before the fix and passes after. Start with 4.1 to 4.4, which affect saved exam data.
 
 ### Phase 3: content (items 3.1 to 3.4)

@@ -174,3 +174,26 @@ test('after the exam date, cards return to course order', async () => {
   await setup({ cards: mixed, settings: { examDate: '2026-11-01', examLessonIds: ['L19'] } })
   expect(await screen.findByText('Earlier lesson')).toBeInTheDocument()
 })
+
+test('a saved state for a card that no longer exists is not counted as due', async () => {
+  await setup({
+    seed: async (s, sch) => {
+      const gone = sch.newState('L19-gone', new Date('2026-11-01T00:00:00Z'))
+      await s.saveCardState({ ...gone, fsrs: { ...gone.fsrs, dueAt: '2026-11-02T00:00:00.000Z' } })
+    },
+  })
+  expect(await screen.findByText('Cards due: 0 · New: 2')).toBeInTheDocument()
+})
+
+test('rating keys with a modifier, or held down, do nothing', async () => {
+  const { store } = await setup()
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await screen.findByText('Back one')
+  await act(async () => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: '3', ctrlKey: true }))
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: '3', repeat: true }))
+  })
+  expect(screen.getByText('Back one')).toBeInTheDocument()
+  expect(await store.listCardStates()).toHaveLength(0)
+})

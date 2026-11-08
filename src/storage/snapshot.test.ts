@@ -37,6 +37,16 @@ describe('parseSnapshot', () => {
     expect(r.ok).toBe(true)
     if (r.ok) expect(r.snapshot.attempts[0]).toEqual(fb)
   })
+  test('rejects duplicate attempt ids', () => {
+    const r = parseSnapshot({ ...valid, attempts: [attempt, { ...attempt, chosen: 'B' }] })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.error).toContain('Duplicate attempt id a1')
+  })
+  test('rejects duplicate card states', () => {
+    const r = parseSnapshot({ ...valid, cardStates: [valid.cardStates[0], valid.cardStates[0]] })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.error).toContain('Duplicate card state c1')
+  })
   test('rejects non-object', () => {
     expect(parseSnapshot('nope').ok).toBe(false)
     expect(parseSnapshot(null).ok).toBe(false)

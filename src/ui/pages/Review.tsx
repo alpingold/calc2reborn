@@ -70,7 +70,8 @@ export function Review() {
         const card = content.cardById.get(s.cardId)
         if (card) due.push({ card, state: s })
       }
-      setSummary({ due: q.due.length, fresh: q.fresh.length })
+      // a saved state whose card was removed from the content is skipped, so it is not counted either
+      setSummary({ due: due.length, fresh: q.fresh.length })
       setItems([...due, ...q.fresh.map((card) => ({ card }))])
     })()
     return () => {
@@ -125,6 +126,7 @@ export function Review() {
     function onKey(e: KeyboardEvent) {
       const t = e.target as HTMLElement | null
       if (t && ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName)) return
+      if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return
       if (e.key === ' ') {
         if (!revealed) {
           e.preventDefault()

@@ -30,6 +30,14 @@ export function storeContract(name: string, make: () => Promise<ProgressStore>):
       store = await make()
     })
 
+    test('logAttempt with an id already stored replaces it rather than adding another', async () => {
+      await store.logAttempt(att('a1', '2026-01-01T00:00:00.000Z', { chosen: 'A' }))
+      await store.logAttempt(att('a1', '2026-01-02T00:00:00.000Z', { chosen: 'B' }))
+      const all = await store.listAttempts()
+      expect(all).toHaveLength(1)
+      expect(all[0].chosen).toBe('B')
+    })
+
     test('getCardState returns undefined for unknown id', async () => {
       expect(await store.getCardState('nope')).toBeUndefined()
     })

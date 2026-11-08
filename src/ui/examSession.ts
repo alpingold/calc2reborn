@@ -1,7 +1,6 @@
 import type { Content } from '../content'
 import type { Choice, Exam } from '../content/schema'
 import type { Attempt } from '../storage/types'
-import { newId } from '../ids'
 
 export interface ExamSession {
   sessionId: string
@@ -20,6 +19,8 @@ export interface ExamSession {
   // feedback after each answer: untimed, and checked questions show their answer and lock
   feedback?: boolean
   checked?: string[]
+  // seconds spent on each checked question, measured on screen (feedback mode)
+  seconds?: Record<string, number>
 }
 
 export const SESSION_KEY = 'ma16200-exam-in-progress'
@@ -51,7 +52,11 @@ function isSession(v: unknown): v is ExamSession {
     typeof s.durationMinutes === 'number' &&
     (s.current === undefined || typeof s.current === 'number') &&
     (s.feedback === undefined || typeof s.feedback === 'boolean') &&
-    (s.checked === undefined || (Array.isArray(s.checked) && s.checked.every((id) => typeof id === 'string')))
+    (s.checked === undefined || (Array.isArray(s.checked) && s.checked.every((id) => typeof id === 'string'))) &&
+    (s.seconds === undefined ||
+      (!!s.seconds &&
+        typeof s.seconds === 'object' &&
+        Object.values(s.seconds as Record<string, unknown>).every((v) => typeof v === 'number')))
   )
 }
 
@@ -72,6 +77,37 @@ export function clearSession(): void {
   } catch {
     // nothing to clear if storage is unavailable
   }
+}
+
+const MOCK_QUESTIONS_KEY = 'ma16200-mock-questions'
+const REMEMBERED_MOCKS = 20
+
+function readMockQuestions(): [string, string[]][] {
+  try {
+    const parsed: unknown = JSON.parse(localStorage.getItem(MOCK_QUESTIONS_KEY) ?? '[]')
+    return Array.isArray(parsed) ? (parsed as [string, string[]][]) : []
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Remember which questions a finished mock had. Attempts only record answered questions, so this
+ * lets results rebuilt from storage list the unanswered ones too. Kept for the most recent mocks.
+ */
+export function rememberMockQuestions(sessionId: string, questionIds: string[]): void {
+  const kept = readMockQuestions().filter(([id]) => id !== sessionId)
+  kept.push([sessionId, questionIds])
+  try {
+    localStorage.setItem(MOCK_QUESTIONS_KEY, JSON.stringify(kept.slice(-REMEMBERED_MOCKS)))
+  } catch {
+    // storage unavailable: rebuilt results list only the answered questions
+  }
+}
+
+export function recallMockQuestions(sessionId: string): string[] | undefined {
+  const found = readMockQuestions().find(([id]) => id === sessionId)?.[1]
+  return Array.isArray(found) && found.every((q) => typeof q === 'string') ? found : undefined
 }
 
 /** Navigation state that resumes the saved session with this id, even one whose time is up. */
@@ -123,16 +159,17 @@ export function timeIsUp(s: ExamSession, now: Date): boolean {
 export function finishSession(s: ExamSession, content: Content, now: Date): Attempt[] {
   const answered = s.questionIds.filter((id) => s.answers[id] && content.questionById.has(id))
   const elapsed = Math.max(0, (now.getTime() - Date.parse(s.startedAt)) / 1000)
-  const seconds = answered.length ? Math.round((elapsed / answered.length) * 10) / 10 : 0
+  const average = answered.length ? Math.round((elapsed / answered.length) * 10) / 10 : 0
   const timestamp = now.toISOString()
   return answered.map((questionId) => {
     const chosen = s.answers[questionId]
     const a: Attempt = {
-      id: newId(),
+      // fixed per session and question: a resubmit after a partial failure replaces rather than duplicates
+      id: `${s.sessionId}:${questionId}`,
       questionId,
       chosen,
       correct: chosen === content.questionById.get(questionId)!.answer,
-      seconds,
+      seconds: s.seconds?.[questionId] ?? average,
       timestamp,
       mode: s.kind,
       sessionId: s.sessionId,

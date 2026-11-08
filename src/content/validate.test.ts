@@ -59,11 +59,19 @@ export function checkMath(ownerId: string, text: string): void {
   }
 }
 
-/** Display math must be `$$` alone on its own line: remark-math renders a one-line `$$...$$` inline. */
+/**
+ * Display math must be `$$` alone on its own line: remark-math renders a one-line `$$...$$` inline.
+ * The fence must also not be indented four spaces or a tab, which Markdown reads as code.
+ */
 export function checkDisplayMathFences(ownerId: string, text: string): void {
   const lines = text.split('\n')
   const bad = lines.find((line) => line.includes('$$') && line.trim() !== '$$')
   if (bad !== undefined) throw new Error(`Display math in ${ownerId} is not fenced: ${JSON.stringify(bad)}`)
+  // four spaces of indentation make an indented code block, which shows the raw TeX
+  const indented = lines.find((line) => line.trim() === '$$' && /^ {4,}|^\t/.test(line))
+  if (indented !== undefined) {
+    throw new Error(`Display math indented as code in ${ownerId}: ${JSON.stringify(indented)}`)
+  }
   if (lines.filter((line) => line.includes('$$')).length % 2 !== 0) {
     throw new Error(`Display math in ${ownerId} has an unclosed $$ fence`)
   }
@@ -218,6 +226,17 @@ describe('content validation', () => {
 
   test('all display math is fenced on its own lines', () => {
     for (const [id, text] of markdownStrings()) checkDisplayMathFences(id, text)
+  })
+})
+
+describe('display math fence indentation', () => {
+  test('a $$ fence indented four or more spaces is rejected, since Markdown reads it as code', () => {
+    expect(() => checkDisplayMathFences('Q1.stem', 'Find\n\n    $$\n    x^2\n    $$\n')).toThrow(
+      /indented.*Q1\.stem/,
+    )
+  })
+  test('a fence indented under a list item is accepted', () => {
+    expect(() => checkDisplayMathFences('Q2.stem', '- item\n\n  $$\n  x^2\n  $$\n')).not.toThrow()
   })
 })
 

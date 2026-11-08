@@ -161,6 +161,8 @@ function PracticeSession({
   // each showing of a question gets a number, so a retry of the same question logs its own attempt
   const showing = useRef(0)
   const logged = useRef<number | null>(null)
+  // the choice that was logged for the current showing: a retry after a later failure keeps it
+  const loggedChoice = useRef<Choice['label'] | null>(null)
   const busy = useRef(false)
   const answered = useRef(0)
   const pending = useRef<PendingRetry[]>([])
@@ -252,13 +254,16 @@ function PracticeSession({
       busy.current = true
       setError(null)
       const t = now()
-      const correct = label === question.answer
+      const alreadyLogged = logged.current === showing.current
+      const used = alreadyLogged && loggedChoice.current ? loggedChoice.current : label
+      if (used !== label) setChosen(used)
+      const correct = used === question.answer
       try {
-        if (logged.current !== showing.current) {
+        if (!alreadyLogged) {
           const a: Attempt = {
             id: newId(),
             questionId: question.id,
-            chosen: label,
+            chosen: used,
             correct,
             seconds,
             timestamp: t.toISOString(),
@@ -266,6 +271,7 @@ function PracticeSession({
           }
           await store.logAttempt(a)
           logged.current = showing.current
+          loggedChoice.current = used
           answered.current++
           if (!correct && !retried.current.has(question.id)) {
             retried.current.add(question.id)
@@ -302,6 +308,20 @@ function PracticeSession({
       busy.current = false
     }
   }, [revealed, advance])
+
+  // after a failed first load there is no question and no Next button: load again from scratch
+  const retryLoad = useCallback(async () => {
+    if (busy.current) return
+    busy.current = true
+    setError(null)
+    try {
+      await advance()
+    } catch {
+      setError('Could not load a question. Try again.')
+    } finally {
+      busy.current = false
+    }
+  }, [advance])
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -360,6 +380,11 @@ function PracticeSession({
       <section>
         <h2>Practice</h2>
         {errorLine}
+        {error && (
+          <button type="button" onClick={() => void retryLoad()}>
+            Try again
+          </button>
+        )}
       </section>
     )
   }

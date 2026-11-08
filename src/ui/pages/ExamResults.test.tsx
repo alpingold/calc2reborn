@@ -10,6 +10,7 @@ import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 import type { Attempt } from '../../storage/types'
 import type { ExamSession } from '../examSession'
+import { rememberMockQuestions } from '../examSession'
 
 const choices: Choice[] = [
   { label: 'A', text: 'alpha' },
@@ -176,6 +177,24 @@ test('a timed session has no feedback label', async () => {
   await renderResults({ pathname: '/results/s1', state: { session } })
   await screen.findByText('Score: 9 / 12')
   expect(screen.queryByText('With feedback')).not.toBeInTheDocument()
+})
+
+test('a rebuilt mock lists its unanswered questions too when the browser remembers them', async () => {
+  rememberMockQuestions('m1', ['f2025-e1-q1', 'f2025-e1-q2', 'f2025-e1-q3'])
+  const store = new MemoryStore()
+  await store.logAttempt({
+    id: 'm1:f2025-e1-q2',
+    questionId: 'f2025-e1-q2',
+    chosen: 'C',
+    correct: true,
+    seconds: 30,
+    timestamp: '2026-11-06T12:30:00.000Z',
+    mode: 'mock',
+    sessionId: 'm1',
+  })
+  await renderResults('/results/m1', store)
+  expect(await screen.findByText('Score: 1 / 3')).toBeInTheDocument()
+  expect(screen.getAllByText('Not answered')).toHaveLength(2)
 })
 
 test('an unknown session says there are no results', async () => {

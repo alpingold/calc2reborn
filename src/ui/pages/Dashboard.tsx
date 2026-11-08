@@ -34,6 +34,7 @@ export function Dashboard() {
 
   useEffect(() => {
     let cancelled = false
+    setError(null)
     ;(async () => {
       try {
         const [attempts, states] = await Promise.all([store.listAttempts(), store.listCardStates()])

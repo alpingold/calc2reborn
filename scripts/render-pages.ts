@@ -112,6 +112,10 @@ async function renderPdf(file: string, label: string, outDir: string): Promise<n
 }
 
 const files = fs.existsSync(examsDir) ? fs.readdirSync(examsDir).sort() : []
+// an exam id asked for by name but with no downloaded PDF is a mistake, not an empty success
+for (const id of wanted) {
+  if (!files.some((f) => f.startsWith(id + '.'))) failures.push(`No downloaded PDF for exam ${id} in ${examsDir}`)
+}
 let rendered = 0
 for (const file of files) {
   // longest suffix first so ".ans.pdf" is not read as exam id "x.ans"

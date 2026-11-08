@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { act, render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { MemoryRouter, Route, Routes, useParams } from 'react-router'
+import { MemoryRouter, Route, Routes, useNavigate, useParams } from 'react-router'
 import { TakeExam } from './TakeExam'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
@@ -85,17 +85,26 @@ afterEach(() => {
 
 function ResultsStub() {
   const { sessionId } = useParams()
-  return <p>{`results:${sessionId}`}</p>
+  const navigate = useNavigate()
+  return (
+    <>
+      <p>{`results:${sessionId}`}</p>
+      <button type="button" onClick={() => navigate(-1)}>
+        Go back
+      </button>
+    </>
+  )
 }
 
-function renderAt(url: string, store: MemoryStore) {
+function renderAt(url: string, store: MemoryStore, history: string[] = []) {
   return render(
-    <MemoryRouter initialEntries={[url]}>
+    <MemoryRouter initialEntries={[...history, url]} initialIndex={history.length}>
       <StoreProvider store={store} scheduler={scheduler} content={content} rng={rng} now={now}>
         <Routes>
           <Route path="/exams/mock" element={<TakeExam mode="mock" />} />
           <Route path="/exams/:examId" element={<TakeExam />} />
           <Route path="/results/:sessionId" element={<ResultsStub />} />
+          <Route path="/exams" element={<p>exam list</p>} />
         </Routes>
       </StoreProvider>
     </MemoryRouter>,
@@ -527,4 +536,86 @@ test('a saved feedback session blocking another exam is described without a dead
   expect(screen.getByText(/Fall 2025 Exam 1/)).toHaveTextContent(
     'You have Fall 2025 Exam 1 in progress with feedback, 0 of 12 answered.',
   )
+})
+
+test('after a submit fails partway, a reload and resubmit logs each answer once', async () => {
+  const store = new MemoryStore()
+  const real = store.logAttempt.bind(store)
+  let calls = 0
+  store.logAttempt = async (a) => {
+    calls++
+    if (calls === 2) throw new Error('boom')
+    return real(a)
+  }
+  const { view } = await start('/exams/f2025-e1', store)
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  const u = user()
+  await u.keyboard('a')
+  await u.click(screen.getByRole('button', { name: 'Next' }))
+  await u.keyboard('c')
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByRole('alert')
+  expect(await store.listAttempts()).toHaveLength(1)
+  view.unmount()
+
+  // the reload restores the saved session; submitting again must not add a second copy of answer 1
+  renderAt('/exams/f2025-e1', store)
+  await screen.findByRole('heading', { name: /Question \d+ of 12/ })
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  const attempts = await store.listAttempts()
+  expect(attempts.map((a) => a.questionId).sort()).toEqual(['f2025-e1-q1', 'f2025-e1-q2'])
+})
+
+test('once Submit starts, answers can no longer change', async () => {
+  const store = new MemoryStore()
+  const real = store.logAttempt.bind(store)
+  let release!: () => void
+  const gate = new Promise<void>((r) => (release = r))
+  store.logAttempt = async (a) => {
+    await gate
+    return real(a)
+  }
+  await start('/exams/f2025-e1', store)
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  const u = user()
+  await u.keyboard('a')
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await u.keyboard('b')
+  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!).answers['f2025-e1-q1']).toBe('A')
+  await act(async () => release())
+  await screen.findByText(/^results:/)
+  expect((await store.listAttempts())[0].chosen).toBe('A')
+})
+
+test('the results page replaces the exam in history, so Back skips the finished exam', async () => {
+  const store = new MemoryStore()
+  renderAt('/exams/f2025-e1', store, ['/exams'])
+  await clickStart()
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  const u = user()
+  await u.keyboard('a')
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  await u.click(screen.getByRole('button', { name: 'Go back' }))
+  expect(await screen.findByText('exam list')).toBeInTheDocument()
+})
+
+test('feedback mode logs the time spent on each question, not the session average', async () => {
+  const store = new MemoryStore()
+  await start('/exams/f2025-e1', store, { feedback: true })
+  const u = user()
+  await act(async () => {
+    vi.advanceTimersByTime(30_000)
+  })
+  await u.keyboard('c')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  // ten minutes reading the solution must not count toward the next question or this one
+  await act(async () => {
+    vi.advanceTimersByTime(600_000)
+  })
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  expect((await store.listAttempts())[0].seconds).toBe(30)
 })

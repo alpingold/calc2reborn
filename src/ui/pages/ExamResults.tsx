@@ -5,7 +5,7 @@ import type { Choice } from '../../content/schema'
 import { useContent, useStore } from '../../storage/context'
 import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
-import { examTitle, formatPoints, scoreSession } from '../examSession'
+import { examTitle, formatPoints, recallMockQuestions, scoreSession } from '../examSession'
 import type { ExamSession } from '../examSession'
 
 const noop = () => {}
@@ -16,7 +16,9 @@ function rebuild(sessionId: string, attempts: Attempt[], content: Content): Exam
   const exam = first.examId ? content.exams.find((e) => e.id === first.examId) : undefined
   const answers: Record<string, Choice['label']> = {}
   for (const a of attempts) answers[a.questionId] = a.chosen
-  const questionIds = exam ? exam.questions.map((q) => q.id) : [...new Set(attempts.map((a) => a.questionId))]
+  const questionIds = exam
+    ? exam.questions.map((q) => q.id)
+    : (recallMockQuestions(sessionId) ?? [...new Set(attempts.map((a) => a.questionId))])
   return {
     sessionId,
     kind: first.mode,

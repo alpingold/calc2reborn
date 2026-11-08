@@ -15,6 +15,8 @@ import {
   sessionTitle,
   sessionUrl,
   timeIsUp,
+  rememberMockQuestions,
+  recallMockQuestions,
 } from './examSession'
 import type { ExamSession } from './examSession'
 
@@ -239,4 +241,43 @@ test('finishSession marks attempts from a feedback session', () => {
   expect(attempts[0]).toMatchObject({ feedback: true })
   const timed = finishSession(session({ answers: { 'e-q1': 'A' } }), content, new Date(START))
   expect(timed[0]).not.toHaveProperty('feedback')
+})
+
+test('finishSession gives each attempt an id fixed by session and question, so a resubmit replaces it', () => {
+  const s = session({ answers: { 'e-q1': 'A', 'e-q3': 'C' } })
+  const first = finishSession(s, content, new Date(START))
+  const again = finishSession(s, content, new Date(Date.parse(START) + 5000))
+  expect(first.map((a) => a.id)).toEqual(['s1:e-q1', 's1:e-q3'])
+  expect(again.map((a) => a.id)).toEqual(first.map((a) => a.id))
+})
+
+test('finishSession uses the seconds measured per question when a session has them', () => {
+  const s = session({ feedback: true, answers: { 'e-q1': 'A', 'e-q2': 'B' }, seconds: { 'e-q1': 42 } })
+  const attempts = finishSession(s, content, new Date(Date.parse(START) + 600_000))
+  expect(attempts[0].seconds).toBe(42)
+  // no measurement: the session average, 600 s over 2 answers
+  expect(attempts[1].seconds).toBe(300)
+})
+
+test('loadSession rejects per-question seconds that are not numbers', () => {
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...session(), seconds: { 'e-q1': 'x' } }))
+  expect(loadSession()).toBeNull()
+})
+
+test('mock question lists are remembered for the 20 most recent mocks', () => {
+  localStorage.clear()
+  for (let i = 0; i < 22; i++) rememberMockQuestions(`m${i}`, [`q${i}`])
+  expect(recallMockQuestions('m21')).toEqual(['q21'])
+  expect(recallMockQuestions('m2')).toEqual(['q2'])
+  expect(recallMockQuestions('m1')).toBeUndefined()
+  expect(recallMockQuestions('m0')).toBeUndefined()
+  localStorage.clear()
+})
+
+test('a corrupt remembered list is ignored', () => {
+  localStorage.setItem('ma16200-mock-questions', '{not json')
+  expect(recallMockQuestions('m1')).toBeUndefined()
+  rememberMockQuestions('m1', ['q1'])
+  expect(recallMockQuestions('m1')).toEqual(['q1'])
+  localStorage.clear()
 })

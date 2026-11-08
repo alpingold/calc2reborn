@@ -61,7 +61,20 @@ export function parseSnapshot(
   raw: unknown,
 ): { ok: true; snapshot: ProgressSnapshot } | { ok: false; error: string } {
   const r = SnapshotSchema.safeParse(raw)
-  if (r.success) return { ok: true, snapshot: r.data as ProgressSnapshot }
+  if (r.success) {
+    // IndexedDB rejects a repeated key mid-import, so a file with one must fail here, before anything changes
+    const attemptIds = new Set<string>()
+    for (const a of r.data.attempts) {
+      if (attemptIds.has(a.id)) return { ok: false, error: `Duplicate attempt id ${a.id}` }
+      attemptIds.add(a.id)
+    }
+    const cardIds = new Set<string>()
+    for (const c of r.data.cardStates) {
+      if (cardIds.has(c.cardId)) return { ok: false, error: `Duplicate card state ${c.cardId}` }
+      cardIds.add(c.cardId)
+    }
+    return { ok: true, snapshot: r.data as ProgressSnapshot }
+  }
   const issue = r.error.issues[0]
   const path = formatPath(issue.path)
   return { ok: false, error: `${path || '(root)'}: ${issue.message}` }

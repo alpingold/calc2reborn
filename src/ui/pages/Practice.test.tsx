@@ -319,3 +319,44 @@ test('Choose a range picks the lessons', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Start' }))
   expect(await screen.findByText('at:/practice?from=L19&to=L21&n=10')).toBeInTheDocument()
 })
+
+test('after a failed card update, retrying keeps the answer that was logged', async () => {
+  const store = new MemoryStore()
+  const real = store.listCardStates.bind(store)
+  let fail = true
+  store.listCardStates = async () => {
+    if (fail) {
+      fail = false
+      throw new Error('boom')
+    }
+    return real()
+  }
+  await setup({ store })
+  await userEvent.keyboard('a{Enter}')
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your answer. Try again.')
+  // the attempt was logged as A; changing the choice now must not change the outcome
+  await userEvent.keyboard('c{Enter}')
+  expect(await screen.findByRole('status')).toHaveTextContent('Not quite')
+  expect(screen.getByRole('button', { name: 'Your answer' })).toHaveTextContent('alpha')
+  const attempts = await store.listAttempts()
+  expect(attempts).toHaveLength(1)
+  expect(attempts[0].chosen).toBe('A')
+  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+})
+
+test('a failed question load offers Try again', async () => {
+  const store = new MemoryStore()
+  const real = store.listAttempts.bind(store)
+  let fail = true
+  store.listAttempts = async (f) => {
+    if (fail) {
+      fail = false
+      throw new Error('boom')
+    }
+    return real(f)
+  }
+  await setup({ store, wait: 'Could not load a question. Try again.' })
+  await userEvent.click(screen.getByRole('button', { name: 'Try again' }))
+  expect(await screen.findByText('Stem one')).toBeInTheDocument()
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
