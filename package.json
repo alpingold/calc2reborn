@@ -44,6 +44,7 @@
     "content:manifest": "tsx scripts/exam-manifest.ts",
     "content:fetch": "tsx scripts/fetch-exams.ts",
     "content:render": "tsx scripts/render-pages.ts",
-    "content:crop": "tsx scripts/crop-figures.ts"
+    "content:crop": "tsx scripts/crop-figures.ts",
+    "deploy": "bash scripts/deploy.sh"
   }
 }

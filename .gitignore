@@ -5,3 +5,5 @@ raw/
 *.log
 .superpowers/
 coverage/
+.deploy/
+.vercel/
