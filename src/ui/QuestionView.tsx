@@ -133,7 +133,9 @@ export function QuestionView({
           )}
           {question.solution && <Markdown text={question.solution} />}
           {lessonTitle && lessonHref && <Link to={lessonHref}>{lessonTitle}</Link>}
-          <ReportProblem key={question.id} questionId={question.id} />
+          <div className="report-row">
+            <ReportProblem key={question.id} questionId={question.id} />
+          </div>
         </div>
       )}
     </article>

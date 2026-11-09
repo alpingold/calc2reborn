@@ -1181,3 +1181,12 @@ legend {
     width: 100%;
   }
 }
+
+/* the report link sits on its own line under the lesson link */
+.report-row {
+  margin-top: 6px;
+}
+
+.report-row .link-button {
+  margin-top: 0;
+}
