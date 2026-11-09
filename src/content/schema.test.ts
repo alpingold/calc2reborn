@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { CHOICE_LABELS, LessonSchema, QuestionSchema, isPlanned, lessonLabel } from './schema'
+import { CHOICE_LABELS, ExamSchema, LessonSchema, QuestionSchema, isPlanned, lessonLabel } from './schema'
 import type { Lesson } from './schema'
 
 const labeled = (n: number) => CHOICE_LABELS.slice(0, n).map((label) => ({ label, text: label }))
@@ -103,5 +103,21 @@ describe('extra topics', () => {
   test('lessonLabel names a lesson by number and an extra by title', () => {
     expect(lessonLabel(lesson as Lesson)).toBe('Lesson 1: 13.1 Vectors')
     expect(lessonLabel(extra as Lesson)).toBe('12.1 Parametric Equations')
+  })
+})
+
+describe('ExamSchema', () => {
+  const official = { id: 'f2025-e3', term: 'Fall', year: 2025, exam: '3', examUrl: '', durationMinutes: 60, questions: [q] }
+  const extra = { id: 'xp-e3-a', title: 'Extra Practice Exam 3 (A)', unofficial: true, durationMinutes: 60, questions: [{ ...q, answerSource: 'written' }] }
+  test('accepts an official exam and an unofficial one with a title', () => {
+    expect(ExamSchema.safeParse(official).success).toBe(true)
+    expect(ExamSchema.safeParse(extra).success).toBe(true)
+  })
+  test('an unofficial exam needs a title, and an official one its term and year', () => {
+    expect(ExamSchema.safeParse({ ...extra, title: '' }).success).toBe(false)
+    expect(ExamSchema.safeParse({ ...official, term: undefined }).success).toBe(false)
+  })
+  test('answerSource may be written', () => {
+    expect(QuestionSchema.safeParse({ ...q, answerSource: 'written' }).success).toBe(true)
   })
 })

@@ -1162,3 +1162,22 @@ legend {
     align-items: flex-start;
   }
 }
+
+/* unofficial practice exams */
+.extra-exams {
+  margin-bottom: 28px;
+}
+
+.extra-exams h3 {
+  margin-top: 0;
+}
+
+.exam-cells-wide li {
+  width: 16rem;
+}
+
+@media (max-width: 680px) {
+  .exam-cells-wide li {
+    width: 100%;
+  }
+}

@@ -33,10 +33,14 @@ function pushTo<K, V>(map: Map<K, V[]>, key: K, value: V) {
 
 export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exam[]): Content {
   const sortedLessons = [...lessons].sort((a, b) => a.number - b.number)
-  const sortedExams = [...exams].sort(
-    (a, b) =>
-      b.year - a.year || TERM_ORDER[a.term] - TERM_ORDER[b.term] || EXAM_ORDER[a.exam] - EXAM_ORDER[b.exam],
-  )
+  // official exams newest first, then unofficial practice exams by id
+  const sortedExams = [...exams].sort((a, b) => {
+    if (a.unofficial || b.unofficial) {
+      if (a.unofficial && b.unofficial) return a.id.localeCompare(b.id)
+      return a.unofficial ? 1 : -1
+    }
+    return b.year - a.year || TERM_ORDER[a.term] - TERM_ORDER[b.term] || EXAM_ORDER[a.exam] - EXAM_ORDER[b.exam]
+  })
   const questions = sortedExams.flatMap((e) => e.questions)
 
   const cardsByLesson = new Map<string, ConceptCard[]>()

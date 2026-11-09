@@ -17,6 +17,7 @@ import {
   timeIsUp,
   rememberMockQuestions,
   recallMockQuestions,
+  examTitle,
 } from './examSession'
 import type { ExamSession } from './examSession'
 
@@ -280,4 +281,20 @@ test('a corrupt remembered list is ignored', () => {
   rememberMockQuestions('m1', ['q1'])
   expect(recallMockQuestions('m1')).toEqual(['q1'])
   localStorage.clear()
+})
+
+test('an unofficial exam is titled by its own title', () => {
+  const extra = { id: 'xp-e3-a', title: 'Extra Practice Exam 3 (A)', unofficial: true as const, durationMinutes: 60, questions: [] }
+  expect(examTitle(extra)).toBe('Extra Practice Exam 3 (A)')
+  expect(examTitle(exam)).toBe('Fall 2025 Exam 1')
+})
+
+test('buildContent lists unofficial exams after every official one', () => {
+  const extra = { id: 'xp-e3-a', title: 'Extra Practice Exam 3 (A)', unofficial: true as const, durationMinutes: 60, questions: [] }
+  const older = { ...exam, id: 's2016-e1', term: 'Spring' as const, year: 2016 }
+  expect(buildContent(fixtureLessons(), [], [extra, older, exam]).exams.map((e) => e.id)).toEqual([
+    'f2025-e1',
+    's2016-e1',
+    'xp-e3-a',
+  ])
 })

@@ -63,7 +63,16 @@ const otherExam: Exam = {
   })),
 }
 
-const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam, otherExam])
+// a practice exam written for this app
+const extraExam: Exam = {
+  id: 'xp-e3-a',
+  title: 'Extra Practice Exam 3 (A)',
+  unofficial: true,
+  durationMinutes: 60,
+  questions: [{ ...q(1), id: 'xp-e3-a-q01', lessonIds: ['L21'], answerSource: 'written' }],
+}
+
+const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam, otherExam, extraExam])
 const now = () => new Date()
 const rng = () => 0
 
@@ -618,4 +627,17 @@ test('feedback mode logs the time spent on each question, not the session averag
   await u.click(screen.getByRole('button', { name: 'Submit' }))
   await screen.findByText(/^results:/)
   expect((await store.listAttempts())[0].seconds).toBe(30)
+})
+
+test('the start screen of an unofficial exam says it was written for this app', async () => {
+  renderAt('/exams/xp-e3-a', new MemoryStore())
+  await screen.findByRole('button', { name: 'Start' })
+  expect(screen.getByRole('heading', { level: 2, name: 'Extra Practice Exam 3 (A)' })).toBeInTheDocument()
+  expect(screen.getByText(/not a Purdue exam/)).toBeInTheDocument()
+})
+
+test('an official exam has no such note', async () => {
+  renderAt('/exams/f2025-e1', new MemoryStore())
+  await screen.findByRole('button', { name: 'Start' })
+  expect(screen.queryByText(/not a Purdue exam/)).not.toBeInTheDocument()
 })

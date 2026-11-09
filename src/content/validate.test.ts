@@ -183,6 +183,12 @@ describe('content validation', () => {
       expect(raw.id, file).toBe(file.replace(/\.json$/, ''))
     }
     for (const e of content.exams) {
+      if (e.unofficial) {
+        // written for this app: xp-<exam>-<version>, titled as extra practice so no one mistakes it for Purdue's
+        expect(e.id).toMatch(/^xp-e[123]-[a-z]$/)
+        expect(e.title).toMatch(/^Extra Practice /)
+        continue
+      }
       const expected = `${e.term === 'Fall' ? 'f' : 's'}${e.year}-${e.exam === 'final' ? 'final' : `e${e.exam}`}`
       expect(e.id, `${e.id} is ${e.term} ${e.year} ${e.exam}`).toBe(expected)
     }
@@ -198,11 +204,25 @@ describe('content validation', () => {
     expect(content.questions.filter((q) => q.status !== 'reviewed').map((q) => q.id)).toEqual([])
   })
 
-  test('derived answers appear on every question of the six exams with no key, and nowhere else', () => {
+  test('the two Extra Practice Exam 3s have 12 questions each on lessons L20 to L27', () => {
+    const extras = content.exams.filter((e) => e.unofficial)
+    expect(extras.map((e) => e.id)).toEqual(['xp-e3-a', 'xp-e3-b'])
+    const allowed = new Set(Array.from({ length: 8 }, (_, i) => `L${20 + i}`))
+    for (const e of extras) {
+      expect(e.questions, e.id).toHaveLength(12)
+      for (const q of e.questions) {
+        expect(q.choices, q.id).toHaveLength(5)
+        expect(q.solution, q.id).toBeTruthy()
+        for (const lid of q.lessonIds) expect(allowed.has(lid), `${q.id} -> ${lid}`).toBe(true)
+      }
+    }
+  })
+
+  test('derived answers appear on every question of the six exams with no key, written ones on extra practice, and nowhere else', () => {
     const noKey = new Set(['f2023-e2', 'f2023-e3', 'f2023-final', 's2023-final', 'f2022-e2', 'f2022-e3'])
     for (const e of content.exams) {
       for (const q of e.questions) {
-        expect(q.answerSource, q.id).toBe(noKey.has(e.id) ? 'derived' : undefined)
+        expect(q.answerSource, q.id).toBe(e.unofficial ? 'written' : noKey.has(e.id) ? 'derived' : undefined)
       }
     }
   })

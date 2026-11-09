@@ -205,9 +205,11 @@ export function formatPoints(points: number): string {
 }
 
 export function examLabel(exam: Exam): string {
+  if (exam.unofficial) return exam.title
   return exam.exam === 'final' ? 'Final' : `Exam ${exam.exam}`
 }
 
 export function examTitle(exam: Exam): string {
+  if (exam.unofficial) return exam.title
   return `${exam.term} ${exam.year} ${examLabel(exam)}`
 }

@@ -408,6 +408,9 @@ function ExamSessionView({
         <h2>{heading}</h2>
         {errorLine}
         <p className="exam-intro-summary">{summary}</p>
+        {exam?.unofficial && (
+          <p className="panel-hint">Written for this app in the style of past exams. This is not a Purdue exam.</p>
+        )}
         <label className="exam-intro-option">
           <input type="checkbox" checked={feedback} onChange={(e) => setFeedback(e.target.checked)} />{' '}
           Show feedback after each answer (untimed)

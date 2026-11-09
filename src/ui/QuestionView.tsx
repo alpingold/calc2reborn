@@ -122,6 +122,12 @@ export function QuestionView({
       {revealed && (
         <div className="feedback">
           <p role="status">{isCorrect ? 'Correct' : 'Not quite'}</p>
+          {question.answerSource === 'written' && (
+            <p>
+              This question was written for this app, not taken from a Purdue exam. Its answer was checked independently
+              but may contain errors.
+            </p>
+          )}
           {question.answerSource === 'derived' && (
             <p>No official answer key exists for this exam. This answer was worked out independently and may contain errors.</p>
           )}

@@ -195,6 +195,16 @@ test.each([
   expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
 })
 
+test('a revealed written question says it is not from a Purdue exam', async () => {
+  await setup({ question: { ...question, answerSource: 'written' }, chosen: 'C', revealed: true })
+  expect(
+    screen.getByText(
+      'This question was written for this app, not taken from a Purdue exam. Its answer was checked independently but may contain errors.',
+    ),
+  ).toBeInTheDocument()
+  expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()
+})
+
 test('a derived answer shows no notice before reveal in practice', async () => {
   await setup({ question: derived, chosen: 'C' })
   expect(screen.queryByText(/No official answer key/)).not.toBeInTheDocument()

@@ -10,12 +10,12 @@ import type { Attempt } from '../../storage/types'
 import { buildContent } from '../../content'
 import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
-import type { Choice, Exam, Question } from '../../content/schema'
+import type { Choice, Exam, OfficialExam, Question } from '../../content/schema'
 import { saveSession } from '../examSession'
 
 const choices: Choice[] = (['A', 'B', 'C', 'D', 'E'] as const).map((label) => ({ label, text: label }))
 
-function exam(id: string, year: number, term: Exam['term'], which: Exam['exam'], count: number): Exam {
+function exam(id: string, year: number, term: OfficialExam['term'], which: OfficialExam['exam'], count: number): Exam {
   const questions: Question[] = Array.from({ length: count }, (_, i) => ({
     id: `${id}-q${i + 1}`,
     number: i + 1,
@@ -29,7 +29,16 @@ function exam(id: string, year: number, term: Exam['term'], which: Exam['exam'],
   return { id, term, year, exam: which, examUrl: '', durationMinutes: 60, questions }
 }
 
+const extraExam: Exam = {
+  id: 'xp-e3-a',
+  title: 'Extra Practice Exam 3 (A)',
+  unofficial: true,
+  durationMinutes: 60,
+  questions: exam('xp-e3-a', 2025, 'Fall', '3', 12).questions.map((q) => ({ ...q, answerSource: 'written' as const })),
+}
+
 const content = buildContent(fixtureLessons(), [], [
+  extraExam,
   exam('f2025-e1', 2025, 'Fall', '1', 12),
   exam('f2025-final', 2025, 'Fall', 'final', 20),
   exam('s2024-e2', 2024, 'Spring', '2', 12),
@@ -82,7 +91,7 @@ test('lists exams by year and term with the best score or Not taken', async () =
   await setup(store)
 
   const years = screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)
-  expect(years).toEqual(['Mock exam', '2025', '2024'])
+  expect(years).toEqual(['Mock exam', 'Extra practice', '2025', '2024'])
   expect(screen.getByRole('heading', { level: 4, name: 'Fall' })).toBeInTheDocument()
   expect(screen.getByRole('heading', { level: 4, name: 'Spring' })).toBeInTheDocument()
 
@@ -181,4 +190,15 @@ test('the mock form defaults to the exam lessons while an exam is ahead', async 
   await setup(new MemoryStore(), { examDate: '2099-01-01', examLessonIds: ['L21', 'L22', 'L23'] })
   expect(screen.getByRole('combobox', { name: 'From' })).toHaveValue('L21')
   expect(screen.getByRole('combobox', { name: 'To' })).toHaveValue('L23')
+})
+
+test('unofficial exams have their own section, said to be written for this app, with a best score', async () => {
+  const store = new MemoryStore()
+  for (let n = 1; n <= 12; n++) await store.logAttempt(attempt('x', 'xp-e3-a', n, n <= 9))
+  await setup(store)
+  const section = screen.getByRole('heading', { level: 3, name: 'Extra practice' }).closest('section')!
+  expect(within(section).getByText(/written for this app/i)).toBeInTheDocument()
+  const link = within(section).getByRole('link', { name: 'Extra Practice Exam 3 (A)' })
+  expect(link).toHaveAttribute('href', '/exams/xp-e3-a')
+  expect(await within(link.closest('li')!).findByText('Best: 9/12')).toBeInTheDocument()
 })

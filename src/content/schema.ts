@@ -59,8 +59,11 @@ export interface Question {
   stem: string
   choices: Choice[]
   answer: Choice['label']
-  /** Where `answer` came from. Absent means the official key. */
-  answerSource?: 'key' | 'derived'
+  /**
+   * Where `answer` came from. Absent means the official key; `derived` was worked out for an exam with no
+   * key; `written` belongs to a question written for this app.
+   */
+  answerSource?: 'key' | 'derived' | 'written'
   figures?: string[]
   lessonIds: string[]
   tags?: string[]
@@ -68,7 +71,8 @@ export interface Question {
   status: 'transcribed' | 'reviewed'
   sourcePage?: number
 }
-export interface Exam {
+/** A past Purdue exam from the department's archive. */
+export interface OfficialExam {
   id: string
   term: 'Fall' | 'Spring'
   year: number
@@ -78,7 +82,17 @@ export interface Exam {
   solutionsUrl?: string
   durationMinutes: number
   questions: Question[]
+  unofficial?: undefined
 }
+/** A practice exam written for this app in the style of past exams, not from Purdue. */
+export interface UnofficialExam {
+  id: string
+  title: string
+  unofficial: true
+  durationMinutes: number
+  questions: Question[]
+}
+export type Exam = OfficialExam | UnofficialExam
 
 export const LessonSchema = z
   .object({
@@ -129,7 +143,7 @@ export const QuestionSchema = z
     stem: z.string(),
     choices: z.array(ChoiceSchema).min(2).max(10),
     answer: z.enum(CHOICE_LABELS),
-    answerSource: z.enum(['key', 'derived']).optional(),
+    answerSource: z.enum(['key', 'derived', 'written']).optional(),
     figures: z.array(z.string()).optional(),
     lessonIds: z.array(z.string()),
     tags: z.array(z.string()).optional(),
@@ -146,7 +160,7 @@ export const QuestionSchema = z
     }
   })
 
-export const ExamSchema = z.object({
+const OfficialExamSchema = z.object({
   id: z.string().min(1),
   term: z.enum(['Fall', 'Spring']),
   year: z.number().int(),
@@ -157,3 +171,11 @@ export const ExamSchema = z.object({
   durationMinutes: z.number().positive(),
   questions: z.array(QuestionSchema),
 })
+const UnofficialExamSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  unofficial: z.literal(true),
+  durationMinutes: z.number().positive(),
+  questions: z.array(QuestionSchema),
+})
+export const ExamSchema = z.union([OfficialExamSchema, UnofficialExamSchema])

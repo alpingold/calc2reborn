@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { isPlanned } from '../../content/schema'
-import type { Exam } from '../../content/schema'
+import type { Exam, OfficialExam } from '../../content/schema'
 import { useContent, useNow, useSettings, useStore } from '../../storage/context'
 import { examLabel, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
 import { examScope } from '../../engine/scope'
@@ -61,14 +61,16 @@ export function Exams() {
   }, [store])
 
   const byYear = useMemo(() => {
-    const years = new Map<number, Map<Exam['term'], Exam[]>>()
+    const years = new Map<number, Map<OfficialExam['term'], OfficialExam[]>>()
     for (const e of content.exams) {
-      const terms = years.get(e.year) ?? new Map<Exam['term'], Exam[]>()
+      if (e.unofficial) continue
+      const terms = years.get(e.year) ?? new Map<OfficialExam['term'], OfficialExam[]>()
       terms.set(e.term, [...(terms.get(e.term) ?? []), e])
       years.set(e.year, terms)
     }
     return [...years.entries()].sort((a, b) => b[0] - a[0])
   }, [content.exams])
+  const extraExams = useMemo(() => content.exams.filter((e) => e.unofficial), [content.exams])
 
   function onGenerate(e: FormEvent) {
     e.preventDefault()
@@ -131,6 +133,22 @@ export function Exams() {
           Generate mock exam
         </button>
       </form>
+      {extraExams.length > 0 && (
+        <section className="extra-exams">
+          <h3>Extra practice</h3>
+          <p className="panel-hint">
+            Written for this app in the style of past exams. These are not Purdue exams, and their answers were checked
+            independently but may contain errors.
+          </p>
+          <ul className="exam-cells exam-cells-wide">
+            {extraExams.map((exam) => (
+              <li key={exam.id}>
+                <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link> <span className="best">{bestLine(exam)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       {byYear.length === 0 && <p>No past exams yet</p>}
       <div className="exam-years">
         {byYear.map(([year, terms]) => (
