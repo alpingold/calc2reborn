@@ -97,6 +97,8 @@ test('lists exams by year and term with the best score or Not taken', async () =
   await finishSessions(store)
   await setup(store)
 
+  // past attempts are read from the store after the page first paints
+  await screen.findByRole('heading', { level: 3, name: 'Past attempts' })
   const years = screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)
   expect(years).toEqual(['Mock exam', 'Extra practice', 'Past attempts', '2025', '2024'])
   expect(screen.getByRole('heading', { level: 4, name: 'Fall' })).toBeInTheDocument()
