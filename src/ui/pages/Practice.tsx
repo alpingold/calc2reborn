@@ -5,7 +5,7 @@ import { isPlanned, lessonLabel } from '../../content/schema'
 import type { Choice, Question } from '../../content/schema'
 import { lessonMastery } from '../../engine/mastery'
 import { coveredLessonIds, pullForward } from '../../engine/queue'
-import { RETRY_AFTER, RETRY_LIMIT, nextRetry, pickPracticeQuestion, retryCandidates } from '../../engine/select'
+import { RETRY_AFTER, RETRY_LIMIT, nextRetry, pickPracticeQuestion, retryCandidates, similarQuestion } from '../../engine/select'
 import type { PendingRetry } from '../../engine/select'
 import { examScope, lessonRange } from '../../engine/scope'
 import { useContent, useNow, useRng, useSettings, useStore } from '../../storage/context'
@@ -190,6 +190,8 @@ function PracticeSession({
   const [isRetry, setIsRetry] = useState(false)
   // the number of the showing on screen: a new one remounts the question view and restarts its timer
   const [shown, setShown] = useState(0)
+  // the ids served so far, mirrored from the ref for use while rendering
+  const [servedIds, setServedIds] = useState<Set<string>>(new Set())
   const [chosen, setChosen] = useState<Choice['label'] | undefined>(undefined)
   const [revealed, setRevealed] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -239,6 +241,7 @@ function PracticeSession({
 
   const show = useCallback((q: Question, retry: boolean) => {
     served.current.add(q.id)
+    setServedIds(new Set(served.current))
     showing.current++
     setShown(showing.current)
     setQuestion(q)
@@ -363,6 +366,23 @@ function PracticeSession({
     }
   }, [revealed, advance])
 
+  // "Try a similar question": another of the same problem type that this session has not served
+  const sibling = useCallback(
+    (attempts: Attempt[]): Question | null =>
+      question ? similarQuestion({ question, questionsByType: content.questionsByType, attempts, served: served.current, rng }) : null,
+    [question, content.questionsByType, rng],
+  )
+  const similar = useCallback(async () => {
+    if (busy.current || !revealed) return
+    try {
+      forced.current = sibling(await store.listAttempts())
+    } catch {
+      // without the history a similar question can still be chosen
+      forced.current = sibling([])
+    }
+    await next()
+  }, [revealed, sibling, store, next])
+
   // after a failed first load there is no question and no Next button: load again from scratch
   const retryLoad = useCallback(async () => {
     if (busy.current) return
@@ -448,6 +468,12 @@ function PracticeSession({
   const lessonId = lessonParam && question.lessonIds.includes(lessonParam) ? lessonParam : question.lessonIds[0]
   const lesson = lessonId ? content.lessonById.get(lessonId) : undefined
   const position = score.total + (revealed ? 0 : 1)
+  // offered only while an unserved question of the same type is left, and not past the session's length
+  const canSimilar =
+    revealed &&
+    !retry &&
+    (limit === null || score.total < limit) &&
+    (question.typeIds ?? []).some((t) => (content.questionsByType.get(t) ?? []).some((q) => q.id !== question.id && !servedIds.has(q.id)))
 
   return (
     <section>
@@ -466,6 +492,7 @@ function PracticeSession({
         onChoose={setChosen}
         onSubmit={(label, seconds) => void submit(label, seconds)}
         revealed={revealed}
+        onSimilar={canSimilar ? () => void similar() : undefined}
         lessonTitle={lesson && lessonLabel(lesson)}
         lessonHref={lesson && `/course/${lesson.id}`}
       />

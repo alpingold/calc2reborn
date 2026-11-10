@@ -502,3 +502,35 @@ test('?retry=1 with nothing to retry says so', async () => {
   await setup({ url: '/practice?retry=1', content: typedContent, wait: 'Nothing to retry right now' })
   expect(screen.queryByRole('button', { name: 'Submit' })).not.toBeInTheDocument()
 })
+
+test('Try a similar question serves another question of the same type next', async () => {
+  // rng 0 with one lesson would otherwise serve the untyped and other-type questions in file order
+  await setup({ url: '/practice?from=L19&to=L19', content: typedContent, wait: 'A one' })
+  await answer('a')
+  await userEvent.click(screen.getByRole('button', { name: 'Try a similar question' }))
+  expect(await screen.findByText('A two')).toBeInTheDocument()
+  expect(screen.queryByText('You missed this one earlier in this session. Second try.')).not.toBeInTheDocument()
+})
+
+test('once every question of the type has been served, the button is gone', async () => {
+  await setup({ url: '/practice?types=L19-a', content: typedContent, wait: 'A one' })
+  await answer('c')
+  await userEvent.click(screen.getByRole('button', { name: 'Try a similar question' }))
+  await screen.findByText('A two')
+  await answer('c')
+  expect(screen.queryByRole('button', { name: 'Try a similar question' })).not.toBeInTheDocument()
+})
+
+test('a question with no problem type offers no similar question', async () => {
+  await setup()
+  await answer('a')
+  expect(screen.queryByRole('button', { name: 'Try a similar question' })).not.toBeInTheDocument()
+})
+
+test('Enter on the similar-question button does not also move to the next question', async () => {
+  await setup({ url: '/practice?from=L19&to=L19', content: typedContent, wait: 'A one' })
+  await answer('c')
+  screen.getByRole('button', { name: 'Try a similar question' }).focus()
+  await userEvent.keyboard('{Enter}')
+  expect(await screen.findByText('A two')).toBeInTheDocument()
+})

@@ -88,6 +88,7 @@ function ResultsView({ sessionId }: { sessionId: string }) {
                 revealed
                 lessonTitle={lesson && lessonLabel(lesson)}
                 lessonHref={lesson && `/course/${lesson.id}`}
+                similarHref={question.typeIds?.length ? `/practice?types=${question.typeIds.join(',')}&n=10` : undefined}
               />
             </li>
           )

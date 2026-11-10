@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { JSX } from 'react'
-import { Link } from 'react-router'
 import { CHOICE_LABELS } from '../content/schema'
 import type { Choice, Question } from '../content/schema'
 import { useNow } from '../storage/context'
 import { Markdown } from './Markdown'
-import { ReportProblem } from './ReportProblem'
+import { FeedbackPanel } from './FeedbackPanel'
 
 export interface QuestionViewProps {
   question: Question
@@ -18,6 +17,9 @@ export interface QuestionViewProps {
   lessonHref?: string
   // the label of the button that reveals feedback in immediate mode
   submitLabel?: string
+  /** once revealed: serve a similar question next (Practice), or link to one (results) */
+  onSimilar?: () => void
+  similarHref?: string
 }
 
 const KEY_TO_LABEL: Record<string, Choice['label']> = Object.fromEntries(
@@ -39,6 +41,8 @@ export function QuestionView({
   lessonTitle,
   lessonHref,
   submitLabel = 'Submit',
+  onSimilar,
+  similarHref,
 }: QuestionViewProps): JSX.Element {
   const now = useNow()
   const startedAt = useRef(0)
@@ -76,8 +80,6 @@ export function QuestionView({
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [revealed, mode, chosen, submit, onChoose, question.choices])
-
-  const isCorrect = chosen === question.answer
 
   // read after the choice's own text, which stays in the button's accessible name
   function choiceMark(label: Choice['label']): string | undefined {
@@ -121,23 +123,14 @@ export function QuestionView({
         </button>
       )}
       {revealed && (
-        <div className="feedback">
-          <p role="status">{isCorrect ? 'Correct' : 'Not quite'}</p>
-          {question.answerSource === 'written' && (
-            <p>
-              This question was written for this app, not taken from a Purdue exam. Its answer was checked independently
-              but may contain errors.
-            </p>
-          )}
-          {question.answerSource === 'derived' && (
-            <p>No official answer key exists for this exam. This answer was worked out independently and may contain errors.</p>
-          )}
-          {question.solution && <Markdown text={question.solution} />}
-          {lessonTitle && lessonHref && <Link to={lessonHref}>{lessonTitle}</Link>}
-          <div className="report-row">
-            <ReportProblem key={question.id} questionId={question.id} />
-          </div>
-        </div>
+        <FeedbackPanel
+          question={question}
+          chosen={chosen}
+          lessonTitle={lessonTitle}
+          lessonHref={lessonHref}
+          onSimilar={onSimilar}
+          similarHref={similarHref}
+        />
       )}
     </article>
   )

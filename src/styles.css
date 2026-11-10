@@ -1212,3 +1212,21 @@ legend {
   display: grid;
   gap: 0.35rem;
 }
+
+/* after an answer: sources, problem type and related flashcards */
+.feedback-sources a + a {
+  margin-left: 1rem;
+}
+.feedback-type {
+  color: var(--muted, inherit);
+}
+.feedback-cards ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.feedback-cards li {
+  border-left: 2px solid currentColor;
+  padding-left: 0.75rem;
+}
