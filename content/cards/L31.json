@@ -191,5 +191,29 @@
       "radius",
       "ratio-test"
     ]
+  },
+  {
+    "id": "L31-c16",
+    "lessonId": "L31",
+    "front": "State the binomial series for $(1+x)^k$ and where it converges.",
+    "back": "$(1+x)^k = 1 + kx + \\frac{k(k-1)}{2!}x^2 + \\frac{k(k-1)(k-2)}{3!}x^3 + \\cdots$ for $|x| < 1$. Each new coefficient multiplies in one more factor, $k - n + 1$, and divides by $n$. If $k$ is a nonnegative integer the series stops, and it is the ordinary binomial expansion.",
+    "tags": [
+      "binomial-series"
+    ],
+    "typeIds": [
+      "L31-binomial-series"
+    ]
+  },
+  {
+    "id": "L31-c17",
+    "lessonId": "L31",
+    "front": "What are the first three terms of the Maclaurin series of $(1+x)^{3/2}$, and how is $(4+x)^{3/2}$ handled?",
+    "back": "Use the binomial series with $k = \\frac{3}{2}$: $1 + \\frac{3}{2}x + \\frac{(\\frac32)(\\frac12)}{2!}x^2 = 1 + \\frac{3}{2}x + \\frac{3}{8}x^2$. For $(4+x)^{3/2}$, factor out the constant first: $8\\left(1 + \\frac{x}{4}\\right)^{3/2}$, then put $\\frac{x}{4}$ in place of $x$.",
+    "tags": [
+      "binomial-series"
+    ],
+    "typeIds": [
+      "L31-binomial-series"
+    ]
   }
 ]

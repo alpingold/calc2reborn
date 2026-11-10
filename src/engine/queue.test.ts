@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { CardState, Settings } from '../storage/types'
 import type { ConceptCard, Lesson } from '../content/schema'
-import { coveredLessonIds, dailyQueue, isSameLocalDay, promoteCardsForTypes } from './queue'
+import { coveredLessonIds, dailyQueue, isSameLocalDay, lessonQueue, promoteCardsForTypes } from './queue'
 
 function lesson(number: number, isReview = false): Lesson {
   return { id: isReview ? `R-${number}` : `L${number}`, number, isReview } as unknown as Lesson
@@ -150,5 +150,26 @@ describe('promoteCardsForTypes', () => {
     const states = [state('a', tomorrow), state('plain', tomorrow)]
     expect(promoteCardsForTypes(states, cards, [], now)).toEqual([])
     expect(promoteCardsForTypes(states, cards, ['L23-zzz'], now)).toEqual([])
+  })
+})
+
+describe('studying beyond the daily queue', () => {
+  const cards = [card('a1', 'L1'), card('a2', 'L1'), card('b1', 'L2'), card('b2', 'L2'), card('c1', 'L3')]
+  it('extraNew offers new cards past the daily limit, even once the limit is used up', () => {
+    const introducedToday = state('a1', '2026-02-01T00:00:00.000Z', new Date(2026, 0, 10, 9, 0).toISOString())
+    const base = { now, cards, states: [introducedToday], lessons, settings: settings(1), isDue }
+    expect(dailyQueue(base).fresh).toHaveLength(0)
+    expect(dailyQueue({ ...base, extraNew: 2 }).fresh.map((c) => c.id)).toEqual(['a2', 'b1'])
+  })
+  it('lessonQueue gives the due and the unstarted cards of the chosen lessons only, ignoring the daily limit', () => {
+    const states = [
+      state('a1', '2026-01-09T00:00:00.000Z'),
+      state('b1', '2026-01-08T00:00:00.000Z'),
+      state('b2', '2026-03-01T00:00:00.000Z'),
+      state('c1', '2026-01-01T00:00:00.000Z'),
+    ]
+    const q = lessonQueue({ lessonIds: ['L2', 'L1'], now, cards, states, lessons, isDue })
+    expect(q.due.map((s) => s.cardId)).toEqual(['b1', 'a1'])
+    expect(q.fresh.map((c) => c.id)).toEqual(['a2'])
   })
 })

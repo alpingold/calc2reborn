@@ -31,6 +31,8 @@ export function dailyQueue(args: {
   focusLessonIds?: string[]
   /** problem types missed lately: new cards that support them are introduced before any others */
   recentMissTypeIds?: string[]
+  /** new cards to offer beyond the daily limit, when the student asks to study ahead */
+  extraNew?: number
 }): DailyQueue {
   const { now, cards, states, lessons, settings, isDue } = args
   const focus = new Set(args.focusLessonIds ?? [])
@@ -45,7 +47,7 @@ export function dailyQueue(args: {
     )
 
   const introducedToday = states.filter((s) => isSameLocalDay(new Date(s.introducedAt), now)).length
-  const remaining = Math.max(0, settings.dailyNewCards - introducedToday)
+  const remaining = Math.max(0, settings.dailyNewCards - introducedToday) + Math.max(0, args.extraNew ?? 0)
 
   const covered = coveredLessonIds(lessons, settings.currentLessonId)
   const numberById = new Map(lessons.map((l) => [l.id, l.number]))
@@ -63,6 +65,36 @@ export function dailyQueue(args: {
     .filter(({ c }) => coveredSet.has(c.lessonId) && !haveState.has(c.id))
     .sort((x, y) => x.g - y.g || (x.g === 2 && backwards ? y.n - x.n : x.n - y.n) || x.i - y.i)
     .slice(0, remaining)
+    .map(({ c }) => c)
+  return { due, fresh }
+}
+
+/**
+ * A session on chosen lessons, such as one lesson's cards or the lessons on the coming exam: every card
+ * of those lessons that is due, then every one not started yet, in lesson order. The daily limit on new
+ * cards does not apply, since the student asked for these.
+ */
+export function lessonQueue(args: {
+  lessonIds: string[]
+  now: Date
+  cards: ConceptCard[]
+  states: CardState[]
+  lessons: Lesson[]
+  isDue: (s: CardState, now: Date) => boolean
+}): DailyQueue {
+  const { lessonIds, now, cards, states, lessons, isDue } = args
+  const wanted = new Set(lessonIds)
+  const lessonOfCard = new Map(cards.map((c) => [c.id, c.lessonId]))
+  const numberById = new Map(lessons.map((l) => [l.id, l.number]))
+  const inScope = (cardId: string) => wanted.has(lessonOfCard.get(cardId) ?? '')
+  const due = states
+    .filter((s) => inScope(s.cardId) && isDue(s, now))
+    .sort((a, b) => new Date(a.fsrs.dueAt).getTime() - new Date(b.fsrs.dueAt).getTime())
+  const haveState = new Set(states.map((s) => s.cardId))
+  const fresh = cards
+    .map((c, i) => ({ c, i }))
+    .filter(({ c }) => wanted.has(c.lessonId) && !haveState.has(c.id))
+    .sort((x, y) => numberById.get(x.c.lessonId)! - numberById.get(y.c.lessonId)! || x.i - y.i)
     .map(({ c }) => c)
   return { due, fresh }
 }

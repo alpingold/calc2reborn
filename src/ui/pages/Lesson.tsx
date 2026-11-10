@@ -8,6 +8,7 @@ import { Markdown } from '../Markdown'
 import { examTitle } from '../examSession'
 import { practiseTypeLink } from '../TypeTiles'
 import { GuidedProblemView, type GuidedOutcome } from '../GuidedProblem'
+import { CardDeck, type CardTag } from '../CardDeck'
 
 export function Lesson() {
   const { lessonId } = useParams()
@@ -19,9 +20,6 @@ export function Lesson() {
   const [states, setStates] = useState<Map<string, CardState> | null>(null)
   const [byType, setByType] = useState<Map<string, Mastery>>(new Map())
   const [error, setError] = useState<string | null>(null)
-  const [showCards, setShowCards] = useState(false)
-  // cards flipped to show their answer
-  const [openCards, setOpenCards] = useState<Set<string>>(new Set())
   const { hash } = useLocation()
   // guided problems finished, now or earlier
   const [doneGuided, setDoneGuided] = useState<Set<string>>(new Set())
@@ -93,13 +91,13 @@ export function Lesson() {
     return scheduler.isDue(s, now()) ? 'due' : 'later'
   }
 
-  function cardTag(cardId: string): string | null {
+  function cardTag(cardId: string): CardTag | null {
     const stage = stageOf(cardId)
-    if (stage === 'new') return 'Not started'
-    if (stage === 'due') return 'Due today'
+    if (stage === 'new') return { stage, text: 'Not started' }
+    if (stage === 'due') return { stage, text: 'Due today' }
     if (stage === 'later') {
       const when = new Date(states!.get(cardId)!.fsrs.dueAt)
-      return `Next review ${when.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`
+      return { stage, text: `Next review ${when.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}` }
     }
     return null
   }
@@ -200,55 +198,17 @@ export function Lesson() {
             <p>No flashcards for this lesson yet.</p>
           ) : (
             <>
-              <p className="cards-summary">
-                {cardSummary}
-                {counts.due > 0 && (
-                  <>
-                    {' '}
-                    <Link to="/review">Open Review</Link>
-                  </>
-                )}
-              </p>
+              <p className="cards-summary">{cardSummary}</p>
+              <CardDeck cards={cards} tagFor={cardTag} />
+              <div className="actions">
+                <Link to={`/review?lesson=${lesson.id}`} className="button primary">
+                  {counts.due + counts.new > 0 ? `Study these cards (${counts.due + counts.new})` : 'Study these cards'}
+                </Link>
+              </div>
               <p className="panel-hint">
-                Review schedules these cards for you. Opening one here is for reading and does not count as a review.
+                Flipping through the cards here is for reading. "Study these cards" asks how well you knew each one
+                and brings it back just before you would forget it.
               </p>
-              <button
-                type="button"
-                className="link-button"
-                aria-expanded={showCards}
-                onClick={() => setShowCards((v) => !v)}
-              >
-                {showCards ? 'Hide the cards' : 'Show the cards'}
-              </button>
-              {showCards && (
-                <ul className="flashcard-list" aria-label="Flashcards">
-                  {cards.map((c) => {
-                    const open = openCards.has(c.id)
-                    const tag = cardTag(c.id)
-                    return (
-                      <li key={c.id} className={open ? 'open' : undefined}>
-                        <button
-                          type="button"
-                          className="flashcard-front"
-                          aria-expanded={open}
-                          onClick={() =>
-                            setOpenCards((prev) => {
-                              const next = new Set(prev)
-                              if (next.has(c.id)) next.delete(c.id)
-                              else next.add(c.id)
-                              return next
-                            })
-                          }
-                        >
-                          <Markdown text={c.front} className="flashcard-text" />
-                          {tag && <span className={`card-tag card-tag-${stageOf(c.id)}`}>{tag}</span>}
-                        </button>
-                        {open && <Markdown text={c.back} className="flashcard-back" />}
-                      </li>
-                    )
-                  })}
-                </ul>
-              )}
             </>
           )}
         </section>

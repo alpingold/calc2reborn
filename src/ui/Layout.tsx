@@ -4,7 +4,7 @@ import { useStorageFallback } from '../storage/context'
 const NAV = [
   { to: '/', label: 'Dashboard', end: true },
   { to: '/course', label: 'Course' },
-  { to: '/review', label: 'Review' },
+  { to: '/review', label: 'Flashcards' },
   { to: '/practice', label: 'Practice' },
   { to: '/exams', label: 'Exams' },
   { to: '/settings', label: 'Settings' },

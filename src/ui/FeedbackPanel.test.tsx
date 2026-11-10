@@ -40,6 +40,7 @@ const cards = [
   { ...fixtureCard('c1', 'L1'), typeIds: ['L1-a'] },
   { ...fixtureCard('c2', 'L1'), typeIds: ['L1-a', 'L1-b'] },
   fixtureCard('c3', 'L1'),
+  { ...fixtureCard('c4', 'L1'), typeIds: ['L1-a'] },
 ]
 const content = buildContent(
   [fixtureLesson(1, { problemTypes: fixtureTypes('L1') })],
@@ -68,7 +69,8 @@ test('a wrong answer shows the verdict, solution, sources, type, flashcards and 
     screen.getByRole('link', { name: 'Answer key (PDF)' }),
     screen.getByText('Problem type: L1 type A'),
     screen.getByRole('link', { name: 'Lesson 1: Topic 1' }),
-    screen.getByText('Related flashcards (2)'),
+    screen.getByRole('heading', { name: 'Remember' }),
+    screen.getByText('More flashcards on this (1)'),
     screen.getByRole('button', { name: 'Try a similar question' }),
     screen.getByRole('button', { name: 'Report a problem' }),
   ]
@@ -106,22 +108,28 @@ test('a right answer shows the solution and type but no flashcards', async () =>
   await show({ question: typed, chosen: 'A', onSimilar: () => {} })
   expect(screen.getByRole('status')).toHaveTextContent('Correct')
   expect(screen.getByText('Problem type: L1 type A')).toBeInTheDocument()
-  expect(screen.queryByText(/Related flashcards/)).not.toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: 'Remember' })).not.toBeInTheDocument()
+  expect(screen.queryByText(/More flashcards/)).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Try a similar question' })).toBeInTheDocument()
 })
 
 test('an unanswered question counts as missed', async () => {
   await show({ question: typed })
   expect(screen.getByRole('status')).toHaveTextContent('Not quite')
-  expect(screen.getByText('Related flashcards (2)')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'Remember' })).toBeInTheDocument()
 })
 
-test('the flashcards for the missed type can be read in place, front and back', async () => {
+test('two flashcards for the missed type are shown open, those about that type alone first, and the rest are folded away', async () => {
   await show({ question: typed, chosen: 'B' })
-  const list = screen.getByText('Related flashcards (2)').closest('details')!
-  expect(within(list).getByText('Front of c1')).toBeInTheDocument()
-  expect(within(list).getByText('Back of c2')).toBeInTheDocument()
-  expect(within(list).queryByText('Front of c3')).not.toBeInTheDocument()
+  const remember = screen.getByRole('heading', { name: 'Remember' }).parentElement as HTMLElement
+  expect(within(remember).getByText('Front of c1')).toBeInTheDocument()
+  expect(within(remember).getByText('Back of c1')).toBeInTheDocument()
+  expect(within(remember).getByText('Front of c4')).toBeInTheDocument()
+  expect(within(remember).queryByText('Front of c2')).not.toBeInTheDocument()
+  const more = screen.getByText('More flashcards on this (1)').closest('details')!
+  expect(within(more).getByText('Front of c2')).toBeInTheDocument()
+  expect(within(more).getByText('Back of c2')).toBeInTheDocument()
+  expect(screen.queryByText('Front of c3')).not.toBeInTheDocument()
 })
 
 test('Try a similar question is a button that calls back in Practice, and a link from results', async () => {
@@ -146,14 +154,16 @@ test('a type with no other question offers no similar question', async () => {
   await show({ question: lonely, chosen: 'B', onSimilar: () => {}, similarHref: '/practice?types=L1-b' })
   expect(screen.getByText('Problem type: L1 type B')).toBeInTheDocument()
   expect(screen.queryByText('Try a similar question')).not.toBeInTheDocument()
-  expect(screen.getByText('Related flashcards (1)')).toBeInTheDocument()
+  const remember = screen.getByRole('heading', { name: 'Remember' }).parentElement as HTMLElement
+  expect(within(remember).getByText('Front of c2')).toBeInTheDocument()
+  expect(screen.queryByText(/More flashcards/)).not.toBeInTheDocument()
 })
 
 test('a question with no problem type shows the solution and nothing that depends on a type', async () => {
   await show({ question: plain, chosen: 'B', onSimilar: () => {}, similarHref: '/x' })
   expect(screen.getByText('No type yet.')).toBeInTheDocument()
   expect(screen.queryByText(/Problem type/)).not.toBeInTheDocument()
-  expect(screen.queryByText(/Related flashcards/)).not.toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: 'Remember' })).not.toBeInTheDocument()
   expect(screen.queryByText('Try a similar question')).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Report a problem' })).toBeInTheDocument()
 })

@@ -164,5 +164,31 @@
     "typeIds": [
       "L11-recognise-or-complete"
     ]
+  },
+  {
+    "id": "L11-c14",
+    "lessonId": "L11",
+    "front": "An applied setup (a shell volume, a mass, an area) leads to $\\int_0^{\\pi/3} x\\sin 3x\\,dx$. Which technique, and what is its value?",
+    "back": "Parts, with $u = x$ and $dv = \\sin 3x\\,dx$: $\\int x\\sin 3x\\,dx = -\\frac{x}{3}\\cos 3x + \\frac{1}{9}\\sin 3x + C$. From $0$ to $\\frac{\\pi}{3}$ this is $\\frac{\\pi}{9}$. Any constant from the setup, such as $2\\pi$ for shells, stays in front.",
+    "tags": [
+      "applied",
+      "by-parts"
+    ],
+    "typeIds": [
+      "L11-parts-applied"
+    ]
+  },
+  {
+    "id": "L11-c15",
+    "lessonId": "L11",
+    "front": "A bar on $0 \\le x \\le 1$ has density $\\rho(x) = xe^{3x}$. Which integral is its mass, and which technique evaluates it?",
+    "back": "The mass is $\\int_0^1 xe^{3x}\\,dx$. A polynomial times an exponential calls for parts with $u = x$ and $dv = e^{3x}\\,dx$: $\\left[\\frac{x}{3}e^{3x} - \\frac{1}{9}e^{3x}\\right]_0^1 = \\frac{2e^3 + 1}{9}$. Set up the application first, then choose the technique from the integrand.",
+    "tags": [
+      "applied",
+      "by-parts"
+    ],
+    "typeIds": [
+      "L11-parts-applied"
+    ]
   }
 ]

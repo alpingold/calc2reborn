@@ -1526,3 +1526,161 @@ legend {
     display: none;
   }
 }
+
+.review-count {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 18px;
+}
+
+.review-lesson {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+}
+
+.review-ask {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.review-ratings {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 8px;
+}
+
+.review-ratings button {
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 8px;
+}
+
+.review-interval {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.review-more {
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .review-ratings {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* a lesson's flashcards, one at a time */
+.lesson-cards {
+  margin: 32px 0;
+  padding: 4px 20px 20px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  box-shadow: 4px 4px 0 var(--rule);
+}
+
+.lesson-cards .actions {
+  margin-top: 16px;
+}
+
+.deck-count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.deck-card {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  padding: 20px;
+  border: 1px solid var(--rule-strong);
+  border-left: 4px solid var(--gold-fill);
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.deck-card:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.deck-front {
+  font-size: 1.15rem;
+}
+
+.deck-front p:first-child,
+.deck-back p:first-child {
+  margin-top: 0;
+}
+
+.deck-back {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.deck-back p:last-child {
+  margin-bottom: 0;
+}
+
+.deck-hint {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent);
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.deck-nav {
+  margin-top: 10px;
+}
+
+/* after a missed question: the cards to remember */
+.feedback-remember {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--rule-strong);
+  border-left: 4px solid var(--gold-fill);
+  border-radius: 3px;
+  background: var(--surface);
+}
+
+.feedback-remember h4 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.feedback-remember ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.feedback-remember .flashcard-text {
+  font-weight: 600;
+}
+
+.feedback-remember p {
+  margin: 0 0 4px;
+}
+
+@media (max-width: 600px) {
+  .lesson-cards {
+    margin-inline: -8px;
+    padding-inline: 12px;
+  }
+}

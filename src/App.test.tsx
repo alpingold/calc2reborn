@@ -28,7 +28,7 @@ test('App renders the title and nav once loaded', async () => {
   render(<App />)
   expect(await screen.findByRole('heading', { name: 'MA 16200' })).toBeInTheDocument()
   const nav = screen.getByRole('navigation')
-  for (const name of ['Dashboard', 'Course', 'Review', 'Practice', 'Exams', 'Settings']) {
+  for (const name of ['Dashboard', 'Course', 'Flashcards', 'Practice', 'Exams', 'Settings']) {
     expect(within(nav).getByRole('link', { name })).toBeInTheDocument()
   }
 })
@@ -49,7 +49,7 @@ test.each([
   ['/', 'Dashboard'],
   ['/course', 'Course'],
   ['/course/L19', 'Topic 19'],
-  ['/review', 'Review'],
+  ['/review', 'Flashcards'],
   ['/practice?lesson=L23', 'Practice'],
   ['/exams', 'Exams'],
   ['/exams/F2024-1', 'Exam'],

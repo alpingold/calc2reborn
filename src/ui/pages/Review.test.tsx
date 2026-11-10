@@ -18,7 +18,7 @@ const cards: ConceptCard[] = [
   { id: 'L19-c02', lessonId: 'L19', front: 'Front two', back: 'Back two' },
 ]
 
-async function setup(opts: { exams?: Exam[]; cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void>; settings?: Partial<typeof DEFAULT_SETTINGS> } = {}) {
+async function setup(opts: { at?: string; exams?: Exam[]; cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void>; settings?: Partial<typeof DEFAULT_SETTINGS> } = {}) {
   const store = opts.store ?? new MemoryStore()
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', dailyNewCards: 10, ...opts.settings })
   const scheduler = await createScheduler()
@@ -26,7 +26,7 @@ async function setup(opts: { exams?: Exam[]; cards?: ConceptCard[]; clock?: { t:
   const clock = opts.clock ?? { t: new Date('2026-11-06T12:00:00Z') }
   const content = buildContent(lessons, opts.cards ?? cards, opts.exams ?? [])
   render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={[opts.at ?? '/review']}>
       <StoreProvider store={store} scheduler={scheduler} content={content} now={() => clock.t}>
         <Review />
       </StoreProvider>
@@ -42,25 +42,25 @@ test('shows summary and first front with back hidden', async () => {
   expect(screen.queryByText('Back one')).not.toBeInTheDocument()
 })
 
-test('space reveals the back and four rating buttons with intervals', async () => {
+test('space reveals the back and three rating buttons with intervals', async () => {
   await setup()
   await screen.findByText('Front one')
   await userEvent.keyboard(' ')
   expect(await screen.findByText('Back one')).toBeInTheDocument()
-  for (const w of ['Again', 'Hard', 'Good', 'Easy']) {
-    expect(screen.getByRole('button', { name: new RegExp(`^${w} · \\S+`) })).toBeInTheDocument()
+  for (const w of ['Forgot', 'Got it', 'Easy']) {
+    expect(screen.getByRole('button', { name: new RegExp(`^${w}\\s*next in \\S+`) })).toBeInTheDocument()
   }
 })
 
-test('pressing 3 saves reps 1 and advances; finishing shows done', async () => {
+test('pressing 2 (Got it) saves reps 1 and advances; finishing shows done', async () => {
   const { store } = await setup()
   await screen.findByText('Front one')
   await userEvent.keyboard(' ')
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   expect(await screen.findByText('Front two')).toBeInTheDocument()
   expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(1)
   await userEvent.keyboard(' ')
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   expect(await screen.findByRole('heading', { name: 'Done for today' })).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Back to dashboard' })).toHaveAttribute('href', '/')
 })
@@ -71,7 +71,7 @@ test('fresh card introducedAt is set at first reveal, not page load', async () =
   await screen.findByText('Front one')
   clock.t = new Date('2026-11-06T12:30:00Z')
   await userEvent.keyboard(' ')
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   await screen.findByText('Front two')
   expect((await store.getCardState('L19-c01'))!.introducedAt).toBe('2026-11-06T12:30:00.000Z')
 })
@@ -101,11 +101,11 @@ test('Again re-queues the card at the end with updated state', async () => {
   await userEvent.keyboard('1')
   await screen.findByText('Front two')
   await userEvent.keyboard(' ')
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   expect(await screen.findByText('Front one')).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: 'Done for today' })).not.toBeInTheDocument()
   await userEvent.keyboard(' ')
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   expect(await screen.findByRole('heading', { name: 'Done for today' })).toBeInTheDocument()
   expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(2)
 })
@@ -139,10 +139,10 @@ test('save failure shows an alert and allows retry', async () => {
   await setup({ store })
   await screen.findByText('Front one')
   await userEvent.keyboard(' ')
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your rating. Try again.')
   expect(screen.getByText('Back one')).toBeInTheDocument()
-  await userEvent.keyboard('3')
+  await userEvent.keyboard('2')
   expect(await screen.findByText('Front two')).toBeInTheDocument()
   expect((await store.getCardState('L19-c01'))!.fsrs.reps).toBe(1)
 })
@@ -154,7 +154,7 @@ test('a failing card load shows an alert instead of an empty page', async () => 
   }
   await setup({ store })
   expect(await screen.findByRole('alert')).toHaveTextContent('Could not load your cards.')
-  expect(screen.getByRole('heading', { name: 'Review' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'Flashcards' })).toBeInTheDocument()
 })
 
 test('while an exam is ahead, new cards from exam lessons come first', async () => {
@@ -254,4 +254,82 @@ test('a review card rated Again returns in the session even when it is due more 
   expect(await screen.findByText('Front one')).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: 'Done for today' })).not.toBeInTheDocument()
   expect((await store.getCardState('L19-c01'))!.fsrs.lapses).toBe(1)
+})
+
+const three: ConceptCard[] = [
+  { id: 'L18-c01', lessonId: 'L18', front: 'Front A', back: 'Back A' },
+  { id: 'L19-c01', lessonId: 'L19', front: 'Front B', back: 'Back B' },
+  { id: 'L19-c02', lessonId: 'L19', front: 'Front C', back: 'Back C' },
+]
+
+test('each card shows where it is in the session and links to its lesson', async () => {
+  await setup()
+  expect(await screen.findByText('Card 1 of 2')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: /^Lesson 19: / })).toHaveAttribute('href', '/course/L19')
+})
+
+test('the three ratings sit on keys 1 to 3: 1 forgets, 3 is Easy', async () => {
+  const { store } = await setup()
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('3')
+  await screen.findByText('Front two')
+  const easy = (await store.getCardState('L19-c01'))!
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('2')
+  await screen.findByRole('heading', { name: 'Done for today' })
+  const good = (await store.getCardState('L19-c02'))!
+  expect(new Date(easy.fsrs.dueAt).getTime()).toBeGreaterThan(new Date(good.fsrs.dueAt).getTime())
+  // key 4 is no longer a rating
+  expect(screen.getByText('You went through 2 cards without forgetting any.')).toBeInTheDocument()
+})
+
+test('the end of a session says how many cards were forgotten', async () => {
+  await setup()
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('1')
+  await screen.findByText('Front two')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('2')
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('2')
+  expect(await screen.findByText('You went through 2 cards, and forgot one along the way.')).toBeInTheDocument()
+})
+
+test('a session on one lesson takes all of its new cards whatever the daily limit, and no others', async () => {
+  await setup({ at: '/review?lesson=L19', cards: three, settings: { dailyNewCards: 1 } })
+  expect(await screen.findByText('Card 1 of 2')).toBeInTheDocument()
+  expect(screen.getByText(/^Lesson 19: /, { selector: '.review-count' })).toBeInTheDocument()
+  expect(screen.getByText('Front B')).toBeInTheDocument()
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('2')
+  await screen.findByText('Front C')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('2')
+  expect(await screen.findByRole('heading', { name: 'Session finished' })).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Back to the lesson' })).toHaveAttribute('href', '/course/L19')
+  expect(screen.queryByText('Front A')).not.toBeInTheDocument()
+})
+
+test('once the daily cards are done, more new cards can be asked for', async () => {
+  await setup({ cards: three, settings: { dailyNewCards: 1 } })
+  expect(await screen.findByText('Card 1 of 1')).toBeInTheDocument()
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('2')
+  await screen.findByRole('heading', { name: 'Done for today' })
+  await userEvent.click(screen.getByRole('link', { name: 'Study 2 more new cards' }))
+  expect(await screen.findByText('Card 1 of 2')).toBeInTheDocument()
+})
+
+test('with nothing left to add, studying ahead is not offered', async () => {
+  await setup()
+  await screen.findByText('Front one')
+  for (let i = 0; i < 2; i++) {
+    await userEvent.keyboard(' ')
+    await userEvent.keyboard('2')
+  }
+  await screen.findByRole('heading', { name: 'Done for today' })
+  expect(screen.queryByRole('link', { name: /more new/ })).not.toBeInTheDocument()
 })
