@@ -8,7 +8,13 @@ export const MISS_RETURN_DAYS = 1
 export const RETRY_AFTER = 3
 const DAY_MS = 86400000
 
+// a retry-only session serves at most this many missed questions
+export const RETRY_LIMIT = 5
+
 export interface SelectArgs {
+  /** when set, questions come from these problem types and the lessons are not consulted */
+  typeIds?: string[]
+  questionsByType?: Map<string, Question[]>
   lessonIds: string[]
   questionsByLesson: Map<string, Question[]>
   mastery: Map<string, Mastery>
@@ -32,8 +38,42 @@ function lastAttempts(attempts: Attempt[]): Map<string, Attempt> {
   return last
 }
 
+/** Tier 0: last answer wrong, at least a day ago. Tier 1: never answered. Tier 2: the rest, oldest first. */
+function rankByNeed(pool: Question[], attempts: Attempt[], now: Date, rng: () => number): Question[] {
+  const last = lastAttempts(attempts)
+  const cutoff = now.getTime() - MISS_RETURN_DAYS * DAY_MS
+  const ranked = pool.map((question) => {
+    const a = last.get(question.id)
+    let tier = 2
+    if (!a) tier = 1
+    else if (!a.correct && new Date(a.timestamp).getTime() <= cutoff) tier = 0
+    return { question, tier, ts: a?.timestamp ?? '', key: rng() }
+  })
+  ranked.sort((x, y) => {
+    if (x.tier !== y.tier) return x.tier - y.tier
+    if (x.tier === 2) return x.ts < y.ts ? -1 : x.ts > y.ts ? 1 : x.key - y.key
+    return x.key - y.key
+  })
+  return ranked.map((r) => r.question)
+}
+
 export function pickPracticeQuestion(args: SelectArgs): Question | null {
   const { questionsByLesson, mastery, servedThisSession, now, rng } = args
+
+  if (args.typeIds) {
+    // practice by problem type: one pool across the types, with no lesson weighting
+    const seen = new Set<string>()
+    const pool: Question[] = []
+    for (const typeId of args.typeIds) {
+      for (const q of args.questionsByType?.get(typeId) ?? []) {
+        if (seen.has(q.id) || servedThisSession.has(q.id)) continue
+        seen.add(q.id)
+        pool.push(q)
+      }
+    }
+    return rankByNeed(pool, args.attempts, now, rng)[0] ?? null
+  }
+
   const available = (id: string) =>
     (questionsByLesson.get(id) ?? []).filter((x) => !servedThisSession.has(x.id))
 
@@ -53,22 +93,49 @@ export function pickPracticeQuestion(args: SelectArgs): Question | null {
     }
   }
 
-  const last = lastAttempts(args.attempts)
+  return rankByNeed(available(lessonId), args.attempts, now, rng)[0]
+}
+
+/**
+ * The questions due a second look: those whose latest answer was wrong at least MISS_RETURN_DAYS ago.
+ * The longest-standing miss comes first. A question answered right since then is not included.
+ */
+export function retryCandidates(attempts: Attempt[], questions: Question[], now: Date): Question[] {
+  const last = lastAttempts(attempts)
   const cutoff = now.getTime() - MISS_RETURN_DAYS * DAY_MS
-  // tier 0: last answer wrong, at least a day ago; tier 1: never answered; tier 2: the rest, oldest first
-  const ranked = available(lessonId).map((question) => {
-    const a = last.get(question.id)
-    let tier = 2
-    if (!a) tier = 1
-    else if (!a.correct && new Date(a.timestamp).getTime() <= cutoff) tier = 0
-    return { question, tier, ts: a?.timestamp ?? '', key: rng() }
-  })
-  ranked.sort((x, y) => {
-    if (x.tier !== y.tier) return x.tier - y.tier
-    if (x.tier === 2) return x.ts < y.ts ? -1 : x.ts > y.ts ? 1 : x.key - y.key
-    return x.key - y.key
-  })
-  return ranked[0].question
+  return questions
+    .map((question, i) => ({ question, i, a: last.get(question.id) }))
+    .filter((x) => x.a !== undefined && !x.a.correct && new Date(x.a.timestamp).getTime() <= cutoff)
+    .sort((x, y) => (x.a!.timestamp < y.a!.timestamp ? -1 : x.a!.timestamp > y.a!.timestamp ? 1 : x.i - y.i))
+    .map((x) => x.question)
+}
+
+/**
+ * Another question of the same problem type as `question`, not yet served this session. One the
+ * student has never answered is preferred. Null when the question has no type or no sibling is left.
+ */
+export function similarQuestion(args: {
+  question: Question
+  questionsByType: Map<string, Question[]>
+  attempts: Attempt[]
+  served: Set<string>
+  rng: () => number
+}): Question | null {
+  const { question, questionsByType, attempts, served, rng } = args
+  const seen = new Set<string>([question.id])
+  const pool: Question[] = []
+  for (const typeId of question.typeIds ?? []) {
+    for (const q of questionsByType.get(typeId) ?? []) {
+      if (seen.has(q.id) || served.has(q.id)) continue
+      seen.add(q.id)
+      pool.push(q)
+    }
+  }
+  if (pool.length === 0) return null
+  const answered = new Set(attempts.map((a) => a.questionId))
+  const fresh = pool.filter((q) => !answered.has(q.id))
+  const from = fresh.length > 0 ? fresh : pool
+  return from[Math.min(from.length - 1, Math.floor(rng() * from.length))]
 }
 
 export interface PendingRetry {
