@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-relations"
+      ],
+      "solution": "Complete the square in each sphere equation to read off its center. For $S_1$, adding $4$, $9$ and $1$ to both sides gives $(x+2)^2 + (y-3)^2 + (z-1)^2 = -5 + 14 = 9$, so its center is $(-2, 3, 1)$. For $S_2$, adding $4$, $1$ and $4$ to both sides gives $(x+2)^2 + (y-1)^2 + (z+2)^2 = -8 + 9 = 1$, so its center is $(-2, 1, -2)$.\n\nThe distance between the centers is\n\n$$\n\\sqrt{(0)^2 + (2)^2 + (3)^2} = \\sqrt{13}.\n$$\n\nSo the distance between the centers is $\\sqrt{13}$. The constants added to the right side are what fix the radii ($3$ and $1$ here); the centers come only from the shifts in the squares, so a sign slip in a shift gives the wrong centers.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-vector-arithmetic-magnitude"
+      ],
+      "solution": "Add the man's velocity relative to the ship to the ship's velocity. The man walks north-east at $2$ km/h relative to the ship, so that velocity is $\\langle \\sqrt{2}, \\sqrt{2} \\rangle$, and the ship's velocity is $\\langle 4, 0 \\rangle$.\n\nThe man's velocity relative to the water is $\\langle 4 + \\sqrt{2}, \\sqrt{2} \\rangle$, so his speed is\n\n$$\n\\sqrt{(4 + \\sqrt{2})^2 + (\\sqrt{2})^2} = \\sqrt{16 + 8\\sqrt{2} + 2 + 2} = \\sqrt{20 + 8\\sqrt{2}}.\n$$\n\nSo the speed is $\\sqrt{20 + 8\\sqrt{2}}$ km/h. Adding the speeds directly, as $2 + 4$, ignores the direction and is the classic mistake here.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use $\\cos\\theta = \\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|\\,|\\vec{b}|}$.\n\nThe dot product is $\\vec{a} \\cdot \\vec{b} = (-4)(2) + (-1)(2) + (1)(1) = -9$. The lengths are $|\\vec{a}| = \\sqrt{16 + 1 + 1} = 3\\sqrt{2}$ and $|\\vec{b}| = \\sqrt{4 + 4 + 1} = 3$.\n\nSo $\\cos\\theta = \\dfrac{-9}{9\\sqrt{2}} = -\\dfrac{1}{\\sqrt{2}}$. Since $0 \\le \\theta \\le \\pi$, this gives $\\theta = \\dfrac{3\\pi}{4}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "The projection formula is $\\text{proj}_{\\vec{b}}\\vec{a} = \\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^2}\\,\\vec{b}$, so $c = \\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^2}$.\n\nHere $\\vec{a} \\cdot \\vec{b} = (2)(4) + (-1)(1) + (1)(-1) = 6$ and $|\\vec{b}|^2 = 16 + 1 + 1 = 18$.\n\nSo $c = \\dfrac{6}{18} = \\dfrac{1}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "Expand the determinant for $\\vec{a} \\times \\vec{b}$ with $\\vec{a} = \\langle 2, -1, 4 \\rangle$ and $\\vec{b} = \\langle 2, 2, 1 \\rangle$:\n\n$$\n\\vec{a} \\times \\vec{b} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & -1 & 4 \\\\ 2 & 2 & 1 \\end{vmatrix}.\n$$\n\nThe $\\vec{j}$-term carries a minus sign from the cofactor expansion: $-\\vec{j}\\begin{vmatrix} 2 & 4 \\\\ 2 & 1 \\end{vmatrix} = -\\vec{j}(2 - 8) = 6\\vec{j}$.\n\nSo the $\\vec{j}$-component is $6$. The minus sign belongs to the cofactor, and forgetting it gives $-6$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "Find the intersection points by setting $8x^2 = 3 + 5x^2$, which gives $3x^2 = 3$, so $x = \\pm 1$. On $[-1, 1]$ the curve $y = 3 + 5x^2$ lies above $y = 8x^2$, since $(3 + 5x^2) - 8x^2 = 3(1 - x^2) \\ge 0$.\n\nThe area is\n\n$$\n\\int_{-1}^{1} 3(1 - x^2)\\,dx = 2\\int_0^1 3(1 - x^2)\\,dx = 2\\left[3x - x^3\\right]_0^1 = 2(3 - 1) = 4.\n$$\n\nSo the area is $4$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use washers with $x$ as the variable. The curves $x = y$ and $x = y^2$ meet at $(0, 0)$ and $(1, 1)$, so $0 \\le x \\le 1$. For each $x$, the outer radius is the $y$-value on $x = y^2$, which is $\\sqrt{x}$, and the inner radius is the $y$-value on $x = y$, which is $x$.\n\nThe washer area is $\\pi\\left((\\sqrt{x})^2 - x^2\\right) = \\pi(x - x^2)$, so the volume is\n\n$$\nV = \\pi\\int_0^1 (x - x^2)\\,dx.\n$$\n\nSo the integral is $\\pi\\int_0^1 (x - x^2)\\,dx$. A washer's area is the outer radius squared minus the inner radius squared, not the square of their difference.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -279,6 +307,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Find the area of a cross-section at distance $x$ from the tip and integrate over the height. The rectangle has length $x$ and width $\\frac{1}{2}x$, so its area is $A(x) = x \\cdot \\frac{1}{2}x = \\frac{1}{2}x^2$. The pyramid has height $4$, so $0 \\le x \\le 4$ and\n\n$$\nV = \\int_0^4 \\frac{1}{2}x^2\\,dx = \\left[\\frac{x^3}{6}\\right]_0^4 = \\frac{64}{6} = \\frac{32}{3}.\n$$\n\nSo the volume is $\\frac{32}{3}$ cubic feet. Dropping the factor $\\frac{1}{2}$ from the area doubles the answer to $\\frac{64}{3}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -313,6 +345,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells about the $y$-axis. A shell at position $x$ has radius $x$ and height $y = x^3 + x$, for $0 \\le x \\le 1$. The shell formula is $V = 2\\pi\\int_a^b (\\text{radius})(\\text{height})\\,dx$, so\n\n$$\nV = 2\\pi\\int_0^1 x(x^3 + x)\\,dx = 2\\pi\\int_0^1 (x^4 + x^2)\\,dx = 2\\pi\\left[\\frac{x^5}{5} + \\frac{x^3}{3}\\right]_0^1 = 2\\pi\\left(\\frac{1}{5} + \\frac{1}{3}\\right) = \\frac{16\\pi}{15}.\n$$\n\nSo the volume is $\\frac{16\\pi}{15}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -347,6 +383,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Slice the water horizontally at height $y$ above the bottom. The tank is half full, so the water fills $0 \\le y \\le 1$. A slice has area $2 \\cdot 2 = 4$ square feet and thickness $dy$, so its weight is $62.5 \\cdot 4\\,dy$. The slice must be raised from height $y$ to the top at $y = 2$, a distance $2 - y$:\n\n$$\nW = \\int_0^1 62.5 \\cdot 4\\,(2 - y)\\,dy = 250\\left[2y - \\frac{y^2}{2}\\right]_0^1 = 250 \\cdot \\frac{3}{2} = 375.\n$$\n\nSo the work is $375$ foot-pounds. Integrating over the full depth of $2$ feet instead of the $1$ foot of water is the classic error here.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -381,6 +421,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts with $u = x^2$ and $dv = \\cos x\\,dx$, so $du = 2x\\,dx$ and $v = \\sin x$:\n\n$$\n\\int_0^{\\pi/2} x^2\\cos x\\,dx = \\left[x^2\\sin x\\right]_0^{\\pi/2} - 2\\int_0^{\\pi/2} x\\sin x\\,dx.\n$$\n\nThe boundary term is $\\frac{\\pi^2}{4}$. For the remaining integral, integrate by parts again with $u = x$ and $dv = \\sin x\\,dx$, so $v = -\\cos x$:\n\n$$\n\\int_0^{\\pi/2} x\\sin x\\,dx = \\left[-x\\cos x\\right]_0^{\\pi/2} + \\int_0^{\\pi/2}\\cos x\\,dx = 0 + 1 = 1.\n$$\n\nSo the integral is $\\frac{\\pi^2}{4} - 2 \\cdot 1 = \\frac{\\pi^2}{4} - 2$. Dropping the factor $2$ in front of the remaining integral gives $\\frac{\\pi^2}{4} - 1$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -415,6 +459,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$ and $dv = x^{-1/2}\\,dx$, so $du = \\frac{1}{x}\\,dx$ and $v = 2\\sqrt{x}$:\n\n$$\n\\int_1^e x^{-1/2}\\ln x\\,dx = \\left[2\\sqrt{x}\\ln x\\right]_1^e - \\int_1^e \\frac{2}{\\sqrt{x}}\\,dx.\n$$\n\nThe boundary term is $2\\sqrt{e} \\cdot 1 - 0 = 2\\sqrt{e}$. The remaining integral is $\\left[4\\sqrt{x}\\right]_1^e = 4\\sqrt{e} - 4$.\n\nSo the integral is $2\\sqrt{e} - (4\\sqrt{e} - 4) = -2\\sqrt{e} + 4$. Forgetting the minus sign in front of the second integral gives $6\\sqrt{e} - 4$.",
       "sourcePage": 8,
       "status": "reviewed"
     }

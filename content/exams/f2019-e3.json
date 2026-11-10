@@ -38,6 +38,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "This is a geometric series with first term $a = 1$ and ratio $r = \\frac{1}{5}$. Since $|r| < 1$, it converges, to $\\frac{a}{1 - r}$.\n\n$$\n\\frac{1}{1 - \\frac{1}{5}} = \\frac{1}{\\frac{4}{5}} = \\frac{5}{4}\n$$\n\nSo the series converges to $\\frac{5}{4}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Split the term by partial fractions: $\\frac{2}{(n+1)(n+3)} = \\frac{1}{n+1} - \\frac{1}{n+3}$. Check: $\\frac{1}{n+1} - \\frac{1}{n+3} = \\frac{(n+3) - (n+1)}{(n+1)(n+3)} = \\frac{2}{(n+1)(n+3)}$.\n\nThe partial sums telescope. Most terms cancel, leaving\n\n$$\nS_N = \\left(\\frac{1}{2} + \\frac{1}{3} + \\cdots + \\frac{1}{N+1}\\right) - \\left(\\frac{1}{4} + \\cdots + \\frac{1}{N+3}\\right) = \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{N+2} - \\frac{1}{N+3}\n$$\n\nAs $N \\to \\infty$, $S_N \\to \\frac{1}{2} + \\frac{1}{3} = \\frac{5}{6}$, so the series converges to $\\frac{5}{6}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "The denominator $\\cos m + 2$ lies between $1$ and $3$ for every $m$, so $0 < \\frac{2^{-m}}{\\cos m + 2} \\le 2^{-m}$. The geometric series $\\sum 2^{-m}$ converges (ratio $\\frac{1}{2}$), so the given series converges by comparison with $\\sum 2^{-m}$.\n\nThe trap is comparing with $\\sum \\frac{1}{\\cos m + 2}$. That series diverges, since its terms oscillate between $\\frac{1}{3}$ and $1$ and do not tend to $0$, and a divergent series gives no upper bound.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-classify-each"
+      ],
+      "solution": "Check each series in turn.\n\nI. $\\sum \\frac{1}{2k-1}$ diverges. Compare with $\\sum \\frac{1}{k}$ by the limit comparison test: $\\frac{1/(2k-1)}{1/k} = \\frac{k}{2k-1} \\to \\frac{1}{2} > 0$.\n\nII. The series alternates, and $\\frac{1}{\\sqrt{k}+1}$ is positive, decreasing and tends to $0$, so it converges by the alternating series test.\n\nIII. $\\frac{1}{k^2+1} \\le \\frac{1}{k^2}$, and $\\sum \\frac{1}{k^2}$ is a convergent $p$-series, so the series converges by comparison.\n\nSo II and III converge. The trap is I: its terms tend to $0$, which does not show convergence, so a comparison is needed.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "The Alternating Series Estimation Theorem bounds the error by the first omitted term: $|S - S_n| \\le \\frac{1}{(n+1)^7}$. The terms decrease and tend to $0$, so the theorem applies.\n\nThe requirement is\n\n$$\n\\frac{1}{(n+1)^7} \\le \\frac{1}{6^7}\n$$\n\nwhich holds exactly when $n + 1 \\ge 6$, that is, $n \\ge 5$. So the smallest such $n$ is $5$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -210,6 +230,10 @@
         "L23",
         "L25"
       ],
+      "typeIds": [
+        "L23-comparison-claims"
+      ],
+      "solution": "Check each statement.\n\nA. For $\\sum \\frac{n^3}{r^n}$ the ratio of consecutive terms tends to $\\frac{1}{|r|}$, which is less than $1$ when $|r| > 1$, so the series converges.\n\nB. This is false. A convergent series with smaller terms says nothing about a larger one. For example, $a_n = 0$ and $b_n = \\frac{1}{n}$ satisfy $0 \\le a_n \\le b_n$ and $\\sum a_n$ converges, while $\\sum b_n$ diverges.\n\nC. True. If $\\sum b_n$ converged, then $\\sum a_n$ would converge by comparison, contradicting the hypothesis.\n\nD. Since $n^p + n \\ge n^p$, the terms are at most $\\frac{1}{n^p}$, and $\\sum \\frac{1}{n^p}$ converges for $p > 1$.\n\nE. For $|r| \\ge 1$ the terms $r^n$ do not tend to $0$, so the series diverges.\n\nThe trap is reversing the direction of the comparison test, as in B.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -244,6 +268,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "The ratio test needs $\\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right|$ to exist and be compared with $1$.\n\nI. $\\frac{a_{n+1}}{a_n} = \\frac{n+1}{n} \\cdot \\frac{1}{e} \\to \\frac{1}{e} < 1$, so the test is conclusive.\n\nII. $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{n^2}{(n+1)^2} \\left|\\frac{\\sin(9n+9)}{\\sin(9n)}\\right|$. The first factor tends to $1$, but the sine ratio keeps oscillating and has no limit, so the test is inconclusive.\n\nIII. $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{13}{2^{2n+1}} \\to 0$, so the test is conclusive.\n\nOnly II is inconclusive.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -278,6 +306,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-divergence-test"
+      ],
+      "solution": "Test the terms rather than using the root test, which gives $\\lim_{n \\to \\infty} \\left(1 + \\frac{c^2}{n}\\right) = 1$ and says nothing. The standard limit gives\n\n$$\n\\lim_{n \\to \\infty} \\left(1 + \\frac{c^2}{n}\\right)^n = e^{c^2}\n$$\n\nfor every $c$. Since $e^{c^2} \\ge 1 > 0$, the terms do not tend to $0$, so the series diverges by the divergence test for every value of $c$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -312,6 +344,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-approximate-with-polynomial"
+      ],
+      "solution": "Let $f(x) = \\cos^2 x$. Then $f(0) = 1$, and $f'(x) = -2\\cos x \\sin x = -\\sin 2x$, so $f'(0) = 0$. Also $f''(x) = -2\\cos 2x$, so $f''(0) = -2$.\n\nThe second-order Taylor polynomial is\n\n$$\nP_2(x) = 1 + 0 \\cdot x + \\frac{-2}{2!}x^2 = 1 - x^2\n$$\n\nSo $f\\left(\\frac{\\pi}{6}\\right) \\approx 1 - \\frac{\\pi^2}{36}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -346,6 +382,10 @@
       "lessonIds": [
         "L28"
       ],
+      "typeIds": [
+        "L28-remainder-formula"
+      ],
+      "solution": "The remainder of a second-order Taylor polynomial is $R_2(x) = \\frac{f'''(c)}{3!}(x-1)^3$ for some $c$ between $1$ and $x$.\n\nFor $f(x) = x^{-1}$, $f'(x) = -x^{-2}$, $f''(x) = 2x^{-3}$, and $f'''(x) = -6x^{-4}$. Therefore\n\n$$\nR_2(x) = \\frac{-6c^{-4}}{3!}(x-1)^3 = -\\frac{(x-1)^3}{c^4}\n$$\n\nAt $x = 1.1$ this is $-\\frac{(0.1)^3}{c^4}$. The trap is dropping the minus sign, which comes from $f'''$ being negative.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -380,6 +420,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Apply the ratio test to the terms $u_n = \\frac{n^2 (x-2)^n}{(n+1)3^n}$:\n\n$$\n\\left|\\frac{u_{n+1}}{u_n}\\right| = \\frac{|x-2|}{3} \\cdot \\frac{(n+1)^3}{n^2(n+2)} \\to \\frac{|x-2|}{3}\n$$\n\nThe series converges when $|x-2| < 3$ and diverges when $|x-2| > 3$, so the radius of convergence is $3$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -414,6 +458,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The ratio test gives $\\left|\\frac{a_{n+1}}{a_n}\\right| = |x| \\cdot \\frac{n+4}{n+5} \\to |x|$, so the radius is $1$ and the series converges for $|x| < 1$.\n\nAt $x = 1$, the series is $\\sum \\frac{(-1)^n}{n+4}$. It alternates, and $\\frac{1}{n+4}$ decreases to $0$, so it converges.\n\nAt $x = -1$, the series is $\\sum \\frac{(-1)^n(-1)^n}{n+4} = \\sum \\frac{1}{n+4}$, which diverges by comparison with the harmonic series.\n\nSo the interval of convergence is $(-1, 1]$. The trap is $x = -1$, where the signs cancel and the alternating series becomes a divergent one.",
       "sourcePage": 7,
       "status": "reviewed"
     }

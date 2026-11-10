@@ -38,6 +38,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-sec-tan-odd"
+      ],
+      "solution": "Let $u = \\sec x$, so $du = \\sec x \\tan x\\,dx$. Since $\\tan^4 x = (\\sec^2 x - 1)^2 = (u^2 - 1)^2$, the integrand becomes a polynomial in $u$. The limits change to $u = 1$ at $x = 0$ and $u = \\sqrt{2}$ at $x = \\frac{\\pi}{4}$.\n\n$$\n\\int_1^{\\sqrt{2}} (u^4 - 2u^2 + 1)\\,du = \\left[\\frac{u^5}{5} - \\frac{2u^3}{3} + u\\right]_1^{\\sqrt{2}}\n$$\n\nAt $u = \\sqrt{2}$ the bracket is $\\frac{4\\sqrt{2}}{5} - \\frac{4\\sqrt{2}}{3} + \\sqrt{2} = \\frac{7\\sqrt{2}}{15}$, and at $u = 1$ it is $\\frac{8}{15}$. So the integral is $\\frac{7\\sqrt{2} - 8}{15}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "Use the half-angle identity twice. First $\\cos^4 x = (\\cos^2 x)^2 = \\frac{1}{4}(1 + 2\\cos 2x + \\cos^2 2x)$, then $\\cos^2 2x = \\frac{1 + \\cos 4x}{2}$, so\n\n$$\n\\cos^4 x = \\frac{3}{8} + \\frac{1}{2}\\cos 2x + \\frac{1}{8}\\cos 4x.\n$$\n\nIntegrating from $0$ to $\\frac{\\pi}{4}$ gives\n\n$$\n\\int_0^{\\pi/4} \\cos^4 x\\,dx = \\left[\\frac{3x}{8} + \\frac{\\sin 2x}{4} + \\frac{\\sin 4x}{32}\\right]_0^{\\pi/4} = \\frac{3\\pi}{32} + \\frac{1}{4} + 0.\n$$\n\nSo the integral is $\\frac{3\\pi + 8}{32}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "Use the tangent substitution $x = \\tan\\theta$, since $1 + x^2$ is under the root. Then $dx = \\sec^2\\theta\\,d\\theta$ and $\\sqrt{1 + x^2} = \\sec\\theta$. Also $x^4 = \\tan^4\\theta$, so\n\n$$\n\\int x^4\\sqrt{1 + x^2}\\,dx = \\int \\tan^4\\theta \\cdot \\sec\\theta \\cdot \\sec^2\\theta\\,d\\theta = \\int \\sec^3\\theta\\tan^4\\theta\\,d\\theta.\n$$\n\nSo the integral becomes $\\int \\sec^3\\theta\\tan^4\\theta\\,d\\theta$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "Use the sine substitution $x = 4\\sin\\theta$, since the integrand contains $\\sqrt{16 - x^2}$. Then $dx = 4\\cos\\theta\\,d\\theta$ and $\\sqrt{16 - x^2} = 4\\cos\\theta$. The limits become $\\theta = 0$ at $x = 0$ and $\\theta = \\frac{\\pi}{2}$ at $x = 4$, so\n\n$$\n\\int_0^4 \\sqrt{16 - x^2}\\,dx = \\int_0^{\\pi/2} 16\\cos^2\\theta\\,d\\theta = 8\\int_0^{\\pi/2} (1 + \\cos 2\\theta)\\,d\\theta = 8\\left[\\theta + \\frac{\\sin 2\\theta}{2}\\right]_0^{\\pi/2} = 4\\pi.\n$$\n\nThe integral is a quarter of a disc of radius $4$, with area $\\frac{1}{4}\\pi \\cdot 16 = 4\\pi$, which confirms it. So the integral is $4\\pi$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "The denominator has the repeated linear factor $x^2$ and the repeated irreducible quadratic $(x^2 + 1)^2$, so each power needs its own term. The factor $x^2$ gives $\\frac{A}{x} + \\frac{B}{x^2}$, and $(x^2 + 1)^2$ gives $\\frac{Cx + D}{x^2 + 1} + \\frac{Ex + F}{(x^2 + 1)^2}$. Therefore\n\n$$\n\\frac{4x^3 - x}{x^2(x^2 + 1)^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 1} + \\frac{Ex + F}{(x^2 + 1)^2}.\n$$\n\nThe classic mistake is to put a constant over $x^2 + 1$. The numerator over an irreducible quadratic must be linear.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Factor the denominator as $x^2 + x = x(x + 1)$ and write\n\n$$\n\\frac{3x + 1}{x(x + 1)} = \\frac{A}{x} + \\frac{B}{x + 1}.\n$$\n\nMultiplying out gives $3x + 1 = A(x + 1) + Bx$. Setting $x = 0$ gives $A = 1$, and setting $x = -1$ gives $-B = -2$, so $B = 2$. Then\n\n$$\n\\int \\frac{3x + 1}{x^2 + x}\\,dx = \\int \\left(\\frac{1}{x} + \\frac{2}{x + 1}\\right)dx = \\ln|x| + 2\\ln|x + 1| + C.\n$$\n\nSo the integral is $\\ln|x| + 2\\ln|x + 1| + C$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "X4"
       ],
+      "typeIds": [
+        "X4-numerical-integration"
+      ],
+      "solution": "Use the Midpoint Rule with $n = 2$ subintervals on $[0, 4]$, each of width $\\Delta x = 2$. The midpoints are $x = 1$ and $x = 3$, and the table gives $f(1) = 1.2$ and $f(3) = 6.5$. So\n\n$$\n\\int_0^4 f(x)\\,dx \\approx 2\\left[f(1) + f(3)\\right] = 2(1.2 + 6.5) = 15.4.\n$$\n\nThe approximation is $15.4$. The point $x = 2$ is an endpoint between the subintervals, not a midpoint, so it is not used.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-secant-substitution"
+      ],
+      "solution": "Pull $\\sqrt{8}$ out of the root so that the formula's form appears: $\\sqrt{8x^2 - 5} = \\sqrt{8}\\sqrt{x^2 - \\frac{5}{8}}$. Then\n\n$$\n\\int \\frac{dx}{\\sqrt{8x^2 - 5}} = \\frac{1}{\\sqrt{8}}\\int \\frac{dx}{\\sqrt{x^2 - \\frac{5}{8}}}.\n$$\n\nWith $a^2 = \\frac{5}{8}$, the formula gives $\\ln\\left|x + \\sqrt{x^2 - \\frac{5}{8}}\\right|$. So the integral is $\\frac{1}{\\sqrt{8}}\\ln\\left|x + \\sqrt{x^2 - \\frac{5}{8}}\\right| + C$. The factor $\\frac{1}{\\sqrt{8}}$ in front is easy to drop, and it must stay.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-which-converge"
+      ],
+      "solution": "Check each integral on its own.\n\nI. Substitute $u = 2 - 8x$, so $dx = -\\frac{du}{8}$. The limits become $u = \\infty$ at $x = -\\infty$ and $u = 2$ at $x = 0$, so $\\int_{-\\infty}^0 \\frac{dx}{2 - 8x} = \\frac{1}{8}\\int_2^{\\infty} \\frac{du}{u}$. This diverges, so I does not converge.\n\nII. Let $u = \\sqrt{x}$, so $\\frac{dx}{\\sqrt{x}} = 2\\,du$ and the integral becomes $2\\int_1^{\\infty} e^{-u}\\,du = 2e^{-1}$. This is finite, so II converges.\n\nIII. The endpoints $-1$ and $2$ are finite, which makes the integral look ordinary, but the interval contains $x = 0$, where $\\frac{1}{x^2}$ is unbounded. Since $\\int_t^2 \\frac{dx}{x^2} = \\frac{1}{t} - \\frac{1}{2} \\to \\infty$ as $t \\to 0^+$, the integral diverges, so III does not converge.\n\nSo only II converges.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -343,6 +379,9 @@
       "answer": "A",
       "lessonIds": [
         "L8"
+      ],
+      "typeIds": [
+        "L8-arc-length-setup"
       ],
       "sourcePage": 7,
       "solution": "**Note on this question:** The given $g'(x)=\\sqrt{\\sec^2x\\tan^2x-1}$ is not a real number near $x=0$: the expression under the root is $-1$ at $x=0$ and stays negative until $x\\approx0.666$. Formally, $1+(g'(x))^2=\\sec^2x\\tan^2x$, so $L=\\int_0^{\\pi/4}\\sec x\\tan x\\,dx=\\sec\\frac{\\pi}{4}-\\sec 0=\\sqrt{2}-1$, the keyed answer A.",
@@ -379,6 +418,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass"
+      ],
+      "solution": "The intersections satisfy $x^2 = x$, so $x = 0$ and $x = 1$. On $[0, 1]$ the line $y = x$ is above $y = x^2$. The area is\n\n$$\nA = \\int_0^1 (x - x^2)\\,dx = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}.\n$$\n\nThe centroid's $y$-coordinate is $\\frac{1}{A}$ times the moment $\\int_0^1 \\frac{1}{2}(\\text{top}^2 - \\text{bottom}^2)\\,dx$, so\n\n$$\n\\bar{y} = 6\\int_0^1 \\frac{1}{2}\\left(x^2 - x^4\\right)dx = 6 \\cdot \\frac{1}{2}\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = 6 \\cdot \\frac{1}{15} = \\frac{2}{5}.\n$$\n\nSo $\\bar{y} = \\frac{2}{5}$. The factor $\\frac{1}{2}$ in the moment is easy to forget, which doubles the answer.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -413,6 +456,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-monotone-bounded"
+      ],
+      "solution": "Divide the top and bottom by $n$ to get $a_n \\to \\frac{5}{7}$, so the sequence converges and I is true. A convergent sequence is bounded, so II is true. For monotonicity, rewrite\n\n$$\na_n = \\frac{5}{7} - \\frac{64/7}{7n + 3}.\n$$\n\nThe subtracted term decreases as $n$ grows, so $a_n$ increases. The sequence is monotonic, so III is false. So I and II are true and III is false.",
       "sourcePage": 8,
       "status": "reviewed"
     }

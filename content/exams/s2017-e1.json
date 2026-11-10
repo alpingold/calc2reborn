@@ -42,6 +42,9 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-vector-arithmetic-magnitude"
+      ],
       "sourcePage": 2,
       "solution": "$\\vec{F}$ has length 10 and points $30^\\circ$ above the positive $x$-axis; $\\vec{G}$ has length 20 and points $60^\\circ$ below it:\n\n$$\n\\vec{F} = 10\\cos 30^\\circ\\,\\vec{i} + 10\\sin 30^\\circ\\,\\vec{j} = 5\\sqrt{3}\\,\\vec{i} + 5\\,\\vec{j}\n$$\n\n$$\n\\vec{G} = 20\\cos 60^\\circ\\,\\vec{i} - 20\\sin 60^\\circ\\,\\vec{j} = 10\\,\\vec{i} - 10\\sqrt{3}\\,\\vec{j}\n$$\n\nSo $\\vec{F} + \\vec{G} = (5\\sqrt{3} + 10)\\,\\vec{i} + (5 - 10\\sqrt{3})\\,\\vec{j}$, and\n\n$$\n\\tan\\theta = \\frac{5 - 10\\sqrt{3}}{5\\sqrt{3} + 10} = \\frac{5(1 - 2\\sqrt{3})}{5(\\sqrt{3} + 2)} = \\frac{1 - 2\\sqrt{3}}{2 + \\sqrt{3}}.\n$$",
       "status": "reviewed"
@@ -77,6 +80,9 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-center-radius"
+      ],
       "sourcePage": 2,
       "solution": "Divide the equation by 4:\n\n$$\nx^2 + y^2 + z^2 - x - 3y + 2z = \\frac{1}{2}\n$$\n\nComplete the square in each variable:\n\n$$\n\\left(x - \\frac{1}{2}\\right)^2 - \\frac{1}{4} + \\left(y - \\frac{3}{2}\\right)^2 - \\frac{9}{4} + (z + 1)^2 - 1 = \\frac{1}{2}\n$$\n\n$$\n\\left(x - \\frac{1}{2}\\right)^2 + \\left(y - \\frac{3}{2}\\right)^2 + (z + 1)^2 = \\frac{1}{2} + \\frac{10}{4} + 1 = 4\n$$\n\nCenter $\\left(\\frac{1}{2}, \\frac{3}{2}, -1\\right)$, radius $2$.",
       "status": "reviewed"
@@ -111,6 +117,9 @@
       "answer": "D",
       "lessonIds": [
         "L3"
+      ],
+      "typeIds": [
+        "L3-angle-between-vectors"
       ],
       "sourcePage": 3,
       "solution": "Use $\\vec{u} \\cdot \\vec{v} = |\\vec{u}|\\,|\\vec{v}|\\cos\\theta$ with\n\n$$\n\\vec{u} \\cdot \\vec{v} = b, \\quad |\\vec{u}| = \\sqrt{3}, \\quad |\\vec{v}| = \\sqrt{b^2 + 2}.\n$$\n\nWith $\\theta = \\frac{\\pi}{3}$, $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$, so\n\n$$\nb = \\sqrt{3}\\,\\sqrt{b^2 + 2} \\cdot \\frac{1}{2}, \\qquad 2b = \\sqrt{3}\\,\\sqrt{b^2 + 2}.\n$$\n\nSquaring, $4b^2 = 3(b^2 + 2) = 3b^2 + 6$, so $b^2 = 6$. The left side $2b$ must be positive, so $b = \\sqrt{6}$. (If $b = -\\sqrt{6}$, then $\\cos\\theta = -\\frac{1}{2}$.)",
@@ -148,6 +157,9 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-dot-product-statements"
+      ],
       "sourcePage": 3,
       "solution": "(I) $\\vec{u} \\cdot \\vec{v} = 6 - 4 - 2 = 0$, so $\\vec{u}$ and $\\vec{v}$ are perpendicular. True.\n\n(II)\n\n$$\n\\vec{a} \\times \\vec{i} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 2 & \\sqrt{5} \\\\ 1 & 0 & 0 \\end{vmatrix} = \\sqrt{5}\\,\\vec{j} - 2\\vec{k}\n$$\n\nso the area is $|\\vec{a} \\times \\vec{i}| = \\sqrt{5 + 4} = 3$. True.\n\n(III)\n\n$$\n|\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})| = \\left|\\begin{vmatrix} 1 & 1 & 1 \\\\ 2 & -1 & 0 \\\\ -3 & 1 & 0 \\end{vmatrix}\\right| = |-1| = 1\n$$\n\nTrue. All three statements are correct.",
       "status": "reviewed"
@@ -182,6 +194,9 @@
       "answer": "A",
       "lessonIds": [
         "L5"
+      ],
+      "typeIds": [
+        "L5-area-in-y"
       ],
       "sourcePage": 4,
       "solution": "Intersections: $y^2 = 2y - y^2$, so $2y^2 = 2y$, giving $y = 0$ and $y = 1$. For $0 \\le y \\le 1$ the curve $x = 2y - y^2$ is to the right of $x = y^2$, so integrate in $y$:\n\n$$\nA = \\int_0^1 (2y - y^2 - y^2)\\,dy = \\int_0^1 (2y - 2y^2)\\,dy = 2\\left(\\frac{1}{2} - \\frac{1}{3}\\right) = \\frac{1}{3}.\n$$",
@@ -218,6 +233,9 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-split-or-axis"
+      ],
       "sourcePage": 4,
       "solution": "$y = x^2 - 4x + 3 = (x - 1)(x - 3)$ crosses the $x$-axis at $x = 1$ and $x = 3$, so it is above the axis on $-1 \\le x \\le 1$:\n\n$$\nA = \\int_{-1}^1 (x^2 - 4x + 3)\\,dx.\n$$\n\n$4x$ is odd, so $\\int_{-1}^1 4x\\,dx = 0$, and $x^2 + 3$ is even, so\n\n$$\nA = 2\\int_0^1 (x^2 + 3)\\,dx = 2\\left(3 + \\frac{1}{3}\\right) = \\frac{20}{3}.\n$$",
       "status": "reviewed"
@@ -252,6 +270,9 @@
       "answer": "D",
       "lessonIds": [
         "L6"
+      ],
+      "typeIds": [
+        "L6-disk-washer-y-axis"
       ],
       "sourcePage": 5,
       "solution": "The region lies between the $y$-axis and $x = y^2$ for $0 \\le y \\le 2$. A cross section at height $y$ is a disk of radius $y^2$, with area $A(y) = \\pi y^4$:\n\n$$\nV = \\int_0^2 \\pi y^4\\,dy = \\pi \\frac{y^5}{5}\\Big|_0^2 = \\frac{32\\pi}{5}.\n$$",
@@ -288,6 +309,9 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
       "sourcePage": 5,
       "solution": "The region runs from $x = 0$ to $x = 1$. A shell at $x$ has radius $1 + x$ and height $x - x^2$:\n\n$$\nV = 2\\pi \\int_0^1 (1 + x)(x - x^2)\\,dx = 2\\pi \\int_0^1 x(1 + x)(1 - x)\\,dx = 2\\pi \\int_0^1 x(1 - x^2)\\,dx\n$$\n\n$$\n= 2\\pi\\left(\\frac{1}{2} - \\frac{1}{4}\\right) = \\frac{\\pi}{2}.\n$$",
       "status": "reviewed"
@@ -322,6 +346,9 @@
       "answer": "C",
       "lessonIds": [
         "L9"
+      ],
+      "typeIds": [
+        "L9-spring-work"
       ],
       "sourcePage": 6,
       "solution": "$F = kx$ with $F = 50$ N at $x = \\frac{1}{2}$ m, so $50 = \\frac{k}{2}$ and $k = 100$. Lengths 2 m and 3 m are stretches of 1 m and 2 m:\n\n$$\nW = \\int_1^2 100x\\,dx = 50x^2\\Big|_1^2 = 50(4 - 1) = 150 \\text{ J}.\n$$",
@@ -358,6 +385,9 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
       "sourcePage": 6,
       "solution": "Measure $x$ down from the top of the tank. The liquid fills $1 \\le x \\le 5$. A slab at depth $x$ has volume $4\\pi\\,dx$ and weight $4\\pi\\,dx \\cdot 10 = 40\\pi\\,dx$, and it moves up a distance $x$ to the top of the tank:\n\n$$\nW = \\int_1^5 40\\pi x\\,dx = 40\\pi \\cdot \\frac{x^2}{2}\\Big|_1^5 = 20\\pi(25 - 1) = 480\\pi.\n$$",
       "status": "reviewed"
@@ -392,6 +422,9 @@
       "answer": "B",
       "lessonIds": [
         "L5"
+      ],
+      "typeIds": [
+        "L5-area-top-bottom"
       ],
       "sourcePage": 7,
       "solution": "2:00 pm is 14:00, so the time interval is $0 \\le t \\le 6$ hours:\n\n$$\n\\text{Average} = \\frac{1}{6}\\int_0^6 (t^2 - 10)\\,dt = \\frac{1}{6}\\left(\\frac{t^3}{3} - 10t\\right)\\Big|_0^6 = \\frac{1}{6}\\left(\\frac{6^3}{3} - 10 \\cdot 6\\right) = \\frac{6^2}{3} - 10 = 12 - 10 = 2.\n$$",

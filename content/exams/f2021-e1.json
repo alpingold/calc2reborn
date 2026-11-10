@@ -42,6 +42,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-radius-from-point"
+      ],
+      "solution": "The radius is the distance from the center $(1, 1, 1)$ to the point $(2, 0, -3)$ on the sphere. Use the distance formula:\n\n$$\nr = \\sqrt{(2-1)^2 + (0-1)^2 + (-3-1)^2} = \\sqrt{1 + 1 + 16} = \\sqrt{18}\n$$\n\nSo the radius is $3\\sqrt{2}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -80,6 +84,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-unit-vector-direction"
+      ],
+      "solution": "A vector is a unit vector when its length is $1$. Check the length of each choice. The vector $\\left\\langle \\frac{1}{3}, \\frac{1}{3}, \\frac{1}{3} \\right\\rangle$ has squared length $\\frac19 + \\frac19 + \\frac19 = \\frac13$, so its length is $\\frac{1}{\\sqrt3}$, not $1$. Scaling $\\langle 1, 1, 1 \\rangle$ by $\\frac13$ instead of $\\frac{1}{\\sqrt3}$ is the usual slip that produces it.\n\nThe other choices all have length $1$. For example, $\\left(\\frac27\\right)^2 + \\left(\\frac37\\right)^2 + \\left(\\frac67\\right)^2 = \\frac{4 + 9 + 36}{49} = 1$.\n\nSo this vector is not a unit vector.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -118,6 +126,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "The vector projection of $\\vec{w}$ onto $\\vec{v}$ is $\\dfrac{\\vec{v}\\cdot\\vec{w}}{|\\vec{v}|^2}\\,\\vec{v}$. Compute the two pieces:\n\n$$\n\\vec{v}\\cdot\\vec{w} = (-1)(2) + (-2)(3) = -8, \\qquad |\\vec{v}|^2 = (-1)^2 + (-2)^2 = 5\n$$\n\nSo\n\n$$\n\\operatorname{proj}_{\\vec{v}}\\vec{w} = \\frac{-8}{5}\\langle -1, -2 \\rangle = \\left\\langle \\frac{8}{5}, \\frac{16}{5} \\right\\rangle\n$$\n\nSo the projection is $\\left\\langle \\frac{8}{5}, \\frac{16}{5} \\right\\rangle$. Dividing by $|\\vec{w}|^2 = 13$ instead of $|\\vec{v}|^2 = 5$ is a common slip, and it gives a different vector.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -156,6 +168,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "The area of the triangle is half the length of the cross product of two edge vectors from one vertex. Take the origin as the vertex, with $\\vec{p} = \\langle 1, 1, 1 \\rangle$ and $\\vec{q} = \\langle a, 7, 5 \\rangle$:\n\n$$\n\\vec{p} \\times \\vec{q} = \\begin{vmatrix} \\vec{\\imath} & \\vec{\\jmath} & \\vec{k} \\\\ 1 & 1 & 1 \\\\ a & 7 & 5 \\end{vmatrix} = \\langle -2,\\ a-5,\\ 7-a \\rangle\n$$\n\nThe area is $\\frac{\\sqrt6}{2}$, so the length of the cross product is $\\sqrt6$:\n\n$$\n4 + (a-5)^2 + (7-a)^2 = 6\n$$\n\nLet $u = a - 6$. Then $(u+1)^2 + (1-u)^2 = 2u^2 + 2 = 2$, so $u = 0$ and $a = 6$.\n\nForgetting the factor $\\frac12$ and setting the cross product's length to $\\frac{\\sqrt6}{2}$ leaves $2u^2 = -\\frac92$, which has no real solution.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -195,6 +211,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-magnitude-angle"
+      ],
+      "solution": "The cross product uses the sine of the angle and the dot product uses the cosine. Since the angle between two vectors lies in $[0, \\pi]$ and $\\tan\\theta = \\sqrt3$, we get $\\theta = \\frac{\\pi}{3}$, so $\\sin\\theta = \\frac{\\sqrt3}{2}$ and $\\cos\\theta = \\frac12$.\n\nThe cross product gives the product of the lengths:\n\n$$\n|\\vec{v}\\times\\vec{w}| = |\\vec{v}|\\,|\\vec{w}|\\sin\\theta \\quad\\Rightarrow\\quad |\\vec{v}|\\,|\\vec{w}| = \\frac{3}{\\sqrt3/2} = 2\\sqrt3\n$$\n\nThen the dot product is\n\n$$\n\\vec{v}\\cdot\\vec{w} = |\\vec{v}|\\,|\\vec{w}|\\cos\\theta = 2\\sqrt3 \\cdot \\frac12 = \\sqrt3\n$$\n\nSo the dot product is $\\sqrt3$. Reading $|\\vec{v}\\times\\vec{w}| = 3$ as the dot product is a common slip.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -233,6 +253,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "Find the area between the curves by integrating the top curve minus the bottom curve. The curves meet where $e^x = e^{-x}$, which is $x = 0$, and on $[0, 1]$ the curve $y = e^x$ lies on top. So\n\n$$\nA = \\int_0^1 \\left(e^x - e^{-x}\\right)dx = \\left[e^x + e^{-x}\\right]_0^1 = \\left(e + e^{-1}\\right) - 2\n$$\n\nOver a common denominator this is $\\frac{e^2 - 2e + 1}{e} = \\frac{(e-1)^2}{e}$, so the area is $\\frac{(e-1)^2}{e}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -274,6 +298,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Each cross section is an isosceles right triangle with one leg on the base. Its horizontal leg is the width of the base at $x$, which is $\\sqrt{\\cos x}$, and its vertical leg has the same length. So the cross-sectional area is\n\n$$\nA(x) = \\frac12 \\sqrt{\\cos x}\\cdot \\sqrt{\\cos x} = \\frac{\\cos x}{2}\n$$\n\nThe volume is\n\n$$\nV = \\int_{-\\pi/2}^{\\pi/2} \\frac{\\cos x}{2}\\,dx = \\left[\\frac{\\sin x}{2}\\right]_{-\\pi/2}^{\\pi/2} = \\frac12 + \\frac12 = 1\n$$\n\nSo the volume is $1$. Taking the hypotenuse as the base instead of a leg gives area $\\frac{\\cos x}{4}$ and the wrong volume $\\frac12$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -312,6 +340,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-horizontal-axis"
+      ],
+      "solution": "Use shells in $y$, since the strips are horizontal and the axis of revolution $y = 1$ is horizontal. At height $y$ the region runs from $x = y^2$ (on $y = \\sqrt{x}$) to $x = 1$, so the strip has length $1 - y^2$. Its distance from the line $y = 1$ is $1 - y$, which is the shell radius. The heights $y$ run from $0$ to $1$, so the shell volume is\n\n$$\nV = \\int_0^1 2\\pi (1-y)(1-y^2)\\,dy\n$$\n\nSo the volume is given by this integral in $y$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -350,6 +382,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-setup"
+      ],
+      "solution": "Match the integrand to $\\sqrt{1 + (y')^2}$. This needs $(y')^2 = 9x^4 + 6x^2 + 1$, and $9x^4 + 6x^2 + 1 = (3x^2 + 1)^2$ is a perfect square. So $y' = 3x^2 + 1$ works, and integrating gives $y = x^3 + x$, since the constant of integration does not change the arc length.\n\nCheck: $1 + (3x^2 + 1)^2 = 9x^4 + 6x^2 + 2$, which matches the integrand.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -388,6 +424,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Use the surface area formula for revolution about the $x$-axis:\n\n$$\nS = \\int_a^b 2\\pi\\, y\\sqrt{1 + (y')^2}\\,dx\n$$\n\nHere $y = \\frac{x^3}{3}$ and $y' = x^2$, so $\\sqrt{1 + (y')^2} = \\sqrt{1 + x^4}$. Then\n\n$$\nS = \\int_0^{\\sqrt[4]{3}} 2\\pi \\cdot \\frac{x^3}{3}\\sqrt{1 + x^4}\\,dx\n$$\n\nLet $u = 1 + x^4$, so $du = 4x^3\\,dx$ and $x^3\\,dx = \\frac{du}{4}$. The limits become $u = 1$ at $x = 0$ and $u = 4$ at $x = \\sqrt[4]{3}$:\n\n$$\nS = \\frac{2\\pi}{3}\\cdot\\frac14 \\int_1^4 u^{1/2}\\,du = \\frac{\\pi}{6}\\left[\\frac23 u^{3/2}\\right]_1^4 = \\frac{\\pi}{9}(8 - 1)\n$$\n\nSo the surface area is $\\frac{7\\pi}{9}$. Forgetting to subtract the value at $u = 1$ gives $\\frac{8\\pi}{9}$, a common slip.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -426,6 +466,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use washers about the $x$-axis. On $[0, 2]$ the line $y = x + 2$ is the outer boundary and $y = x$ is the inner boundary, since $x + 2 \\ge x \\ge 0$. So\n\n$$\nV = \\pi \\int_0^2 \\left[(x+2)^2 - x^2\\right] dx = \\pi \\int_0^2 (4x + 4)\\,dx = \\pi \\left[2x^2 + 4x\\right]_0^2 = 16\\pi\n$$\n\nSo the volume is $16\\pi$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -464,6 +508,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law says $F = kx$. The force $40$ N holds the spring $0.1$ m from equilibrium, so $40 = k(0.1)$ and $k = 400$ N/m.\n\nThe additional work stretches the spring from $x = 0.1$ m to $x = 0.2$ m:\n\n$$\nW = \\int_{0.1}^{0.2} 400x\\,dx = \\left[200x^2\\right]_{0.1}^{0.2} = 200(0.04 - 0.01) = 6\n$$\n\nSo the work is $6$ N·m. Integrating from equilibrium, $0$ to $0.1$, gives the $2$ N·m already spent, not the additional work.",
       "sourcePage": 7,
       "status": "reviewed"
     }

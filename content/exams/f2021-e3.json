@@ -42,6 +42,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-approximate-with-polynomial"
+      ],
+      "solution": "Centered at $a = 1$, the $k$th derivative of $f(x) = \\frac{1}{x}$ at $1$ is $f^{(k)}(1) = (-1)^k k!$, so the coefficient of $(x-1)^k$ in the Taylor series is $\\frac{f^{(k)}(1)}{k!} = (-1)^k$. The Taylor polynomial of order $3$ is\n\n$$\np_3(x) = 1 - (x-1) + (x-1)^2 - (x-1)^3.\n$$\n\nAt $x = 2$, this gives $p_3(2) = 1 - 1 + 1 - 1$, so the value is $0$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -80,6 +84,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Check each series for absolute convergence, then for convergence with the alternating series test.\n\nFor $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{\\sqrt{k}}$, the terms $\\frac{1}{\\sqrt{k}}$ are decreasing and tend to $0$, so the series converges by the alternating series test. The absolute series $\\sum \\frac{1}{\\sqrt{k}}$ is a $p$-series with $p = \\frac12 \\le 1$, so it diverges. The first series converges conditionally.\n\nFor $\\sum_{k=2}^{\\infty} \\frac{(-1)^k \\ln k}{k}$, the terms $\\frac{\\ln k}{k}$ tend to $0$ and decrease for $k \\ge 3$. The test needs only this eventual decrease, even though $\\frac{\\ln k}{k}$ rises from $k = 2$ to $k = 3$. So the series converges. For absolute convergence, $\\frac{\\ln k}{k} \\ge \\frac{1}{k}$ for $k \\ge 3$, so $\\sum \\frac{\\ln k}{k}$ diverges by comparison with the harmonic series. The second series also converges conditionally.\n\nSo both series converge conditionally. Stopping after the alternating series test gives \"converges\" without saying which kind, and that is where the marks are lost.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -118,6 +126,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-odd-one-out"
+      ],
+      "solution": "Test each series.\n\n(I) $\\frac{1}{\\sqrt[5]{k^4+1}} \\sim \\frac{1}{k^{4/5}}$, a $p$-series with $p = \\frac45 \\le 1$. By limit comparison the series diverges.\n\n(II) $k^{-e}$ is a $p$-series with $p = e > 1$, so it converges.\n\n(III) $\\frac{1}{k(\\ln k)^2}$ is positive and decreasing for $k \\ge 2$, and $\\int_2^{\\infty} \\frac{dx}{x(\\ln x)^2} = \\frac{1}{\\ln 2}$ is finite. By the integral test the series converges.\n\n(IV) $\\left(1 + \\frac1k\\right)^k \\to e \\ne 0$, so the terms do not tend to $0$ and the series diverges by the divergence test.\n\nThe two convergent series are (II) and (III).",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -156,6 +168,10 @@
       "lessonIds": [
         "L28"
       ],
+      "typeIds": [
+        "L28-remainder-formula"
+      ],
+      "solution": "The approximation is the Taylor polynomial of order $2$, so the error is the remainder term with the third derivative. The Taylor Remainder Theorem gives $R_2 = \\frac{f'''(c)}{3!}(x-a)^3$ for some $c$ between $a$ and $x$. Here $f(x) = \\cos x$, so $f'''(x) = \\sin x$, and $x - a = \\frac{\\pi}{5} - \\frac{\\pi}{6} = \\frac{\\pi}{30}$. The error is\n\n$$\n\\frac{\\sin(c)}{6}\\left(\\frac{\\pi}{30}\\right)^3 \\quad \\text{for some } c \\text{ between } \\frac{\\pi}{6} \\text{ and } \\frac{\\pi}{5}.\n$$\n\nThe trap is the derivative: $f' = -\\sin x$, $f'' = -\\cos x$, and only $f''' = \\sin x$ is needed, so a $\\cos(c)$ comes from stopping one derivative short. The divisor is $3! = 6$, since the remainder is the term after the order-$2$ polynomial.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -194,6 +210,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Apply the ratio test to $a_k = \\frac{(k!)^2}{(2k)!}$. Since $(k+1)! = (k+1)\\,k!$ and $(2k+2)! = (2k+2)(2k+1)(2k)!$,\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{\\big((k+1)!\\big)^2}{(2k+2)!} \\cdot \\frac{(2k)!}{(k!)^2} = \\frac{(k+1)^2}{(2k+2)(2k+1)} = \\frac{k+1}{2(2k+1)}.\n$$\n\nAs $k \\to \\infty$ this tends to $\\frac{1}{4}$, so the limit is $r = \\frac14 < 1$ and the series converges.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -232,6 +252,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Write $u = 3x + 2$, so the series is $\\sum_{k=1}^{\\infty} \\frac{2}{k} u^k$. The ratio test gives\n\n$$\n\\lim_{k\\to\\infty} \\left|\\frac{u^{k+1}/(k+1)}{u^k/k}\\right| = |u| \\cdot \\lim_{k\\to\\infty} \\frac{k}{k+1} = |u|.\n$$\n\nThe series converges when $|3x+2| < 1$, that is, when $\\left|x + \\frac23\\right| < \\frac13$. So the radius of convergence is $\\frac13$.\n\nThe factor $3$ is easy to lose: the bound $|3x+2| < 1$ must be divided by $3$ before the radius can be read off.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -270,6 +294,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
+      "solution": "Take the limit of each part separately. As $k \\to \\infty$, $\\frac{1}{k} \\to 0$, so $\\tan\\left(\\frac{1}{k}\\right) \\to \\tan 0 = 0$. Also $\\frac{k}{k^2+1} \\to 0$, so $\\sec\\left(\\frac{k}{k^2+1}\\right) \\to \\sec 0 = 1$, since $\\sec$ is continuous at $0$. The sequence therefore converges to $0 - 1 = -1$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -308,6 +336,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "The sum is geometric with first term $a = -\\frac23$ and ratio $r = -\\frac23$, and $|r| < 1$. The sum from $k = 1$ to infinity is\n\n$$\n\\sum_{k=1}^{\\infty} \\left(-\\frac23\\right)^k = \\frac{-\\frac23}{1 + \\frac23} = -\\frac25 = -0.4.\n$$\n\nThe finite sum stops at $k = 19$, so it differs from this by the tail starting at $k = 20$. The power $20$ is even, so the tail is positive:\n\n$$\n\\sum_{k=20}^{\\infty} \\left(-\\frac23\\right)^k = \\frac{\\left(\\frac23\\right)^{20}}{1 + \\frac23} = \\frac35\\left(\\frac23\\right)^{20} \\approx 0.6 \\cdot 0.0003 = 0.00018.\n$$\n\nSo the finite sum is $-0.4 - 0.00018 = -0.40018$, which is closest to $-0.4002$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -346,6 +378,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Test each statement with a theorem or a counterexample.\n\n(I) False. Take $a_k = 1$ for all $k$. The sequence converges to $1$, but $\\sum 1$ diverges.\n\n(II) True. If $\\sum a_k$ converged, then $a_k \\to 0$ by the divergence test. So if the sequence $a_k$ does not converge to $0$, the series diverges. A sequence that diverges certainly does not converge to $0$.\n\n(III) True. If $\\sum a_k$ converges to $S$, then the partial sums $S_n \\to S$, so $a_n = S_n - S_{n-1} \\to S - S = 0$. The sequence converges to $0$.\n\n(IV) False. Take $a_k = \\frac{1}{k}$. The sequence converges to $0$, while the harmonic series diverges.\n\nSo (II) and (III) are true. The trap is (IV): a series can diverge while its terms converge to $0$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -384,6 +420,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Factor the denominator and use partial fractions:\n\n$$\n\\frac{1}{k^2+5k+6} = \\frac{1}{(k+2)(k+3)} = \\frac{1}{k+2} - \\frac{1}{k+3}.\n$$\n\nIn the partial sum, each negative term cancels the positive term that follows it:\n\n$$\nS_n = \\left(\\frac13 - \\frac14\\right) + \\left(\\frac14 - \\frac15\\right) + \\cdots + \\left(\\frac{1}{n+2} - \\frac{1}{n+3}\\right) = \\frac13 - \\frac{1}{n+3}.\n$$",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -422,6 +462,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-odd-one-out"
+      ],
+      "solution": "Test each series.\n\n(I) $\\frac{e^k}{e^{2k}+1} \\le \\frac{e^k}{e^{2k}} = e^{-k}$, a convergent geometric series with ratio $\\frac1e$. By comparison the series converges.\n\n(II) The terms $(-1)^k\\frac{k+1}{k} = (-1)^k\\left(1 + \\frac1k\\right)$ approach $\\pm 1$ and do not tend to $0$, so the series diverges.\n\n(III) The terms behave like $\\left(\\frac{\\pi}{3}\\right)^k$. Since $\\frac{\\pi^k/(3^k-2)}{(\\pi/3)^k} = \\frac{3^k}{3^k-2} \\to 1$, the series is comparable to a geometric series with ratio $\\frac{\\pi}{3} > 1$, so it diverges.\n\n(IV) $\\sqrt[k]{\\frac{1}{(\\ln k)^k}} = \\frac{1}{\\ln k} \\to 0 < 1$, so the root test gives convergence.\n\nThe two convergent series are (I) and (IV). The trap is (II): the factor $(-1)^k$ suggests the alternating series test, but that test needs the terms to tend to $0$, and here they tend to $\\pm 1$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -460,6 +504,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "For large $k$ the numerator is about $k$ and the denominator is about $\\sqrt{k^3} = k^{3/2}$, so the terms behave like $\\frac{k}{k^{3/2}} = \\frac{1}{k^{1/2}}$. Take the comparison series $\\sum \\frac{1}{k^{1/2}}$ and compute\n\n$$\n\\lim_{k\\to\\infty} \\frac{\\frac{1+k}{\\sqrt{3+3k+k^3}}}{\\frac{1}{\\sqrt{k}}} = \\lim_{k\\to\\infty} \\frac{(1+k)\\sqrt{k}}{\\sqrt{k^3+3k+3}} = 1.\n$$\n\nThe limit is positive and finite, and $\\sum \\frac{1}{k^{1/2}}$ is a $p$-series with $p = \\frac12 \\le 1$, which diverges. So the series diverges. The trap is comparing with $\\frac{1}{k^{3/2}}$ or $\\frac{1}{k^2}$, which suggests convergence and gives the wrong conclusion.",
       "sourcePage": 7,
       "status": "reviewed"
     }

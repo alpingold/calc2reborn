@@ -42,6 +42,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "Use $x = \\sin\\theta$, since the root $\\sqrt{1-x^2}$ appears. Then $dx = \\cos\\theta\\,d\\theta$ and $\\left(\\frac{1}{\\sqrt{1-x^2}}\\right)^3 = \\frac{1}{\\cos^3\\theta}$, so the integrand becomes $\\frac{\\cos\\theta}{\\cos^3\\theta}\\,d\\theta = \\sec^2\\theta\\,d\\theta$.\n\nThe limits change from $x=0$ to $\\theta=0$, and from $x=\\frac12$ to $\\theta=\\frac{\\pi}{6}$, since $\\sin\\frac{\\pi}{6}=\\frac12$. So\n\n$$\n\\int_0^{1/2} \\frac{dx}{(1-x^2)^{3/2}} = \\int_0^{\\pi/6} \\sec^2\\theta\\,d\\theta = \\left[\\tan\\theta\\right]_0^{\\pi/6} = \\frac{1}{\\sqrt{3}} - 0\n$$\n\nso the value is $\\frac{1}{\\sqrt{3}}$.\n\nTrap: forgetting the $\\cos\\theta$ that $dx$ brings leaves $\\sec^3\\theta$, whose integral contains a logarithm. Those logarithm answers are the wrong ones here.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -80,6 +84,11 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-long-division",
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "The numerator and denominator have the same degree, so divide first. Since $x^3+3x^2+2x+1 = 1\\cdot(x^3+x) + (3x^2+x+1)$,\n\n$$\n\\frac{x^3+3x^2+2x+1}{x^3+x} = 1 + \\frac{3x^2+x+1}{x(x^2+1)}\n$$\n\nDecompose the remainder as $\\frac{3x^2+x+1}{x(x^2+1)} = \\frac{A}{x} + \\frac{Bx+C}{x^2+1}$. Clearing denominators gives $3x^2+x+1 = A(x^2+1) + (Bx+C)x$. Setting $x=0$ gives $A=1$. Comparing the $x^2$ terms gives $1+B=3$, so $B=2$, and the $x$ terms give $C=1$.\n\nIntegrate term by term:\n\n$$\n\\int \\left(1 + \\frac{1}{x} + \\frac{2x+1}{x^2+1}\\right)dx = x + \\ln|x| + \\ln(x^2+1) + \\tan^{-1}x + C\n$$\n\nThe $\\frac{2x}{x^2+1}$ part gives $\\ln(x^2+1)$ and the $\\frac{1}{x^2+1}$ part gives $\\tan^{-1}x$, so the integral is $x + \\ln|x| + \\ln(x^2+1) + \\tan^{-1}x + C$.\n\nTrap: leaving out the constant $1$ from the division drops the $x$ term, and writing $2\\ln(x^2+1)$ doubles a coefficient that is only $1$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -118,6 +127,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-even-sec-power"
+      ],
+      "solution": "The power of $\\tan$ is odd and there is no $\\sec$ factor to use directly, so split off a $\\tan^2 x = \\sec^2 x - 1$:\n\n$$\n\\int_0^{\\pi/3} \\tan^3 x\\,dx = \\int_0^{\\pi/3} \\tan x\\sec^2 x\\,dx - \\int_0^{\\pi/3} \\tan x\\,dx\n$$\n\nFor the first integral let $u = \\tan x$, so $du = \\sec^2 x\\,dx$ and it becomes $\\int u\\,du = \\frac{\\tan^2 x}{2}$. For the second, $\\int \\tan x\\,dx = -\\ln|\\cos x|$. So\n\n$$\n\\int \\tan^3 x\\,dx = \\frac{\\tan^2 x}{2} + \\ln|\\cos x| + C\n$$\n\nAt $x=\\frac{\\pi}{3}$, $\\tan^2 x = 3$ and $\\cos x = \\frac12$, giving $\\frac32 - \\ln 2$. At $x=0$ both terms are $0$, so the integral is $\\frac32 - \\ln 2$.\n\nTrap: writing $\\int \\tan x\\,dx$ as $+\\ln|\\cos x|$ instead of $-\\ln|\\cos x|$ flips the sign of the $\\ln 2$ term.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -156,6 +169,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Factor the denominator first: $x^5 + x^3 = x^3(x^2+1)$. The numerator has degree $6$, below the denominator's degree $7$, so no division is needed.\n\nEach factor contributes its own terms. The factor $x^3$ needs $\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^3}$, the irreducible quadratic $x^2+1$ needs $\\frac{Dx+E}{x^2+1}$, and the repeated factor $(x-1)^2$ needs $\\frac{F}{x-1} + \\frac{G}{(x-1)^2}$. So\n\n$$\n\\frac{x^6+x^3-x^2+1}{(x^5+x^3)(x-1)^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^3} + \\frac{Dx+E}{x^2+1} + \\frac{F}{x-1} + \\frac{G}{(x-1)^2}\n$$\n\nThis is the form with seven constants to find, and the constants are not asked for.\n\nTrap: a repeated factor needs every power up to its exponent, so $\\frac{B}{x^2}$ and $\\frac{C}{x^3}$ are both required, and the quadratic factor needs a linear numerator $Dx+E$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -194,6 +211,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "Substitute $u = x^3$, so $du = 3x^2\\,dx$ and $x^2\\,dx = \\frac{du}{3}$. The limits change from $x=0$ to $u=0$ and from $x=1$ to $u=1$:\n\n$$\n\\int_0^1 x^2 e^{x^3}\\,dx = \\frac{1}{3}\\int_0^1 e^u\\,du = \\frac{1}{3}\\left[e^u\\right]_0^1\n$$\n\nSo the integral is $\\frac{e-1}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -232,6 +253,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-evaluate-completed-square"
+      ],
+      "solution": "Complete the square: $x^2-6x+10 = (x-3)^2+1$. Let $x-3 = \\tan\\theta$, so $dx = \\sec^2\\theta\\,d\\theta$ and $\\sqrt{x^2-6x+10} = \\sqrt{\\tan^2\\theta+1} = \\sec\\theta$, taking $\\sec\\theta>0$. Then\n\n$$\n\\int \\frac{dx}{\\sqrt{x^2-6x+10}} = \\int \\frac{\\sec^2\\theta\\,d\\theta}{\\sec\\theta} = \\int \\sec\\theta\\,d\\theta = \\ln|\\sec\\theta+\\tan\\theta| + C\n$$\n\nSince $\\tan\\theta = x-3$ and $\\sec\\theta = \\sqrt{x^2-6x+10}$, the integral is $\\ln\\left|x-3+\\sqrt{x^2-6x+10}\\right| + C$.\n\nTrap: the form $1+(x-3)^2$ invites an arctangent, but the root in the denominator stays, so the result is a logarithm, not $\\tan^{-1}(x-3)$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -273,6 +298,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-hydrostatic-force"
+      ],
+      "solution": "Slice the trough horizontally. Let $y$ be the depth below the top edge, so $0 \\le y \\le 5$. The top edge is $3$ m wide and the apex is $5$ m down, so by similar triangles the width at depth $y$ is $3\\left(1-\\frac{y}{5}\\right)$.\n\nA slice at depth $y$ with thickness $dy$ has area $3\\left(1-\\frac{y}{5}\\right)dy$ and the pressure on it is $\\rho g y$. The force on the slice is $\\rho g y \\cdot 3\\left(1-\\frac{y}{5}\\right)dy$, so the total force is\n\n$$\nF = \\int_0^5 3\\rho g\\left(y - \\frac{y^2}{5}\\right)dy = 3\\rho g\\left[\\frac{y^2}{2} - \\frac{y^3}{15}\\right]_0^5 = 3\\rho g\\left(\\frac{25}{2} - \\frac{25}{3}\\right) = \\frac{25}{2}\\rho g\n$$\n\nso the force is $\\frac{25}{2}\\rho g$ N.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -311,6 +340,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "The power of cosine is odd, so save one factor of $\\cos x$ and write the rest in terms of $\\sin x$ using $\\cos^2 x = 1-\\sin^2 x$. Let $s = \\sin x$, so $ds = \\cos x\\,dx$:\n\n$$\n\\int \\cos^5 x\\sin^2 x\\,dx = \\int \\cos^4 x\\sin^2 x\\,\\cos x\\,dx = \\int (1-s^2)^2 s^2\\,ds\n$$\n\nExpanding, $(1-s^2)^2 s^2 = s^2 - 2s^4 + s^6$, so\n\n$$\n\\int (s^2 - 2s^4 + s^6)\\,ds = \\frac{s^3}{3} - \\frac{2s^5}{5} + \\frac{s^7}{7} + C\n$$\n\nSubstituting back, the integral is $\\frac{1}{7}\\sin^7 x - \\frac{2}{5}\\sin^5 x + \\frac{1}{3}\\sin^3 x + C$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -349,6 +382,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "The integrand is $x$ times a trig function, so use integration by parts with $u = x$. Take $dv = \\sin x\\cos x\\,dx$, which gives $v = -\\frac{1}{4}\\cos 2x$, since $\\frac{d}{dx}\\left(-\\frac14\\cos 2x\\right) = \\frac12\\sin 2x = \\sin x\\cos x$:\n\n$$\n\\int_0^{\\pi/4} x\\sin x\\cos x\\,dx = \\left[-\\frac{x}{4}\\cos 2x\\right]_0^{\\pi/4} + \\frac14\\int_0^{\\pi/4}\\cos 2x\\,dx\n$$\n\nThe boundary term is $0$ at both ends, because $\\cos\\frac{\\pi}{2} = 0$ and $x=0$ gives $0$. The remaining integral is $\\frac14\\left[\\frac{\\sin 2x}{2}\\right]_0^{\\pi/4} = \\frac14\\cdot\\frac12 = \\frac18$.\n\nSo the integral is $\\frac18$.\n\nTrap: the choices containing $\\pi$ are decoys. The boundary term $-\\frac{x}{4}\\cos 2x$ vanishes at both ends because $\\cos\\frac{\\pi}{2}=0$, so the result has no $\\pi$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -387,6 +424,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Write the integral as a limit: $\\int_2^{\\infty}\\frac{dx}{x} = \\lim_{b\\to\\infty}\\int_2^b \\frac{dx}{x} = \\lim_{b\\to\\infty}\\left(\\ln b - \\ln 2\\right)$.\n\nAs $b\\to\\infty$, $\\ln b\\to\\infty$, so the limit is infinite. The integral diverges, which agrees with the $p$-test: $p=1$ is not greater than $1$ on an infinite tail.\n\nTrap: evaluating $\\ln x$ at $x=2$ alone gives a finite logarithm, which is why several choices are logarithms; the upper limit must be taken to infinity first.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -425,6 +466,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-partial-sums"
+      ],
+      "solution": "The partial sums are $S_n = \\sum_{k=1}^{n} a_k$ with $a_k = (-1)^k$, so the terms are $a_1 = -1$, $a_2 = 1$, $a_3 = -1$, $a_4 = 1$.\n\n$S_1 = -1$, $S_2 = -1 + 1 = 0$, $S_3 = 0 + (-1) = -1$, and $S_4 = -1 + 1 = 0$.\n\nSo the first four partial sums are $-1, 0, -1, 0$.\n\nTrap: listing the terms $a_k$ themselves gives $-1, 1, -1, 1$, which is the list of terms, not of partial sums.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -463,6 +508,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-recurrence-match"
+      ],
+      "solution": "Compute $a_2$ from $a_1$, then $a_3$ from $a_2$, for each recurrence.\n\n- $a_{n+1} = 1 - 2a_n$ with $a_1 = 1$: $a_2 = -1$, $a_3 = 3$.\n- $a_{n+1} = -a_n$ with $a_1 = 1$: $a_2 = -1$, $a_3 = 1$.\n- $a_{n+1} = a_n + 1$ with $a_1 = -5$: $a_2 = -4$, $a_3 = -3$.\n- $a_{n+1} = 3a_n$ with $a_1 = -1$: $a_2 = -3$, $a_3 = -9$.\n- $a_{n+1} = a_n - 3$ with $a_1 = 0$: $a_2 = -3$, $a_3 = -6$.\n- $a_{n+1} = -9/a_n$ with $a_1 = 3$: $a_2 = -3$, $a_3 = 3$.\n\nOnly the recurrence $a_{n+1} = a_n + 1$ with $a_1 = -5$ gives $a_3 = -3$.\n\nTrap: several recurrences give $a_2 = -3$, so checking only the second term is not enough; the third term decides.",
       "sourcePage": 7,
       "status": "reviewed"
     }

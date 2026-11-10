@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-equation-constant"
+      ],
+      "solution": "Complete the square in each variable. The center's $x$-coordinate is $-\\frac{a}{2}$, not $a$, so $-\\frac{a}{2} = -1$ gives $a = 2$.\n\nWith $a = 2$, the equation becomes\n\n$$\n(x+1)^2 + (y+3)^2 + (z-4)^2 = -1 + 1 + 9 + 16 = 25.\n$$\n\nThe radius is $\\sqrt{25} = 5$, as required, so the constant is $a = 2$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-vector-arithmetic-magnitude"
+      ],
+      "solution": "The net force is zero exactly when $\\boldsymbol{F_4} = -(\\boldsymbol{F_1} + \\boldsymbol{F_2} + \\boldsymbol{F_3})$. Add the three forces component by component:\n\n$\\boldsymbol{F_1} + \\boldsymbol{F_2} + \\boldsymbol{F_3} = \\langle 2, -1+3+4, 0+1+2 \\rangle = \\langle 2, 6, 3 \\rangle$\n\nSo $\\boldsymbol{F_4} = \\langle -2, -6, -3 \\rangle$, and its magnitude is $\\sqrt{4 + 36 + 9} = \\sqrt{49} = 7$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -107,6 +115,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-dot-product-statements"
+      ],
+      "solution": "A dot product takes two vectors and gives a number. A cross product takes two vectors and gives a vector. Check each statement against these rules.\n\nI. $\\boldsymbol{a} \\cdot (\\boldsymbol{b} \\times \\boldsymbol{c})$ is a dot product of $\\boldsymbol{a}$ with the vector $\\boldsymbol{b} \\times \\boldsymbol{c}$, so it is meaningful.\n\nII. $\\boldsymbol{b} \\cdot \\boldsymbol{c}$ is a number, and a cross product needs a vector on the right, so this is not meaningful.\n\nIII. $\\boldsymbol{a} \\times (\\boldsymbol{b} \\times \\boldsymbol{c})$ is a cross product of two vectors, so it is meaningful.\n\nIV. $\\boldsymbol{a} \\cdot \\boldsymbol{b}$ and $\\boldsymbol{c} \\cdot \\boldsymbol{d}$ are both numbers, and a cross product of two numbers is not defined, so this is not meaningful.\n\nV. $\\boldsymbol{a} \\times \\boldsymbol{b}$ and $\\boldsymbol{c} \\times \\boldsymbol{d}$ are both vectors, so their dot product is meaningful.\n\nStatements I, III and V are meaningful, so the count is $3$. The trap is treating a cross product as defined for any two quantities, when it needs two vectors.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -144,6 +156,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-vector-arithmetic-magnitude"
+      ],
+      "solution": "Write each vector in terms of $\\boldsymbol{v}$ and $\\boldsymbol{w}$ by counting grid steps from $O$. The grid lines are parallel to $\\boldsymbol{v}$ and $\\boldsymbol{w}$. The point $Q$ is three steps along $\\boldsymbol{v}$ and one step back along $\\boldsymbol{w}$, so $\\vec{OQ} = 3\\boldsymbol{v} - \\boldsymbol{w}$.\n\nThe point $R$ is four steps along $\\boldsymbol{v}$ and one step along $\\boldsymbol{w}$, so $\\vec{OR} = 4\\boldsymbol{v} + \\boldsymbol{w}$.\n\nThen $\\vec{QR} = \\vec{OR} - \\vec{OQ} = (4\\boldsymbol{v} + \\boldsymbol{w}) - (3\\boldsymbol{v} - \\boldsymbol{w}) = \\boldsymbol{v} + 2\\boldsymbol{w}$.\n\nSo $\\vec{OQ} - \\vec{QR} = (3\\boldsymbol{v} - \\boldsymbol{w}) - (\\boldsymbol{v} + 2\\boldsymbol{w}) = 2\\boldsymbol{v} - 3\\boldsymbol{w}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -178,6 +194,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "The projection of $\\boldsymbol{a}$ onto $\\boldsymbol{b}$ is $\\frac{\\boldsymbol{a} \\cdot \\boldsymbol{b}}{|\\boldsymbol{b}|^2}\\,\\boldsymbol{b}$, so $c = \\frac{\\boldsymbol{a} \\cdot \\boldsymbol{b}}{|\\boldsymbol{b}|^2}$.\n\nThe dot product is $\\boldsymbol{a} \\cdot \\boldsymbol{b} = (1)(2) + (2)(-1) + (3)(2) = 6$.\n\nThe squared length is $|\\boldsymbol{b}|^2 = 4 + 1 + 4 = 9$.\n\nSo $c = \\frac{6}{9} = \\frac{2}{3}$. The trap is dividing by $|\\boldsymbol{b}|$ instead of $|\\boldsymbol{b}|^2$, which gives $2$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -212,6 +232,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "Put the triangle's vertices at $P$, $P + \\boldsymbol{u}$ and $P + \\boldsymbol{v}$. Two sides are then $\\boldsymbol{u}$ and $\\boldsymbol{v}$, and the third side is $\\boldsymbol{v} - \\boldsymbol{u}$, which has the same length as $\\boldsymbol{u} - \\boldsymbol{v}$. The area is $\\frac{1}{2}|\\boldsymbol{u} \\times \\boldsymbol{v}|$.\n\n$$\n\\boldsymbol{u} \\times \\boldsymbol{v} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 1 & 1 \\\\ 2 & 0 & 2 \\end{vmatrix} = 2\\vec{i} - 2\\vec{k}\n$$\n\nSo $|\\boldsymbol{u} \\times \\boldsymbol{v}| = \\sqrt{4 + 4} = 2\\sqrt{2}$, and the area is $\\frac{1}{2}\\cdot 2\\sqrt{2} = \\sqrt{2}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -246,6 +270,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "The curves meet where $x + 1 = (x-1)^2 = x^2 - 2x + 1$, which gives $x^2 - 3x = 0$, so $x = 0$ or $x = 3$. On $[0, 3]$ the line is on top: at $x = 1$ the line gives $2$ and the parabola gives $0$. So the area is\n\n$$\n\\int_0^3 \\left[(x+1) - (x-1)^2\\right]\\,dx = \\int_0^3 (3x - x^2)\\,dx = \\left[\\frac{3x^2}{2} - \\frac{x^3}{3}\\right]_0^3 = \\frac{27}{2} - 9 = \\frac{9}{2}.\n$$\n\nSo the area is $\\frac{9}{2}$. The trap is subtracting the curves in the wrong order, which gives a negative integrand.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -280,6 +308,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use washers about the $x$-axis. The outer radius is $e^x$ and the inner radius is $1$, and the curves meet at $x = 0$, so the region runs over $0 \\le x \\le 2$. Each washer has area $\\pi\\left(R^2 - r^2\\right)$, so\n\n$$\nV = \\pi \\int_0^2 \\left[(e^x)^2 - 1^2\\right]\\,dx = \\pi \\int_0^2 (e^{2x} - 1)\\,dx.\n$$\n\nSo the washer integral is $\\pi \\int_0^2 (e^{2x} - 1)\\,dx$. The trap is squaring the difference $e^x - 1$ instead of taking the difference of the squares.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -314,6 +346,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells, since the region is revolved about the vertical line $x = -1$. A shell at position $x$ has radius $x - (-1) = x + 1$ and height $y = x^2$, for $0 \\le x \\le 1$. So\n\n$$\nV = 2\\pi \\int_0^1 (x+1)\\,x^2\\,dx = 2\\pi \\left[\\frac{x^4}{4} + \\frac{x^3}{3}\\right]_0^1 = 2\\pi\\left(\\frac{1}{4} + \\frac{1}{3}\\right) = \\frac{7\\pi}{6}.\n$$\n\nSo the volume is $\\frac{7\\pi}{6}$. The trap is using radius $x$, which measures from the $y$-axis rather than the line $x = -1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -348,6 +384,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Slice the monument horizontally. A slice at distance $x$ from the top is an equilateral triangle of side $x$, with area $\\frac{\\sqrt{3}}{4}x^2$. The slices run from $x = 0$ at the top to $x = 3$ at the base, so\n\n$$\nV = \\int_0^3 \\frac{\\sqrt{3}}{4}x^2\\,dx = \\frac{\\sqrt{3}}{4}\\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{\\sqrt{3}}{4}\\cdot 9 = \\frac{9\\sqrt{3}}{4}.\n$$\n\nSo the volume is $\\frac{9\\sqrt{3}}{4}$ cubic meters.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -382,6 +422,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives $F = kx$, where $x$ is the stretch beyond the natural length. The stretch to $10$ m is $10 - 5 = 5$ m and the force there is $25$ N, so $5k = 25$ and $k = 5$ N/m.\n\nStretching from $5$ m to $6$ m is a stretch from $x = 0$ to $x = 1$, so\n\n$$\nW = \\int_0^1 5x\\,dx = \\left[\\frac{5x^2}{2}\\right]_0^1 = \\frac{5}{2}.\n$$\n\nSo the work is $\\frac{5}{2}$ joules. The trap is putting the limits at $5$ and $6$ instead of at the stretches $0$ and $1$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -416,6 +460,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "The arc length is $\\int_0^{\\pi/4} \\sqrt{1 + g'(x)^2}\\,dx$. Here $g'(x)^2 = \\sec^4 x - 1$, so $1 + g'(x)^2 = \\sec^4 x$, which is a perfect square. Since $\\sec^2 x > 0$, the integrand is $\\sqrt{\\sec^4 x} = \\sec^2 x$:\n\n$$\nL = \\int_0^{\\pi/4} \\sec^2 x\\,dx = \\left[\\tan x\\right]_0^{\\pi/4} = 1 - 0 = 1.\n$$\n\nSo the length is $1$. The trap is forgetting the $1$ under the root and integrating $\\sqrt{\\sec^4 x - 1}$ directly.",
       "sourcePage": 7,
       "status": "reviewed"
     }
