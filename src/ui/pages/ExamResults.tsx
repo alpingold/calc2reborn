@@ -1,37 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router'
-import type { Content } from '../../content'
 import { lessonLabel } from '../../content/schema'
-import type { Choice } from '../../content/schema'
 import { useContent, useStore } from '../../storage/context'
-import type { Attempt } from '../../storage/types'
+import { sessionsFromAttempts } from '../../storage/backfill'
 import { QuestionView } from '../QuestionView'
-import { examTitle, formatPoints, recallMockQuestions, scoreSession } from '../examSession'
+import { examTitle, formatPoints, scoreSession, sessionFromRecord } from '../examSession'
 import type { ExamSession } from '../examSession'
 
 const noop = () => {}
-
-function rebuild(sessionId: string, attempts: Attempt[], content: Content): ExamSession | null {
-  const first = attempts[0]
-  if (!first || (first.mode !== 'exam' && first.mode !== 'mock')) return null
-  const exam = first.examId ? content.exams.find((e) => e.id === first.examId) : undefined
-  const answers: Record<string, Choice['label']> = {}
-  for (const a of attempts) answers[a.questionId] = a.chosen
-  const questionIds = exam
-    ? exam.questions.map((q) => q.id)
-    : (recallMockQuestions(sessionId) ?? [...new Set(attempts.map((a) => a.questionId))])
-  return {
-    sessionId,
-    kind: first.mode,
-    examId: first.examId,
-    questionIds,
-    answers,
-    marked: [],
-    startedAt: first.timestamp,
-    durationMinutes: exam?.durationMinutes ?? 60,
-    ...(attempts.some((a) => a.feedback) ? { feedback: true } : {}),
-  }
-}
 
 // Route component: a different session id remounts the view so state never carries over.
 export function ExamResults() {
@@ -54,8 +30,10 @@ function ResultsView({ sessionId }: { sessionId: string }) {
     let cancelled = false
     ;(async () => {
       try {
-        const attempts = await store.listAttempts({ sessionId })
-        if (!cancelled) setSession(rebuild(sessionId, attempts, content))
+        const [records, attempts] = await Promise.all([store.listSessionRecords(), store.listAttempts({ sessionId })])
+        // a session with attempts but no record (saved by an older version) is rebuilt from the attempts
+        const record = records.find((r) => r.sessionId === sessionId) ?? sessionsFromAttempts(attempts, content)[0]
+        if (!cancelled) setSession(record ? sessionFromRecord(record, attempts, content) : null)
       } catch {
         if (!cancelled) setError('Could not load results. Try again.')
       }

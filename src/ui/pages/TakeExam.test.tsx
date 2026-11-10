@@ -731,3 +731,45 @@ test.each(['{not json', '{"sessionId":1}', '[]', 'null'])('stored session text %
   renderAt('/exams/f2025-e1', new MemoryStore())
   expect(await screen.findByRole('button', { name: 'Start' })).toBeInTheDocument()
 })
+
+test('Submit saves a record of the session, even when nothing was answered', async () => {
+  const store = new MemoryStore()
+  await start('/exams/f2025-e1', store)
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await user().click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  expect(await store.listAttempts()).toHaveLength(0)
+  expect(await store.listSessionRecords()).toMatchObject([
+    { kind: 'exam', examId: 'f2025-e1', correct: 0, total: 12, feedback: false, startedAt: NOW.toISOString() },
+  ])
+  expect((await store.listSessionRecords())[0].questionIds).toHaveLength(12)
+})
+
+test('a mock saves its lesson range and question list in its record', async () => {
+  const store = new MemoryStore()
+  await start('/exams/mock?from=L19&to=L20', store)
+  const u = user()
+  await u.keyboard('c')
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  const [r] = await store.listSessionRecords()
+  expect(r).toMatchObject({ kind: 'mock', from: 'L19', to: 'L20', correct: 1, total: 12 })
+  expect(r).not.toHaveProperty('examId')
+  expect(localStorage.getItem('ma16200-mock-questions')).toBeNull()
+})
+
+test('when the record cannot be saved the exam stays open and Submit can be tried again', async () => {
+  const store = new MemoryStore()
+  vi.spyOn(store, 'saveSessionRecord').mockRejectedValueOnce(new Error('disk full'))
+  await start('/exams/f2025-e1', store)
+  const u = user()
+  await u.keyboard('c')
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your exam. Try again.')
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  expect(await store.listAttempts()).toHaveLength(1)
+  expect(await store.listSessionRecords()).toHaveLength(1)
+})

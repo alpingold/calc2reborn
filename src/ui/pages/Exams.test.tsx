@@ -6,7 +6,7 @@ import { Exams } from './Exams'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
-import type { Attempt } from '../../storage/types'
+import type { Attempt, SessionRecord } from '../../storage/types'
 import { buildContent } from '../../content'
 import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
@@ -201,4 +201,48 @@ test('unofficial exams have their own section, said to be written for this app, 
   const link = within(section).getByRole('link', { name: 'Extra Practice Exam 3 (A)' })
   expect(link).toHaveAttribute('href', '/exams/xp-e3-a')
   expect(await within(link.closest('li')!).findByText('Best: 9/12')).toBeInTheDocument()
+})
+
+function record(sessionId: string, finishedAt: string, extra: Partial<SessionRecord> = {}): SessionRecord {
+  return {
+    sessionId,
+    kind: 'exam',
+    examId: 'f2025-e1',
+    questionIds: [],
+    startedAt: finishedAt,
+    finishedAt,
+    feedback: false,
+    correct: 9,
+    total: 12,
+    ...extra,
+  }
+}
+
+test('past attempts are listed newest first with score, date and mode, each linking to its results', async () => {
+  const store = new MemoryStore()
+  await store.saveSessionRecord(record('a', '2026-10-01T15:00:00.000Z'))
+  await store.saveSessionRecord(
+    record('b', '2026-11-05T15:00:00.000Z', { kind: 'mock', examId: undefined, from: 'L20', to: 'L22', correct: 7, feedback: true }),
+  )
+  await setup(store)
+  const list = await screen.findByRole('list', { name: 'Past attempts' })
+  const rows = within(list).getAllByRole('listitem')
+  expect(rows).toHaveLength(2)
+  expect(within(rows[0]).getByRole('link', { name: 'Mock exam, Lessons 20 to 22' })).toHaveAttribute('href', '/results/b')
+  expect(rows[0]).toHaveTextContent(/7\/12 · .*2026 · with feedback/)
+  expect(within(rows[1]).getByRole('link', { name: 'Fall 2025 Exam 1' })).toHaveAttribute('href', '/results/a')
+  expect(rows[1]).toHaveTextContent(/9\/12 · .*2026$/)
+})
+
+test('with no finished exams there is no Past attempts section', async () => {
+  await setup()
+  expect(screen.queryByRole('heading', { name: 'Past attempts' })).not.toBeInTheDocument()
+})
+
+test('a past attempt at an exam that was removed from the content is left out', async () => {
+  const store = new MemoryStore()
+  await store.saveSessionRecord(record('gone', '2026-10-01T15:00:00.000Z', { examId: 'f1999-e1' }))
+  await setup(store)
+  await screen.findByRole('link', { name: 'Exam 1' })
+  expect(screen.queryByRole('heading', { name: 'Past attempts' })).not.toBeInTheDocument()
 })

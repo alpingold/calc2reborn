@@ -14,7 +14,7 @@ import {
   loadSession,
   matchesRequest,
   remainingSeconds,
-  rememberMockQuestions,
+  recordFor,
   saveSession,
   timeIsUp,
 } from './examSession'
@@ -286,13 +286,14 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
             await store.saveCardState(st)
           }
         }
+        // the record lists every question, so results and Past attempts work even with nothing answered
+        await store.saveSessionRecord(recordFor(s, content, p.at))
       } catch {
         setError('Could not save your exam. Try again.')
         busy.current = false
         return
       }
       clearSession()
-      if (s.kind === 'mock') rememberMockQuestions(s.sessionId, s.questionIds)
       // replace: Back from the results should not land on the finished exam
       navigate('/results/' + s.sessionId, { state: { session: s }, replace: true })
     },

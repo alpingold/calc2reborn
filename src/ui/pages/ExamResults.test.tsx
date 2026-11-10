@@ -10,7 +10,6 @@ import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 import type { Attempt } from '../../storage/types'
 import type { ExamSession } from '../examSession'
-import { rememberMockQuestions } from '../examSession'
 
 const choices: Choice[] = [
   { label: 'A', text: 'alpha' },
@@ -179,9 +178,20 @@ test('a timed session has no feedback label', async () => {
   expect(screen.queryByText('With feedback')).not.toBeInTheDocument()
 })
 
-test('a rebuilt mock lists its unanswered questions too when the browser remembers them', async () => {
-  rememberMockQuestions('m1', ['f2025-e1-q1', 'f2025-e1-q2', 'f2025-e1-q3'])
+test('a mock reopened later lists its unanswered questions too, from its record', async () => {
   const store = new MemoryStore()
+  await store.saveSessionRecord({
+    sessionId: 'm1',
+    kind: 'mock',
+    from: 'L19',
+    to: 'L20',
+    questionIds: ['f2025-e1-q1', 'f2025-e1-q2', 'f2025-e1-q3'],
+    startedAt: '2026-11-06T12:00:00.000Z',
+    finishedAt: '2026-11-06T12:30:00.000Z',
+    feedback: false,
+    correct: 1,
+    total: 3,
+  })
   await store.logAttempt({
     id: 'm1:f2025-e1-q2',
     questionId: 'f2025-e1-q2',
@@ -195,6 +205,41 @@ test('a rebuilt mock lists its unanswered questions too when the browser remembe
   await renderResults('/results/m1', store)
   expect(await screen.findByText('Score: 1 / 3')).toBeInTheDocument()
   expect(screen.getAllByText('Not answered')).toHaveLength(2)
+})
+
+test('an exam submitted with nothing answered can still be reopened', async () => {
+  const store = new MemoryStore()
+  await store.saveSessionRecord({
+    sessionId: 'blank',
+    kind: 'exam',
+    examId: 'f2025-e1',
+    questionIds: seedExam.questions.map((x) => x.id),
+    startedAt: '2026-11-06T12:00:00.000Z',
+    finishedAt: '2026-11-06T13:00:00.000Z',
+    feedback: false,
+    correct: 0,
+    total: 12,
+  })
+  await renderResults('/results/blank', store)
+  expect(await screen.findByText('Score: 0 / 12')).toBeInTheDocument()
+  expect(screen.getAllByText('Not answered')).toHaveLength(12)
+})
+
+test('a record for an exam that was removed from the content says there are no results', async () => {
+  const store = new MemoryStore()
+  await store.saveSessionRecord({
+    sessionId: 'old',
+    kind: 'exam',
+    examId: 'f1999-e1',
+    questionIds: ['f1999-e1-q1'],
+    startedAt: '2026-11-06T12:00:00.000Z',
+    finishedAt: '2026-11-06T13:00:00.000Z',
+    feedback: false,
+    correct: 0,
+    total: 1,
+  })
+  await renderResults('/results/old', store)
+  expect(await screen.findByText('No results for this session')).toBeInTheDocument()
 })
 
 test('an unknown session says there are no results', async () => {

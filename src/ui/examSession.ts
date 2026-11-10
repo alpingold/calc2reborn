@@ -1,6 +1,6 @@
 import type { Content } from '../content'
 import type { Choice, Exam } from '../content/schema'
-import type { Attempt } from '../storage/types'
+import type { Attempt, SessionRecord } from '../storage/types'
 
 export interface ExamSession {
   sessionId: string
@@ -80,37 +80,6 @@ export function clearSession(): void {
   }
 }
 
-const MOCK_QUESTIONS_KEY = 'ma16200-mock-questions'
-const REMEMBERED_MOCKS = 20
-
-function readMockQuestions(): [string, string[]][] {
-  try {
-    const parsed: unknown = JSON.parse(localStorage.getItem(MOCK_QUESTIONS_KEY) ?? '[]')
-    return Array.isArray(parsed) ? (parsed as [string, string[]][]) : []
-  } catch {
-    return []
-  }
-}
-
-/**
- * Remember which questions a finished mock had. Attempts only record answered questions, so this
- * lets results rebuilt from storage list the unanswered ones too. Kept for the most recent mocks.
- */
-export function rememberMockQuestions(sessionId: string, questionIds: string[]): void {
-  const kept = readMockQuestions().filter(([id]) => id !== sessionId)
-  kept.push([sessionId, questionIds])
-  try {
-    localStorage.setItem(MOCK_QUESTIONS_KEY, JSON.stringify(kept.slice(-REMEMBERED_MOCKS)))
-  } catch {
-    // storage unavailable: rebuilt results list only the answered questions
-  }
-}
-
-export function recallMockQuestions(sessionId: string): string[] | undefined {
-  const found = readMockQuestions().find(([id]) => id === sessionId)?.[1]
-  return Array.isArray(found) && found.every((q) => typeof q === 'string') ? found : undefined
-}
-
 /** Navigation state that resumes the saved session with this id, even one whose time is up. */
 export interface ResumeState {
   resume: string
@@ -132,7 +101,7 @@ export function sessionUrl(s: ExamSession): string {
 }
 
 /** A name for a session in progress, such as "Fall 2025 Exam 1" or "Mock exam, Lessons 19 to 26". */
-export function sessionTitle(s: ExamSession, content: Content): string {
+export function sessionTitle(s: Pick<ExamSession, 'kind' | 'examId' | 'from' | 'to'>, content: Content): string {
   if (s.kind === 'exam') {
     const exam = content.exams.find((e) => e.id === s.examId)
     return exam ? examTitle(exam) : 'An exam'
@@ -202,6 +171,51 @@ export function scoreSession(
     }
   }
   return { correct, total: s.questionIds.length, points, maxPoints }
+}
+
+/** The record kept of a finished session, so its results can be reopened and listed. */
+export function recordFor(s: ExamSession, content: Content, finishedAt: Date): SessionRecord {
+  const { correct, total } = scoreSession(s, content)
+  const record: SessionRecord = {
+    sessionId: s.sessionId,
+    kind: s.kind,
+    questionIds: s.questionIds,
+    startedAt: s.startedAt,
+    finishedAt: finishedAt.toISOString(),
+    feedback: s.feedback === true,
+    correct,
+    total,
+  }
+  if (s.kind === 'exam' && s.examId) record.examId = s.examId
+  if (s.kind === 'mock' && s.from !== undefined && s.to !== undefined) {
+    record.from = s.from
+    record.to = s.to
+  }
+  return record
+}
+
+/**
+ * A finished session rebuilt from its record and attempts, to show its results. Null when the record
+ * is for an exam that is no longer in the content.
+ */
+export function sessionFromRecord(record: SessionRecord, attempts: Attempt[], content: Content): ExamSession | null {
+  const exam = record.examId ? content.exams.find((e) => e.id === record.examId) : undefined
+  if (record.kind === 'exam' && !exam) return null
+  const answers: ExamSession['answers'] = {}
+  for (const a of attempts) answers[a.questionId] = a.chosen
+  return {
+    sessionId: record.sessionId,
+    kind: record.kind,
+    examId: record.examId,
+    from: record.from,
+    to: record.to,
+    questionIds: record.questionIds,
+    answers,
+    marked: [],
+    startedAt: record.startedAt,
+    durationMinutes: exam?.durationMinutes ?? 60,
+    ...(record.feedback ? { feedback: true } : {}),
+  }
 }
 
 /** Points to at most one decimal place, with no trailing .0. A sum of 100/12 carries float noise. */

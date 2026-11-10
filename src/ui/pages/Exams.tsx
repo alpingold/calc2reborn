@@ -7,6 +7,7 @@ import { useContent, useNow, useSettings, useStore } from '../../storage/context
 import { examLabel, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
 import { examScope } from '../../engine/scope'
 import type { ResumeState } from '../examSession'
+import type { SessionRecord } from '../../storage/types'
 
 function bestByExam(attempts: { examId?: string; sessionId?: string; correct: boolean }[]): Map<string, number> {
   const perSession = new Map<string, { examId: string; correct: number }>()
@@ -38,14 +39,16 @@ export function Exams() {
   const [to, setTo] = useState(scope.active ? scope.lessonIds[scope.lessonIds.length - 1] : defaultTo)
   // best correct counts from timed attempts, and from attempts taken with feedback
   const [best, setBest] = useState<{ timed: Map<string, number>; feedback: Map<string, number> } | null>(null)
+  const [past, setPast] = useState<SessionRecord[]>([])
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     ;(async () => {
       try {
-        const attempts = await store.listAttempts({ mode: 'exam' })
+        const [attempts, records] = await Promise.all([store.listAttempts({ mode: 'exam' }), store.listSessionRecords()])
         if (!cancelled) {
+          setPast(records)
           setBest({
             timed: bestByExam(attempts.filter((a) => !a.feedback)),
             feedback: bestByExam(attempts.filter((a) => a.feedback)),
@@ -77,6 +80,15 @@ export function Exams() {
     const params = new URLSearchParams({ from, to })
     navigate(`/exams/mock?${params.toString()}`)
   }
+
+  // finished sessions the content can still show: a record for a removed exam is left out
+  const pastRows = past
+    .filter((r) => r.kind === 'mock' || content.exams.some((e) => e.id === r.examId))
+    .map((r) => ({
+      record: r,
+      title: sessionTitle(r, content),
+      date: new Date(r.finishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }),
+    }))
 
   function bestLine(exam: Exam): string {
     if (!best) return ''
@@ -145,6 +157,21 @@ export function Exams() {
             {extraExams.map((exam) => (
               <li key={exam.id}>
                 <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link> <span className="best">{bestLine(exam)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {pastRows.length > 0 && (
+        <section className="past-attempts">
+          <h3>Past attempts</h3>
+          <ul className="past-list" aria-label="Past attempts">
+            {pastRows.map(({ record, title, date }) => (
+              <li key={record.sessionId}>
+                <Link to={`/results/${record.sessionId}`}>{title}</Link>{' '}
+                <span className="best">
+                  {`${record.correct}/${record.total} · ${date}${record.feedback ? ' · with feedback' : ''}`}
+                </span>
               </li>
             ))}
           </ul>

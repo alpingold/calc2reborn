@@ -15,8 +15,8 @@ import {
   sessionTitle,
   sessionUrl,
   timeIsUp,
-  rememberMockQuestions,
-  recallMockQuestions,
+  recordFor,
+  sessionFromRecord,
   examTitle,
 } from './examSession'
 import type { ExamSession } from './examSession'
@@ -265,22 +265,55 @@ test('loadSession rejects per-question seconds that are not numbers', () => {
   expect(loadSession()).toBeNull()
 })
 
-test('mock question lists are remembered for the 20 most recent mocks', () => {
-  localStorage.clear()
-  for (let i = 0; i < 22; i++) rememberMockQuestions(`m${i}`, [`q${i}`])
-  expect(recallMockQuestions('m21')).toEqual(['q21'])
-  expect(recallMockQuestions('m2')).toEqual(['q2'])
-  expect(recallMockQuestions('m1')).toBeUndefined()
-  expect(recallMockQuestions('m0')).toBeUndefined()
-  localStorage.clear()
+describe('recordFor', () => {
+  const at = new Date('2026-11-06T12:40:00.000Z')
+  test('an exam record carries the exam, every question, the times and the score', () => {
+    const s = session({ answers: { 'e-q1': 'A', 'e-q2': 'C' } })
+    expect(recordFor(s, content, at)).toEqual({
+      sessionId: 's1',
+      kind: 'exam',
+      examId: 'f2025-e1',
+      questionIds: ['e-q1', 'e-q2', 'e-q3'],
+      startedAt: START,
+      finishedAt: '2026-11-06T12:40:00.000Z',
+      feedback: false,
+      correct: 1,
+      total: 3,
+    })
+  })
+  test('a session with nothing answered still gives a record', () => {
+    expect(recordFor(session(), content, at)).toMatchObject({ correct: 0, total: 3, questionIds: ['e-q1', 'e-q2', 'e-q3'] })
+  })
+  test('a mock record carries its lesson range and no exam, and feedback is marked', () => {
+    const s = session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L21', feedback: true, checked: [] })
+    const r = recordFor(s, content, at)
+    expect(r).toMatchObject({ kind: 'mock', from: 'L19', to: 'L21', feedback: true })
+    expect(r).not.toHaveProperty('examId')
+  })
 })
 
-test('a corrupt remembered list is ignored', () => {
-  localStorage.setItem('ma16200-mock-questions', '{not json')
-  expect(recallMockQuestions('m1')).toBeUndefined()
-  rememberMockQuestions('m1', ['q1'])
-  expect(recallMockQuestions('m1')).toEqual(['q1'])
-  localStorage.clear()
+describe('sessionFromRecord', () => {
+  const at = new Date('2026-11-06T12:40:00.000Z')
+  test('a record and its attempts give back the session that produced them', () => {
+    const s = session({ answers: { 'e-q1': 'A', 'e-q3': 'B' } })
+    const rebuilt = sessionFromRecord(recordFor(s, content, at), finishSession(s, content, at), content)
+    expect(rebuilt).toMatchObject({ sessionId: 's1', kind: 'exam', examId: 'f2025-e1', questionIds: s.questionIds, answers: s.answers })
+    expect(scoreSession(rebuilt!, content)).toEqual(scoreSession(s, content))
+  })
+  test('a record with no attempts gives a session with every question unanswered', () => {
+    const rebuilt = sessionFromRecord(recordFor(session(), content, at), [], content)
+    expect(rebuilt?.answers).toEqual({})
+    expect(rebuilt?.questionIds).toHaveLength(3)
+  })
+  test('a record for an exam that is no longer in the content gives nothing', () => {
+    const r = recordFor(session({ examId: 'gone' }), content, at)
+    expect(sessionFromRecord(r, [], content)).toBeNull()
+  })
+  test('a mock record keeps its unanswered questions and its range', () => {
+    const s = session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L21', answers: { 'e-q2': 'B' } })
+    const rebuilt = sessionFromRecord(recordFor(s, content, at), finishSession(s, content, at), content)
+    expect(rebuilt).toMatchObject({ kind: 'mock', from: 'L19', to: 'L21', questionIds: ['e-q1', 'e-q2', 'e-q3'], answers: { 'e-q2': 'B' } })
+  })
 })
 
 test('an unofficial exam is titled by its own title', () => {

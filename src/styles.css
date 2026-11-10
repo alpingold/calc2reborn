@@ -1203,3 +1203,12 @@ legend {
   white-space: nowrap;
   border: 0;
 }
+
+/* finished exams and mocks on the Exams page */
+.past-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
+}
