@@ -1,7 +1,7 @@
 import { afterEach, expect, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { StoreProvider, useNow, useRng, useSettings, useStorageFallback, useStore } from './context'
+import { StoreProvider, useContent, useNow, useRng, useSettings, useStorageFallback, useStore } from './context'
 import { MemoryStore } from './memory'
 import { DEFAULT_SETTINGS } from './types'
 import type { ProgressStore } from './types'
@@ -135,4 +135,18 @@ test('shows an error instead of Loading when the default store cannot be set up'
     </StoreProvider>,
   )
   expect(await screen.findByRole('alert')).toHaveTextContent('Could not start the app. Reload the page to try again.')
+})
+
+test('with no content prop the real content is loaded before children render', async () => {
+  function Count() {
+    const { lessons } = useContent()
+    return <p>lessons:{lessons.length}</p>
+  }
+  render(
+    <StoreProvider store={new MemoryStore()} scheduler={fakeScheduler}>
+      <Count />
+    </StoreProvider>,
+  )
+  expect(screen.getByText('Loading')).toBeInTheDocument()
+  expect(await screen.findByText(/^lessons:\d+$/, undefined, { timeout: 10000 })).not.toHaveTextContent('lessons:0')
 })

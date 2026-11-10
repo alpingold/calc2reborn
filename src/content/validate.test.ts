@@ -5,7 +5,7 @@ import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, test } from 'vitest'
 import { Markdown } from '../ui/Markdown'
-import { loadContent } from './index'
+import { loadContent } from './load'
 import { CHOICE_LABELS } from './schema'
 
 /**

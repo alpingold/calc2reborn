@@ -1,13 +1,4 @@
-import { z } from 'zod'
-import {
-  ConceptCardSchema,
-  ExamSchema,
-  LessonSchema,
-  type ConceptCard,
-  type Exam,
-  type Lesson,
-  type Question,
-} from './schema'
+import type { ConceptCard, Exam, Lesson, Question } from './schema'
 
 export interface Content {
   lessons: Lesson[]
@@ -67,31 +58,4 @@ export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exa
     questionsByLesson,
     examByQuestionId,
   }
-}
-
-function parse<T>(schema: z.ZodType<T>, mods: Record<string, unknown>, many: boolean): T[] {
-  const out: T[] = []
-  const entries = Object.keys(mods).sort()
-  for (const path of entries) {
-    const m = mods[path] as { default?: unknown }
-    const raw = m && typeof m === 'object' && 'default' in m ? m.default : m
-    const items = many ? (raw as unknown[]) : [raw]
-    items.forEach((item, i) => {
-      const r = schema.safeParse(item)
-      if (!r.success) throw new Error(`Invalid content in ${path}[${i}]: ${r.error.message}`)
-      out.push(r.data)
-    })
-  }
-  return out
-}
-
-export function loadContent(): Content {
-  const lessonMods = import.meta.glob('../../content/lessons.json', { eager: true })
-  const cardMods = import.meta.glob('../../content/cards/*.json', { eager: true })
-  const examMods = import.meta.glob('../../content/exams/*.json', { eager: true })
-  return buildContent(
-    parse(LessonSchema, lessonMods, true) as Lesson[],
-    parse(ConceptCardSchema, cardMods, true) as ConceptCard[],
-    parse(ExamSchema, examMods, false) as Exam[],
-  )
 }

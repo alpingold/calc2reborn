@@ -1,6 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
-import { loadContent } from '../content'
 import type { Content } from '../content'
 import { createScheduler } from '../engine/fsrs'
 import type { Scheduler } from '../engine/fsrs'
@@ -36,7 +35,13 @@ export interface StoreProviderProps {
 interface Ready {
   store: ProgressStore
   scheduler: Scheduler
+  content: Content
   fallback: boolean
+}
+
+// a dynamic import, so the content is fetched as its own chunk while the scheduler starts
+async function loadDefaultContent(): Promise<Content> {
+  return (await import('../content/load')).loadContent()
 }
 
 async function openDefaultStore(): Promise<{ store: ProgressStore; fallback: boolean }> {
@@ -50,7 +55,6 @@ async function openDefaultStore(): Promise<{ store: ProgressStore; fallback: boo
 }
 
 export function StoreProvider({ store, scheduler, content, rng = Math.random, now = defaultNow, children }: StoreProviderProps) {
-  const resolvedContent = useMemo(() => content ?? loadContent(), [content])
   const [ready, setReady] = useState<Ready | null>(null)
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS)
   const [failed, setFailed] = useState(false)
@@ -60,6 +64,12 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
     let opened: DexieStore | undefined
     ;(async () => {
       try {
+        // content and the scheduler load side by side; the database opens once content is in
+        const [loadedContent, sch] = await Promise.all([
+          content ?? loadDefaultContent(),
+          scheduler ?? createScheduler(),
+        ])
+        if (cancelled) return
         const { store: s, fallback } = store ? { store, fallback: false } : await openDefaultStore()
         if (!store && s instanceof DexieStore) opened = s
         if (cancelled) {
@@ -67,7 +77,6 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
           opened?.close()
           return
         }
-        const sch = scheduler ?? (await createScheduler())
         let loaded: Settings = DEFAULT_SETTINGS
         try {
           loaded = await s.getSettings()
@@ -76,7 +85,7 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
         }
         if (cancelled) return
         setSettings(loaded)
-        setReady({ store: s, scheduler: sch, fallback })
+        setReady({ store: s, scheduler: sch, content: loadedContent, fallback })
       } catch {
         // without a scheduler or store the app cannot run; say so rather than show Loading forever
         if (!cancelled) setFailed(true)
@@ -86,7 +95,7 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
       cancelled = true
       opened?.close()
     }
-  }, [store, scheduler])
+  }, [store, scheduler, content])
 
   const activeStore = ready?.store
   const save = useCallback(
@@ -104,13 +113,13 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
         store: ready.store,
         scheduler: ready.scheduler,
         fallback: ready.fallback,
-        content: resolvedContent,
+        content: ready.content,
         settings,
         save,
         rng,
         now,
       },
-    [ready, resolvedContent, settings, save, rng, now],
+    [ready, settings, save, rng, now],
   )
 
   if (failed) return <p role="alert" className="banner">Could not start the app. Reload the page to try again.</p>
