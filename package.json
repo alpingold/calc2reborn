@@ -53,6 +53,8 @@
     "content:prepare": "tsx scripts/prepare-solutions.ts",
     "content:collect": "tsx scripts/collect-solutions.ts",
     "content:solutions": "tsx scripts/apply-solutions.ts",
+    "content:guided-prepare": "tsx scripts/prepare-guided.ts",
+    "content:guided": "tsx scripts/apply-guided.ts",
     "site:deploy": "bash scripts/deploy.sh",
     "lint": "eslint ."
   }

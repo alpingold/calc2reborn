@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { CHOICE_LABELS, ExamSchema, LessonSchema, QuestionSchema, isPlanned, lessonLabel } from './schema'
+import { CHOICE_LABELS, ExamSchema, LessonSchema, QuestionSchema, isPlanned, lessonLabel, GuidedProblemSchema } from './schema'
 import type { Lesson } from './schema'
 
 const labeled = (n: number) => CHOICE_LABELS.slice(0, n).map((label) => ({ label, text: label }))
@@ -146,5 +146,39 @@ describe('problem types', () => {
     const t = { id: 'L1-a', name: 'A' }
     expect(LessonSchema.safeParse({ ...lesson, problemTypes: [t, t] }).success).toBe(false)
     expect(LessonSchema.safeParse({ ...lesson, problemTypes: [{ id: 'L1-a', name: '' }] }).success).toBe(false)
+  })
+})
+
+describe('GuidedProblemSchema', () => {
+  const step = {
+    prompt: 'p',
+    choices: [
+      { label: 'A', text: 'one', note: 'why' },
+      { label: 'B', text: 'two' },
+    ],
+    answer: 'B',
+    explanation: 'e',
+  }
+  const ok = { id: 'L5-g1', lessonId: 'L5', typeId: 'L5-a', stem: 's', steps: [step, step, step], takeaway: 't' }
+  const bad = (over: object) => GuidedProblemSchema.safeParse({ ...ok, ...over }).success
+  test('accepts a well-formed problem', () => {
+    expect(GuidedProblemSchema.safeParse(ok).success).toBe(true)
+  })
+  test('needs three to five steps', () => {
+    expect(bad({ steps: [step, step] })).toBe(false)
+    expect(bad({ steps: Array(6).fill(step) })).toBe(false)
+  })
+  test('the id and the type come from the lesson', () => {
+    expect(bad({ id: 'L6-g1' })).toBe(false)
+    expect(bad({ id: 'L5-1' })).toBe(false)
+    expect(bad({ typeId: 'L6-a' })).toBe(false)
+  })
+  test('a step needs a note on every wrong choice, an answer among its choices, and labels in order', () => {
+    const withStep = (s: object) => bad({ steps: [step, step, { ...step, ...s }] })
+    expect(withStep({ choices: [{ label: 'A', text: 'one' }, { label: 'B', text: 'two' }] })).toBe(false)
+    expect(withStep({ answer: 'C' })).toBe(false)
+    expect(withStep({ choices: [{ label: 'B', text: 'two' }, { label: 'A', text: 'one', note: 'why' }] })).toBe(false)
+    expect(withStep({ choices: [{ label: 'A', text: 'same', note: 'why' }, { label: 'B', text: 'same' }] })).toBe(false)
+    expect(withStep({ choices: [{ label: 'B', text: 'two' }] })).toBe(false)
   })
 })

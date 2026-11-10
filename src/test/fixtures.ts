@@ -1,4 +1,4 @@
-import type { ConceptCard, Lesson, ProblemType } from '../content/schema'
+import type { ConceptCard, GuidedProblem, Lesson, ProblemType } from '../content/schema'
 
 // Synthetic content for UI tests, so that they pass with any subset of the files in content/.
 
@@ -58,4 +58,24 @@ export function fixtureLessons(): Lesson[] {
 
 export function fixtureCard(id: string, lessonId: string): ConceptCard {
   return { id, lessonId, front: `Front of ${id}`, back: `Back of ${id}` }
+}
+
+/** A three-step guided problem whose right choice is always B, "Right n". */
+export function fixtureGuided(id: string, lessonId: string, typeId: string): GuidedProblem {
+  return {
+    id,
+    lessonId,
+    typeId,
+    stem: `Stem of ${id}`,
+    steps: [1, 2, 3].map((n) => ({
+      prompt: `${id} prompt ${n}`,
+      choices: [
+        { label: 'A', text: `Wrong ${n}`, note: `Note ${n}` },
+        { label: 'B', text: `Right ${n}` },
+      ],
+      answer: 'B',
+      explanation: `Explanation ${n}`,
+    })),
+    takeaway: `Takeaway of ${id}`,
+  }
 }

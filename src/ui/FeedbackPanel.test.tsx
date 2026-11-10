@@ -8,7 +8,7 @@ import { StoreProvider } from '../storage/context'
 import { MemoryStore } from '../storage/memory'
 import { buildContent } from '../content'
 import type { Choice, Exam, Question } from '../content/schema'
-import { fixtureCard, fixtureLesson, fixtureTypes } from '../test/fixtures'
+import { fixtureCard, fixtureGuided, fixtureLesson, fixtureTypes } from '../test/fixtures'
 import type { Scheduler } from '../engine/fsrs'
 
 const choices: Choice[] = [
@@ -41,7 +41,12 @@ const cards = [
   { ...fixtureCard('c2', 'L1'), typeIds: ['L1-a', 'L1-b'] },
   fixtureCard('c3', 'L1'),
 ]
-const content = buildContent([fixtureLesson(1, { problemTypes: fixtureTypes('L1') })], cards, [official, keyOnly, noLinks, written])
+const content = buildContent(
+  [fixtureLesson(1, { problemTypes: fixtureTypes('L1') })],
+  cards,
+  [official, keyOnly, noLinks, written],
+  [fixtureGuided('L1-g1', 'L1', 'L1-a')],
+)
 
 async function show(props: FeedbackPanelProps) {
   render(
@@ -162,4 +167,22 @@ test('a type id that the lessons no longer define is ignored', async () => {
 test('a question with two types names both', async () => {
   await show({ question: { ...typed, typeIds: ['L1-a', 'L1-b'] }, chosen: 'A' })
   expect(screen.getByText('Problem types: L1 type A; L1 type B')).toBeInTheDocument()
+})
+
+test('after a miss, links to a guided problem of the same type when there is one', async () => {
+  await show({ question: typed, chosen: 'B' })
+  expect(screen.getByRole('link', { name: 'Walk through a guided problem of this type' })).toHaveAttribute(
+    'href',
+    '/course/L1#guided-L1-g1',
+  )
+})
+
+test('no guided link after a correct answer, or for a type with no guided problem', async () => {
+  await show({ question: typed, chosen: 'A' })
+  expect(screen.queryByRole('link', { name: /guided problem/ })).not.toBeInTheDocument()
+})
+
+test('no guided link for a type that has no guided problem', async () => {
+  await show({ question: lonely, chosen: 'B' })
+  expect(screen.queryByRole('link', { name: /guided problem/ })).not.toBeInTheDocument()
 })

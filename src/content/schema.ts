@@ -155,6 +155,77 @@ export const ConceptCardSchema = z.object({
   typeIds: z.array(z.string().min(1)).optional(),
 })
 
+/** One choice of a guided step. Every choice but the answer says why it is wrong. */
+export interface GuidedChoice {
+  label: ChoiceLabel
+  text: string
+  note?: string
+}
+export interface GuidedStep {
+  prompt: string
+  choices: GuidedChoice[]
+  answer: ChoiceLabel
+  /** shown once the step is answered correctly */
+  explanation: string
+}
+/** A problem written for this app that walks a student through one problem type a step at a time. */
+export interface GuidedProblem {
+  /** the lesson's id, "-g" and a number: `L24-g1` */
+  id: string
+  lessonId: string
+  typeId: string
+  stem: string
+  figures?: string[]
+  steps: GuidedStep[]
+  takeaway: string
+}
+
+const GuidedStepSchema = z
+  .object({
+    prompt: z.string().min(1),
+    choices: z
+      .array(z.object({ label: z.enum(CHOICE_LABELS), text: z.string().min(1), note: z.string().min(1).optional() }))
+      .min(2)
+      .max(4),
+    answer: z.enum(CHOICE_LABELS),
+    explanation: z.string().min(1),
+  })
+  .superRefine((step, ctx) => {
+    step.choices.forEach((c, i) => {
+      if (c.label !== CHOICE_LABELS[i]) {
+        ctx.addIssue({ code: 'custom', path: ['choices', i, 'label'], message: 'choices are labelled A, B, C, D in order' })
+      }
+      if (c.label !== step.answer && !c.note) {
+        ctx.addIssue({ code: 'custom', path: ['choices', i, 'note'], message: 'a wrong choice says why it is wrong' })
+      }
+    })
+    if (!step.choices.some((c) => c.label === step.answer)) {
+      ctx.addIssue({ code: 'custom', path: ['answer'], message: 'the answer is one of the choices' })
+    }
+    if (new Set(step.choices.map((c) => c.text.trim())).size !== step.choices.length) {
+      ctx.addIssue({ code: 'custom', path: ['choices'], message: 'no two choices have the same text' })
+    }
+  })
+
+export const GuidedProblemSchema = z
+  .object({
+    id: z.string().min(1),
+    lessonId: z.string().min(1),
+    typeId: z.string().min(1),
+    stem: z.string().min(1),
+    figures: z.array(z.string().min(1)).optional(),
+    steps: z.array(GuidedStepSchema).min(3).max(5),
+    takeaway: z.string().min(1),
+  })
+  .superRefine((g, ctx) => {
+    if (!new RegExp(`^${g.lessonId}-g[1-9]\\d*$`).test(g.id)) {
+      ctx.addIssue({ code: 'custom', path: ['id'], message: `a guided problem id is ${g.lessonId}-g and a number` })
+    }
+    if (!g.typeId.startsWith(`${g.lessonId}-`)) {
+      ctx.addIssue({ code: 'custom', path: ['typeId'], message: `the type belongs to ${g.lessonId}` })
+    }
+  })
+
 const ChoiceSchema = z.object({ label: z.enum(CHOICE_LABELS), text: z.string() })
 
 export const QuestionSchema = z

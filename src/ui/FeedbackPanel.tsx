@@ -18,8 +18,8 @@ export interface FeedbackPanelProps {
 
 /**
  * Everything shown once a question is answered: the verdict, the solution, where the official answer
- * can be read, the problem type, and after a miss the flashcards for that type and a way to try a
- * similar question. The parts that depend on problem types are left out for a question without any.
+ * can be read, the problem type, and after a miss the flashcards for that type, a guided problem of that type, and a way to
+ * try a similar question. The parts that depend on problem types are left out for a question without any.
  */
 export function FeedbackPanel({ question, chosen, lessonTitle, lessonHref, onSimilar, similarHref }: FeedbackPanelProps): JSX.Element {
   const content = useContent()
@@ -33,6 +33,7 @@ export function FeedbackPanel({ question, chosen, lessonTitle, lessonHref, onSim
   const cards = isCorrect
     ? []
     : [...new Map(types.flatMap((t) => content.cardsByType.get(t.id) ?? []).map((c) => [c.id, c])).values()]
+  const guided = isCorrect ? undefined : types.flatMap((t) => content.guidedByType.get(t.id) ?? [])[0]
   const hasSibling = types.some((t) => (content.questionsByType.get(t.id) ?? []).some((q) => q.id !== question.id))
 
   return (
@@ -80,6 +81,11 @@ export function FeedbackPanel({ question, chosen, lessonTitle, lessonHref, onSim
             ))}
           </ul>
         </details>
+      )}
+      {guided && (
+        <p>
+          <Link to={`/course/${guided.lessonId}#guided-${guided.id}`}>Walk through a guided problem of this type</Link>
+        </p>
       )}
       {hasSibling && onSimilar && (
         <p>

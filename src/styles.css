@@ -1338,3 +1338,59 @@ legend {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* guided problems */
+.guided-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guided-list > li {
+  padding: 8px 0;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.guided-list .card-tag {
+  margin-left: 8px;
+}
+
+.guided {
+  margin-top: 8px;
+  padding-left: 16px;
+  border-left: 1.5px solid var(--accent);
+}
+
+.guided-steps {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.guided-step {
+  margin-top: 16px;
+}
+
+.guided-note,
+.guided-explanation {
+  padding: 2px 12px;
+  border-left: 3px solid var(--danger);
+}
+
+.guided-explanation {
+  border-left-color: var(--success);
+}
+
+.guided-end {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.guided-takeaway {
+  font-weight: 600;
+}
+
+.guided-score {
+  color: var(--muted);
+  font-size: 0.9rem;
+}

@@ -114,6 +114,8 @@ const content = loadContent()
 
 /** Set to true in Phase 6, once the thin problem types have been merged or filled. */
 const THIN_TYPES_SETTLED = true
+/** Set to true once every planned lesson has its guided problems. */
+const GUIDED_COMPLETE = false
 /** Types the exams ask only twice; kept because nothing else in their lesson fits those questions. */
 const TWO_QUESTION_TYPES = new Set(['L19-partial-sums', 'L21-series-properties'])
 
@@ -129,6 +131,18 @@ function markdownStrings(): [string, string][] {
       [`${q.id}.stem`, q.stem],
       ...q.choices.map((ch): [string, string] => [`${q.id}.${ch.label}`, ch.text]),
       ...(q.solution ? [[`${q.id}.solution`, q.solution] as [string, string]] : []),
+    ]),
+    ...content.guided.flatMap((g): [string, string][] => [
+      [`${g.id}.stem`, g.stem],
+      [`${g.id}.takeaway`, g.takeaway],
+      ...g.steps.flatMap((st, i): [string, string][] => [
+        [`${g.id}.step${i + 1}.prompt`, st.prompt],
+        [`${g.id}.step${i + 1}.explanation`, st.explanation],
+        ...st.choices.flatMap((c): [string, string][] => [
+          [`${g.id}.step${i + 1}.${c.label}`, c.text],
+          ...(c.note ? [[`${g.id}.step${i + 1}.${c.label}.note`, c.note] as [string, string]] : []),
+        ]),
+      ]),
     ]),
   ]
 }
@@ -247,6 +261,29 @@ describe('content validation', () => {
         expect(n, l.id).toBeGreaterThanOrEqual(2)
         expect(n, l.id).toBeLessThanOrEqual(5)
       }
+    }
+  })
+  test('guided problems have unique ids, belong to a planned lesson, and use one of its problem types', () => {
+    const seen = new Set<string>()
+    for (const g of content.guided) {
+      expect(seen.has(g.id), `${g.id} duplicated`).toBe(false)
+      seen.add(g.id)
+      const lesson = content.lessonById.get(g.lessonId)
+      expect(lesson && isPlanned(lesson), `${g.id} lesson`).toBe(true)
+      expect(content.typeById.get(g.typeId)?.lessonId, `${g.id} type`).toBe(g.lessonId)
+      for (const f of g.figures ?? []) expect(fs.existsSync(path.join('public', f)), `${g.id} ${f}`).toBe(true)
+    }
+    // nothing was dropped on loading for naming a lesson or type that does not exist
+    const files = fs.existsSync('content/guided') ? fs.readdirSync('content/guided').filter((f) => f.endsWith('.json')) : []
+    const inFiles = files.flatMap((f) => JSON.parse(fs.readFileSync(path.join('content/guided', f), 'utf8')) as unknown[])
+    expect(content.guided).toHaveLength(inFiles.length)
+  })
+  // Holds once every lesson's guided problems are written; see the plan, Phase 6.
+  test.runIf(GUIDED_COMPLETE)('every planned lesson has two or three guided problems', () => {
+    for (const l of content.lessons.filter(isPlanned)) {
+      const n = (content.guidedByLesson.get(l.id) ?? []).length
+      expect(n, l.id).toBeGreaterThanOrEqual(2)
+      expect(n, l.id).toBeLessThanOrEqual(3)
     }
   })
   test('every question has a solution and a problem type', () => {

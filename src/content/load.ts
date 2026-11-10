@@ -1,7 +1,16 @@
 import { z } from 'zod'
 import { buildContent } from './index'
 import type { Content } from './index'
-import { ConceptCardSchema, ExamSchema, LessonSchema, type ConceptCard, type Exam, type Lesson } from './schema'
+import {
+  ConceptCardSchema,
+  ExamSchema,
+  GuidedProblemSchema,
+  LessonSchema,
+  type ConceptCard,
+  type Exam,
+  type GuidedProblem,
+  type Lesson,
+} from './schema'
 
 // This module pulls every content file into the bundle. The app imports it dynamically, so the content
 // ships as its own chunk, apart from the code.
@@ -27,16 +36,18 @@ function parse<T>(schema: z.ZodType<T>, mods: Record<string, unknown>, many: boo
 }
 
 /**
- * All lessons, cards and exams. The schemas are checked in development and by the test suite, which
+ * All lessons, cards, exams and guided problems. The schemas are checked in development and by the test suite, which
  * gates every deploy; a production page load trusts the files and skips the check.
  */
 export function loadContent(validate: boolean = import.meta.env.DEV): Content {
   const lessonMods = import.meta.glob('../../content/lessons.json', { eager: true })
   const cardMods = import.meta.glob('../../content/cards/*.json', { eager: true })
   const examMods = import.meta.glob('../../content/exams/*.json', { eager: true })
+  const guidedMods = import.meta.glob('../../content/guided/*.json', { eager: true })
   return buildContent(
     parse(LessonSchema, lessonMods, true, validate) as Lesson[],
     parse(ConceptCardSchema, cardMods, true, validate) as ConceptCard[],
     parse(ExamSchema, examMods, false, validate) as Exam[],
+    parse(GuidedProblemSchema, guidedMods, true, validate) as GuidedProblem[],
   )
 }

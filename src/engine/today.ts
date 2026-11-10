@@ -12,6 +12,7 @@ export const PRACTISE_TARGET = 10
 export const PRACTISE_TYPES = 2
 
 export type PlanItem =
+  | { kind: 'guided'; lessonId: string; remaining: number; done: boolean }
   | { kind: 'review'; due: number; fresh: number; done: boolean }
   | { kind: 'retry'; count: number; done: boolean }
   | { kind: 'practise'; typeIds: string[]; answeredToday: number; done: boolean }
@@ -57,11 +58,22 @@ export function todayPlan(args: {
   content: Content
   isDue: (s: CardState, now: Date) => boolean
 }): PlanItem[] {
-  const { now, attempts, states, settings, content, isDue } = args
+  const { now, attempts, states, guided, settings, content, isDue } = args
   const items: PlanItem[] = []
   const today = (iso: string) => isSameLocalDay(new Date(iso), now)
   const scope = examScope(settings, content.lessons, now)
   const lessonIds = studyLessonIds(settings, content.lessons, now)
+
+  // guided: the current lesson's problems not yet worked; ticked on the day the last one is finished
+  const lessonProblems = settings.currentLessonId === null ? [] : (content.guidedByLesson.get(settings.currentLessonId) ?? [])
+  if (settings.currentLessonId !== null && lessonProblems.length > 0) {
+    const mine = new Set(lessonProblems.map((g) => g.id))
+    const finished = guided.filter((r) => mine.has(r.problemId))
+    const remaining = lessonProblems.length - new Set(finished.map((r) => r.problemId)).size
+    if (remaining > 0 || finished.some((r) => today(r.completedAt))) {
+      items.push({ kind: 'guided', lessonId: settings.currentLessonId, remaining, done: remaining === 0 })
+    }
+  }
 
   // review: the same queue the Review page builds, for cards that still exist
   const known = states.filter((s) => content.cardById.has(s.cardId))

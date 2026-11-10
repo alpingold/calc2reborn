@@ -1,4 +1,4 @@
-import type { ConceptCard, Exam, Lesson, ProblemType, Question } from './schema'
+import type { ConceptCard, Exam, GuidedProblem, Lesson, ProblemType, Question } from './schema'
 
 export interface Content {
   lessons: Lesson[]
@@ -15,6 +15,11 @@ export interface Content {
   typeById: Map<string, ProblemType & { lessonId: string }>
   questionsByType: Map<string, Question[]>
   cardsByType: Map<string, ConceptCard[]>
+  /** guided problems, in file order within a lesson */
+  guided: GuidedProblem[]
+  guidedById: Map<string, GuidedProblem>
+  guidedByLesson: Map<string, GuidedProblem[]>
+  guidedByType: Map<string, GuidedProblem[]>
 }
 
 const TERM_ORDER = { Fall: 0, Spring: 1 } as const
@@ -26,7 +31,12 @@ function pushTo<K, V>(map: Map<K, V[]>, key: K, value: V) {
   else map.set(key, [value])
 }
 
-export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exam[]): Content {
+export function buildContent(
+  lessons: Lesson[],
+  cards: ConceptCard[],
+  exams: Exam[],
+  guided: GuidedProblem[] = [],
+): Content {
   const sortedLessons = [...lessons].sort((a, b) => a.number - b.number)
   // official exams newest first, then unofficial practice exams by id
   const sortedExams = [...exams].sort((a, b) => {
@@ -62,6 +72,16 @@ export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exa
     }
   }
 
+  // a guided problem for a lesson or type that no longer exists is left out
+  const lessonIds = new Set(sortedLessons.map((l) => l.id))
+  const keptGuided = guided.filter((g) => lessonIds.has(g.lessonId) && typeById.has(g.typeId))
+  const guidedByLesson = new Map<string, GuidedProblem[]>()
+  const guidedByType = new Map<string, GuidedProblem[]>()
+  for (const g of keptGuided) {
+    pushTo(guidedByLesson, g.lessonId, g)
+    pushTo(guidedByType, g.typeId, g)
+  }
+
   return {
     lessons: sortedLessons,
     cards,
@@ -76,5 +96,9 @@ export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exa
     typeById,
     questionsByType,
     cardsByType,
+    guided: keptGuided,
+    guidedById: new Map(keptGuided.map((g) => [g.id, g])),
+    guidedByLesson,
+    guidedByType,
   }
 }

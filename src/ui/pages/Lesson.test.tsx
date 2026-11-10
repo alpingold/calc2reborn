@@ -6,7 +6,7 @@ import { Lesson } from './Lesson'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { buildContent } from '../../content'
-import { fixtureCard, fixtureLesson, fixtureLessons, fixtureTypes } from '../../test/fixtures'
+import { fixtureCard, fixtureGuided, fixtureLesson, fixtureLessons, fixtureTypes } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -66,6 +66,7 @@ const content = buildContent(
   lessons,
   [fixtureCard('L19-c01', 'L19'), fixtureCard('L19-c02', 'L19'), fixtureCard('L19-c03', 'L19')],
   [seedExam, secondExam, finalExam],
+  [fixtureGuided('L19-g1', 'L19', 'L19-a'), fixtureGuided('L19-g2', 'L19', 'L19-b')],
 )
 
 async function setup(path: string, seed?: (s: MemoryStore) => Promise<void>) {
@@ -191,4 +192,42 @@ test('a lesson with no problem types has no such section', async () => {
   await setup('/course/L-empty')
   await screen.findByRole('heading', { level: 2 })
   expect(screen.queryByRole('heading', { name: 'Problem types' })).not.toBeInTheDocument()
+})
+
+test('guided problems are collapsed, open on demand, and are marked done and saved once finished', async () => {
+  let saved: MemoryStore | undefined
+  await setup('/course/L19', async (store) => {
+    saved = store
+    await store.saveGuidedResult({ problemId: 'L19-g2', completedAt: NOW.toISOString(), steps: 3, firstTryCorrect: 1 })
+  })
+  const section = (await screen.findByRole('heading', { name: 'Check your understanding' })).parentElement as HTMLElement
+  expect(within(section).getByText(/These are not Purdue problems/)).toBeInTheDocument()
+  const items = within(section).getAllByRole('listitem')
+  expect(items).toHaveLength(2)
+  expect(within(items[0]).getByText('L19 type A')).toBeInTheDocument()
+  expect(within(items[0]).queryByText('Done')).not.toBeInTheDocument()
+  expect(await within(items[1]).findByText('Done')).toBeInTheDocument()
+  expect(screen.queryByText('Stem of L19-g1')).not.toBeInTheDocument()
+  await userEvent.click(within(items[0]).getByRole('button', { name: 'Problem 1' }))
+  expect(screen.getByText('Stem of L19-g1')).toBeInTheDocument()
+  for (const n of [1, 2, 3]) await userEvent.click(screen.getByRole('button', { name: new RegExp(`Right ${n}`) }))
+  expect(await within(items[0]).findByText('Done')).toBeInTheDocument()
+  const results = await saved!.listGuidedResults()
+  expect(results.find((r) => r.problemId === 'L19-g1')).toMatchObject({
+    steps: 3,
+    firstTryCorrect: 3,
+    completedAt: NOW.toISOString(),
+  })
+})
+
+test('arriving at a guided problem\'s address opens that problem', async () => {
+  await setup('/course/L19#guided-L19-g2')
+  expect(await screen.findByText('Stem of L19-g2')).toBeInTheDocument()
+  expect(screen.queryByText('Stem of L19-g1')).not.toBeInTheDocument()
+})
+
+test('a lesson with no guided problems has no such section', async () => {
+  await setup('/course/L-empty')
+  await screen.findByRole('heading', { level: 2 })
+  expect(screen.queryByRole('heading', { name: 'Check your understanding' })).not.toBeInTheDocument()
 })

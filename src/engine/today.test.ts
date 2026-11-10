@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { buildContent } from '../content'
 import type { Choice, Exam, Lesson, Question } from '../content/schema'
-import type { Attempt, CardState, Settings } from '../storage/types'
+import type { Attempt, CardState, GuidedResult, Settings } from '../storage/types'
 import { DEFAULT_SETTINGS } from '../storage/types'
-import { fixtureCard, fixtureLesson, fixtureTypes } from '../test/fixtures'
+import { fixtureCard, fixtureGuided, fixtureLesson, fixtureTypes } from '../test/fixtures'
 import type { Mastery } from './mastery'
 import { PRACTISE_TARGET, todayPlan, weakestTypes } from './today'
 
@@ -36,14 +36,16 @@ function plan(args: {
   states?: CardState[]
   settings?: Settings
   now?: Date
+  problems?: ReturnType<typeof fixtureGuided>[]
+  guided?: GuidedResult[]
 }) {
   return todayPlan({
     now: args.now ?? NOW,
     attempts: args.attempts ?? [],
     states: args.states ?? [],
-    guided: [],
+    guided: args.guided ?? [],
     settings: args.settings ?? settings(),
-    content: buildContent(lessons, args.cards ?? [], [exam(args.questions ?? [])]),
+    content: buildContent(lessons, args.cards ?? [], [exam(args.questions ?? [])], args.problems ?? []),
     isDue,
   })
 }
@@ -141,5 +143,20 @@ describe('todayPlan', () => {
     ])
     const passed = settings({ examLessonIds: ['L4'], examDate: '2026-11-01' })
     expect(plan({ questions, settings: passed })[0]).toMatchObject({ typeIds: ['L1-a'] })
+  })
+
+  it('lists the current lesson\'s unfinished guided problems first, ticks the item the day the last is finished, then drops it', () => {
+    const problems = [fixtureGuided('L2-g1', 'L2', 'L2-a'), fixtureGuided('L2-g2', 'L2', 'L2-b'), fixtureGuided('L1-g1', 'L1', 'L1-a')]
+    const result = (problemId: string, completedAt: string): GuidedResult => ({ problemId, completedAt, steps: 3, firstTryCorrect: 3 })
+    expect(plan({ problems })).toEqual([{ kind: 'guided', lessonId: 'L2', remaining: 2, done: false }])
+    // an earlier lesson's problem and a result for a problem that no longer exists change nothing
+    const some = [result('L2-g1', at(8)), result('L1-g1', at(8)), result('L2-g9', at(8))]
+    expect(plan({ problems, guided: some })).toEqual([{ kind: 'guided', lessonId: 'L2', remaining: 1, done: false }])
+    const all = [...some, result('L2-g2', at(10, 9))]
+    expect(plan({ problems, guided: all })).toEqual([{ kind: 'guided', lessonId: 'L2', remaining: 0, done: true }])
+    const allEarlier = [...some, result('L2-g2', at(9))]
+    expect(plan({ problems, guided: allEarlier })).toEqual([])
+    // no current lesson: nothing to work through
+    expect(plan({ problems, settings: settings({ currentLessonId: null }) })).toEqual([])
   })
 })

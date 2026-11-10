@@ -13,6 +13,15 @@ function reviewText(due: number, fresh: number): string {
 
 function describe(item: PlanItem, content: Content): { text: string; to: string; note?: string } {
   switch (item.kind) {
+    case 'guided': {
+      const n = content.lessonById.get(item.lessonId)?.number ?? ''
+      return {
+        text: item.done
+          ? `Work through Lesson ${n}`
+          : `Work through Lesson ${n}: ${plural(item.remaining, 'guided problem', 'guided problems')} left`,
+        to: `/course/${item.lessonId}#guided`,
+      }
+    }
     case 'review':
       return { text: reviewText(item.due, item.fresh), to: '/review' }
     case 'retry':
