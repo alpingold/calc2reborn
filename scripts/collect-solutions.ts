@@ -15,6 +15,8 @@ interface Grade {
   questionId: string
   verdict: 'pass' | 'fix' | 'reject'
   quality?: number
+  /** what the checker recomputed for this question */
+  check?: string
   reason?: string
   fixedSolution?: string
   fixedTypeIds?: string[]

@@ -39,6 +39,10 @@
         "L24",
         "L23"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Use the absolute convergence test for each series.\n\nFor the first series, the absolute values give a $p$-series:\n\n$$\n\\sum_{k=1}^{\\infty} \\left|\\frac{(-1)^{k+1}}{k\\sqrt{k}}\\right| = \\sum_{k=1}^{\\infty} \\frac{1}{k^{3/2}}, \\quad p = \\frac{3}{2} > 1,\n$$\n\nwhich converges. So the first series converges absolutely.\n\nFor the second series, $\\left|\\frac{\\cos(k)}{k^3}\\right| \\le \\frac{1}{k^3}$ for every $k$, and $\\sum \\frac{1}{k^3}$ converges ($p = 3 > 1$). By comparison, $\\sum \\left|\\frac{\\cos(k)}{k^3}\\right|$ converges, so the second series also converges absolutely.\n\nSo both series converge absolutely. The alternating sign of the first series tempts a student to call it conditional, but the series of absolute values converges, so it is absolute.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -74,6 +78,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Use integration by parts with $u = x$ and $dv = \\cos(x)\\,dx$, so $du = dx$ and $v = \\sin(x)$:\n\n$$\n\\int_0^{\\frac{\\pi}{2}} x\\cos(x)\\,dx = \\left[x\\sin(x)\\right]_0^{\\frac{\\pi}{2}} - \\int_0^{\\frac{\\pi}{2}} \\sin(x)\\,dx\n$$\n\nThe first term is $\\frac{\\pi}{2}\\cdot 1 - 0 = \\frac{\\pi}{2}$. The second integral is $\\left[-\\cos(x)\\right]_0^{\\frac{\\pi}{2}} = 0 - (-1) = 1$.\n\nSo the value is $\\frac{\\pi}{2} - 1$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -109,6 +117,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "Apply the ratio test to the terms $\\frac{(x+3)^k}{k2^k}$:\n\n$$\n\\lim_{k\\to\\infty}\\left|\\frac{(x+3)^{k+1}}{(k+1)2^{k+1}}\\cdot\\frac{k\\,2^k}{(x+3)^k}\\right| = \\frac{|x+3|}{2}\n$$\n\nThis is less than $1$ when $-5 < x < -1$, so the radius is $2$ and the interval is centred at $-3$.\n\nCheck the endpoints. At $x = -5$ the series is $\\sum \\frac{(-2)^k}{k2^k} = \\sum \\frac{(-1)^k}{k}$, which converges by the alternating series test, so $-5$ is included. At $x = -1$ the series is $\\sum \\frac{1}{k}$, which diverges, so $-1$ is excluded.\n\nSo the interval of convergence is $[-5, -1)$. Stopping at the open interval $(-5, -1)$ misses the left endpoint.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -147,6 +159,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "The picture is a cardioid with its cusp at the origin, symmetric about the $x$-axis, reaching $(2, 0)$ on the positive side. The cardioid $r = 1 + \\cos(\\theta)$ fits: $r = 2$ at $\\theta = 0$, $r = 0$ at $\\theta = \\pi$ (the cusp), and $r = 1$ at $\\theta = \\frac{\\pi}{2}$, so the curve passes through $(0, 1)$.\n\nThe other equations do not fit. $r = 2$ and $r = 2\\cos(\\theta)$ are circles with no cusp. $r = 1 - 2\\cos(\\theta)$ is a limaçon that reaches $(-3, 0)$, far beyond the picture. $\\theta = \\frac{\\pi}{4}$ is a line.\n\nThe trap is confusing $1 - 2\\cos(\\theta)$, the limaçon with an inner loop, with the cardioid.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -182,6 +198,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form"
+      ],
+      "solution": "Cover the factor $(x - 1)$ and set $x = 1$ in what remains. The denominator $x^4 - x^2 = x^2(x-1)(x+1)$ leaves $x^2(x+1)$, which is $2$ at $x = 1$. The numerator at $x = 1$ is $1 - 14 - 3 + 2 = -14$.\n\nSo $C = \\frac{-14}{2} = -7$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -217,6 +237,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-trig"
+      ],
+      "solution": "The arc length of a polar curve is $L = \\int_a^b \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$. With $r = 10\\cos(\\theta)$, the derivative is $\\frac{dr}{d\\theta} = -10\\sin(\\theta)$, so\n\n$$\nr^2 + \\left(\\frac{dr}{d\\theta}\\right)^2 = 100\\cos^2(\\theta) + 100\\sin^2(\\theta) = 100.\n$$\n\nHence\n\n$$\nL = \\int_{\\pi/6}^{\\pi/3} 10\\,d\\theta = 10\\left(\\frac{\\pi}{3} - \\frac{\\pi}{6}\\right) = \\frac{5\\pi}{3}.\n$$",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -255,6 +279,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "At a given $x$, the base chord of the disk has length $s = 2\\sqrt{9 - x^2}$. The leg lying in the disk is this chord, and the two legs of the isosceles right triangle are equal, so the cross-sectional area is\n\n$$\nA(x) = \\frac{1}{2}s^2 = \\frac{1}{2}\\cdot 4(9 - x^2) = 2(9 - x^2).\n$$\n\nThen\n\n$$\nV = \\int_{-3}^{3} 2(9 - x^2)\\,dx = 2\\left[9x - \\frac{x^3}{3}\\right]_{-3}^{3} = 2\\cdot 36 = 72.\n$$\n\nTaking the chord as the hypotenuse instead of a leg gives area $\\frac{h^2}{4}$, half of the correct value, and a volume of $36$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -291,6 +319,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-angle-dot-and-cross"
+      ],
+      "solution": "Use $\\vec u \\cdot \\vec v = |\\vec u||\\vec v|\\cos(\\theta)$ and $|\\vec u \\times \\vec v| = |\\vec u||\\vec v|\\sin(\\theta)$. Dividing the second by the first,\n\n$$\n\\tan(\\theta) = \\frac{|\\vec u \\times \\vec v|}{\\vec u \\cdot \\vec v} = \\frac{5\\sqrt{3}}{5} = \\sqrt{3}.\n$$\n\nThe dot product is positive, so $\\theta$ is acute, and $\\theta = \\frac{\\pi}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -325,6 +357,9 @@
       "answerSource": "derived",
       "lessonIds": [
         "L28"
+      ],
+      "typeIds": [
+        "L28-remainder-formula"
       ],
       "sourcePage": 6,
       "solution": "**Note on this question:** The printed coefficient $\\frac{2}{27}$ should be $\\frac{1}{27}$, since $\\frac{f''(3)}{2!}=\\frac{1}{2}\\cdot\\frac{2}{27}=\\frac{1}{27}$, so the printed expression is not exactly the 2nd order Taylor polynomial the stem names. Choice E is the remainder theorem's form for that polynomial: $\\frac{f'''(c)}{3!}(\\pi-3)^3$ with $f'''(c)=-\\frac{6}{c^4}$ gives $-\\frac{(\\pi-3)^3}{c^4}$.",
@@ -362,6 +397,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-sec-tan-odd"
+      ],
+      "solution": "Save $\\sec(x)\\tan(x)$ and write $\\sec^{5/2}(x) = \\sec^{3/2}(x)\\cdot\\sec(x)$. Let $u = \\sec(x)$, so $du = \\sec(x)\\tan(x)\\,dx$. The limits change to $x = 0 \\Rightarrow u = 1$ and $x = \\frac{\\pi}{3} \\Rightarrow u = 2$:\n\n$$\n\\int_0^{\\frac{\\pi}{3}} \\sec^{\\frac{5}{2}}(x)\\tan(x)\\,dx = \\int_1^2 u^{\\frac{3}{2}}\\,du = \\left[\\frac{2}{5}u^{\\frac{5}{2}}\\right]_1^2 = \\frac{2}{5}\\left(4\\sqrt{2} - 1\\right) = \\frac{8\\sqrt{2} - 2}{5}.\n$$\n\nLeaving the limits as $0$ and $\\frac{\\pi}{3}$ after changing to $u$ is the usual slip.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -397,6 +436,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "The first term is $\\frac{1}{5}$, and each term is the previous one multiplied by $\\frac{-\\pi}{5}$. The ratio has $\\left|\\frac{-\\pi}{5}\\right| \\approx 0.63 < 1$, so the geometric series converges to\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{(-\\pi)^{k-1}}{5^k} = \\frac{\\frac{1}{5}}{1 - \\left(-\\frac{\\pi}{5}\\right)} = \\frac{\\frac{1}{5}}{\\frac{5 + \\pi}{5}} = \\frac{1}{5 + \\pi}.\n$$",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -432,6 +475,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Measure heights $y$ up from the bottom of the pool. The cross-section has area $4 \\cdot 10 = 40$ m$^2$ at every height, and the water fills $0 \\le y \\le 1$, since the pool is half of its $2$ m depth. A slice of thickness $dy$ has weight $40\\rho g\\,dy$ and must rise $2 - y$ to the top, so\n\n$$\nW = \\int_0^1 40\\rho g\\,(2 - y)\\,dy = 40\\rho g\\left[2y - \\frac{y^2}{2}\\right]_0^1 = 40\\rho g\\cdot\\frac{3}{2} = 60\\rho g.\n$$\n\nThe work is $60\\rho g$ N·m. Integrating over the full $2$ m height instead of the $1$ m of water gives $80\\rho g$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -467,6 +514,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "The arc length formula is $L = \\int_a^b \\sqrt{1 + (f'(x))^2}\\,dx$. Here $f'(x) = x^{1/2}$, so $1 + (f')^2 = 1 + x$, and\n\n$$\nL = \\int_0^8 \\sqrt{1 + x}\\,dx = \\left[\\frac{2}{3}(1 + x)^{3/2}\\right]_0^8 = \\frac{2}{3}(27 - 1) = \\frac{52}{3}.\n$$",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -503,6 +554,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Use the integral test on $f(x) = \\frac{1}{x\\ln(x)}$, which is positive, continuous and decreasing on $[2, \\infty)$:\n\n$$\n\\int_2^{\\infty} \\frac{dx}{x\\ln(x)} = \\lim_{t\\to\\infty}\\left[\\ln(\\ln(x))\\right]_2^t = \\lim_{t\\to\\infty}\\left(\\ln(\\ln(t)) - \\ln(\\ln(2))\\right) = \\infty.\n$$\n\nThe integral diverges, so the series diverges.\n\nComparing with $\\sum \\frac{1}{k^2}$ proves nothing here: $\\frac{1}{k\\ln(k)} > \\frac{1}{k^2}$, so a larger series is not shown to converge.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -538,6 +593,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-claims"
+      ],
+      "solution": "Compare $a_k = \\tan\\left(\\frac{1}{k^2}\\right)$ with $b_k = \\frac{1}{k^2}$, both positive. Since $\\tan(\\theta) \\approx \\theta$ as $\\theta \\to 0$,\n\n$$\nL = \\lim_{k\\to\\infty} \\frac{\\tan(1/k^2)}{1/k^2} = \\lim_{\\theta\\to 0}\\frac{\\tan(\\theta)}{\\theta} = 1.\n$$\n\nBecause $0 < L < \\infty$ and $\\sum \\frac{1}{k^2}$ converges, the Limit Comparison Test says the series converges.\n\nA limit of $1$ does not make the test inconclusive. It is a finite positive value, which is conclusive.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -574,6 +633,10 @@
         "L14",
         "L15"
       ],
+      "typeIds": [
+        "L15-transformed-integral"
+      ],
+      "solution": "Complete the square: $x^2 - 6x + 5 = (x - 3)^2 - 4$. Let $x - 3 = 2\\sec(\\theta)$, so $\\sqrt{(x-3)^2 - 4} = 2\\tan(\\theta)$ and $dx = 2\\sec(\\theta)\\tan(\\theta)\\,d\\theta$. The limits are $x = 5 \\Rightarrow \\sec(\\theta) = 1$, so $\\theta = 0$, and $x = 7 \\Rightarrow \\sec(\\theta) = 2$, so $\\theta = \\frac{\\pi}{3}$. Then\n\n$$\n\\int_5^7 \\sqrt{x^2 - 6x + 5}\\,dx = \\int_0^{\\frac{\\pi}{3}} 2\\tan(\\theta)\\cdot 2\\sec(\\theta)\\tan(\\theta)\\,d\\theta = \\int_0^{\\frac{\\pi}{3}} 4\\tan^2(\\theta)\\sec(\\theta)\\,d\\theta.\n$$\n\nForgetting the factor $\\sec(\\theta)\\tan(\\theta)$ from $dx$ gives an integrand with the wrong powers of $\\sec$ and $\\tan$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -609,6 +672,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Let $a_k = \\frac{(2k)!}{(k!)^2}$. Then\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{(2k+2)(2k+1)}{(k+1)^2} = \\frac{2(2k+1)}{k+1},\n$$\n\nso\n\n$$\n\\lim_{k\\to\\infty}\\frac{a_{k+1}}{a_k} = \\lim_{k\\to\\infty}\\frac{2(2k+1)}{k+1} = 4.\n$$\n\nSo $r = 4 > 1$, and the series diverges.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -644,6 +711,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Check each sequence:\n\n(i) $\\frac{n+1}{n-1} = \\frac{1 + 1/n}{1 - 1/n} \\to 1$, so it converges.\n\n(ii) $\\frac{(-2)^n}{5^n} = \\left(-\\frac{2}{5}\\right)^n \\to 0$, since $\\left|-\\frac{2}{5}\\right| < 1$, so it converges.\n\n(iii) $\\frac{n!}{(n+1)!} = \\frac{1}{n+1} \\to 0$, so it converges.\n\n(iv) $\\frac{n!}{2^n} = \\frac{1}{2}\\cdot\\frac{2}{2}\\cdot\\frac{3}{2}\\cdot\\frac{4}{2}\\cdots\\frac{n}{2}$. Every factor $\\frac{k}{2}$ with $k \\ge 4$ is at least $2$, so the terms grow without bound and the sequence diverges.\n\nSo three of the four sequences converge.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -679,6 +750,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Use $y = r\\sin(\\theta)$. The line $y = 3$ becomes $r\\sin(\\theta) = 3$, so\n\n$$\nr = \\frac{3}{\\sin(\\theta)} = 3\\csc(\\theta).\n$$\n\nUsing $x = r\\cos(\\theta)$ by mistake gives $r = 3\\sec(\\theta)$, which describes the vertical line $x = 3$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -714,6 +789,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "The coefficient of $(x - 7)^3$ is $c_3 = \\frac{f'''(7)}{3!}$. For $f(x) = x^{-4}$,\n\n$$\nf'(x) = -4x^{-5}, \\qquad f''(x) = 20x^{-6}, \\qquad f'''(x) = -120x^{-7}.\n$$\n\nSo\n\n$$\nc_3 = \\frac{-120\\cdot 7^{-7}}{6} = -\\frac{20}{7^7}.\n$$",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -749,6 +828,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Expand $\\sin(3x^2)$ with the given series, using $u = 3x^2$:\n\n$$\n\\sin(3x^2) = 3x^2 - \\frac{(3x^2)^3}{3!} + \\frac{(3x^2)^5}{5!} - \\cdots = 3x^2 - \\frac{9}{2}x^6 + \\frac{81}{40}x^{10} - \\cdots\n$$\n\nSo $2\\sin(3x^2) = 6x^2 - 9x^6 + \\frac{81}{20}x^{10} - \\cdots$, and the numerator is\n\n$$\n9x^6 - 6x^2 + 2\\sin(3x^2) = \\frac{81}{20}x^{10} + \\cdots.\n$$\n\nDividing by $x^{10}$ and letting $x \\to 0$ gives $\\frac{81}{20} = \\frac{3^4}{20}$.\n\nStopping after the first term of the series leaves $9x^6$ over $x^{10}$, which wrongly suggests the limit is infinite.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -784,6 +867,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells about the $y$-axis: the radius is $x$ and the height is $\\sin(x^2)$, so\n\n$$\nV = 2\\pi\\int_0^{\\sqrt{\\pi}} x\\sin(x^2)\\,dx.\n$$\n\nLet $u = x^2$, so $du = 2x\\,dx$:\n\n$$\nV = \\pi\\int_0^{\\pi} \\sin(u)\\,du = \\pi\\left[-\\cos(u)\\right]_0^{\\pi} = \\pi(1 + 1) = 2\\pi.\n$$",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -819,6 +906,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "The torque is $\\vec\\tau = \\vec r \\times \\vec F$ with $\\vec r = \\langle 5, 3, -2\\rangle$ and $\\vec F = \\langle 2, -1, 1\\rangle$:\n\n$$\n\\vec r \\times \\vec F = \\begin{vmatrix} \\vec i & \\vec j & \\vec k \\\\ 5 & 3 & -2 \\\\ 2 & -1 & 1 \\end{vmatrix} = \\left(3 - 2\\right)\\vec i - \\left(5 + 4\\right)\\vec j + \\left(-5 - 6\\right)\\vec k = \\langle 1, -9, -11 \\rangle.\n$$\n\nWriting $\\vec F \\times \\vec r$ instead reverses the sign of the torque.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -854,6 +945,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-one-curve"
+      ],
+      "solution": "The curve $r = \\sqrt{\\sin(\\theta)}$ exists only where $\\sin(\\theta) \\ge 0$, that is, for $0 \\le \\theta \\le \\pi$, and this traces the whole enclosed region once. So\n\n$$\nA = \\frac{1}{2}\\int_0^{\\pi} r^2\\,d\\theta = \\frac{1}{2}\\int_0^{\\pi}\\sin(\\theta)\\,d\\theta = \\frac{1}{2}\\left[-\\cos(\\theta)\\right]_0^{\\pi} = \\frac{1}{2}(2) = 1.\n$$\n\nUsing limits from $0$ to $2\\pi$ is wrong, because $r$ is not real there.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -889,6 +984,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Write the integral as a limit:\n\n$$\n\\int_0^{\\infty} xe^{-x^2}\\,dx = \\lim_{t\\to\\infty}\\left[-\\frac{1}{2}e^{-x^2}\\right]_0^t = \\lim_{t\\to\\infty}\\left(-\\frac{1}{2}e^{-t^2} + \\frac{1}{2}\\right) = \\frac{1}{2}.\n$$\n\nForgetting the factor $\\frac{1}{2}$ from the antiderivative gives $1$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

@@ -37,6 +37,8 @@ For each question give a verdict:
 - **fix**: usable after a small correction, such as a slip in one step, a wrong or muddled closing sentence, a formatting fault, a missing final statement, or a poor type choice. Give the complete corrected solution in `fixedSolution`, the corrected types in `fixedTypeIds`, or both.
 - **reject**: the reasoning is wrong, it reaches a different value, a wrong step is hidden, or it would mislead a student. Say why.
 
+Show the check. For every question, `check` records what was recomputed, in a sentence: the value reached, and how it was confirmed. Wherever the result is a number, or the trap sentence names a wrong value, confirm it with a short computation in Python or Node (plain Python; scipy is not installed) and say so, as in "numeric integral 4.2943 matches; the trap's 36 is the hypotenuse reading". A grade with an empty `check` is not accepted. This was added after the first three batches, where grading took as little as ten seconds for an exam: a careful re-grade of one such exam agreed with the quick one on all 25 questions, but a check that leaves no trace cannot be audited.
+
 Check each line of algebra, not just the last. A solution that states the right value after a wrong intermediate step is never a pass. Check the closing "trap" sentence as carefully as the working: a false statement there is a fix.
 
 A question that already had a solution in the exam file has an empty `solution` in the draft. Grade only its types, and pass it unless they are wrong.
@@ -64,6 +66,7 @@ Write `grades.json`:
       "questionId": "f2025-e3-q01",
       "verdict": "pass",
       "quality": 5,
+      "check": "Cross product recomputed: (4, 4, 0), magnitude 4*sqrt(2), half is 2.828; matches.",
       "reason": "",
       "fixedSolution": null,
       "fixedTypeIds": null,
