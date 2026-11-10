@@ -1,0 +1,350 @@
+[
+  {
+    "id": "L26-g1",
+    "lessonId": "L26",
+    "typeId": "L26-classify-each",
+    "stem": "Decide which of the following series converge.\n\n$$\n\\text{I.}\\ \\sum_{k=1}^{\\infty}\\cos\\frac1k \\qquad \\text{II.}\\ \\sum_{k=1}^{\\infty}\\frac{10^k}{k!} \\qquad \\text{III.}\\ \\sum_{k=1}^{\\infty}\\left(\\sqrt{k+1}-\\sqrt{k}\\right)\n$$\n\nWork through the series one at a time, then state which converge.",
+    "steps": [
+      {
+        "prompt": "Series I is $\\sum\\cos\\frac1k$. Apply the Divergence Test first. What does it show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\lim a_k=0$, so the series converges",
+            "note": "Even a limit of $0$ would never prove convergence, and the limit also needs recomputing: the cosine is taken of the argument $\\frac1k$."
+          },
+          {
+            "label": "B",
+            "text": "$\\lim a_k=0$, so the test gives no information",
+            "note": "Recompute the limit. The argument $\\frac1k$ tends to $0$, but the term is the cosine of that argument."
+          },
+          {
+            "label": "C",
+            "text": "$\\lim a_k=1$, so the series diverges"
+          },
+          {
+            "label": "D",
+            "text": "$\\lim a_k=1$, so the test gives no information",
+            "note": "A nonzero limit is exactly the case in which the Divergence Test does decide something."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The argument $\\frac1k\\to 0$, so $\\cos\\frac1k\\to\\cos 0=1\\ne 0$. The terms do not tend to $0$, so series I diverges by the Divergence Test."
+      },
+      {
+        "prompt": "Series II is $\\sum\\frac{10^k}{k!}$. Its terms tend to $0$, so the Divergence Test is silent. Which test fits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Integral Test",
+            "note": "There is no simple function $f(x)$ with $f(k)=\\frac{10^k}{k!}$ to integrate. Factorials call for a different test."
+          },
+          {
+            "label": "B",
+            "text": "Ratio Test"
+          },
+          {
+            "label": "C",
+            "text": "Alternating Series Test",
+            "note": "Every term of this series is positive; nothing alternates, so this test does not apply."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Factorials and exponentials are the Ratio Test's territory, since consecutive terms differ by a simple factor. Series II is positive, so the test applies with $\\lim\\frac{a_{k+1}}{a_k}$."
+      },
+      {
+        "prompt": "Apply the Ratio Test to series II. What is $\\lim\\frac{a_{k+1}}{a_k}$, and what follows?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{a_{k+1}}{a_k}=\\frac{10}{k+1}\\to0<1$, so the series converges"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{a_{k+1}}{a_k}=10(k+1)\\to\\infty$, so the series diverges",
+            "note": "The factor from the factorials sits in the denominator: $(k+1)!=(k+1)\\cdot k!$, so $\\frac{k!}{(k+1)!}$ is $\\frac{1}{k+1}$, not $k+1$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{a_{k+1}}{a_k}=10>1$, so the series diverges",
+            "note": "Since $(k+1)!=(k+1)\\cdot k!$, the factorials do not cancel to $1$. Redo the quotient."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With the later term on top:\n\n$$\n\\frac{a_{k+1}}{a_k}=\\frac{10^{k+1}}{(k+1)!}\\cdot\\frac{k!}{10^k}=\\frac{10}{k+1}\\to 0.\n$$\n\nThe limit $0<1$, so series II converges."
+      },
+      {
+        "prompt": "Series III is $\\sum\\left(\\sqrt{k+1}-\\sqrt k\\right)$. The terms tend to $0$, so the Divergence Test is silent. What is the useful first move?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Apply the Ratio Test",
+            "note": "The ratio of consecutive terms tends to $1$ here, so this test would be inconclusive."
+          },
+          {
+            "label": "B",
+            "text": "Apply the Alternating Series Test",
+            "note": "Every term is positive. Nothing alternates."
+          },
+          {
+            "label": "C",
+            "text": "Multiply by the conjugate to turn the difference into a fraction"
+          }
+        ],
+        "answer": "C",
+        "explanation": "A difference of square roots is messy. Multiplying top and bottom by the conjugate $\\sqrt{k+1}+\\sqrt k$:\n\n$$\n\\sqrt{k+1}-\\sqrt k=\\frac{(k+1)-k}{\\sqrt{k+1}+\\sqrt k}=\\frac{1}{\\sqrt{k+1}+\\sqrt k}.\n$$\n\n"
+      },
+      {
+        "prompt": "Now $a_k=\\frac{1}{\\sqrt{k+1}+\\sqrt k}$. For large $k$, it behaves like a multiple of which $p$-series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum\\frac1{k^{3/2}}$",
+            "note": "The denominator is a sum of two square roots, not a power $\\frac32$. Limit Comparison with this series would give a limit of $\\infty$ against a convergent series, which settles nothing."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum\\frac1{\\sqrt k}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sum\\frac1{k^2}$",
+            "note": "Square roots of $k$ are not squared. This series is far too small a comparison: the limit would be $\\infty$ against a convergent series, which settles nothing."
+          }
+        ],
+        "answer": "B",
+        "explanation": "For large $k$, $\\sqrt{k+1}\\approx\\sqrt k$, so the denominator is about $2\\sqrt k$ and $a_k\\approx\\frac{1}{2\\sqrt k}$. Compare with $\\sum\\frac1{\\sqrt k}$, a $p$-series with $p=\\frac12$."
+      },
+      {
+        "prompt": "Use Limit Comparison with $b_k=\\frac1{\\sqrt k}$. What is $c=\\lim\\frac{a_k}{b_k}$, and what follows?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$c=\\frac12$, and $\\sum\\frac1{\\sqrt k}$ diverges, so series III diverges"
+          },
+          {
+            "label": "B",
+            "text": "$c=\\frac12<1$, so series III converges",
+            "note": "The size of $c$ is not compared with $1$. What matters is that $c$ is finite and positive, so the series shares the behaviour of the comparison series."
+          },
+          {
+            "label": "C",
+            "text": "$c=1$, so series III diverges",
+            "note": "Recompute the limit carefully. Count how many terms of size $\\sqrt k$ the denominator contains."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The limit is\n\n$$\nc=\\lim_{k\\to\\infty}\\frac{\\sqrt k}{\\sqrt{k+1}+\\sqrt k}=\\lim_{k\\to\\infty}\\frac{1}{\\sqrt{1+1/k}+1}=\\frac12.\n$$\n\nIt is finite and positive, so series III behaves like $\\sum\\frac1{\\sqrt k}$, a $p$-series with $p=\\frac12\\le1$. Series III diverges. (Check: the partial sums telescope to $\\sqrt{n+1}-1\\to\\infty$.)"
+      },
+      {
+        "prompt": "Which of I, II, III converge?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "All three",
+            "note": "Series I fails the Divergence Test, so it cannot converge."
+          },
+          {
+            "label": "B",
+            "text": "Only II"
+          },
+          {
+            "label": "C",
+            "text": "II and III",
+            "note": "Series III has terms that tend to $0$, but that proves nothing; the comparison with $\\sum\\frac1{\\sqrt k}$ decides it."
+          },
+          {
+            "label": "D",
+            "text": "I and II",
+            "note": "Look again at the limit of the terms of series I."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Series I diverges (the terms tend to $1$), series II converges (Ratio Test, limit $0$), series III diverges (Limit Comparison with $\\sum\\frac1{\\sqrt k}$). Only II converges."
+      }
+    ],
+    "takeaway": "Run the Divergence Test first, then match each remaining series to the test its form suggests, and remember that terms tending to $0$ settle nothing."
+  },
+  {
+    "id": "L26-g2",
+    "lessonId": "L26",
+    "typeId": "L26-odd-one-out",
+    "stem": "Exactly one of these four series diverges.\n\n$$\n\\text{I.}\\ \\sum_{k=2}^{\\infty}\\frac{1}{k(\\ln k)^{3/2}} \\qquad \\text{II.}\\ \\sum_{k=1}^{\\infty}\\frac{2k+1}{k^3+k} \\qquad \\text{III.}\\ \\sum_{k=1}^{\\infty}\\left(\\frac{k}{2k+1}\\right)^{k} \\qquad \\text{IV.}\\ \\sum_{k=1}^{\\infty}\\ln\\left(1+\\frac1k\\right)\n$$\n\n(a) Find the series that diverges by testing each one. (b) For that series, find a closed form for the partial sum $S_n=\\sum_{k=1}^{n}a_k$ and use it to confirm the answer to (a).",
+    "steps": [
+      {
+        "prompt": "(a) Apply the Divergence Test to all four series. What does it show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It shows IV diverges, since its terms do not tend to $0$",
+            "note": "Recompute $\\lim\\ln\\left(1+\\frac1k\\right)$: the logarithm is taken of a number that tends to $1$."
+          },
+          {
+            "label": "B",
+            "text": "All four have terms tending to $0$, so it settles none of them"
+          },
+          {
+            "label": "C",
+            "text": "It shows III diverges, since its base tends to $\\frac12\\ne0$",
+            "note": "The base is raised to the $k$th power. A base below $\\frac12$ in size makes the term shrink, not stay away from $0$."
+          },
+          {
+            "label": "D",
+            "text": "It shows I and II converge, since their terms tend to $0$",
+            "note": "Terms tending to $0$ never prove convergence."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The four limits are all $0$:\n\n$$\n\\frac{1}{k(\\ln k)^{3/2}}\\to0,\\quad \\frac{2k+1}{k^3+k}\\to0,\\quad 0<\\left(\\frac{k}{2k+1}\\right)^k<\\left(\\tfrac12\\right)^k\\to0,\\quad \\ln\\left(1+\\tfrac1k\\right)\\to\\ln1=0.\n$$\n\nThe Divergence Test is silent on all four, so each needs a real test."
+      },
+      {
+        "prompt": "Series I is $\\sum_{k=2}^{\\infty}\\frac{1}{k(\\ln k)^{3/2}}$. Which test settles it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Ratio Test",
+            "note": "The ratio of consecutive terms tends to $1$ here, so this test is inconclusive."
+          },
+          {
+            "label": "B",
+            "text": "Limit Comparison with $\\sum\\frac1k$",
+            "note": "That limit is $0$ and $\\sum\\frac1k$ diverges, so the comparison tells nothing."
+          },
+          {
+            "label": "C",
+            "text": "Integral Test"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The terms are positive, continuous and decreasing for $x\\ge2$, and the factor $\\frac1x$ beside a power of $\\ln x$ suggests the substitution $u=\\ln x$. Use the Integral Test with $f(x)=\\frac{1}{x(\\ln x)^{3/2}}$."
+      },
+      {
+        "prompt": "Evaluate $\\int_2^{\\infty}\\frac{dx}{x(\\ln x)^{3/2}}$ with $u=\\ln x$. What does it show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left[-2(\\ln x)^{-1/2}\\right]_2^{\\infty}=\\frac{2}{\\sqrt{\\ln2}}$, finite, so I converges"
+          },
+          {
+            "label": "B",
+            "text": "$\\left[\\ln(\\ln x)\\right]_2^{\\infty}=\\infty$, so I diverges",
+            "note": "$\\ln(\\ln x)$ is the antiderivative when the power of $\\ln x$ is $1$. Here the power is $\\frac32$."
+          },
+          {
+            "label": "C",
+            "text": "$\\left[\\frac25(\\ln x)^{5/2}\\right]_2^{\\infty}=\\infty$, so I diverges",
+            "note": "That raises the power instead of lowering it. In $u$ the integrand is $u^{-3/2}$, not $u^{3/2}$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $u=\\ln x$, $du=\\frac{dx}{x}$:\n\n$$\n\\int_2^{\\infty}\\frac{dx}{x(\\ln x)^{3/2}}=\\int_{\\ln2}^{\\infty}u^{-3/2}\\,du=\\left[-2u^{-1/2}\\right]_{\\ln2}^{\\infty}=\\frac{2}{\\sqrt{\\ln2}}.\n$$\n\nThe integral is finite, so series I converges."
+      },
+      {
+        "prompt": "Series II is $\\sum\\frac{2k+1}{k^3+k}$. Which Limit Comparison works, and what does it give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "With $\\sum\\frac1k$: $c=0$, so II converges",
+            "note": "The case $c=0$ gives convergence only when the comparison series converges, and $\\sum\\frac1k$ does not."
+          },
+          {
+            "label": "B",
+            "text": "With $\\sum\\frac1{k^2}$: $c=2$, so II converges"
+          },
+          {
+            "label": "C",
+            "text": "With $\\sum\\frac1{k^3}$: $c=\\infty$, so II diverges",
+            "note": "An infinite limit proves divergence only when the comparison series diverges, and $\\sum\\frac1{k^3}$ converges."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The leading terms give $\\frac{2k}{k^3}=\\frac{2}{k^2}$, so compare with $\\sum\\frac1{k^2}$:\n\n$$\nc=\\lim_{k\\to\\infty}\\frac{(2k+1)k^2}{k^3+k}=2.\n$$\n\nThis is finite and positive, and $\\sum\\frac1{k^2}$ converges ($p=2>1$), so series II converges."
+      },
+      {
+        "prompt": "Series III is $\\sum\\left(\\frac{k}{2k+1}\\right)^k$, a $k$th power. What does the Root Test give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$L=2$, so III diverges",
+            "note": "That is the reciprocal of the base."
+          },
+          {
+            "label": "B",
+            "text": "$L=1$, so the test is inconclusive",
+            "note": "The base is $\\frac{k}{2k+1}$, and $2k+1$ is about $2k$, not $k$."
+          },
+          {
+            "label": "C",
+            "text": "$L=\\frac12<1$, so III converges"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The $k$th root removes the power:\n\n$$\n\\sqrt[k]{a_k}=\\frac{k}{2k+1}\\to\\frac12.\n$$\n\nSince $\\frac12<1$, series III converges."
+      },
+      {
+        "prompt": "Series IV is $\\sum\\ln\\left(1+\\frac1k\\right)$. Its terms tend to $0$. Which argument settles it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Limit Comparison with $\\sum\\frac1k$: $c=\\lim k\\ln\\left(1+\\frac1k\\right)=1$, so IV diverges with it"
+          },
+          {
+            "label": "B",
+            "text": "Direct Comparison: $\\ln\\left(1+\\frac1k\\right)<\\frac1k$ and $\\sum\\frac1k$ diverges, so IV diverges",
+            "note": "Being smaller than a divergent series proves nothing. Direct Comparison for divergence needs the term to be larger."
+          },
+          {
+            "label": "C",
+            "text": "Ratio Test: the ratio tends to $1$, so IV converges",
+            "note": "A ratio limit of $1$ is inconclusive. It never proves convergence."
+          }
+        ],
+        "answer": "A",
+        "explanation": "For small $x$, $\\ln(1+x)\\approx x$, so $\\ln\\left(1+\\frac1k\\right)$ behaves like $\\frac1k$. With $x=\\frac1k$:\n\n$$\nc=\\lim_{k\\to\\infty}\\frac{\\ln(1+1/k)}{1/k}=\\lim_{x\\to0^+}\\frac{\\ln(1+x)}{x}=1.\n$$\n\nThis is finite and positive, and $\\sum\\frac1k$ diverges, so series IV diverges. It is the one that diverges, which answers (a)."
+      },
+      {
+        "prompt": "(b) Write $\\ln\\left(1+\\frac1k\\right)=\\ln(k+1)-\\ln k$. What is $S_n=\\sum_{k=1}^{n}\\ln\\left(1+\\frac1k\\right)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln n$",
+            "note": "The last term is $\\ln(n+1)-\\ln n$, so the surviving top term is not $\\ln n$."
+          },
+          {
+            "label": "B",
+            "text": "$\\ln(n+1)$"
+          },
+          {
+            "label": "C",
+            "text": "$\\ln(n+1)-\\ln2$",
+            "note": "That is the sum starting at $k=2$. The $k=1$ term, $\\ln2-\\ln1$, also belongs to the sum."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The sum telescopes:\n\n$$\nS_n=(\\ln2-\\ln1)+(\\ln3-\\ln2)+\\cdots+(\\ln(n+1)-\\ln n)=\\ln(n+1)-\\ln1=\\ln(n+1).\n$$\n\n"
+      },
+      {
+        "prompt": "What does $S_n$ say about series IV, and so which series is the one that diverges?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$S_n=\\ln(n+1)\\to\\infty$, so IV diverges, and IV is the one"
+          },
+          {
+            "label": "B",
+            "text": "$S_n$ grows only like a logarithm, which is slow, so IV converges",
+            "note": "Convergence needs the partial sums to approach a finite number. Slow growth is not approach."
+          },
+          {
+            "label": "C",
+            "text": "$S_n\\to\\infty$ but $S_n$ is increasing, so IV converges",
+            "note": "An increasing sequence converges only if it is also bounded above."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Since $S_n=\\ln(n+1)\\to\\infty$, the partial sums have no finite limit, so series IV diverges. This agrees with Limit Comparison from the earlier step. Series I, II and III converge, so the series that differs is IV."
+      }
+    ],
+    "takeaway": "When terms tend to $0$ the Divergence Test is silent: test each series with the tool its form calls for, and trust a term that behaves like $\\frac1k$ to diverge."
+  }
+]

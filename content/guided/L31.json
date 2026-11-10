@@ -3,221 +3,483 @@
     "id": "L31-g1",
     "lessonId": "L31",
     "typeId": "L31-taylor-series-other-center",
-    "stem": "Find the first three terms of the Taylor series for $f(x) = e^x$ centered at $a = 1$.",
+    "stem": "(a) Find the first four terms of the Taylor series of $f(x)=\\cos x$ centered at $a=\\frac{\\pi}{3}$.\n\n(b) Use the first three terms to approximate $\\cos 1$.",
     "steps": [
       {
-        "prompt": "Which expression is the general term of a Taylor series centered at $a$?",
+        "prompt": "Which plan gives the Taylor series of $\\cos x$ at $a=\\frac{\\pi}{3}$?",
         "choices": [
           {
             "label": "A",
-            "text": "$\\frac{f^{(k)}(a)}{k!}x^k$",
-            "note": "This is the form for the center $0$. A center $a$ needs the powers of $x - a$."
+            "text": "Replace $x$ with $x-\\frac{\\pi}{3}$ in the Maclaurin series of $\\cos x$",
+            "note": "That gives the series of $\\cos\\left(x-\\frac{\\pi}{3}\\right)$, which is a different function from $\\cos x$."
           },
           {
             "label": "B",
-            "text": "$\\frac{f^{(k)}(a)}{k!}(x-a)^k$"
+            "text": "Find $\\cos x$ and its derivatives at $\\frac{\\pi}{3}$, then use the Taylor formula"
           },
           {
             "label": "C",
-            "text": "$\\frac{f^{(k)}(a)}{(k-1)!}(x-a)^k$",
-            "note": "The factorial must match the order $k$ of the derivative."
+            "text": "Use the Maclaurin series of $\\cos x$, since it converges for every $x$",
+            "note": "It converges everywhere, but it is a series in powers of $x$, centered at $0$. The task asks for powers of $x-\\frac{\\pi}{3}$."
           }
         ],
         "answer": "B",
-        "explanation": "The Taylor series at $a$ is $\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x-a)^k$. Each term uses the $k$th derivative at $a$ and the power $(x-a)^k$."
+        "explanation": "The center is not $0$, so the table does not apply directly. Swapping $x$ for $x-\\frac{\\pi}{3}$ would change the function. The plan is to compute $f^{(k)}\\left(\\frac{\\pi}{3}\\right)$ and use $\\sum_{k=0}^{\\infty}\\frac{f^{(k)}(a)}{k!}(x-a)^k$."
       },
       {
-        "prompt": "For $f(x) = e^x$, what is $f^{(k)}(1)$ for every $k$?",
+        "prompt": "What are $f\\left(\\frac{\\pi}{3}\\right)$, $f'\\left(\\frac{\\pi}{3}\\right)$, $f''\\left(\\frac{\\pi}{3}\\right)$ and $f'''\\left(\\frac{\\pi}{3}\\right)$, in that order?",
         "choices": [
           {
             "label": "A",
-            "text": "$e^k$",
-            "note": "This treats each derivative as multiplying by $e$. Check what the $k$th derivative of $e^x$ is."
+            "text": "$\\frac12,\\ -\\frac{\\sqrt3}{2},\\ -\\frac12,\\ \\frac{\\sqrt3}{2}$"
           },
           {
             "label": "B",
-            "text": "$1$",
-            "note": "This is the value at $x = 0$, not at the center $a = 1$."
+            "text": "$\\frac12,\\ \\frac{\\sqrt3}{2},\\ -\\frac12,\\ -\\frac{\\sqrt3}{2}$",
+            "note": "These signs follow the derivatives of $\\sin x$. For $\\cos x$ the first derivative is $-\\sin x$, so recheck each sign."
           },
           {
             "label": "C",
-            "text": "$e$"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Every derivative of $e^x$ is $e^x$. At $x = 1$ this gives $f^{(k)}(1) = e$ for every $k$."
-      },
-      {
-        "prompt": "Put these values into the general term. What are the first three terms of the series?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$e + e(x-1) + \\frac{e}{2}(x-1)^2$"
-          },
-          {
-            "label": "B",
-            "text": "$1 + (x-1) + \\frac{(x-1)^2}{2}$",
-            "note": "This is the series for $e^{x-1}$, a different function. The factor $e$ from $f(1)$ is missing."
-          },
-          {
-            "label": "C",
-            "text": "$e + ex + \\frac{e}{2}x^2$",
-            "note": "This is centered at $0$: its powers are $x^k$, not $(x-1)^k$."
+            "text": "$1,\\ 0,\\ -1,\\ 0$",
+            "note": "These are the values at $0$, the center of the Maclaurin series. Here every derivative is evaluated at $\\frac{\\pi}{3}$."
           }
         ],
         "answer": "A",
-        "explanation": "The term for each $k$ is $\\frac{f^{(k)}(1)}{k!}(x-1)^k = \\frac{e}{k!}(x-1)^k$. For $k = 0, 1, 2$ this gives $e$, $e(x-1)$ and $\\frac{e}{2}(x-1)^2$."
+        "explanation": "The derivatives of $\\cos x$ cycle: $f'=-\\sin x$, $f''=-\\cos x$, $f'''=\\sin x$.\n\nWith $\\cos\\frac{\\pi}{3}=\\frac12$ and $\\sin\\frac{\\pi}{3}=\\frac{\\sqrt3}{2}$:\n\n$$\nf=\\frac12,\\quad f'=-\\frac{\\sqrt3}{2},\\quad f''=-\\frac12,\\quad f'''=\\frac{\\sqrt3}{2}.\n$$"
+      },
+      {
+        "prompt": "Divide each value by $k!$. What are the coefficients $\\frac{f^{(k)}(a)}{k!}$ for $k=0,1,2,3$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac12,\\ -\\frac{\\sqrt3}{2},\\ -\\frac12,\\ \\frac{\\sqrt3}{2}$",
+            "note": "These are the derivative values themselves. Each one still has to be divided by $k!$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac12,\\ -\\frac{\\sqrt3}{2},\\ -\\frac14,\\ \\frac{\\sqrt3}{4}$",
+            "note": "The last coefficient divides by $2!$. The factorial must match the order $k$ of the derivative, and here $k=3$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac12,\\ -\\frac{\\sqrt3}{2},\\ -\\frac14,\\ \\frac{\\sqrt3}{12}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\frac{1/2}{0!}=\\frac12,\\quad \\frac{-\\sqrt3/2}{1!}=-\\frac{\\sqrt3}{2},\\quad \\frac{-1/2}{2!}=-\\frac14,\\quad \\frac{\\sqrt3/2}{3!}=\\frac{\\sqrt3}{12}.\n$$"
+      },
+      {
+        "prompt": "Which expression gives the first four terms of the Taylor series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac12-\\frac{\\sqrt3}{2}x-\\frac14x^2+\\frac{\\sqrt3}{12}x^3$",
+            "note": "The coefficients are right, but they are attached to powers of $x$. A series centered at $a$ uses powers of $x-a$."
+          },
+          {
+            "label": "B",
+            "text": "$1-\\frac{1}{2}\\left(x-\\frac{\\pi}{3}\\right)^2+\\frac{1}{24}\\left(x-\\frac{\\pi}{3}\\right)^4-\\frac{1}{720}\\left(x-\\frac{\\pi}{3}\\right)^6$",
+            "note": "This is the start of the series for $\\cos\\left(x-\\frac{\\pi}{3}\\right)$, not for $\\cos x$. It does not use the coefficients found above."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac12-\\frac{\\sqrt3}{2}\\left(x-\\frac{\\pi}{3}\\right)-\\frac14\\left(x-\\frac{\\pi}{3}\\right)^2+\\frac{\\sqrt3}{12}\\left(x-\\frac{\\pi}{3}\\right)^3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Attach the coefficient for each $k$ to $\\left(x-\\frac{\\pi}{3}\\right)^k$:\n\n$$\n\\cos x=\\frac12-\\frac{\\sqrt3}{2}\\left(x-\\frac{\\pi}{3}\\right)-\\frac14\\left(x-\\frac{\\pi}{3}\\right)^2+\\frac{\\sqrt3}{12}\\left(x-\\frac{\\pi}{3}\\right)^3+\\cdots\n$$"
+      },
+      {
+        "prompt": "(b) To use the series at $x=1$, what is $x-\\frac{\\pi}{3}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1-\\frac{\\pi}{3}\\approx -0.0472$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{3}-1\\approx 0.0472$",
+            "note": "The quantity in the series is $x-a$, the point minus the center. The point $x=1$ lies below the center."
+          },
+          {
+            "label": "C",
+            "text": "$1$",
+            "note": "This uses $x$ itself. The powers in the series are of the distance from the center, $x-\\frac{\\pi}{3}$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Since $\\frac{\\pi}{3}\\approx 1.0472$, we get $x-\\frac{\\pi}{3}=1-1.0472\\approx-0.0472$. The point is very close to the center, so the first few terms should be accurate."
+      },
+      {
+        "prompt": "At $x=1$, about how large is the first term left out, the term in $\\left(x-\\frac{\\pi}{3}\\right)^3$ with coefficient $\\frac{\\sqrt3}{12}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "about $-5.6\\times10^{-4}$",
+            "note": "That is the size of the quadratic term, which is already among the three terms used."
+          },
+          {
+            "label": "B",
+            "text": "about $-1.5\\times10^{-5}$"
+          },
+          {
+            "label": "C",
+            "text": "about $-6.8\\times10^{-3}$",
+            "note": "This multiplies the coefficient by the first power of $x-\\frac{\\pi}{3}$. The term has the cube."
+          }
+        ],
+        "answer": "B",
+        "explanation": "With $x-\\frac{\\pi}{3}\\approx-0.04720$, the cube is $\\approx-1.052\\times10^{-4}$. Then\n\n$$\n\\frac{\\sqrt3}{12}\\cdot\\left(-1.052\\times10^{-4}\\right)\\approx-1.5\\times10^{-5}.\n$$\n\nThe omitted term is tiny, so three terms give about four correct decimals."
+      },
+      {
+        "prompt": "(b) What does the sum of the first three terms give for $\\cos 1$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\approx 0.5409$",
+            "note": "This stops after the linear term. The quadratic term $-\\frac14\\left(x-\\frac{\\pi}{3}\\right)^2$ is missing."
+          },
+          {
+            "label": "B",
+            "text": "$\\approx 0.4586$",
+            "note": "Check the sign of the linear term. Its coefficient is negative, and the value of $x-\\frac{\\pi}{3}$ is negative as well."
+          },
+          {
+            "label": "C",
+            "text": "$\\approx 0.5403$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\cos 1\\approx\\frac12-\\frac{\\sqrt3}{2}(-0.04720)-\\frac14(-0.04720)^2\\approx0.5+0.04087-0.00056=0.54032.\n$$\n\nA calculator gives $\\cos1=0.54030$, matching to four decimals, as the size of the next term predicted."
       }
     ],
-    "takeaway": "Evaluate every derivative at the center, and pair each one with $(x-a)^k$, never with $x^k$."
+    "takeaway": "For a nonzero center, take derivatives at the center and pair each coefficient with $(x-a)^k$; swapping $x-a$ into the Maclaurin table changes the function."
   },
   {
     "id": "L31-g2",
     "lessonId": "L31",
     "typeId": "L31-binomial-series",
-    "stem": "Find the first three terms of the Maclaurin series for $f(x) = \\sqrt[3]{1 - 2x}$.",
+    "stem": "Let $f(x)=\\frac{1}{\\sqrt{4-3x}}$.\n\n(a) Find the first three terms of the Maclaurin series of $f$.\n\n(b) Find the radius of convergence.\n\n(c) Use the three terms to estimate $f(0.2)$, and say whether the estimate is above or below the true value.",
     "steps": [
       {
-        "prompt": "Which choice of $u$ and $k$ writes $\\sqrt[3]{1 - 2x}$ as $(1 + u)^k$?",
+        "prompt": "(a) Which rewrite puts $f(x)$ in the form $c\\,(1+u)^k$ with a constant $c$?",
         "choices": [
           {
             "label": "A",
-            "text": "$u = 2x$, $k = \\frac{1}{3}$",
-            "note": "Then the base is $1 + 2x$, not $1 - 2x$. Keep the minus sign in $u$."
+            "text": "$\\frac14\\left(1-\\frac{3x}{4}\\right)^{-1/2}$",
+            "note": "Factoring $4$ out of the base brings out $4$ to the exponent $-\\frac12$, not to the exponent $-1$."
           },
           {
             "label": "B",
-            "text": "$u = -2x$, $k = -\\frac{1}{3}$",
-            "note": "A cube root has a positive exponent. A minus sign in the exponent would mean a reciprocal."
+            "text": "$\\frac12\\left(1-\\frac{3x}{4}\\right)^{-1/2}$"
           },
           {
             "label": "C",
-            "text": "$u = -2x$, $k = \\frac{1}{3}$"
-          }
-        ],
-        "answer": "C",
-        "explanation": "The cube root is the power $\\frac{1}{3}$. Writing $1 - 2x = 1 + u$ gives $u = -2x$, so $f(x) = (1 + u)^{1/3}$."
-      },
-      {
-        "prompt": "Using $(1 + u)^k = 1 + ku + \\frac{k(k-1)}{2!}u^2 + \\cdots$, what is the coefficient of $x$?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$\\frac{2}{3}$",
-            "note": "The sign is wrong. The term is $ku$, and $u = -2x$ is negative."
-          },
-          {
-            "label": "B",
-            "text": "$-\\frac{2}{3}$"
-          },
-          {
-            "label": "C",
-            "text": "$-2$",
-            "note": "The factor $k = \\frac{1}{3}$ has been left out of $ku$."
+            "text": "$\\frac12\\left(1-3x\\right)^{-1/2}$",
+            "note": "Taking $4$ out of $4-3x$ divides both terms by $4$, so the $3x$ must be divided too."
           }
         ],
         "answer": "B",
-        "explanation": "The $x$ term is $ku = \\frac{1}{3}(-2x) = -\\frac{2}{3}x$."
+        "explanation": "$$\n\\frac{1}{\\sqrt{4-3x}}=(4-3x)^{-1/2}=\\left[4\\left(1-\\frac{3x}{4}\\right)\\right]^{-1/2}=4^{-1/2}\\left(1-\\frac{3x}{4}\\right)^{-1/2}.\n$$\n\nSince $4^{-1/2}=\\frac12$, $f(x)=\\frac12(1+u)^{k}$ with $u=-\\frac{3x}{4}$ and $k=-\\frac12$."
       },
       {
-        "prompt": "With the $x$ term from the last step, which expression gives the first three terms of the series?",
+        "prompt": "With $k=-\\frac12$, what is the coefficient of $u^2$ in $(1+u)^{-1/2}$?",
         "choices": [
           {
             "label": "A",
-            "text": "$1 + \\frac{2}{3}x - \\frac{4}{9}x^2$",
-            "note": "This is the series for $\\sqrt[3]{1 + 2x}$, a different function. The sign of $-2x$ has been lost."
+            "text": "$\\frac18$",
+            "note": "The second factor in the numerator of $\\frac{k(k-1)}{2!}$ is $k-1$, not $k$."
           },
           {
             "label": "B",
-            "text": "$1 - \\frac{2}{3}x - \\frac{1}{9}x^2$",
-            "note": "This takes $u^2 = x^2$, which drops the factor $4$ from squaring $-2x$."
+            "text": "$-\\frac38$",
+            "note": "Check the sign of $k(k-1)$. Both factors have the same sign here."
           },
           {
             "label": "C",
-            "text": "$1 - \\frac{2}{3}x + \\frac{4}{9}x^2$",
-            "note": "The sign of the $x^2$ term is wrong. Check the sign of $k(k-1)$ for $k = \\frac{1}{3}$."
+            "text": "$\\frac38$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\binom{-1/2}{2}=\\frac{\\left(-\\frac12\\right)\\left(-\\frac32\\right)}{2!}=\\frac{3/4}{2}=\\frac38.\n$$\n\nThe coefficient of $u$ is $k=-\\frac12$, so $(1+u)^{-1/2}=1-\\frac12u+\\frac38u^2-\\cdots$."
+      },
+      {
+        "prompt": "Now put $u=-\\frac{3x}{4}$. What are the first three terms of $(1+u)^{-1/2}$ in terms of $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1+\\frac{3x}{8}+\\frac{27x^2}{128}$"
+          },
+          {
+            "label": "B",
+            "text": "$1-\\frac{3x}{8}+\\frac{27x^2}{128}$",
+            "note": "The linear term is $-\\frac12u$, and $u$ is negative. Keep the sign of $u$ when substituting."
+          },
+          {
+            "label": "C",
+            "text": "$1+\\frac{3x}{8}+\\frac{3x^2}{128}$",
+            "note": "Squaring $-\\frac{3x}{4}$ squares the $3$ and the $4$ as well as the $x$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n-\\frac12u=-\\frac12\\left(-\\frac{3x}{4}\\right)=\\frac{3x}{8},\\qquad \\frac38u^2=\\frac38\\cdot\\frac{9x^2}{16}=\\frac{27x^2}{128}.\n$$\n\nSo $(1+u)^{-1/2}=1+\\frac{3x}{8}+\\frac{27x^2}{128}+\\cdots$."
+      },
+      {
+        "prompt": "Multiply by the constant from the first step. What are the first three terms of the series of $f$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1+\\frac{3x}{8}+\\frac{27x^2}{128}$",
+            "note": "This is the series of $(1-\\frac{3x}{4})^{-1/2}$ alone. The constant in front of it has not been applied."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac12+\\frac{3x}{8}+\\frac{27x^2}{128}$",
+            "note": "The constant multiplies every term, not just the first."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac12+\\frac{3x}{16}+\\frac{27x^2}{256}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nf(x)=\\frac12\\left(1+\\frac{3x}{8}+\\frac{27x^2}{128}+\\cdots\\right)=\\frac12+\\frac{3x}{16}+\\frac{27x^2}{256}+\\cdots\n$$"
+      },
+      {
+        "prompt": "(b) For which $x$ is the binomial series in $u$ guaranteed to converge, which gives the radius of convergence of the series of $f$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$R=1$",
+            "note": "The binomial series converges for $|u|<1$, and here $u=-\\frac{3x}{4}$, not $x$."
+          },
+          {
+            "label": "B",
+            "text": "$R=\\frac34$",
+            "note": "This undoes the factor $\\frac{3}{4}$ in $\\left|\\frac{3x}{4}\\right|<1$ in the wrong direction."
+          },
+          {
+            "label": "C",
+            "text": "$R=\\frac43$"
           },
           {
             "label": "D",
-            "text": "$1 - \\frac{2}{3}x - \\frac{4}{9}x^2$"
+            "text": "$R=4$",
+            "note": "This drops the $3$ in $u=-\\frac{3x}{4}$."
           }
         ],
-        "answer": "D",
-        "explanation": "The $x^2$ term is $\\frac{k(k-1)}{2!}u^2 = \\frac{\\frac{1}{3}\\cdot\\left(-\\frac{2}{3}\\right)}{2}\\cdot 4x^2 = -\\frac{4}{9}x^2$. The first three terms are $1 - \\frac{2}{3}x - \\frac{4}{9}x^2$."
+        "answer": "C",
+        "explanation": "The series converges for $|u|<1$, that is $\\left|\\frac{3x}{4}\\right|<1$, so $|x|<\\frac43$. The radius of convergence is $\\frac43$."
+      },
+      {
+        "prompt": "(c) What do the three terms give for $f(0.2)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\approx 1.0834$",
+            "note": "This is the value for the series without its outside constant, so it belongs to a different function."
+          },
+          {
+            "label": "B",
+            "text": "$\\approx 0.4667$",
+            "note": "The linear term is $-\\frac{1}{2}u$ with $u=-\\frac{3x}{4}$, so recompute its sign before adding."
+          },
+          {
+            "label": "C",
+            "text": "$\\approx 0.5417$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\frac12+\\frac{3(0.2)}{16}+\\frac{27(0.2)^2}{256}=0.5+0.0375+0.00422=0.5417.\n$$\n\nHere $0.2<\\frac43$, so $x=0.2$ is inside the interval where the series converges."
+      },
+      {
+        "prompt": "(c) Is $0.5417$ above or below the true value of $f(0.2)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Below: every omitted term is positive"
+          },
+          {
+            "label": "B",
+            "text": "Above: the terms alternate and the first omitted term is negative",
+            "note": "The signs do not alternate here. Look at the sign of $u$ and of each binomial coefficient."
+          },
+          {
+            "label": "C",
+            "text": "It cannot be decided without computing $f(0.2)$",
+            "note": "The signs of the omitted terms can be read from the pattern of the coefficients."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The binomial coefficients of $(1+u)^{-1/2}$ alternate in sign, and so do the powers of $u=-\\frac{3x}{4}$ for positive $x$. Each term of the series of $f$ is therefore positive. The next term is $\\frac{135}{2048}x^3\\approx0.0005$, which is positive.\n\nSo the estimate is below $f(0.2)=\\frac{1}{\\sqrt{3.4}}=0.5423$, and the three-term estimate is $0.5417$."
       }
     ],
-    "takeaway": "Write the base as $1 + u$ first, because the sign of $u$ carries into every term."
+    "takeaway": "Factor the constant out of the base to reach $(1+u)^k$, and track $u$ through every term, including its sign and the radius $|u|<1$."
   },
   {
     "id": "L31-g3",
     "lessonId": "L31",
     "typeId": "L31-maclaurin-from-table",
-    "stem": "Find the first three nonzero terms of the Maclaurin series for $f(x) = x e^{-x^2}$.",
+    "stem": "Let $f(x)=\\frac{1-\\cos 3x}{x^2}$ for $x \\ne 0$.\n\n(a) Find the Maclaurin series of $f$: its first three terms and its general term.\n\n(b) For which $x$ does the series converge?\n\n(c) Use the series to find $\\lim_{x\\to 0}f(x)$.",
     "steps": [
       {
-        "prompt": "Which known Maclaurin series gives the starting point for $x e^{-x^2}$?",
+        "prompt": "(a) Which table series is the starting point for $\\frac{1-\\cos 3x}{x^2}$?",
         "choices": [
           {
             "label": "A",
             "text": "$\\sin x$",
-            "note": "This is the series for $\\sin x$, a different function from the exponential here."
+            "note": "The function contains $\\cos 3x$, and the series of $\\sin x$ has different powers and factorials."
           },
           {
             "label": "B",
-            "text": "$e^x$"
+            "text": "$\\cos x$"
           },
           {
             "label": "C",
-            "text": "$\\cos x$",
-            "note": "This is the series for $\\cos x$, a different function from the exponential here."
+            "text": "$\\frac{1}{1-x}$",
+            "note": "There is no fraction of the form $\\frac{1}{1-\\text{something}}$ to expand here. The cosine is the part with a known series."
           }
         ],
         "answer": "B",
-        "explanation": "The series $e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$ holds for all $x$. The function is $x$ times $e^u$ with $u = -x^2$, so the table entry is reused with a substitution."
+        "explanation": "The only non-algebraic piece is $\\cos 3x$, so use $\\cos u=\\sum_{k=0}^{\\infty}\\frac{(-1)^ku^{2k}}{(2k)!}=1-\\frac{u^2}{2!}+\\frac{u^4}{4!}-\\cdots$, valid for all $u$, with $u=3x$."
       },
       {
-        "prompt": "Replace $x$ with $-x^2$ in that series. What are the first three terms of the series for $e^{-x^2}$?",
+        "prompt": "Put $u=3x$. What are the first three terms of the series of $\\cos 3x$?",
         "choices": [
           {
             "label": "A",
-            "text": "$1 - x^2 + \\frac{x^4}{2}$"
+            "text": "$1-\\frac{3x^2}{2}+\\frac{x^4}{8}$",
+            "note": "This writes $3x^2$ for $(3x)^2$ and $3x^4$ for $(3x)^4$. The whole of $3x$ is raised to the power."
           },
           {
             "label": "B",
-            "text": "$1 + x^2 + \\frac{x^4}{2}$",
-            "note": "This drops the minus sign from the substitution, which changes the sign of the $x^2$ term."
+            "text": "$1+\\frac{9x^2}{2}+\\frac{27x^4}{8}$",
+            "note": "The signs of the cosine series alternate. This is the pattern of $\\cosh 3x$."
           },
           {
             "label": "C",
-            "text": "$1 - x^2 + x^4$",
-            "note": "The $x^4$ term comes from $\\frac{u^2}{2!}$, so the factorial $2!$ must stay in the denominator."
-          }
-        ],
-        "answer": "A",
-        "explanation": "Put $u = -x^2$ into $e^u = 1 + u + \\frac{u^2}{2!} + \\cdots$. This gives $e^{-x^2} = 1 - x^2 + \\frac{x^4}{2} - \\cdots$."
-      },
-      {
-        "prompt": "The factor $x$ multiplies every term of that series. What are the first three nonzero terms of $x e^{-x^2}$?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$x - x^3 + x^5$",
-            "note": "This loses the denominator of the $x^4$ term from the previous step. Multiplying by $x$ only raises each power by one."
-          },
-          {
-            "label": "B",
-            "text": "$1 - x^2 + \\frac{x^4}{2}$",
-            "note": "This leaves out the factor $x$, so it is still the series for $e^{-x^2}$."
-          },
-          {
-            "label": "C",
-            "text": "$x - x^3 + \\frac{x^5}{2}$"
+            "text": "$1-\\frac{9x^2}{2}+\\frac{27x^4}{8}$"
           }
         ],
         "answer": "C",
-        "explanation": "Multiplying $1 - x^2 + \\frac{x^4}{2}$ by $x$ gives $x - x^3 + \\frac{x^5}{2}$."
+        "explanation": "$$\n\\cos 3x=1-\\frac{(3x)^2}{2!}+\\frac{(3x)^4}{4!}-\\cdots=1-\\frac{9x^2}{2}+\\frac{81x^4}{24}-\\cdots=1-\\frac{9x^2}{2}+\\frac{27x^4}{8}-\\cdots\n$$"
+      },
+      {
+        "prompt": "What are the first three nonzero terms of the series of $1-\\cos 3x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{9x^2}{2}-\\frac{27x^4}{8}+\\frac{81x^6}{80}$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{9x^2}{2}+\\frac{27x^4}{8}-\\frac{81x^6}{80}$",
+            "note": "This is the series of $\\cos 3x$ without its leading $1$. The subtraction changes every sign."
+          },
+          {
+            "label": "C",
+            "text": "$1+\\frac{9x^2}{2}-\\frac{27x^4}{8}+\\frac{81x^6}{80}$",
+            "note": "The leading $1$ of $\\cos 3x$ cancels against the $1$ that is subtracted from it, so it does not remain."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The $x^6$ term of $\\cos 3x$ is $-\\frac{(3x)^6}{6!}=-\\frac{729}{720}x^6=-\\frac{81}{80}x^6$.\n\n$$\n1-\\cos 3x=1-\\left(1-\\frac{9x^2}{2}+\\frac{27x^4}{8}-\\frac{81x^6}{80}+\\cdots\\right)=\\frac{9x^2}{2}-\\frac{27x^4}{8}+\\frac{81x^6}{80}-\\cdots\n$$"
+      },
+      {
+        "prompt": "Divide by $x^2$. What are the first three terms of the series of $f(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac92-\\frac{27x^4}{8}+\\frac{81x^6}{80}$",
+            "note": "Only the first term has been divided. Dividing by $x^2$ lowers every power by $2$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac92-\\frac{27x^2}{8}+\\frac{81x^4}{80}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{9x}{2}-\\frac{27x^3}{8}+\\frac{81x^5}{80}$",
+            "note": "This divides by $x$. Dividing by $x^2$ lowers each exponent by $2$, not $1$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nf(x)=\\frac{1}{x^2}\\left(\\frac{9x^2}{2}-\\frac{27x^4}{8}+\\frac{81x^6}{80}-\\cdots\\right)=\\frac92-\\frac{27x^2}{8}+\\frac{81x^4}{80}-\\cdots\n$$"
+      },
+      {
+        "prompt": "Which is the general term of the series of $f$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{k=1}^{\\infty}\\frac{(-1)^{k+1}9^k x^{2k}}{(2k)!}$",
+            "note": "This is the series of $1-\\cos 3x$. The division by $x^2$ has not been carried out."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{k=0}^{\\infty}\\frac{(-1)^{k+1}9^k x^{2k-2}}{(2k)!}$",
+            "note": "At $k=0$ this gives a term in $x^{-2}$. The $k=0$ term of the cosine series was the $1$ that cancelled."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum_{k=1}^{\\infty}\\frac{(-1)^{k}9^k x^{2k-2}}{(2k)!}$",
+            "note": "Test $k=1$: the first term would be negative, but the first term found above is positive."
+          },
+          {
+            "label": "D",
+            "text": "$\\sum_{k=1}^{\\infty}\\frac{(-1)^{k+1}9^k x^{2k-2}}{(2k)!}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The terms of $1-\\cos 3x$ are $\\frac{(-1)^{k+1}(3x)^{2k}}{(2k)!}$ for $k\\ge1$. Dividing by $x^2$ gives\n\n$$\nf(x)=\\sum_{k=1}^{\\infty}\\frac{(-1)^{k+1}9^k x^{2k-2}}{(2k)!}.\n$$\n\nCheck: $k=1$ gives $\\frac92$, $k=2$ gives $-\\frac{81}{24}x^2=-\\frac{27}{8}x^2$, matching the terms above."
+      },
+      {
+        "prompt": "(b) For which $x$ does this series converge?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|x|<\\frac13$",
+            "note": "A restriction like this comes from a geometric series. The cosine series has no such limit."
+          },
+          {
+            "label": "B",
+            "text": "Only $x\\neq0$",
+            "note": "The series is a power series with a finite sum at $x=0$, where every term except the first is $0$."
+          },
+          {
+            "label": "C",
+            "text": "All real $x$"
+          },
+          {
+            "label": "D",
+            "text": "$|x|<3$",
+            "note": "The $3$ in $3x$ rescales the variable but does not limit where the cosine series converges."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The series of $\\cos u$ converges for every $u$, so the series of $\\cos 3x$ converges for every $x$. Subtracting from $1$ and dividing by $x^2$ term by term keeps it convergent. The sum is $f(x)$ for $x\\neq0$, and at $x=0$ the series equals $\\frac92$ while the original formula is undefined."
+      },
+      {
+        "prompt": "(c) What is $\\lim_{x\\to0}f(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac92$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac12$",
+            "note": "This is the limit of $\\frac{1-\\cos x}{x^2}$, which has no $3$ inside the cosine."
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "Substituting $x=0$ into the formula gives $\\frac00$, which is not a value. Use the constant term of the series instead."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The series is continuous inside its interval of convergence, so as $x\\to0$ every term with a positive power of $x$ vanishes and $f(x)\\to\\frac92$. The limit is $\\frac92$."
       }
     ],
-    "takeaway": "Substitute into the table first, then multiply or divide, and keep each factorial with its own term."
+    "takeaway": "Substitute into the table with the whole expression in parentheses, then do the algebra term by term, and watch which index the series now starts at."
   }
 ]

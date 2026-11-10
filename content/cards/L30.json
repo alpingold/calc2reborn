@@ -7,6 +7,9 @@
     "tags": [
       "term-by-term",
       "radius"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -19,6 +22,9 @@
       "term-by-term",
       "radius",
       "endpoints"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -30,6 +36,9 @@
       "trap",
       "term-by-term",
       "endpoints"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -40,6 +49,10 @@
     "tags": [
       "term-by-term",
       "index"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series",
+      "L30-sum-by-differentiating"
     ]
   },
   {
@@ -50,6 +63,10 @@
     "tags": [
       "term-by-term",
       "compute"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series",
+      "L30-sum-by-differentiating"
     ]
   },
   {
@@ -61,6 +78,9 @@
       "trap",
       "term-by-term",
       "constant"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -72,6 +92,10 @@
       "term-by-term",
       "compute",
       "index"
+    ],
+    "typeIds": [
+      "L30-series-from-geometric",
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -83,6 +107,9 @@
       "trap",
       "radius",
       "endpoints"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -93,6 +120,10 @@
     "tags": [
       "term-by-term",
       "compute"
+    ],
+    "typeIds": [
+      "L30-series-from-geometric",
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -103,6 +134,10 @@
     "tags": [
       "trap",
       "radius"
+    ],
+    "typeIds": [
+      "L30-series-from-geometric",
+      "L30-differentiate-integrate-series"
     ]
   },
   {
@@ -114,6 +149,9 @@
       "trap",
       "geometric",
       "compute"
+    ],
+    "typeIds": [
+      "L30-series-from-geometric"
     ]
   },
   {
@@ -125,6 +163,9 @@
       "term-by-term",
       "index",
       "endpoints"
+    ],
+    "typeIds": [
+      "L30-differentiate-integrate-series"
     ]
   }
 ]

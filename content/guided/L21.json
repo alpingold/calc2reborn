@@ -1,0 +1,536 @@
+[
+  {
+    "id": "L21-g1",
+    "lessonId": "L21",
+    "typeId": "L21-geometric-sum",
+    "stem": "(a) Find $\\sum_{k=1}^{\\infty} \\frac{3^{k+1}}{5^{k-1}}$.\n\n(b) Then find $\\sum_{k=3}^{\\infty} \\frac{3^{k+1}}{5^{k-1}}$, the same terms with the first two removed.",
+    "steps": [
+      {
+        "prompt": "(a) What is the first move?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Apply the ratio test and read the sum off the limit",
+            "note": "The ratio test can show that a series converges, but the limit it produces is not the sum."
+          },
+          {
+            "label": "B",
+            "text": "Use the divergence test, since the terms tend to $0$",
+            "note": "Terms tending to $0$ does not show convergence, and it gives no value for the sum."
+          },
+          {
+            "label": "C",
+            "text": "Rewrite the term as a constant times $r^k$ and use the geometric series formula"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The index $k$ appears only in exponents, with bases $3$ and $5$. So the term can be written as a constant times $r^k$.\n\nThat makes the series geometric, and the sum comes from $\\frac{a}{1-r}$ once convergence is checked."
+      },
+      {
+        "prompt": "(a) Write the term as $c\\,r^k$. Which form is correct?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3\\left(\\frac{3}{5}\\right)^k$",
+            "note": "This keeps the factor from $3^{k+1}$ but leaves out the constant that $5^{k-1}$ contributes."
+          },
+          {
+            "label": "B",
+            "text": "$15\\left(\\frac{3}{5}\\right)^k$"
+          },
+          {
+            "label": "C",
+            "text": "$15\\left(\\frac{5}{3}\\right)^k$",
+            "note": "The ratio is inverted: the numerator base goes over the denominator base."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{3}{5}\\left(\\frac{3}{5}\\right)^k$",
+            "note": "Test it at $k=1$: this form gives $\\frac{9}{25}$, but the original term is $9$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Split the exponents: $3^{k+1} = 3\\cdot 3^k$ and $\\frac{1}{5^{k-1}} = \\frac{5}{5^k}$.\n\n$$\n\\frac{3^{k+1}}{5^{k-1}} = 15\\cdot\\frac{3^k}{5^k} = 15\\left(\\frac{3}{5}\\right)^k\n$$\n\nCheck at $k=1$: $15\\cdot\\frac{3}{5} = 9$, and the original term is $\\frac{3^2}{5^0} = 9$."
+      },
+      {
+        "prompt": "(a) What does the ratio $r=\\frac{3}{5}$ say about the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|r|<1$, so the series converges and the sum formula applies"
+          },
+          {
+            "label": "B",
+            "text": "$r\\ne 1$, so the series converges",
+            "note": "Convergence of a geometric series depends on the size of $r$, and $r\\ne 1$ is not enough (take $r=2$)."
+          },
+          {
+            "label": "C",
+            "text": "$|r|<1$ only shows the terms tend to $0$, so another test is still needed",
+            "note": "For a geometric series the size of the ratio alone settles convergence; revisit the convergence condition."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The ratio is $r=\\frac{3}{5}$, so $|r| = \\frac{3}{5} < 1$.\n\nA geometric series converges exactly when $|r|<1$, so this one converges and $\\frac{a}{1-r}$ may be used."
+      },
+      {
+        "prompt": "(a) What is the first term $a$ of the sum, which starts at $k=1$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$15$",
+            "note": "This is the coefficient in front of $r^k$, which equals the $k=0$ term. The sum starts at $k=1$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{3}{5}$",
+            "note": "This is the ratio, not a term of the series."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{27}{5}$",
+            "note": "This is the $k=2$ term, but the sum begins one index earlier."
+          },
+          {
+            "label": "D",
+            "text": "$9$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The sum starts at $k=1$, so the first term is\n\n$$\na = 15\\left(\\frac{3}{5}\\right)^1 = 9\n$$\n\nwhich matches $\\frac{3^2}{5^0} = 9$."
+      },
+      {
+        "prompt": "(a) What is the sum?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{75}{2}$",
+            "note": "This uses the coefficient as the first term; the formula needs the first term actually in the sum."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{45}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{5}{2}$",
+            "note": "This takes the first term to be $1$, as if the series started at $k=0$ with coefficient $1$."
+          },
+          {
+            "label": "D",
+            "text": "$-\\frac{27}{2}$",
+            "note": "This uses an inverted ratio $\\frac{5}{3}$, which has size above $1$, so the formula does not apply."
+          }
+        ],
+        "answer": "B",
+        "explanation": "With $a=9$ and $r=\\frac{3}{5}$:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{3^{k+1}}{5^{k-1}} = \\frac{9}{1-\\frac{3}{5}} = \\frac{9}{\\frac{2}{5}} = \\frac{45}{2}\n$$"
+      },
+      {
+        "prompt": "(b) The series from $k=3$ has the same ratio. What is its first term?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$9$",
+            "note": "This is the $k=1$ term, but the first two terms are removed."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{27}{5}$",
+            "note": "This is the $k=2$ term, which is also removed."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{81}{25}$"
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{243}{125}$",
+            "note": "This is the $k=4$ term; the sum from $k=3$ starts one index earlier."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The $k=3$ term is\n\n$$\n15\\left(\\frac{3}{5}\\right)^3 = 15\\cdot\\frac{27}{125} = \\frac{81}{25}\n$$\n\nSo the series from $k=3$ is geometric with $a=\\frac{81}{25}$ and the same $r=\\frac{3}{5}$."
+      },
+      {
+        "prompt": "(b) What is $\\sum_{k=3}^{\\infty} \\frac{3^{k+1}}{5^{k-1}}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{27}{2}$",
+            "note": "This removes only the first term; two terms are removed, not one."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{81}{10}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{243}{50}$",
+            "note": "This removes three terms, which also removes the $k=3$ term that the sum includes."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\frac{\\frac{81}{25}}{1-\\frac{3}{5}} = \\frac{81}{25}\\cdot\\frac{5}{2} = \\frac{81}{10}\n$$\n\nCheck against part (a): $\\frac{45}{2} - \\left(9 + \\frac{27}{5}\\right) = \\frac{45}{2} - \\frac{72}{5} = \\frac{81}{10}$."
+      }
+    ],
+    "takeaway": "Write the term as $c\\,r^k$, then take the first term the sum actually starts at as $a$, not the coefficient $c$."
+  },
+  {
+    "id": "L21-g2",
+    "lessonId": "L21",
+    "typeId": "L21-geometric-mix",
+    "stem": "(a) Find $\\sum_{n=1}^{\\infty} \\frac{3^{n+1} - 2(-2)^n}{4^n}$.\n\n(b) Use part (a) to find the same series starting at $n=0$.",
+    "steps": [
+      {
+        "prompt": "(a) The numerator has two different pieces over one denominator. What is the first move?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Take the ratio of consecutive terms of the whole expression and apply $\\frac{a}{1-r}$",
+            "note": "The ratio of consecutive terms is not constant here, so the whole expression is not one geometric series."
+          },
+          {
+            "label": "B",
+            "text": "Conclude it diverges because $3^{n+1}$ grows without bound",
+            "note": "A growing numerator does not settle convergence; what matters is the size of each piece compared with the denominator $4^n$."
+          },
+          {
+            "label": "C",
+            "text": "Divide each piece of the numerator by $4^n$ and treat the result as two geometric series"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The first terms are $\\frac{13}{4}$, $\\frac{19}{16}$, $\\frac{97}{64}$, and their consecutive ratios are not equal, so the series is not geometric as written.\n\nEach piece of the numerator over $4^n$ is a power of a fixed number, so splitting gives two geometric series."
+      },
+      {
+        "prompt": "(a) Which splitting of the term into geometric pieces is correct?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left(\\frac{3}{4}\\right)^n - 2\\left(-\\frac{1}{2}\\right)^n$",
+            "note": "Check how $3^{n+1}$ splits: it is a constant times $3^n$, and the constant is missing here."
+          },
+          {
+            "label": "B",
+            "text": "$3\\left(\\frac{3}{4}\\right)^n - 2\\left(\\frac{1}{2}\\right)^n$",
+            "note": "The power $(-2)^n$ over $4^n$ is $\\left(-\\frac{1}{2}\\right)^n$; the sign belongs to the ratio."
+          },
+          {
+            "label": "C",
+            "text": "$3\\left(\\frac{3}{4}\\right)^n + 2\\left(-\\frac{1}{2}\\right)^n$",
+            "note": "The numerator subtracts $2(-2)^n$, and that sign has to carry into the split."
+          },
+          {
+            "label": "D",
+            "text": "$3\\left(\\frac{3}{4}\\right)^n - 2\\left(-\\frac{1}{2}\\right)^n$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Use $3^{n+1} = 3\\cdot 3^n$ and divide each piece by $4^n$:\n\n$$\n\\frac{3^{n+1} - 2(-2)^n}{4^n} = 3\\left(\\frac{3}{4}\\right)^n - 2\\left(-\\frac{1}{2}\\right)^n\n$$\n\nCheck at $n=1$: $\\frac{9}{4} + 1 = \\frac{13}{4}$, and $\\frac{9+4}{4} = \\frac{13}{4}$."
+      },
+      {
+        "prompt": "(a) What are the two ratios, and does splitting the series apply?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Ratios $\\frac{3}{4}$ and $-\\frac{1}{2}$, but a difference can be split only if the ratios are equal",
+            "note": "Two convergent series can be added or subtracted term by term, whatever their ratios."
+          },
+          {
+            "label": "B",
+            "text": "Ratios $3$ and $-2$, so both series diverge",
+            "note": "The denominator $4^n$ is part of each ratio; read the ratios from the split form."
+          },
+          {
+            "label": "C",
+            "text": "Ratios $\\frac{3}{4}$ and $-\\frac{1}{2}$ both have size below $1$, so both series converge and the difference can be split"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The ratios are $\\frac{3}{4}$ and $-\\frac{1}{2}$, and $\\left|\\frac{3}{4}\\right| < 1$, $\\left|-\\frac{1}{2}\\right| < 1$.\n\nBoth geometric series converge, so the series for the difference is the difference of the two sums."
+      },
+      {
+        "prompt": "(a) What is $\\sum_{n=1}^{\\infty} 3\\left(\\frac{3}{4}\\right)^n$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$12$",
+            "note": "This uses $\\frac{3}{1-r}$, which is the formula for a sum starting at $n=0$."
+          },
+          {
+            "label": "B",
+            "text": "$3$",
+            "note": "This is the sum of $\\left(\\frac{3}{4}\\right)^n$ alone; the factor $3$ in front is missing."
+          },
+          {
+            "label": "C",
+            "text": "$9$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The first term, at $n=1$, is $3\\cdot\\frac{3}{4} = \\frac{9}{4}$ and $r=\\frac{3}{4}$:\n\n$$\n\\sum_{n=1}^{\\infty} 3\\left(\\frac{3}{4}\\right)^n = \\frac{\\frac{9}{4}}{1-\\frac{3}{4}} = 9\n$$"
+      },
+      {
+        "prompt": "(a) What is $\\sum_{n=1}^{\\infty} 2\\left(-\\frac{1}{2}\\right)^n$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{2}{3}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{4}{3}$",
+            "note": "This uses $\\frac{2}{1-r}$, the formula for a sum starting at $n=0$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{2}{3}$",
+            "note": "This takes the first term as $+1$ instead of $-1$; the first term is $2\\left(-\\frac{1}{2}\\right)$."
+          },
+          {
+            "label": "D",
+            "text": "$2$",
+            "note": "This drops the minus sign of the ratio and uses $r=\\frac{1}{2}$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The first term, at $n=1$, is $2\\cdot\\left(-\\frac{1}{2}\\right) = -1$ and $r=-\\frac{1}{2}$:\n\n$$\n\\sum_{n=1}^{\\infty} 2\\left(-\\frac{1}{2}\\right)^n = \\frac{-1}{1+\\frac{1}{2}} = -\\frac{2}{3}\n$$"
+      },
+      {
+        "prompt": "(a) What is the value of the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{25}{3}$",
+            "note": "The second sum is a negative number, so subtracting it has to be done with its sign."
+          },
+          {
+            "label": "B",
+            "text": "$9$",
+            "note": "The second series is part of the original series and cannot be left out."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{29}{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The series is the first sum minus the second:\n\n$$\n9 - \\left(-\\frac{2}{3}\\right) = \\frac{29}{3}\n$$"
+      },
+      {
+        "prompt": "(b) Starting at $n=0$ adds one term. What is the $n=0$ term?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$"
+          },
+          {
+            "label": "B",
+            "text": "$5$",
+            "note": "This adds the two parts of the numerator, but the numerator subtracts $2(-2)^n$."
+          },
+          {
+            "label": "C",
+            "text": "$3$",
+            "note": "This uses only the first part of the numerator; $2(-2)^0$ is not zero."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $n=0$ the numerator is $3^{1} - 2(-2)^0 = 3 - 2 = 1$ and the denominator is $4^0 = 1$.\n\nSo the extra term is $1$."
+      },
+      {
+        "prompt": "(b) What is the sum starting at $n=0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{26}{3}$",
+            "note": "The extra term is added to the sum; check its sign."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{32}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{29}{3}$",
+            "note": "Changing the starting index changes the sum by the terms added or removed."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Add the $n=0$ term to the sum from part (a):\n\n$$\n\\frac{29}{3} + 1 = \\frac{32}{3}\n$$\n\nCheck: with $n=0$ the pieces sum to $\\frac{3}{1-\\frac{3}{4}} = 12$ and $\\frac{2}{1+\\frac{1}{2}} = \\frac{4}{3}$, and $12 - \\frac{4}{3} = \\frac{32}{3}$."
+      }
+    ],
+    "takeaway": "Rewrite each piece as $c\\,r^n$ with its own sign, sum each from the starting index of the series, and keep the signs when combining."
+  },
+  {
+    "id": "L21-g3",
+    "lessonId": "L21",
+    "typeId": "L21-telescoping",
+    "stem": "Consider $\\sum_{k=1}^{\\infty} \\frac{1}{(2k-1)(2k+1)}$ and let $S_n$ be its $n$th partial sum.\n\n(a) Find a formula for $S_n$ and the sum of the series.\n\n(b) How many terms are needed for $S_n$ to be within $0.01$ of the sum?",
+    "steps": [
+      {
+        "prompt": "(a) Which method gives a formula for $S_n$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The geometric series formula, since the term is a ratio",
+            "note": "There is no constant ratio between terms: $k$ appears in the denominator as a factor, not as an exponent."
+          },
+          {
+            "label": "B",
+            "text": "Partial fractions, so that the partial sums telescope"
+          },
+          {
+            "label": "C",
+            "text": "The integral test, whose integral equals the sum",
+            "note": "The integral test can show convergence, but it does not give a formula for $S_n$ or the value of the sum."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The denominator is a product of two different linear factors in $k$. Partial fractions split the term into a difference of two fractions, and then the partial sums can be written out and cancelled."
+      },
+      {
+        "prompt": "(a) Which partial fraction split is correct?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2k-1} - \\frac{1}{2k+1}$",
+            "note": "Combine over the common denominator: the numerator becomes $2$, which is twice the given term."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}\\left(\\frac{1}{2k-1} + \\frac{1}{2k+1}\\right)$",
+            "note": "Combine over the common denominator: the numerator contains $k$, so it is not the given term."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\left(\\frac{1}{2k-1} - \\frac{1}{2k+1}\\right)$"
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{1}{2}\\left(\\frac{1}{2k+1} - \\frac{1}{2k-1}\\right)$",
+            "note": "At $k=1$ this is negative, but the given term is positive."
+          }
+        ],
+        "answer": "C",
+        "explanation": "Write $\\frac{1}{(2k-1)(2k+1)} = \\frac{A}{2k-1} + \\frac{B}{2k+1}$, so $1 = A(2k+1) + B(2k-1)$.\n\nAt $k=\\frac{1}{2}$: $1 = 2A$, so $A=\\frac{1}{2}$. At $k=-\\frac{1}{2}$: $1 = -2B$, so $B=-\\frac{1}{2}$.\n\n$$\n\\frac{1}{(2k-1)(2k+1)} = \\frac{1}{2}\\left(\\frac{1}{2k-1} - \\frac{1}{2k+1}\\right)\n$$"
+      },
+      {
+        "prompt": "(a) Write out the first few terms of $S_n$ and the last. Which pieces survive?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Only $1$ and $-\\frac{1}{2n+1}$, inside the factor $\\frac{1}{2}$"
+          },
+          {
+            "label": "B",
+            "text": "$1$ and $\\frac{1}{3}$, and the last two negative pieces",
+            "note": "Check which fractions in consecutive terms are equal; each term's negative piece matches the next term's positive piece."
+          },
+          {
+            "label": "C",
+            "text": "Only $-\\frac{1}{2n+1}$, since all the positive pieces cancel",
+            "note": "The first positive piece, $1$, comes from the first term and has no earlier term to cancel it."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\nS_n = \\frac{1}{2}\\left[\\left(1 - \\frac{1}{3}\\right) + \\left(\\frac{1}{3} - \\frac{1}{5}\\right) + \\cdots + \\left(\\frac{1}{2n-1} - \\frac{1}{2n+1}\\right)\\right]\n$$\n\nEach negative piece cancels the positive piece of the next term. Only the very first positive piece $1$ and the very last negative piece $-\\frac{1}{2n+1}$ remain."
+      },
+      {
+        "prompt": "(a) What is $S_n$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1 - \\frac{1}{2n+1}$",
+            "note": "The factor $\\frac{1}{2}$ from the partial fractions has been dropped."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}\\left(1 - \\frac{1}{2n-1}\\right)$",
+            "note": "The last term is $k=n$, and its second fraction is $\\frac{1}{2n+1}$, not $\\frac{1}{2n-1}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\left(1 - \\frac{1}{2n+3}\\right)$",
+            "note": "That is the second denominator of the term $k=n+1$, one term past the last."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{1}{2}\\left(1 - \\frac{1}{2n+1}\\right) = \\frac{n}{2n+1}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$$\nS_n = \\frac{1}{2}\\left(1 - \\frac{1}{2n+1}\\right) = \\frac{1}{2}\\cdot\\frac{2n}{2n+1} = \\frac{n}{2n+1}\n$$\n\nCheck: $S_1 = \\frac{1}{3}$, and the first term is $\\frac{1}{1\\cdot 3} = \\frac{1}{3}$."
+      },
+      {
+        "prompt": "(a) What is the sum of the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$",
+            "note": "This is the limit of $1-\\frac{1}{2n+1}$, without the factor $\\frac{1}{2}$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "The terms tend to $0$, but the sum is the limit of the partial sums, which is a different sequence."
+          },
+          {
+            "label": "D",
+            "text": "The series diverges, since $S_n$ keeps increasing",
+            "note": "An increasing sequence need not diverge; compare $S_n$ with its limit."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\sum_{k=1}^{\\infty} \\frac{1}{(2k-1)(2k+1)} = \\lim_{n\\to\\infty} \\frac{n}{2n+1} = \\frac{1}{2}\n$$\n\nThe partial sums increase and stay below $\\frac{1}{2}$, so the series converges to $\\frac{1}{2}$."
+      },
+      {
+        "prompt": "(b) What is the error $\\frac{1}{2} - S_n$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2n+1}$",
+            "note": "The factor $\\frac{1}{2}$ is missing: subtract $\\frac{n}{2n+1}$ from $\\frac{1}{2}$ over a common denominator."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2n}$",
+            "note": "Over the common denominator $2(2n+1)$ the denominator does not become $2n$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2(2n+1)}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\frac{1}{2} - \\frac{n}{2n+1} = \\frac{(2n+1) - 2n}{2(2n+1)} = \\frac{1}{2(2n+1)}\n$$"
+      },
+      {
+        "prompt": "(b) What is the smallest $n$ with $\\frac{1}{2(2n+1)} < 0.01$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$24$",
+            "note": "At $n=24$ the error is $\\frac{1}{98} \\approx 0.0102$, which is still above $0.01$."
+          },
+          {
+            "label": "B",
+            "text": "$25$"
+          },
+          {
+            "label": "C",
+            "text": "$50$",
+            "note": "This reads $2n+1 > 50$ as $n > 50$; the inequality still has to be solved for $n$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\frac{1}{2(2n+1)} < \\frac{1}{100}$ means $2n+1 > 50$, so $n > 24.5$.\n\nThe smallest whole number is $n=25$, with error $\\frac{1}{102} \\approx 0.0098$. At $n=24$ the error is $\\frac{1}{98} \\approx 0.0102$, which is too large."
+      }
+    ],
+    "takeaway": "Write out the first and last few terms of $S_n$ to see which pieces survive, and keep any constant factor that the partial fractions produce."
+  }
+]

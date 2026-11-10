@@ -17,6 +17,9 @@
     "tags": [
       "taylor-series",
       "coefficients"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial"
     ]
   },
   {
@@ -26,6 +29,9 @@
     "back": "$\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x-a)^k = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\cdots$. It requires derivatives of every order at $x = a$.",
     "tags": [
       "taylor-series"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial"
     ]
   },
   {
@@ -47,6 +53,10 @@
     "tags": [
       "taylor-polynomial",
       "linear-approximation"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial",
+      "L27-approximate-with-polynomial"
     ]
   },
   {
@@ -57,6 +67,10 @@
     "tags": [
       "taylor-polynomial",
       "compute"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial",
+      "L27-approximate-with-polynomial"
     ]
   },
   {
@@ -67,6 +81,9 @@
     "tags": [
       "taylor-polynomial",
       "compute"
+    ],
+    "typeIds": [
+      "L27-approximate-with-polynomial"
     ]
   },
   {
@@ -77,6 +94,9 @@
     "tags": [
       "taylor-polynomial",
       "compute"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial"
     ]
   },
   {
@@ -88,6 +108,9 @@
       "trap",
       "taylor-polynomial",
       "order"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial"
     ]
   },
   {
@@ -99,6 +122,9 @@
       "trap",
       "taylor-polynomial",
       "compute"
+    ],
+    "typeIds": [
+      "L27-build-taylor-polynomial"
     ]
   },
   {
@@ -118,6 +144,9 @@
     "tags": [
       "trap",
       "taylor-polynomial"
+    ],
+    "typeIds": [
+      "L27-approximate-with-polynomial"
     ]
   }
 ]

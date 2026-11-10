@@ -7,6 +7,10 @@
     "tags": [
       "strategy",
       "divergence-test"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -19,6 +23,10 @@
       "divergence-test",
       "1-infinity",
       "trap"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -29,6 +37,10 @@
     "tags": [
       "which-test",
       "comparison"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -39,6 +51,10 @@
     "tags": [
       "which-test",
       "integral-test"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -49,6 +65,10 @@
     "tags": [
       "which-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -70,6 +90,10 @@
       "which-test",
       "alternating",
       "conditional"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -80,6 +104,10 @@
     "tags": [
       "which-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -91,6 +119,10 @@
       "which-test",
       "limit-comparison",
       "p-series"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -102,6 +134,10 @@
       "which-test",
       "ratio-test",
       "1-infinity"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -113,6 +149,10 @@
       "which-test",
       "root-test",
       "1-infinity"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -124,6 +164,10 @@
       "trap",
       "which-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   },
   {
@@ -134,6 +178,10 @@
     "tags": [
       "which-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L26-classify-each",
+      "L26-odd-one-out"
     ]
   }
 ]

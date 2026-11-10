@@ -1,0 +1,470 @@
+[
+  {
+    "id": "L24-g1",
+    "lessonId": "L24",
+    "typeId": "L24-error-estimate",
+    "stem": "Let $S=\\sum_{k=1}^{\\infty}\\frac{(-1)^{k+1}}{k^3+5}$ and let $S_n$ be the sum of its first $n$ terms.\n\n(a) Find the smallest $n$ for which the Alternating Series Estimation Theorem guarantees $|S-S_n|<0.001$.\n\n(b) Using $S_3$, give an interval that must contain $S$.",
+    "steps": [
+      {
+        "prompt": "(a) What must be true of $a_k=\\frac{1}{k^3+5}$ before the estimation theorem can be used?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Only that $a_k\\to0$",
+            "note": "The limit alone is not enough. The alternating series test also needs the sizes to be nonincreasing from some point on, and the estimate rests on that test."
+          },
+          {
+            "label": "B",
+            "text": "That $\\sum a_k$ converges absolutely",
+            "note": "Absolute convergence is not required: the alternating harmonic series is not absolutely convergent and the estimate still applies to it. Revisit what the alternating series test asks of $a_k$."
+          },
+          {
+            "label": "C",
+            "text": "That $a_k>0$, $a_k$ is nonincreasing and $a_k\\to0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The sign is $(-1)^{k+1}$ and $a_k=\\frac{1}{k^3+5}>0$.\n\nSince $k^3+5$ increases with $k$, $a_{k+1}<a_k$ for every $k$.\n\nAlso $a_k\\to0$. So the alternating series test holds and the estimate applies."
+      },
+      {
+        "prompt": "(a) What does the theorem say about the error after $n$ terms?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|S-S_n|\\le a_n$",
+            "note": "The term $a_n$ is already inside $S_n$. The error is made of the terms not yet added."
+          },
+          {
+            "label": "B",
+            "text": "$|S-S_n|\\le a_{n+1}$"
+          }
+        ],
+        "answer": "B",
+        "explanation": "The sum $S$ lies between $S_n$ and $S_{n+1}$, so\n\n$$\n|S-S_n|\\le|S_{n+1}-S_n|=a_{n+1}=\\frac{1}{(n+1)^3+5}.\n$$\n\nThe error is at most the first omitted term."
+      },
+      {
+        "prompt": "(a) Which inequality guarantees an error less than $0.001$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{1}{(n+1)^3+5}<0.001$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{1}{n^3+5}<0.001$",
+            "note": "This bounds the last term used, $a_n$, not the first omitted term that controls the error."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{1}{(n+1)^3+5}>0.001$",
+            "note": "The inequality points the wrong way: the guaranteed error bound has to be smaller than the tolerance."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The guarantee needs the bound below the tolerance:\n\n$$\n\\frac{1}{(n+1)^3+5}<0.001\n$$\n\nTaking reciprocals reverses the inequality, so $(n+1)^3+5>1000$ and $(n+1)^3>995$."
+      },
+      {
+        "prompt": "(a) With $(n+1)^3>995$, what is the smallest $n$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$n=10$",
+            "note": "That is the smallest $n$ with $a_n<0.001$, which is the wrong quantity. The bound uses the term after the last one added."
+          },
+          {
+            "label": "B",
+            "text": "$n=8$",
+            "note": "With $n=8$ the bound is $a_9=\\frac{1}{734}\\approx0.00136$, which is still above $0.001$."
+          },
+          {
+            "label": "C",
+            "text": "$n=9$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$9^3=729<995$ and $10^3=1000>995$, so $n+1\\ge10$ and $n\\ge9$.\n\nCheck: $n=9$ gives $a_{10}=\\frac{1}{1005}\\approx0.000995<0.001$.\n\n$n=8$ gives $a_9=\\frac{1}{734}\\approx0.00136$, which is too large.\n\nSo part (a) needs $n=9$ terms."
+      },
+      {
+        "prompt": "(b) What is $S_3$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac16+\\frac1{13}+\\frac1{32}\\approx0.275$",
+            "note": "The signs alternate. The term with $k=2$ carries $(-1)^{3}$ and is negative."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac16-\\frac1{13}+\\frac1{32}\\approx0.121$"
+          },
+          {
+            "label": "C",
+            "text": "$1-\\frac18+\\frac1{27}\\approx0.912$",
+            "note": "Each denominator is $k^3+5$, not $k^3$. The $+5$ must stay in."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The first three terms have $k^3+5=6,\\ 13,\\ 32$.\n\n$$\nS_3=\\frac16-\\frac1{13}+\\frac1{32}=\\frac{151}{1248}\\approx0.1210\n$$"
+      },
+      {
+        "prompt": "(b) What error bound does the theorem give for $S_3$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_4=\\frac1{69}\\approx0.0145$"
+          },
+          {
+            "label": "B",
+            "text": "$a_3=\\frac1{32}\\approx0.0313$",
+            "note": "That is the last term used. The theorem bounds the error by a term that has not been added yet."
+          },
+          {
+            "label": "C",
+            "text": "$a_2=\\frac1{13}\\approx0.0769$",
+            "note": "That is a term already inside $S_3$, and it is far larger than the error the theorem gives."
+          }
+        ],
+        "answer": "A",
+        "explanation": "For $n=3$ the first omitted term is the one with $k=4$:\n\n$$\n|S-S_3|\\le a_4=\\frac{1}{4^3+5}=\\frac1{69}\\approx0.01449\n$$"
+      },
+      {
+        "prompt": "(b) Turn that bound into an interval for $S$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0.0897\\le S\\le0.1523$",
+            "note": "That uses half-width $\\frac1{32}$, the last term used. The half-width from the previous step is smaller."
+          },
+          {
+            "label": "B",
+            "text": "$0.1065\\le S\\le0.1355$"
+          },
+          {
+            "label": "C",
+            "text": "$0.1210\\le S\\le0.1355$",
+            "note": "The first omitted term, $k=4$, is negative, so $S$ lies below $S_3$ and cannot lie above it."
+          }
+        ],
+        "answer": "B",
+        "explanation": "From $|S-S_3|\\le\\frac1{69}$:\n\n$$\n0.1210-0.0145\\le S\\le0.1210+0.0145\n$$\n\nSo $0.1065\\le S\\le0.1355$.\n\nFor part (a), $n=9$ terms; for part (b), $S\\in[0.1065,\\,0.1355]$."
+      }
+    ],
+    "takeaway": "The error after $n$ terms is at most the first omitted term, so solve $a_{n+1}<\\varepsilon$, not $a_n<\\varepsilon$."
+  },
+  {
+    "id": "L24-g2",
+    "lessonId": "L24",
+    "typeId": "L24-absolute-conditional",
+    "stem": "Classify each series as absolutely convergent, conditionally convergent or divergent.\n\n(a) $\\sum_{k=1}^{\\infty}(-1)^{k+1}\\frac{k^2}{k^3+1}$\n\n(b) $\\sum_{k=1}^{\\infty}(-1)^{k+1}\\frac{3k^2+1}{k^2+4}$",
+    "steps": [
+      {
+        "prompt": "(a) Where should the classification start?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Apply the alternating series test and stop if it holds",
+            "note": "The alternating series test shows convergence only. It cannot say whether the convergence is absolute or conditional."
+          },
+          {
+            "label": "B",
+            "text": "Test the series of absolute values first"
+          },
+          {
+            "label": "C",
+            "text": "Apply the ratio test to the alternating series",
+            "note": "For these terms the ratio of consecutive terms tends to $1$, so the ratio test is inconclusive. Start with the absolute series and choose a test that fits its terms."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Absolute convergence is the strongest property, so it is tested first.\n\nThe absolute series is $\\sum_{k=1}^{\\infty}\\frac{k^2}{k^3+1}$."
+      },
+      {
+        "prompt": "(a) Use limit comparison on $\\sum\\frac{k^2}{k^3+1}$. Which comparison series and result are right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Compare with $\\sum\\frac1{k^2}$: the ratio tends to $\\infty$, so it converges",
+            "note": "A ratio tending to $\\infty$ against a convergent series gives no conclusion. Limit comparison needs a finite positive limit."
+          },
+          {
+            "label": "B",
+            "text": "Compare with $\\sum\\frac1{k^3}$: the ratio tends to $\\infty$, so it converges",
+            "note": "Here too the ratio tends to $\\infty$, which is not a finite positive limit, so the test says nothing."
+          },
+          {
+            "label": "C",
+            "text": "Compare with $\\sum\\frac1k$: the limit is $1$, so it diverges"
+          }
+        ],
+        "answer": "C",
+        "explanation": "For large $k$, $\\frac{k^2}{k^3+1}$ behaves like $\\frac1k$.\n\n$$\n\\lim_{k\\to\\infty}\\frac{k^2/(k^3+1)}{1/k}=\\lim_{k\\to\\infty}\\frac{k^3}{k^3+1}=1\n$$\n\nThe limit is finite and positive and $\\sum\\frac1k$ diverges, so $\\sum\\frac{k^2}{k^3+1}$ diverges. The series is not absolutely convergent."
+      },
+      {
+        "prompt": "(a) For the alternating series test, what is $\\lim_{k\\to\\infty}a_k$ with $a_k=\\frac{k^2}{k^3+1}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\infty$",
+            "note": "The denominator has degree $3$ and the numerator degree $2$, so the denominator wins."
+          },
+          {
+            "label": "B",
+            "text": "$0$"
+          },
+          {
+            "label": "C",
+            "text": "$1$",
+            "note": "A limit of $1$ comes from equal degrees with equal leading coefficients. Here the degrees differ."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Divide top and bottom by $k^3$:\n\n$$\na_k=\\frac{1/k}{1+1/k^3}\\to\\frac{0}{1}=0\n$$\n\nThe first condition of the test holds."
+      },
+      {
+        "prompt": "(a) Is $a_k=\\frac{k^2}{k^3+1}$ eventually decreasing? Let $f(x)=\\frac{x^2}{x^3+1}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f'(x)=\\frac{2x-x^4}{(x^3+1)^2}<0$ for $x>2^{1/3}$, so yes"
+          },
+          {
+            "label": "B",
+            "text": "$f'(x)=\\frac{2x-x^4}{(x^3+1)^2}>0$ for $x>2^{1/3}$, so no",
+            "note": "The numerator is $x(2-x^3)$. Test its sign at $x=2$ before deciding."
+          },
+          {
+            "label": "C",
+            "text": "Yes, because the numerator and the denominator both increase",
+            "note": "Both parts growing says nothing about their quotient. Use the derivative or compare consecutive terms."
+          }
+        ],
+        "answer": "A",
+        "explanation": "By the quotient rule\n\n$$\nf'(x)=\\frac{2x(x^3+1)-x^2\\cdot3x^2}{(x^3+1)^2}=\\frac{2x-x^4}{(x^3+1)^2}=\\frac{x(2-x^3)}{(x^3+1)^2}.\n$$\n\nThis is negative when $x^3>2$, that is $x>2^{1/3}\\approx1.26$. So $a_k$ is decreasing from $k=2$ on, which is enough."
+      },
+      {
+        "prompt": "(a) Putting the last three steps together, how does the series in (a) behave?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Absolutely convergent",
+            "note": "Absolute convergence needs the series of absolute values to converge, and the limit comparison showed that it does not."
+          },
+          {
+            "label": "B",
+            "text": "Conditionally convergent"
+          },
+          {
+            "label": "C",
+            "text": "Divergent",
+            "note": "The series meets both conditions of the alternating series test, so it does converge."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The alternating series test holds: $a_k\\to0$ and $a_k$ is eventually decreasing, so the series converges.\n\nThe series of absolute values diverges.\n\nSo (a) converges conditionally."
+      },
+      {
+        "prompt": "(b) What is $\\lim_{k\\to\\infty}\\frac{3k^2+1}{k^2+4}$, and what does it say about the series in (b)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The limit is $3$, so the terms do not tend to $0$"
+          },
+          {
+            "label": "B",
+            "text": "The limit is $0$, so the alternating series test applies",
+            "note": "The numerator and denominator have the same degree, so the limit is the ratio of the leading coefficients, not $0$."
+          },
+          {
+            "label": "C",
+            "text": "The limit is $3$, so the series converges to $3$",
+            "note": "The limit of the terms is not the sum of the series. A convergent series needs its terms to tend to $0$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Divide top and bottom by $k^2$:\n\n$$\n\\frac{3k^2+1}{k^2+4}=\\frac{3+1/k^2}{1+4/k^2}\\to3\n$$\n\nSo the size of the terms tends to $3$, and the terms $(-1)^{k+1}\\frac{3k^2+1}{k^2+4}$ do not tend to $0$."
+      },
+      {
+        "prompt": "(b) How is the series in (b) classified?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Conditionally convergent, since the signs alternate",
+            "note": "Alternating signs are not enough. The alternating series test needs the terms to tend to $0$, and these do not."
+          },
+          {
+            "label": "B",
+            "text": "Absolutely convergent",
+            "note": "Absolute convergence would imply convergence of the series itself. Revisit what the previous step found about the terms."
+          },
+          {
+            "label": "C",
+            "text": "Divergent, by the divergence test"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The terms do not tend to $0$, so the divergence test shows that the series in (b) diverges. The alternating sign does not change this.\n\nFor part (a), the series converges conditionally; for part (b), it is divergent."
+      }
+    ],
+    "takeaway": "Test the absolute series first, then check that the terms tend to $0$ before the alternating series test: an alternating sign never rescues terms that stay away from $0$."
+  },
+  {
+    "id": "L24-g3",
+    "lessonId": "L24",
+    "typeId": "L24-alternating-test",
+    "stem": "Which of the following series converge?\n\n$$\nI.\\ \\sum_{k=1}^{\\infty}(-1)^{k+1}\\arctan k; \\quad II.\\ \\sum_{k=1}^{\\infty}(-1)^{k+1}\\frac{k+2}{k^2+k}; \\quad III.\\ \\sum_{k=1}^{\\infty}(-1)^{k+1}\\frac{k^2}{e^k}\n$$",
+    "steps": [
+      {
+        "prompt": "Which check should come first for each of the three alternating series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Whether the magnitudes decrease, since failing that proves divergence",
+            "note": "Failing the decreasing condition does not prove divergence. The alternating series test can only prove convergence."
+          },
+          {
+            "label": "B",
+            "text": "Whether the series converges absolutely, since convergence needs it",
+            "note": "Convergence does not need absolute convergence: conditionally convergent series exist."
+          },
+          {
+            "label": "C",
+            "text": "Whether the magnitudes tend to $0$, since failing that proves divergence"
+          }
+        ],
+        "answer": "C",
+        "explanation": "If the magnitudes do not tend to $0$, the terms do not tend to $0$ and the divergence test settles the series.\n\nOnly if they do tend to $0$ does the decreasing condition need checking."
+      },
+      {
+        "prompt": "What happens with series I?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\arctan k\\to\\frac\\pi2$, so the terms do not tend to $0$ and I diverges"
+          },
+          {
+            "label": "B",
+            "text": "$\\arctan k$ is increasing, so the test fails and I diverges",
+            "note": "Failing the decreasing condition never proves divergence. Look at what happens to the size of the terms."
+          },
+          {
+            "label": "C",
+            "text": "$\\arctan k$ is bounded by $\\frac\\pi2$, so the partial sums are bounded and I converges",
+            "note": "Bounded partial sums do not give convergence: $\\sum(-1)^{k+1}$ has bounded partial sums and diverges. The terms themselves must tend to $0$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "As $k\\to\\infty$, $\\arctan k\\to\\frac\\pi2\\ne0$.\n\nSo the terms $(-1)^{k+1}\\arctan k$ do not tend to $0$, and I diverges by the divergence test."
+      },
+      {
+        "prompt": "For series II, let $a_k=\\frac{k+2}{k^2+k}$ and $f(x)=\\frac{x+2}{x^2+x}$. What is the sign of $f'(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f'(x)=\\frac{x^2+4x+2}{(x^2+x)^2}>0$",
+            "note": "The numerator of the quotient rule is $(x^2+x)\\cdot1-(x+2)(2x+1)$. Expand it and check the signs."
+          },
+          {
+            "label": "B",
+            "text": "$f'(x)=\\frac{-(x^2+4x+2)}{(x^2+x)^2}<0$ for $x>0$"
+          },
+          {
+            "label": "C",
+            "text": "$f'(x)=\\frac{1}{2x+1}>0$",
+            "note": "A quotient is not differentiated by dividing the two derivatives. Use the quotient rule."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nf'(x)=\\frac{(x^2+x)\\cdot1-(x+2)(2x+1)}{(x^2+x)^2}=\\frac{-x^2-4x-2}{(x^2+x)^2}.\n$$\n\nFor $x>0$ this is negative, so $a_k$ is decreasing for every $k\\ge1$."
+      },
+      {
+        "prompt": "What does the alternating series test give for II?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "II diverges, since the terms behave like $\\frac1k$ and $\\sum\\frac1k$ diverges",
+            "note": "That only shows the series of absolute values diverges. It says nothing about whether the alternating series converges."
+          },
+          {
+            "label": "B",
+            "text": "II converges absolutely, by the alternating series test",
+            "note": "The alternating series test proves convergence only. Here the absolute series behaves like $\\sum\\frac1k$, which diverges."
+          },
+          {
+            "label": "C",
+            "text": "II converges, since $a_k\\to0$ and $a_k$ is decreasing"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The degree of the denominator is higher, so\n\n$$\na_k=\\frac{k+2}{k^2+k}\\to0.\n$$\n\nWith $a_k$ decreasing from the last step, both conditions hold and II converges."
+      },
+      {
+        "prompt": "For series III, let $a_k=\\frac{k^2}{e^k}$ and $f(x)=x^2e^{-x}$. From which $k$ is $a_k$ decreasing?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "From $k=2$, since $f'(x)=(2x-x^2)e^{-x}<0$ for $x>2$"
+          },
+          {
+            "label": "B",
+            "text": "From $k=1$, since $f'(x)=(2x-x^2)e^{-x}<0$ for $x>0$",
+            "note": "The factor $2x-x^2$ is positive for $0<x<2$. Compare $a_1\\approx0.368$ with $a_2\\approx0.541$."
+          },
+          {
+            "label": "C",
+            "text": "Never, since $a_2>a_1$",
+            "note": "The test needs the terms to decrease only from some point on. Look at the sign of $f'(x)$ for large $x$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The product rule gives\n\n$$\nf'(x)=2xe^{-x}-x^2e^{-x}=(2x-x^2)e^{-x},\n$$\n\nwhich is negative for $x>2$. So $a_2\\approx0.541>a_3\\approx0.448>a_4\\approx0.293>\\cdots$\n\nThe first step up, $a_1\\approx0.368<a_2$, comes before the decrease starts."
+      },
+      {
+        "prompt": "What does the alternating series test give for III?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "III diverges, because $a_2>a_1$ breaks the decreasing condition",
+            "note": "Failing the condition at the start does not prove divergence, and the test only asks that the terms decrease from some point on."
+          },
+          {
+            "label": "B",
+            "text": "III converges, since $a_k\\to0$ and $a_k$ is decreasing from $k=2$ on"
+          },
+          {
+            "label": "C",
+            "text": "The test is inconclusive, since the terms are not decreasing from $k=1$",
+            "note": "The decreasing condition is required only eventually, so the first few terms do not matter."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The exponential beats the power, so $\\frac{k^2}{e^k}\\to0$.\n\nWith $a_k$ decreasing from $k=2$ on, both conditions hold, and III converges."
+      },
+      {
+        "prompt": "Which of the series converge?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "II only",
+            "note": "III meets both conditions of the alternating series test from $k=2$ on, so it converges too."
+          },
+          {
+            "label": "B",
+            "text": "I and II only",
+            "note": "The terms of I do not tend to $0$, so I cannot converge."
+          },
+          {
+            "label": "C",
+            "text": "I, II and III",
+            "note": "The alternating sign alone does not give convergence. The terms of I stay near $\\frac\\pi2$ in size."
+          },
+          {
+            "label": "D",
+            "text": "II and III only"
+          }
+        ],
+        "answer": "D",
+        "explanation": "I diverges by the divergence test. II and III converge by the alternating series test.\n\nSo the convergent series are II and III."
+      }
+    ],
+    "takeaway": "Check that the terms tend to $0$ first, then that they decrease from some point on; failing the decrease never proves divergence."
+  }
+]

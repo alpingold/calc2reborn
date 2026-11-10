@@ -6,6 +6,10 @@
     "back": "$\\sum (-1)^{k+1} a_k$ with $a_k > 0$ converges if (1) $a_{k+1} \\le a_k$ for all $k$ from some point on and (2) $\\lim_{k\\to\\infty} a_k = 0$. Both conditions are required.",
     "tags": [
       "alternating"
+    ],
+    "typeIds": [
+      "L24-alternating-test",
+      "L24-absolute-conditional"
     ]
   },
   {
@@ -16,6 +20,9 @@
     "tags": [
       "trap",
       "alternating"
+    ],
+    "typeIds": [
+      "L24-alternating-test"
     ]
   },
   {
@@ -27,6 +34,10 @@
       "trap",
       "alternating",
       "divergence-test"
+    ],
+    "typeIds": [
+      "L24-alternating-test",
+      "L24-absolute-conditional"
     ]
   },
   {
@@ -37,6 +48,9 @@
     "tags": [
       "alternating",
       "error-bound"
+    ],
+    "typeIds": [
+      "L24-error-estimate"
     ]
   },
   {
@@ -48,6 +62,9 @@
       "trap",
       "alternating",
       "error-bound"
+    ],
+    "typeIds": [
+      "L24-error-estimate"
     ]
   },
   {
@@ -58,6 +75,9 @@
     "tags": [
       "alternating",
       "error-bound"
+    ],
+    "typeIds": [
+      "L24-error-estimate"
     ]
   },
   {
@@ -68,6 +88,10 @@
     "tags": [
       "absolute",
       "conditional"
+    ],
+    "typeIds": [
+      "L24-absolute-conditional",
+      "L24-alternating-claims"
     ]
   },
   {
@@ -79,6 +103,10 @@
       "trap",
       "absolute",
       "conditional"
+    ],
+    "typeIds": [
+      "L24-absolute-conditional",
+      "L24-alternating-claims"
     ]
   },
   {
@@ -90,6 +118,9 @@
       "which-test",
       "conditional",
       "alternating"
+    ],
+    "typeIds": [
+      "L24-absolute-conditional"
     ]
   },
   {
@@ -100,6 +131,9 @@
     "tags": [
       "which-test",
       "absolute"
+    ],
+    "typeIds": [
+      "L24-absolute-conditional"
     ]
   },
   {
@@ -111,6 +145,9 @@
       "which-test",
       "conditional",
       "alternating"
+    ],
+    "typeIds": [
+      "L24-absolute-conditional"
     ]
   },
   {
@@ -122,6 +159,9 @@
       "absolute",
       "conditional",
       "strategy"
+    ],
+    "typeIds": [
+      "L24-absolute-conditional"
     ]
   }
 ]

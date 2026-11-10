@@ -3,212 +3,363 @@
     "id": "L29-g1",
     "lessonId": "L29",
     "typeId": "L29-radius-of-convergence",
-    "stem": "Find the radius of convergence of $\\sum_{n=1}^{\\infty} \\frac{x^{2n}}{n\\,9^n}$.",
+    "stem": "(a) Find the radius of convergence of $\\sum_{k=1}^{\\infty} \\frac{k^k}{k!}(x-4)^k$.\n\n(b) Say what the radius tells about convergence at $x = 4.3$ and at $x = 4.4$, and what it fails to tell at $x = 4 + \\frac{1}{e}$.\n\n(c) Find the radius of convergence of $\\sum_{k=1}^{\\infty} \\frac{k^k}{k!}(2x-8)^k$.",
     "steps": [
       {
-        "prompt": "Which test finds the radius of convergence of a power series whose terms still contain $x$?",
+        "prompt": "(a) The terms contain $k!$, $k^k$ and a power of $x-4$. Which test finds the radius of convergence?",
         "choices": [
           {
             "label": "A",
-            "text": "The Ratio Test, with $x$ kept inside the term"
+            "text": "The Ratio Test on the whole term, with $x$ kept in"
           },
           {
             "label": "B",
-            "text": "The Divergence Test",
-            "note": "It can only show divergence where the terms fail to tend to $0$, so it cannot give a range of $x$ values."
+            "text": "The Alternating Series Test",
+            "note": "The test needs terms that alternate in sign, and it does not give a range of $x$ values."
           },
           {
             "label": "C",
-            "text": "The Ratio Test, with $x$ removed from the term",
-            "note": "Removing $x$ removes the variable the radius depends on, so the limit says nothing about where the series converges."
+            "text": "The Divergence Test",
+            "note": "It can only show divergence where the terms fail to tend to $0$, so it cannot produce a range of $x$ values."
           }
         ],
         "answer": "A",
-        "explanation": "Keeping $x$ in the term makes the ratio limit a function of $x$. The condition $L < 1$ then gives the set of $x$ values where the series converges."
+        "explanation": "The factorial simplifies in a ratio of consecutive terms, and keeping $x-4$ in the term makes the limit $L$ a function of $x$. The condition $L < 1$ then gives the $x$ values where the series converges."
       },
       {
-        "prompt": "For $u_n = \\frac{x^{2n}}{n\\,9^n}$, what is $L = \\lim_{n\\to\\infty}\\left|\\frac{u_{n+1}}{u_n}\\right|$?",
+        "prompt": "For $u_k = \\frac{k^k}{k!}(x-4)^k$, what is $L = \\lim_{k\\to\\infty}\\left|\\frac{u_{k+1}}{u_k}\\right|$?",
         "choices": [
           {
             "label": "A",
-            "text": "$\\frac{|x|}{9}$",
-            "note": "This treats the term as $x^n$. Look at how the exponent of $x$ changes from $u_n$ to $u_{n+1}$."
+            "text": "$|x-4|$",
+            "note": "A factor of the form $\\left(1+\\frac{1}{k}\\right)^k$ appears in the ratio, and its limit is not $1$."
           },
           {
             "label": "B",
-            "text": "$\\frac{x^2}{9}$"
+            "text": "$\\frac{|x-4|}{e}$",
+            "note": "This is the limit that the inverted fraction $\\frac{k}{k+1}$ would give, not the fraction that appears in the ratio."
           },
           {
             "label": "C",
-            "text": "$9x^2$",
-            "note": "The $9^n$ sits in the denominator, so the extra factor of $9$ in $9^{n+1}$ does not multiply the ratio."
-          }
-        ],
-        "answer": "B",
-        "explanation": "$$\n\\frac{u_{n+1}}{u_n} = \\frac{x^{2n+2}}{(n+1)\\,9^{n+1}} \\cdot \\frac{n\\,9^n}{x^{2n}} = \\frac{n}{n+1} \\cdot \\frac{x^2}{9}\n$$\n\nThe factor $\\frac{n}{n+1}$ tends to $1$, so $L = \\frac{x^2}{9}$."
-      },
-      {
-        "prompt": "With $L = \\frac{x^2}{9}$, which values of $x$ satisfy $L < 1$?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$-9 < x < 9$",
-            "note": "This stops at $x^2 < 9$ and reads the $9$ as a bound on $x$. Take the square root of both sides."
+            "text": "$e\\,|x-4|$"
           },
           {
-            "label": "B",
-            "text": "$x < 3$",
-            "note": "Squaring hides the sign of $x$: a value such as $x = -4$ has $x^2 = 16$, which is not less than $9$, so it cannot be allowed."
-          },
-          {
-            "label": "C",
-            "text": "$-3 < x < 3$"
+            "label": "D",
+            "text": "$\\infty$ for every $x \\ne 4$",
+            "note": "This keeps the factor $(k+1)^{k+1}$ but misses that $(k+1)! = (k+1)\\,k!$ removes one factor of $k+1$."
           }
         ],
         "answer": "C",
-        "explanation": "$L < 1$ means $x^2 < 9$, which is $|x| < 3$. So the series converges for $-3 < x < 3$."
+        "explanation": "$$\n\\left|\\frac{u_{k+1}}{u_k}\\right| = \\frac{(k+1)^{k+1}}{(k+1)!}\\cdot\\frac{k!}{k^k}\\,|x-4| = \\frac{(k+1)^{k+1}}{(k+1)\\,k^k}\\,|x-4| = \\left(1+\\frac{1}{k}\\right)^{k}|x-4|\n$$\n\nSince $\\left(1+\\frac{1}{k}\\right)^k \\to e$, we get $L = e\\,|x-4|$."
       },
       {
-        "prompt": "The set $-3 < x < 3$ is centered at $0$. What is the radius of convergence $R$?",
+        "prompt": "With $L = e\\,|x-4|$, solve $L < 1$. What are the center and the radius of convergence?",
         "choices": [
           {
             "label": "A",
-            "text": "$R = 3$"
+            "text": "Center $4$, $R = e$",
+            "note": "Dividing both sides of $e|x-4| < 1$ by $e$ gives the bound; multiplying by $e$ does not."
           },
           {
             "label": "B",
-            "text": "$R = 9$",
-            "note": "The $9$ is the right-hand side of $x^2 < 9$, not a distance in $x$."
+            "text": "Center $4$, $R = \\frac{1}{e}$"
           },
           {
             "label": "C",
-            "text": "$R = 6$",
-            "note": "$6$ is the full length of the set, and $R$ is only the distance from the center to one end."
+            "text": "Center $-4$, $R = \\frac{1}{e}$",
+            "note": "The center is the value of $x$ that makes the base of the power equal to $0$. Check the sign."
+          },
+          {
+            "label": "D",
+            "text": "Center $4$, $R = 1$",
+            "note": "This bound ignores the constant in front of $|x-4|$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$e\\,|x-4| < 1$ gives $|x-4| < \\frac{1}{e}$. The center is $4$ and $R = \\frac{1}{e} \\approx 0.368$.\n\nThe series converges for $4 - \\frac{1}{e} < x < 4 + \\frac{1}{e}$, about $3.632 < x < 4.368$, and diverges for $|x-4| > \\frac{1}{e}$."
+      },
+      {
+        "prompt": "(b) The points $x = 4.3$ and $x = 4.4$ are $0.3$ and $0.4$ from the center. What does the radius say about convergence at each?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Both converge, because both are within $1$ of the center",
+            "note": "The radius here is not $1$. Compare each distance with the radius that was found."
+          },
+          {
+            "label": "B",
+            "text": "It diverges at $4.3$ and converges at $4.4$",
+            "note": "This reverses the comparison. Convergence is for points closer to the center than the radius."
+          },
+          {
+            "label": "C",
+            "text": "It converges at $4.3$, and at $4.4$ the Ratio Test is inconclusive",
+            "note": "The Ratio Test is inconclusive only where $L = 1$ exactly, which is at a distance equal to $R$. Check what $L$ is at $4.4$."
+          },
+          {
+            "label": "D",
+            "text": "It converges at $4.3$ and diverges at $4.4$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "At $x = 4.3$ the distance is $0.3 < 0.368$, so the point is inside the interval and the series converges, with $L = e(0.3) \\approx 0.815 < 1$.\n\nAt $x = 4.4$ the distance is $0.4 > 0.368$, so $L = e(0.4) \\approx 1.087 > 1$ and the series diverges."
+      },
+      {
+        "prompt": "The point $x = 4 + \\frac{1}{e}$ is at distance exactly $R$ from the center. What does the radius tell about convergence there?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The series converges, because the radius includes its own endpoints",
+            "note": "The radius describes the open interval only. It does not say what happens at the boundary."
+          },
+          {
+            "label": "B",
+            "text": "The series diverges, because $L = 1$ there",
+            "note": "The Ratio Test gives no verdict when $L = 1$, so it cannot be used to claim divergence there."
+          },
+          {
+            "label": "C",
+            "text": "Nothing: $L = 1$ there, so the endpoint series needs its own test"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $|x-4| = \\frac{1}{e}$ the limit is $L = e \\cdot \\frac{1}{e} = 1$, and the Ratio Test is inconclusive. The radius settles every point except the two endpoints $x = 4 \\pm \\frac{1}{e}$, and each of those needs a separate test."
+      },
+      {
+        "prompt": "(c) The new series has $(2x-8)^k$ in place of $(x-4)^k$, with the same coefficients $\\frac{k^k}{k!}$. What is its limit $L$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e\\,|x-4|$",
+            "note": "The base of the power has changed, so the ratio carries a different factor. Rewrite $2x-8$ in terms of $x-4$."
+          },
+          {
+            "label": "B",
+            "text": "$2e\\,|x-4|$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{e\\,|x-4|}{2}$",
+            "note": "Check whether the factor from the new base belongs in the numerator or the denominator."
+          },
+          {
+            "label": "D",
+            "text": "$e\\,|x-8|$",
+            "note": "The base is $2x-8$, not $x-8$. Both the $2x$ and the $8$ matter."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Since $2x - 8 = 2(x-4)$, we have $(2x-8)^k = 2^k (x-4)^k$. Each ratio of consecutive terms gains a factor $2$:\n\n$$\n\\left|\\frac{u_{k+1}}{u_k}\\right| = 2\\left(1+\\frac{1}{k}\\right)^k |x-4| \\to 2e\\,|x-4|\n$$"
+      },
+      {
+        "prompt": "With $L = 2e\\,|x-4|$, what is the radius of convergence of the series in (c)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$R = \\frac{1}{2e}$"
+          },
+          {
+            "label": "B",
+            "text": "$R = \\frac{1}{e}$",
+            "note": "The factor $2$ in $L$ has to be divided out of the bound as well."
+          },
+          {
+            "label": "C",
+            "text": "$R = \\frac{2}{e}$",
+            "note": "This would come from a limit of $\\frac{e\\,|x-4|}{2}$. Here the factor $2$ multiplies."
           }
         ],
         "answer": "A",
-        "explanation": "Each end is $3$ away from the center: $0 - 3 = -3$ and $0 + 3 = 3$. So $R = 3$."
+        "explanation": "$2e\\,|x-4| < 1$ gives $|x-4| < \\frac{1}{2e}$. The center is still $4$, and $R = \\frac{1}{2e} \\approx 0.184$.\n\nThe factor $2$ in the base cuts the radius of (a) in half."
       }
     ],
-    "takeaway": "Run the Ratio Test on the whole term, then solve $L < 1$ for $|x-a|$, taking a root if $x$ was squared; the number that remains is the radius."
+    "takeaway": "Keep every factor that changes with $k$ in the ratio, remember $\\left(1+\\frac{1}{k}\\right)^k \\to e$ and not $1$, and rewrite a base such as $2x-8$ as $2(x-4)$ before reading off the radius."
   },
   {
     "id": "L29-g2",
     "lessonId": "L29",
     "typeId": "L29-interval-with-endpoints",
-    "stem": "Find the interval of convergence of $\\sum_{n=1}^{\\infty} \\frac{3^n x^n}{n}$.",
+    "stem": "(a) Find the interval of convergence of $\\sum_{n=1}^{\\infty} \\frac{(-1)^n (x-2)^n}{5^n \\sqrt[3]{n}}$.\n\n(b) For the endpoint that belongs to the interval, say whether the series converges absolutely or conditionally.",
     "steps": [
       {
-        "prompt": "What is the first move for the interval of convergence of this series?",
+        "prompt": "(a) For $u_n = \\frac{(-1)^n (x-2)^n}{5^n \\sqrt[3]{n}}$, what is $L = \\lim_{n\\to\\infty}\\left|\\frac{u_{n+1}}{u_n}\\right|$?",
         "choices": [
           {
             "label": "A",
-            "text": "Apply the Divergence Test to the series for every $x$",
-            "note": "It can only show divergence where the terms fail to tend to $0$, so it cannot find the set of $x$ values."
+            "text": "$5\\,|x-2|$",
+            "note": "The $5^n$ is in the denominator. Check whether its extra factor multiplies or divides."
           },
           {
             "label": "B",
-            "text": "Apply the Ratio Test to the whole term, with $x$ kept inside"
+            "text": "$\\frac{|x-2|}{5}$"
           },
           {
             "label": "C",
-            "text": "Apply the Integral Test to $\\sum \\frac{1}{n}$",
-            "note": "That tests one fixed series and ignores the $3^n x^n$ factor, so it cannot find the set of $x$ values."
+            "text": "$|x-2|$",
+            "note": "The ratio of the cube roots does tend to $1$, but the ratio of the powers of $5$ does not."
           }
         ],
         "answer": "B",
-        "explanation": "The Ratio Test with $x$ inside gives $L$ as a function of $x$. Solving $L < 1$ gives the open interval, and the two endpoints are then checked one at a time."
+        "explanation": "$$\n\\left|\\frac{u_{n+1}}{u_n}\\right| = \\frac{|x-2|}{5}\\cdot\\sqrt[3]{\\frac{n}{n+1}}\n$$\n\nThe absolute value removes the sign factor $-1$, and $\\sqrt[3]{\\frac{n}{n+1}} \\to 1$. So $L = \\frac{|x-2|}{5}$."
       },
       {
-        "prompt": "With $a_n = \\frac{3^n x^n}{n}$, what is $L = \\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|$?",
+        "prompt": "Solving $L < 1$, which open interval does the series converge on?",
         "choices": [
           {
             "label": "A",
-            "text": "$\\frac{|x|}{3}$",
-            "note": "Check where $3^n$ sits in the term, in the numerator or the denominator."
+            "text": "$(-5, 5)$",
+            "note": "This drops the center. The condition $|x-2| < 5$ measures distance from $2$, not from $0$."
           },
           {
             "label": "B",
-            "text": "$|x|$",
-            "note": "The factor $3^n$ also changes from one term to the next, and dropping it leaves its contribution out."
+            "text": "$(-7, 3)$",
+            "note": "This interval is centered at $-2$. The center is the value that makes $x-2$ equal to $0$."
           },
           {
             "label": "C",
-            "text": "$3|x|$"
+            "text": "$(-3, 7)$"
           }
         ],
         "answer": "C",
-        "explanation": "$$\n\\left|\\frac{a_{n+1}}{a_n}\\right| = \\left|\\frac{3^{n+1} x^{n+1}}{n+1} \\cdot \\frac{n}{3^n x^n}\\right| = 3|x| \\cdot \\frac{n}{n+1}\n$$\n\nThe factor $\\frac{n}{n+1}$ tends to $1$, so $L = 3|x|$."
+        "explanation": "$\\frac{|x-2|}{5} < 1$ gives $|x-2| < 5$, so the center is $2$ and $R = 5$. Then $-3 < x < 7$.\n\nThe endpoints $x = -3$ and $x = 7$ are not decided by the Ratio Test, so each is checked separately."
       },
       {
-        "prompt": "With $L = 3|x|$, which values of $x$ satisfy $L < 1$?",
+        "prompt": "At the endpoint $x = 7$, what series results?",
         "choices": [
           {
             "label": "A",
-            "text": "$-\\frac{1}{3} < x < \\frac{1}{3}$"
+            "text": "$\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{\\sqrt[3]{n}}$"
           },
           {
             "label": "B",
-            "text": "$-3 < x < 3$",
-            "note": "That set is for $\\frac{|x|}{3} < 1$, not for $3|x| < 1$."
+            "text": "$\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt[3]{n}}$",
+            "note": "The factor $(-1)^n$ does not involve $x$, so it stays in the series."
           },
           {
             "label": "C",
-            "text": "$-1 < x < 1$",
-            "note": "That set is for $|x| < 1$, which leaves the factor $3$ out of the condition."
+            "text": "$\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{5^n\\sqrt[3]{n}}$",
+            "note": "At $x = 7$ the power $(x-2)^n$ is a power of $5$, and it meets the $5^n$ in the denominator."
           }
         ],
         "answer": "A",
-        "explanation": "$3|x| < 1$ means $|x| < \\frac{1}{3}$, so the series converges for $-\\frac{1}{3} < x < \\frac{1}{3}$. The endpoints $x = \\pm\\frac{1}{3}$ are still to be checked."
+        "explanation": "At $x = 7$, $x - 2 = 5$, so $(x-2)^n = 5^n$. It cancels the $5^n$ in the denominator, and the series is $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{\\sqrt[3]{n}}$."
       },
       {
-        "prompt": "At the endpoint $x = \\frac{1}{3}$, the series becomes $\\sum_{n=1}^{\\infty} \\frac{1}{n}$. What does it do?",
+        "prompt": "What does $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{\\sqrt[3]{n}}$ do, and why?",
         "choices": [
           {
             "label": "A",
-            "text": "It converges, because the terms tend to $0$",
-            "note": "Terms tending to $0$ never prove convergence on their own; that only rules out the Divergence Test."
+            "text": "It diverges, because it is a $p$-series with $p = \\frac{1}{3}$",
+            "note": "The $p$-series test is for series of positive terms, and these terms alternate in sign."
           },
           {
             "label": "B",
-            "text": "It converges, by the Ratio Test, because the ratio of terms is below $1$",
-            "note": "The ratio $\\frac{n}{n+1}$ is below $1$ for each $n$, but its limit is $1$, so the Ratio Test is inconclusive."
+            "text": "It diverges, by the Divergence Test",
+            "note": "The terms $\\frac{1}{\\sqrt[3]{n}}$ tend to $0$, and then the Divergence Test gives no conclusion."
           },
           {
             "label": "C",
-            "text": "It diverges, because it is a $p$-series with $p = 1$"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Here $(3x)^n = 1$, so the term is $\\frac{1}{n}$. This is the harmonic series, a $p$-series with $p = 1$, which diverges. So $x = \\frac{1}{3}$ is not included."
-      },
-      {
-        "prompt": "At the endpoint $x = -\\frac{1}{3}$, the series becomes $\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n}$. Taking both endpoints together, what is the interval of convergence?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$\\left(-\\frac{1}{3}, \\frac{1}{3}\\right)$",
-            "note": "Test $x = -\\frac{1}{3}$ with the Alternating Series Test before leaving it out."
-          },
-          {
-            "label": "B",
-            "text": "$\\left[-\\frac{1}{3}, \\frac{1}{3}\\right)$"
-          },
-          {
-            "label": "C",
-            "text": "$\\left[-\\frac{1}{3}, \\frac{1}{3}\\right]$",
-            "note": "The series at $x = \\frac{1}{3}$ was found to diverge, so that endpoint cannot be included."
+            "text": "It converges, by the Alternating Series Test"
           },
           {
             "label": "D",
-            "text": "$\\left(-\\frac{1}{3}, \\frac{1}{3}\\right]$",
-            "note": "The two endpoints have been swapped. Compare each endpoint series with the result found for it."
+            "text": "It converges, by the Ratio Test, because the ratio of terms is below $1$",
+            "note": "The ratio of consecutive terms has limit $1$, so the Ratio Test is inconclusive."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The terms alternate, and $b_n = \\frac{1}{\\sqrt[3]{n}}$ is positive, decreasing, and tends to $0$. By the Alternating Series Test the series converges, so $x = 7$ is in the interval."
+      },
+      {
+        "prompt": "At the endpoint $x = -3$, $(x-2)^n = (-5)^n$. What series results?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{\\sqrt[3]{n}}$",
+            "note": "Two sign factors are present, one from the series and one from $(-5)^n$. Work out their product for $n = 1$."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt[3]{n}}$"
+          },
+          {
+            "label": "C",
+            "text": "$-\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt[3]{n}}$",
+            "note": "Work out $(-1)^n \\cdot (-1)^n$ for $n = 1$ and for $n = 2$; the sign does not change from term to term."
           }
         ],
         "answer": "B",
-        "explanation": "At $x = -\\frac{1}{3}$ we get $(3x)^n = (-1)^n$. The terms $\\frac{1}{n}$ decrease to $0$, so the Alternating Series Test shows convergence. With $x = \\frac{1}{3}$ excluded, the interval of convergence is $\\left[-\\frac{1}{3}, \\frac{1}{3}\\right)$."
+        "explanation": "$(-1)^n(-5)^n = (-1)^n(-1)^n 5^n = 5^n$, so the sign factors cancel and the $5^n$ cancels the denominator. The series is $\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt[3]{n}}$, with all terms positive."
+      },
+      {
+        "prompt": "What does $\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt[3]{n}}$ do?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It diverges, because it is a $p$-series with $p = \\frac{1}{3} \\le 1$"
+          },
+          {
+            "label": "B",
+            "text": "It converges, by the Alternating Series Test",
+            "note": "The signs no longer alternate here, so that test has nothing to work with."
+          },
+          {
+            "label": "C",
+            "text": "It converges, because the terms tend to $0$",
+            "note": "Terms tending to $0$ is necessary for convergence but never enough. The harmonic series is an example."
+          }
+        ],
+        "answer": "A",
+        "explanation": "This is a $p$-series with $p = \\frac{1}{3}$. Since $p \\le 1$, it diverges, so $x = -3$ is not in the interval."
+      },
+      {
+        "prompt": "Taking both endpoints together, what is the interval of convergence?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$[-3, 7]$",
+            "note": "One of the two endpoint series was found to diverge, so both endpoints cannot be in."
+          },
+          {
+            "label": "B",
+            "text": "$(-3, 7)$",
+            "note": "One of the two endpoint series was found to converge, so both endpoints cannot be out."
+          },
+          {
+            "label": "C",
+            "text": "$[-3, 7)$",
+            "note": "The endpoints have been swapped. Match each endpoint with the result found for its own series."
+          },
+          {
+            "label": "D",
+            "text": "$(-3, 7]$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The series converges at $x = 7$ and diverges at $x = -3$. With the open interval $-3 < x < 7$, the interval of convergence is $(-3, 7]$."
+      },
+      {
+        "prompt": "(b) At $x = 7$, does the series converge absolutely or conditionally?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Absolutely, because the series converges",
+            "note": "Absolute convergence asks about the series of absolute values. Test that series."
+          },
+          {
+            "label": "B",
+            "text": "Neither, because the series diverges",
+            "note": "The series at $x = 7$ was shown to converge."
+          },
+          {
+            "label": "C",
+            "text": "Conditionally, because the series converges but its absolute values do not"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The series of absolute values at $x = 7$ is $\\sum \\frac{1}{\\sqrt[3]{n}}$, a $p$-series with $p = \\frac{1}{3}$, which diverges. The series itself converges by the Alternating Series Test, so it converges conditionally.\n\nInside $-3 < x < 7$ the convergence is absolute, and $x = 7$ is the only point where it is conditional."
       }
     ],
-    "takeaway": "Test each endpoint on its own; the two endpoint series can behave differently, so one end can be in the interval and the other out."
+    "takeaway": "Substitute each endpoint and simplify the signs before choosing a test, since two sign factors can cancel and turn an alternating series into a divergent positive one."
   }
 ]

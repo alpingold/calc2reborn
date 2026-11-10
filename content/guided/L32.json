@@ -1,0 +1,314 @@
+[
+  {
+    "id": "L32-g1",
+    "lessonId": "L32",
+    "typeId": "L32-series-for-integral",
+    "stem": "Let $F(x) = \\int_0^x \\frac{1 - \\cos 2t}{t}\\,dt$. The integrand has no elementary antiderivative.\n\n(a) Find the Maclaurin series of $F(x)$ in summation form and say where it is valid.\n\n(b) Find the coefficient of $x^6$ in that series.\n\n(c) Find $F^{(6)}(0)$.",
+    "steps": [
+      {
+        "prompt": "(a) Start from the series for $\\cos u$. What is the series for $\\cos 2t$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\dfrac{2\\,t^{2k}}{(2k)!}$",
+            "note": "Replacing $u$ by $2t$ puts $2t$ inside every power, not a factor $2$ outside the whole series. Compare the term $k = 1$ with $\\cos 2t$ directly."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\dfrac{(2t)^{2k}}{(2k)!}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sum_{k=0}^{\\infty} (-1)^k \\dfrac{(2t)^{2k+1}}{(2k+1)!}$",
+            "note": "That is the pattern of the sine series. Cosine has even powers over even factorials."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Substitute $u = 2t$ in $\\cos u = \\sum_{k=0}^{\\infty} (-1)^k \\frac{u^{2k}}{(2k)!}$:\n\n$$\n\\cos 2t = \\sum_{k=0}^{\\infty} (-1)^k \\frac{2^{2k} t^{2k}}{(2k)!} = 1 - 2t^2 + \\frac{2t^4}{3} - \\cdots\n$$"
+      },
+      {
+        "prompt": "(a) Now form $1 - \\cos 2t$. What does subtracting from $1$ do to the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The $k = 0$ term cancels, leaving $\\sum_{k=1}^{\\infty} (-1)^{k} \\dfrac{2^{2k} t^{2k}}{(2k)!}$",
+            "note": "The cancellation is right, but subtracting the whole series changes every sign. Check the sign of the $t^2$ term: $1 - \\cos 2t$ is positive for small $t \\neq 0$."
+          },
+          {
+            "label": "B",
+            "text": "The series is unchanged, still starting at $k = 0$",
+            "note": "The constant $1$ cancels the $k = 0$ term, so the sum cannot still start there. Check the value at $t = 0$."
+          },
+          {
+            "label": "C",
+            "text": "The $k = 0$ term cancels, leaving $\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} t^{2k}}{(2k)!}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Subtracting $\\cos 2t$ from $1$ cancels the constant term and flips every other sign:\n\n$$\n1 - \\cos 2t = \\sum_{k=1}^{\\infty} (-1)^{k+1} \\frac{2^{2k} t^{2k}}{(2k)!} = 2t^2 - \\frac{2t^4}{3} + \\cdots\n$$"
+      },
+      {
+        "prompt": "(a) Divide by $t$. What is the series for the integrand $\\frac{1 - \\cos 2t}{t}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} t^{2k-1}}{(2k)!}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} t^{2k+1}}{(2k)!}$",
+            "note": "Dividing by $t$ lowers each exponent by $1$. Compare with $2t^2 \\div t$."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} t^{2k-2}}{(2k)!}$",
+            "note": "That divides by $t^2$. Only one factor of $t$ is removed."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Divide each term by $t$, which lowers each exponent by $1$ and leaves the coefficients alone:\n\n$$\n\\frac{1 - \\cos 2t}{t} = \\sum_{k=1}^{\\infty} (-1)^{k+1} \\frac{2^{2k} t^{2k-1}}{(2k)!} = 2t - \\frac{2t^3}{3} + \\cdots\n$$\n\nThe $t$ in the denominator is gone, so the integrand is a power series with no trouble at $t = 0$."
+      },
+      {
+        "prompt": "(a) Integrate term by term from $0$ to $x$. What is $F(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} x^{2k}}{(2k)!}$",
+            "note": "The coefficients are unchanged here, but integrating $t^{2k-1}$ divides by the new exponent. Revisit what $\\int_0^x t^{2k-1}\\,dt$ gives."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} x^{2k}}{2k\\,(2k)!}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sum_{k=1}^{\\infty} (-1)^{k+1} \\dfrac{2^{2k} x^{2k}}{(2k-1)\\,(2k)!}$",
+            "note": "The divisor is the new exponent, not the old one. Check $\\int_0^x t^{2k-1}\\,dt$ for $k = 1$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Use $\\int_0^x t^{2k-1}\\,dt = \\frac{x^{2k}}{2k}$:\n\n$$\nF(x) = \\sum_{k=1}^{\\infty} (-1)^{k+1} \\frac{2^{2k} x^{2k}}{2k\\,(2k)!} = x^2 - \\frac{x^4}{6} + \\frac{2x^6}{135} - \\cdots\n$$\n\nThe lower limit $0$ makes the constant of integration $0$."
+      },
+      {
+        "prompt": "(a) For which $x$ does this series for $F(x)$ equal $F(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "All real $x$"
+          },
+          {
+            "label": "B",
+            "text": "Only $|x| < \\frac{1}{2}$, since $2t$ was substituted into the cosine series",
+            "note": "The cosine series converges for every input, so $2t$ being the input does not shrink the interval. Revisit where $\\cos u$ equals its series."
+          },
+          {
+            "label": "C",
+            "text": "Only $|x| < 1$, as for a geometric series",
+            "note": "Nothing here is geometric. Revisit the interval for the cosine series."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The series for $\\cos u$ converges to $\\cos u$ for all $u$, so the series for $\\cos 2t$ holds for all $t$. Dividing by $t$ and integrating term by term keep the same interval. The series for $F(x)$ is valid for all $x$."
+      },
+      {
+        "prompt": "(b) What is the coefficient of $x^6$ in the series for $F(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\dfrac{1}{6}$",
+            "note": "This is the coefficient of $x^4$, which comes from $k = 2$. For $x^6$ the exponent $2k$ must equal $6$."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{4}{45}$",
+            "note": "This is $\\frac{2^6}{6!}$, which leaves out the factor $2k$ that the integration put in the denominator."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{2}{135}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The exponent is $2k = 6$, so $k = 3$ and $(-1)^{k+1} = 1$:\n\n$$\n\\frac{2^{6}}{6\\cdot 6!} = \\frac{64}{4320} = \\frac{2}{135}\n$$"
+      },
+      {
+        "prompt": "(c) What is $F^{(6)}(0)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{2}{135}$",
+            "note": "That is the coefficient of $x^6$ itself. The coefficient equals $\\frac{F^{(6)}(0)}{6!}$, so a factorial is still to be applied."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{32}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{1}{48600}$",
+            "note": "This divides the coefficient by $6!$; the relation is $c_n = \\frac{f^{(n)}(0)}{n!}$, so the factorial multiplies."
+          }
+        ],
+        "answer": "B",
+        "explanation": "A Maclaurin coefficient satisfies $c_6 = \\frac{F^{(6)}(0)}{6!}$, so\n\n$$\nF^{(6)}(0) = 6!\\cdot c_6 = 720 \\cdot \\frac{2}{135} = \\frac{32}{3}.\n$$\n\nNo sixth derivative of $F$ was needed: the series gave it directly."
+      }
+    ],
+    "takeaway": "Build the integrand's series first, simplify it, then integrate term by term and read coefficients as $\\frac{f^{(n)}(0)}{n!}$; the interval comes from the original model series."
+  },
+  {
+    "id": "L32-g2",
+    "lessonId": "L32",
+    "typeId": "L32-limits-and-sums",
+    "stem": "(a) Find $\\lim_{x \\to 0} \\dfrac{e^{-3x^2} - 1 + 3x^2}{x^4}$.\n\n(b) Evaluate $\\sum_{k=2}^{\\infty} \\dfrac{(-3)^k}{k!}$.",
+    "steps": [
+      {
+        "prompt": "(a) Which model series and input replace $e^{-3x^2}$ near $x = 0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^u$ with $u = 3x^2$",
+            "note": "The exponent is $-3x^2$, so the sign is part of $u$. Check the sign of the $x^2$ term in the expansion."
+          },
+          {
+            "label": "B",
+            "text": "$e^u$ with $u = -3x^2$"
+          },
+          {
+            "label": "C",
+            "text": "$e^u$ with $u = -3x$",
+            "note": "The input is $-3x^2$, not $-3x$. The square on $x$ matters when the powers are collected."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Use $e^u = \\sum_{k=0}^{\\infty} \\frac{u^k}{k!}$, valid for all $u$, with $u = -3x^2$. This is allowed for every $x$, so it is allowed near $0$."
+      },
+      {
+        "prompt": "(a) Write $e^{-3x^2}$ through the $x^6$ term.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1 - 3x^2 + \\dfrac{9x^4}{2} - \\dfrac{9x^6}{2}$"
+          },
+          {
+            "label": "B",
+            "text": "$1 - 3x^2 + \\dfrac{3x^4}{2} - \\dfrac{x^6}{2}$",
+            "note": "The terms are $\\frac{u^2}{2!}$ and $\\frac{u^3}{3!}$ with $u = -3x^2$. The $3$ must be squared and cubed along with the $x^2$."
+          },
+          {
+            "label": "C",
+            "text": "$1 - 3x^2 + \\dfrac{9x^4}{4} - \\dfrac{9x^6}{8}$",
+            "note": "The denominators are factorials, $2!$ and $3!$, not powers of $2$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $u = -3x^2$:\n\n$$\ne^{-3x^2} = 1 + (-3x^2) + \\frac{(-3x^2)^2}{2!} + \\frac{(-3x^2)^3}{3!} + \\cdots = 1 - 3x^2 + \\frac{9x^4}{2} - \\frac{9x^6}{2} + \\cdots\n$$"
+      },
+      {
+        "prompt": "(a) Substitute into the numerator $e^{-3x^2} - 1 + 3x^2$. What is the first nonzero term that remains?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-6x^2$",
+            "note": "That is what $e^{-3x^2} - 1 - 3x^2$ gives. The numerator here adds $3x^2$, so look again at what the $x^2$ terms do."
+          },
+          {
+            "label": "B",
+            "text": "$-\\dfrac{9x^6}{2}$",
+            "note": "The $x^4$ term is present and comes first. Check which power survives the cancellation."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{9x^4}{2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The constants cancel, $1 - 1 = 0$, and the $x^2$ terms cancel, $-3x^2 + 3x^2 = 0$:\n\n$$\ne^{-3x^2} - 1 + 3x^2 = \\frac{9x^4}{2} - \\frac{9x^6}{2} + \\cdots\n$$\n\nStopping the expansion at $x^2$ would have shown nothing; the series had to reach $x^4$, the power in the denominator."
+      },
+      {
+        "prompt": "(a) Divide by $x^4$ and let $x \\to 0$. What is the limit?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "After dividing by $x^4$ the first term has no $x$ left, so it does not vanish at $0$. Revisit what survives."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{9}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{3}{2}$",
+            "note": "This is the value from the slip of not squaring the $3$ in $\\frac{u^2}{2!}$. Recheck the coefficient from the previous steps."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\frac{\\frac{9x^4}{2} - \\frac{9x^6}{2} + \\cdots}{x^4} = \\frac{9}{2} - \\frac{9x^2}{2} + \\cdots\n$$\n\nEvery term after the first has a factor of $x$ and goes to $0$, so the limit is $\\frac{9}{2}$."
+      },
+      {
+        "prompt": "(b) The same series helps with $\\sum_{k=2}^{\\infty} \\frac{(-3)^k}{k!}$. Which model series gives the full sum $\\sum_{k=0}^{\\infty} \\frac{(-3)^k}{k!}$, and at what input?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^x$ at $x = -3$"
+          },
+          {
+            "label": "B",
+            "text": "$e^x$ at $x = 3$",
+            "note": "The terms carry $(-3)^k$, so the input is $-3$, not $3$. Compare the signs of the terms."
+          },
+          {
+            "label": "C",
+            "text": "$\\ln(1 + x)$ at $x = -3$",
+            "note": "That series has $\\frac{x^k}{k}$ and is valid only on $(-1, 1]$. The terms here have $k!$ in the denominator."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$ for all $x$, so $x = -3$ is allowed and\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{(-3)^k}{k!} = e^{-3}.\n$$"
+      },
+      {
+        "prompt": "(b) The given sum starts at $k = 2$. What is the total of the terms with $k = 0$ and $k = 1$ that it leaves out?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$",
+            "note": "Only the $k = 0$ term is counted. The $k = 1$ term is also left out."
+          },
+          {
+            "label": "B",
+            "text": "$4$",
+            "note": "The $k = 1$ term is $\\frac{(-3)^1}{1!}$, which is negative. Recheck its sign."
+          },
+          {
+            "label": "C",
+            "text": "$-2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$k = 0$: $\\frac{(-3)^0}{0!} = 1$. $k = 1$: $\\frac{(-3)^1}{1!} = -3$.\n\nTogether they are $1 + (-3) = -2$."
+      },
+      {
+        "prompt": "(b) What is $\\sum_{k=2}^{\\infty} \\frac{(-3)^k}{k!}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^{-3} - 2$",
+            "note": "The sum from $k = 2$ is the full sum minus the two missing terms, which total $-2$. Check what subtracting $-2$ does."
+          },
+          {
+            "label": "B",
+            "text": "$e^{-3} + 2$"
+          },
+          {
+            "label": "C",
+            "text": "$e^{-3} - 4$",
+            "note": "This uses a wrong total for the missing terms. Use the total found in the previous step."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Full sum minus the missing terms:\n\n$$\n\\sum_{k=2}^{\\infty} \\frac{(-3)^k}{k!} = e^{-3} - (-2) = e^{-3} + 2 \\approx 2.0498.\n$$"
+      }
+    ],
+    "takeaway": "Expand far enough to reach the power in the denominator before cancelling, and for a sum that starts late, match it to the model series and then subtract the terms it leaves out."
+  }
+]

@@ -39,3 +39,18 @@ Suggestions from the checker that hold nothing back.
 | 5 | The remaining 32 exams: Fall 2019, Fall 2021, Spring 2016 to Spring 2020, Spring 2022, `xp-e3-a`, `xp-e3-b` | 478 | 439 | 38 | 1 | 1 | 0 |
 
 In `xp-e3-a` the checker graded all 12 as fix only because the existing solutions name choice letters. Existing solutions are kept as written, so only the types were merged; the one real fault, a false trap line in Q7, was corrected by hand.
+
+## Guided problems (2026-11-10)
+
+88 problems in 35 lessons, 602 steps. Writer and checker both Sonnet, the checker working each step blind. Of the 88, 36 passed unchanged, 50 were fixed and 2 were rewritten. No fix was to a marked answer: they were notes that gave the answer away or described the mistake wrongly, a wrong choice that was also defensible (L17-g1 step 1, L26-g1 step 2), choices reordered so the right letter varies, and formatting. The rewrites (L12-g1, L21-g2) and two replaced parts (L3-g3 part c, L23-g2 part b) were for being too close to an exam question; all four were read by hand afterwards.
+
+Settled without change:
+
+- L9: cards c01 to c03 (mass of a bar) stay on `L9-centroid-or-mass`, whose name covers mass.
+- L15: g1 stays typed `L15-choose-completed-square-sub` although it carries the evaluation through; the evaluate type has four exam questions and no problem of its own.
+- L32: `L32-estimate-with-error` has four exam questions, so by the guide's rule it has cards but no guided problem.
+- L29-g1 step 5: the wrong choice "diverges, because L = 1" has a true conclusion (the series does diverge at that endpoint) and a false reason; the prompt asks what the radius tells, and the note says so.
+
+Faults the first checks let through, now caught by `pnpm content:guided`: an unclosed `$` (L6), `$$` not on its own line (L13), and a LaTeX backslash not doubled in the JSON (L22).
+
+The three pilot lessons (29, 31, 35) were first written by Haiku with three to five steps; those were replaced. The pilot files are in `.scratch/guided/<id>/pilot/`.

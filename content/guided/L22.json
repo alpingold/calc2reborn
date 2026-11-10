@@ -1,0 +1,480 @@
+[
+  {
+    "id": "L22-g1",
+    "lessonId": "L22",
+    "typeId": "L22-integral-test",
+    "stem": "Let $S = \\sum_{k=1}^{\\infty} \\frac{1}{k^2+1}$. (a) Use the Integral Test to decide whether $S$ converges. (b) Use the same integral to trap $S$ between two numbers. (c) Let $S_{10}$ be the sum of the first ten terms and $R_{10} = S - S_{10}$. Find an upper bound for $R_{10}$.",
+    "steps": [
+      {
+        "prompt": "Part (a). Take $f(x) = \\frac{1}{x^2+1}$, so that $f(k)$ is the $k$th term. Which computation shows that $f$ is decreasing on $[1, \\infty)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f(x) \\to 0$ as $x \\to \\infty$",
+            "note": "Terms tending to $0$ do not show that a function is decreasing: a function can wiggle on its way to $0$. Revisit what the derivative tells about a function."
+          },
+          {
+            "label": "B",
+            "text": "$f'(x) = -\\frac{2x}{(x^2+1)^2} < 0$ for $x \\ge 1$"
+          },
+          {
+            "label": "C",
+            "text": "$x^2 + 1 > 0$, so $f(x) > 0$",
+            "note": "Being positive is one of the three conditions, but a positive function can still increase. Revisit what decreasing means."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The function $f(x) = \\frac{1}{x^2+1}$ is positive and continuous for all $x$. Its derivative is\n\n$$\nf'(x) = -\\frac{2x}{(x^2+1)^2} < 0 \\quad \\text{for } x \\ge 1,\n$$\n\nso $f$ is decreasing on $[1, \\infty)$. All three conditions hold, so the Integral Test applies."
+      },
+      {
+        "prompt": "An antiderivative of $\\frac{1}{x^2+1}$ is",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}\\ln(x^2+1)$",
+            "note": "Differentiate it: the result is $\\frac{x}{x^2+1}$, which is not $f$."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{1}{x^2+1}$",
+            "note": "Differentiate it: the result is $\\frac{2x}{(x^2+1)^2}$, which is not $f$."
+          },
+          {
+            "label": "C",
+            "text": "$\\arctan x$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Since $\\frac{d}{dx}\\arctan x = \\frac{1}{x^2+1}$,\n\n$$\n\\int \\frac{dx}{x^2+1} = \\arctan x.\n$$\n\n"
+      },
+      {
+        "prompt": "Evaluate $\\int_1^{\\infty} \\frac{dx}{x^2+1}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{2}$",
+            "note": "That is only the limit of $\\arctan b$ as $b \\to \\infty$. The lower limit $x = 1$ also contributes."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{3\\pi}{4}$",
+            "note": "This adds $\\arctan 1$ to $\\frac{\\pi}{2}$. The lower limit is subtracted."
+          }
+        ],
+        "answer": "A",
+        "explanation": "\n\n$$\n\\int_1^{\\infty} \\frac{dx}{x^2+1} = \\lim_{b\\to\\infty}\\Big[\\arctan x\\Big]_1^{b} = \\frac{\\pi}{2} - \\frac{\\pi}{4} = \\frac{\\pi}{4}.\n$$\n\n"
+      },
+      {
+        "prompt": "What does this say about $S$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$S$ converges and $S = \\frac{\\pi}{4}$",
+            "note": "Revisit what the Integral Test passes from the integral to the series."
+          },
+          {
+            "label": "B",
+            "text": "$S$ converges, but $\\frac{\\pi}{4}$ is not its sum"
+          },
+          {
+            "label": "C",
+            "text": "The test is inconclusive, because $\\frac{\\pi}{4} \\ne 0$",
+            "note": "The Integral Test settles the question whenever the integral converges or diverges, whatever finite value the integral has."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The integral is finite, so it converges. With $f$ positive, continuous and decreasing, the Integral Test says the series $S$ converges too. The test only says that the two converge or diverge together: $\\frac{\\pi}{4}$ is the value of the integral, not of the series. (In fact $S \\approx 1.077$.)"
+      },
+      {
+        "prompt": "Part (b). Since $f$ is decreasing from $x = 1$, rectangles of height $f(k)$ compared with the area under the curve give bounds on $S$. Which bounds are right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{4} - \\frac{1}{2} \\le S \\le \\frac{\\pi}{4}$",
+            "note": "Compare the rectangle of height $f(k)$ over $[k, k+1]$ with the area under the decreasing curve there: which is larger?"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{4} \\le S \\le \\frac{\\pi}{4} + 1$",
+            "note": "The extra term is $a_1$, the first term of the series, not $f(0)$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{4} \\le S \\le \\frac{\\pi}{4} + \\frac{1}{2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Because $f$ is decreasing from $x = 1$,\n\n$$\n\\int_1^{\\infty} f(x)\\,dx \\le S \\le a_1 + \\int_1^{\\infty} f(x)\\,dx.\n$$\n\nHere $a_1 = \\frac{1}{1^2+1} = \\frac{1}{2}$, so\n\n$$\n\\frac{\\pi}{4} \\le S \\le \\frac{\\pi}{4} + \\frac{1}{2},\n$$\n\nthat is, $0.785 \\le S \\le 1.285$."
+      },
+      {
+        "prompt": "Part (c). The tail is $R_{10} = a_{11} + a_{12} + \\cdots$. Which integral is an upper bound for it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_{11}^{\\infty} f(x)\\,dx$",
+            "note": "This integral is smaller than the tail: the tail's rectangles sit above the curve, not below it."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_{10}^{\\infty} f(x)\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$\\int_{1}^{10} f(x)\\,dx$",
+            "note": "This integral measures the area before $x = 10$, while the tail is the part of the series after the tenth term."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Since $f$ is decreasing, each term satisfies $f(k) \\le \\int_{k-1}^{k} f(x)\\,dx$. Adding these for $k = 11, 12, \\dots$ gives\n\n$$\n\\int_{11}^{\\infty} f(x)\\,dx \\le R_{10} \\le \\int_{10}^{\\infty} f(x)\\,dx.\n$$\n\nThe upper bound is the integral from $10$."
+      },
+      {
+        "prompt": "Evaluate that upper bound.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\approx 1.4711$",
+            "note": "This is $\\arctan 10$ alone. The limit at infinity contributes $\\frac{\\pi}{2}$ and must be included."
+          },
+          {
+            "label": "B",
+            "text": "$\\approx 0.0099$",
+            "note": "This is just the single term $f(10) = \\frac{1}{101}$. The tail is an area, not one value of $f$."
+          },
+          {
+            "label": "C",
+            "text": "$\\approx 0.0907$",
+            "note": "This is the lower bound, $\\int_{11}^{\\infty} f(x)\\,dx$. Check which endpoint the upper bound uses."
+          },
+          {
+            "label": "D",
+            "text": "$\\approx 0.0997$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "\n\n$$\n\\int_{10}^{\\infty} \\frac{dx}{x^2+1} = \\frac{\\pi}{2} - \\arctan 10 = \\arctan\\frac{1}{10} \\approx 0.0997.\n$$\n\nSo $R_{10} \\le 0.0997$. The lower bound is $\\arctan\\frac{1}{11} \\approx 0.0907$, so $S_{10}$ is within about $0.1$ of $S$."
+      }
+    ],
+    "takeaway": "Check positive, continuous and decreasing before integrating, and remember the integral's value decides convergence and bounds the sum but is not the sum."
+  },
+  {
+    "id": "L22-g2",
+    "lessonId": "L22",
+    "typeId": "L22-divergence-test",
+    "stem": "Consider $A = \\sum_{k=1}^{\\infty} \\frac{3k^2+1}{k^2+5k}$, $B = \\sum_{k=1}^{\\infty} (-1)^k\\,\\frac{3k^2+1}{k^2+5k}$ and $C = \\sum_{k=1}^{\\infty} \\frac{2k+5}{k^2+5k}$. (a) What does the Divergence Test say about $A$? (b) About $B$? (c) About $C$, and which familiar series shows why a limit of $0$ cannot prove convergence?",
+    "steps": [
+      {
+        "prompt": "Part (a). What is $\\lim_{k\\to\\infty} \\frac{3k^2+1}{k^2+5k}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "The numerator and denominator have the same degree, so neither one wins. Revisit how to find a limit of a rational function."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{5}$",
+            "note": "This keeps only the lowest-order pieces, $1$ and $5$. The limit is decided by the highest powers."
+          },
+          {
+            "label": "C",
+            "text": "$3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Divide the top and bottom by $k^2$:\n\n$$\n\\lim_{k\\to\\infty} \\frac{3k^2+1}{k^2+5k} = \\lim_{k\\to\\infty} \\frac{3 + \\frac{1}{k^2}}{1 + \\frac{5}{k}} = 3.\n$$\n\n"
+      },
+      {
+        "prompt": "What does the Divergence Test give for $A$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$A$ converges, because the terms are bounded",
+            "note": "Bounded terms do not make a series converge. Revisit what the test asks of the limit of the terms."
+          },
+          {
+            "label": "B",
+            "text": "$A$ diverges"
+          },
+          {
+            "label": "C",
+            "text": "The test is inconclusive",
+            "note": "The test is inconclusive for only one kind of limit. Check whether $3$ is that kind."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The terms tend to $3 \\ne 0$, so $A$ diverges by the Divergence Test."
+      },
+      {
+        "prompt": "Part (b). The terms of $B$ are $(-1)^k a_k$, where $a_k = \\frac{3k^2+1}{k^2+5k}$ is the term from part (a). What happens to $(-1)^k a_k$ as $k \\to \\infty$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It tends to $0$, since the signs cancel",
+            "note": "Cancelling signs affect the partial sums, not the size of each term. Look at the size of the terms."
+          },
+          {
+            "label": "B",
+            "text": "It tends to $3$",
+            "note": "The sign flips at every step, so the terms cannot settle at a single positive value."
+          },
+          {
+            "label": "C",
+            "text": "It has no limit"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Since $a_k \\to 3$, the terms with $k$ even approach $3$ and the terms with $k$ odd approach $-3$. The terms keep jumping between the two, so $\\lim_{k\\to\\infty} (-1)^k a_k$ does not exist."
+      },
+      {
+        "prompt": "What does the Divergence Test give for $B$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$B$ diverges, because its terms do not tend to $0$"
+          },
+          {
+            "label": "B",
+            "text": "$B$ converges by the Alternating Series Test, since the signs alternate",
+            "note": "That test also needs the sizes of the terms to tend to $0$. Check whether they do here."
+          },
+          {
+            "label": "C",
+            "text": "The test is inconclusive, because the limit does not exist",
+            "note": "A limit that does not exist is not the same as a limit of $0$. Ask whether the terms tend to $0$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The terms do not tend to $0$: their size stays near $3$. So $B$ diverges by the Divergence Test. The alternating sign does not help, because the terms never become small."
+      },
+      {
+        "prompt": "Part (c). What is $\\lim_{k\\to\\infty} \\frac{2k+5}{k^2+5k}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$"
+          },
+          {
+            "label": "B",
+            "text": "$2$",
+            "note": "This keeps the coefficient of the numerator's highest power and ignores that the denominator has a higher power."
+          },
+          {
+            "label": "C",
+            "text": "$\\infty$",
+            "note": "The denominator has the higher degree, so it grows faster than the numerator."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Divide the top and bottom by $k^2$:\n\n$$\n\\lim_{k\\to\\infty} \\frac{2k+5}{k^2+5k} = \\lim_{k\\to\\infty} \\frac{\\frac{2}{k} + \\frac{5}{k^2}}{1 + \\frac{5}{k}} = 0.\n$$\n\n"
+      },
+      {
+        "prompt": "What does the Divergence Test give for $C$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$C$ converges, because its terms tend to $0$",
+            "note": "The test can only prove divergence, never convergence."
+          },
+          {
+            "label": "B",
+            "text": "$C$ diverges, because the limit is $0$",
+            "note": "A limit of $0$ is exactly the case in which the test cannot prove divergence."
+          },
+          {
+            "label": "C",
+            "text": "Nothing: the test is inconclusive"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The terms tend to $0$, so the Divergence Test says nothing about $C$. It cannot prove convergence, and it cannot prove divergence when the limit is $0$. Another test is needed."
+      },
+      {
+        "prompt": "Which familiar series shows that terms tending to $0$ do not force a series to converge?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum \\frac{1}{k^2}$",
+            "note": "This series converges, so it does not show that a limit of $0$ can go with divergence."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum \\frac{1}{k}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sum \\frac{1}{2^k}$",
+            "note": "This series converges, so it does not show that a limit of $0$ can go with divergence."
+          }
+        ],
+        "answer": "B",
+        "explanation": "For the harmonic series, $\\frac{1}{k} \\to 0$, yet the series diverges: its partial sums grow like $\\ln n$. So a limit of $0$ can never prove convergence. (The series $C$ also diverges, but showing that needs another test, such as the Limit Comparison Test with $\\sum \\frac{1}{k}$.)"
+      }
+    ],
+    "takeaway": "Take the limit of the terms first: a nonzero limit or no limit proves divergence, while a limit of 0 proves nothing."
+  },
+  {
+    "id": "L22-g3",
+    "lessonId": "L22",
+    "typeId": "L22-series-claims",
+    "stem": "Let $\\sum_{n=1}^{\\infty} a_n$ be a series with partial sums $S_n = a_1 + a_2 + \\cdots + a_n$. Which of the following statements are true?\n\n(I) If $\\lim_{n\\to\\infty} a_n = 0$, then $\\sum_{n=1}^{\\infty} a_n$ converges.\n\n(II) If $\\sum_{n=1}^{\\infty} a_n$ converges, then $\\lim_{n\\to\\infty} (a_n + a_{n+1}) = 0$.\n\n(III) If $\\sum_{n=1}^{\\infty} a_n$ diverges, then the sequence $\\{S_n\\}$ is unbounded.\n\n(IV) If the sequence $\\{a_n\\}$ diverges, then $\\sum_{n=1}^{\\infty} a_n$ diverges.",
+    "steps": [
+      {
+        "prompt": "The series converges when $S_n \\to S$ for some number $S$. For $n \\ge 2$, which expression gives the term $a_n$ in terms of the partial sums?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$S_n + S_{n-1}$",
+            "note": "This counts $a_1, \\dots, a_{n-1}$ twice."
+          },
+          {
+            "label": "B",
+            "text": "$S_n - S_{n-1}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{S_n}{S_{n-1}}$",
+            "note": "Test it with $a_n = 1$: then $S_n = n$, but $\\frac{S_n}{S_{n-1}} = \\frac{n}{n-1}$ is not $1$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$S_n$ is $S_{n-1}$ with one more term added, so\n\n$$\na_n = S_n - S_{n-1}.\n$$\n\n"
+      },
+      {
+        "prompt": "Suppose $S_n \\to S$. What does $a_n = S_n - S_{n-1}$ do as $n \\to \\infty$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It tends to $S$",
+            "note": "Both $S_n$ and $S_{n-1}$ approach $S$. Think about what a difference of two nearly equal numbers does."
+          },
+          {
+            "label": "B",
+            "text": "It need not have a limit",
+            "note": "$S_n$ and $S_{n-1}$ have the same limit, so their difference has a limit."
+          },
+          {
+            "label": "C",
+            "text": "It tends to $0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "\n\n$$\n\\lim_{n\\to\\infty} a_n = \\lim_{n\\to\\infty} (S_n - S_{n-1}) = S - S = 0.\n$$\n\nSo if a series converges, its terms tend to $0$."
+      },
+      {
+        "prompt": "Statement (I) reverses this fact. Which verdict is right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "False: $a_n = \\frac{1}{n}$ has terms tending to $0$ but the series diverges"
+          },
+          {
+            "label": "B",
+            "text": "True: if the terms tend to $0$, the partial sums settle down",
+            "note": "Small terms can still add up without limit. Revisit the harmonic series."
+          },
+          {
+            "label": "C",
+            "text": "False: $a_n = \\frac{1}{n^2}$ has terms tending to $0$ and the series converges",
+            "note": "That series does converge, so it does not disprove the statement. A counterexample needs terms tending to $0$ and a divergent series."
+          }
+        ],
+        "answer": "A",
+        "explanation": "For $a_n = \\frac{1}{n}$, the terms tend to $0$, but the harmonic series diverges (a $p$-series with $p = 1$, with partial sums growing like $\\ln n$). So (I) is false."
+      },
+      {
+        "prompt": "Now statement (II). Which verdict is right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "False: the limit is $2S$",
+            "note": "$S$ is the sum of the series, not the limit of any term. Use the limit of the terms found earlier."
+          },
+          {
+            "label": "B",
+            "text": "True: $a_n \\to 0$ and $a_{n+1} \\to 0$, so their sum tends to $0$"
+          },
+          {
+            "label": "C",
+            "text": "False: $a_{n+1}$ is a different sequence and may not tend to $0$",
+            "note": "$a_{n+1}$ is the same list of terms shifted one place, so it has the same limit as $a_n$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "If the series converges, then $a_n \\to 0$. The shifted sequence $a_{n+1}$ also tends to $0$. So\n\n$$\n\\lim_{n\\to\\infty} (a_n + a_{n+1}) = 0 + 0 = 0,\n$$\n\nand (II) is true."
+      },
+      {
+        "prompt": "Statement (III). Which verdict is right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "True: a divergent series has partial sums that grow without bound",
+            "note": "Divergence means only that $S_n$ has no limit, which is not the same as growing without bound."
+          },
+          {
+            "label": "B",
+            "text": "False: $a_n = 1$ gives a divergent series with unbounded partial sums $S_n = n$",
+            "note": "This series does have unbounded partial sums, so it agrees with the statement and cannot refute it. Look for a divergent series that behaves differently."
+          },
+          {
+            "label": "C",
+            "text": "False: $a_n = (-1)^{n+1}$ gives a divergent series with bounded partial sums"
+          }
+        ],
+        "answer": "C",
+        "explanation": "For $a_n = (-1)^{n+1}$, the partial sums are $S_n = 1, 0, 1, 0, \\dots$ They stay between $0$ and $1$, but they have no limit, so the series diverges. So (III) is false."
+      },
+      {
+        "prompt": "Statement (IV). Which verdict is right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "True: if $\\{a_n\\}$ has no limit, its terms do not tend to $0$, and a convergent series needs terms tending to $0$"
+          },
+          {
+            "label": "B",
+            "text": "False: $a_n = \\frac{1}{n}$ gives a divergent series",
+            "note": "The sequence $\\frac{1}{n}$ converges, so it does not meet the hypothesis of this statement."
+          },
+          {
+            "label": "C",
+            "text": "True only when $a_n \\to \\infty$",
+            "note": "The earlier argument does not depend on how the terms fail to converge."
+          }
+        ],
+        "answer": "A",
+        "explanation": "If the series converged, the terms would tend to $0$, so $\\{a_n\\}$ would converge. This is the same fact read backwards: a sequence $\\{a_n\\}$ that diverges cannot belong to a convergent series. So the series diverges, and (IV) is true."
+      },
+      {
+        "prompt": "Which statements are true?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "(I) and (III)",
+            "note": "Revisit the verdicts for (I) and (III): each has a counterexample."
+          },
+          {
+            "label": "B",
+            "text": "(II) and (IV)"
+          },
+          {
+            "label": "C",
+            "text": "(II), (III) and (IV)",
+            "note": "One of these three has a counterexample with bounded partial sums."
+          },
+          {
+            "label": "D",
+            "text": "(IV) only",
+            "note": "Check each statement against what the terms must do when a series converges."
+          }
+        ],
+        "answer": "B",
+        "explanation": "(I) is false ($\\frac{1}{n}$), (II) is true, (III) is false ($(-1)^{n+1}$) and (IV) is true. So (II) and (IV) are the true statements."
+      }
+    ],
+    "takeaway": "Terms tending to 0 is necessary for convergence but never sufficient; to refute a claim, find a series such as 1/n or (-1)^(n+1) that meets the hypothesis and fails the conclusion."
+  }
+]

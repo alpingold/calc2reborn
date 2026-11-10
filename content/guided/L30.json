@@ -1,0 +1,319 @@
+[
+  {
+    "id": "L30-g1",
+    "lessonId": "L30",
+    "typeId": "L30-series-from-geometric",
+    "stem": "Let $f(x) = \\frac{x^2}{4 - x^3}$.\n\n(a) Find a power series for $f$ centered at $0$.\n\n(b) Find the values of $x$ for which that series is valid.\n\n(c) Find the coefficient of $x^{11}$.\n\n(d) The function is defined at $x = 2$. Does the series give $f(2)$?",
+    "steps": [
+      {
+        "prompt": "(a) The model series is $\\frac{1}{1-r} = \\sum_{k=0}^{\\infty} r^k$. Which rewriting of $f$ puts it in that form?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{x^2}{4}\\cdot\\frac{1}{1+\\frac{x^3}{4}}$",
+            "note": "Multiply out: $4\\left(1+\\frac{x^3}{4}\\right) = 4 + x^3$, which is not the denominator $4 - x^3$."
+          },
+          {
+            "label": "B",
+            "text": "$x^2\\cdot\\frac{1}{1-\\frac{x^3}{4}}$",
+            "note": "This equals $\\frac{4x^2}{4-x^3}$, which is four times $f$. Check what was factored out of the denominator."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x^2}{4}\\cdot\\frac{1}{1-\\frac{x^3}{4}}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The denominator needs a leading $1$, so factor out $4$:\n\n$$\n4 - x^3 = 4\\left(1 - \\frac{x^3}{4}\\right)\n$$\n\nHence $f(x) = \\frac{x^2}{4}\\cdot\\frac{1}{1-\\frac{x^3}{4}}$."
+      },
+      {
+        "prompt": "(a) In $\\frac{1}{1-r}$, what is the ratio $r$ here?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$r = x^3$",
+            "note": "The $4$ in the denominator was dropped; it stays inside the bracket."
+          },
+          {
+            "label": "B",
+            "text": "$r = \\frac{x^3}{4}$"
+          },
+          {
+            "label": "C",
+            "text": "$r = -\\frac{x^3}{4}$",
+            "note": "The bracket already has the form $1 - r$, so the minus sign is part of the form and does not enter $r$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Comparing $1 - \\frac{x^3}{4}$ with $1 - r$ gives $r = \\frac{x^3}{4}$.\n\nSo $\\frac{1}{1-\\frac{x^3}{4}} = \\sum_{k=0}^{\\infty}\\left(\\frac{x^3}{4}\\right)^k = \\sum_{k=0}^{\\infty}\\frac{x^{3k}}{4^k}$."
+      },
+      {
+        "prompt": "(a) Multiply by the factor $\\frac{x^2}{4}$ in front. What is the general term of the series for $f$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{x^{3k+2}}{4^{k+1}}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{x^{3k}}{4^{k+1}}$",
+            "note": "The factor $x^2$ in front must multiply every term, and it shifts every power."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x^{3k+2}}{4^k}$",
+            "note": "The constant $\\frac{1}{4}$ in front must multiply every term as well, not only the first."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\nf(x) = \\frac{x^2}{4}\\sum_{k=0}^{\\infty}\\frac{x^{3k}}{4^k} = \\sum_{k=0}^{\\infty}\\frac{x^{3k+2}}{4^{k+1}}\n$$\n\nThe first terms are $\\frac{x^2}{4} + \\frac{x^5}{16} + \\frac{x^8}{64} + \\cdots$."
+      },
+      {
+        "prompt": "(b) For which $x$ is the geometric series valid?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|x| < 4$",
+            "note": "That treats the ratio as $\\frac{x}{4}$, but the ratio here has $x^3$ in it."
+          },
+          {
+            "label": "B",
+            "text": "$|x| < \\sqrt[3]{4}$"
+          },
+          {
+            "label": "C",
+            "text": "$|x| < 1$",
+            "note": "The value $1$ is the radius of the model series in $x$. The ratio here is a different expression, so the bound changes."
+          }
+        ],
+        "answer": "B",
+        "explanation": "A geometric series converges exactly when $|r| < 1$:\n\n$$\n\\left|\\frac{x^3}{4}\\right| < 1 \\iff |x|^3 < 4 \\iff |x| < \\sqrt[3]{4} \\approx 1.587\n$$\n\nThe series is valid for $|x| < \\sqrt[3]{4}$."
+      },
+      {
+        "prompt": "(c) Which $k$ produces the term in $x^{11}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$k = 11$",
+            "note": "The power of $x$ in the general term is $3k + 2$, not $k$."
+          },
+          {
+            "label": "B",
+            "text": "$k = 4$",
+            "note": "With $k = 4$ the power is $3\\cdot 4 + 2 = 14$."
+          },
+          {
+            "label": "C",
+            "text": "$k = 3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Set the power equal to $11$:\n\n$$\n3k + 2 = 11 \\implies k = 3\n$$"
+      },
+      {
+        "prompt": "(c) What is the coefficient of $x^{11}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{64}$",
+            "note": "The denominator of the general term is $4^{k+1}$, not $4^k$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{256}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{4}$",
+            "note": "That is only the constant factor in front. The ratio contributes a power of $4$ as well."
+          }
+        ],
+        "answer": "B",
+        "explanation": "With $k = 3$, the coefficient is $\\frac{1}{4^{k+1}} = \\frac{1}{4^4} = \\frac{1}{256}$."
+      },
+      {
+        "prompt": "(d) At $x = 2$, $f(2) = \\frac{4}{4-8} = -1$. What does the series do at $x = 2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It converges to $-1$",
+            "note": "A series equals the function only where it converges. Compare $x = 2$ with the interval from part (b)."
+          },
+          {
+            "label": "B",
+            "text": "It converges, but to some other value",
+            "note": "Outside its interval a power series has no sum at all. Look at the size of the ratio $\\left|\\frac{x^3}{4}\\right|$ at $x = 2$."
+          },
+          {
+            "label": "C",
+            "text": "It diverges, so it does not represent $f$ at $2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x = 2$ the ratio is $\\frac{2^3}{4} = 2$, and $|2| > 1$. The terms are\n\n$$\n\\frac{2^{3k+2}}{4^{k+1}} = 2^k\n$$\n\nwhich do not approach $0$, so the series diverges. Since $2 > \\sqrt[3]{4}$, the point lies outside the interval: $f(2)$ exists, but the series does not represent it there."
+      }
+    ],
+    "takeaway": "The series equals the function only where the ratio has size below 1, so state that condition, because the closed form can exist far outside it."
+  },
+  {
+    "id": "L30-g2",
+    "lessonId": "L30",
+    "typeId": "L30-differentiate-integrate-series",
+    "stem": "Let $g(x) = \\frac{1}{1 + 9x^2}$.\n\n(a) Find the power series for $g$ at $0$ and its radius of convergence.\n\n(b) Integrate term by term to find the power series for $\\tan^{-1}(3x)$.\n\n(c) Decide whether that series converges at the endpoints of its interval.\n\n(d) Use the first three terms of the series from (b) at $x = 0.1$ to approximate $\\tan^{-1}(0.3)$.",
+    "steps": [
+      {
+        "prompt": "(a) Write $g$ as $\\frac{1}{1-r}$. What is $r$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$r = 9x^2$",
+            "note": "The denominator is $1 + 9x^2$, so compare it with $1 - r$ and watch the sign."
+          },
+          {
+            "label": "B",
+            "text": "$r = -9x^2$"
+          },
+          {
+            "label": "C",
+            "text": "$r = -3x$",
+            "note": "The expression $9x^2$ is the square of $3x$, so it does not equal $3x$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$1 + 9x^2 = 1 - (-9x^2)$, so $r = -9x^2$ and\n\n$$\ng(x) = \\sum_{k=0}^{\\infty}(-9x^2)^k = \\sum_{k=0}^{\\infty}(-1)^k 9^k x^{2k}\n$$"
+      },
+      {
+        "prompt": "(a) What is the radius of convergence?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{3}$"
+          },
+          {
+            "label": "B",
+            "text": "$1$",
+            "note": "The value $1$ is the bound on $r$, not on $x$. Solve the inequality for $x$."
+          },
+          {
+            "label": "C",
+            "text": "$3$",
+            "note": "Check the direction of the inequality: $|x|$ must be small enough to make $9x^2$ less than $1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The series converges when $|r| < 1$:\n\n$$\n9x^2 < 1 \\iff |x| < \\frac{1}{3}\n$$\n\nThe radius is $\\frac{1}{3}$."
+      },
+      {
+        "prompt": "(b) How is $\\tan^{-1}(3x)$ related to $g$? Recall $\\frac{d}{dx}\\tan^{-1}(3x) = \\frac{3}{1+9x^2}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\tan^{-1}(3x) = \\int g(x)\\,dx$",
+            "note": "The derivative of $\\tan^{-1}(3x)$ has a factor $3$ from the chain rule, so $g$ alone is not that derivative."
+          },
+          {
+            "label": "B",
+            "text": "$\\tan^{-1}(3x) = g'(x)$",
+            "note": "Differentiating $\\tan^{-1}(3x)$ produces a rational function, not the other way round."
+          },
+          {
+            "label": "C",
+            "text": "$\\tan^{-1}(3x) = 3\\int g(x)\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Since $\\frac{d}{dx}\\tan^{-1}(3x) = 3g(x)$, integrating gives\n\n$$\n\\tan^{-1}(3x) = 3\\int g(x)\\,dx\n$$\n\nwith the constant of integration fixed by one known value."
+      },
+      {
+        "prompt": "(b) Integrate the series for $g$ term by term and multiply by $3$. Which series results, before the constant?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{k=0}^{\\infty}(-1)^k\\frac{9^k x^{2k+1}}{2k+1}$",
+            "note": "The factor $3$ from the previous step was lost, so every coefficient is a third of what it should be."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{k=0}^{\\infty}(-1)^k\\frac{3\\cdot 9^k x^{2k}}{2k+1}$",
+            "note": "Integrating raises each power by $1$, and the divisor is the new power."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum_{k=0}^{\\infty}(-1)^k\\,3\\cdot 9^k(2k+1)x^{2k}$",
+            "note": "That multiplies each term by $2k+1$ and leaves the power of $x$ unchanged. Integrating divides by the new power and raises the power by $1$."
+          },
+          {
+            "label": "D",
+            "text": "$\\sum_{k=0}^{\\infty}(-1)^k\\frac{3^{2k+1}x^{2k+1}}{2k+1}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Integrate $x^{2k}$ to get $\\frac{x^{2k+1}}{2k+1}$ and multiply by $3$:\n\n$$\n3\\sum_{k=0}^{\\infty}(-1)^k 9^k\\frac{x^{2k+1}}{2k+1} = \\sum_{k=0}^{\\infty}(-1)^k\\frac{3^{2k+1}x^{2k+1}}{2k+1}\n$$\n\nsince $3\\cdot 9^k = 3^{2k+1}$. The radius stays $\\frac{1}{3}$."
+      },
+      {
+        "prompt": "(b) What is the constant $C$ to add?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$C = 1$",
+            "note": "The value $g(0) = 1$ belongs to the integrand. Compare the values of $\\tan^{-1}(3x)$ and the series at the center."
+          },
+          {
+            "label": "B",
+            "text": "$C = 0$"
+          },
+          {
+            "label": "C",
+            "text": "$C = \\frac{\\pi}{4}$",
+            "note": "The number $\\frac{\\pi}{4}$ is $\\tan^{-1}(1)$, the value at $x = \\frac{1}{3}$, not at the center."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Set $x = 0$. Then $\\tan^{-1}(0) = 0$, and every term of the series is $0$, so $C = 0$:\n\n$$\n\\tan^{-1}(3x) = \\sum_{k=0}^{\\infty}(-1)^k\\frac{3^{2k+1}x^{2k+1}}{2k+1} = 3x - 9x^3 + \\frac{243x^5}{5} - \\cdots\n$$\n\nvalid at least for $|x| < \\frac{1}{3}$."
+      },
+      {
+        "prompt": "(c) What happens at $x = \\pm\\frac{1}{3}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Diverges, since the interval from part (a) is open",
+            "note": "The radius says nothing about the endpoints, and integrating can change them. Each endpoint must be tested."
+          },
+          {
+            "label": "B",
+            "text": "Diverges, since the terms do not approach $0$",
+            "note": "At $x = \\frac{1}{3}$ the factor $3^{2k+1}x^{2k+1}$ equals $1$. Check the size of what is left."
+          },
+          {
+            "label": "C",
+            "text": "Converges at both, so the interval is $\\left[-\\frac{1}{3}, \\frac{1}{3}\\right]$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x = \\frac{1}{3}$ we get $3^{2k+1}\\left(\\frac{1}{3}\\right)^{2k+1} = 1$, so the series is\n\n$$\n\\sum_{k=0}^{\\infty}\\frac{(-1)^k}{2k+1}\n$$\n\nThe terms alternate, decrease and approach $0$, so it converges by the alternating series test. At $x = -\\frac{1}{3}$ the series is the negative of this one, so it converges too. Integrating gained both endpoints: the interval is $\\left[-\\frac{1}{3}, \\frac{1}{3}\\right]$, while the series for $g$ itself converges only on the open interval."
+      },
+      {
+        "prompt": "(d) At $x = 0.1$ the variable in the series is $3x = 0.3$. What does the sum of the first three terms give, to four decimal places?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0.2915$"
+          },
+          {
+            "label": "B",
+            "text": "$0.2754$",
+            "note": "The terms must be divided by $2k+1$, so the later terms are smaller than this value assumes."
+          },
+          {
+            "label": "C",
+            "text": "$0.2910$",
+            "note": "That uses only two terms. The third term, $\\frac{0.3^5}{5}$, still changes the fourth decimal place."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $u = 3x = 0.3$ the series reads $u - \\frac{u^3}{3} + \\frac{u^5}{5} - \\cdots$:\n\n$$\n0.3 - \\frac{0.027}{3} + \\frac{0.00243}{5} = 0.3 - 0.009 + 0.000486 = 0.291486\n$$\n\nSo $\\tan^{-1}(0.3) \\approx 0.2915$. The terms alternate and decrease, so the error is less than the next term, $\\frac{0.3^7}{7} \\approx 0.00003$."
+      }
+    ],
+    "takeaway": "After integrating or differentiating a series, find C from the center and test each endpoint again, because the radius survives but the endpoints may not."
+  }
+]

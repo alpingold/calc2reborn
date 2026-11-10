@@ -115,7 +115,7 @@ const content = loadContent()
 /** Set to true in Phase 6, once the thin problem types have been merged or filled. */
 const THIN_TYPES_SETTLED = true
 /** Set to true once every planned lesson has its guided problems. */
-const GUIDED_COMPLETE = false
+const GUIDED_COMPLETE = true
 /** Types the exams ask only twice; kept because nothing else in their lesson fits those questions. */
 const TWO_QUESTION_TYPES = new Set(['L19-partial-sums', 'L21-series-properties'])
 

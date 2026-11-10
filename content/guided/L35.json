@@ -3,175 +3,301 @@
     "id": "L35-g1",
     "lessonId": "L35",
     "typeId": "L35-area-one-curve",
-    "stem": "Find the area enclosed by the polar curve $r = 6\\cos\\theta$.",
+    "stem": "The curve $r = 4\\cos 3\\theta$ is a rose. (a) Find the area of the petal that lies along the positive $x$-axis. (b) Find the total area enclosed by the rose.",
     "steps": [
       {
-        "prompt": "Over which interval of $\\theta$ does $r = 6\\cos\\theta$ trace the whole circle exactly once?",
+        "prompt": "(a) The petal along the positive $x$-axis starts and ends at the pole, where $r = 0$. Which interval of $\\theta$ traces that petal exactly once?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{\\pi}{6} \\le \\theta \\le \\frac{\\pi}{6}$"
+          },
+          {
+            "label": "B",
+            "text": "$0 \\le \\theta \\le \\frac{\\pi}{3}$",
+            "note": "On this interval $r$ changes sign part-way through, so it traces only half of this petal and then part of a different one."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{\\pi}{3} \\le \\theta \\le \\frac{\\pi}{3}$",
+            "note": "This interval runs past the zeros of $r$ and starts tracing other petals as well."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$r = 0$ when $\\cos 3\\theta = 0$, so $3\\theta = \\pm\\frac{\\pi}{2}$ and $\\theta = \\pm\\frac{\\pi}{6}$. The petal is centred on $\\theta = 0$, where $r = 4$ is largest, and $r \\ge 0$ between these consecutive zeros. So the petal is traced once for $-\\frac{\\pi}{6} \\le \\theta \\le \\frac{\\pi}{6}$."
+      },
+      {
+        "prompt": "(a) Which integral gives the area of that petal?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/6}^{\\pi/6} 4\\cos 3\\theta\\,d\\theta$",
+            "note": "The integrand must be $\\frac{1}{2}r^2$, and here $r$ is not squared."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_{-\\pi/6}^{\\pi/6} 16\\cos^2 3\\theta\\,d\\theta$",
+            "note": "The factor $\\frac{1}{2}$ from the sector area is missing, so every sector is counted twice."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/6}^{\\pi/6} 16\\cos^2 3\\theta\\,d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "A thin sector has area $\\frac{1}{2}r^2\\,d\\theta$, and $r^2 = 16\\cos^2 3\\theta$. So the area is $\\frac{1}{2}\\int_{-\\pi/6}^{\\pi/6} 16\\cos^2 3\\theta\\,d\\theta = \\int_{-\\pi/6}^{\\pi/6} 8\\cos^2 3\\theta\\,d\\theta$."
+      },
+      {
+        "prompt": "(a) Which form of $8\\cos^2 3\\theta$ can be integrated directly?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$4(1 + \\cos 3\\theta)$",
+            "note": "The double-angle identity doubles the angle inside the cosine, so the angle here is not $3\\theta$."
+          },
+          {
+            "label": "B",
+            "text": "$4(1 + \\cos 6\\theta)$"
+          },
+          {
+            "label": "C",
+            "text": "$8(1 + \\cos 6\\theta)$",
+            "note": "The identity has a $\\frac{1}{2}$ in it, which is missing here, so this is twice $8\\cos^2 3\\theta$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "With $u = 3\\theta$, $\\cos^2 u = \\frac{1 + \\cos 2u}{2}$ and $2u = 6\\theta$. So $8\\cos^2 3\\theta = 8\\cdot\\frac{1 + \\cos 6\\theta}{2} = 4(1 + \\cos 6\\theta)$."
+      },
+      {
+        "prompt": "(a) Evaluate $\\int_{-\\pi/6}^{\\pi/6} 4(1 + \\cos 6\\theta)\\,d\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{4\\pi}{3}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{2\\pi}{3}$",
+            "note": "This is what the constant term gives if the interval is taken to have length $\\frac{\\pi}{6}$. Recheck the length of the interval between the two limits."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{8\\pi}{3}$",
+            "note": "This is twice the integral of $4(1 + \\cos 6\\theta)$, so an extra factor of $2$ has crept in."
+          }
+        ],
+        "answer": "A",
+        "explanation": "An antiderivative is $4\\left(\\theta + \\frac{\\sin 6\\theta}{6}\\right)$. At $\\theta = \\pm\\frac{\\pi}{6}$, $\\sin 6\\theta = \\sin(\\pm\\pi) = 0$. So the area is $4\\left(\\frac{\\pi}{6} - \\left(-\\frac{\\pi}{6}\\right)\\right) = \\frac{4\\pi}{3}$."
+      },
+      {
+        "prompt": "(b) The exponent $3$ in $r = 4\\cos 3\\theta$ is odd. Which interval of $\\theta$ traces the whole rose exactly once?",
         "choices": [
           {
             "label": "A",
             "text": "$0 \\le \\theta \\le 2\\pi$",
-            "note": "Over this interval the curve is traced twice, so the integral counts the circle twice."
+            "note": "The rose is already complete halfway through this interval, so every petal would be traced twice."
           },
           {
             "label": "B",
-            "text": "$-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$"
+            "text": "$-\\frac{\\pi}{6} \\le \\theta \\le \\frac{\\pi}{6}$",
+            "note": "This interval traces one petal only, the one from part (a)."
           },
           {
             "label": "C",
-            "text": "$0 \\le \\theta \\le \\frac{\\pi}{2}$",
-            "note": "This covers only the upper half of the circle, so the integral gives half the area."
-          }
-        ],
-        "answer": "B",
-        "explanation": "On $-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$ the value of $r$ is never negative, and the curve closes exactly once. The limits are $-\\frac{\\pi}{2}$ and $\\frac{\\pi}{2}$."
-      },
-      {
-        "prompt": "With the interval just chosen, which integral gives the area?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} 6\\cos\\theta\\,d\\theta$",
-            "note": "The integrand must be $\\frac{1}{2}r^2$, and here $r$ is used without being squared."
-          },
-          {
-            "label": "B",
-            "text": "$\\int_{-\\pi/2}^{\\pi/2} 36\\cos^2\\theta\\,d\\theta$",
-            "note": "The factor $\\frac{1}{2}$ from the sector area is missing, so this counts each sector twice."
-          },
-          {
-            "label": "C",
-            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} 36\\cos^2\\theta\\,d\\theta$"
+            "text": "$0 \\le \\theta \\le \\pi$"
           }
         ],
         "answer": "C",
-        "explanation": "Each thin sector has area $\\frac{1}{2}r^2\\,d\\theta$, and here $r^2 = 36\\cos^2\\theta$."
+        "explanation": "For $r = 4\\cos 3\\theta$ the point at $\\theta + \\pi$ equals the point at $\\theta$, because $\\cos(3\\theta + 3\\pi) = -\\cos 3\\theta$ and the sign of $r$ cancels the half-turn. So the rose is complete after $\\theta$ runs through $\\pi$. Check: there are three petals, each using an interval of length $\\frac{\\pi}{3}$, and $3\\cdot\\frac{\\pi}{3} = \\pi$."
       },
       {
-        "prompt": "Which identity rewrites $\\cos^2\\theta$ so that it can be integrated directly?",
+        "prompt": "(b) What is the total area enclosed by the rose?",
         "choices": [
           {
             "label": "A",
-            "text": "$\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$"
+            "text": "$\\frac{4\\pi}{3}$",
+            "note": "This is the area of one petal, and the rose has more than one."
           },
           {
             "label": "B",
-            "text": "$\\cos^2\\theta = \\frac{1 - \\cos 2\\theta}{2}$",
-            "note": "That is the identity for $\\sin^2\\theta$, not $\\cos^2\\theta$; testing both sides at $\\theta = 0$ shows the mismatch."
+            "text": "$8\\pi$",
+            "note": "This is what the integral over $0 \\le \\theta \\le 2\\pi$ gives, with every petal counted twice."
           },
           {
             "label": "C",
-            "text": "$\\cos^2\\theta = 1 + \\cos 2\\theta$",
-            "note": "The right side is twice $\\cos^2\\theta$, because the half is missing."
-          }
-        ],
-        "answer": "A",
-        "explanation": "$\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$, so $\\frac{1}{2}\\cdot 36\\cos^2\\theta = 9(1 + \\cos 2\\theta)$."
-      },
-      {
-        "prompt": "Evaluate $\\int_{-\\pi/2}^{\\pi/2} 9(1 + \\cos 2\\theta)\\,d\\theta$.",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$0$",
-            "note": "The $\\cos 2\\theta$ term integrates to zero over this interval, but the constant term $1$ does not."
-          },
-          {
-            "label": "B",
-            "text": "$18\\pi$",
-            "note": "This is what the integral gives if the $\\frac{1}{2}$ in $\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$ is dropped, so the integrand doubles."
-          },
-          {
-            "label": "C",
-            "text": "$9\\pi$"
+            "text": "$4\\pi$"
           }
         ],
         "answer": "C",
-        "explanation": "$\\int_{-\\pi/2}^{\\pi/2} 1\\,d\\theta = \\pi$ and $\\int_{-\\pi/2}^{\\pi/2} \\cos 2\\theta\\,d\\theta = 0$, so the integral is $9\\pi$. This is the area of a circle of radius 3."
+        "explanation": "$\\int_0^{\\pi} 8\\cos^2 3\\theta\\,d\\theta = \\int_0^{\\pi} 4(1 + \\cos 6\\theta)\\,d\\theta = 4\\left[\\theta + \\frac{\\sin 6\\theta}{6}\\right]_0^{\\pi} = 4\\pi$. This agrees with three petals of area $\\frac{4\\pi}{3}$ each. Integrating from $0$ to $2\\pi$ would give $8\\pi$, twice the area."
       }
     ],
-    "takeaway": "Choose the interval that traces the curve once before writing the integral, because a full period often traces it twice."
+    "takeaway": "Before integrating $\\frac{1}{2}r^2$, find the interval that traces the region exactly once: consecutive zeros for one petal, a half-turn for an odd rose."
   },
   {
     "id": "L35-g2",
     "lessonId": "L35",
     "typeId": "L35-area-between",
-    "stem": "Find the area of the region inside $r = 4\\cos\\theta$ and outside $r = 2\\cos\\theta$.",
+    "stem": "Let $C_1$ be the circle $r = 4\\sin\\theta$ and $C_2$ the circle $r = 2$. (a) Find the area of the region inside $C_1$ and outside $C_2$. (b) Find the area of the region inside both circles.",
     "steps": [
       {
-        "prompt": "Where do the circles $r = 4\\cos\\theta$ and $r = 2\\cos\\theta$ meet?",
+        "prompt": "(a) Where do the circles meet? Solve $4\\sin\\theta = 2$ for $0 \\le \\theta \\le \\pi$.",
         "choices": [
           {
             "label": "A",
-            "text": "Only at $\\theta = 0$, where $(4, 0)$ is the point",
-            "note": "At $\\theta = 0$ the two circles have $r = 4$ and $r = 2$, which are different points."
+            "text": "$\\theta = \\frac{\\pi}{3}$ and $\\theta = \\frac{2\\pi}{3}$",
+            "note": "At $\\theta = \\frac{\\pi}{3}$ the value of $4\\sin\\theta$ is $2\\sqrt{3}$, not $2$."
           },
           {
             "label": "B",
-            "text": "At $\\theta = \\pm\\frac{\\pi}{3}$, where $\\cos\\theta = \\frac{1}{2}$",
-            "note": "There $r = 2$ on the larger circle and $r = 1$ on the smaller, so the circles do not meet there."
+            "text": "$\\theta = \\frac{\\pi}{6}$ and $\\theta = \\frac{5\\pi}{6}$"
           },
           {
             "label": "C",
-            "text": "Only at the pole, where both have $r = 0$ at $\\theta = \\pm\\frac{\\pi}{2}$"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Setting $4\\cos\\theta = 2\\cos\\theta$ gives $\\cos\\theta = 0$, so the circles meet only at the pole. Both reach it at $\\theta = \\pm\\frac{\\pi}{2}$, which fixes the interval $-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$."
-      },
-      {
-        "prompt": "Over the interval just found, which integral gives the area between the circles?",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} \\left((4\\cos\\theta)^2 - (2\\cos\\theta)^2\\right)d\\theta$"
-          },
-          {
-            "label": "B",
-            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} \\left((4\\cos\\theta)^2 + (2\\cos\\theta)^2\\right)d\\theta$",
-            "note": "The inner circle is removed from the region, so its area is subtracted, not added."
-          },
-          {
-            "label": "C",
-            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} (4\\cos\\theta - 2\\cos\\theta)^2\\,d\\theta$",
-            "note": "Subtracting before squaring gives the wrong integrand; the area formula squares each curve separately."
-          }
-        ],
-        "answer": "A",
-        "explanation": "For each $\\theta$ in the interval, the region lies between the inner circle $r = 2\\cos\\theta$ and the outer circle $r = 4\\cos\\theta$. So the area is $\\frac{1}{2}\\int \\left((4\\cos\\theta)^2 - (2\\cos\\theta)^2\\right)d\\theta$."
-      },
-      {
-        "prompt": "Simplify the integrand from the last step and evaluate the integral, using $\\int_{-\\pi/2}^{\\pi/2}\\cos^2\\theta\\,d\\theta = \\frac{\\pi}{2}$.",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$\\pi$",
-            "note": "This comes from squaring the difference $4\\cos\\theta - 2\\cos\\theta$, which is not the area formula."
-          },
-          {
-            "label": "B",
-            "text": "$3\\pi$"
-          },
-          {
-            "label": "C",
-            "text": "$6\\pi$",
-            "note": "The factor $\\frac{1}{2}$ from the sector area has been left out, which doubles the result."
+            "text": "$\\theta = \\frac{\\pi}{6}$ only",
+            "note": "The sine curve crosses $\\frac{1}{2}$ twice on this interval, so one crossing is missing."
           }
         ],
         "answer": "B",
-        "explanation": "$\\frac{1}{2}\\left(16\\cos^2\\theta - 4\\cos^2\\theta\\right) = 6\\cos^2\\theta$, and $\\int_{-\\pi/2}^{\\pi/2} 6\\cos^2\\theta\\,d\\theta = 6\\cdot\\frac{\\pi}{2} = 3\\pi$."
+        "explanation": "$4\\sin\\theta = 2$ gives $\\sin\\theta = \\frac{1}{2}$, and on $0 \\le \\theta \\le \\pi$ this has two solutions, $\\theta = \\frac{\\pi}{6}$ and $\\theta = \\frac{5\\pi}{6}$. At both, $r = 2$ on each circle."
+      },
+      {
+        "prompt": "(a) Do the circles also meet at the pole, and which limits describe the region inside $C_1$ and outside $C_2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "No, $C_2$ never reaches the pole; $\\frac{\\pi}{6} \\le \\theta \\le \\frac{5\\pi}{6}$"
+          },
+          {
+            "label": "B",
+            "text": "Yes, both pass through the pole; $0 \\le \\theta \\le \\pi$",
+            "note": "$C_2$ has $r = 2$ for every $\\theta$, so it does not pass through the pole, and the region wanted does not begin or end there."
+          },
+          {
+            "label": "C",
+            "text": "No, $C_2$ never reaches the pole; $0 \\le \\theta \\le \\frac{\\pi}{6}$",
+            "note": "On this interval $4\\sin\\theta \\le 2$, so $C_1$ lies inside $C_2$ there, the opposite of the region wanted."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$C_2$ has $r = 2$ at every angle, so it never passes through the pole, and the only intersections are the two found. Between them, $4\\sin\\theta > 2$, so $C_1$ lies beyond $C_2$. The limits are $\\frac{\\pi}{6}$ and $\\frac{5\\pi}{6}$."
+      },
+      {
+        "prompt": "(a) Which integral gives the area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}\\int_{\\pi/6}^{5\\pi/6} (4\\sin\\theta - 2)^2\\,d\\theta$",
+            "note": "The area formula squares each radius separately; squaring the difference of the radii is not the same thing."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}\\int_{\\pi/6}^{5\\pi/6} \\left(4 - 16\\sin^2\\theta\\right) d\\theta$",
+            "note": "This subtracts the outer circle's square from the inner one's, so the integral comes out negative."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\int_{\\pi/6}^{5\\pi/6} \\left(16\\sin^2\\theta - 4\\right) d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At each $\\theta$ the region runs from $r = 2$ out to $r = 4\\sin\\theta$. The area is $\\frac{1}{2}\\int \\left((4\\sin\\theta)^2 - 2^2\\right) d\\theta = \\frac{1}{2}\\int_{\\pi/6}^{5\\pi/6} \\left(16\\sin^2\\theta - 4\\right) d\\theta$."
+      },
+      {
+        "prompt": "(a) Simplify $\\frac{1}{2}\\left(16\\sin^2\\theta - 4\\right)$ into a form that can be integrated directly.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2 + 4\\cos 2\\theta$",
+            "note": "The identity for $\\sin^2\\theta$ has $1 - \\cos 2\\theta$; this has the sign of the $\\cos^2\\theta$ identity."
+          },
+          {
+            "label": "B",
+            "text": "$2 - 4\\cos 2\\theta$"
+          },
+          {
+            "label": "C",
+            "text": "$4 - 4\\cos 2\\theta$",
+            "note": "This leaves out the $-2$ that comes from the inner circle."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\frac{1}{2}\\left(16\\sin^2\\theta - 4\\right) = 8\\sin^2\\theta - 2$. With $\\sin^2\\theta = \\frac{1 - \\cos 2\\theta}{2}$, $8\\sin^2\\theta = 4 - 4\\cos 2\\theta$. So the integrand is $4 - 4\\cos 2\\theta - 2 = 2 - 4\\cos 2\\theta$."
+      },
+      {
+        "prompt": "(a) Evaluate $\\int_{\\pi/6}^{5\\pi/6} \\left(2 - 4\\cos 2\\theta\\right) d\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{4\\pi}{3} - 2\\sqrt{3}$",
+            "note": "Here $\\sin\\frac{5\\pi}{3} = -\\frac{\\sqrt{3}}{2}$ is negative, which changes the sign of the $\\sqrt{3}$ contribution at the upper limit."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{8\\pi}{3} + 4\\sqrt{3}$",
+            "note": "This is twice the value of the integral, as if the factor $\\frac{1}{2}$ had been left out of the integrand."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{4\\pi}{3} + 2\\sqrt{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "An antiderivative is $2\\theta - 2\\sin 2\\theta$. At $\\theta = \\frac{5\\pi}{6}$: $\\frac{5\\pi}{3} - 2\\sin\\frac{5\\pi}{3} = \\frac{5\\pi}{3} + \\sqrt{3}$. At $\\theta = \\frac{\\pi}{6}$: $\\frac{\\pi}{3} - 2\\sin\\frac{\\pi}{3} = \\frac{\\pi}{3} - \\sqrt{3}$. The difference is $\\frac{4\\pi}{3} + 2\\sqrt{3}$, which is the answer to (a)."
+      },
+      {
+        "prompt": "(b) Part (b) is built from the whole disc bounded by $C_1$. What is the total area inside $C_1$, using $\\frac{1}{2}\\int r^2\\,d\\theta$ over one trip around it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8\\pi$",
+            "note": "This comes from integrating over $0 \\le \\theta \\le 2\\pi$, which traces the circle twice."
+          },
+          {
+            "label": "B",
+            "text": "$16\\pi$",
+            "note": "This is the area of a circle of radius $4$. The circle $r = 4\\sin\\theta$ has diameter $4$."
+          },
+          {
+            "label": "C",
+            "text": "$4\\pi$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$C_1$ is traced once for $0 \\le \\theta \\le \\pi$: $\\frac{1}{2}\\int_0^{\\pi} 16\\sin^2\\theta\\,d\\theta = 8\\int_0^{\\pi}\\sin^2\\theta\\,d\\theta = 8\\cdot\\frac{\\pi}{2} = 4\\pi$. This matches a circle of radius $2$."
+      },
+      {
+        "prompt": "(b) The disc bounded by $C_1$ is made of the part outside $C_2$, found in (a), and the part inside $C_2$. What is the area of the region inside both circles?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{16\\pi}{3} + 2\\sqrt{3}$",
+            "note": "This adds the answer to (a) to the whole disc, but the region in (a) already lies inside the disc."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{8\\pi}{3} - 2\\sqrt{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{4\\pi}{3} + 2\\sqrt{3}$",
+            "note": "This is the answer to (a), the part of the disc outside $C_2$, not the part inside both."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Area inside both $= 4\\pi - \\left(\\frac{4\\pi}{3} + 2\\sqrt{3}\\right) = \\frac{8\\pi}{3} - 2\\sqrt{3}$, about $4.91$."
       }
     ],
-    "takeaway": "Subtract the inner area from the outer one as $\\frac{1}{2}(f^2 - g^2)$, never by squaring the difference."
+    "takeaway": "Solve for the intersections, check whether the pole is one too, then compare the radii on each stretch of $\\theta$ before writing $\\frac{1}{2}(R^2 - r^2)$."
   },
   {
     "id": "L35-g3",
     "lessonId": "L35",
     "typeId": "L35-length-spirals",
-    "stem": "Find the arc length of the spiral $r = e^{\\theta/2}$ for $0 \\le \\theta \\le 2$.",
+    "stem": "The spiral $r = 4e^{3\\theta/4}$ turns outward as $\\theta$ increases. (a) Find its length for $0 \\le \\theta \\le 2$. (b) Find the total length of the part with $\\theta \\le 0$, which winds into the pole.",
     "steps": [
       {
-        "prompt": "Which expression gives the arc length of a polar curve $r = f(\\theta)$?",
+        "prompt": "(a) Which expression gives the arc length of a polar curve $r = f(\\theta)$?",
         "choices": [
           {
             "label": "A",
@@ -180,81 +306,144 @@
           {
             "label": "B",
             "text": "$\\int \\sqrt{1 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$",
-            "note": "The $r^2$ term is missing; it comes from the $r\\,\\Delta\\theta$ part of each small step."
+            "note": "The $r^2$ term is missing; it comes from the $r\\,\\Delta\\theta$ part of each step."
           },
           {
             "label": "C",
             "text": "$\\frac{1}{2}\\int r^2\\,d\\theta$",
-            "note": "That is the formula for the area swept out, not for length; length uses a square root and no $\\frac{1}{2}$."
+            "note": "That is the area swept out by the radius, not a length; length needs a square root and no $\\frac{1}{2}$."
           }
         ],
         "answer": "A",
-        "explanation": "A small step has $(\\Delta s)^2 \\approx (\\Delta r)^2 + (r\\,\\Delta\\theta)^2$. Adding up the steps gives the integral with $r^2$ and $\\left(\\frac{dr}{d\\theta}\\right)^2$ under the root."
+        "explanation": "A small step has $(\\Delta s)^2 \\approx (\\Delta r)^2 + (r\\,\\Delta\\theta)^2$. Adding the steps gives $L = \\int_\\alpha^\\beta \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$."
       },
       {
-        "prompt": "For $r = e^{\\theta/2}$, what is $r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2$?",
+        "prompt": "(a) What is $\\frac{dr}{d\\theta}$ for $r = 4e^{3\\theta/4}$?",
         "choices": [
           {
             "label": "A",
-            "text": "$e^{\\theta}$",
-            "note": "This leaves out the derivative term, and $\\frac{dr}{d\\theta}$ is not zero."
+            "text": "$\\frac{3}{4}e^{3\\theta/4}$",
+            "note": "The constant $4$ in front of the exponential multiplies the derivative, and here it has been left out."
           },
           {
             "label": "B",
-            "text": "$2e^{\\theta}$",
-            "note": "This takes $\\frac{dr}{d\\theta} = e^{\\theta/2}$. The chain rule brings down a factor $\\frac{1}{2}$ from the exponent, and squaring keeps it."
+            "text": "$3e^{3\\theta/4}$"
           },
           {
             "label": "C",
-            "text": "$\\frac{5}{4}e^{\\theta}$"
-          }
-        ],
-        "answer": "C",
-        "explanation": "$r^2 = e^{\\theta}$ and $\\frac{dr}{d\\theta} = \\frac{1}{2}e^{\\theta/2}$, so $\\left(\\frac{dr}{d\\theta}\\right)^2 = \\frac{1}{4}e^{\\theta}$. The sum is $\\frac{5}{4}e^{\\theta}$."
-      },
-      {
-        "prompt": "Take the square root of this sum to get the integrand for the length.",
-        "choices": [
-          {
-            "label": "A",
-            "text": "$\\frac{\\sqrt{5}}{4}e^{\\theta/2}$",
-            "note": "Squaring $\\frac{\\sqrt{5}}{4}$ gives $\\frac{5}{16}$, not $\\frac{5}{4}$, so this is not the square root."
-          },
-          {
-            "label": "B",
-            "text": "$\\frac{\\sqrt{5}}{2}e^{\\theta/2}$"
-          },
-          {
-            "label": "C",
-            "text": "$\\frac{5}{4}e^{\\theta/2}$",
-            "note": "Squaring this gives $\\frac{25}{16}e^{\\theta}$, not the sum, so it is not the square root."
+            "text": "$12e^{3\\theta/4}$",
+            "note": "The chain rule factor is the derivative of the exponent $\\frac{3\\theta}{4}$, which is $\\frac{3}{4}$, not $3$."
           }
         ],
         "answer": "B",
-        "explanation": "$\\sqrt{\\frac{5}{4}e^{\\theta}} = \\frac{\\sqrt{5}}{2}e^{\\theta/2}$, so the length is $L = \\int_0^2 \\frac{\\sqrt{5}}{2}e^{\\theta/2}\\,d\\theta$."
+        "explanation": "By the chain rule, $\\frac{dr}{d\\theta} = 4\\cdot\\frac{3}{4}e^{3\\theta/4} = 3e^{3\\theta/4}$."
       },
       {
-        "prompt": "Evaluate $\\int_0^2 \\frac{\\sqrt{5}}{2}e^{\\theta/2}\\,d\\theta$.",
+        "prompt": "(a) What is $r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2$?",
         "choices": [
           {
             "label": "A",
-            "text": "$\\sqrt{5}(e^2 - 1)$",
-            "note": "At $\\theta = 2$ the exponent is $1$, not $2$, so the upper limit gives $e$."
+            "text": "$7e^{3\\theta/2}$",
+            "note": "This adds the coefficients $4$ and $3$ without squaring them."
           },
           {
             "label": "B",
-            "text": "$\\frac{\\sqrt{5}}{2}(e - 1)$",
-            "note": "The antiderivative of $e^{\\theta/2}$ is $2e^{\\theta/2}$, not $e^{\\theta/2}$; the factor $2$ is missing."
+            "text": "$25e^{3\\theta/2}$"
           },
           {
             "label": "C",
-            "text": "$\\sqrt{5}(e - 1)$"
+            "text": "$25e^{3\\theta/4}$",
+            "note": "Squaring $e^{3\\theta/4}$ doubles the exponent, so the exponent does not stay $\\frac{3\\theta}{4}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$r^2 = 16e^{3\\theta/2}$ and $\\left(\\frac{dr}{d\\theta}\\right)^2 = 9e^{3\\theta/2}$. The sum is $25e^{3\\theta/2}$."
+      },
+      {
+        "prompt": "(a) Write the arc length as an integral with the square root taken.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_0^2 25e^{3\\theta/2}\\,d\\theta$",
+            "note": "The square root of the sum has not been taken."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_0^2 5e^{3\\theta/2}\\,d\\theta$",
+            "note": "The root of the coefficient is taken, but the exponent $\\frac{3\\theta}{2}$ must also be halved."
+          },
+          {
+            "label": "C",
+            "text": "$\\int_0^2 5e^{3\\theta/4}\\,d\\theta$"
           }
         ],
         "answer": "C",
-        "explanation": "The antiderivative of $e^{\\theta/2}$ is $2e^{\\theta/2}$, so $\\int_0^2 \\frac{\\sqrt{5}}{2}e^{\\theta/2}\\,d\\theta = \\frac{\\sqrt{5}}{2}\\cdot 2\\left[e^{\\theta/2}\\right]_0^2 = \\sqrt{5}(e - 1)$."
+        "explanation": "$\\sqrt{25e^{3\\theta/2}} = 5e^{3\\theta/4}$, since the root halves the exponent. So $L = \\int_0^2 5e^{3\\theta/4}\\,d\\theta$."
+      },
+      {
+        "prompt": "(a) Evaluate $\\int_0^2 5e^{3\\theta/4}\\,d\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{20}{3}e^{3/2}$",
+            "note": "The lower limit has been left out: at $\\theta = 0$ the antiderivative equals $\\frac{20}{3}$, and it must be subtracted."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{15}{4}\\left(e^{3/2} - 1\\right)$",
+            "note": "Differentiating $\\frac{15}{4}e^{3\\theta/4}$ gives $\\frac{45}{16}e^{3\\theta/4}$, not $5e^{3\\theta/4}$, so this antiderivative is wrong."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{20}{3}\\left(e^{3/2} - 1\\right)$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "An antiderivative of $5e^{3\\theta/4}$ is $5\\cdot\\frac{4}{3}e^{3\\theta/4} = \\frac{20}{3}e^{3\\theta/4}$. At $\\theta = 2$ the exponent is $\\frac{3}{2}$, and at $\\theta = 0$ the value is $1$. So $L = \\frac{20}{3}\\left(e^{3/2} - 1\\right)$, about $23.21$."
+      },
+      {
+        "prompt": "(b) Which expression gives the total length of the part of the spiral that winds into the pole, where $\\theta \\le 0$ and $r \\to 0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_0^{\\infty} 5e^{3\\theta/4}\\,d\\theta$",
+            "note": "For increasing $\\theta$ the radius $r$ grows without bound, so this part runs away from the pole instead of into it."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_{-\\infty}^{0} 5e^{3\\theta/4}\\,d\\theta$"
+          },
+          {
+            "label": "C",
+            "text": "$\\int_{-2\\pi}^{0} 5e^{3\\theta/4}\\,d\\theta$",
+            "note": "This stops after one turn of the spiral, but the question asks for the whole part that winds in."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The integrand $5e^{3\\theta/4}$ from the earlier steps holds for every $\\theta$. The inward part is $\\theta \\le 0$, so $L = \\int_{-\\infty}^{0} 5e^{3\\theta/4}\\,d\\theta = \\lim_{t\\to-\\infty}\\int_t^{0} 5e^{3\\theta/4}\\,d\\theta$."
+      },
+      {
+        "prompt": "(b) Evaluate the improper integral. Is the total length finite?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It diverges, because the spiral turns infinitely often",
+            "note": "Infinitely many turns do not by themselves make a length infinite. Take the limit of the antiderivative and see whether it exists."
+          },
+          {
+            "label": "B",
+            "text": "Finite, $\\frac{15}{4}$",
+            "note": "This uses $\\frac{3}{4}$ in place of the factor from integrating $e^{3\\theta/4}$. Differentiating $\\frac{15}{4}e^{3\\theta/4}$ does not return $5e^{3\\theta/4}$."
+          },
+          {
+            "label": "C",
+            "text": "Finite, $\\frac{20}{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\int_t^{0} 5e^{3\\theta/4}\\,d\\theta = \\frac{20}{3}\\left(1 - e^{3t/4}\\right)$. As $t \\to -\\infty$, $e^{3t/4} \\to 0$, so the limit is $\\frac{20}{3}$. The infinitely many turns shrink fast enough that the length stays finite."
       }
     ],
-    "takeaway": "Simplify $r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2$ to a single term before taking the square root."
+    "takeaway": "For $r = Ae^{k\\theta}$ the root collapses to a single exponential, $\\sqrt{A^2(1 + k^2)}\\,e^{k\\theta}$, so reduce the radicand to one term before integrating."
   }
 ]

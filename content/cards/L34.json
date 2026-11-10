@@ -6,6 +6,10 @@
     "back": "Make a table of $\\theta$ (steps of $\\pi/4$ or $\\pi/8$) and $r$, plot each $(r, \\theta)$, and join them in order of $\\theta$. Plot negative $r$ on the opposite ray. Add points where $r = 0$, where the curve passes through the pole.",
     "tags": [
       "graphing"
+    ],
+    "typeIds": [
+      "L34-roses",
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -17,6 +21,9 @@
       "trap",
       "circle",
       "traced-once"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -27,6 +34,9 @@
     "tags": [
       "trap",
       "rose"
+    ],
+    "typeIds": [
+      "L34-roses"
     ]
   },
   {
@@ -37,6 +47,9 @@
     "tags": [
       "trap",
       "rose"
+    ],
+    "typeIds": [
+      "L34-roses"
     ]
   },
   {
@@ -46,6 +59,9 @@
     "back": "Over $0 \\le \\theta \\le 2\\pi$ there are $2n$ arcs between zeros, each drawing a petal. For odd $n$ the arcs with $r < 0$ retrace petals already drawn (the whole rose is done by $\\theta = \\pi$). For even $n$ they land in new directions.",
     "tags": [
       "rose"
+    ],
+    "typeIds": [
+      "L34-roses"
     ]
   },
   {
@@ -55,6 +71,9 @@
     "back": "Length 4. Tips point at angles $0$, $\\frac{2\\pi}{3}$, $\\frac{4\\pi}{3}$; at $\\theta = \\frac{\\pi}{3}$, $r = -4$ is plotted at angle $\\frac{4\\pi}{3}$, the same tip. The petal on the positive $x$-axis runs between the zeros $\\theta = -\\frac{\\pi}{6}$ and $\\frac{\\pi}{6}$.",
     "tags": [
       "rose"
+    ],
+    "typeIds": [
+      "L34-roses"
     ]
   },
   {
@@ -65,6 +84,9 @@
     "tags": [
       "limacon",
       "cardioid"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -76,6 +98,9 @@
       "trap",
       "limacon",
       "inner-loop"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -86,6 +111,9 @@
     "tags": [
       "trap",
       "cardioid"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -96,6 +124,9 @@
     "tags": [
       "limacon",
       "inner-loop"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -107,6 +138,9 @@
       "trap",
       "limacon",
       "inner-loop"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -116,6 +150,9 @@
     "back": "$x$-axis: replacing $\\theta$ by $-\\theta$ gives an equivalent equation; $y$-axis: replacing $\\theta$ by $\\pi - \\theta$ does; origin: replacing $r$ by $-r$, or $\\theta$ by $\\theta + \\pi$, does. A test that passes proves the symmetry; one that fails proves nothing. Any two of the three symmetries imply the third.",
     "tags": [
       "symmetry"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -126,6 +163,9 @@
     "tags": [
       "trap",
       "symmetry"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   },
   {
@@ -135,6 +175,9 @@
     "back": "Only about the $x$-axis: replacing $\\theta$ by $-\\theta$ leaves $\\cos\\theta$ unchanged. It is not symmetric about the $y$-axis or the origin: the farthest point $(-4, 0)$ is on the curve, but its mirror image $(4, 0)$ is not.",
     "tags": [
       "symmetry"
+    ],
+    "typeIds": [
+      "L34-limacons-symmetry"
     ]
   }
 ]

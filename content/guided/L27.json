@@ -1,0 +1,324 @@
+[
+  {
+    "id": "L27-g1",
+    "lessonId": "L27",
+    "typeId": "L27-build-taylor-polynomial",
+    "stem": "Let $f(x) = \\sqrt{x}$. (a) Find the third-order Taylor polynomial $P_3(x)$ of $f$ centered at $a = 4$. (b) Check it by reading the coefficient of $(x-4)^2$ back as a value of $f''(4)$ and comparing with the direct computation.",
+    "steps": [
+      {
+        "prompt": "(a) Which formula gives $P_3$ for $f(x) = \\sqrt{x}$ centered at $a = 4$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum_{k=0}^{3} f^{(k)}(4)\\,(x-4)^k$",
+            "note": "The coefficient of $(x-a)^k$ is not the derivative itself. Revisit why the Taylor coefficient carries a factorial."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum_{k=0}^{3} \\frac{f^{(k)}(4)}{k!}\\,x^k$",
+            "note": "The powers must be of $(x-a)$ for a center $a \\ne 0$, so that the polynomial matches $f$ near $x = 4$."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum_{k=0}^{3} \\frac{f^{(k)}(4)}{k!}\\,(x-4)^k$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The center is $a = 4$ and the order is $3$, so $P_3(x) = f(4) + f'(4)(x-4) + \\frac{f''(4)}{2!}(x-4)^2 + \\frac{f'''(4)}{3!}(x-4)^3$. The task is to find $f$ and its first three derivatives at $4$."
+      },
+      {
+        "prompt": "Differentiate $f(x) = x^{1/2}$ once. What are $f(4)$ and $f'(4)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f(4) = 2$, $f'(4) = \\frac{1}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "$f(4) = 2$, $f'(4) = \\frac{1}{2}$",
+            "note": "That is the derivative of $\\sqrt{x}$ with the factor $\\frac{1}{2}$ from the power rule dropped. Redo $\\frac{1}{2}x^{-1/2}$ at $x = 4$."
+          },
+          {
+            "label": "C",
+            "text": "$f(4) = 2$, $f'(4) = \\frac{1}{8}$",
+            "note": "The $x$ in $\\frac{1}{2\\sqrt{x}}$ sits under a square root. Evaluate $\\sqrt{4}$ before multiplying."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$f(4) = \\sqrt{4} = 2$. The power rule gives $f'(x) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$, so $f'(4) = \\frac{1}{2 \\cdot 2} = \\frac{1}{4}$."
+      },
+      {
+        "prompt": "Differentiate again. What is $f''(4)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{1}{16}$",
+            "note": "Here $4^{-3/2}$ was taken as $\\frac{1}{4}$. Recompute $4^{3/2} = (\\sqrt{4})^3$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{32}$",
+            "note": "The derivative of $x^{-1/2}$ is a negative multiple of $x^{-3/2}$, so the sign is wrong."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{8}$",
+            "note": "The exponent must drop by one on differentiating, so $x^{-1/2}$ does not stay as it is. Recheck the power of $x$ in $f''$."
+          },
+          {
+            "label": "D",
+            "text": "$-\\frac{1}{32}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$f''(x) = \\frac{1}{2}\\cdot\\left(-\\frac{1}{2}\\right)x^{-3/2} = -\\frac{1}{4}x^{-3/2}$. At $x = 4$, $4^{3/2} = 8$, so $f''(4) = -\\frac{1}{4}\\cdot\\frac{1}{8} = -\\frac{1}{32}$."
+      },
+      {
+        "prompt": "Differentiate once more. What is $f'''(4)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{3}{256}$",
+            "note": "Differentiating $-\\frac{1}{4}x^{-3/2}$ multiplies by $-\\frac{3}{2}$, and a negative times a negative is positive. Recheck the sign."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{3}{256}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{3}{128}$",
+            "note": "Here $4^{5/2}$ was taken as $16$. Recompute $4^{5/2} = (\\sqrt{4})^5$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$f'''(x) = -\\frac{1}{4}\\cdot\\left(-\\frac{3}{2}\\right)x^{-5/2} = \\frac{3}{8}x^{-5/2}$. At $x = 4$, $4^{5/2} = 32$, so $f'''(4) = \\frac{3}{8}\\cdot\\frac{1}{32} = \\frac{3}{256}$."
+      },
+      {
+        "prompt": "Now divide each derivative by its factorial. Which list gives the coefficients of $1$, $(x-4)$, $(x-4)^2$, $(x-4)^3$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2,\\ \\frac{1}{4},\\ -\\frac{1}{32},\\ \\frac{3}{256}$",
+            "note": "These are the derivatives themselves. Each must still be divided by $k!$."
+          },
+          {
+            "label": "B",
+            "text": "$2,\\ \\frac{1}{4},\\ -\\frac{1}{64},\\ \\frac{1}{256}$",
+            "note": "The last coefficient was divided by $3$ instead of $3! = 6$."
+          },
+          {
+            "label": "C",
+            "text": "$2,\\ \\frac{1}{4},\\ -\\frac{1}{64},\\ \\frac{1}{512}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$C_0 = 2$ and $C_1 = \\frac{1/4}{1!} = \\frac{1}{4}$. Next $C_2 = \\frac{-1/32}{2!} = -\\frac{1}{64}$ and $C_3 = \\frac{3/256}{3!} = \\frac{3}{256\\cdot 6} = \\frac{1}{512}$."
+      },
+      {
+        "prompt": "Assemble the polynomial. Which is $P_3(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2 + \\frac{1}{4}x - \\frac{1}{64}x^2 + \\frac{1}{512}x^3$",
+            "note": "The powers must be of $(x-4)$, since the center is $4$ and not $0$."
+          },
+          {
+            "label": "B",
+            "text": "$2 + \\frac{1}{4}(x-4) - \\frac{1}{64}(x-4)^2 + \\frac{1}{512}(x-4)^3$"
+          },
+          {
+            "label": "C",
+            "text": "$2 + \\frac{1}{4}(x-4) + \\frac{1}{64}(x-4)^2 + \\frac{1}{512}(x-4)^3$",
+            "note": "The coefficient of the squared term keeps the sign of $f''(4)$. Check it against the earlier working."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Put each coefficient with its power of $(x-4)$: $P_3(x) = 2 + \\frac{1}{4}(x-4) - \\frac{1}{64}(x-4)^2 + \\frac{1}{512}(x-4)^3$."
+      },
+      {
+        "prompt": "(b) Check by reading the polynomial back. What does its coefficient of $(x-4)^2$ say that $f''(4)$ is?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{1}{32}$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{1}{64}$",
+            "note": "That is the coefficient itself. It equals $\\frac{f''(4)}{2!}$, so $f''(4)$ is a different number."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{128}$",
+            "note": "The coefficient already has the $2!$ divided out. To recover the derivative, undo that division and do not repeat it."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The coefficient of $(x-4)^2$ is $\\frac{f''(4)}{2!} = -\\frac{1}{64}$, so $f''(4) = 2\\cdot\\left(-\\frac{1}{64}\\right) = -\\frac{1}{32}$. This agrees with the direct computation, which confirms that the factorial was handled correctly."
+      }
+    ],
+    "takeaway": "Differentiate first, evaluate at the center, then divide by $k!$ and attach powers of $(x-a)$; reading a coefficient back by multiplying by $k!$ is a quick check."
+  },
+  {
+    "id": "L27-g2",
+    "lessonId": "L27",
+    "typeId": "L27-approximate-with-polynomial",
+    "stem": "(a) Use the second-order Taylor polynomial of a suitable function centered at $a = 0$ to approximate $\\sqrt{1.2}$. (b) A calculator gives $\\sqrt{1.2} = 1.095445\\ldots$. Find the error of the estimate and compare it with the first-order estimate.",
+    "steps": [
+      {
+        "prompt": "(a) Which function and center give $\\sqrt{1.2}$ as a value, with the center at a point where derivatives are easy?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f(x) = \\sqrt{1+x}$ at $a = 0$"
+          },
+          {
+            "label": "B",
+            "text": "$f(x) = \\sqrt{x}$ at $a = 0$",
+            "note": "The derivatives of $\\sqrt{x}$ do not exist at $0$, so no Taylor polynomial can be built there."
+          },
+          {
+            "label": "C",
+            "text": "$f(x) = \\sqrt{1+x}$ at $a = 1.2$",
+            "note": "The center should be a point where $f$ and its derivatives are easy to evaluate, and the target is the point where the polynomial is used, not the center."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $f(x) = \\sqrt{1+x}$, the value $\\sqrt{1.2}$ is $f(0.2)$ and the center $a = 0$ makes $1 + x = 1$, so every derivative is easy to evaluate."
+      },
+      {
+        "prompt": "At what $x$ is the polynomial evaluated?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 1.2$",
+            "note": "The input of $f$ is $x$, and $f(x) = \\sqrt{1+x}$ already adds the $1$."
+          },
+          {
+            "label": "B",
+            "text": "$x = -0.2$",
+            "note": "Check the sign: $1 + x$ must equal $1.2$."
+          },
+          {
+            "label": "C",
+            "text": "$x = 0.2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$f(x) = \\sqrt{1.2}$ when $1 + x = 1.2$, so $x = 0.2$."
+      },
+      {
+        "prompt": "Find $f(0)$ and $f'(0)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f(0) = 0$, $f'(0) = \\frac{1}{2}$",
+            "note": "Substitute $x = 0$ into $\\sqrt{1+x}$, which is $\\sqrt{1}$ and not $\\sqrt{0}$."
+          },
+          {
+            "label": "B",
+            "text": "$f(0) = 1$, $f'(0) = 1$",
+            "note": "The power rule gives $\\frac{1}{2}(1+x)^{-1/2}$. Keep the factor $\\frac{1}{2}$."
+          },
+          {
+            "label": "C",
+            "text": "$f(0) = 1$, $f'(0) = \\frac{1}{2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$f(0) = \\sqrt{1} = 1$. $f'(x) = \\frac{1}{2}(1+x)^{-1/2}$, so $f'(0) = \\frac{1}{2}$."
+      },
+      {
+        "prompt": "Find $f''(0)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{1}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{4}$",
+            "note": "Differentiating $(1+x)^{-1/2}$ brings down $-\\frac{1}{2}$, which makes the result negative."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{8}$",
+            "note": "That is the coefficient of $x^2$, after dividing by $2!$. This step is the second derivative itself."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$f''(x) = \\frac{1}{2}\\cdot\\left(-\\frac{1}{2}\\right)(1+x)^{-3/2} = -\\frac{1}{4}(1+x)^{-3/2}$, so $f''(0) = -\\frac{1}{4}$."
+      },
+      {
+        "prompt": "Write $P_2(x)$ and evaluate it at $x = 0.2$. What is $P_2(0.2)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1.09$",
+            "note": "The $x^2$ term was not divided by $2!$. Recompute the coefficient of $x^2$."
+          },
+          {
+            "label": "B",
+            "text": "$1.095$"
+          },
+          {
+            "label": "C",
+            "text": "$1.105$",
+            "note": "The sign of the $x^2$ term is that of $f''(0)$. Recheck it."
+          },
+          {
+            "label": "D",
+            "text": "$1.42$",
+            "note": "The polynomial was evaluated at $x = 1.2$. Recheck the input found earlier."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$P_2(x) = 1 + \\frac{1}{2}x + \\frac{-1/4}{2!}x^2 = 1 + \\frac{x}{2} - \\frac{x^2}{8}$. At $x = 0.2$: $1 + 0.1 - \\frac{0.04}{8} = 1 + 0.1 - 0.005 = 1.095$."
+      },
+      {
+        "prompt": "(b) A calculator gives $\\sqrt{1.2} = 1.095445\\ldots$. How large is the error of $P_2(0.2)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "about $0.095$",
+            "note": "That is the error of the constant polynomial $P_0 = 1$, not of $P_2$."
+          },
+          {
+            "label": "B",
+            "text": "about $0.0046$",
+            "note": "That is not the gap between $1.095$ and the true value. Subtract again."
+          },
+          {
+            "label": "C",
+            "text": "about $0.0004$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The error is $|1.095445 - 1.095| = 0.000445$, which is about $0.0004$. The estimate is slightly low."
+      },
+      {
+        "prompt": "The first-order polynomial gives $P_1(0.2) = 1 + 0.1 = 1.1$. Comparing the two estimates, which statement is correct?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$P_2$ is closer; $P_1$ misses by about $0.0046$"
+          },
+          {
+            "label": "B",
+            "text": "$P_1$ is closer; it misses by about $0.0004$",
+            "note": "Work out $|1.1 - 1.095445|$ and set it beside the gap found in the previous step; the figure given here does not match $P_1$."
+          },
+          {
+            "label": "C",
+            "text": "They are equally close, since both round to $1.1$",
+            "note": "Rounding to one decimal hides the difference. Compare the actual gaps to $1.095445$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$|1.1 - 1.095445| = 0.004555$, about $0.0046$, against $0.0004$ for $P_2$. Here the $x^2$ term cuts the error by a factor of about $10$, so $\\sqrt{1.2} \\approx 1.095$ with $P_2$."
+      }
+    ],
+    "takeaway": "Choose the function so the target is $f(x)$ at a small $x$, find that $x$ before plugging in, and compare errors rather than assuming another term helps."
+  }
+]

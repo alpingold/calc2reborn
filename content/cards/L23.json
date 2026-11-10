@@ -6,6 +6,10 @@
     "back": "For positive terms: if $0 \\le a_k \\le b_k$ and $\\sum b_k$ converges, then $\\sum a_k$ converges. If $a_k \\ge b_k \\ge 0$ and $\\sum b_k$ diverges, then $\\sum a_k$ diverges.",
     "tags": [
       "comparison"
+    ],
+    "typeIds": [
+      "L23-comparison-claims",
+      "L23-test-justification"
     ]
   },
   {
@@ -17,6 +21,10 @@
       "trap",
       "comparison",
       "direction"
+    ],
+    "typeIds": [
+      "L23-comparison-claims",
+      "L23-test-justification"
     ]
   },
   {
@@ -28,6 +36,10 @@
       "trap",
       "comparison",
       "direction"
+    ],
+    "typeIds": [
+      "L23-comparison-claims",
+      "L23-test-justification"
     ]
   },
   {
@@ -37,6 +49,10 @@
     "back": "For $a_k > 0$ and $b_k > 0$: if $\\lim_{k\\to\\infty} \\frac{a_k}{b_k} = c$ with $0 < c < \\infty$, then $\\sum a_k$ and $\\sum b_k$ both converge or both diverge.",
     "tags": [
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L23-comparison-claims",
+      "L23-comparison-decide"
     ]
   },
   {
@@ -47,6 +63,9 @@
     "tags": [
       "trap",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L23-comparison-claims"
     ]
   },
   {
@@ -57,6 +76,9 @@
     "tags": [
       "trap",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L23-comparison-claims"
     ]
   },
   {
@@ -67,6 +89,10 @@
     "tags": [
       "which-test",
       "comparison"
+    ],
+    "typeIds": [
+      "L23-test-justification",
+      "L23-comparison-decide"
     ]
   },
   {
@@ -77,6 +103,10 @@
     "tags": [
       "which-test",
       "comparison"
+    ],
+    "typeIds": [
+      "L23-test-justification",
+      "L23-comparison-decide"
     ]
   },
   {
@@ -87,6 +117,10 @@
     "tags": [
       "which-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L23-test-justification",
+      "L23-comparison-decide"
     ]
   },
   {
@@ -97,6 +131,10 @@
     "tags": [
       "which-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L23-test-justification",
+      "L23-p-range"
     ]
   },
   {
@@ -107,6 +145,10 @@
     "tags": [
       "which-test",
       "comparison"
+    ],
+    "typeIds": [
+      "L23-test-justification",
+      "L23-comparison-decide"
     ]
   },
   {
@@ -118,6 +160,9 @@
       "which-test",
       "limit-comparison",
       "1-infinity"
+    ],
+    "typeIds": [
+      "L23-test-justification"
     ]
   },
   {
@@ -129,6 +174,9 @@
       "trap",
       "comparison",
       "absolute"
+    ],
+    "typeIds": [
+      "L23-comparison-decide"
     ]
   }
 ]

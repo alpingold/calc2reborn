@@ -39,8 +39,11 @@ function guidedTexts(g: GuidedProblem): [string, string][] {
   ]
 }
 
-/** A fault in how a string marks its mathematics, or null: an unclosed `$`, or `$$` not alone on its line. */
+/** A fault in how a string marks its mathematics, or null: an unclosed `$`, `$$` not alone on its line, or a LaTeX command broken by a single backslash in the JSON. */
 export function mathFault(text: string): string | null {
+  // "\\frac" or "\\theta" written with one backslash in JSON becomes a control character and the rest of the word
+  if ([...text].some((ch) => ch !== '\n' && ch.charCodeAt(0) < 32)) return 'a control character: a LaTeX backslash was not doubled in the JSON'
+  if (/(^|[^\\a-zA-Z])(rac\{|heta\b|imes\b|ext\{|ightarrow\b|eq\b)/.test(text)) return 'a LaTeX command has lost its backslash'
   const lines = text.split('\n')
   let fences = 0
   let inline = ''

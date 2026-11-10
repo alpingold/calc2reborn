@@ -1,0 +1,313 @@
+[
+  {
+    "id": "L28-g1",
+    "lessonId": "L28",
+    "typeId": "L28-remainder-formula",
+    "stem": "The second-order Taylor polynomial $P_2$ of $f(x) = \\frac{1}{\\sqrt{x}}$ centered at $a = 4$ is used to estimate $\\frac{1}{\\sqrt{3.8}}$.\n\n(a) Write the remainder $R_2(x)$ from Taylor's Remainder Theorem.\n\n(b) Write $R_2(3.8)$, saying where $c$ lies, and decide whether $P_2(3.8)$ overestimates or underestimates $\\frac{1}{\\sqrt{3.8}}$.",
+    "steps": [
+      {
+        "prompt": "(a) Which derivative and which factorial appear in $R_2(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{f''(c)}{2!}$",
+            "note": "That is the last term already inside $P_2$. The remainder starts one order past the polynomial."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{f^{(4)}(c)}{4!}$",
+            "note": "That is two orders past $P_2$. The remainder uses the first order the polynomial does not contain."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{f'''(c)}{3!}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$P_2$ stops at order $2$, so the remainder uses order $2 + 1 = 3$:\n\n$$\nR_2(x) = \\frac{f'''(c)}{3!}(x-4)^3\n$$\n\nfor some $c$ between $4$ and $x$."
+      },
+      {
+        "prompt": "(a) Rewrite $f(x)$ as a power and find $f'''(x)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{3}{4}x^{-5/2}$",
+            "note": "That is $f''$. The remainder for $P_2$ needs one more derivative."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{15}{8}x^{-7/2}$",
+            "note": "Check the sign. Each exponent brought down is negative, so the sign changes with every derivative."
+          },
+          {
+            "label": "C",
+            "text": "$-\\dfrac{15}{8}x^{-5/2}$",
+            "note": "The power of $x$ drops by one each time a derivative is taken, so the exponent here is wrong."
+          },
+          {
+            "label": "D",
+            "text": "$-\\dfrac{15}{8}x^{-7/2}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$f(x) = x^{-1/2}$, so\n\n$$\nf'(x) = -\\tfrac{1}{2}x^{-3/2}, \\qquad f''(x) = \\tfrac{3}{4}x^{-5/2}, \\qquad f'''(x) = -\\tfrac{15}{8}x^{-7/2}.\n$$\n\nThe last line is $\\frac{3}{4}\\cdot\\left(-\\frac{5}{2}\\right) = -\\frac{15}{8}$ with the power lowered to $-\\frac{7}{2}$."
+      },
+      {
+        "prompt": "(a) Put $f'''(c)$ and the factorial together to write $R_2(x)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\dfrac{5}{16}\\,c^{-7/2}(x-4)^3$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\dfrac{15}{8}\\,c^{-7/2}(x-4)^3$",
+            "note": "The factorial is missing. The coefficient must be divided by the factorial from the theorem."
+          },
+          {
+            "label": "C",
+            "text": "$-\\dfrac{15}{16}\\,c^{-7/2}(x-4)^3$",
+            "note": "This divides by $2$ only. The factorial that goes with $f'''$ is larger."
+          },
+          {
+            "label": "D",
+            "text": "$-\\dfrac{5}{16}\\,c^{-7/2}(x-4)^2$",
+            "note": "The coefficient is fine, but the power of $(x-4)$ must match the order of the derivative."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Divide $f'''(c)$ by $3! = 6$:\n\n$$\nR_2(x) = \\frac{-\\frac{15}{8}c^{-7/2}}{6}(x-4)^3 = -\\frac{5}{16}\\,c^{-7/2}(x-4)^3\n$$\n\nfor some $c$ between $4$ and $x$. This answers part (a)."
+      },
+      {
+        "prompt": "(b) At $x = 3.8$, what is $(x-4)^3$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0.008$",
+            "note": "Look at the sign of $x - 4$ for this $x$, and at what an odd power does to a negative number."
+          },
+          {
+            "label": "B",
+            "text": "$-0.008$"
+          },
+          {
+            "label": "C",
+            "text": "$-0.0008$",
+            "note": "Recount the decimal places: $0.2 \\times 0.2 \\times 0.2$ has three factors."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$x - 4 = 3.8 - 4 = -0.2$, so\n\n$$\n(x-4)^3 = (-0.2)^3 = -0.008.\n$$\n\nThe point $3.8$ lies to the left of the center, so the cube is negative."
+      },
+      {
+        "prompt": "(b) Write $R_2(3.8)$ and say where $c$ lies.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-0.0025\\,c^{-7/2}$, with $3.8 < c < 4$",
+            "note": "The coefficient $-\\frac{5}{16}$ is multiplied by a negative number here, so recheck the sign of the product."
+          },
+          {
+            "label": "B",
+            "text": "$0.0025\\,c^{-7/2}$, with $4 < c < 4.2$",
+            "note": "The number $c$ lies between the center and the point being estimated. Which side of $4$ is $3.8$ on?"
+          },
+          {
+            "label": "C",
+            "text": "$0.0025\\,c^{-7/2}$, with $3.8 < c < 4$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nR_2(3.8) = -\\frac{5}{16}\\,c^{-7/2}(-0.008) = \\frac{5 \\cdot 0.008}{16}\\,c^{-7/2} = 0.0025\\,c^{-7/2}\n$$\n\nThe center is $4$ and the point is $3.8$, so $c$ lies strictly between them: $3.8 < c < 4$."
+      },
+      {
+        "prompt": "(b) Is $P_2(3.8)$ an overestimate or an underestimate of $\\frac{1}{\\sqrt{3.8}}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "An overestimate",
+            "note": "An overestimate needs $R_2 = f - P_2$ to be negative. Check the sign of $R_2(3.8)$."
+          },
+          {
+            "label": "B",
+            "text": "An underestimate"
+          },
+          {
+            "label": "C",
+            "text": "It cannot be told, because $c$ is not known",
+            "note": "The value of $c$ is unknown, but $c^{-7/2}$ is positive for every $c > 0$. The other factors then settle the sign."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$f(3.8) = P_2(3.8) + R_2(3.8)$, and $R_2(3.8) = 0.0025\\,c^{-7/2} > 0$ because $c > 0$. So $f(3.8) > P_2(3.8)$, and $P_2(3.8)$ underestimates $\\frac{1}{\\sqrt{3.8}}$.\n\nNumerically $P_2(3.8) = 0.51297$ and $\\frac{1}{\\sqrt{3.8}} = 0.51299$, which agrees."
+      }
+    ],
+    "takeaway": "Use the derivative one order past the polynomial, and read the sign of the remainder from its formula, taking care over which side of the center the point lies."
+  },
+  {
+    "id": "L28-g2",
+    "lessonId": "L28",
+    "typeId": "L28-error-bound",
+    "stem": "The second-order Taylor polynomial of $f(x) = \\frac{1}{1-x}$ centered at $a = 0$ is used to estimate $\\frac{1}{0.8}$.\n\n(a) Use Taylor's remainder bound to find a bound on the error.\n\n(b) Using the same method for the polynomial of order $k$, find the smallest $k$ for which the bound guarantees an error below $0.001$.",
+    "steps": [
+      {
+        "prompt": "(a) Which $x$ gives $f(x) = \\frac{1}{0.8}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 0.8$",
+            "note": "$f(0.8) = \\frac{1}{0.2}$, not $\\frac{1}{0.8}$."
+          },
+          {
+            "label": "B",
+            "text": "$x = 0.2$"
+          },
+          {
+            "label": "C",
+            "text": "$x = -0.2$",
+            "note": "$f(-0.2) = \\frac{1}{1.2}$, not $\\frac{1}{0.8}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$1 - x = 0.8$ gives $x = 0.2$, so $\\frac{1}{0.8} = f(0.2)$.\n\nThe center is $0$, so $t$ runs over $[0, 0.2]$ in the bound."
+      },
+      {
+        "prompt": "(a) Find $f'''(t)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{6}{(1-t)^4}$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\dfrac{6}{(1-t)^4}$",
+            "note": "The derivative of $(1-t)^{-n}$ picks up a factor $-1$ from the inside, which cancels the $-n$ from the power. Recheck the sign."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{2}{(1-t)^3}$",
+            "note": "That is $f''$. The bound for $P_2$ uses one derivative more."
+          },
+          {
+            "label": "D",
+            "text": "$\\dfrac{24}{(1-t)^5}$",
+            "note": "That is $f^{(4)}$. The bound for $P_2$ uses one derivative fewer."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\nf'(t) = (1-t)^{-2}, \\qquad f''(t) = 2(1-t)^{-3}, \\qquad f'''(t) = 6(1-t)^{-4} = \\frac{6}{(1-t)^4}.\n$$\n\nEach time the $-1$ from $1-t$ cancels the minus sign of the power, so every derivative is positive."
+      },
+      {
+        "prompt": "(a) On $0 \\le t \\le 0.2$, where is $|f'''(t)|$ largest?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "At $t = 0$",
+            "note": "The value $6$ at the center is not automatically the largest. Check how $(1-t)^4$ changes as $t$ moves away from $0$."
+          },
+          {
+            "label": "B",
+            "text": "At $t = 0.1$, the midpoint",
+            "note": "The function is monotonic on the interval, so its largest value is at an end and not in the middle."
+          },
+          {
+            "label": "C",
+            "text": "At $t = 0.2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "As $t$ increases, $1 - t$ decreases, so $(1-t)^4$ decreases and $\\frac{6}{(1-t)^4}$ increases. The largest value on $[0, 0.2]$ is at the right end, $t = 0.2$."
+      },
+      {
+        "prompt": "(a) Take $M = f'''(0.2)$. What is $M$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{6}{0.2^4} = 3750$",
+            "note": "The denominator is $(1-t)^4$ with $t = 0.2$, which is not $0.2^4$."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{6}{0.8^3} \\approx 11.72$",
+            "note": "The power in the denominator of $f'''$ is $4$."
+          },
+          {
+            "label": "C",
+            "text": "$6$",
+            "note": "That is $f'''(0)$. It does not bound $f'''$ on the whole interval."
+          },
+          {
+            "label": "D",
+            "text": "$\\dfrac{6}{0.8^4} \\approx 14.65$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$1 - 0.2 = 0.8$, so\n\n$$\nM = \\frac{6}{0.8^4} = \\frac{6}{0.4096} \\approx 14.65.\n$$\n\nThen $|f'''(t)| \\le M$ for every $t$ in $[0, 0.2]$."
+      },
+      {
+        "prompt": "(a) Apply $|R_2(0.2)| \\le \\dfrac{M}{3!}|x-a|^3$ with $x = 0.2$. What is the bound?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\approx 0.117$",
+            "note": "The bound divides by $3!$. Here $M \\cdot 0.2^3$ has not been divided by it."
+          },
+          {
+            "label": "B",
+            "text": "$\\approx 0.0195$"
+          },
+          {
+            "label": "C",
+            "text": "$\\approx 0.0586$",
+            "note": "The factorial that goes with $f'''$ is $3!$, not $2!$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n|R_2(0.2)| \\le \\frac{6/0.4096}{3!}(0.2)^3 = \\frac{0.008}{0.4096} = \\frac{5}{256} \\approx 0.0195.\n$$\n\nCheck: $P_2(0.2) = 1 + 0.2 + 0.04 = 1.24$ and $\\frac{1}{0.8} = 1.25$, so the true error is $0.01$, below the bound. The value $M = 6$ would give $0.008$, which is smaller than the true error and so could not be a bound. This answers part (a)."
+      },
+      {
+        "prompt": "(b) For the polynomial of order $k$, $f^{(k+1)}(t) = \\dfrac{(k+1)!}{(1-t)^{k+2}}$, and it is largest at $t = 0.2$. Write the bound on $|R_k(0.2)|$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{0.2^{k+1}}{0.8^{k+2}}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{0.2^{k+1}}{0.8^{k+1}}$",
+            "note": "At $k = 2$ this gives $0.015625$, not the $0.0195$ found in part (a), so the power of $0.8$ is off."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{(k+1)!\\,0.2^{k+1}}{0.8^{k+2}}$",
+            "note": "The bound also divides by $(k+1)!$. At $k = 2$ this gives $0.117$, not the $0.0195$ found in part (a)."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$M = \\dfrac{(k+1)!}{0.8^{k+2}}$, so\n\n$$\n|R_k(0.2)| \\le \\frac{M}{(k+1)!}(0.2)^{k+1} = \\frac{0.2^{k+1}}{0.8^{k+2}}.\n$$\n\nThe factorials cancel, and $M$ changes with $k$. At $k = 2$ this is $\\frac{0.008}{0.512 \\cdot 0.8} = 0.0195$, matching part (a)."
+      },
+      {
+        "prompt": "(b) Evaluate this bound for $k = 3, 4, 5$. What is the smallest $k$ whose bound is below $0.001$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$k = 3$",
+            "note": "At $k = 3$ the bound is about $0.0049$, which is above $0.001$."
+          },
+          {
+            "label": "B",
+            "text": "$k = 4$",
+            "note": "At $k = 4$ the bound is about $0.00122$, which is still above $0.001$."
+          },
+          {
+            "label": "C",
+            "text": "$k = 5$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nk = 3: \\ \\frac{0.2^4}{0.8^5} \\approx 0.00488, \\qquad k = 4: \\ \\frac{0.2^5}{0.8^6} \\approx 0.00122, \\qquad k = 5: \\ \\frac{0.2^6}{0.8^7} \\approx 0.000305.\n$$\n\nThe first bound below $0.001$ is at $k = 5$. The true error at $k = 4$ is $0.0004$, but the bound cannot promise that, so $k = 5$ is what the method guarantees."
+      }
+    ],
+    "takeaway": "Find $M$ at the end of the interval where the derivative is largest, not at the center, and recompute $M$ for each new order $k$."
+  }
+]

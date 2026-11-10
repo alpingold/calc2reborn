@@ -1,0 +1,350 @@
+[
+  {
+    "id": "L34-g1",
+    "lessonId": "L34",
+    "typeId": "L34-roses",
+    "stem": "Consider the rose $r = -3\\sin 5\\theta$.\n\n(a) How many petals does it have, and how long is each?\n\n(b) Take the petal traced for $0 \\le \\theta \\le \\frac{\\pi}{5}$. Where is its tip?\n\n(c) Over what interval of $\\theta$ is the whole rose traced once, and which tip lies on a coordinate axis?",
+    "steps": [
+      {
+        "prompt": "(a) Which description fits $r = -3\\sin 5\\theta$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Ten petals, each of length $3$",
+            "note": "The count $2n$ is the rule for even $n$. Check which rule applies to $n = 5$."
+          },
+          {
+            "label": "B",
+            "text": "Five petals, each of length $5$",
+            "note": "The $5$ in $\\sin 5\\theta$ sets the number of petals, not their length. The length is read from the coefficient of the sine."
+          },
+          {
+            "label": "C",
+            "text": "Five petals, each of length $3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The curve has the form $r = a\\sin n\\theta$ with $a = -3$ and $n = 5$.\n$n = 5$ is odd, so there are $n = 5$ petals.\nEach petal has length $|a| = 3$. The minus sign changes the directions of the petals, not their length."
+      },
+      {
+        "prompt": "(b) Where does $r$ first return to $0$ after $\\theta = 0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\theta = \\frac{\\pi}{5}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\theta = \\frac{\\pi}{10}$",
+            "note": "At that angle $\\sin 5\\theta = 1$, so $r = -3$ and the curve is at its farthest from the pole, not at the pole."
+          },
+          {
+            "label": "C",
+            "text": "$\\theta = \\frac{2\\pi}{5}$",
+            "note": "$r$ is $0$ at this angle, but it is already $0$ at a smaller positive angle. Look for the first one."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$r = 0$ when $\\sin 5\\theta = 0$, so $5\\theta = k\\pi$ and $\\theta = \\frac{k\\pi}{5}$.\nThe first positive zero is $\\theta = \\frac{\\pi}{5}$.\nZeros are $\\frac{\\pi}{5}$ apart, and each petal lies between two consecutive zeros. The petal for $0 \\le \\theta \\le \\frac{\\pi}{5}$ is the first one."
+      },
+      {
+        "prompt": "(b) On $0 < \\theta < \\frac{\\pi}{5}$, what is the sign of $r$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$r > 0$",
+            "note": "$\\sin 5\\theta$ is positive on this interval, but the rose has a factor $-3$ in front of it."
+          },
+          {
+            "label": "B",
+            "text": "$r < 0$"
+          },
+          {
+            "label": "C",
+            "text": "$r$ changes sign in the middle of the interval",
+            "note": "As $\\theta$ runs from $0$ to $\\frac{\\pi}{5}$, the angle $5\\theta$ runs from $0$ to $\\pi$, and the sine does not change sign on that range."
+          }
+        ],
+        "answer": "B",
+        "explanation": "For $0 < \\theta < \\frac{\\pi}{5}$ we have $0 < 5\\theta < \\pi$, so $\\sin 5\\theta > 0$.\nThen $r = -3\\sin 5\\theta < 0$.\nA negative $r$ is plotted on the opposite ray, in direction $\\theta + \\pi$. So this petal lies between the directions $\\pi$ and $\\frac{6\\pi}{5}$, not near the direction $\\theta$ itself."
+      },
+      {
+        "prompt": "(b) Where is the tip of this petal?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Distance $3$ in direction $\\frac{\\pi}{10}$",
+            "note": "That plots $r = -3$ as if it were $+3$. A negative $r$ goes on the opposite ray."
+          },
+          {
+            "label": "B",
+            "text": "Distance $3$ in direction $\\frac{9\\pi}{10}$",
+            "note": "Direction $\\pi - \\theta$ is a reflection in the $y$-axis. It is not what a negative $r$ does."
+          },
+          {
+            "label": "C",
+            "text": "Distance $3$ in direction $\\frac{6\\pi}{5}$",
+            "note": "That direction belongs to the end of the interval, where $r = 0$ and the curve is at the pole, not at a tip."
+          },
+          {
+            "label": "D",
+            "text": "Distance $3$ in direction $\\frac{11\\pi}{10}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The tip is where $|r|$ is largest, which is halfway between the zeros: $\\theta = \\frac{\\pi}{10}$.\nThere $r = -3\\sin\\frac{\\pi}{2} = -3$.\nSince $r < 0$, the point lies at distance $3$ in direction $\\frac{\\pi}{10} + \\pi = \\frac{11\\pi}{10}$, in the third quadrant."
+      },
+      {
+        "prompt": "(c) Over what interval is the whole rose traced exactly once?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0 \\le \\theta \\le \\pi$"
+          },
+          {
+            "label": "B",
+            "text": "$0 \\le \\theta \\le 2\\pi$",
+            "note": "That much is needed for even $n$. Here the second half of this interval draws the same petals again, so the rose is drawn twice."
+          },
+          {
+            "label": "C",
+            "text": "$0 \\le \\theta \\le \\frac{2\\pi}{5}$",
+            "note": "That is one period of $\\sin 5\\theta$. It holds only two arcs between zeros, so it draws two petals, not the whole rose."
+          }
+        ],
+        "answer": "A",
+        "explanation": "On $0 \\le \\theta \\le \\pi$ there are five arcs between consecutive zeros, since the zeros are $\\frac{\\pi}{5}$ apart.\nEach arc draws one petal, which gives all $5$ petals.\nFor odd $n$, the arcs on $\\pi \\le \\theta \\le 2\\pi$ retrace the same petals. So $0 \\le \\theta \\le \\pi$ traces the rose exactly once."
+      },
+      {
+        "prompt": "(c) Evaluate the curve at $\\theta = \\frac{\\pi}{2}$. Which point of the $xy$-plane is on it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(0, 3)$",
+            "note": "That uses $r = +3$. Here $\\sin\\frac{5\\pi}{2} = 1$, and the factor $-3$ is still in front."
+          },
+          {
+            "label": "B",
+            "text": "$(0, -3)$"
+          },
+          {
+            "label": "C",
+            "text": "$(-3, 0)$",
+            "note": "That puts $r$ on the $x$-axis. The direction $\\theta = \\frac{\\pi}{2}$ lies along the $y$-axis."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$r = -3\\sin\\frac{5\\pi}{2} = -3\\cdot 1 = -3$.\nThen $x = r\\cos\\frac{\\pi}{2} = 0$ and $y = r\\sin\\frac{\\pi}{2} = -3$.\nThe point $(0, -3)$ is on the curve, at distance $3$, so it is a tip."
+      },
+      {
+        "prompt": "(c) The tips are at $\\theta = \\frac{\\pi}{10} + \\frac{k\\pi}{5}$ for $k = 0, 1, 2, 3, 4$. Which statement about the tips and the axes is right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Two tips lie on the $y$-axis, one up and one down",
+            "note": "The five tips are equally spaced around the pole, $\\frac{2\\pi}{5}$ apart, so no two of them are opposite each other."
+          },
+          {
+            "label": "B",
+            "text": "No tip lies on a coordinate axis",
+            "note": "Look again at the point found at $\\theta = \\frac{\\pi}{2}$ in the previous step: is it a tip, and where does it lie?"
+          },
+          {
+            "label": "C",
+            "text": "Exactly one tip lies on an axis, the tip at $(0, -3)$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $\\theta = \\frac{\\pi}{10} + \\frac{k\\pi}{5}$ we get $r = -3\\sin\\left(\\frac{\\pi}{2} + k\\pi\\right) = -3(-1)^k$.\nPlotting each, the tips point in the directions $\\frac{11\\pi}{10}$, $\\frac{3\\pi}{10}$, $\\frac{3\\pi}{2}$, $\\frac{7\\pi}{10}$ and $\\frac{19\\pi}{10}$ for $k = 0, \\dots, 4$.\nThey are $\\frac{2\\pi}{5}$ apart. Only $\\frac{3\\pi}{2}$ lies on an axis, the negative $y$-axis, at the point $(0, -3)$."
+      }
+    ],
+    "takeaway": "Get the petal count from whether $n$ is odd or even, then use the sign of $r$ to decide which way each petal points."
+  },
+  {
+    "id": "L34-g2",
+    "lessonId": "L34",
+    "typeId": "L34-limacons-symmetry",
+    "stem": "Consider the polar curve $r = 2 - 2\\sqrt{2}\\sin\\theta$.\n\n(a) Identify the curve and find the angles that draw its inner loop.\n\n(b) Find the farthest point from the pole, and the point on the inner loop at $\\theta = \\frac{\\pi}{2}$.\n\n(c) Decide which of the three symmetries (about the $x$-axis, the $y$-axis, the origin) the curve has.",
+    "steps": [
+      {
+        "prompt": "(a) What kind of curve is $r = 2 - 2\\sqrt{2}\\sin\\theta$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "A circle",
+            "note": "A circle has the form $r = 2a\\sin\\theta$, with no constant term."
+          },
+          {
+            "label": "B",
+            "text": "A cardioid",
+            "note": "A cardioid needs the constant and the coefficient of the sine to be equal. Compare $2$ with $2\\sqrt{2}$."
+          },
+          {
+            "label": "C",
+            "text": "A limaçon with no inner loop",
+            "note": "No inner loop needs the constant to be larger than the coefficient of the sine. Check whether $2$ is larger than $2\\sqrt{2}$."
+          },
+          {
+            "label": "D",
+            "text": "A limaçon with an inner loop"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The curve has the form $r = a - b\\sin\\theta$ with $a = 2$ and $b = 2\\sqrt{2} \\approx 2.83$.\nSince $a < b$, the curve is a limaçon with an inner loop.\nThe inner loop is drawn while $r < 0$."
+      },
+      {
+        "prompt": "(a) For $0 \\le \\theta \\le 2\\pi$, where does the curve pass through the pole?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\theta = \\frac{\\pi}{4}$ and $\\theta = \\frac{3\\pi}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\theta = \\frac{\\pi}{4}$ and $\\theta = \\frac{7\\pi}{4}$",
+            "note": "Those angles solve $\\cos\\theta = \\frac{\\sqrt{2}}{2}$, but this equation has $\\sin\\theta$ in it."
+          },
+          {
+            "label": "C",
+            "text": "$\\theta = \\frac{\\pi}{3}$ and $\\theta = \\frac{2\\pi}{3}$",
+            "note": "At those angles $\\sin\\theta = \\frac{\\sqrt{3}}{2}$, which gives $r = 2 - \\sqrt{6}$, not $0$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$r = 0$ when $2 - 2\\sqrt{2}\\sin\\theta = 0$, so $\\sin\\theta = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$.\nOn $[0, 2\\pi]$ this happens at $\\theta = \\frac{\\pi}{4}$ and $\\theta = \\frac{3\\pi}{4}$.\nThe curve passes through the pole at these two angles."
+      },
+      {
+        "prompt": "(a) Which values of $\\theta$ draw the inner loop?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{3\\pi}{4} < \\theta < \\frac{9\\pi}{4}$",
+            "note": "On that stretch $\\sin\\theta < \\frac{\\sqrt{2}}{2}$, so $r > 0$. That is the big loop."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{4} < \\theta < \\frac{3\\pi}{4}$"
+          },
+          {
+            "label": "C",
+            "text": "$0 < \\theta < \\frac{\\pi}{4}$",
+            "note": "Here $r$ falls from $2$ down to $0$ and stays positive, so this part belongs to the big loop."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$r < 0$ exactly when $\\sin\\theta > \\frac{\\sqrt{2}}{2}$.\nBetween the zeros $\\frac{\\pi}{4}$ and $\\frac{3\\pi}{4}$ the sine is above $\\frac{\\sqrt{2}}{2}$, for example $\\sin\\frac{\\pi}{2} = 1$.\nSo $r < 0$ and the inner loop is drawn for $\\frac{\\pi}{4} < \\theta < \\frac{3\\pi}{4}$."
+      },
+      {
+        "prompt": "(b) Where is the curve farthest from the pole?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$r = 2 + 2\\sqrt{2}$ at $\\theta = \\frac{\\pi}{2}$, the point $\\left(0,\\, 2 + 2\\sqrt{2}\\right)$",
+            "note": "At $\\theta = \\frac{\\pi}{2}$ the sine term is subtracted, which makes $r$ smallest, not largest."
+          },
+          {
+            "label": "B",
+            "text": "$r = 2\\sqrt{2}$ at $\\theta = \\frac{3\\pi}{2}$, the point $\\left(0,\\, -2\\sqrt{2}\\right)$",
+            "note": "The constant term $2$ also counts in $r$ at that angle."
+          },
+          {
+            "label": "C",
+            "text": "$r = 2 + 2\\sqrt{2}$ at $\\theta = \\frac{3\\pi}{2}$, the point $\\left(0,\\, -2 - 2\\sqrt{2}\\right)$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$r$ is largest when $-2\\sqrt{2}\\sin\\theta$ is largest, that is when $\\sin\\theta = -1$.\nThat is $\\theta = \\frac{3\\pi}{2}$, where $r = 2 + 2\\sqrt{2} \\approx 4.83$.\nWith $r > 0$ the point is $\\left(0,\\, -(2 + 2\\sqrt{2})\\right)$, on the negative $y$-axis."
+      },
+      {
+        "prompt": "(b) Evaluate $r$ at $\\theta = \\frac{\\pi}{2}$. Where is that point of the inner loop?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left(0,\\, 2 - 2\\sqrt{2}\\right)$, below the pole at about $-0.83$"
+          },
+          {
+            "label": "B",
+            "text": "$\\left(0,\\, 2\\sqrt{2} - 2\\right)$, above the pole at about $0.83$",
+            "note": "That uses $|r|$ in the direction $\\frac{\\pi}{2}$. A negative $r$ is plotted on the opposite ray."
+          },
+          {
+            "label": "C",
+            "text": "$\\left(2 - 2\\sqrt{2},\\, 0\\right)$, on the $x$-axis",
+            "note": "The direction $\\theta = \\frac{\\pi}{2}$ lies along the $y$-axis, since $x = r\\cos\\frac{\\pi}{2} = 0$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$r = 2 - 2\\sqrt{2}\\sin\\frac{\\pi}{2} = 2 - 2\\sqrt{2} \\approx -0.83$.\nThen $x = r\\cos\\frac{\\pi}{2} = 0$ and $y = r\\sin\\frac{\\pi}{2} = 2 - 2\\sqrt{2}$.\nThe point is $\\left(0,\\, 2 - 2\\sqrt{2}\\right)$, just below the pole. So the inner loop is inside the big loop, which reaches down to $-(2 + 2\\sqrt{2})$."
+      },
+      {
+        "prompt": "(c) Test symmetry about the $y$-axis by replacing $\\theta$ with $\\pi - \\theta$. What does this show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$r$ becomes $2 + 2\\sqrt{2}\\sin\\theta$, which is a different equation, so there is no $y$-axis symmetry",
+            "note": "That is what replacing $\\theta$ by $-\\theta$ gives, not $\\pi - \\theta$."
+          },
+          {
+            "label": "B",
+            "text": "The equation is unchanged, so the curve is symmetric about the $y$-axis"
+          },
+          {
+            "label": "C",
+            "text": "The test fails because $\\pi - \\theta$ is a different angle from $\\theta$",
+            "note": "The test asks whether the equation stays the same, not whether the angle does. Work out $\\sin(\\pi - \\theta)$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\sin(\\pi - \\theta) = \\sin\\theta$.\nSo $r = 2 - 2\\sqrt{2}\\sin(\\pi - \\theta) = 2 - 2\\sqrt{2}\\sin\\theta$, the same equation.\nA test that passes proves the symmetry. The curve is symmetric about the $y$-axis."
+      },
+      {
+        "prompt": "(c) Replacing $\\theta$ by $-\\theta$ gives $r = 2 + 2\\sqrt{2}\\sin\\theta$, a different equation. Which argument correctly settles the $x$-axis?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Not symmetric, because the test failed and a failed test settles it",
+            "note": "A failed test proves nothing, since a point has other polar representations. Look for a point of the curve whose mirror image can be checked."
+          },
+          {
+            "label": "B",
+            "text": "Symmetric, because the curve is already symmetric about the $y$-axis",
+            "note": "One symmetry does not give another. Only two together force the third."
+          },
+          {
+            "label": "C",
+            "text": "Not symmetric, because the point $\\left(0,\\, -(2 + 2\\sqrt{2})\\right)$ is on the curve but its mirror image $\\left(0,\\, 2 + 2\\sqrt{2}\\right)$ is not"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The farthest point $\\left(0,\\, -(2 + 2\\sqrt{2})\\right)$ is on the curve. Its mirror image in the $x$-axis is $\\left(0,\\, 2 + 2\\sqrt{2}\\right)$.\nThat point can be written $\\left(2 + 2\\sqrt{2},\\, \\frac{\\pi}{2}\\right)$ or $\\left(-(2 + 2\\sqrt{2}),\\, \\frac{3\\pi}{2}\\right)$, plus multiples of $2\\pi$ in the angle.\nAt $\\theta = \\frac{\\pi}{2}$ the curve has $r = 2 - 2\\sqrt{2}$, and at $\\theta = \\frac{3\\pi}{2}$ it has $r = 2 + 2\\sqrt{2}$. Neither matches, so the mirror image is not on the curve and there is no $x$-axis symmetry."
+      },
+      {
+        "prompt": "(c) State all the symmetries of the curve.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "About the $y$-axis only"
+          },
+          {
+            "label": "B",
+            "text": "About the $x$-axis and the $y$-axis",
+            "note": "The $x$-axis symmetry was ruled out by the check on the farthest point."
+          },
+          {
+            "label": "C",
+            "text": "About the $y$-axis and the origin",
+            "note": "Any two of the three symmetries imply the third. These two would force $x$-axis symmetry, which has been ruled out."
+          },
+          {
+            "label": "D",
+            "text": "About all three: the $x$-axis, the $y$-axis and the origin",
+            "note": "This includes the $x$-axis, which has been ruled out."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The $y$-axis test passed, so the curve is symmetric about the $y$-axis.\nThe $x$-axis is ruled out by the mirror image of the farthest point.\nIf the curve were symmetric about the origin, it would have all three symmetries, since any two imply the third. So it is not symmetric about the origin.\nThe only symmetry is about the $y$-axis."
+      }
+    ],
+    "takeaway": "A passed symmetry test proves the symmetry, but a failed one proves nothing: check a point and its mirror image before ruling a symmetry out."
+  }
+]

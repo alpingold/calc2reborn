@@ -1,0 +1,495 @@
+[
+  {
+    "id": "L25-g1",
+    "lessonId": "L25",
+    "typeId": "L25-ratio-apply",
+    "stem": "Let $a_k = \\dfrac{(2k)!\\,x^k}{(k+1)!\\,(k+2)!}$ for $k \\ge 1$.\n\n(a) Use a test to find the limit that governs convergence, as a function of $x$.\n\n(b) Say for which $x$ the test shows convergence.\n\n(c) Say what the test says at $x = 1$ and at $x = \\tfrac14$.",
+    "steps": [
+      {
+        "prompt": "Which test suits $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Root test, because of the factor $x^k$",
+            "note": "The $k$th root of a factorial does not simplify. Revisit which feature of the term a test should cancel."
+          },
+          {
+            "label": "B",
+            "text": "Ratio test, because of the factorials"
+          },
+          {
+            "label": "C",
+            "text": "Divergence test on the terms",
+            "note": "That test can only show divergence, never convergence, so it cannot answer part (b)."
+          },
+          {
+            "label": "D",
+            "text": "Integral test",
+            "note": "Factorials of $k$ have no simple antiderivative, so the integral test is not usable here."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Factorials cancel in a ratio of consecutive terms: $\\frac{(k+1)!}{k!} = k+1$. So use the ratio test, with $L = \\lim_{k\\to\\infty}\\left|\\frac{a_{k+1}}{a_k}\\right|$."
+      },
+      {
+        "prompt": "What is $a_{k+1}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{(2k+1)!\\,x^{k+1}}{(k+2)!\\,(k+3)!}$",
+            "note": "In $(2k)!$ the $k$ must become $k+1$ too, giving $(2(k+1))!$, not $(2k+1)!$."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{(2k)!\\,x^{k+1}}{(k+2)!\\,(k+3)!}$",
+            "note": "Every $k$ in the term must be replaced by $k+1$, including the one inside $(2k)!$."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{(2k+2)!\\,x^{k+1}}{(k+2)!\\,(k+3)!}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Replace $k$ by $k+1$ everywhere: $(2k)! \\to (2k+2)!$, $x^k \\to x^{k+1}$, $(k+1)! \\to (k+2)!$, $(k+2)! \\to (k+3)!$.\n\n$$\na_{k+1} = \\frac{(2k+2)!\\,x^{k+1}}{(k+2)!\\,(k+3)!}\n$$"
+      },
+      {
+        "prompt": "Simplify $\\left|\\dfrac{a_{k+1}}{a_k}\\right|$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{(2k+2)(2k+1)}{(k+2)(k+3)}\\,|x|$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{(2k+2)(2k+1)}{(k+1)(k+2)}\\,|x|$",
+            "note": "The denominator factors are off: $(k+1)!$ and $(k+2)!$ are replaced by $(k+2)!$ and $(k+3)!$, and the leftover factors are not these."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{2(k+1)}{(k+2)(k+3)}\\,|x|$",
+            "note": "This treats $(2k+2)!$ as $2\\,(k+1)!$. Write out $(2k+2)!$ down to $(2k)!$ instead."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Divide, and cancel the common factorials:\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{(2k+2)!}{(2k)!}\\cdot\\frac{(k+1)!}{(k+3)!}\\cdot\\frac{(k+2)!}{(k+2)!}\\cdot x\n$$\n\nHere $\\frac{(2k+2)!}{(2k)!} = (2k+2)(2k+1)$ and $\\frac{(k+1)!}{(k+3)!} = \\frac{1}{(k+2)(k+3)}$. So\n\n$$\n\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{(2k+2)(2k+1)}{(k+2)(k+3)}\\,|x|\n$$"
+      },
+      {
+        "prompt": "What is $L$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2|x|$",
+            "note": "The numerator has two factors that each grow like $2k$. Count both."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{|x|}{4}$",
+            "note": "The leading coefficients give numerator over denominator, not the reverse."
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "The fraction has numerator and denominator of the same degree, so it does not tend to $0$."
+          },
+          {
+            "label": "D",
+            "text": "$4|x|$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The numerator is $4k^2 + \\dots$ and the denominator is $k^2 + \\dots$, so the fraction tends to $4$.\n\n$$\nL = \\lim_{k\\to\\infty}\\frac{(2k+2)(2k+1)}{(k+2)(k+3)}\\,|x| = 4|x|\n$$"
+      },
+      {
+        "prompt": "For which $x$ does the test show convergence?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|x| < 4$",
+            "note": "Solve $4|x| < 1$ again: the $4$ must be divided out, not moved the other way."
+          },
+          {
+            "label": "B",
+            "text": "$|x| < \\tfrac14$"
+          },
+          {
+            "label": "C",
+            "text": "$|x| \\le \\tfrac14$",
+            "note": "At $|x| = \\tfrac14$ the limit equals $1$. Ask what the test can say there."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The test shows convergence when $L < 1$:\n\n$$\n4|x| < 1 \\iff |x| < \\tfrac14\n$$\n\nFor these $x$ the series converges absolutely."
+      },
+      {
+        "prompt": "(c) What does the test say at $x = 1$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The series diverges"
+          },
+          {
+            "label": "B",
+            "text": "The test is inconclusive",
+            "note": "The test is inconclusive only when $L = 1$. Evaluate $L$ at $x = 1$."
+          },
+          {
+            "label": "C",
+            "text": "The series converges absolutely",
+            "note": "$L$ must be below $1$ for that. Evaluate $L$ at $x = 1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $x = 1$, $L = 4 \\cdot 1 = 4 > 1$, so the series diverges. The same holds for every $x$ with $|x| > \\tfrac14$."
+      },
+      {
+        "prompt": "(c) What does the test say at $x = \\tfrac14$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The series diverges, since $L \\ge 1$",
+            "note": "Divergence needs $L > 1$ strictly. A limit of exactly $1$ settles nothing."
+          },
+          {
+            "label": "B",
+            "text": "The series converges, since $L \\le 1$",
+            "note": "Convergence needs $L < 1$ strictly. A limit of exactly $1$ settles nothing."
+          },
+          {
+            "label": "C",
+            "text": "It is inconclusive"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x = \\tfrac14$, $L = 4 \\cdot \\tfrac14 = 1$, so the ratio test is inconclusive and another test is needed there. In summary: absolute convergence for $|x| < \\tfrac14$, divergence for $|x| > \\tfrac14$, and no conclusion from this test at $|x| = \\tfrac14$."
+      }
+    ],
+    "takeaway": "After finding the limit as a function of $x$, solve $L < 1$ for the open interval and treat the points where $L = 1$ separately, because the test says nothing there."
+  },
+  {
+    "id": "L25-g2",
+    "lessonId": "L25",
+    "typeId": "L25-root-test",
+    "stem": "Consider the series $\\displaystyle\\sum_{k=1}^{\\infty}\\left(\\frac{2k+1}{k+3}\\right)^{k} x^{k}$.\n\n(a) Use the root test to find the values of $x$ for which the series converges absolutely.\n\n(b) Decide what happens at each endpoint.\n\n(c) State the interval of convergence.",
+    "steps": [
+      {
+        "prompt": "(a) What is $\\sqrt[k]{|a_k|}$, where $a_k$ is the general term?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{2k+1}{k+3}\\,|x|$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{2k+1}{k+3}\\,|x|^k$",
+            "note": "The $k$th root of $|x|^k$ is $|x|$; the exponent on $x$ is removed as well."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{(2k+1)^k}{(k+3)^k}\\,|x|$",
+            "note": "The $k$th root also removes the exponent $k$ on the fraction, not only the one on $x$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The whole term is a $k$th power, $\\left(\\frac{(2k+1)\\,x}{k+3}\\right)^k$, so the root test fits.\n\n$$\n\\sqrt[k]{|a_k|} = \\frac{2k+1}{k+3}\\,|x|\n$$\n\nThe fraction is positive for $k \\ge 1$."
+      },
+      {
+        "prompt": "What is $L = \\lim_{k\\to\\infty}\\sqrt[k]{|a_k|}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|x|$",
+            "note": "Recheck the limit of the fraction using the leading coefficients of numerator and denominator."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{|x|}{2}$",
+            "note": "Recheck which coefficient goes on top: the numerator is $2k+1$."
+          },
+          {
+            "label": "C",
+            "text": "$2|x|$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\frac{2k+1}{k+3} \\to 2$, so\n\n$$\nL = 2|x|\n$$"
+      },
+      {
+        "prompt": "For which $x$ does the series converge absolutely?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$|x| < 2$",
+            "note": "Solve $2|x| < 1$ again: the $2$ divides the right side."
+          },
+          {
+            "label": "B",
+            "text": "$|x| < \\tfrac12$"
+          },
+          {
+            "label": "C",
+            "text": "$|x| < 1$",
+            "note": "The condition is $L < 1$ with $L = 2|x|$, not $|x| < 1$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The root test gives absolute convergence when $L < 1$:\n\n$$\n2|x| < 1 \\iff |x| < \\tfrac12\n$$\n\nIt gives divergence for $|x| > \\tfrac12$. The radius of convergence is $\\tfrac12$."
+      },
+      {
+        "prompt": "(b) At $x = \\tfrac12$, $L = 1$. What is the right way to decide the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Apply the root test again",
+            "note": "The root test gives the same limit $1$ at this $x$, so repeating it adds nothing."
+          },
+          {
+            "label": "B",
+            "text": "Apply the alternating series test",
+            "note": "At $x = \\tfrac12$ every term is positive, so the series does not alternate."
+          },
+          {
+            "label": "C",
+            "text": "Apply the $p$-series test",
+            "note": "The terms are not of the form $\\frac{1}{k^p}$, so the $p$-series test does not apply."
+          },
+          {
+            "label": "D",
+            "text": "Look at the limit of the terms themselves"
+          }
+        ],
+        "answer": "D",
+        "explanation": "At $x = \\tfrac12$ the series is $\\sum \\left(\\frac{2k+1}{k+3}\\cdot\\frac12\\right)^k = \\sum \\left(\\frac{2k+1}{2k+6}\\right)^k$.\n\nA series can converge only if its terms tend to $0$, so check $\\lim_{k\\to\\infty}\\left(\\frac{2k+1}{2k+6}\\right)^k$."
+      },
+      {
+        "prompt": "What is $\\displaystyle\\lim_{k\\to\\infty}\\left(\\frac{2k+1}{2k+6}\\right)^k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^{-5/2}$"
+          },
+          {
+            "label": "B",
+            "text": "$e^{-5}$",
+            "note": "Write the base as $1 - \\frac{5}{2k+6}$. The $2$ in $2k$ matters when the exponent $k$ is applied."
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "The base is below $1$ for each $k$, but it tends to $1$ fast enough that the powers do not collapse to $0$."
+          },
+          {
+            "label": "D",
+            "text": "$1$",
+            "note": "The base tends to $1$, but it is raised to a power that grows, so this is a $1^\\infty$ form and $1$ is not automatic."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\frac{2k+1}{2k+6} = 1 - \\frac{5}{2k+6}\n$$\n\nand $\\left(1 - \\frac{5}{2k+6}\\right)^k = \\left[\\left(1 - \\frac{5}{2k+6}\\right)^{2k+6}\\right]^{k/(2k+6)} \\to \\left(e^{-5}\\right)^{1/2} = e^{-5/2}$.\n\nNumerically $e^{-5/2} \\approx 0.0821$, not $0$."
+      },
+      {
+        "prompt": "(b) What does this say at $x = \\tfrac12$, and what happens at $x = -\\tfrac12$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = \\tfrac12$ diverges and $x = -\\tfrac12$ converges by the alternating series test",
+            "note": "The alternating series test needs the terms to tend to $0$. Check the size of the terms at $x = -\\tfrac12$."
+          },
+          {
+            "label": "B",
+            "text": "Both endpoints diverge, since the terms do not tend to $0$ in absolute value"
+          },
+          {
+            "label": "C",
+            "text": "Both endpoints converge, since $L = 1$ is not above $1$",
+            "note": "A limit of $1$ in the root test decides nothing, and the terms' limit is what was just found."
+          }
+        ],
+        "answer": "B",
+        "explanation": "At $x = \\tfrac12$ the terms tend to $e^{-5/2} \\neq 0$, so the series diverges by the divergence test.\n\nAt $x = -\\tfrac12$ the terms are $(-1)^k\\left(\\frac{2k+1}{2k+6}\\right)^k$. Their size still tends to $e^{-5/2} \\neq 0$, so they do not tend to $0$ and the series diverges."
+      },
+      {
+        "prompt": "(c) What is the interval of convergence?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left[-\\tfrac12,\\tfrac12\\right]$",
+            "note": "Both endpoints were found to diverge."
+          },
+          {
+            "label": "B",
+            "text": "$\\left(-\\tfrac12,\\tfrac12\\right]$",
+            "note": "The endpoint $x = \\tfrac12$ was found to diverge."
+          },
+          {
+            "label": "C",
+            "text": "$\\left(-\\tfrac12,\\tfrac12\\right)$"
+          },
+          {
+            "label": "D",
+            "text": "$\\left[-\\tfrac12,\\tfrac12\\right)$",
+            "note": "The endpoint $x = -\\tfrac12$ was found to diverge."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The series converges for $|x| < \\tfrac12$ and diverges at both endpoints, so the interval of convergence is $\\left(-\\tfrac12, \\tfrac12\\right)$."
+      }
+    ],
+    "takeaway": "When the root test gives $L = 1$ at an endpoint, test the terms there: if they do not tend to $0$, the series diverges, whatever the signs."
+  },
+  {
+    "id": "L25-g3",
+    "lessonId": "L25",
+    "typeId": "L25-ratio-inconclusive",
+    "stem": "Let $a_k = \\dfrac{k+3}{k^3+2k}$ and $b_k = \\dfrac{(k+3)\\,2^k}{k^3+2k}$ for $k \\ge 1$.\n\n(a) Show that the ratio test is inconclusive for $\\sum a_k$, then decide whether $\\sum a_k$ converges.\n\n(b) Say whether the ratio test is conclusive for $\\sum b_k$, and what it shows.",
+    "steps": [
+      {
+        "prompt": "(a) Which expression is $\\dfrac{a_{k+1}}{a_k}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{k+4}{(k+1)^3+2(k+1)}\\cdot\\dfrac{k^3+2k}{k+3}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{k+3}{k^3+2k}\\cdot\\dfrac{(k+1)^3+2(k+1)}{k+4}$",
+            "note": "This is the reciprocal, $\\frac{a_k}{a_{k+1}}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{k+4}{k^3+2k+1}\\cdot\\dfrac{k^3+2k}{k+3}$",
+            "note": "Replacing $k$ by $k+1$ must be done in every $k$ of the denominator too, not by adding $1$ to the whole expression."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Replace $k$ by $k+1$ in the term, then divide by $a_k$:\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{k+4}{(k+1)^3+2(k+1)}\\cdot\\frac{k^3+2k}{k+3}\n$$"
+      },
+      {
+        "prompt": "What is $\\displaystyle\\lim_{k\\to\\infty}\\frac{a_{k+1}}{a_k}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "The terms tend to $0$, but the limit asked for is of the ratio of consecutive terms, which is a different quantity."
+          },
+          {
+            "label": "B",
+            "text": "$1$"
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac13$",
+            "note": "The terms decay like a power of $k$, and the ratio of consecutive terms of such a decay does not pick up the exponent."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Compare leading powers. The first fraction is $\\frac{k+4}{k^3+3k^2+5k+3} \\sim \\frac{k}{k^3}$ and the second is $\\frac{k^3+2k}{k+3} \\sim \\frac{k^3}{k}$.\n\n$$\n\\lim_{k\\to\\infty}\\frac{a_{k+1}}{a_k} = \\lim_{k\\to\\infty}\\frac{k}{k^3}\\cdot\\frac{k^3}{k} = 1\n$$"
+      },
+      {
+        "prompt": "What does $L = 1$ tell about $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It converges, since $L$ is not above $1$",
+            "note": "Convergence by the ratio test needs $L < 1$ strictly."
+          },
+          {
+            "label": "B",
+            "text": "It diverges, since $L$ is not below $1$",
+            "note": "Divergence by the ratio test needs $L > 1$ strictly."
+          },
+          {
+            "label": "C",
+            "text": "The ratio test is inconclusive, so another test is needed"
+          }
+        ],
+        "answer": "C",
+        "explanation": "With $L = 1$ the ratio test decides nothing. This happens for every rational function of $k$, so use a comparison test."
+      },
+      {
+        "prompt": "Which comparison series suits $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum\\dfrac1{k^2}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\sum\\dfrac1{k^3}$",
+            "note": "This keeps only the denominator's $k^3$. Compare the highest powers of the numerator and of the denominator."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum\\dfrac1k$",
+            "note": "This keeps only the $k$ of the numerator. Compare the highest powers of the numerator and of the denominator."
+          }
+        ],
+        "answer": "A",
+        "explanation": "For large $k$, $a_k \\approx \\frac{k}{k^3} = \\frac{1}{k^2}$. Use limit comparison with $\\sum \\frac{1}{k^2}$, a $p$-series with $p = 2 > 1$."
+      },
+      {
+        "prompt": "What is $c = \\displaystyle\\lim_{k\\to\\infty}\\dfrac{a_k}{1/k^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3$",
+            "note": "The constant $3$ in the numerator does not matter in the limit; compare the leading terms."
+          },
+          {
+            "label": "B",
+            "text": "$1$"
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "$a_k$ and $\\frac{1}{k^2}$ have the same size for large $k$; the quotient is not $0$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nc = \\lim_{k\\to\\infty}\\frac{(k+3)\\,k^2}{k^3+2k} = \\lim_{k\\to\\infty}\\frac{k^3+3k^2}{k^3+2k} = 1\n$$\n\nSo $0 < c < \\infty$."
+      },
+      {
+        "prompt": "What does this show about $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It diverges",
+            "note": "The comparison series $\\sum \\frac{1}{k^2}$ converges, and limit comparison with a finite positive $c$ gives the same behavior."
+          },
+          {
+            "label": "B",
+            "text": "Nothing yet, since the ratio test failed",
+            "note": "The ratio test failing does not stop another test from deciding. Limit comparison has its own conclusion."
+          },
+          {
+            "label": "C",
+            "text": "It converges"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Since $c = 1$ is finite and positive and $\\sum \\frac{1}{k^2}$ converges, $\\sum a_k$ converges by limit comparison. That finishes part (a)."
+      },
+      {
+        "prompt": "(b) What does the ratio test give for $\\sum b_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$L = 2$, so it is conclusive and the series diverges"
+          },
+          {
+            "label": "B",
+            "text": "$L = 1$, so it is inconclusive, as in part (a)",
+            "note": "The factor $2^k$ changes the ratio: it contributes a factor $2$ that part (a) did not have."
+          },
+          {
+            "label": "C",
+            "text": "$L = 2$, so it is conclusive and the series converges",
+            "note": "Convergence needs $L < 1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Here $b_k = 2^k a_k$, so\n\n$$\n\\frac{b_{k+1}}{b_k} = 2\\cdot\\frac{a_{k+1}}{a_k} \\to 2\\cdot 1 = 2\n$$\n\nSince $L = 2 > 1$, the ratio test is conclusive and $\\sum b_k$ diverges."
+      }
+    ],
+    "takeaway": "A rational function of $k$ always gives $L = 1$, so the ratio test is conclusive only when an exponential or factorial factor moves the limit away from $1$."
+  }
+]

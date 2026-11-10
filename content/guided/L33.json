@@ -1,0 +1,303 @@
+[
+  {
+    "id": "L33-g1",
+    "lessonId": "L33",
+    "typeId": "L33-convert-points",
+    "stem": "The point with Cartesian coordinates $(-4, -4)$ is given.\n\n(a) Find its polar coordinates $(r, \\theta)$ with $r > 0$ and $0 \\le \\theta < 2\\pi$.\n\n(b) Find a representation with $r < 0$, and check it by converting back to Cartesian coordinates.\n\n(c) Find a representation with $r > 0$ and $-\\pi < \\theta < 0$.",
+    "steps": [
+      {
+        "prompt": "(a) Which value of $r$ is the distance from the pole to $(-4, -4)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8$",
+            "note": "This adds the coordinates in absolute value. The distance comes from $r^2 = x^2 + y^2$, with both squares."
+          },
+          {
+            "label": "B",
+            "text": "$4\\sqrt{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$4$",
+            "note": "This keeps only one of the two squares. Both $x^2$ and $y^2$ contribute to $r^2$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$r = \\sqrt{x^2 + y^2} = \\sqrt{16 + 16} = \\sqrt{32} = 4\\sqrt{2}$, taking the positive root as (a) asks."
+      },
+      {
+        "prompt": "(a) The point has $\\tan\\theta = \\frac{y}{x}$. In which quadrant does it lie, and what does $\\tan^{-1}\\left(\\frac{y}{x}\\right)$ return?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Quadrant III; $\\tan^{-1}(1) = \\frac{\\pi}{4}$, which points into quadrant I"
+          },
+          {
+            "label": "B",
+            "text": "Quadrant I; $\\tan^{-1}(1) = \\frac{\\pi}{4}$",
+            "note": "Both coordinates are negative, so the point is not in quadrant I. Check the signs of $x$ and $y$."
+          },
+          {
+            "label": "C",
+            "text": "Quadrant III; $\\tan^{-1}(1) = \\frac{5\\pi}{4}$",
+            "note": "$\\tan^{-1}$ only returns angles between $-\\frac{\\pi}{2}$ and $\\frac{\\pi}{2}$, so it cannot return an angle that large."
+          },
+          {
+            "label": "D",
+            "text": "Quadrant II; $\\tan^{-1}(1) = \\frac{3\\pi}{4}$",
+            "note": "A point in quadrant II has $x < 0 < y$. Also $\\tan\\frac{3\\pi}{4} = -1$, not $1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$x < 0$ and $y < 0$, so the point is in quadrant III. $\\tan\\theta = \\frac{-4}{-4} = 1$, and $\\tan^{-1}(1) = \\frac{\\pi}{4}$.\n\nThat angle points into quadrant I, the opposite side of the origin, so it is off by $\\pi$."
+      },
+      {
+        "prompt": "(a) With $r = 4\\sqrt{2} > 0$, which $\\theta$ in $[0, 2\\pi)$ puts the point in quadrant III?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{4}$",
+            "note": "With $r > 0$ this angle gives $(4, 4)$ in quadrant I, the opposite side of the origin."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{3\\pi}{4}$",
+            "note": "This angle points into quadrant II, so with $r > 0$ the point is $(-4, 4)$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{5\\pi}{4}$"
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{7\\pi}{4}$",
+            "note": "This angle points into quadrant IV, so with $r > 0$ the point is $(4, -4)$."
+          }
+        ],
+        "answer": "C",
+        "explanation": "Add $\\pi$ to the calculator angle: $\\theta = \\frac{\\pi}{4} + \\pi = \\frac{5\\pi}{4}$.\n\nCheck: $4\\sqrt{2}\\cos\\frac{5\\pi}{4} = 4\\sqrt{2}\\left(-\\frac{\\sqrt{2}}{2}\\right) = -4$ and likewise $y = -4$.\n\nSo $(r, \\theta) = \\left(4\\sqrt{2}, \\frac{5\\pi}{4}\\right)$."
+      },
+      {
+        "prompt": "(b) To use $r < 0$, which pair names the same point?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left(-4\\sqrt{2}, \\frac{\\pi}{4}\\right)$"
+          },
+          {
+            "label": "B",
+            "text": "$\\left(-4\\sqrt{2}, \\frac{5\\pi}{4}\\right)$",
+            "note": "Changing only the sign of $r$ sends the point to the opposite side of the origin. The angle has to change as well."
+          },
+          {
+            "label": "C",
+            "text": "$\\left(-4\\sqrt{2}, -\\frac{\\pi}{4}\\right)$",
+            "note": "This sends the point to $(-4, 4)$, not the given point. Check the direction the angle faces before $r$ reverses it."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Flipping the sign of $r$ adds $\\pi$ to the angle (or subtracts it): $\\frac{5\\pi}{4} - \\pi = \\frac{\\pi}{4}$.\n\nThis is the angle $\\tan^{-1}(1)$ gave directly; with $r < 0$ it lands in quadrant III.\n\nSo $(r, \\theta) = \\left(-4\\sqrt{2}, \\frac{\\pi}{4}\\right)$."
+      },
+      {
+        "prompt": "(b) Convert $\\left(-4\\sqrt{2}, \\frac{\\pi}{4}\\right)$ back with $x = r\\cos\\theta$ and $y = r\\sin\\theta$. Which point results?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(4, 4)$",
+            "note": "This drops the minus sign of $r$. The formulas $x = r\\cos\\theta$ and $y = r\\sin\\theta$ hold for negative $r$ too."
+          },
+          {
+            "label": "B",
+            "text": "$(-4, -4)$"
+          },
+          {
+            "label": "C",
+            "text": "$(-2\\sqrt{2}, -2\\sqrt{2})$",
+            "note": "This uses $\\cos\\frac{\\pi}{4} = \\frac{1}{2}$, but $\\cos\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\cos\\frac{\\pi}{4} = \\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$.\n\n$x = -4\\sqrt{2}\\cdot\\frac{\\sqrt{2}}{2} = -4$ and $y = -4\\sqrt{2}\\cdot\\frac{\\sqrt{2}}{2} = -4$.\n\nThe point is $(-4, -4)$, so the representation is correct."
+      },
+      {
+        "prompt": "(c) Which pair has $r > 0$, $-\\pi < \\theta < 0$, and names the point $(-4, -4)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left(4\\sqrt{2}, -\\frac{\\pi}{4}\\right)$",
+            "note": "This angle points into quadrant IV, so the pair names $(4, -4)$."
+          },
+          {
+            "label": "B",
+            "text": "$\\left(4\\sqrt{2}, -\\frac{5\\pi}{4}\\right)$",
+            "note": "This angle is below $-\\pi$, outside the range, and it lands in quadrant II at $(-4, 4)$."
+          },
+          {
+            "label": "C",
+            "text": "$\\left(4\\sqrt{2}, -\\frac{3\\pi}{4}\\right)$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Subtract $2\\pi$ from $\\frac{5\\pi}{4}$: $\\theta = \\frac{5\\pi}{4} - 2\\pi = -\\frac{3\\pi}{4}$, which lies between $-\\pi$ and $0$.\n\nCheck: $\\cos\\left(-\\frac{3\\pi}{4}\\right) = \\sin\\left(-\\frac{3\\pi}{4}\\right) = -\\frac{\\sqrt{2}}{2}$, so $x = y = -4$.\n\nSo $\\left(4\\sqrt{2}, -\\frac{3\\pi}{4}\\right)$ is the point."
+      }
+    ],
+    "takeaway": "Take the quadrant from the signs of $x$ and $y$ before trusting $\\tan^{-1}$, then confirm the pair by converting back."
+  },
+  {
+    "id": "L33-g2",
+    "lessonId": "L33",
+    "typeId": "L33-convert-equations",
+    "stem": "(a) Convert $r = \\dfrac{10}{3\\cos\\theta - 4\\sin\\theta}$ to a Cartesian equation and name the curve.\n\n(b) Convert $r = 3\\cos\\theta - 4\\sin\\theta$ to a Cartesian equation and name the curve, with its center and radius.\n\n(c) Does the multiplication used in (b) add a point that is not on the original curve?",
+    "steps": [
+      {
+        "prompt": "(a) What first move removes the fraction so that $r\\cos\\theta$ and $r\\sin\\theta$ appear?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Multiply both sides by $3\\cos\\theta - 4\\sin\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "Multiply both sides by $r$",
+            "note": "This leaves $r^2$ on the left and the fraction still on the right, so $x$ and $y$ do not appear."
+          },
+          {
+            "label": "C",
+            "text": "Square both sides",
+            "note": "This makes $r^2$ equal to a squared fraction and the trig terms are still not in the form $r\\cos\\theta$ or $r\\sin\\theta$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The denominator is $3\\cos\\theta - 4\\sin\\theta$, so multiply both sides by it:\n\n$r(3\\cos\\theta - 4\\sin\\theta) = 10$, that is $3r\\cos\\theta - 4r\\sin\\theta = 10$."
+      },
+      {
+        "prompt": "(a) Replace $r\\cos\\theta$ by $x$ and $r\\sin\\theta$ by $y$. Which equation results?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3x + 4y = 10$",
+            "note": "The sign in front of $4r\\sin\\theta$ is negative, and it stays negative after substituting."
+          },
+          {
+            "label": "B",
+            "text": "$3x - 4y = 10$"
+          },
+          {
+            "label": "C",
+            "text": "$3x - 4y = 10r$",
+            "note": "The right side was $10$ before substitution and has no factor of $r$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$3(r\\cos\\theta) - 4(r\\sin\\theta) = 10$ becomes $3x - 4y = 10$."
+      },
+      {
+        "prompt": "(a) What is the curve, and what is its slope?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "A line with slope $-\\frac{3}{4}$",
+            "note": "Solve for $y$ and read the coefficient of $x$, keeping its sign."
+          },
+          {
+            "label": "B",
+            "text": "A line with slope $\\frac{4}{3}$",
+            "note": "This inverts the ratio. Solve $3x - 4y = 10$ for $y$ and read off the coefficient of $x$."
+          },
+          {
+            "label": "C",
+            "text": "A line with slope $\\frac{3}{4}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Solve for $y$: $4y = 3x - 10$, so $y = \\frac{3}{4}x - \\frac{5}{2}$.\n\nIt is a line with slope $\\frac{3}{4}$."
+      },
+      {
+        "prompt": "(b) The equation is now $r = 3\\cos\\theta - 4\\sin\\theta$, with no denominator. What move produces $x$ and $y$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Multiply both sides by $r$"
+          },
+          {
+            "label": "B",
+            "text": "Substitute $\\cos\\theta = x$ and $\\sin\\theta = y$",
+            "note": "Here $x = r\\cos\\theta$, so $\\cos\\theta$ alone is not $x$. The factor of $r$ is missing."
+          },
+          {
+            "label": "C",
+            "text": "Multiply both sides by $3\\cos\\theta - 4\\sin\\theta$",
+            "note": "This gives $r(3\\cos\\theta - 4\\sin\\theta) = (3\\cos\\theta - 4\\sin\\theta)^2$, which still has $\\cos\\theta$ and $\\sin\\theta$ on their own."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Each trig term on the right needs a factor of $r$ to become $x$ or $y$, and the left side then becomes $r^2$.\n\n$r^2 = 3r\\cos\\theta - 4r\\sin\\theta$."
+      },
+      {
+        "prompt": "(b) Which Cartesian equation follows?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x^2 + y^2 = 3x + 4y$",
+            "note": "The sign of the second term on the right is negative."
+          },
+          {
+            "label": "B",
+            "text": "$x^2 + y^2 = 3x - 4y$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sqrt{x^2 + y^2} = 3x - 4y$",
+            "note": "After multiplying by $r$ the left side is $r^2$, not $r$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$r^2 = x^2 + y^2$, $r\\cos\\theta = x$, $r\\sin\\theta = y$.\n\nSo $x^2 + y^2 = 3x - 4y$."
+      },
+      {
+        "prompt": "(b) Complete the square. What are the center and radius?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Center $(3, -4)$, radius $5$",
+            "note": "The center is not read straight from the coefficients; halve them when completing the square."
+          },
+          {
+            "label": "B",
+            "text": "Center $\\left(\\frac{3}{2}, -2\\right)$, radius $\\frac{25}{4}$",
+            "note": "The right side after completing the square is a radius squared, so a square root is still needed."
+          },
+          {
+            "label": "C",
+            "text": "Center $\\left(-\\frac{3}{2}, 2\\right)$, radius $\\frac{5}{2}$",
+            "note": "Completing the square on $x^2 - 3x$ and on $y^2 + 4y$ gives brackets $(x - h)^2$ and $(y - k)^2$. Check the sign inside each bracket against the sign of the linear term."
+          },
+          {
+            "label": "D",
+            "text": "Center $\\left(\\frac{3}{2}, -2\\right)$, radius $\\frac{5}{2}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$x^2 - 3x + y^2 + 4y = 0$.\n\n$\\left(x - \\frac{3}{2}\\right)^2 + (y + 2)^2 = \\frac{9}{4} + 4 = \\frac{25}{4}$.\n\nA circle with center $\\left(\\frac{3}{2}, -2\\right)$ and radius $\\frac{5}{2}$."
+      },
+      {
+        "prompt": "(c) Multiplying by $r$ can add the pole. Is the pole on the original curve $r = 3\\cos\\theta - 4\\sin\\theta$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Yes; $r = 0$ when $\\tan\\theta = \\frac{3}{4}$, so nothing is added"
+          },
+          {
+            "label": "B",
+            "text": "No; the pole is extra and must be removed from the circle",
+            "note": "Check whether $r$ can equal $0$ for some angle, that is, whether $3\\cos\\theta - 4\\sin\\theta$ can be $0$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$3\\cos\\theta - 4\\sin\\theta = 0$ when $\\tan\\theta = \\frac{3}{4}$, and there $r = 0$.\n\nSo the pole is on the original curve, and the circle $\\left(x - \\frac{3}{2}\\right)^2 + (y + 2)^2 = \\frac{25}{4}$ is the whole curve."
+      }
+    ],
+    "takeaway": "Multiply by the denominator when $r$ is a fraction, and by $r$ when only $\\cos\\theta$ and $\\sin\\theta$ appear; then check whether the pole was added."
+  }
+]

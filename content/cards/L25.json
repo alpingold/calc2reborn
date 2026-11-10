@@ -6,6 +6,10 @@
     "back": "Let $L = \\lim_{k\\to\\infty} \\left|\\frac{a_{k+1}}{a_k}\\right|$. If $L < 1$ the series converges absolutely; if $L > 1$ (or $L = \\infty$) it diverges; if $L = 1$ or the limit does not exist (and is not $\\infty$), the test is inconclusive.",
     "tags": [
       "ratio-test"
+    ],
+    "typeIds": [
+      "L25-ratio-apply",
+      "L25-ratio-inconclusive"
     ]
   },
   {
@@ -16,6 +20,9 @@
     "tags": [
       "trap",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L25-ratio-inconclusive"
     ]
   },
   {
@@ -25,6 +32,9 @@
     "back": "Let $L = \\lim_{k\\to\\infty} \\sqrt[k]{|a_k|}$. If $L < 1$ the series converges absolutely; if $L > 1$ (or $L = \\infty$) it diverges; if $L = 1$ or the limit does not exist (and is not $\\infty$), it is inconclusive. It works well when $k$ appears in an exponent, especially when the whole term is a $k$th power.",
     "tags": [
       "root-test"
+    ],
+    "typeIds": [
+      "L25-root-test"
     ]
   },
   {
@@ -35,6 +45,9 @@
     "tags": [
       "which-test",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L25-ratio-apply"
     ]
   },
   {
@@ -45,6 +58,9 @@
     "tags": [
       "which-test",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L25-ratio-apply"
     ]
   },
   {
@@ -55,6 +71,9 @@
     "tags": [
       "which-test",
       "root-test"
+    ],
+    "typeIds": [
+      "L25-root-test"
     ]
   },
   {
@@ -66,6 +85,9 @@
       "trap",
       "ratio-test",
       "limit-comparison"
+    ],
+    "typeIds": [
+      "L25-ratio-inconclusive"
     ]
   },
   {
@@ -76,6 +98,9 @@
     "tags": [
       "which-test",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L25-ratio-apply"
     ]
   },
   {
@@ -86,6 +111,9 @@
     "tags": [
       "which-test",
       "root-test"
+    ],
+    "typeIds": [
+      "L25-root-test"
     ]
   },
   {
@@ -97,6 +125,9 @@
       "which-test",
       "ratio-test",
       "absolute"
+    ],
+    "typeIds": [
+      "L25-ratio-apply"
     ]
   },
   {
@@ -107,6 +138,9 @@
     "tags": [
       "ratio-test",
       "factorial"
+    ],
+    "typeIds": [
+      "L25-ratio-apply"
     ]
   },
   {
@@ -117,6 +151,10 @@
     "tags": [
       "trap",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L25-ratio-apply",
+      "L25-ratio-inconclusive"
     ]
   },
   {
@@ -128,6 +166,10 @@
       "trap",
       "root-test",
       "p-series"
+    ],
+    "typeIds": [
+      "L25-root-test",
+      "L25-ratio-inconclusive"
     ]
   }
 ]

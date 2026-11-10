@@ -39,7 +39,8 @@
       "interval"
     ],
     "typeIds": [
-      "L29-radius-of-convergence"
+      "L29-radius-of-convergence",
+      "L29-interval-with-endpoints"
     ]
   },
   {

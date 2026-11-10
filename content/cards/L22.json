@@ -6,6 +6,10 @@
     "back": "If $\\lim_{k\\to\\infty} a_k \\ne 0$ (or the limit does not exist), then $\\sum_{k=1}^{\\infty} a_k$ diverges. Equivalently, if $\\sum a_k$ converges then $a_k \\to 0$. It can only prove divergence.",
     "tags": [
       "divergence-test"
+    ],
+    "typeIds": [
+      "L22-divergence-test",
+      "L22-series-claims"
     ]
   },
   {
@@ -16,6 +20,10 @@
     "tags": [
       "trap",
       "divergence-test"
+    ],
+    "typeIds": [
+      "L22-divergence-test",
+      "L22-series-claims"
     ]
   },
   {
@@ -26,6 +34,9 @@
     "tags": [
       "which-test",
       "divergence-test"
+    ],
+    "typeIds": [
+      "L22-divergence-test"
     ]
   },
   {
@@ -35,6 +46,9 @@
     "back": "If $a_k = f(k)$ where $f$ is positive, continuous, and decreasing for $x \\ge 1$ (or eventually), then $\\sum_{k=1}^{\\infty} a_k$ and $\\int_1^{\\infty} f(x)\\,dx$ either both converge or both diverge.",
     "tags": [
       "integral-test"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -45,6 +59,9 @@
     "tags": [
       "trap",
       "integral-test"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -55,6 +72,9 @@
     "tags": [
       "trap",
       "integral-test"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -64,6 +84,9 @@
     "back": "$\\sum_{k=1}^{\\infty} \\frac{1}{k^p}$ converges if $p > 1$ and diverges if $p \\le 1$. It follows from the Integral Test, since $\\int_1^{\\infty} \\frac{1}{x^p}\\,dx$ is finite exactly when $p > 1$.",
     "tags": [
       "p-series"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -74,6 +97,9 @@
     "tags": [
       "trap",
       "p-series"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -84,6 +110,9 @@
     "tags": [
       "which-test",
       "p-series"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -94,6 +123,9 @@
     "tags": [
       "which-test",
       "integral-test"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -104,6 +136,9 @@
     "tags": [
       "which-test",
       "integral-test"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   },
   {
@@ -114,6 +149,9 @@
     "tags": [
       "integral-test",
       "error-bound"
+    ],
+    "typeIds": [
+      "L22-integral-test"
     ]
   }
 ]

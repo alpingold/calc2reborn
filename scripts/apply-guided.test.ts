@@ -61,4 +61,7 @@ it('mathFault finds an unclosed $ and display math that is not fenced', () => {
   expect(mathFault('$2x - x^2')).toMatch(/not closed/)
   expect(mathFault('So $$x = 1$$ here')).toMatch(/own line/)
   expect(mathFault('Open\n\n$$\nx = 1')).toMatch(/block is not closed/)
+  expect(mathFault('$\frac{1}{2}$')).toMatch(/control character/)
+  expect(mathFault('$\\frac{1}{2} \\neq \\theta$ and $\\text{area} \\times 2$')).toBeNull()
+  expect(mathFault('$ rac{1}{2}$')).toMatch(/lost its backslash/)
 })

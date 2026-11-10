@@ -6,6 +6,9 @@
     "back": "$r$ is the signed distance from the origin (the pole) to the point, and $\\theta$ is the angle from the positive $x$-axis, counterclockwise positive. Both can be negative: for $r < 0$, go $|r|$ in the direction opposite to $\\theta$.",
     "tags": [
       "polar-coordinates"
+    ],
+    "typeIds": [
+      "L33-convert-points"
     ]
   },
   {
@@ -15,6 +18,10 @@
     "back": "$x = r\\cos\\theta$, $y = r\\sin\\theta$, $x^2 + y^2 = r^2$, and $\\tan\\theta = \\frac{y}{x}$ for $x \\ne 0$.",
     "tags": [
       "conversion"
+    ],
+    "typeIds": [
+      "L33-convert-points",
+      "L33-convert-equations"
     ]
   },
   {
@@ -25,6 +32,9 @@
     "tags": [
       "trap",
       "representations"
+    ],
+    "typeIds": [
+      "L33-convert-points"
     ]
   },
   {
@@ -36,6 +46,9 @@
       "trap",
       "negative-r",
       "conversion"
+    ],
+    "typeIds": [
+      "L33-convert-points"
     ]
   },
   {
@@ -47,6 +60,9 @@
       "trap",
       "representations",
       "negative-r"
+    ],
+    "typeIds": [
+      "L33-convert-points"
     ]
   },
   {
@@ -58,6 +74,9 @@
       "trap",
       "conversion",
       "quadrant"
+    ],
+    "typeIds": [
+      "L33-convert-points"
     ]
   },
   {
@@ -69,6 +88,9 @@
       "trap",
       "conversion",
       "quadrant"
+    ],
+    "typeIds": [
+      "L33-convert-points"
     ]
   },
   {
@@ -80,6 +102,10 @@
       "trap",
       "identify-curve",
       "circle"
+    ],
+    "typeIds": [
+      "L33-circle-equations",
+      "L33-convert-equations"
     ]
   },
   {
@@ -91,6 +117,10 @@
       "trap",
       "identify-curve",
       "circle"
+    ],
+    "typeIds": [
+      "L33-circle-equations",
+      "L33-convert-equations"
     ]
   },
   {
@@ -101,6 +131,10 @@
     "tags": [
       "identify-curve",
       "circle"
+    ],
+    "typeIds": [
+      "L33-circle-equations",
+      "L33-convert-equations"
     ]
   },
   {
@@ -111,6 +145,9 @@
     "tags": [
       "identify-curve",
       "line"
+    ],
+    "typeIds": [
+      "L33-convert-equations"
     ]
   },
   {
@@ -122,6 +159,9 @@
       "trap",
       "identify-curve",
       "line"
+    ],
+    "typeIds": [
+      "L33-convert-equations"
     ]
   },
   {
@@ -131,6 +171,9 @@
     "back": "$r\\cos\\theta = r^2\\sin^2\\theta$. Divide by $r\\sin^2\\theta$: $r = \\frac{\\cos\\theta}{\\sin^2\\theta} = \\cot\\theta\\csc\\theta$. Dividing by $r$ loses nothing, since $\\theta = \\frac{\\pi}{2}$ still gives the pole.",
     "tags": [
       "conversion"
+    ],
+    "typeIds": [
+      "L33-convert-equations"
     ]
   }
 ]

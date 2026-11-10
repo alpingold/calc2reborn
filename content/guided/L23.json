@@ -1,0 +1,480 @@
+[
+  {
+    "id": "L23-g1",
+    "lessonId": "L23",
+    "typeId": "L23-comparison-decide",
+    "stem": "Decide whether each series converges or diverges.\n\n(a) $\\sum_{k=1}^{\\infty} \\frac{2k-1}{k^2+k}$\n\n(b) $\\sum_{k=1}^{\\infty} \\frac{4^k+k}{6^k+1}$",
+    "steps": [
+      {
+        "prompt": "(a) What is true of the terms, and what does the Divergence Test say?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The terms tend to $0$, so the series converges",
+            "note": "Terms tending to $0$ is necessary for convergence but does not guarantee it. The series $\\sum \\frac{1}{k}$ is a counterexample."
+          },
+          {
+            "label": "B",
+            "text": "The terms tend to $0$, so the Divergence Test shows divergence",
+            "note": "The Divergence Test proves divergence only when the terms do not tend to $0$."
+          },
+          {
+            "label": "C",
+            "text": "The terms are positive and tend to $0$, so the Divergence Test is silent and a comparison is needed"
+          }
+        ],
+        "answer": "C",
+        "explanation": "For $k \\ge 1$ the numerator $2k-1$ and the denominator $k^2+k$ are both positive, so every term is positive.\n\n$$\n\\frac{2k-1}{k^2+k} \\approx \\frac{2k}{k^2} = \\frac{2}{k} \\to 0\n$$\n\nThe terms go to $0$, so the Divergence Test is inconclusive. A comparison test is the right tool, and it applies because the terms are positive."
+      },
+      {
+        "prompt": "(a) Keeping the dominant terms of the numerator and the denominator, which known series should it be compared with?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum \\frac{1}{k^2}$",
+            "note": "That keeps only the denominator. The numerator $2k-1$ grows like $k$ and lowers the power of $k$ left over."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum \\frac{1}{k}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sum \\frac{1}{k^3}$",
+            "note": "That puts an extra power of $k$ in the denominator. Compare the dominant numerator with the dominant denominator."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The dominant terms are $2k$ on top and $k^2$ below, so\n\n$$\na_k \\approx \\frac{2k}{k^2} = \\frac{2}{k}\n$$\n\nThe constant $2$ does not matter for the comparison. Take $b_k = \\frac{1}{k}$, the harmonic series, which diverges."
+      },
+      {
+        "prompt": "(a) Compute $c = \\lim_{k\\to\\infty} \\frac{a_k}{b_k}$ with $b_k = \\frac{1}{k}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2$"
+          },
+          {
+            "label": "B",
+            "text": "$1$",
+            "note": "That drops the coefficient $2$ of the leading term of the numerator."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}$",
+            "note": "That is the limit of $\\frac{b_k}{a_k}$. The unknown series $a_k$ goes on top."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\frac{a_k}{b_k} = \\frac{(2k-1)\\,k}{k^2+k} = \\frac{2k^2-k}{k^2+k} = \\frac{2 - \\frac{1}{k}}{1 + \\frac{1}{k}} \\to 2\n$$\n\nSo $c = 2$."
+      },
+      {
+        "prompt": "(a) What does $c = 2$ say about the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The series converges, because its terms tend to $0$",
+            "note": "The terms tending to $0$ is not what the Limit Comparison Test uses. It uses the value of $c$ and the behaviour of the comparison series."
+          },
+          {
+            "label": "B",
+            "text": "The series diverges, because $c$ is positive and finite and $\\sum \\frac{1}{k}$ diverges"
+          },
+          {
+            "label": "C",
+            "text": "No conclusion, because $a_k \\le \\frac{2}{k}$ lies below a divergent series",
+            "note": "The Limit Comparison Test is not a termwise inequality. Judge it by the value of $c$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Since $0 < c < \\infty$, the series $\\sum a_k$ and $\\sum b_k$ behave alike. The harmonic series $\\sum \\frac{1}{k}$ diverges, so\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{2k-1}{k^2+k} \\text{ diverges.}\n$$\n\nA direct comparison would not have settled it: $a_k \\le \\frac{2}{k}$ is smaller than a divergent series, which proves nothing."
+      },
+      {
+        "prompt": "(b) Which known series should be used for comparison?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum \\left(\\frac{1}{6}\\right)^k$",
+            "note": "That keeps only the denominator. The numerator $4^k + k$ is dominated by $4^k$, which also matters."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum \\left(\\frac{3}{2}\\right)^k$",
+            "note": "That is the dominant ratio turned upside down. Its terms grow, so it cannot describe terms that shrink."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum \\left(\\frac{2}{3}\\right)^k$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "For large $k$, the numerator is dominated by $4^k$, since $k$ is tiny next to $4^k$, and the denominator by $6^k$:\n\n$$\na_k \\approx \\frac{4^k}{6^k} = \\left(\\frac{2}{3}\\right)^k\n$$\n\nTake $b_k = \\left(\\frac{2}{3}\\right)^k$, a geometric series with ratio $\\frac{2}{3}$, which converges."
+      },
+      {
+        "prompt": "(b) Compute $c = \\lim_{k\\to\\infty} \\frac{a_k}{b_k}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$"
+          },
+          {
+            "label": "B",
+            "text": "$0$",
+            "note": "The terms $a_k$ do tend to $0$, but the limit asked for is of the ratio $\\frac{a_k}{b_k}$, where both parts shrink."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{2}{3}$",
+            "note": "That is the base of the comparison series, not the limit of the ratio."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\frac{a_k}{b_k} = \\frac{4^k+k}{6^k+1}\\cdot\\frac{3^k}{2^k} = \\frac{12^k + k\\,3^k}{12^k + 2^k} = \\frac{1 + k\\left(\\frac{1}{4}\\right)^k}{1 + \\left(\\frac{1}{6}\\right)^k} \\to 1\n$$\n\nbecause $k\\left(\\frac{1}{4}\\right)^k \\to 0$. So $c = 1$."
+      },
+      {
+        "prompt": "State the result for both series.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "(a) converges, (b) converges",
+            "note": "Look again at part (a): the series it is compared with and what that comparison says."
+          },
+          {
+            "label": "B",
+            "text": "(a) converges, (b) diverges",
+            "note": "Look again at both parts: what each comparison series does and what each limit allows."
+          },
+          {
+            "label": "C",
+            "text": "(a) diverges, (b) diverges",
+            "note": "Look again at part (b): the comparison series and whether it converges."
+          },
+          {
+            "label": "D",
+            "text": "(a) diverges, (b) converges"
+          }
+        ],
+        "answer": "D",
+        "explanation": "For (b), $c = 1$ is positive and finite, and $\\sum \\left(\\frac{2}{3}\\right)^k$ converges, so $\\sum \\frac{4^k+k}{6^k+1}$ converges.\n\nTogether: (a) $\\sum \\frac{2k-1}{k^2+k}$ diverges, and (b) $\\sum \\frac{4^k+k}{6^k+1}$ converges."
+      }
+    ],
+    "takeaway": "Compute the limit of the ratio and read the value of $c$, not the size of the terms: a positive finite $c$ passes the comparison series' verdict to the unknown series."
+  },
+  {
+    "id": "L23-g2",
+    "lessonId": "L23",
+    "typeId": "L23-test-justification",
+    "stem": "For each series, name a test and a comparison series that proves convergence.\n\n(a) $\\sum_{k=2}^{\\infty} \\frac{k}{k^3-1}$\n\n(b) $\\sum_{k=1}^{\\infty} \\frac{5+2\\sin k}{k^{3/2}+k}$",
+    "steps": [
+      {
+        "prompt": "(a) For large $k$, which series do the terms resemble?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum \\frac{1}{k}$, which diverges",
+            "note": "The denominator is about $k^3$ and the numerator cancels only one power of $k$, leaving more than one power below."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum \\frac{1}{k^3}$, which converges",
+            "note": "That ignores the numerator. The factor $k$ on top cancels one power of $k$ in the denominator."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum \\frac{1}{k^2}$, which converges"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The dominant terms are $k$ on top and $k^3$ below:\n\n$$\n\\frac{k}{k^3-1} \\approx \\frac{k}{k^3} = \\frac{1}{k^2}\n$$\n\nThe comparison series is the $p$-series with $p = 2$, which converges."
+      },
+      {
+        "prompt": "(a) For $k \\ge 2$, how does $a_k = \\frac{k}{k^3-1}$ compare with $\\frac{1}{k^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_k \\ge \\frac{1}{k^2}$"
+          },
+          {
+            "label": "B",
+            "text": "$a_k \\le \\frac{1}{k^2}$",
+            "note": "The denominator $k^3-1$ is smaller than $k^3$. See what a smaller denominator does to a fraction."
+          },
+          {
+            "label": "C",
+            "text": "$a_k = \\frac{1}{k^2}$",
+            "note": "They differ by the $-1$ in the denominator, so they are not equal."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\frac{k}{k^3-1} \\ge \\frac{1}{k^2} \\iff k^3 \\ge k^3 - 1\n$$\n\nThe last inequality is true, so $a_k \\ge \\frac{1}{k^2}$ for every $k \\ge 2$. Removing $1$ from the denominator makes each fraction slightly bigger."
+      },
+      {
+        "prompt": "(a) What does that inequality let Direct Comparison with $\\sum \\frac{1}{k^2}$ conclude?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The series converges",
+            "note": "Convergence by Direct Comparison needs the series to be smaller than a convergent one. Check which way the inequality goes."
+          },
+          {
+            "label": "B",
+            "text": "Nothing: bigger than a convergent series is inconclusive"
+          },
+          {
+            "label": "C",
+            "text": "The series diverges",
+            "note": "Divergence by Direct Comparison needs the series to be bigger than a divergent one, and $\\sum \\frac{1}{k^2}$ converges."
+          }
+        ],
+        "answer": "B",
+        "explanation": "A series bigger than a convergent series may converge or diverge. So the inequality $a_k \\ge \\frac{1}{k^2}$ with $\\sum \\frac{1}{k^2}$ convergent proves nothing. Direct Comparison with $\\frac{1}{k^2}$ is the wrong direction here."
+      },
+      {
+        "prompt": "(a) Which test and comparison series justify convergence?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Direct Comparison with $\\sum \\frac{1}{k^2}$",
+            "note": "That is the inequality just tested, and it goes the wrong way."
+          },
+          {
+            "label": "B",
+            "text": "The Ratio Test",
+            "note": "The ratio $\\frac{a_{k+1}}{a_k}$ tends to $1$ for terms like these, and a limit of $1$ decides nothing."
+          },
+          {
+            "label": "C",
+            "text": "Limit Comparison with $\\sum \\frac{1}{k^2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\lim_{k\\to\\infty} \\frac{a_k}{1/k^2} = \\lim_{k\\to\\infty} \\frac{k^3}{k^3-1} = 1\n$$\n\nThe limit is positive and finite and $\\sum \\frac{1}{k^2}$ converges, so (a) converges by Limit Comparison with $\\sum \\frac{1}{k^2}$."
+      },
+      {
+        "prompt": "(b) Between which bounds does the numerator $5 + 2\\sin k$ lie for every $k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$4 \\le 5 + 2\\sin k \\le 6$",
+            "note": "That forgets the factor $2$ on the sine: $2\\sin k$ ranges from $-2$ to $2$, not from $-1$ to $1$."
+          },
+          {
+            "label": "B",
+            "text": "$3 \\le 5 + 2\\sin k \\le 7$"
+          },
+          {
+            "label": "C",
+            "text": "$5 \\le 5 + 2\\sin k \\le 7$",
+            "note": "The sine of an integer can be negative, so $5 + 2\\sin k$ can fall below $5$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Since $-1 \\le \\sin k \\le 1$, we get $-2 \\le 2\\sin k \\le 2$, and adding $5$ gives\n\n$$\n3 \\le 5 + 2\\sin k \\le 7\n$$\n\nThe numerator is always positive and never more than $7$, so the terms are positive."
+      },
+      {
+        "prompt": "(b) Write $a_k$ for the terms of (b) and try Limit Comparison with $\\sum \\frac{1}{k^{3/2}}$. What happens to the ratio $\\frac{a_k}{1/k^{3/2}}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It has no limit: it keeps oscillating"
+          },
+          {
+            "label": "B",
+            "text": "It tends to $5$",
+            "note": "That treats $\\sin k$ as if it settled to $0$. The sine of the integers keeps oscillating."
+          },
+          {
+            "label": "C",
+            "text": "It tends to $\\infty$",
+            "note": "The ratio never exceeds $7$, so it cannot grow without bound."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\frac{a_k}{1/k^{3/2}} = \\frac{(5+2\\sin k)\\,k^{3/2}}{k^{3/2}+k} = \\frac{5+2\\sin k}{1+\\frac{1}{\\sqrt{k}}}\n$$\n\nThe denominator tends to $1$, but $5 + 2\\sin k$ keeps wandering through values between $3$ and $7$ and never settles. The limit does not exist, so Limit Comparison cannot be used."
+      },
+      {
+        "prompt": "(b) Which test and comparison series justify convergence?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Direct Comparison with $\\sum \\frac{7}{k}$, since $a_k \\le \\frac{7}{k}$ and that series converges",
+            "note": "The series $\\sum \\frac{7}{k}$ is a multiple of the harmonic series. Check whether it converges."
+          },
+          {
+            "label": "B",
+            "text": "Limit Comparison with $\\sum \\frac{1}{k^{3/2}}$, with limit $5$",
+            "note": "The ratio was found to have no limit, so there is no value of $c$ to use."
+          },
+          {
+            "label": "C",
+            "text": "Direct Comparison with $\\sum \\frac{7}{k^{3/2}}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Use the upper bound on the numerator and then drop $k$ from the denominator:\n\n$$\n0 < \\frac{5+2\\sin k}{k^{3/2}+k} \\le \\frac{7}{k^{3/2}+k} \\le \\frac{7}{k^{3/2}}\n$$\n\nThe series $\\sum \\frac{7}{k^{3/2}}$ is a convergent $p$-series ($p = \\frac{3}{2}$) times a constant, so (b) converges by Direct Comparison with $\\sum \\frac{7}{k^{3/2}}$.\n\nTogether: (a) converges by Limit Comparison with $\\sum \\frac{1}{k^2}$, and (b) converges by Direct Comparison with $\\sum \\frac{7}{k^{3/2}}$."
+      }
+    ],
+    "takeaway": "Check the direction of an inequality before trusting a direct comparison; if it is the wrong way use Limit Comparison, and if the ratio has no limit bound the oscillating factor and compare directly."
+  },
+  {
+    "id": "L23-g3",
+    "lessonId": "L23",
+    "typeId": "L23-comparison-claims",
+    "stem": "Let $a_k = \\frac{\\sqrt{k}}{k^2+1}$ for $k \\ge 1$. Apply the Limit Comparison Test to $\\sum a_k$ with three comparison series, and say what each comparison shows.\n\n(a) $b_k = \\frac{1}{k}$\n\n(b) $b_k = \\frac{1}{k^2}$\n\n(c) $b_k = \\frac{1}{k^{3/2}}$\n\nThen decide whether $\\sum a_k$ converges.",
+    "steps": [
+      {
+        "prompt": "(a) Compute $\\lim_{k\\to\\infty} \\frac{a_k}{b_k}$ for $b_k = \\frac{1}{k}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$"
+          },
+          {
+            "label": "B",
+            "text": "$1$",
+            "note": "The powers do not match: the top is $k^{3/2}$ and the bottom is about $k^2$."
+          },
+          {
+            "label": "C",
+            "text": "$\\infty$",
+            "note": "The denominator has the larger power, $k^2$ against $k^{3/2}$ on top."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\frac{a_k}{b_k} = \\frac{\\sqrt{k}\\cdot k}{k^2+1} = \\frac{k^{3/2}}{k^2+1} = \\frac{1}{\\sqrt{k}}\\cdot\\frac{k^2}{k^2+1} \\to 0\n$$\n\nSo $c = 0$."
+      },
+      {
+        "prompt": "(a) What does $c = 0$ with $\\sum \\frac{1}{k}$ show about $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum a_k$ converges",
+            "note": "A limit of $0$ gives convergence only when the comparison series converges. Check $\\sum \\frac{1}{k}$."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum a_k$ diverges",
+            "note": "A limit of $0$ says $a_k$ is eventually much smaller than $b_k$, and being smaller cannot prove divergence."
+          },
+          {
+            "label": "C",
+            "text": "No conclusion"
+          }
+        ],
+        "answer": "C",
+        "explanation": "With $c = 0$, convergence of $\\sum b_k$ would force $\\sum a_k$ to converge. But $\\sum \\frac{1}{k}$ diverges, and a series much smaller than a divergent one may converge or diverge. So (a) shows nothing."
+      },
+      {
+        "prompt": "(b) Compute $\\lim_{k\\to\\infty} \\frac{a_k}{b_k}$ for $b_k = \\frac{1}{k^2}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$",
+            "note": "The top is $k^{5/2}$ and the bottom is about $k^2$, so the powers differ."
+          },
+          {
+            "label": "B",
+            "text": "$\\infty$"
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "The top power, $\\frac{5}{2}$, is larger than the bottom power, $2$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\frac{a_k}{b_k} = \\frac{\\sqrt{k}\\cdot k^2}{k^2+1} = \\sqrt{k}\\cdot\\frac{k^2}{k^2+1} \\to \\infty\n$$\n\nSo $c = \\infty$."
+      },
+      {
+        "prompt": "(b) What does $c = \\infty$ with $\\sum \\frac{1}{k^2}$ show about $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "No conclusion"
+          },
+          {
+            "label": "B",
+            "text": "$\\sum a_k$ diverges",
+            "note": "A limit of $\\infty$ says $a_k$ is eventually much bigger than $b_k$. That proves divergence only when the comparison series diverges."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum a_k$ converges",
+            "note": "The convergence of $\\sum b_k$ does not carry over to a series whose terms are eventually much bigger."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $c = \\infty$, divergence of $\\sum b_k$ would force $\\sum a_k$ to diverge. But $\\sum \\frac{1}{k^2}$ converges, and a series much bigger than a convergent one may converge or diverge. So (b) shows nothing."
+      },
+      {
+        "prompt": "(c) Compute $\\lim_{k\\to\\infty} \\frac{a_k}{b_k}$ for $b_k = \\frac{1}{k^{3/2}}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "The top is $k^{3/2}\\cdot k^{1/2} = k^2$, which has the same power as the bottom, so the ratio does not shrink."
+          },
+          {
+            "label": "B",
+            "text": "$\\infty$",
+            "note": "The top and bottom have the same power of $k$ here, so neither wins."
+          },
+          {
+            "label": "C",
+            "text": "$1$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\frac{a_k}{b_k} = \\frac{\\sqrt{k}\\cdot k^{3/2}}{k^2+1} = \\frac{k^2}{k^2+1} \\to 1\n$$\n\nSo $c = 1$."
+      },
+      {
+        "prompt": "(c) What does $c = 1$ with $\\sum \\frac{1}{k^{3/2}}$ show about $\\sum a_k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "No conclusion, since a limit of $1$ is indecisive",
+            "note": "A limit of $1$ is a finite positive number, which is the case the test is built for."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum a_k$ converges, because $c$ is positive and finite and $\\sum \\frac{1}{k^{3/2}}$ is a $p$-series with $p > 1$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sum a_k$ diverges, because the exponent $\\frac{3}{2}$ is larger than $1$",
+            "note": "A $p$-series diverges when its exponent is at most $1$, not when it is larger than $1$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Since $0 < c < \\infty$, the two series behave alike. The $p$-series $\\sum \\frac{1}{k^{3/2}}$ has $p = \\frac{3}{2} > 1$, so it converges. Hence $\\sum \\frac{\\sqrt{k}}{k^2+1}$ converges."
+      },
+      {
+        "prompt": "Which statement about $\\sum a_k$ and the three comparisons is correct?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sum a_k$ diverges, because $c = 0$ with $b_k = \\frac{1}{k}$",
+            "note": "With $c = 0$ and a divergent comparison series the test is silent, and it cannot prove divergence."
+          },
+          {
+            "label": "B",
+            "text": "$\\sum a_k$ converges, because $c = \\infty$ with $b_k = \\frac{1}{k^2}$",
+            "note": "With $c = \\infty$ the test shows convergence in no case. Reread what that limit allows."
+          },
+          {
+            "label": "C",
+            "text": "$\\sum a_k$ converges, and all three comparisons show it",
+            "note": "Two of the three limits are $0$ or $\\infty$ with a comparison series on the wrong side. Recheck what each allowed."
+          },
+          {
+            "label": "D",
+            "text": "$\\sum a_k$ converges, shown only by the third comparison; the first two settle nothing"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Comparing with $\\frac{1}{k}$ gives $c = 0$ against a divergent series, and comparing with $\\frac{1}{k^2}$ gives $c = \\infty$ against a convergent series. Both are inconclusive.\n\nOnly $b_k = \\frac{1}{k^{3/2}}$, which has the same growth as $a_k$, gives a positive finite $c$. So $\\sum \\frac{\\sqrt{k}}{k^2+1}$ converges."
+      }
+    ],
+    "takeaway": "A limit of $0$ or $\\infty$ settles the question only when the comparison series lies on the helpful side; pick a comparison series with the same growth so that $c$ is positive and finite."
+  }
+]
