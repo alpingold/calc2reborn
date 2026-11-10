@@ -38,6 +38,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Vectors are perpendicular exactly when their dot product is $0$. Compute $\\langle 2, t, -1 \\rangle \\cdot \\langle t, 1, 1 \\rangle = 2t + t - 1 = 3t - 1$.\n\nSetting $3t - 1 = 0$ gives $t = \\frac{1}{3}$, so the vectors are perpendicular when $t = \\frac{1}{3}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "The area of a parallelogram with adjacent sides $\\vec{u}$ and $\\vec{v}$ is $|\\vec{u} \\times \\vec{v}|$. The segments $(1,1)$ to $(4,4)$ and $(2,3)$ to $(3,2)$ share the midpoint $\\left(\\frac{5}{2}, \\frac{5}{2}\\right)$, so they are the diagonals. The sides therefore leave $(1,1)$ towards $(2,3)$ and $(3,2)$.\n\nWith $\\vec{u} = \\langle 1, 2, 0 \\rangle$ and $\\vec{v} = \\langle 2, 1, 0 \\rangle$, the cross product is $\\vec{u} \\times \\vec{v} = (1 \\cdot 1 - 2 \\cdot 2)\\vec{k} = -3\\vec{k}$, so the area is $|-3| = 3$.\n\nThe trap is to take $(1,1)$, $(2,3)$, $(3,2)$ as three consecutive vertices. Find the diagonals first.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use disks, since the region is revolved about the $x$-axis and each slice is perpendicular to it. The radius is $y = \\frac{1}{x}$, so\n\n$$\nV = \\pi \\int_1^2 \\left(\\frac{1}{x}\\right)^2 dx = \\pi \\int_1^2 x^{-2}\\,dx\n$$\n\n$\\pi \\left[-\\frac{1}{x}\\right]_1^2 = \\pi\\left(-\\frac{1}{2} + 1\\right) = \\frac{\\pi}{2}$, so the volume is $\\frac{\\pi}{2}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -143,6 +155,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "Find where the curves meet: $\\sin^{-1} x = \\frac{\\pi}{2}x$ at $x = 0$ and at $x = 1$. Between them the line is on top, since at $x = \\frac{1}{2}$ the line is $\\frac{\\pi}{4}$ and the arcsine is $\\frac{\\pi}{6}$. Use top minus bottom, integrated in $x$:\n\n$$\nA = \\int_0^1 \\left(\\frac{\\pi}{2}x - \\sin^{-1} x\\right)dx\n$$\n\nThe first part is $\\frac{\\pi}{2}\\cdot\\frac{1}{2} = \\frac{\\pi}{4}$. For $\\int_0^1 \\sin^{-1} x\\,dx$, use parts with $u = \\sin^{-1} x$ and $dv = dx$, so $v = x$:\n\n$\\int_0^1 \\sin^{-1} x\\,dx = \\left[x\\sin^{-1} x\\right]_0^1 - \\int_0^1 \\frac{x}{\\sqrt{1-x^2}}\\,dx = \\frac{\\pi}{2} - \\left[-\\sqrt{1-x^2}\\right]_0^1 = \\frac{\\pi}{2} - 1$.\n\nSo $A = \\frac{\\pi}{4} - \\left(\\frac{\\pi}{2} - 1\\right) = 1 - \\frac{\\pi}{4}$.\n\nThe trap is to subtract the curves the wrong way round, which gives the negative of this area.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -178,6 +194,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells, since the region is revolved about the $y$-axis. The curves meet at $x = 0$ and $x = 1$, and $y = x$ is above $y = x^2$ between them, so the height of a shell is $x - x^2$ and its radius is $x$.\n\n$$\nV = 2\\pi \\int_0^1 x(x - x^2)\\,dx = 2\\pi \\int_0^1 \\left(x^2 - x^3\\right)dx\n$$\n\n$= 2\\pi\\left[\\frac{x^3}{3} - \\frac{x^4}{4}\\right]_0^1 = 2\\pi\\left(\\frac{1}{3} - \\frac{1}{4}\\right) = \\frac{\\pi}{6}$, so the volume is $\\frac{\\pi}{6}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -213,6 +233,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "Use the arc length formula $L = \\int_a^b \\sqrt{1 + (y')^2}\\,dx$. Here $y' = \\frac{e^x - e^{-x}}{2}$, so\n\n$$\n1 + (y')^2 = 1 + \\frac{e^{2x} - 2 + e^{-2x}}{4} = \\frac{e^{2x} + 2 + e^{-2x}}{4} = \\left(\\frac{e^x + e^{-x}}{2}\\right)^2\n$$\n\nThe square root is $\\frac{e^x + e^{-x}}{2}$, so\n\n$$\nL = \\int_0^1 \\frac{e^x + e^{-x}}{2}\\,dx = \\left[\\frac{e^x - e^{-x}}{2}\\right]_0^1 = \\frac{e}{2} - \\frac{1}{2e}.\n$$\n\nSo the length is $\\frac{e}{2} - \\frac{1}{2e}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -248,6 +272,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Use slices of liquid. The tank is half full, so the liquid fills the bottom $2$ m. A horizontal slice of thickness $dy$ at height $y$ has volume $1 \\cdot 1 \\cdot dy$, so its weight is $3\\,dy$ N, and it must be lifted $4 - y$ m to reach the top.\n\n$$\nW = \\int_0^2 3(4 - y)\\,dy = 3\\left[4y - \\frac{y^2}{2}\\right]_0^2 = 3(8 - 2) = 18\n$$\n\nSo the work is $18$ N m.\n\nThe trap is to use the full $4$ m height for the liquid instead of the $2$ m depth that is actually there.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -283,6 +311,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-y-axis"
+      ],
+      "solution": "Revolving about the $y$-axis, each point of the curve travels a circle of radius $x$, so $S = 2\\pi \\int_a^b x\\sqrt{1 + (y')^2}\\,dx$. With $y' = 2x$,\n\n$$\nS = 2\\pi \\int_0^1 x\\sqrt{1 + 4x^2}\\,dx\n$$\n\nLet $u = 1 + 4x^2$, so $du = 8x\\,dx$ and $x\\,dx = \\frac{du}{8}$. The limits become $u = 1$ and $u = 5$, so\n\n$$\nS = \\frac{2\\pi}{8}\\int_1^5 u^{1/2}\\,du = \\frac{\\pi}{4}\\cdot\\frac{2}{3}\\left[u^{3/2}\\right]_1^5 = \\frac{\\pi}{6}\\left(5\\sqrt{5} - 1\\right).\n$$\n\nSo the surface area is $\\frac{\\pi}{6}(5\\sqrt{5} - 1)$. The trap is to use the radius $y = x^2$, which is the radius for revolution about the $x$-axis.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -318,6 +350,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Use integration by parts with $u = \\ln x$ and $dv = x\\,dx$, so $du = \\frac{dx}{x}$ and $v = \\frac{x^2}{2}$.\n\n$$\n\\int_1^e x\\ln x\\,dx = \\left[\\frac{x^2}{2}\\ln x\\right]_1^e - \\int_1^e \\frac{x^2}{2} \\cdot \\frac{1}{x}\\,dx = \\frac{e^2}{2} - \\left[\\frac{x^2}{4}\\right]_1^e\n$$\n\n$= \\frac{e^2}{2} - \\frac{e^2 - 1}{4} = \\frac{e^2 + 1}{4}$, so the integral is $\\frac{e^2 + 1}{4}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -353,6 +389,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Save one $\\cos x$ factor and write the rest in terms of $\\sin x$: $\\cos^3 x = \\cos x\\,(1 - \\sin^2 x)$. Let $u = \\sin x$, so $du = \\cos x\\,dx$. The limits become $0$ and $1$.\n\n$$\n\\int_0^{\\pi/2} \\sqrt{\\sin x}\\,\\cos^3 x\\,dx = \\int_0^1 u^{1/2}(1 - u^2)\\,du = \\int_0^1 \\left(u^{1/2} - u^{5/2}\\right)du\n$$\n\n$= \\left[\\frac{2}{3}u^{3/2} - \\frac{2}{7}u^{7/2}\\right]_0^1 = \\frac{2}{3} - \\frac{2}{7} = \\frac{8}{21}$, so the integral is $\\frac{8}{21}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -388,6 +428,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Factor the denominator and split the integrand into partial fractions: $x^2 + 5x + 4 = (x+1)(x+4)$, and\n\n$$\n\\frac{1}{(x+1)(x+4)} = \\frac{1}{3}\\left(\\frac{1}{x+1} - \\frac{1}{x+4}\\right)\n$$\n\nSo\n\n$$\n\\int_0^1 \\frac{dx}{x^2 + 5x + 4} = \\frac{1}{3}\\left[\\ln|x+1| - \\ln|x+4|\\right]_0^1 = \\frac{1}{3}\\left[(\\ln 2 - \\ln 5) - (0 - \\ln 4)\\right]\n$$\n\nUsing $\\ln 4 = 2\\ln 2$, this is $\\frac{1}{3}(3\\ln 2 - \\ln 5) = \\ln 2 - \\frac{1}{3}\\ln 5$, so the integral is $\\ln 2 - \\frac{1}{3}\\ln 5$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -423,6 +467,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Complete the square under the root: $-x^2 + 4x - 3 = 1 - (x - 2)^2$.\n\nThe radicand has the form $a^2 - u^2$ with $u = x - 2$ and $a = 1$, so use the sine substitution $x - 2 = \\sin\\theta$, that is $x = 2 + \\sin\\theta$. Then $\\sqrt{1 - (x-2)^2} = \\cos\\theta$ and $dx = \\cos\\theta\\,d\\theta$.\n\nA tangent or secant substitution would need a sum or difference of squares with a positive $x^2$, which does not occur here.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -458,6 +506,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-which-converge"
+      ],
+      "solution": "Test each integral separately.\n\nI. For $x \\ge 1$, $0 < \\frac{1}{2 + x^2} < \\frac{1}{x^2}$, and $\\int_1^{\\infty} \\frac{dx}{x^2}$ converges, so $\\int_1^{\\infty} \\frac{dx}{2 + x^2}$ converges.\n\nII. The integrand has an infinite discontinuity at $x = 0$. The piece $\\int_0^{10} \\frac{dx}{x^5}$ diverges, since the $p$-test at the endpoint gives $p = 5 \\ge 1$. So $\\int_{-10}^{10} \\frac{dx}{x^5}$ diverges.\n\nIII. Substitute $w = 3 - x$, so $\\int_{-\\infty}^0 \\frac{dx}{\\sqrt{3 - x}} = \\int_3^{\\infty} w^{-1/2}\\,dw$. This is a $p$-integral with $p = \\frac{1}{2} \\le 1$, so it diverges.\n\nOnly I converges. The trap is II: the integrand is odd, which suggests the total is $0$, but an improper integral needs each piece to converge, so the symmetric cancellation does not count.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -493,6 +545,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-monotone-bounded"
+      ],
+      "solution": "Write $a_n = \\frac{1 - 2n}{1 + 3n}$.\n\nI. Let $f(x) = \\frac{1 - 2x}{1 + 3x}$. Then $f'(x) = \\frac{-2(1 + 3x) - 3(1 - 2x)}{(1 + 3x)^2} = \\frac{-5}{(1 + 3x)^2} < 0$, so the sequence is decreasing and I is false. Check: $a_1 = -\\frac{1}{4}$ and $a_2 = -\\frac{3}{7}$.\n\nII. Since $a_n + \\frac{2}{3} = \\frac{5}{3(1 + 3n)} > 0$, every term is greater than $-\\frac{2}{3}$. Since the sequence decreases, every term is at most $a_1 = -\\frac{1}{4}$. So the sequence is bounded, and II is true.\n\nIII. Dividing the numerator and denominator by $n$ gives $\\lim a_n = -\\frac{2}{3}$, so the sequence converges and III is true.\n\nSo II and III are true.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -528,6 +584,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Apply the Integral Test to $f(x) = \\frac{1}{x(\\ln x)^p}$, which is positive and decreasing for $x \\ge 2$ when $p > 0$. Substitute $u = \\ln x$, so $du = \\frac{dx}{x}$:\n\n$$\n\\int_2^{\\infty} \\frac{dx}{x(\\ln x)^p} = \\int_{\\ln 2}^{\\infty} u^{-p}\\,du\n$$\n\nThis converges exactly when $p > 1$, so the series converges for $p > 1$ and diverges for $0 < p \\le 1$.\n\nFor $p \\le 0$, $(\\ln n)^{-p} \\ge 1$, so each term is at least $\\frac{1}{n}$ and the series diverges by comparison with the harmonic series.\n\nSo the series converges for $p > 1$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -563,6 +623,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "This is a geometric series with first term $a = -5$ and ratio $r = \\frac{2}{-5} = -\\frac{2}{5}$. Check: $-\\frac{4}{5} \\div 2 = -\\frac{2}{5}$.\n\nSince $|r| = \\frac{2}{5} < 1$, the series converges to\n\n$$\n\\frac{a}{1 - r} = \\frac{-5}{1 + \\frac{2}{5}} = \\frac{-5}{\\frac{7}{5}} = -\\frac{25}{7}\n$$\n\nSo the series converges to $-\\frac{25}{7}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -599,6 +663,11 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-alternating-claims",
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "Test each statement.\n\nI. The terms are positive, and the ratio test gives $\\lim \\frac{(n+1)/9^{n+1}}{n/9^n} = \\frac{1}{9} < 1$. So the series converges absolutely, and I is true.\n\nII. The terms $\\frac{(-5)^{n+1}}{\\sqrt{n}}$ grow in size without bound, so they do not tend to $0$ and the series diverges. It is therefore not conditionally convergent, and II is false.\n\nIII. For $\\sum \\frac{10\\sqrt{n}}{1 + n^2}$, the terms behave like $10n^{-3/2}$, so the ratio of consecutive terms tends to $1$. The ratio test is inconclusive, and III is true.\n\nSo I and III are true.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -634,6 +703,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "The coefficient of $(x - 1)^2$ in a Taylor series at $a = 1$ is $\\frac{f''(1)}{2!}$. For $f(x) = -x^{-2}$,\n\n$$\nf'(x) = 2x^{-3}, \\qquad f''(x) = -6x^{-4}\n$$\n\nso $f''(1) = -6$. The coefficient is $\\frac{-6}{2} = -3$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -669,6 +742,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-derivative-from-series"
+      ],
+      "solution": "The Maclaurin series $\\sum c_n x^n$ has $c_n = \\frac{(-1)^n}{3n(n+6)}$, and $f^{(k)}(0) = k!\\,c_k$. So $c_6$ is the coefficient needed:\n\n$$\nc_6 = \\frac{(-1)^6}{3 \\cdot 6 \\cdot 12} = \\frac{1}{216}\n$$\n\nThen $f^{(6)}(0) = 6! \\cdot \\frac{1}{216} = \\frac{720}{216} = \\frac{10}{3}$, so the sixth derivative is $\\frac{10}{3}$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -704,6 +781,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Use the geometric series $\\frac{1}{1 + u} = 1 - u + u^2 - \\cdots$ with $u = x^3$, valid for $|x| < 1$:\n\n$$\n\\frac{x}{1 + x^3} = x\\left(1 - x^3 + x^6 - \\cdots\\right) = x - x^4 + x^7 - \\cdots\n$$\n\nSo the first three terms are $x - x^4 + x^7$. The $x^4$ term is negative because the geometric series alternates in sign.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -742,6 +823,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
+      "solution": "The graph passes through the origin with slope about $1$, dips slightly below the axis for $x < 0$ (minimum near $-0.7$), and then rises steeply and without bound for $x > 0$. Test the candidates against this.\n\nB has $f''(0) = -1 < 0$ and alternating signs, so it bends downward at the origin; it does not match. D and E start with $x^2$, so the graph would have a horizontal tangent at the origin, but it leaves the origin with slope $1$. C is $\\sin 2x$ (slope $2$ at the origin, bounded between $-1$ and $1$), but the graph grows without bound.\n\nA begins $x + \\frac{1}{2}x^2 + \\frac{1}{8}x^3$, the series of $x e^{x/2}$. Its slope at the origin is $1$, $f''(0) = 1 > 0$, and for $x < 0$ it is negative with a small minimum, as in the graph. At $x = 2$ the first three terms give $2 + 2 + 1 = 5$, close to the graph's height there.\n\nSo the series is $x + \\frac{1}{2}x^2 + \\frac{1}{8}x^3 + \\cdots$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -777,6 +862,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Multiply the series for $e^x$ by $x^2$: $x^2 e^x = \\sum_{n=0}^{\\infty} \\frac{x^{n+2}}{n!}$. Integrate term by term, raising each exponent by $1$ and dividing by the new exponent:\n\n$$\n\\int x^2 e^x\\,dx = C + \\sum_{n=0}^{\\infty} \\frac{x^{n+3}}{(n+3)\\,n!}\n$$\n\nThe $x^6$ term needs $n + 3 = 6$, so $n = 3$. Its coefficient is $\\frac{1}{6 \\cdot 3!} = \\frac{1}{36}$, so the term is $\\frac{x^6}{36}$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -812,6 +901,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "Use $r = \\sqrt{x^2 + y^2}$ and $\\tan\\theta = \\frac{y}{x}$, with $\\theta$ in the quadrant of the point.\n\n$r = \\sqrt{2 + 6} = \\sqrt{8} = 2\\sqrt{2}$, and $\\tan\\theta = \\frac{\\sqrt{6}}{\\sqrt{2}} = \\sqrt{3}$. The point is in the first quadrant, so $\\theta = \\frac{\\pi}{3}$.\n\nSo the polar coordinates are $\\left(2\\sqrt{2}, \\frac{\\pi}{3}\\right)$. The trap is $\\frac{\\pi}{6}$, whose tangent is $\\frac{1}{\\sqrt{3}}$ rather than $\\sqrt{3}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -847,6 +940,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int_{\\alpha}^{\\beta} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$. With $r = e^{\\theta}$, $\\frac{dr}{d\\theta} = e^{\\theta}$, so $\\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2} = \\sqrt{2e^{2\\theta}} = \\sqrt{2}\\,e^{\\theta}$.\n\n$$\nL = \\sqrt{2}\\int_0^{\\pi/2} e^{\\theta}\\,d\\theta = \\sqrt{2}\\left[e^{\\theta}\\right]_0^{\\pi/2} = \\sqrt{2}\\left(e^{\\pi/2} - 1\\right)\n$$\n\nSo the distance is $\\sqrt{2}\\left(e^{\\pi/2} - 1\\right)$. The trap is to forget the lower limit, which gives $\\sqrt{2}\\,e^{\\pi/2}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -885,6 +982,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-roses"
+      ],
+      "solution": "A rose $r = a\\sin(n\\theta)$ with odd $n$ has $n$ petals, each of length $|a|$. Here $n = 3$ and $a = 4$, so there are three petals of length $4$.\n\nThe petal tips occur where $|\\sin 3\\theta| = 1$. At $\\theta = \\frac{\\pi}{6}$ and $\\theta = \\frac{5\\pi}{6}$ we get $r = 4$, so the tips point up-right and up-left. At $\\theta = \\frac{\\pi}{2}$ we get $r = -4$, which is the point $(0, -4)$, so one petal reaches straight down to $-4$ on the $y$-axis.\n\nThat is the graph with two upper petals and one petal reaching $-4$ on the $y$-axis. The trap is to double the count to six petals, which is the rule for even $n$ and not for odd $n$.",
       "sourcePage": 14,
       "status": "reviewed"
     }
