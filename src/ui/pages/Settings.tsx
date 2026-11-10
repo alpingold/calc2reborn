@@ -9,6 +9,8 @@ import { REASON_LABELS } from '../ReportProblem'
 import { clearSession, examTitle } from '../examSession'
 import { isPlanned } from '../../content/schema'
 import { lessonRange, rangeEnds } from '../../engine/scope'
+import { useSync } from '../../sync/context'
+import { SyncPanel } from '../SyncPanel'
 
 const DAILY_ERROR = 'Enter a number from 0 to 100'
 
@@ -16,6 +18,7 @@ export function Settings() {
   const { settings, save } = useSettings()
   const store = useStore()
   const content = useContent()
+  const sync = useSync()
   const lessons = useMemo(() => content.lessons.filter(isPlanned), [content])
 
   const [currentLessonId, setCurrentLessonId] = useState(settings.currentLessonId ?? '')
@@ -179,11 +182,16 @@ export function Settings() {
       return
     }
     await loadFlags()
+    // with sync on, the imported progress replaces the synced copy too
+    if (sync?.code) await sync.replaceRemote()
     setStatus('Progress imported')
   }
 
   async function onReset() {
-    if (!window.confirm('Delete all progress? This cannot be undone.')) return
+    const question = sync?.code
+      ? 'Delete all progress, here and on your synced devices? This cannot be undone.'
+      : 'Delete all progress? This cannot be undone.'
+    if (!window.confirm(question)) return
     setError(null)
     setStatus(null)
     try {
@@ -195,6 +203,7 @@ export function Settings() {
     }
     clearSession()
     await loadFlags()
+    if (sync?.code) await sync.replaceRemote()
     setStatus('Progress reset')
   }
 
@@ -281,7 +290,9 @@ export function Settings() {
         <section className="settings-group">
           <h3>Your data</h3>
           <p className="panel-hint">
-            Progress lives in this browser only. Export it to move it to another device or keep a backup.
+            {sync?.code
+              ? 'Progress lives in this browser and, while sync is on, on the app\'s server. Export it to keep a backup.'
+              : 'Progress lives in this browser only. Export it to move it to another device or keep a backup.'}
           </p>
           <div className="actions">
             <button type="button" onClick={onExport}>
@@ -292,8 +303,13 @@ export function Settings() {
               <input type="file" accept="application/json" className="visually-hidden" onChange={onImport} />
             </label>
           </div>
-          <p className="panel-hint">Importing replaces the progress saved in this browser.</p>
+          <p className="panel-hint">
+            {sync?.code
+              ? 'Importing replaces the progress saved in this browser and on your synced devices.'
+              : 'Importing replaces the progress saved in this browser.'}
+          </p>
         </section>
+        {sync && <SyncPanel sync={sync} />}
         <section className="settings-group">
           <h3>Reported problems</h3>
           {flags.length === 0 ? (
@@ -324,7 +340,11 @@ export function Settings() {
         </section>
         <section className="settings-group danger-zone">
           <h3>Start over</h3>
-          <p className="panel-hint">Deletes every answer, flashcard schedule and setting saved in this browser.</p>
+          <p className="panel-hint">
+            {sync?.code
+              ? 'Deletes every answer, flashcard schedule and setting saved in this browser and on your synced devices.'
+              : 'Deletes every answer, flashcard schedule and setting saved in this browser.'}
+          </p>
           <button type="button" className="danger" onClick={onReset}>
             Reset progress
           </button>

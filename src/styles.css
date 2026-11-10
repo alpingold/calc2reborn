@@ -894,6 +894,67 @@ input[type='checkbox'] {
   color: var(--danger);
 }
 
+/* sync: the code is the thing to copy, so it is set large */
+.sync-join {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px 10px;
+  margin-top: 16px;
+}
+
+.sync-join label {
+  display: grid;
+  flex: 1 1 14rem;
+  gap: 4px;
+  min-width: 0;
+  font-size: 0.95rem;
+}
+
+.sync-join input {
+  width: 100%;
+  min-height: 40px;
+  padding: 6px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.sync-code-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.sync-code {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 2px 0 10px;
+}
+
+.sync-code code {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 5.4vw, 1.6rem);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.sync-status {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+}
+
+.sync-panel [role='alert'] {
+  color: var(--danger);
+  font-size: 0.95rem;
+}
+
 /* saved, imported, failed: stays in view wherever the page is scrolled */
 .settings-messages {
   position: sticky;

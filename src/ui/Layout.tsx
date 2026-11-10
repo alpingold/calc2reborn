@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router'
+import { NavLink, Outlet, useLocation } from 'react-router'
+import { useSync } from '../sync/context'
 import { useStorageFallback } from '../storage/context'
 
 const NAV = [
@@ -10,8 +11,15 @@ const NAV = [
   { to: '/settings', label: 'Settings' },
 ]
 
+const REDRAW = [/^\/$/, /^\/course(\/|$)/, /^\/exams\/?$/, /^\/settings\/?$/]
+
 export function Layout() {
   const fallback = useStorageFallback()
+  const sync = useSync()
+  const { pathname } = useLocation()
+  // progress arriving from another device redraws a page that only shows progress; a page being
+  // worked on (a question, an exam, a card) is left alone and picks it up when it is next opened
+  const redraw = REDRAW.some((re) => re.test(pathname)) ? (sync?.dataVersion ?? 0) : 'steady'
   return (
     <div className="app">
       <header className="title-block">
@@ -33,7 +41,7 @@ export function Layout() {
         </div>
       )}
       <main>
-        <Outlet />
+        <Outlet key={redraw} />
       </main>
     </div>
   )

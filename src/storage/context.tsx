@@ -8,6 +8,7 @@ import { DexieStore } from './dexie'
 import { MemoryStore } from './memory'
 import { DEFAULT_SETTINGS } from './types'
 import type { ProgressStore, Settings } from './types'
+import { watchStore } from '../sync/writes'
 
 interface StoreContextValue {
   store: ProgressStore
@@ -50,7 +51,8 @@ async function openDefaultStore(content: Content): Promise<{ store: ProgressStor
     // an older database is upgraded on open; its exam history is rebuilt from the attempts it holds
     const db = new DexieStore(undefined, (attempts) => sessionsFromAttempts(attempts, content))
     await db.open()
-    return { store: db, fallback: false }
+    // watched, so sync hears of each saved answer
+    return { store: watchStore(db), fallback: false }
   } catch {
     return { store: new MemoryStore(), fallback: true }
   }

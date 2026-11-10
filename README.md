@@ -27,6 +27,17 @@ pnpm preview   # serve the built app from dist/
 
 Progress (card schedules, answers, and settings) lives in your browser's IndexedDB, so it stays on that browser and device. To move it or back it up, open Settings and use **Export progress**, which downloads a JSON file, and **Import progress** to load such a file. **Reset progress** deletes everything. If IndexedDB is unavailable, the app keeps progress in memory only, so it is lost when the page closes, and shows a banner saying so.
 
+### Sync across devices
+
+Sync is off until a student turns it on under Settings. The device then gets a 16-character sync code, and a second device joins by entering it. From then on each device keeps its own full copy and the two are merged through the app's server:
+
+- **What is stored on the server:** one compressed copy of the progress per code (answers, finished exams, flashcard schedules, guided problems and settings), filed under a hash of the code. No name, email or account. Reported problems stay on the device that made them. A copy that no device has written to for 400 days is deleted.
+- **Who can read it:** anyone who has the code can read and change that progress, and a lost code cannot be recovered. The server never sees the code itself.
+- **How copies are merged:** answers and finished exams are united, so work done on two devices is never lost. A flashcard or guided problem keeps whichever copy was studied last. Settings follow the device that changed them last. Reset and Import replace the synced copy, and the other devices take the replacement whole on their next sync.
+- **When it syncs:** when the app opens, about 15 seconds after the last saved answer, when the tab is hidden or shown again, and on "Sync now".
+
+The code lives in `src/sync/` (merge rules in `merge.ts`, the sync pass in `engine.ts`) and `api/` (the endpoint; `_core.js` holds its rules and runs in memory under `pnpm dev`).
+
 ## Content
 
 All content is JSON under `content/`: `lessons.json` (with each lesson's problem types), one card file per lesson in `content/cards/`, one file per exam in `content/exams/`, and one file of guided problems per lesson in `content/guided/`. The solutions and guided problems were drafted and then checked independently by AI models, with every numeric result recomputed; how that was done, and what was settled by hand, is in `docs/solution-writing-guide.md`, `docs/solution-checking-guide.md`, `docs/guided-problem-guide.md` and `docs/content-escalations.md`. A mistake can still be reported from any revealed answer with "Report a problem". Exam figures are PNGs under `public/figures/`. Every file is validated by the test suite.
@@ -42,9 +53,11 @@ The `raw/` folder is never committed. Transcription follows `docs/exam-transcrip
 
 ## Deployment
 
-`pnpm site:deploy` runs the tests, builds, and publishes `dist/` to Vercel as a static site (project `ma16200-study`). The first time, log in with `npx vercel@65.12.1 login`; the script then links the project and deploys. `public/vercel.json` sends unknown paths to `index.html`, and the page carries a `noindex` tag so the shared link stays out of search results.
+`pnpm site:deploy` runs the tests, builds, and publishes `dist/` and the sync function `api/sync.js` to Vercel (project `ma16200-study`). `pnpm site:deploy --preview` publishes a preview deployment instead of production. The first time, log in with `npx vercel@65.12.1 login`; the script then links the project and deploys. `public/vercel.json` sends unknown paths to `index.html`, and the page carries a `noindex` tag so the shared link stays out of search results.
 
-`pnpm build` produces a static site in `dist/`. Any static host works if it serves `index.html` for unknown paths, since the app uses browser history routing. A host that serves the app from a sub-path, such as GitHub Pages at `/<repo>/`, also needs Vite's `base` option set to that path and a matching `basename` for the router in `src/App.tsx`. Figure paths are root-relative (`/figures/...`), so they need that prefix too.
+Sync needs a Redis database with a REST API. Add Upstash Redis (free plan) to the project from the Vercel Marketplace, connected to all environments; it sets `KV_REST_API_URL` and `KV_REST_API_TOKEN`, which the function reads (`UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` also work). Redeploy afterwards. Without them the function answers 503 and the app says sync is not available; everything else works.
+
+`pnpm build` produces a static site in `dist/`. On a host with no `/api/sync`, sync reports that it is not available and the rest of the app is unaffected. Any static host works if it serves `index.html` for unknown paths, since the app uses browser history routing. A host that serves the app from a sub-path, such as GitHub Pages at `/<repo>/`, also needs Vite's `base` option set to that path and a matching `basename` for the router in `src/App.tsx`. Figure paths are root-relative (`/figures/...`), so they need that prefix too.
 
 ## Sources
 

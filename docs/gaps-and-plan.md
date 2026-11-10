@@ -62,7 +62,7 @@ None of these has been seen to cause a problem. They are edge cases the task rev
 
 | # | Feature | Notes | Size |
 |---|---------|-------|------|
-| 6.1 | Progress that carries across devices | Needs a backend or a sync service and sign-in. The `ProgressStore` interface was built so a remote store can slot in. Until then, Settings export/import is the workaround | L |
+| 6.1 | Progress that carries across devices | Done on 2026-11-10 with a sync code and no sign-in: each device keeps its own copy and they are merged through `/api/sync`, backed by Upstash Redis on the free plan. See "Sync across devices" in the README. Not done: the stored copy is not encrypted, and a page that is open on a question does not redraw when progress arrives from another device | L |
 | 6.2 | Full written lessons | Write-ups for each of the 35 lessons, beyond the current key ideas and links to Dr. Chen's notes and videos | L |
 
 ## Plan
