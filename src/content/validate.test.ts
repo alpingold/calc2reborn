@@ -200,6 +200,20 @@ describe('content validation', () => {
     }
   })
 
+  test('no question repeats a choice, apart from the two the papers themselves print twice', () => {
+    // checked against the source pages: Fall 2024 Exam 1 Q9 prints B and C alike, Fall 2017 Final Q15 prints B and D alike
+    const printedTwice = new Set(['f2024-e1-q09', 'f2017-final-q15'])
+    const repeats = content.questions
+      .filter((q) => new Set(q.choices.map((c) => c.text.trim())).size !== q.choices.length)
+      .map((q) => q.id)
+    expect(repeats.sort()).toEqual([...printedTwice].sort())
+    for (const id of printedTwice) {
+      const q = content.questionById.get(id)!
+      const answer = q.choices.find((c) => c.label === q.answer)!.text.trim()
+      // the repeated text is never the keyed answer, so the question still has one right choice
+      expect(q.choices.filter((c) => c.text.trim() === answer), id).toHaveLength(1)
+    }
+  })
   test('every question has been reviewed', () => {
     expect(content.questions.filter((q) => q.status !== 'reviewed').map((q) => q.id)).toEqual([])
   })
