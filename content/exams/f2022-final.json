@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-equation-constant"
+      ],
+      "solution": "Write the sphere in standard form $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$ with center $(h,k,l) = (0,-8,-5)$ and $r = 8$:\n\n$$\nx^2 + (y+8)^2 + (z+5)^2 = 64\n$$\n\nExpand: $x^2 + y^2 + 16y + 64 + z^2 + 10z + 25 = 64$, so $x^2 + y^2 + z^2 + 16y + 10z = -25$.\n\nUsing $(y-8)$ and $(z-5)$ instead flips the signs of the linear terms. So the sphere is $x^2 + y^2 + z^2 + 16y + 10z = -25$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-vector-arithmetic-magnitude"
+      ],
+      "solution": "Add the vectors first: $\\vec{v} + \\vec{w} = \\langle x+1, \\; x+2 \\rangle$. Set its length equal to $\\sqrt{61}$ and square:\n\n$$\n(x+1)^2 + (x+2)^2 = 61\n$$\n\nThis gives $2x^2 + 6x + 5 = 61$, or $x^2 + 3x - 28 = 0$. Factor as $(x+7)(x-4) = 0$, so $x = 4$ or $x = -7$.\n\nso the positive value is $x = 4$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells about the $y$-axis. The curve $y = \\frac{2}{x}$ meets $y = 2$ at $x = 1$, and the region lies between $y = \\frac{2}{x}$ (below) and $y = 2$ (above) for $1 \\le x \\le 2$. The shell at $x$ has radius $x$ and height $2 - \\frac{2}{x}$, so\n\n$$\nV = \\int_1^2 2\\pi x \\left(2 - \\frac{2}{x}\\right) dx = 2\\pi \\int_1^2 (2x - 2)\\, dx = 2\\pi \\left[x^2 - 2x\\right]_1^2 = 2\\pi\\big[(4-4) - (1-2)\\big] = 2\\pi.\n$$\n\nso the volume is $2\\pi$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-other-line"
+      ],
+      "solution": "Use washers about the line $y = 1$. For $0 \\le x \\le 1$ the curve $y = e^{x/2} + 1$ lies below $y = 3$, so the outer radius is $3 - 1 = 2$ and the inner radius is $(e^{x/2} + 1) - 1 = e^{x/2}$. Then\n\n$$\nV = \\pi \\int_0^1 \\left[2^2 - \\left(e^{x/2}\\right)^2\\right] dx = \\pi \\int_0^1 (4 - e^x)\\, dx = \\pi \\left[4x - e^x\\right]_0^1 = \\pi(4 - e + 1).\n$$\n\nMeasuring the radii from the $x$-axis instead of from $y = 1$ is the common error.\n\nso the volume is $\\pi(5 - e)$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-variable-load-work"
+      ],
+      "solution": "Put the bottom of the chain at height $0$ and the winch at height $10$. A piece of length $dx$ at height $x$ weighs $\\rho g\\, dx = 1.5 \\cdot 10\\, dx = 15\\, dx$ N, and it must be lifted $10 - x$ m. So\n\n$$\nW = \\int_0^{10} 15(10 - x)\\, dx = 15\\left[10x - \\frac{x^2}{2}\\right]_0^{10} = 15(100 - 50) = 750.\n$$\n\nso the work is $750$ J.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-choose-method"
+      ],
+      "solution": "The power of $\\sin x$ is even and the power of $\\cos x$ is odd, so save one factor of $\\cos x$ and convert the rest with $\\cos^2 x = 1 - \\sin^2 x$:\n\n$$\n\\int \\sin^6 x \\cos^7 x\\, dx = \\int \\sin^6 x\\, (1 - \\sin^2 x)^3 \\cos x\\, dx.\n$$\n\nNow $du = \\cos x\\, dx$ with $u = \\sin x$ leaves a polynomial in $u$. The choice $u = \\cos x$ fails: the leftover $\\sin^5 x$ would have to be written as $(1-\\cos^2 x)^{5/2}$, which is not a polynomial.\n\nso the substitution is $u = \\sin x$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts with $u = x$ and $dv = e^{3x}\\, dx$, so $du = dx$ and $v = \\frac{1}{3}e^{3x}$:\n\n$$\n\\int_0^1 x e^{3x}\\, dx = \\left[\\frac{x}{3}e^{3x}\\right]_0^1 - \\int_0^1 \\frac{1}{3}e^{3x}\\, dx.\n$$\n\nThe remaining integral is $\\left[\\frac{1}{9}e^{3x}\\right]_0^1 = \\frac{e^3 - 1}{9}$, so\n\n$$\n\\int_0^1 x e^{3x}\\, dx = \\frac{e^3}{3} - \\frac{e^3 - 1}{9} = \\frac{2e^3 + 1}{9}.\n$$\n\nDropping the $+\\frac{1}{9}$ that comes from the $-1$ in the second term is the usual slip.\n\nso the integral is $\\frac{1}{9} + \\frac{2}{9}e^3$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-choose-substitution"
+      ],
+      "solution": "The power of $\\sec x$ is even, so save a factor $\\sec^2 x\\, dx$ for $du$ and write the rest in $\\tan x$ with $\\sec^2 x = 1 + \\tan^2 x$:\n\n$$\n\\int \\sec^6 x\\, dx = \\int (1 + \\tan^2 x)^2 \\sec^2 x\\, dx.\n$$\n\nWith $u = \\tan x$, $du = \\sec^2 x\\, dx$ and the integrand becomes the polynomial $(1 + u^2)^2$. The substitution $u = \\sec x$ would need a factor $\\sec x \\tan x$, which is not present.\n\nso the appropriate substitution is $u = \\tan x$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -311,6 +343,11 @@
         "L16",
         "L17"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form",
+        "L17-long-division"
+      ],
+      "solution": "The numerator has degree $3$ and the denominator $x^2 - 4x + 4 = (x-2)^2$ has degree $2$, so divide first. Long division gives\n\n$$\n\\frac{2x^3 + 1}{(x-2)^2} = 2x + 8 + \\frac{24x - 31}{(x-2)^2}.\n$$\n\nThe remainder has degree $1$ and the denominator has the repeated factor $(x-2)^2$, so split the remainder term as $\\frac{A}{x-2} + \\frac{B}{(x-2)^2}$. Skipping the division, or using $\\frac{B}{x-2}$ in place of $\\frac{B}{(x-2)^2}$, are the traps.\n\nso the integrand reduces to $2x + 8 + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -345,6 +382,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-tangent-substitution"
+      ],
+      "solution": "Write $4x^2 + 1 = 1 + (2x)^2$ and substitute $2x = \\tan\\theta$. Then $dx = \\frac{1}{2}\\sec^2\\theta\\, d\\theta$, $\\sqrt{4x^2+1} = \\sec\\theta$, and $x^2 = \\frac{1}{4}\\tan^2\\theta$:\n\n$$\n\\int \\frac{dx}{x^2\\sqrt{4x^2+1}} = \\int \\frac{\\frac{1}{2}\\sec^2\\theta\\, d\\theta}{\\frac{1}{4}\\tan^2\\theta\\, \\sec\\theta} = 2\\int \\frac{\\cos\\theta}{\\sin^2\\theta}\\, d\\theta = -\\frac{2}{\\sin\\theta} + C.\n$$\n\nSince $\\sin\\theta = \\frac{2x}{\\sqrt{4x^2+1}}$, this is $-\\frac{\\sqrt{4x^2+1}}{x} + C$.\n\nso the integral is $-\\frac{\\sqrt{4x^2+1}}{x} + C$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -379,6 +420,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-transformed-integral"
+      ],
+      "solution": "Complete the square: $x^2 - 2x + 2 = (x-1)^2 + 1$. Substitute $x - 1 = \\tan t$, so $\\sqrt{x^2-2x+2} = \\sec t$, $x = 1 + \\tan t$, and $dx = \\sec^2 t\\, dt$. The limits change: $x = 0$ gives $\\tan t = -1$, so $t = -\\frac{\\pi}{4}$, and $x = 1$ gives $t = 0$. Then\n\n$$\n\\int_0^1 \\frac{x^3}{\\sqrt{x^2-2x+2}}\\, dx = \\int_{-\\pi/4}^{0} \\frac{(1+\\tan t)^3}{\\sec t}\\, \\sec^2 t\\, dt = \\int_{-\\pi/4}^{0} (1 + \\tan t)^3 \\sec t\\, dt.\n$$\n\nso the transformed integral is $\\int_{-\\pi/4}^{0} (1 + \\tan t)^3 \\sec t\\, dt$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -413,6 +458,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Split the integrand: $\\frac{3t+1}{t^2} = \\frac{3}{t} + \\frac{1}{t^2}$. The second piece converges, but the first does not:\n\n$$\n\\int_1^{\\infty} \\frac{3}{t}\\, dt = \\lim_{b \\to \\infty} \\left[3\\ln t\\right]_1^b = \\lim_{b \\to \\infty} 3\\ln b = \\infty.\n$$\n\nA convergent second piece does not rescue the whole integral: one divergent part makes the sum diverge.\n\nso the integral is divergent.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -447,6 +496,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-alternating-test"
+      ],
+      "solution": "Take the series in turn.\n\nI. Let $b_n = \\frac{\\sqrt{n} - 3}{n}$. For $f(x) = \\frac{\\sqrt{x}-3}{x}$, $f'(x) = \\frac{3 - \\frac{1}{2}\\sqrt{x}}{x^2}$, which is negative for $x > 36$. So $b_n$ is eventually positive, decreasing, and tends to $0$, and the alternating series test gives convergence.\n\nII. Let $c_n = \\frac{1}{\\ln^2(n+1)}$. It is positive, decreasing, and tends to $0$, so the alternating series test gives convergence.\n\nIII. The terms $\\sin n$ do not tend to $0$. If they did, then $|\\cos n| \\to 1$, and $|\\sin(n+1)| = |\\sin n \\cos 1 + \\cos n \\sin 1|$ would tend to $\\sin 1 \\ne 0$, while $\\sin(n+1) \\to 0$ as well, a contradiction. So the series diverges by the divergence test. Applying the alternating series test to III without checking that the terms tend to $0$ is the trap.\n\nso I and II converge and III diverges.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -481,6 +534,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "For an alternating series whose terms decrease to $0$, the error after $n$ terms satisfies $|S - S_n| \\le b_{n+1}$, and here $b_{n+1} = \\frac{1}{(n+1)^3}$. The estimate guarantees the required accuracy when\n\n$$\n\\frac{1}{(n+1)^3} \\le 8 \\times 10^{-6} = \\frac{1}{125000}.\n$$\n\nSo $(n+1)^3 \\ge 125000 = 50^3$, which means $n + 1 \\ge 50$, so $n \\ge 49$. Check: $n = 48$ gives the bound $\\frac{1}{49^3} \\approx 8.5 \\times 10^{-6}$, which is too large for the estimate to guarantee the accuracy.\n\nSo the estimation theorem requires $n = 49$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -516,6 +573,10 @@
         "L23",
         "L24"
       ],
+      "typeIds": [
+        "L23-comparison-claims"
+      ],
+      "solution": "Take the statements in turn.\n\nI. False. Convergence does not imply absolute convergence: $\\sum \\frac{(-1)^{n-1}}{n}$ converges, but $\\sum \\frac{1}{n}$ diverges.\n\nII. False. A smaller nonnegative series does not force a larger one to converge. Take $a_n = \\frac{1}{n}$ and $b_n = \\frac{1}{n^2}$. Then $0 < b_n \\le a_n$ and $\\sum b_n$ converges, but $\\sum a_n$ diverges. Reversing the direction of the comparison is the trap.\n\nIII. True. Since $a_n, b_n > 0$ and $\\frac{a_n}{b_n} \\to \\frac{1}{2} > 0$, the limit comparison test applies. Because $\\sum b_n$ converges, $\\sum a_n$ converges.\n\nso only III is true.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -550,6 +611,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Use partial fractions: $\\frac{3}{n(n+3)} = \\frac{1}{n} - \\frac{1}{n+3}$. The partial sum is\n\n$$\nS_N = \\sum_{n=1}^{N} \\left(\\frac{1}{n} - \\frac{1}{n+3}\\right) = \\left(1 + \\frac{1}{2} + \\frac{1}{3}\\right) - \\left(\\frac{1}{N+1} + \\frac{1}{N+2} + \\frac{1}{N+3}\\right),\n$$\n\nbecause the terms from $\\frac{1}{4}$ to $\\frac{1}{N}$ cancel. As $N \\to \\infty$ the subtracted terms tend to $0$, so the series converges to $1 + \\frac{1}{2} + \\frac{1}{3} = \\frac{11}{6}$.\n\nso the series converges to $\\frac{11}{6}$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -584,6 +649,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The ratio of consecutive terms of $\\frac{(x-9)^k}{9+7k}$ tends to $|x - 9|$, so the radius is $R = 1$ and the series converges for $8 < x < 10$. Test both endpoints.\n\nAt $x = 10$ the series is $\\sum \\frac{1}{9+7k}$. By limit comparison with $\\sum \\frac{1}{k}$, the ratio tends to $\\frac{1}{7}$, so it diverges.\n\nAt $x = 8$ the series is $\\sum \\frac{(-1)^k}{9+7k}$, which converges by the alternating series test because $\\frac{1}{9+7k}$ decreases to $0$. Checking only $x = 10$ and leaving out $x = 8$ gives the wrong bracket.\n\nso the interval of convergence is $[8, 10)$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -618,6 +687,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Use the derivatives of $\\ln x$ at $a = 2$:\n\n$f(2) = \\ln 2$, $\\quad f'(x) = \\frac{1}{x}$, $f'(2) = \\frac{1}{2}$, $\\quad f''(x) = -\\frac{1}{x^2}$, $f''(2) = -\\frac{1}{4}$, $\\quad f'''(x) = \\frac{2}{x^3}$, $f'''(2) = \\frac{1}{4}$.\n\nThe coefficients are $\\frac{f^{(n)}(2)}{n!}$, so the series begins\n\n$$\n\\ln 2 + \\frac{1}{2}(x-2) - \\frac{1}{8}(x-2)^2 + \\frac{1}{24}(x-2)^3 + \\cdots\n$$\n\nCounting $\\ln 2$ as the first term, the fourth term is $\\frac{1}{24}(x-2)^3$. Starting the count at $(x-2)$ puts the term one place too late.\n\nso the fourth term is $\\frac{1}{24}(x-2)^3$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -652,6 +725,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-differentiate-integrate-series"
+      ],
+      "solution": "Differentiate the geometric series term by term. Since $\\frac{1}{1-x} = \\sum_{k=0}^{\\infty} x^k$ for $|x| < 1$,\n\n$$\n\\frac{1}{(1-x)^2} = \\sum_{k=0}^{\\infty} k x^{k-1} = \\sum_{k=0}^{\\infty} (k+1) x^k.\n$$\n\nReplace $x$ by $x^2$:\n\n$$\n\\frac{1}{(1-x^2)^2} = \\sum_{k=0}^{\\infty} (k+1) x^{2k}.\n$$\n\nThe term in $x^6$ needs $2k = 6$, so $k = 3$, and its coefficient is $k + 1 = 4$. Using the series for $\\frac{1}{1-x^2}$ alone, without differentiating, gives $1$, which is the trap.\n\nso the coefficient of $x^6$ is $4$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -685,6 +762,9 @@
       "answer": "D",
       "lessonIds": [
         "L32"
+      ],
+      "typeIds": [
+        "L32-estimate-with-error"
       ],
       "sourcePage": 12,
       "solution": "**Note on this question:** The Maclaurin series for $\\tan^{-1}(2x)$ converges only for $|2x|\\le1$, that is $|x|\\le\\frac{1}{2}$, but the integral runs up to $x=1$, where two terms of the series are not a reliable estimate. Following the procedure the stem asks for gives $\\int_0^1(6x^4-8x^6)\\,dx=\\frac{6}{5}-\\frac{8}{7}=\\frac{2}{35}$, choice D, which is the stored answer; the true value of the integral is about $0.747$, close to choice A.",
@@ -721,6 +801,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-circle-equations"
+      ],
+      "solution": "Multiply $r = -6\\sin\\theta + 8\\cos\\theta$ by $r$ and use $r^2 = x^2 + y^2$, $x = r\\cos\\theta$, $y = r\\sin\\theta$:\n\n$$\nx^2 + y^2 = 8x - 6y.\n$$\n\nComplete the square: $(x-4)^2 + (y+3)^2 = 25$. This is a circle with center $(4,-3)$ and radius $5$. Reading the center off the coefficients as $(-6, 8)$ is the trap.\n\nso the center is $(4,-3)$ and the radius is $5$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -755,6 +839,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-trig"
+      ],
+      "solution": "Use $L = \\int_0^{2\\pi} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\, d\\theta$ with $r = 3 + 3\\cos\\theta$ and $\\frac{dr}{d\\theta} = -3\\sin\\theta$:\n\n$$\nr^2 + \\left(\\frac{dr}{d\\theta}\\right)^2 = 9(1 + \\cos\\theta)^2 + 9\\sin^2\\theta = 18(1 + \\cos\\theta) = 36\\cos^2\\frac{\\theta}{2}.\n$$\n\nSo the integrand is $6\\left|\\cos\\frac{\\theta}{2}\\right|$. Keep the absolute value: without it the integral is $0$. Substitute $\\phi = \\frac{\\theta}{2}$, so $d\\theta = 2\\, d\\phi$ and $\\phi$ runs from $0$ to $\\pi$:\n\n$$\nL = \\int_0^{2\\pi} 6\\left|\\cos\\frac{\\theta}{2}\\right| d\\theta = 12\\int_0^{\\pi} |\\cos\\phi|\\, d\\phi = 12 \\cdot 2 = 24.\n$$\n\nso the arc length is $24$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -792,6 +880,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "Find key points of $r = 2 + 2\\sin\\theta$:\n\n- $\\theta = \\frac{\\pi}{2}$ gives $r = 4$, so the curve reaches $(0, 4)$ at the top.\n- $\\theta = 0$ and $\\theta = \\pi$ give $r = 2$, so the curve passes through $(2, 0)$ and $(-2, 0)$.\n- $\\theta = -\\frac{\\pi}{2}$ gives $r = 0$, so the curve reaches the origin with a cusp there.\n\nThe curve is a cardioid symmetric about the $y$-axis, opening upward with its cusp at the origin. Reversing the sign of $\\sin\\theta$ turns it downward, which is the trap.\n\nso the graph is the cardioid with top point $(0, 4)$ and cusp at the origin.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -829,6 +921,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-between"
+      ],
+      "solution": "The shaded region lies to the left of the $y$-axis, inside the circle $r = 1$ and outside the cardioid $r = 1 + \\cos\\theta$. It is symmetric about the $x$-axis, so take the upper half, $\\frac{\\pi}{2} \\le \\theta \\le \\pi$, and double it. There $\\cos\\theta \\le 0$, so the circle is the outer curve. Using $\\frac{1}{2}\\int (R^2 - r^2)\\, d\\theta$ with $R = 1$ and $r = 1 + \\cos\\theta$, the area is\n\n$$\nA = 2 \\cdot \\frac{1}{2} \\int_{\\pi/2}^{\\pi} \\left[1^2 - (1 + \\cos\\theta)^2\\right] d\\theta = \\frac{\\pi}{2} - \\int_{\\pi/2}^{\\pi} (1 + \\cos\\theta)^2\\, d\\theta.\n$$\n\nTaking the cardioid as the outer curve reverses the subtraction, which is the trap.\n\nso the area is $\\frac{\\pi}{2} - \\int_{\\pi/2}^{\\pi} (1 + \\cos\\theta)^2\\, d\\theta$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

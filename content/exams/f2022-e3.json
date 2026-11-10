@@ -38,6 +38,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-decide"
+      ],
+      "solution": "Compare each series with a simpler one. Finitely many terms do not affect convergence, so only large $n$ matters.\n\nFor the first series, $0 < \\frac{3n^2-1}{n^5+1} \\le \\frac{3n^2}{n^5} = \\frac{3}{n^3}$ for $n \\ge 1$. Since $\\sum \\frac{3}{n^3}$ is a convergent $p$-series, the first series converges by the comparison test.\n\nFor the second series, use the limit comparison test with $\\frac{1}{n}$:\n\n$$\n\\lim_{n\\to\\infty} \\frac{1/\\sqrt{n^2+2}}{1/n} = \\lim_{n\\to\\infty} \\frac{n}{\\sqrt{n^2+2}} = 1\n$$\n\nSince $\\sum \\frac{1}{n}$ diverges, the second series diverges.\n\nSo the first series converges and the second series diverges.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Find the limit of each sequence separately.\n\nFor the first, $\\frac{n}{\\ln n} \\to \\infty$, since L'Hospital's rule gives $\\lim_{n\\to\\infty} \\frac{n}{\\ln n} = \\lim_{n\\to\\infty} \\frac{1}{1/n} = \\lim_{n\\to\\infty} n = \\infty$. So $a_n = \\frac{1}{n} - \\frac{n}{\\ln n} \\to 0 - \\infty = -\\infty$, and the sequence diverges. Take $n \\ge 2$ throughout, since $\\ln 1 = 0$.\n\nFor the second, $b_n = \\left(1+\\frac{1}{n}\\right)^n$ has the form $\\left(1+\\frac{x}{n}\\right)^n$ with $x = 1$. Its limit is $e^x$, so $b_n \\to e$ and the sequence converges.\n\nSo the first sequence diverges and the second converges. Seeing $\\frac{1}{n} \\to 0$ does not settle $a_n$, because the term $\\frac{n}{\\ln n}$ is the one that controls the limit.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-p-range"
+      ],
+      "solution": "For large $k$ the numerator is dominated by $k^3$, so the terms behave like $\\sqrt{\\frac{k^3}{k^p}} = k^{\\frac{3-p}{2}}$. For $p > 0$, limit comparison with $k^{\\frac{3-p}{2}}$ gives\n\n$$\n\\lim_{k\\to\\infty} \\frac{\\sqrt{\\dfrac{k^3+2k^2}{k^p+1}}}{k^{\\frac{3-p}{2}}} = \\lim_{k\\to\\infty} \\sqrt{\\frac{k^3+2k^2}{k^3+k^{3-p}}} = 1\n$$\n\nSince $\\sum k^{\\frac{3-p}{2}}$ is a $p$-series with exponent $\\frac{p-3}{2}$, it converges exactly when $\\frac{p-3}{2} > 1$, that is, $p > 5$. For $p \\le 0$ the terms grow without bound, so the series diverges.\n\nAt $p = 5$ the terms behave like $\\frac{1}{k}$, which diverges, so the inequality must be strict. So the series converges exactly when $p > 5$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -143,6 +155,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
+      "solution": "Split the term into two geometric pieces:\n\n$$\n\\frac{2+2^k}{4^k} = 2\\left(\\frac{1}{4}\\right)^k + \\left(\\frac{1}{2}\\right)^k\n$$\n\nEach piece starts at $k = 0$, so use $\\sum_{k=0}^{\\infty} r^k = \\frac{1}{1-r}$ for $|r| < 1$ on each:\n\n$$\n\\sum_{k=0}^{\\infty} 2\\left(\\frac{1}{4}\\right)^k = \\frac{2}{1-\\frac{1}{4}} = \\frac{8}{3}, \\qquad \\sum_{k=0}^{\\infty} \\left(\\frac{1}{2}\\right)^k = \\frac{1}{1-\\frac{1}{2}} = 2\n$$\n\nSo the sum is $\\frac{8}{3} + 2 = \\frac{14}{3}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -178,6 +194,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Use partial fractions, since $n^2 - n = n(n-1)$:\n\n$$\n\\frac{2}{n^2-n} = \\frac{2}{n-1} - \\frac{2}{n}\n$$\n\nIn the partial sum $S_N = \\sum_{n=2}^{N} \\left(\\frac{2}{n-1} - \\frac{2}{n}\\right)$, each negative term cancels the positive term that follows it. Only the first term $\\frac{2}{1}$ and the last term $-\\frac{2}{N}$ survive, so $S_N = 2 - \\frac{2}{N}$.\n\nAs $N \\to \\infty$, $S_N \\to 2$, so the sum is $2$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -214,6 +234,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Use the integral test. The function $f(x) = \\frac{1}{x \\ln x}$ is positive and decreasing for $x \\ge 2$, so the series and the integral converge or diverge together. With $u = \\ln x$,\n\n$$\n\\int_2^{\\infty} \\frac{dx}{x \\ln x} = \\lim_{t\\to\\infty} \\Big[\\ln(\\ln x)\\Big]_2^{t} = \\infty\n$$\n\nSo the integral diverges, and the series diverges.\n\nComparison with $\\sum \\frac{1}{k}$ does not work here: for $k \\ge 3$, $\\ln k > 1$, so $\\frac{1}{k\\ln k}$ is smaller than $\\frac{1}{k}$, and a smaller series proves nothing about divergence.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -249,6 +273,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-alternating-claims"
+      ],
+      "solution": "Check each statement in turn.\n\nI. False. The series of absolute values is $\\sum \\frac{1}{k}$, the harmonic series, which diverges. So the series does not converge absolutely.\n\nII. True. The alternating series test needs $b_k = \\frac{1}{k}$ to be positive, decreasing and tending to $0$. All three hold, so the series converges.\n\nIII. False. The integral $\\int_1^{\\infty} \\frac{dx}{x}$ diverges, which only shows that the series is not absolutely convergent. It does not show divergence. The series converges conditionally.\n\nSo only statement II is correct. Divergence of the absolute-value series is not the same as divergence of the series, which is the mistake in statement III.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -283,6 +311,9 @@
       "answerSource": "derived",
       "lessonIds": [
         "L24"
+      ],
+      "typeIds": [
+        "L24-error-estimate"
       ],
       "sourcePage": 5,
       "solution": "**Note on this question:** The course counts terms by the alternating series bound $|S-S_n|\\le b_{n+1}$, as Purdue's own keys do for the same question (Spring 2024 Exam 3 Q9, Spring 2016 Exam 3 Q5): the terms are $b_m=\\frac{1}{m}$ with $m=k+1$, so $n$ terms leave an error of at most $b_{n+1}=\\frac{1}{n+1}$, and $\\frac{1}{n+1}\\le 0.1$ needs $n+1\\ge 10$, so $n=9$. The true error is already within $0.1$ after $5$ terms ($|\\ln 2-S_5|\\approx 0.090$), but $5$ is not a choice, so the answer follows the bound.",
@@ -320,6 +351,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "A series is conditionally convergent when it converges but the series of absolute values diverges. Check each series.\n\n- $\\sum_{k=2}^{\\infty} \\frac{(-1)^k}{k\\ln k}$: the terms $\\frac{1}{k\\ln k}$ decrease to $0$ for $k \\ge 2$, so the alternating series test gives convergence. The absolute series $\\sum \\frac{1}{k\\ln k}$ diverges by the integral test. Conditionally convergent.\n- $\\sum_{k=1}^{\\infty} \\frac{(-1)^k}{\\pi^k}$: a geometric series with ratio $-\\frac{1}{\\pi}$, so it converges absolutely. Not conditional.\n- $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{k^{0.998}}$: the alternating series test applies, since $\\frac{1}{k^{0.998}}$ decreases to $0$. The absolute series is a $p$-series with $p = 0.998 \\le 1$, which diverges. Conditionally convergent.\n- $\\sum_{k=1337}^{\\infty} \\frac{-1}{k^2}$: all terms have the same sign and the series converges absolutely, as a $p$-series with $p = 2$. Not conditional.\n- $\\sum_{k=1}^{\\infty} \\frac{(-1)^k}{k^{\\pi}}$: the absolute series is a $p$-series with $p = \\pi > 1$, so it converges absolutely. Not conditional.\n\nSo two of the series are conditionally convergent. The exponent $0.998$ is close to $1$ but below it, which is why its absolute series diverges.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -355,6 +390,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Apply the ratio test to the absolute values of the terms $u_k = \\frac{2^k (x-1)^k}{k!}$:\n\n$$\n\\lim_{k\\to\\infty} \\left|\\frac{u_{k+1}}{u_k}\\right| = \\lim_{k\\to\\infty} \\frac{2|x-1|}{k+1} = 0\n$$\n\nThis limit is $0$ for every $x$, because $2|x-1|$ does not depend on $k$. The limit is less than $1$ for every real $x$, so the series converges absolutely for all $x$ and its radius of convergence is infinite.\n\nThe factor $k!$ makes the terms shrink faster than any geometric series, so there is no finite radius. Reading the $2^k$ alone as a ratio of $2$ would wrongly suggest a radius of $\\frac{1}{2}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -390,6 +429,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
+      ],
+      "solution": "The coefficient of $\\left(x - a\\right)^n$ in a Taylor polynomial is $\\frac{f^{(n)}(a)}{n!}$. For $n = 3$ this coefficient is $\\frac{f'''(a)}{3!}$, with $a = \\frac{5\\pi}{6}$.\n\nThe coefficient of $\\left(x-\\frac{5\\pi}{6}\\right)^3$ in the given polynomial is $\\frac{\\sqrt{3}}{12}$, so\n\n$$\n\\frac{f'''\\left(\\frac{5\\pi}{6}\\right)}{3!} = \\frac{\\sqrt{3}}{12}\n$$\n\nMultiplying by $3! = 6$ gives $f'''\\left(\\frac{5\\pi}{6}\\right) = \\frac{6\\sqrt{3}}{12} = \\frac{\\sqrt{3}}{2}$.\n\nThe trap is to read the coefficient $\\frac{\\sqrt{3}}{12}$ as the derivative itself. The factor $3!$ must be multiplied back in.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -425,6 +468,10 @@
       "lessonIds": [
         "L28"
       ],
+      "typeIds": [
+        "L28-error-bound"
+      ],
+      "solution": "Use Taylor's Estimation Theorem: the error of the degree-$n$ Taylor polynomial centered at $a$ satisfies $|R_n(x)| \\le \\frac{M}{(n+1)!}|x - a|^{n+1}$, where $M$ bounds $|f^{(n+1)}|$ between $a$ and $x$.\n\nHere $n = 2$ and $a = 0$. Since $f(x) = e^{-x}$, the value $e^{-0.1}$ is $f(0.1)$, so $x = 0.1$.\n\nThe third derivative is $f'''(x) = -e^{-x}$. For $c$ between $0$ and $0.1$,\n\n$$\n|f'''(c)| = e^{-c} \\le e^{0} = 1,\n$$\n\nso take $M = 1$. Then\n\n$$\n|R_2(0.1)| \\le \\frac{1}{3!}(0.1)^3 = \\frac{1}{6} \\cdot \\frac{1}{1000} = \\frac{1}{6000}.\n$$\n\nSo the maximum absolute error is $\\frac{1}{6000}$. The point to plug in is $x = 0.1$, not $x = -0.1$: on the interval from $-0.1$ to $0$ the bound on $e^{-c}$ would be larger than $1$.",
       "sourcePage": 7,
       "status": "reviewed"
     }
