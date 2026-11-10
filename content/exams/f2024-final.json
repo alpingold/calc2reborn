@@ -38,6 +38,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Use the root test on the coefficients, since the $k$-th root of $\\left(\\frac{k+1}{k}\\right)^{k^2}$ is $\\left(\\frac{k+1}{k}\\right)^{k} = \\left(1+\\frac{1}{k}\\right)^{k}$.\n\nThis tends to $e$ as $k \\to \\infty$, so the series converges when $e|x| < 1$ and diverges when $e|x| > 1$. The radius of convergence is $\\frac{1}{e}$.\n\nThe coefficients $\\left(\\frac{k+1}{k}\\right)^{k^2}$ themselves grow without bound, so taking their limit gives $\\infty$ and a radius of $0$. The $k$-th root is the quantity the root test needs.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "Use $x = r\\cos\\theta$ and $y = r\\sin\\theta$, which hold for a negative $r$ as well.\n\nHere $\\cos\\frac{3\\pi}{4} = -\\frac{\\sqrt{2}}{2}$ and $\\sin\\frac{3\\pi}{4} = \\frac{\\sqrt{2}}{2}$, so $x = (-3\\sqrt{2})\\left(-\\frac{\\sqrt{2}}{2}\\right) = 3$ and $y = (-3\\sqrt{2})\\left(\\frac{\\sqrt{2}}{2}\\right) = -3$.\n\nSo the point is $(3, -3)$. Dropping the minus sign on $r$ gives $(-3, 3)$ instead, which is the point on the opposite side of the origin.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Compare with the Maclaurin series $\\ln(1+x) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}x^n}{n}$, valid for $-1 < x \\le 1$.\n\nPut $x = \\frac{1}{2}$, which lies in the interval: $\\ln\\left(1+\\frac{1}{2}\\right) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n\\,2^n}$, which is exactly the given series.\n\nSo the sum is $\\ln\\left(\\frac{3}{2}\\right)$. Using $\\ln(1-x)$ instead gives $\\ln\\left(\\frac{1}{2}\\right)$, the sign slip behind one of the wrong choices.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "Check each statement against the terms $a_n = \\frac{1}{2^n n^2}$, using the comparison test or the limit comparison test.\n\n(I) $0 < \\frac{1}{2^n n^2} \\le \\frac{1}{2^n}$ for all $n \\ge 1$, and $\\sum \\frac{1}{2^n}$ is a convergent geometric series, so (I) is correct.\n\n(II) $0 < \\frac{1}{2^n n^2} \\le \\frac{1}{n^2}$, and $\\sum \\frac{1}{n^2}$ converges as a $p$-series with $p = 2$, so (II) is correct.\n\n(III) $\\lim_{n\\to\\infty} \\frac{1/(2^n n^2)}{1/2^n} = \\lim_{n\\to\\infty} \\frac{1}{n^2} = 0$. A limit of $0$ still shows convergence when the series used converges, and $\\sum \\frac{1}{2^n}$ does, so (III) is correct.\n\n(IV) $\\lim_{n\\to\\infty} \\frac{1/(2^n n^2)}{1/n^2} = \\lim_{n\\to\\infty} \\frac{1}{2^n} = 0$, and $\\sum \\frac{1}{n^2}$ converges, so (IV) is correct.\n\nAll four statements are correct. The trap is (III) and (IV): the limits are $0$, not a positive finite number, so the basic limit comparison test does not apply. The version that allows a limit of $0$ works only because the comparison series converges.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -177,6 +193,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-y-axis"
+      ],
+      "solution": "Use disks in $y$, since the solid is revolved about the $y$-axis and each horizontal slice is a disk.\n\nSolve $y = \\frac{x^2}{4}$ for $x$ to get the radius at height $y$: $x = 2\\sqrt{y}$, for $0 \\le y \\le 4$.\n\nThe volume is $V = \\int_0^4 \\pi (2\\sqrt{y})^2\\,dy = \\int_0^4 4\\pi y\\,dy = 4\\pi \\left[\\frac{y^2}{2}\\right]_0^4 = 4\\pi \\cdot 8$.\n\nSo the internal volume is $32\\pi \\text{ cm}^3$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -211,6 +231,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Split the term with partial fractions: $\\frac{2}{n^2-1} = \\frac{2}{(n-1)(n+1)} = \\frac{1}{n-1} - \\frac{1}{n+1}$.\n\nThe partial sum from $n=2$ to $N$ telescopes: $\\sum_{n=2}^{N}\\left(\\frac{1}{n-1} - \\frac{1}{n+1}\\right) = 1 + \\frac{1}{2} - \\frac{1}{N} - \\frac{1}{N+1}$.\n\nAs $N \\to \\infty$ this tends to $\\frac{3}{2}$, so the series converges to $\\frac{3}{2}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -245,6 +269,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "Take two side vectors from $A$, and the area is half the magnitude of their cross product.\n\n$\\vec{AB} = \\langle 2, -1, 1\\rangle$ and $\\vec{AC} = \\langle 3, 0, 4\\rangle$, so $\\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & -1 & 1 \\\\ 3 & 0 & 4 \\end{vmatrix} = -4\\vec{i} - 5\\vec{j} + 3\\vec{k}$.\n\n$|\\vec{AB} \\times \\vec{AC}| = \\sqrt{16 + 25 + 9} = \\sqrt{50} = 5\\sqrt{2}$, so the area is $\\frac{1}{2}\\cdot 5\\sqrt{2} = \\frac{5\\sqrt{2}}{2}$.\n\nForgetting the factor $\\frac{1}{2}$ gives $5\\sqrt{2}$, one of the wrong choices.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -281,6 +309,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Check each statement in turn, using limits of sequences and the comparison test.\n\n(I) $\\frac{a_n}{n} = a_n \\cdot \\frac{1}{n}$ is a convergent sequence times one that tends to $0$, so it tends to $0$. The sequence $\\left\\{\\frac{a_n}{n}\\right\\}$ converges, so (I) is true.\n\n(II) If $\\sum a_n$ converges, then $a_n \\to 0$ by the divergence test. A sequence tending to $0$ converges, so (II) is true.\n\n(III) Since $a_n > 0$ and $n \\ge 1$, we get $0 < \\frac{a_n}{n} \\le a_n$. The series $\\sum a_n$ converges, so $\\sum \\frac{a_n}{n}$ converges by comparison, and (III) is true.\n\nAll three statements are true.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -315,6 +347,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "Evaluate both integrals by integration by parts, then subtract, since $A = \\int_0^1 x^2 e^{-2x}\\,dx - \\int_0^1 x e^{-2x}\\,dx$.\n\nFor $I_1 = \\int_0^1 x e^{-2x}\\,dx$, take $u = x$ and $dv = e^{-2x}\\,dx$, so $v = -\\frac{1}{2}e^{-2x}$. Then $I_1 = \\left[-\\frac{x}{2}e^{-2x}\\right]_0^1 + \\frac{1}{2}\\int_0^1 e^{-2x}\\,dx = -\\frac{e^{-2}}{2} + \\frac{1}{4} - \\frac{e^{-2}}{4} = \\frac{1}{4} - \\frac{3e^{-2}}{4}$.\n\nFor $I_2 = \\int_0^1 x^2 e^{-2x}\\,dx$, take $u = x^2$ and the same $dv$. Then $I_2 = \\left[-\\frac{x^2}{2}e^{-2x}\\right]_0^1 + \\int_0^1 x e^{-2x}\\,dx = -\\frac{e^{-2}}{2} + I_1$.\n\nSo $A = I_2 - I_1 = -\\frac{1}{2e^2}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -349,6 +385,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Find the two vectors from $A$, then use the dot product formula for the angle between them.\n\n$\\vec{AB} = B - A = \\langle -1, 0, 1\\rangle$ and $\\vec{AC} = C - A = \\langle 1, 2, -2\\rangle$.\n\n$\\vec{AB} \\cdot \\vec{AC} = -1 + 0 - 2 = -3$, $|\\vec{AB}| = \\sqrt{2}$ and $|\\vec{AC}| = \\sqrt{1 + 4 + 4} = 3$.\n\nSo $\\cos\\theta = \\frac{-3}{3\\sqrt{2}} = -\\frac{1}{\\sqrt{2}}$, and since the angle lies in $[0, \\pi]$, $\\theta = \\frac{3\\pi}{4}$.\n\nUsing the vectors $\\overrightarrow{BC}$ or $\\overrightarrow{CB}$ instead of the two vectors from $A$ gives a different angle, the most common slip here.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -383,6 +423,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "Convert the point to polar form, then test each listed pair by converting it back with $x = r\\cos\\theta$ and $y = r\\sin\\theta$.\n\nFor $(-\\sqrt{3}, 3)$, $r = \\sqrt{3 + 9} = 2\\sqrt{3}$, $\\cos\\theta = -\\frac{1}{2}$ and $\\sin\\theta = \\frac{\\sqrt{3}}{2}$, so $\\theta = \\frac{2\\pi}{3}$.\n\n(I) For $(-2\\sqrt{3}, -\\frac{2\\pi}{3})$, $x = -2\\sqrt{3}\\cdot\\left(-\\frac{1}{2}\\right) = \\sqrt{3}$, which has the wrong sign, so $P_1$ is not a representation.\n\n(II) For $(2\\sqrt{3}, -\\frac{4\\pi}{3})$, $x = 2\\sqrt{3}\\cdot\\left(-\\frac{1}{2}\\right) = -\\sqrt{3}$ and $y = 2\\sqrt{3}\\cdot\\frac{\\sqrt{3}}{2} = 3$, so $P_2$ is correct.\n\n(III) For $(6, \\frac{2\\pi}{3})$, $x = -3$ and $y = 3\\sqrt{3}$, so $P_3$ is not correct.\n\nOnly $P_2$ represents the point. The trap is $P_1$: it negates both $r$ and $\\theta$, which reflects the point across the $y$-axis. To flip the sign of $r$ and keep the same point, $\\pi$ must be added to the angle.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -417,6 +461,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-approximate-with-polynomial"
+      ],
+      "solution": "The second-order Taylor polynomial of $e^x$ at $0$ is $P_2(x) = 1 + x + \\frac{x^2}{2}$, so integrate this polynomial over $[0, 1]$.\n\n$\\int_0^1 \\left(1 + x + \\frac{x^2}{2}\\right)dx = \\left[x + \\frac{x^2}{2} + \\frac{x^3}{6}\\right]_0^1 = 1 + \\frac{1}{2} + \\frac{1}{6} = \\frac{5}{3}$.\n\nUsing only the first-order polynomial $1 + x$ gives $\\frac{3}{2}$, which is a different estimate.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -454,6 +502,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "The radical $\\sqrt{4 - x^2}$ has the form $\\sqrt{a^2 - x^2}$ with $a = 2$, so use $x = 2\\sin\\theta$, which gives $\\sqrt{4 - x^2} = 2\\cos\\theta$.\n\nIn a right triangle with $\\sin\\theta = \\frac{x}{2}$, the hypotenuse is $2$, the side opposite $\\theta$ is $x$, and the adjacent side is $\\sqrt{4 - x^2}$.\n\nSo the right triangle is the one with hypotenuse $2$ and vertical leg $x$ opposite $\\theta$. A triangle with legs $x$ and $2$ fits $\\sqrt{4 + x^2}$ instead, so check which side is the hypotenuse.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -488,6 +540,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Convert to Cartesian form with $y = r\\sin\\theta$ and see which curve gives a constant $y$.\n\nFor $r = \\csc\\theta$, $r\\sin\\theta = 1$, so $y = 1$ at every point of the curve. That is a horizontal line.\n\nThe others are not horizontal: $r = 1$ is a circle, $r = \\cos\\theta$ is a circle through the origin, $r = \\theta$ is a spiral, and $r = \\sec\\theta$ gives $x = 1$, a vertical line. The trap is $r = \\sec\\theta$, the same family with the axes swapped.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -522,6 +578,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Pump the water in horizontal slices. A slice at height $y$, of thickness $dy$, has volume $\\pi(3)^2\\,dy = 9\\pi\\,dy$, so its weight is $\\rho g \\cdot 9\\pi\\,dy = 1000 \\cdot 10 \\cdot 9\\pi\\,dy = 90000\\pi\\,dy$ newtons.\n\nEach slice is lifted a distance $4 - y$ to the top rim, so $W = \\int_0^4 90000\\pi(4 - y)\\,dy = 90000\\pi\\left[4y - \\frac{y^2}{2}\\right]_0^4 = 90000\\pi \\cdot 8$.\n\nSo the work is $720000\\pi$ J.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -556,6 +616,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-unit-vector-direction"
+      ],
+      "solution": "Find $\\overrightarrow{PQ}$ as $Q - P$, then divide it by its length.\n\n$\\overrightarrow{PQ} = Q - P = \\langle -4, 1, -8\\rangle$, with length $\\sqrt{16 + 1 + 64} = \\sqrt{81} = 9$.\n\nSo the unit vector is $\\frac{1}{9}\\langle -4, 1, -8\\rangle = \\left\\langle -\\frac{4}{9}, \\frac{1}{9}, -\\frac{8}{9}\\right\\rangle$.\n\nReversing the subtraction, $P - Q$, gives the opposite direction, $\\left\\langle \\frac{4}{9}, -\\frac{1}{9}, \\frac{8}{9}\\right\\rangle$, which is one of the wrong choices.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -590,6 +654,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Write $f(x) + f(-x)$ term by term, which keeps only the even powers, and find the first term that survives.\n\n$f(x) + f(-x) = \\sum_{k=1}^{\\infty} \\frac{x^k + (-x)^k}{k^2} = \\sum_{k=1}^{\\infty} \\frac{\\left(1 + (-1)^k\\right)x^k}{k^2}$, where $1 + (-1)^k$ is $0$ for odd $k$ and $2$ for even $k$.\n\nSo $f(x) + f(-x) = 2\\sum_{j=1}^{\\infty} \\frac{x^{2j}}{(2j)^2} = \\frac{x^2}{2} + \\frac{x^4}{8} + \\cdots$.\n\nDividing by $x^2$ and letting $x \\to 0$ leaves $\\frac{1}{2}$, so the limit is $\\frac{1}{2}$. The two equal $x^2$ terms from $f(x)$ and $f(-x)$ add to $2\\cdot\\frac{1}{4}$; the value $\\frac{1}{4}$ is only the coefficient of $x^2$ in $f$ itself.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -624,6 +692,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-trig"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int_a^b \\sqrt{r^2 + (r')^2}\\,d\\theta$.\n\nWith $r = \\sin\\theta - \\cos\\theta$, $r' = \\cos\\theta + \\sin\\theta$.\n\n$r^2 + (r')^2 = (\\sin\\theta - \\cos\\theta)^2 + (\\sin\\theta + \\cos\\theta)^2 = 2\\sin^2\\theta + 2\\cos^2\\theta = 2$.\n\nSo $L = \\int_0^{\\pi} \\sqrt{2}\\,d\\theta = \\sqrt{2}\\,\\pi$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -658,6 +730,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Compute $\\vec{u} - 2\\vec{v}$ first, then take the dot product with $\\vec{w}$.\n\n$2\\vec{v} = \\langle 0, 4\\rangle$, so $\\vec{u} - 2\\vec{v} = \\langle 1, -1\\rangle$.\n\n$(\\vec{u} - 2\\vec{v}) \\cdot \\vec{w} = 1 \\cdot 3 + (-1)\\cdot 4 = -1$.\n\nThe result is a number, not a vector.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -693,6 +769,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-dot-product-statements"
+      ],
+      "solution": "Check each statement, using $\\vec{v}\\cdot\\vec{w} = |\\vec{v}||\\vec{w}|\\cos\\theta$ and $|\\vec{v}\\times\\vec{w}| = |\\vec{v}||\\vec{w}|\\sin\\theta$, with $\\theta$ the angle between the vectors.\n\n(I) If $\\vec{v}\\cdot\\vec{w} = 0$, then $\\cos\\theta = 0$, so $\\sin\\theta = \\pm 1$ and $|\\vec{v}\\times\\vec{w}| = |\\vec{v}||\\vec{w}|$. Statement (I) is true.\n\n(II) If $\\vec{v}\\times\\vec{w} = \\vec{0}$, then the vectors are parallel, so $\\theta = 0$ or $\\pi$ and $|\\vec{v}\\cdot\\vec{w}| = |\\vec{v}||\\vec{w}|$. Statement (II) is true.\n\n(III) For unit vectors, $\\vec{v}\\cdot\\vec{w} = \\cos\\theta \\le 1$. Statement (III) is true.\n\nAll three statements are true.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -731,6 +811,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "Read $f(\\theta)$ from the graph, then plot the points $(r, \\theta)$, remembering that a negative $r$ puts the point on the opposite side of the origin.\n\nThe graph gives $f(0) = 3$, $f\\left(\\frac{2\\pi}{3}\\right) = 0$, $f(\\pi) = -1$, $f\\left(\\frac{4\\pi}{3}\\right) = 0$, and $f(2\\pi) = 3$. These values fit $r = 1 + 2\\cos\\theta$, since $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$ and $\\cos\\pi = -1$.\n\nThis is a limacon with an inner loop. It is symmetric about the $x$-axis and the outer loop reaches $(3, 0)$. The curve passes through the origin at $\\theta = \\frac{2\\pi}{3}$ and $\\theta = \\frac{4\\pi}{3}$, where $r = 0$. For $\\frac{2\\pi}{3} < \\theta < \\frac{4\\pi}{3}$, $r < 0$, so the small inner loop is drawn on the right of the origin, inside the big loop, and reaches $(1, 0)$ since $r = -1$ at $\\theta = \\pi$.\n\nSo the matching figure has a big loop on the right with a small inner loop between the origin and $(1, 0)$, the curve crossing itself at the origin. The trap is the mirror image: $r = 1 - 2\\cos\\theta$ puts the small loop on the left.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -765,6 +849,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Write the integrand as $x^{-3} - x^{-4}$, and evaluate the integral as a limit.\n\n$\\int_1^{\\infty} \\left(x^{-3} - x^{-4}\\right)dx = \\lim_{t\\to\\infty}\\left[-\\frac{1}{2x^2} + \\frac{1}{3x^3}\\right]_1^{t}$.\n\nAs $t \\to \\infty$ the upper value tends to $0$, and at $x = 1$ the antiderivative is $-\\frac{1}{2} + \\frac{1}{3} = -\\frac{1}{6}$.\n\nSo the integral is $0 - \\left(-\\frac{1}{6}\\right) = \\frac{1}{6}$, a finite value. Dropping the $-x^{-4}$ term gives $\\frac{1}{2}$ instead.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -799,6 +887,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "A vector is orthogonal to $\\langle 1, 1, 1\\rangle$ when their dot product is $0$. Check each candidate by summing its components.\n\n$\\vec{a}\\cdot\\langle 1, 1, 1\\rangle = -3 \\ne 0$, so $\\vec{a}$ is not orthogonal.\n\n$\\vec{b}\\cdot\\langle 1, 1, 1\\rangle = 1 + 2 - 3 = 0$, so $\\vec{b}$ is orthogonal.\n\n$\\vec{c}\\cdot\\langle 1, 1, 1\\rangle = -1 + 0 + 1 = 0$, so $\\vec{c}$ is orthogonal.\n\n$\\vec{d} = \\vec{0}$ gives $0$, and the zero vector is orthogonal to every vector, so $\\vec{d}$ counts. Leaving it out gives the pair $\\vec{b}$ and $\\vec{c}$, which is the trap.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -833,6 +925,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "For an alternating series with decreasing terms tending to $0$, the error after $n$ terms is at most the first omitted term, so find the smallest $n$ with $\\frac{1}{2^{n+1} + 7} < 0.01$.\n\nHere $|S - S_n| \\le \\frac{1}{2^{n+1} + 7}$, and the condition is $2^{n+1} + 7 > 100$, so $2^{n+1} > 93$.\n\n$2^6 = 64$ is too small and $2^7 = 128$ works, so $n + 1 = 7$ and $n = 6$. Check: the bound after $5$ terms is $\\frac{1}{71} > 0.01$, while after $6$ terms it is $\\frac{1}{135} < 0.01$.\n\nSo six terms are needed. Using the term $b_n$ instead of $b_{n+1}$ gives a count of $7$, one more than needed.",
       "sourcePage": 15,
       "status": "reviewed"
     },
@@ -867,6 +963,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-one-curve"
+      ],
+      "solution": "Use the polar area formula $A = \\frac{1}{2}\\int_{\\alpha}^{\\beta} r^2\\,d\\theta$ over the whole curve.\n\n$r^2 = (2 + \\cos\\theta)^2 = 4 + 4\\cos\\theta + \\cos^2\\theta$, and $\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$, so $r^2 = \\frac{9}{2} + 4\\cos\\theta + \\frac{1}{2}\\cos 2\\theta$.\n\n$\\int_0^{2\\pi} r^2\\,d\\theta = \\frac{9}{2}\\cdot 2\\pi + 0 + 0 = 9\\pi$, since the integrals of $\\cos\\theta$ and $\\cos 2\\theta$ over a full period are $0$.\n\nSo the area is $\\frac{1}{2}\\cdot 9\\pi = \\frac{9\\pi}{2}$. Dropping the factor $\\frac{1}{2}$ gives $9\\pi$.",
       "sourcePage": 15,
       "status": "reviewed"
     }

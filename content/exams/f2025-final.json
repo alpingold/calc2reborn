@@ -38,6 +38,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-one-curve"
+      ],
+      "solution": "Use the area formula for a polar curve, $\\frac{1}{2}\\int r^2\\,d\\theta$, over the full range $0 \\le \\theta \\le 2\\pi$.\n\n$$\n\\frac{1}{2}\\int_0^{2\\pi} (2+\\cos 2\\theta)^2\\,d\\theta = \\frac{1}{2}\\int_0^{2\\pi} \\left(4 + 4\\cos 2\\theta + \\cos^2 2\\theta\\right)d\\theta\n$$\n\nReplace $\\cos^2 2\\theta$ by $\\frac{1}{2}(1+\\cos 4\\theta)$. The integrand becomes $\\frac{9}{2} + 4\\cos 2\\theta + \\frac{1}{2}\\cos 4\\theta$. Both cosine terms integrate to $0$ over $0 \\le \\theta \\le 2\\pi$, so the integral is $\\frac{9}{2}\\cdot 2\\pi = 9\\pi$.\n\nSo the area is $\\frac{1}{2}\\cdot 9\\pi = \\frac{9\\pi}{2}$. Forgetting the factor $\\frac{1}{2}$ gives $9\\pi$, which is twice the area.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Integrate the power series of $\\frac{\\sin t}{t}$ term by term.\n\nDividing the series for $\\sin t$ by $t$ gives\n\n$$\n\\frac{\\sin t}{t} = \\sum_{k=0}^{\\infty} \\frac{(-1)^k t^{2k}}{(2k+1)!}.\n$$\n\nIntegrating from $0$ to $x$ raises each power by one, with $\\int_0^x t^{2k}\\,dt = \\frac{x^{2k+1}}{2k+1}$. Hence\n\n$$\nf(x) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)(2k+1)!}.\n$$\n\nThe new factor $\\frac{1}{2k+1}$ is easy to forget. Leaving it out keeps $(2k+1)!$ alone in the denominator, which gives the wrong series.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -119,6 +127,10 @@
         "L11",
         "L12"
       ],
+      "typeIds": [
+        "L12-choose-method"
+      ],
+      "solution": "A proposed antiderivative is correct exactly when its derivative is $\\sin x\\cos x$, so differentiate each attempt.\n\n- (i): $\\frac{d}{dx}\\left(\\frac{\\sin^2 x}{2}\\right) = \\sin x\\cos x$. Correct.\n- (ii): $\\frac{d}{dx}\\left(-\\frac{\\cos^2 x}{2}\\right) = -\\cos x\\cdot(-\\sin x) = \\sin x\\cos x$. Correct.\n- (iii): $\\frac{d}{dx}\\left(-\\frac{\\cos 2x}{4}\\right) = \\frac{2\\sin 2x}{4} = \\frac{1}{2}\\sin 2x = \\sin x\\cos x$. Correct.\n\nAll three are correct. Their results differ only by constants: $\\frac{\\sin^2 x}{2} = -\\frac{\\cos^2 x}{2} + \\frac{1}{2}$ and $-\\frac{\\cos 2x}{4} = -\\frac{\\cos^2 x}{2} + \\frac{1}{4}$, and the constant $C$ absorbs each difference. The trap is to think that, because the three forms look different, at most one can be right.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -153,6 +165,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-sum-by-differentiating"
+      ],
+      "solution": "Recognise the sum as the derivative of a geometric series.\n\nFor $|x|<1$, $\\sum_{n=0}^{\\infty} x^{n+1} = \\frac{x}{1-x}$. Differentiate both sides with respect to $x$:\n\n$$\n\\sum_{n=0}^{\\infty} (n+1)x^{n} = \\frac{d}{dx}\\left(\\frac{x}{1-x}\\right) = \\frac{(1-x)+x}{(1-x)^2} = \\frac{1}{(1-x)^2}.\n$$\n\nPut $x = \\frac{1}{3}$, which lies in $|x|<1$. The sum is $\\frac{1}{(2/3)^2} = \\frac{9}{4}$.\n\nThe trap is summing only the geometric series $\\sum \\frac{1}{3^n}$, which gives $\\frac{3}{2}$ and drops the factor $n+1$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -187,6 +203,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "Use the projection formula $\\mathsf{proj}_{\\vec v}(\\vec w) = \\frac{\\vec w\\cdot\\vec v}{\\vec v\\cdot\\vec v}\\,\\vec v$.\n\n$\\vec w\\cdot\\vec v = (-2)(1) + (1)(-1) + (2)(0) = -3$ and $\\vec v\\cdot\\vec v = 1 + 1 + 0 = 2$.\n\nSo $\\mathsf{proj}_{\\vec v}(\\vec w) = \\frac{-3}{2}\\langle 1, -1, 0\\rangle = \\left\\langle -\\frac{3}{2}, \\frac{3}{2}, 0\\right\\rangle$.\n\nThe trap is to use $\\frac{\\vec w\\cdot\\vec v}{|\\vec v|}$ as the scalar and multiply it by $\\vec v$. That gives $\\left\\langle -\\frac{3}{\\sqrt2}, \\frac{3}{\\sqrt2}, 0\\right\\rangle$, a vector of the wrong length, because the scalar must be divided by $|\\vec v|^2$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -224,6 +244,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-hydrostatic-force"
+      ],
+      "solution": "Slice the dam horizontally, with $y$ measured as depth below the water surface, which is level with the top. So $0 \\le y \\le 20$.\n\nA horizontal strip at depth $y$ has width $w(y)$ and pressure $\\rho g y$, so the force on it is $\\rho g\\, y\\, w(y)\\,dy$.\n\nThe width goes linearly from $40$ m at the top ($y=0$) to $20$ m at the base ($y=20$), shrinking by $1$ m for each metre of depth, so $w(y) = 40 - y$. Hence\n\n$$\nF = \\int_0^{20} \\rho g\\, y\\,(40-y)\\,dy.\n$$\n\nThe width $20+y$ would be right only if $y$ were measured up from the base. Mixing that width with depth is the trap.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -258,6 +282,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Split the term into partial fractions and telescope the partial sums.\n\n$$\n\\frac{1}{n^2+2n} = \\frac{1}{n(n+2)} = \\frac{1}{2}\\left(\\frac{1}{n} - \\frac{1}{n+2}\\right).\n$$\n\nMost terms cancel in the partial sum:\n\n$$\nS_N = \\frac{1}{2}\\sum_{n=1}^{N}\\left(\\frac{1}{n} - \\frac{1}{n+2}\\right) = \\frac{1}{2}\\left(1 + \\frac{1}{2} - \\frac{1}{N+1} - \\frac{1}{N+2}\\right).\n$$\n\nAs $N\\to\\infty$, $S_N \\to \\frac{1}{2}\\cdot\\frac{3}{2} = \\frac{3}{4}$, so the series converges to $\\frac{3}{4}$. Dropping the factor $\\frac{1}{2}$ gives $\\frac{3}{2}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -292,6 +320,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "Simplify first: $\\sin\\theta\\cos\\theta\\tan\\theta = \\sin\\theta\\cos\\theta\\cdot\\frac{\\sin\\theta}{\\cos\\theta} = \\sin^2\\theta$, so the curve is $r = \\sin^2\\theta$.\n\nTest each symmetry by replacing $\\theta$ and checking that the point is still on the curve.\n\n- $x$-axis: replace $\\theta$ by $-\\theta$. Since $\\sin^2(-\\theta) = \\sin^2\\theta$, the point $(r,-\\theta)$ is on the curve whenever $(r,\\theta)$ is. So the curve is symmetric about the $x$-axis.\n- $y$-axis: replace $\\theta$ by $\\pi-\\theta$. Since $\\sin^2(\\pi-\\theta) = \\sin^2\\theta$, the point $(r,\\pi-\\theta)$ is on the curve, and it is the reflection of $(r,\\theta)$ in the $y$-axis.\n\nReflecting in both axes gives reflection in the origin, so the curve is also symmetric about the origin. Testing only one axis finds one symmetry and stops, missing the others.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -339,6 +371,10 @@
         "L19",
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-claims"
+      ],
+      "solution": "Test each statement, and find a counterexample for each false one.\n\n(i) False. Take $a_n = \\frac{1}{n}$. The sequence converges to $0$, but $\\sum \\frac{1}{n}$ is the divergent harmonic series.\n\n(ii) False. Take $a_n = 1$ and $b_n = \\frac{1}{n}$. Both sequences converge, to $1$ and $0$, but $\\frac{a_n}{b_n} = n$ diverges.\n\n(iii) True. If $a_n\\to L$, then $\\bigl||a_n|-|L|\\bigr| \\le |a_n - L| \\to 0$, so $|a_n| \\to |L|$.\n\nOnly (iii) is always true. The trap is (i): terms tending to zero do not make the series converge.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -373,6 +409,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The series is centred at $x=1$ with $R=2$, so it converges for $|x-1|<2$, that is, $-1<x<3$. Check the endpoints.\n\nAt $x=3$: $(x-1)^k = 2^k$, so the terms are $\\frac{2^k}{2^k(k+1)} = \\frac{1}{k+1}$. This is the harmonic series, which diverges.\n\nAt $x=-1$: $(x-1)^k = (-2)^k$, so the terms are $\\frac{(-1)^k}{k+1}$. This alternating series has terms that decrease to $0$, so it converges.\n\nSo the interval of convergence is $-1 \\le x < 3$. Testing only the right endpoint would wrongly leave out $x=-1$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -407,6 +447,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "The integral is improper at its infinite upper limit. The denominator factors as $x^2+6x+9 = (x+3)^2$, so write\n\n$$\n\\int_0^{\\infty} \\frac{dx}{(x+3)^2} = \\lim_{b\\to\\infty}\\int_0^{b} (x+3)^{-2}\\,dx = \\lim_{b\\to\\infty}\\left[-\\frac{1}{x+3}\\right]_0^{b}.\n$$\n\nEvaluating gives $\\lim_{b\\to\\infty}\\left(-\\frac{1}{b+3} + \\frac{1}{3}\\right) = \\frac{1}{3}$. The limit is finite, so the integral converges to $\\frac{1}{3}$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -441,6 +485,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
+      "solution": "Start from the Maclaurin series for $\\sin u$, put $u = 2x$, and multiply by $\\frac{x^3}{2}$.\n\n$$\n\\sin(2x) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k (2x)^{2k+1}}{(2k+1)!} = \\sum_{k=0}^{\\infty} \\frac{(-1)^k\\, 2^{2k+1} x^{2k+1}}{(2k+1)!}.\n$$\n\nMultiplying by $\\frac{x^3}{2}$ gives\n\n$$\nf(x) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k\\, 2^{2k} x^{2k+4}}{(2k+1)!} = \\sum_{k=0}^{\\infty} \\frac{(-4)^k\\, x^{2k+4}}{(2k+1)!}.\n$$\n\nThe trap is writing $-4^k$ for $(-4)^k$. The sign alternates with $k$, so the minus sign belongs inside the power.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -476,6 +524,11 @@
         "L13",
         "L18"
       ],
+      "typeIds": [
+        "L13-even-sec-power",
+        "L18-discontinuity"
+      ],
+      "solution": "Save one $\\sec^2 x$ and substitute $u = \\tan x$, since $du = \\sec^2 x\\,dx$.\n\n$$\n\\int_0^{\\pi/4} \\frac{\\sec^2 x}{\\sqrt{\\tan x}}\\,dx = \\int_0^{1} u^{-1/2}\\,du\n$$\n\nThe limits change from $x=0$ to $u=0$ and from $x=\\frac{\\pi}{4}$ to $u=1$. Then\n\n$$\n\\int_0^{1} u^{-1/2}\\,du = \\left[2u^{1/2}\\right]_0^{1} = 2.\n$$\n\nThe integrand is unbounded at $x=0$, so the integral is improper there. The limit $\\lim_{\\varepsilon\\to0^+}\\left[2\\sqrt{\\tan x}\\right]_\\varepsilon^{\\pi/4}$ still equals $2$, so the integral converges and is not divergent.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -522,6 +575,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-classify-each"
+      ],
+      "solution": "Judge each series with a comparison test, the limit comparison test, or the divergence test.\n\n(i) $\\left|\\frac{\\sin n}{n^2+n}\\right| \\le \\frac{1}{n^2}$, and $\\sum \\frac{1}{n^2}$ converges (p-series with $p=2$). By comparison the series converges absolutely, so it converges.\n\n(ii) Compare with $\\sum \\frac{1}{n}$ using the limit comparison test:\n\n$$\n\\lim_{n\\to\\infty} \\frac{\\sqrt{n^3/(n^5-n)}}{1/n} = \\lim_{n\\to\\infty} \\sqrt{\\frac{n^5}{n^5-n}} = 1.\n$$\n\nSince $\\sum \\frac{1}{n}$ diverges, the series diverges.\n\n(iii) $\\arctan n \\to \\frac{\\pi}{2}$, so the terms $\\frac{1}{\\arctan n}$ tend to $\\frac{2}{\\pi} \\ne 0$. By the divergence test the series diverges.\n\nOnly (i) converges.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -568,6 +625,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "Convert each polar point with $x = r\\cos\\theta$ and $y = r\\sin\\theta$.\n\n(i) $x = \\sqrt2\\cos\\frac{5\\pi}{4} = \\sqrt2\\left(-\\frac{\\sqrt2}{2}\\right) = -1$ and $y = \\sqrt2\\sin\\frac{5\\pi}{4} = -1$. This matches $(-1,-1)$.\n\n(ii) $x = -5\\cos 3\\pi = 5$ and $y = -5\\sin 3\\pi = 0$. This matches $(5,0)$.\n\n(iii) $x = 4\\cos\\left(-\\frac{\\pi}{3}\\right) = 2$ and $y = 4\\sin\\left(-\\frac{\\pi}{3}\\right) = -2\\sqrt3$. This matches $(2,-2\\sqrt3)$.\n\nAll three pairs describe the same point. The trap is (ii): a negative $r$ reverses the direction, so $(-5, 3\\pi)$ lands on the positive $x$-axis.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -602,6 +663,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form"
+      ],
+      "solution": "Multiply both sides by $x$ and let $x\\to\\infty$.\n\nThe left side is $\\frac{x(x-2)}{x^3-4x+1}$. Its numerator has degree $2$ and its denominator degree $3$, so it tends to $0$ as $x\\to\\infty$.\n\nThe right side becomes $\\frac{Ax}{x-r_1} + \\frac{Bx}{x-r_2} + \\frac{Cx}{x-r_3}$. Each term tends to its coefficient, so the sum tends to $A+B+C$.\n\nEquating the two limits gives $A+B+C = 0$, without finding the roots.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -648,6 +713,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Turn each equation into Cartesian form by multiplying by $r$ and using $r\\cos\\theta = x$, $r\\sin\\theta = y$.\n\n(i) $r = \\sin\\theta$ gives $r^2 = r\\sin\\theta$, so $x^2 + y^2 = y$. This is a circle, not a line.\n\n(ii) $r = \\cos\\theta - \\sin\\theta$ gives $x^2 + y^2 = x - y$. This is also a circle.\n\n(iii) $r = \\sec\\theta$ gives $r\\cos\\theta = 1$, so $x = 1$. This is a vertical line.\n\nOnly (iii) describes a straight line. The trap is to think any equation in $\\sin\\theta$ and $\\cos\\theta$ is a line. The form $r = a\\cos\\theta + b\\sin\\theta$ always gives a circle through the origin.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -682,6 +751,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-relations"
+      ],
+      "solution": "Find both radii, then compare the distance between the centres with the radii.\n\nThe first circle has centre $A=(-2,8)$ and passes through $B=(1,4)$, so $r_1 = \\sqrt{(1+2)^2 + (4-8)^2} = \\sqrt{9+16} = 5$.\n\nThe second circle has centre $C=(3,-4)$ and passes through $D=(-9,5)$, so $r_2 = \\sqrt{(-9-3)^2 + (5+4)^2} = \\sqrt{144+81} = 15$.\n\nThe distance between the centres is $|AC| = \\sqrt{(3+2)^2 + (-4-8)^2} = \\sqrt{25+144} = 13$.\n\nSince $|r_2 - r_1| = 10 < 13 < 20 = r_1 + r_2$, the circles intersect at two points. The check against $|r_2 - r_1|$ is what rules out one circle lying inside the other.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -716,6 +789,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Apply the ratio test to $a_k = \\frac{k!\\,x^{k+4}}{(3k)^k}$.\n\n$$\n\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{(k+1)!\\,|x|^{k+5}}{(3k+3)^{k+1}}\\cdot\\frac{(3k)^k}{k!\\,|x|^{k+4}} = \\frac{(k+1)\\,|x|\\,(3k)^k}{(3k+3)^{k+1}}.\n$$\n\nSince $(3k+3)^{k+1} = 3^{k+1}(k+1)^{k+1}$ and $(3k)^k = 3^k k^k$, this simplifies to\n\n$$\n\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{|x|}{3}\\left(\\frac{k}{k+1}\\right)^{k}.\n$$\n\nBecause $\\left(\\frac{k}{k+1}\\right)^k = \\left(1+\\frac{1}{k}\\right)^{-k} \\to \\frac{1}{e}$, the limit is $\\frac{|x|}{3e}$. The series converges when $\\frac{|x|}{3e} < 1$, so $R = 3e$. The trap is taking $\\left(\\frac{k}{k+1}\\right)^k$ to tend to $1$, which would give $R = 3$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -750,6 +827,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "The arc length of a polar curve is $L = \\int_a^b \\sqrt{r^2 + (r')^2}\\,d\\theta$.\n\nWith $r = e^\\theta$ and $r' = e^\\theta$, we get $r^2 + (r')^2 = 2e^{2\\theta}$, so $\\sqrt{2e^{2\\theta}} = \\sqrt2\\,e^\\theta$.\n\nThen $L = \\sqrt2\\int_0^1 e^\\theta\\,d\\theta = \\sqrt2\\,(e-1)$. Leaving out the $(r')^2$ term gives $\\int_0^1 e^\\theta\\,d\\theta = e-1$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -784,6 +865,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
+      "solution": "Apply the root test to $|a_n|$, where $a_n = \\left(\\frac{2}{n}-1\\right)^{n^2}$.\n\nFor $n\\ge 3$, $\\frac{2}{n}-1$ lies in $(-1,0)$, so $\\left|\\frac{2}{n}-1\\right| = 1-\\frac{2}{n}$. Then\n\n$$\n\\sqrt[n]{|a_n|} = \\left(1-\\frac{2}{n}\\right)^{n} \\to e^{-2}.\n$$\n\nSince $\\rho = e^{-2} < 1$, the series converges absolutely. The trap is the base: it tends to $-1$, so its absolute value tends to $1$, which would make the test look inconclusive. The power $n$ left after taking the root is what decides the limit.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -818,6 +903,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-derivative-from-series"
+      ],
+      "solution": "Write $f$ as a power series $f(x) = \\sum_m c_m x^m$. Only even powers appear, and $x^{2k}$ with $2k = 4$ gives $k=2$, so\n\n$$\nc_4 = \\frac{1}{2^3 - 4} = \\frac{1}{4}.\n$$\n\nSince $f^{(m)}(0) = m!\\,c_m$, we get $f^{(4)}(0) = 4!\\cdot\\frac{1}{4} = 6$. Reading the coefficient as the derivative, without the factor $4!$, gives $\\frac{1}{4}$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -852,6 +941,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Recognise $f$ as a shifted cosh. Since $\\cosh x = \\sum_{k=0}^{\\infty} \\frac{x^{2k}}{(2k)!}$ and this sum starts at $k=1$,\n\n$$\nf(x) = \\cosh x - 1 = \\frac{x^2}{2} + \\frac{x^4}{24} + \\cdots.\n$$\n\nSo $f(x) = \\frac{x^2}{2} + O(x^4)$ and $f(2x) = 2x^2 + O(x^4)$. Therefore\n\n$$\n\\lim_{x\\to 0}\\frac{f(2x)}{f(x)} = \\lim_{x\\to 0}\\frac{2x^2 + O(x^4)}{\\frac{x^2}{2} + O(x^4)} = \\frac{2}{1/2} = 4.\n$$\n\nThe trap is assuming $f(2x)$ is twice $f(x)$, as for a linear function. Since $f$ is quadratic near $0$, the ratio is $2^2 = 4$.",
       "sourcePage": 15,
       "status": "reviewed"
     },
@@ -889,6 +982,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-y-axis"
+      ],
+      "solution": "The dome is the upper hemisphere of radius $2$ m centred on the base. Let $y$ be the height above the base and $x = \\sqrt{4-y^2}$ the distance from the vertical axis. The painted part is the cap with $1 \\le y \\le 2$.\n\nRevolving this curve about the $y$-axis gives the surface area\n\n$$\nS = 2\\pi\\int_1^2 x\\sqrt{1+\\left(\\frac{dx}{dy}\\right)^2}\\,dy.\n$$\n\nHere $\\frac{dx}{dy} = \\frac{-y}{\\sqrt{4-y^2}}$, so $1+\\left(\\frac{dx}{dy}\\right)^2 = \\frac{4}{4-y^2}$ and its square root is $\\frac{2}{\\sqrt{4-y^2}}$. Hence\n\n$$\nS = 2\\pi\\int_1^2 \\sqrt{4-y^2}\\cdot\\frac{2}{\\sqrt{4-y^2}}\\,dy = 4\\pi\\int_1^2 dy = 4\\pi.\n$$\n\nSo the painted area is $4\\pi$ m$^2$. This agrees with the cap formula $2\\pi Rh = 2\\pi\\cdot 2\\cdot 1$.",
       "sourcePage": 15,
       "status": "reviewed"
     }
