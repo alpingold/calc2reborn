@@ -11,10 +11,15 @@ export const MASTERY_ALPHA = 0.3
 export const MIN_ATTEMPTS = 3
 export const WEAK_BELOW = 0.7
 
-export function lessonMastery(
+/**
+ * Mastery for any grouping of questions. `keysOf` says which groups a question counts toward; a
+ * question in two groups counts toward both, and one in none (or no longer in the content) is ignored.
+ * A group has no score until it has MIN_ATTEMPTS answers; after that, later answers weigh more.
+ */
+export function groupMastery(
   attempts: Attempt[],
-  questionById: Map<string, Question>,
-  lessonIds: string[],
+  keysOf: (questionId: string) => readonly string[],
+  keys: string[],
 ): Map<string, Mastery> {
   const sorted = attempts
     .map((a, i) => ({ a, i }))
@@ -22,9 +27,19 @@ export function lessonMastery(
       x.a.timestamp < y.a.timestamp ? -1 : x.a.timestamp > y.a.timestamp ? 1 : x.i - y.i,
     )
     .map((x) => x.a)
+  const wanted = new Set(keys)
+  const byKey = new Map<string, Attempt[]>()
+  for (const a of sorted) {
+    for (const key of new Set(keysOf(a.questionId))) {
+      if (!wanted.has(key)) continue
+      const list = byKey.get(key)
+      if (list) list.push(a)
+      else byKey.set(key, [a])
+    }
+  }
   const result = new Map<string, Mastery>()
-  for (const id of lessonIds) {
-    const mine = sorted.filter((a) => questionById.get(a.questionId)?.lessonIds.includes(id))
+  for (const key of keys) {
+    const mine = byKey.get(key) ?? []
     let score: number | null = null
     if (mine.length >= MIN_ATTEMPTS) {
       score = mine[0].correct ? 1 : 0
@@ -32,9 +47,26 @@ export function lessonMastery(
         score = MASTERY_ALPHA * (a.correct ? 1 : 0) + (1 - MASTERY_ALPHA) * score
       }
     }
-    result.set(id, { score, attempts: mine.length })
+    result.set(key, { score, attempts: mine.length })
   }
   return result
+}
+
+export function lessonMastery(
+  attempts: Attempt[],
+  questionById: Map<string, Question>,
+  lessonIds: string[],
+): Map<string, Mastery> {
+  return groupMastery(attempts, (id) => questionById.get(id)?.lessonIds ?? [], lessonIds)
+}
+
+/** Mastery per problem type, by the same rule as lessons. */
+export function typeMastery(
+  attempts: Attempt[],
+  questionById: Map<string, Question>,
+  typeIds: string[],
+): Map<string, Mastery> {
+  return groupMastery(attempts, (id) => questionById.get(id)?.typeIds ?? [], typeIds)
 }
 
 export function unitMastery(lessons: Lesson[], byLesson: Map<string, Mastery>): Map<Unit, Mastery> {

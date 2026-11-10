@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { Attempt } from '../storage/types'
 import type { Lesson, Question, Unit } from '../content/schema'
-import { isWeak, lessonMastery, unitMastery, type Mastery } from './mastery'
+import { groupMastery, isWeak, lessonMastery, typeMastery, unitMastery, type Mastery } from './mastery'
 
 function attempt(questionId: string, correct: boolean, timestamp: string): Attempt {
   return { id: `${questionId}-${timestamp}`, questionId, chosen: 0, correct, seconds: 10, timestamp, mode: 'practice' } as unknown as Attempt
@@ -67,5 +67,52 @@ describe('unitMastery', () => {
     const extra = { ...lesson('x', 'Other topics'), isExtra: true }
     const u = unitMastery([extra], new Map([['x', { score: 0.2, attempts: 5 }]]))
     expect(u.has('Other topics')).toBe(false)
+  })
+})
+
+describe('typeMastery', () => {
+  const typed = (id: string, typeIds?: string[]) => ({ id, lessonIds: ['L1'], typeIds }) as unknown as Question
+  const byId = new Map([
+    ['a', typed('a', ['L1-a'])],
+    ['ab', typed('ab', ['L1-a', 'L1-b'])],
+    ['plain', typed('plain')],
+  ])
+  it('a type with two answers is untested', () => {
+    const m = typeMastery([attempt('a', true, t(1)), attempt('a', true, t(2))], byId, ['L1-a']).get('L1-a')
+    expect(m).toEqual({ score: null, attempts: 2 })
+  })
+  it('wrong, right, right scores 0.51 by the same rule as lessons', () => {
+    const m = typeMastery([attempt('a', false, t(1)), attempt('a', true, t(2)), attempt('a', true, t(3))], byId, ['L1-a']).get('L1-a')!
+    expect(m.score).toBeCloseTo(0.51, 9)
+    expect(isWeak(m)).toBe(true)
+  })
+  it('a question with two types counts toward both', () => {
+    const attempts = [attempt('ab', true, t(1)), attempt('ab', true, t(2)), attempt('ab', true, t(3))]
+    const m = typeMastery(attempts, byId, ['L1-a', 'L1-b'])
+    expect(m.get('L1-a')).toEqual({ score: 1, attempts: 3 })
+    expect(m.get('L1-b')).toEqual({ score: 1, attempts: 3 })
+  })
+  it('answers on untagged questions and on questions no longer in the content are ignored', () => {
+    const attempts = [attempt('plain', false, t(1)), attempt('removed', false, t(2)), attempt('a', true, t(3))]
+    const m = typeMastery(attempts, byId, ['L1-a', 'L1-b'])
+    expect(m.get('L1-a')).toEqual({ score: null, attempts: 1 })
+    expect(m.get('L1-b')).toEqual({ score: null, attempts: 0 })
+  })
+  it('a type nobody asked about is not reported, and one with no answers is reported as untested', () => {
+    const m = typeMastery([attempt('ab', true, t(1))], byId, ['L1-b', 'L1-z'])
+    expect([...m.keys()]).toEqual(['L1-b', 'L1-z'])
+    expect(m.get('L1-z')).toEqual({ score: null, attempts: 0 })
+  })
+  it('answers are taken in time order whatever order they arrive in', () => {
+    const inOrder = [attempt('a', true, t(1)), attempt('a', true, t(2)), attempt('a', false, t(3))]
+    const shuffled = [inOrder[2], inOrder[0], inOrder[1]]
+    expect(typeMastery(shuffled, byId, ['L1-a'])).toEqual(typeMastery(inOrder, byId, ['L1-a']))
+  })
+})
+
+describe('groupMastery', () => {
+  it('a question listed twice under one group still counts once per answer', () => {
+    const m = groupMastery([attempt('q', true, t(1))], () => ['g', 'g'], ['g'])
+    expect(m.get('g')).toEqual({ score: null, attempts: 1 })
   })
 })
