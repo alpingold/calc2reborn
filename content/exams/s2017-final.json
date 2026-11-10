@@ -319,7 +319,7 @@
       ],
       "typeIds": [
         "L7-shell-y-axis",
-        "L11-parts-poly-exp-trig"
+        "L11-parts-applied"
       ],
       "solution": "Use shells, since the region is revolved about the $y$-axis. The shell radius is $x$ and the height is $\\sin x$, so\n\n$$\nV = 2\\pi \\int_0^{\\pi} x\\sin x\\,dx.\n$$\n\nIntegrate by parts with $u = x$ and $dv = \\sin x\\,dx$, so $du = dx$ and $v = -\\cos x$:\n\n$$\n\\int_0^{\\pi} x\\sin x\\,dx = \\left[-x\\cos x\\right]_0^{\\pi} + \\int_0^{\\pi} \\cos x\\,dx = \\pi + \\left[\\sin x\\right]_0^{\\pi} = \\pi.\n$$\n\nSo $V = 2\\pi \\cdot \\pi = 2\\pi^2$.",
       "sourcePage": 6,

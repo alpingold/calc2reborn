@@ -117,6 +117,7 @@
         "L4"
       ],
       "typeIds": [
+        "L1-vector-concept-statements",
         "L3-dot-product-statements"
       ],
       "solution": "Take the statements in turn.\n\n- I. True: the length of a vector is never negative.\n- II. False: $|\\mathbf{u} + \\mathbf{v}| = |\\mathbf{u}| + |\\mathbf{v}|$ holds only when the vectors point the same way. For $\\mathbf{u} = \\langle 1, 0, 0 \\rangle$ and $\\mathbf{v} = \\langle -1, 0, 0 \\rangle$, the left side is $0$ and the right side is $2$.\n- III. True: swapping the factors of a cross product reverses its direction, so $\\mathbf{u} \\times \\mathbf{v} = -(\\mathbf{v} \\times \\mathbf{u})$.\n- IV. True: the dot product is commutative, since it is a sum of products of matching components.\n- V. False: the dot product uses cosine, $\\mathbf{u} \\cdot \\mathbf{v} = |\\mathbf{u}||\\mathbf{v}|\\cos\\theta$. For $\\mathbf{u} = \\langle 1, 0, 0 \\rangle$ and $\\mathbf{v} = \\langle 0, 1, 0 \\rangle$, the dot product is $0$ while the sine version gives $1$.\n\nStatements I, III and IV hold, so the count is $3$. Statement V is the trap: the sine formula belongs to the length of the cross product, not to the dot product.",

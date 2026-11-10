@@ -704,10 +704,6 @@
       {
         "id": "L22-series-claims",
         "name": "Sequence versus series claims"
-      },
-      {
-        "id": "L22-other-tests",
-        "name": "Series settled by other tests"
       }
     ]
   },
@@ -806,10 +802,6 @@
       {
         "id": "L25-ratio-inconclusive",
         "name": "When is the ratio test conclusive"
-      },
-      {
-        "id": "L25-absolute-claims",
-        "name": "Absolute convergence and general claims"
       }
     ]
   },

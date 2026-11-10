@@ -770,7 +770,8 @@
         "L4"
       ],
       "typeIds": [
-        "L3-dot-product-statements"
+        "L3-dot-product-statements",
+        "L4-cross-product-statements"
       ],
       "solution": "Check each statement, using $\\vec{v}\\cdot\\vec{w} = |\\vec{v}||\\vec{w}|\\cos\\theta$ and $|\\vec{v}\\times\\vec{w}| = |\\vec{v}||\\vec{w}|\\sin\\theta$, with $\\theta$ the angle between the vectors.\n\n(I) If $\\vec{v}\\cdot\\vec{w} = 0$, then $\\cos\\theta = 0$, so $\\sin\\theta = \\pm 1$ and $|\\vec{v}\\times\\vec{w}| = |\\vec{v}||\\vec{w}|$. Statement (I) is true.\n\n(II) If $\\vec{v}\\times\\vec{w} = \\vec{0}$, then the vectors are parallel, so $\\theta = 0$ or $\\pi$ and $|\\vec{v}\\cdot\\vec{w}| = |\\vec{v}||\\vec{w}|$. Statement (II) is true.\n\n(III) For unit vectors, $\\vec{v}\\cdot\\vec{w} = \\cos\\theta \\le 1$. Statement (III) is true.\n\nAll three statements are true.",
       "sourcePage": 12,

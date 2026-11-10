@@ -116,7 +116,8 @@
         "L4"
       ],
       "typeIds": [
-        "L3-dot-product-statements"
+        "L3-dot-product-statements",
+        "L4-cross-product-statements"
       ],
       "solution": "A dot product takes two vectors and gives a number. A cross product takes two vectors and gives a vector. Check each statement against these rules.\n\nI. $\\boldsymbol{a} \\cdot (\\boldsymbol{b} \\times \\boldsymbol{c})$ is a dot product of $\\boldsymbol{a}$ with the vector $\\boldsymbol{b} \\times \\boldsymbol{c}$, so it is meaningful.\n\nII. $\\boldsymbol{b} \\cdot \\boldsymbol{c}$ is a number, and a cross product needs a vector on the right, so this is not meaningful.\n\nIII. $\\boldsymbol{a} \\times (\\boldsymbol{b} \\times \\boldsymbol{c})$ is a cross product of two vectors, so it is meaningful.\n\nIV. $\\boldsymbol{a} \\cdot \\boldsymbol{b}$ and $\\boldsymbol{c} \\cdot \\boldsymbol{d}$ are both numbers, and a cross product of two numbers is not defined, so this is not meaningful.\n\nV. $\\boldsymbol{a} \\times \\boldsymbol{b}$ and $\\boldsymbol{c} \\times \\boldsymbol{d}$ are both vectors, so their dot product is meaningful.\n\nStatements I, III and V are meaningful, so the count is $3$. The trap is treating a cross product as defined for any two quantities, when it needs two vectors.",
       "sourcePage": 3,

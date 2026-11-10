@@ -78,7 +78,8 @@
         "L4"
       ],
       "typeIds": [
-        "L3-dot-product-statements"
+        "L3-dot-product-statements",
+        "L4-cross-product-statements"
       ],
       "solution": "(I) $\\operatorname{proj}_{2\\vec{v}} \\vec{u} = \\dfrac{\\vec{u} \\cdot 2\\vec{v}}{|2\\vec{v}|^2}\\, 2\\vec{v} = \\dfrac{2\\,\\vec{u} \\cdot \\vec{v}}{4|\\vec{v}|^2}\\, 2\\vec{v} = \\dfrac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\, \\vec{v} = \\operatorname{proj}_{\\vec{v}} \\vec{u}$, so (I) is true. Scaling $\\vec{v}$ does not change the projection.\n\n(II) $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ is the definition of length squared, so (II) is true.\n\n(III) $\\vec{u} \\times \\vec{v}$ is perpendicular to $\\vec{v}$, so $(\\vec{u} \\times \\vec{v}) \\cdot \\vec{v} = 0$, and (III) is true.\n\nAll three statements are true.",
       "sourcePage": 4,

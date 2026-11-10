@@ -117,7 +117,8 @@
         "L4"
       ],
       "typeIds": [
-        "L3-dot-product-statements"
+        "L3-dot-product-statements",
+        "L4-cross-product-statements"
       ],
       "solution": "Check each statement in turn.\n\n(i) True. $2\\vec{\\imath} \\cdot (\\vec{\\jmath} + \\vec{k}) = (2)(0) + (0)(1) + (0)(1) = 0$, so the vectors are orthogonal.\n\n(ii) True. The cross product of a vector with itself is zero, since $|\\vec{v} \\times \\vec{v}| = |\\vec{v}||\\vec{v}|\\sin 0 = 0$, so $\\vec{v} \\times \\vec{v} = \\vec{0}$.\n\n(iii) False. $\\vec{w} \\cdot \\vec{w} = |\\vec{w}|^2$, not $|\\vec{w}|$. For $\\vec{w} = \\langle 3, 4 \\rangle$, $\\vec{w} \\cdot \\vec{w} = 25$ but $|\\vec{w}| = 5$.\n\nSo exactly (i) and (ii) are true. The trap is statement (iii), which drops the square on the length.",
       "sourcePage": 3,

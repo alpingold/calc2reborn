@@ -199,7 +199,6 @@ The count is how many of the lesson's current exam questions fit the type best. 
 | `L22-integral-test` | Integral test and p-series | Apply the integral test or p-series rule to a series, or find the exponent values giving convergence. | 15 | `f2017-final-q10`, `f2022-e3-q06` |
 | `L22-divergence-test` | Divergence test on terms | Check whether the terms tend to zero to show a series diverges, and know what the test cannot show. | 5 | `s2017-e2-q14`, `f2024-e2-q01` |
 | `L22-series-claims` | Sequence versus series claims | Judge true or false statements linking convergent sequences, series and tests. | 10 | `f2016-e3-q06`, `f2017-e3-q02` |
-| `L22-other-tests` | Series settled by other tests | Decide convergence of a series using comparison or alternating-series reasoning. | 10 | `f2016-e3-q05`, `f2017-e3-q01` |
 
 ### Lesson 23: 10.5 Comparison Tests
 
@@ -226,7 +225,6 @@ The count is how many of the lesson's current exam questions fit the type best. 
 | `L25-ratio-apply` | Apply the ratio test | Compute the ratio-test limit and state what it says about convergence. | 15 | `f2021-e3-q05`, `f2024-e3-q02` |
 | `L25-root-test` | Apply the root test | Compute the root-test limit for a series whose terms are kth powers, possibly with a parameter. | 8 | `f2023-e3-q11`, `f2024-e3-q09` |
 | `L25-ratio-inconclusive` | When is the ratio test conclusive | Decide for which series the ratio test is inconclusive, or whether it is a valid test. | 12 | `f2018-e3-q06`, `f2019-e3-q07` |
-| `L25-absolute-claims` | Absolute convergence and general claims | Classify absolute or conditional convergence, or judge general convergence statements. | 8 | `f2016-e3-q06`, `f2017-e3-q02` |
 
 ### Lesson 26: 10.8 Choosing a Convergent Test
 
@@ -337,7 +335,8 @@ The count is how many of the lesson's current exam questions fit the type best. 
 
 ## Notes for review
 
-- 122 types across 35 lessons and 4 extra topics.
+- 120 types across 35 lessons and 4 extra topics. `L22-other-tests` and `L25-absolute-claims` were removed on 2026-11-10 after the solution pass: every question they were meant for is tagged to Lesson 23 or 24 as well and took its type there.
+- `L19-partial-sums` and `L21-series-properties` have two questions each and are kept as exceptions to the three-question rule; the question counts in the tables above are the drafting estimates, not the final tallies.
 - Each extra topic has one type. `X4-numerical-integration` has a single question, so the rule that a type needs three questions applies to lessons only.
 - Types that collect true/false or "which statements hold" questions (in L1, L3, L4, L20, L21, L22, L23, L24, L25) are kept as their own types, because those questions test several ideas at once and fit no single computation.
 
