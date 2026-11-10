@@ -2,6 +2,10 @@
 
 How to check the drafted solutions for one exam. The checker is independent of the drafter: it solves every question itself before it sees the key or the draft. All files for the exam are under `.scratch/solutions/<examId>/`.
 
+The checker writes only `blind.json` and `grades.json`, and modifies nothing else.
+
+Six exams have no official key (`f2022-e2`, `f2022-e3`, `f2023-e2`, `f2023-e3`, `f2023-final`, `s2023-final`), and the two `xp-` exams were written for this app. Their stored answers may be wrong. Where your blind answer differs from the stored one and you still believe yours after reworking, escalate with your working.
+
 ## Step 1: solve blind
 
 Read only `questions-no-key.json`, and the figure images it lists. Do not open `content/exams/`, `draft.json`, or anything else about this exam yet.
@@ -39,7 +43,7 @@ A question that already had a solution in the exam file has an empty `solution` 
 
 ### When answers disagree
 
-- **Your blind answer differs from the key.** Rework the question with the key in view. If you made a slip, say so in `reason` and grade the draft normally. If you still believe the key or the transcription is wrong, set `escalate` with your working in a sentence or two.
+- **Your blind answer differs from the key.** Rework the question with the key in view. If you made a slip, say so in `reason` (it must not be left empty, or the question is held) and grade the draft normally. If you still believe the key or the transcription is wrong, set `escalate` with your working in a sentence or two.
 - **The draft carries a `flag` saying its answer differs from the key.** Decide who is right in the same way. Escalate unless the draft is plainly the one in error, in which case reject it.
 
 ### Fields

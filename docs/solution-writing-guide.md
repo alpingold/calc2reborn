@@ -14,6 +14,18 @@ The steps for one exam, with its files under `.scratch/solutions/<examId>/`:
 4. `pnpm content:collect <examId>` writes `final.json`, the records safe to merge, and `escalations.json`.
 5. `pnpm content:solutions .scratch/solutions/<examId>/final.json` merges them into the exam file.
 
+## The drafter's task
+
+Given an exam id:
+
+1. Read this guide, then `docs/problem-types.md` for the lessons the exam's questions are tagged to, then `content/exams/<examId>.json`. For a question that lists `figures`, read the image at `public/<path>` before solving.
+2. For every question, solve it, write the solution, and choose its problem types. A question that already has a `solution` in the exam file gets `"solution": ""` and only its types.
+3. Write one record per question, in question order, to `.scratch/solutions/<examId>/draft.json`, and confirm with node that the file parses and has one record per question.
+4. Modify no other file and read no other file in that directory.
+5. Report one line per flagged question, or "no flags".
+
+Six exams have no official key (`f2022-e2`, `f2022-e3`, `f2023-e2`, `f2023-e3`, `f2023-final`, `s2023-final`), and the two `xp-` exams were written for this app. Their stored answers were worked out independently and are probably right but not certain, so be especially careful to flag a question where your own answer differs.
+
 ## Inputs
 
 - The exam file, `content/exams/<examId>.json`: each question's `stem`, `choices`, keyed `answer`, `lessonIds` and `figures`.
