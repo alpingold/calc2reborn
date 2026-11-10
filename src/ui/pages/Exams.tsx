@@ -106,7 +106,8 @@ export function Exams() {
         <div className="mock-head">
           <h3>Mock exam</h3>
           <p className="panel-hint">
-            Twelve questions from past exams on the lessons you pick, skipping questions from your last two mocks.
+            Up to twelve questions from past exams on the lessons you pick, preferring ones you have not seen in your
+            last two mocks.
           </p>
         </div>
         <label>

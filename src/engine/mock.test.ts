@@ -40,7 +40,7 @@ describe('sampleMockExam', () => {
     const m = new Map([['L1', many(20)]])
     expect(sampleMockExam({ lessonIds: ['L1'], questionsByLesson: m, attempts: [], count: 4, rng: seeded(3) })).toHaveLength(4)
   })
-  it('excludes questions from the last two mock sessions only', () => {
+  it('leaves out questions from the last two mock sessions while enough others remain', () => {
     const qs = many(20)
     const m = new Map([['L1', qs]])
     const attempts = [
@@ -49,12 +49,43 @@ describe('sampleMockExam', () => {
       att('L1-q2', 'mock', 's3', '2026-01-03T10:00:00.000Z'),
     ]
     for (let seed = 1; seed < 20; seed++) {
-      const ids = sampleMockExam({ lessonIds: ['L1'], questionsByLesson: m, attempts, count: 20, rng: seeded(seed) }).map((x) => x.id)
+      const ids = sampleMockExam({ lessonIds: ['L1'], questionsByLesson: m, attempts, count: 18, rng: seeded(seed) }).map((x) => x.id)
       expect(ids).not.toContain('L1-q1')
       expect(ids).not.toContain('L1-q2')
       expect(ids).toContain('L1-q0')
       expect(ids).toHaveLength(18)
     }
+  })
+  it('tops up a short pool from the excluded questions, least recently seen first', () => {
+    const m = new Map([['L1', many(20)]])
+    const attempts = [
+      att('L1-q1', 'mock', 's2', '2026-01-02T10:00:00.000Z'),
+      att('L1-q2', 'mock', 's3', '2026-01-03T10:00:00.000Z'),
+    ]
+    for (let seed = 1; seed < 20; seed++) {
+      const ids = sampleMockExam({ lessonIds: ['L1'], questionsByLesson: m, attempts, count: 20, rng: seeded(seed) }).map((x) => x.id)
+      expect(ids).toHaveLength(20)
+      expect(ids.slice(18)).toEqual(['L1-q1', 'L1-q2'])
+    }
+  })
+  it('a lesson with fewer questions than one mock still fills every later mock', () => {
+    const m = new Map([['L19', many(11, 'L19')]])
+    const attempts: Attempt[] = []
+    for (let n = 1; n <= 4; n++) {
+      const got = sampleMockExam({ lessonIds: ['L19'], questionsByLesson: m, attempts, rng: seeded(n) })
+      expect(got).toHaveLength(11)
+      expect(new Set(got.map((x) => x.id)).size).toBe(11)
+      for (const x of got) attempts.push(att(x.id, 'mock', `s${n}`, `2026-01-0${n}T10:00:00.000Z`))
+    }
+  })
+  it('never tops up with a question outside the lessons asked for', () => {
+    const m = new Map([
+      ['L1', many(3)],
+      ['L2', many(3, 'L2')],
+    ])
+    const attempts = [att('L2-q0', 'mock', 's1', '2026-01-01T10:00:00.000Z'), att('L1-q0', 'mock', 's1', '2026-01-01T10:00:00.000Z')]
+    const ids = sampleMockExam({ lessonIds: ['L1'], questionsByLesson: m, attempts, rng: seeded(5) }).map((x) => x.id)
+    expect(ids.sort()).toEqual(['L1-q0', 'L1-q1', 'L1-q2'])
   })
   it('exam-mode attempts do not exclude', () => {
     const m = new Map([['L1', many(5)]])

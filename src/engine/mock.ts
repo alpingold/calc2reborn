@@ -21,25 +21,44 @@ export function sampleMockExam(args: MockArgs): Question[] {
     s.questionIds.add(a.questionId)
     sessions.set(a.sessionId, s)
   }
-  const excluded = new Set<string>()
+  // questions used by the last two mocks, with the time of the latest mock that used each
+  const excluded = new Map<string, string>()
   const recent = [...sessions.values()]
     .sort((x, y) => (x.latest < y.latest ? 1 : x.latest > y.latest ? -1 : 0))
     .slice(0, EXCLUDED_SESSIONS)
-  for (const s of recent) for (const id of s.questionIds) excluded.add(id)
-
-  const seen = new Set<string>()
-  const pool: Question[] = []
-  for (const lessonId of args.lessonIds) {
-    for (const question of args.questionsByLesson.get(lessonId) ?? []) {
-      if (seen.has(question.id) || excluded.has(question.id)) continue
-      seen.add(question.id)
-      pool.push(question)
+  for (const s of recent) {
+    for (const id of s.questionIds) {
+      const prev = excluded.get(id)
+      if (prev === undefined || s.latest > prev) excluded.set(id, s.latest)
     }
   }
 
-  for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(args.rng() * (i + 1))
-    ;[pool[i], pool[j]] = [pool[j], pool[i]]
+  const seen = new Set<string>()
+  const pool: Question[] = []
+  const held: Question[] = []
+  for (const lessonId of args.lessonIds) {
+    for (const question of args.questionsByLesson.get(lessonId) ?? []) {
+      if (seen.has(question.id)) continue
+      seen.add(question.id)
+      if (excluded.has(question.id)) held.push(question)
+      else pool.push(question)
+    }
   }
-  return pool.slice(0, Math.min(args.count ?? MOCK_QUESTION_COUNT, pool.length))
+
+  const shuffle = (list: Question[]) => {
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(args.rng() * (i + 1))
+      ;[list[i], list[j]] = [list[j], list[i]]
+    }
+  }
+  shuffle(pool)
+  const count = args.count ?? MOCK_QUESTION_COUNT
+  if (pool.length < count && held.length > 0) {
+    // a narrow range runs out of unseen questions: fill up with the ones seen longest ago
+    shuffle(held)
+    const seenAt = (q: Question) => excluded.get(q.id) ?? ''
+    held.sort((x, y) => (seenAt(x) < seenAt(y) ? -1 : seenAt(x) > seenAt(y) ? 1 : 0))
+    pool.push(...held)
+  }
+  return pool.slice(0, Math.min(count, pool.length))
 }
