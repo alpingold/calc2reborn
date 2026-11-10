@@ -653,6 +653,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Use the integral test with $u = \\ln x$, so $du = \\frac{dx}{x}$. The series behaves like\n\n$$\n\\int_3^{\\infty} \\frac{(\\ln x)^p}{x}\\,dx = \\int_{\\ln 3}^{\\infty} u^p\\,du.\n$$\n\nThis converges exactly when $p < -1$. For $p = -1$ the integral is $\\int \\frac{du}{u}$, which diverges, and for $p \\ge -1$ it diverges as well.\n\nSo the series converges for $p < -1$. The trap is the choice $p \\ge -1$, which includes $p = -1$, where the series $\\sum \\frac{1}{n\\ln n}$ diverges.",
       "sourcePage": 10,
       "status": "reviewed"
     },
