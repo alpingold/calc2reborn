@@ -6,6 +6,9 @@
     "back": "$A = \\int_{\\alpha}^{\\beta} \\frac{1}{2}[f(\\theta)]^2\\,d\\theta$. Each thin slice is a circular sector of area $\\frac{1}{2}r^2\\Delta\\theta$, which replaces the rectangle of Cartesian area.",
     "tags": [
       "area"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -17,6 +20,9 @@
       "trap",
       "area",
       "rose"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -29,6 +35,9 @@
       "area",
       "rose",
       "traced-once"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -39,6 +48,9 @@
     "tags": [
       "area",
       "rose"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -51,6 +63,9 @@
       "area",
       "circle",
       "traced-once"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -61,6 +76,9 @@
     "tags": [
       "trap",
       "area-between"
+    ],
+    "typeIds": [
+      "L35-area-between"
     ]
   },
   {
@@ -70,6 +88,9 @@
     "back": "The curves cross where $\\cos\\theta = \\frac{1}{2}$, $\\theta = \\pm\\frac{\\pi}{3}$. $A = \\int_{-\\pi/3}^{\\pi/3} \\frac{1}{2}\\left(9\\cos^2\\theta - (1 + \\cos\\theta)^2\\right) d\\theta = \\pi$.",
     "tags": [
       "area-between"
+    ],
+    "typeIds": [
+      "L35-area-between"
     ]
   },
   {
@@ -81,6 +102,9 @@
       "trap",
       "intersections",
       "pole"
+    ],
+    "typeIds": [
+      "L35-area-between"
     ]
   },
   {
@@ -92,6 +116,9 @@
       "trap",
       "area-between",
       "pole"
+    ],
+    "typeIds": [
+      "L35-area-between"
     ]
   },
   {
@@ -103,6 +130,9 @@
       "trap",
       "area",
       "inner-loop"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -114,6 +144,9 @@
       "trap",
       "area",
       "inner-loop"
+    ],
+    "typeIds": [
+      "L35-area-one-curve"
     ]
   },
   {
@@ -123,6 +156,10 @@
     "back": "$L = \\int_{\\alpha}^{\\beta} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$, from $(\\Delta s)^2 \\approx (\\Delta r)^2 + (r\\,\\Delta\\theta)^2$. Take $\\alpha$ to $\\beta$ so the curve is traced once.",
     "tags": [
       "arc-length"
+    ],
+    "typeIds": [
+      "L35-length-spirals",
+      "L35-length-trig"
     ]
   },
   {
@@ -134,6 +171,9 @@
       "trap",
       "arc-length",
       "cardioid"
+    ],
+    "typeIds": [
+      "L35-length-trig"
     ]
   },
   {
@@ -143,6 +183,9 @@
     "back": "$r' = \\sin^2\\frac{\\theta}{3}\\cos\\frac{\\theta}{3}$, so $r^2 + (r')^2 = \\sin^4\\frac{\\theta}{3}\\left(\\sin^2\\frac{\\theta}{3} + \\cos^2\\frac{\\theta}{3}\\right) = \\sin^4\\frac{\\theta}{3}$, and the integrand is $\\sin^2\\frac{\\theta}{3}$, which needs no absolute value. $L = \\int_0^{3\\pi} \\frac{1 - \\cos\\frac{2\\theta}{3}}{2}\\,d\\theta = \\frac{3\\pi}{2}$.",
     "tags": [
       "arc-length"
+    ],
+    "typeIds": [
+      "L35-length-trig"
     ]
   },
   {
@@ -154,6 +197,9 @@
       "trap",
       "arc-length",
       "traced-once"
+    ],
+    "typeIds": [
+      "L35-length-trig"
     ]
   }
 ]

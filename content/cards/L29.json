@@ -9,6 +9,10 @@
       "radius",
       "interval",
       "endpoints"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence",
+      "L29-interval-with-endpoints"
     ]
   },
   {
@@ -20,6 +24,9 @@
       "trap",
       "radius",
       "endpoints"
+    ],
+    "typeIds": [
+      "L29-interval-with-endpoints"
     ]
   },
   {
@@ -30,6 +37,9 @@
     "tags": [
       "radius",
       "interval"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence"
     ]
   },
   {
@@ -41,6 +51,10 @@
       "interval",
       "endpoints",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence",
+      "L29-interval-with-endpoints"
     ]
   },
   {
@@ -51,6 +65,9 @@
     "tags": [
       "absolute",
       "endpoints"
+    ],
+    "typeIds": [
+      "L29-interval-with-endpoints"
     ]
   },
   {
@@ -63,6 +80,10 @@
       "radius",
       "interval",
       "compute"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence",
+      "L29-interval-with-endpoints"
     ]
   },
   {
@@ -74,6 +95,10 @@
       "radius",
       "ratio-test",
       "compute"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence",
+      "L29-interval-with-endpoints"
     ]
   },
   {
@@ -85,6 +110,9 @@
       "trap",
       "radius",
       "ratio-test"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence"
     ]
   },
   {
@@ -97,6 +125,10 @@
       "center",
       "radius",
       "compute"
+    ],
+    "typeIds": [
+      "L29-radius-of-convergence",
+      "L29-interval-with-endpoints"
     ]
   },
   {

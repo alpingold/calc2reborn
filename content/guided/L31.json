@@ -1,0 +1,223 @@
+[
+  {
+    "id": "L31-g1",
+    "lessonId": "L31",
+    "typeId": "L31-taylor-series-other-center",
+    "stem": "Find the first three terms of the Taylor series for $f(x) = e^x$ centered at $a = 1$.",
+    "steps": [
+      {
+        "prompt": "Which expression is the general term of a Taylor series centered at $a$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{f^{(k)}(a)}{k!}x^k$",
+            "note": "This is the form for the center $0$. A center $a$ needs the powers of $x - a$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{f^{(k)}(a)}{k!}(x-a)^k$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{f^{(k)}(a)}{(k-1)!}(x-a)^k$",
+            "note": "The factorial must match the order $k$ of the derivative."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The Taylor series at $a$ is $\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x-a)^k$. Each term uses the $k$th derivative at $a$ and the power $(x-a)^k$."
+      },
+      {
+        "prompt": "For $f(x) = e^x$, what is $f^{(k)}(1)$ for every $k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^k$",
+            "note": "This treats each derivative as multiplying by $e$. Check what the $k$th derivative of $e^x$ is."
+          },
+          {
+            "label": "B",
+            "text": "$1$",
+            "note": "This is the value at $x = 0$, not at the center $a = 1$."
+          },
+          {
+            "label": "C",
+            "text": "$e$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Every derivative of $e^x$ is $e^x$. At $x = 1$ this gives $f^{(k)}(1) = e$ for every $k$."
+      },
+      {
+        "prompt": "Put these values into the general term. What are the first three terms of the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e + e(x-1) + \\frac{e}{2}(x-1)^2$"
+          },
+          {
+            "label": "B",
+            "text": "$1 + (x-1) + \\frac{(x-1)^2}{2}$",
+            "note": "This is the series for $e^{x-1}$, a different function. The factor $e$ from $f(1)$ is missing."
+          },
+          {
+            "label": "C",
+            "text": "$e + ex + \\frac{e}{2}x^2$",
+            "note": "This is centered at $0$: its powers are $x^k$, not $(x-1)^k$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The term for each $k$ is $\\frac{f^{(k)}(1)}{k!}(x-1)^k = \\frac{e}{k!}(x-1)^k$. For $k = 0, 1, 2$ this gives $e$, $e(x-1)$ and $\\frac{e}{2}(x-1)^2$."
+      }
+    ],
+    "takeaway": "Evaluate every derivative at the center, and pair each one with $(x-a)^k$, never with $x^k$."
+  },
+  {
+    "id": "L31-g2",
+    "lessonId": "L31",
+    "typeId": "L31-binomial-series",
+    "stem": "Find the first three terms of the Maclaurin series for $f(x) = \\sqrt[3]{1 - 2x}$.",
+    "steps": [
+      {
+        "prompt": "Which choice of $u$ and $k$ writes $\\sqrt[3]{1 - 2x}$ as $(1 + u)^k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$u = 2x$, $k = \\frac{1}{3}$",
+            "note": "Then the base is $1 + 2x$, not $1 - 2x$. Keep the minus sign in $u$."
+          },
+          {
+            "label": "B",
+            "text": "$u = -2x$, $k = -\\frac{1}{3}$",
+            "note": "A cube root has a positive exponent. A minus sign in the exponent would mean a reciprocal."
+          },
+          {
+            "label": "C",
+            "text": "$u = -2x$, $k = \\frac{1}{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The cube root is the power $\\frac{1}{3}$. Writing $1 - 2x = 1 + u$ gives $u = -2x$, so $f(x) = (1 + u)^{1/3}$."
+      },
+      {
+        "prompt": "Using $(1 + u)^k = 1 + ku + \\frac{k(k-1)}{2!}u^2 + \\cdots$, what is the coefficient of $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{2}{3}$",
+            "note": "The sign is wrong. The term is $ku$, and $u = -2x$ is negative."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{2}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$-2$",
+            "note": "The factor $k = \\frac{1}{3}$ has been left out of $ku$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The $x$ term is $ku = \\frac{1}{3}(-2x) = -\\frac{2}{3}x$."
+      },
+      {
+        "prompt": "With the $x$ term from the last step, which expression gives the first three terms of the series?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1 + \\frac{2}{3}x - \\frac{4}{9}x^2$",
+            "note": "This is the series for $\\sqrt[3]{1 + 2x}$, a different function. The sign of $-2x$ has been lost."
+          },
+          {
+            "label": "B",
+            "text": "$1 - \\frac{2}{3}x - \\frac{1}{9}x^2$",
+            "note": "This takes $u^2 = x^2$, which drops the factor $4$ from squaring $-2x$."
+          },
+          {
+            "label": "C",
+            "text": "$1 - \\frac{2}{3}x + \\frac{4}{9}x^2$",
+            "note": "The sign of the $x^2$ term is wrong. Check the sign of $k(k-1)$ for $k = \\frac{1}{3}$."
+          },
+          {
+            "label": "D",
+            "text": "$1 - \\frac{2}{3}x - \\frac{4}{9}x^2$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The $x^2$ term is $\\frac{k(k-1)}{2!}u^2 = \\frac{\\frac{1}{3}\\cdot\\left(-\\frac{2}{3}\\right)}{2}\\cdot 4x^2 = -\\frac{4}{9}x^2$. The first three terms are $1 - \\frac{2}{3}x - \\frac{4}{9}x^2$."
+      }
+    ],
+    "takeaway": "Write the base as $1 + u$ first, because the sign of $u$ carries into every term."
+  },
+  {
+    "id": "L31-g3",
+    "lessonId": "L31",
+    "typeId": "L31-maclaurin-from-table",
+    "stem": "Find the first three nonzero terms of the Maclaurin series for $f(x) = x e^{-x^2}$.",
+    "steps": [
+      {
+        "prompt": "Which known Maclaurin series gives the starting point for $x e^{-x^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sin x$",
+            "note": "This is the series for $\\sin x$, a different function from the exponential here."
+          },
+          {
+            "label": "B",
+            "text": "$e^x$"
+          },
+          {
+            "label": "C",
+            "text": "$\\cos x$",
+            "note": "This is the series for $\\cos x$, a different function from the exponential here."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The series $e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$ holds for all $x$. The function is $x$ times $e^u$ with $u = -x^2$, so the table entry is reused with a substitution."
+      },
+      {
+        "prompt": "Replace $x$ with $-x^2$ in that series. What are the first three terms of the series for $e^{-x^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1 - x^2 + \\frac{x^4}{2}$"
+          },
+          {
+            "label": "B",
+            "text": "$1 + x^2 + \\frac{x^4}{2}$",
+            "note": "This drops the minus sign from the substitution, which changes the sign of the $x^2$ term."
+          },
+          {
+            "label": "C",
+            "text": "$1 - x^2 + x^4$",
+            "note": "The $x^4$ term comes from $\\frac{u^2}{2!}$, so the factorial $2!$ must stay in the denominator."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Put $u = -x^2$ into $e^u = 1 + u + \\frac{u^2}{2!} + \\cdots$. This gives $e^{-x^2} = 1 - x^2 + \\frac{x^4}{2} - \\cdots$."
+      },
+      {
+        "prompt": "The factor $x$ multiplies every term of that series. What are the first three nonzero terms of $x e^{-x^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x - x^3 + x^5$",
+            "note": "This loses the denominator of the $x^4$ term from the previous step. Multiplying by $x$ only raises each power by one."
+          },
+          {
+            "label": "B",
+            "text": "$1 - x^2 + \\frac{x^4}{2}$",
+            "note": "This leaves out the factor $x$, so it is still the series for $e^{-x^2}$."
+          },
+          {
+            "label": "C",
+            "text": "$x - x^3 + \\frac{x^5}{2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Multiplying $1 - x^2 + \\frac{x^4}{2}$ by $x$ gives $x - x^3 + \\frac{x^5}{2}$."
+      }
+    ],
+    "takeaway": "Substitute into the table first, then multiply or divide, and keep each factorial with its own term."
+  }
+]

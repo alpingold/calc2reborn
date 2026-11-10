@@ -7,6 +7,9 @@
     "tags": [
       "maclaurin",
       "taylor-series"
+    ],
+    "typeIds": [
+      "L31-derivative-from-series"
     ]
   },
   {
@@ -18,6 +21,9 @@
       "trap",
       "maclaurin",
       "interval"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -29,6 +35,9 @@
       "trap",
       "maclaurin",
       "interval"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -40,6 +49,9 @@
       "trap",
       "maclaurin",
       "interval"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -51,6 +63,9 @@
       "trap",
       "maclaurin",
       "interval"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -62,6 +77,9 @@
       "trap",
       "maclaurin",
       "interval"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -73,6 +91,9 @@
       "trap",
       "maclaurin",
       "interval"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -127,6 +148,9 @@
       "maclaurin",
       "substitution",
       "compute"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -138,6 +162,9 @@
       "maclaurin",
       "index",
       "compute"
+    ],
+    "typeIds": [
+      "L31-maclaurin-from-table"
     ]
   },
   {
@@ -149,6 +176,9 @@
       "trap",
       "taylor-series",
       "center"
+    ],
+    "typeIds": [
+      "L31-taylor-series-other-center"
     ]
   },
   {

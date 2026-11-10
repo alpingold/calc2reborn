@@ -1,0 +1,260 @@
+[
+  {
+    "id": "L35-g1",
+    "lessonId": "L35",
+    "typeId": "L35-area-one-curve",
+    "stem": "Find the area enclosed by the polar curve $r = 6\\cos\\theta$.",
+    "steps": [
+      {
+        "prompt": "Over which interval of $\\theta$ does $r = 6\\cos\\theta$ trace the whole circle exactly once?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0 \\le \\theta \\le 2\\pi$",
+            "note": "Over this interval the curve is traced twice, so the integral counts the circle twice."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$0 \\le \\theta \\le \\frac{\\pi}{2}$",
+            "note": "This covers only the upper half of the circle, so the integral gives half the area."
+          }
+        ],
+        "answer": "B",
+        "explanation": "On $-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$ the value of $r$ is never negative, and the curve closes exactly once. The limits are $-\\frac{\\pi}{2}$ and $\\frac{\\pi}{2}$."
+      },
+      {
+        "prompt": "With the interval just chosen, which integral gives the area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} 6\\cos\\theta\\,d\\theta$",
+            "note": "The integrand must be $\\frac{1}{2}r^2$, and here $r$ is used without being squared."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_{-\\pi/2}^{\\pi/2} 36\\cos^2\\theta\\,d\\theta$",
+            "note": "The factor $\\frac{1}{2}$ from the sector area is missing, so this counts each sector twice."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} 36\\cos^2\\theta\\,d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Each thin sector has area $\\frac{1}{2}r^2\\,d\\theta$, and here $r^2 = 36\\cos^2\\theta$."
+      },
+      {
+        "prompt": "Which identity rewrites $\\cos^2\\theta$ so that it can be integrated directly?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\cos^2\\theta = \\frac{1 - \\cos 2\\theta}{2}$",
+            "note": "That is the identity for $\\sin^2\\theta$, not $\\cos^2\\theta$; testing both sides at $\\theta = 0$ shows the mismatch."
+          },
+          {
+            "label": "C",
+            "text": "$\\cos^2\\theta = 1 + \\cos 2\\theta$",
+            "note": "The right side is twice $\\cos^2\\theta$, because the half is missing."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$, so $\\frac{1}{2}\\cdot 36\\cos^2\\theta = 9(1 + \\cos 2\\theta)$."
+      },
+      {
+        "prompt": "Evaluate $\\int_{-\\pi/2}^{\\pi/2} 9(1 + \\cos 2\\theta)\\,d\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "The $\\cos 2\\theta$ term integrates to zero over this interval, but the constant term $1$ does not."
+          },
+          {
+            "label": "B",
+            "text": "$18\\pi$",
+            "note": "This is what the integral gives if the $\\frac{1}{2}$ in $\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$ is dropped, so the integrand doubles."
+          },
+          {
+            "label": "C",
+            "text": "$9\\pi$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\int_{-\\pi/2}^{\\pi/2} 1\\,d\\theta = \\pi$ and $\\int_{-\\pi/2}^{\\pi/2} \\cos 2\\theta\\,d\\theta = 0$, so the integral is $9\\pi$. This is the area of a circle of radius 3."
+      }
+    ],
+    "takeaway": "Choose the interval that traces the curve once before writing the integral, because a full period often traces it twice."
+  },
+  {
+    "id": "L35-g2",
+    "lessonId": "L35",
+    "typeId": "L35-area-between",
+    "stem": "Find the area of the region inside $r = 4\\cos\\theta$ and outside $r = 2\\cos\\theta$.",
+    "steps": [
+      {
+        "prompt": "Where do the circles $r = 4\\cos\\theta$ and $r = 2\\cos\\theta$ meet?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Only at $\\theta = 0$, where $(4, 0)$ is the point",
+            "note": "At $\\theta = 0$ the two circles have $r = 4$ and $r = 2$, which are different points."
+          },
+          {
+            "label": "B",
+            "text": "At $\\theta = \\pm\\frac{\\pi}{3}$, where $\\cos\\theta = \\frac{1}{2}$",
+            "note": "There $r = 2$ on the larger circle and $r = 1$ on the smaller, so the circles do not meet there."
+          },
+          {
+            "label": "C",
+            "text": "Only at the pole, where both have $r = 0$ at $\\theta = \\pm\\frac{\\pi}{2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Setting $4\\cos\\theta = 2\\cos\\theta$ gives $\\cos\\theta = 0$, so the circles meet only at the pole. Both reach it at $\\theta = \\pm\\frac{\\pi}{2}$, which fixes the interval $-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$."
+      },
+      {
+        "prompt": "Over the interval just found, which integral gives the area between the circles?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} \\left((4\\cos\\theta)^2 - (2\\cos\\theta)^2\\right)d\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} \\left((4\\cos\\theta)^2 + (2\\cos\\theta)^2\\right)d\\theta$",
+            "note": "The inner circle is removed from the region, so its area is subtracted, not added."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\int_{-\\pi/2}^{\\pi/2} (4\\cos\\theta - 2\\cos\\theta)^2\\,d\\theta$",
+            "note": "Subtracting before squaring gives the wrong integrand; the area formula squares each curve separately."
+          }
+        ],
+        "answer": "A",
+        "explanation": "For each $\\theta$ in the interval, the region lies between the inner circle $r = 2\\cos\\theta$ and the outer circle $r = 4\\cos\\theta$. So the area is $\\frac{1}{2}\\int \\left((4\\cos\\theta)^2 - (2\\cos\\theta)^2\\right)d\\theta$."
+      },
+      {
+        "prompt": "Simplify the integrand from the last step and evaluate the integral, using $\\int_{-\\pi/2}^{\\pi/2}\\cos^2\\theta\\,d\\theta = \\frac{\\pi}{2}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\pi$",
+            "note": "This comes from squaring the difference $4\\cos\\theta - 2\\cos\\theta$, which is not the area formula."
+          },
+          {
+            "label": "B",
+            "text": "$3\\pi$"
+          },
+          {
+            "label": "C",
+            "text": "$6\\pi$",
+            "note": "The factor $\\frac{1}{2}$ from the sector area has been left out, which doubles the result."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\frac{1}{2}\\left(16\\cos^2\\theta - 4\\cos^2\\theta\\right) = 6\\cos^2\\theta$, and $\\int_{-\\pi/2}^{\\pi/2} 6\\cos^2\\theta\\,d\\theta = 6\\cdot\\frac{\\pi}{2} = 3\\pi$."
+      }
+    ],
+    "takeaway": "Subtract the inner area from the outer one as $\\frac{1}{2}(f^2 - g^2)$, never by squaring the difference."
+  },
+  {
+    "id": "L35-g3",
+    "lessonId": "L35",
+    "typeId": "L35-length-spirals",
+    "stem": "Find the arc length of the spiral $r = e^{\\theta/2}$ for $0 \\le \\theta \\le 2$.",
+    "steps": [
+      {
+        "prompt": "Which expression gives the arc length of a polar curve $r = f(\\theta)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "$\\int \\sqrt{1 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$",
+            "note": "The $r^2$ term is missing; it comes from the $r\\,\\Delta\\theta$ part of each small step."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\int r^2\\,d\\theta$",
+            "note": "That is the formula for the area swept out, not for length; length uses a square root and no $\\frac{1}{2}$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "A small step has $(\\Delta s)^2 \\approx (\\Delta r)^2 + (r\\,\\Delta\\theta)^2$. Adding up the steps gives the integral with $r^2$ and $\\left(\\frac{dr}{d\\theta}\\right)^2$ under the root."
+      },
+      {
+        "prompt": "For $r = e^{\\theta/2}$, what is $r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^{\\theta}$",
+            "note": "This leaves out the derivative term, and $\\frac{dr}{d\\theta}$ is not zero."
+          },
+          {
+            "label": "B",
+            "text": "$2e^{\\theta}$",
+            "note": "This takes $\\frac{dr}{d\\theta} = e^{\\theta/2}$. The chain rule brings down a factor $\\frac{1}{2}$ from the exponent, and squaring keeps it."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{5}{4}e^{\\theta}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$r^2 = e^{\\theta}$ and $\\frac{dr}{d\\theta} = \\frac{1}{2}e^{\\theta/2}$, so $\\left(\\frac{dr}{d\\theta}\\right)^2 = \\frac{1}{4}e^{\\theta}$. The sum is $\\frac{5}{4}e^{\\theta}$."
+      },
+      {
+        "prompt": "Take the square root of this sum to get the integrand for the length.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\sqrt{5}}{4}e^{\\theta/2}$",
+            "note": "Squaring $\\frac{\\sqrt{5}}{4}$ gives $\\frac{5}{16}$, not $\\frac{5}{4}$, so this is not the square root."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\sqrt{5}}{2}e^{\\theta/2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{5}{4}e^{\\theta/2}$",
+            "note": "Squaring this gives $\\frac{25}{16}e^{\\theta}$, not the sum, so it is not the square root."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\sqrt{\\frac{5}{4}e^{\\theta}} = \\frac{\\sqrt{5}}{2}e^{\\theta/2}$, so the length is $L = \\int_0^2 \\frac{\\sqrt{5}}{2}e^{\\theta/2}\\,d\\theta$."
+      },
+      {
+        "prompt": "Evaluate $\\int_0^2 \\frac{\\sqrt{5}}{2}e^{\\theta/2}\\,d\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sqrt{5}(e^2 - 1)$",
+            "note": "At $\\theta = 2$ the exponent is $1$, not $2$, so the upper limit gives $e$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\sqrt{5}}{2}(e - 1)$",
+            "note": "The antiderivative of $e^{\\theta/2}$ is $2e^{\\theta/2}$, not $e^{\\theta/2}$; the factor $2$ is missing."
+          },
+          {
+            "label": "C",
+            "text": "$\\sqrt{5}(e - 1)$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The antiderivative of $e^{\\theta/2}$ is $2e^{\\theta/2}$, so $\\int_0^2 \\frac{\\sqrt{5}}{2}e^{\\theta/2}\\,d\\theta = \\frac{\\sqrt{5}}{2}\\cdot 2\\left[e^{\\theta/2}\\right]_0^2 = \\sqrt{5}(e - 1)$."
+      }
+    ],
+    "takeaway": "Simplify $r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2$ to a single term before taking the square root."
+  }
+]
