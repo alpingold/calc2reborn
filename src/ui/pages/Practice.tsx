@@ -7,7 +7,7 @@ import { lessonMastery } from '../../engine/mastery'
 import { coveredLessonIds, promoteCardsForTypes } from '../../engine/queue'
 import { RETRY_AFTER, RETRY_LIMIT, nextRetry, pickPracticeQuestion, retryCandidates, similarQuestion } from '../../engine/select'
 import type { PendingRetry } from '../../engine/select'
-import { examScope, lessonRange } from '../../engine/scope'
+import { examScope, lessonRange, studyLessonIds } from '../../engine/scope'
 import { useContent, useNow, useRng, useSettings, useStore } from '../../storage/context'
 import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
@@ -209,8 +209,7 @@ function PracticeSession({
     if (retry) {
       if (retryQueue.current === null) {
         // the lessons on the coming exam, or everything covered so far
-        const scope = examScope(settings, content.lessons, now())
-        const scopeLessons = scope.active ? scope.lessonIds : coveredLessonIds(content.lessons, settings.currentLessonId)
+        const scopeLessons = studyLessonIds(settings, content.lessons, now())
         const seen = new Set<string>()
         const inScope: Question[] = []
         for (const id of scopeLessons) {

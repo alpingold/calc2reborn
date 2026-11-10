@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import { lessonMastery } from '../../engine/mastery'
+import { lessonMastery, typeMastery } from '../../engine/mastery'
 import type { Mastery } from '../../engine/mastery'
 import type { CardState } from '../../storage/types'
 import { useContent, useNow, useScheduler, useStore } from '../../storage/context'
 import { Markdown } from '../Markdown'
 import { examTitle } from '../examSession'
+import { practiseTypeLink } from '../TypeTiles'
 
 export function Lesson() {
   const { lessonId } = useParams()
@@ -15,6 +16,7 @@ export function Lesson() {
   const now = useNow()
   const [mastery, setMastery] = useState<Mastery | null>(null)
   const [states, setStates] = useState<Map<string, CardState> | null>(null)
+  const [byType, setByType] = useState<Map<string, Mastery>>(new Map())
   const [error, setError] = useState<string | null>(null)
   const [showCards, setShowCards] = useState(false)
   // cards flipped to show their answer
@@ -32,6 +34,8 @@ export function Lesson() {
         const m = lessonMastery(attempts, content.questionById, [lessonId])
         setMastery(m.get(lessonId) ?? { score: null, attempts: 0 })
         setStates(new Map(all.map((s) => [s.cardId, s])))
+        const typeIds = (content.lessonById.get(lessonId)?.problemTypes ?? []).map((t) => t.id)
+        setByType(typeMastery(attempts, content.questionById, typeIds))
       } catch {
         if (!cancelled) setError('Could not load your progress.')
       }
@@ -52,6 +56,7 @@ export function Lesson() {
   }
   const cards = content.cardsByLesson.get(lesson.id) ?? []
   const questions = content.questionsByLesson.get(lesson.id) ?? []
+  const types = lesson.problemTypes ?? []
 
   type CardStage = 'due' | 'later' | 'new'
   function stageOf(cardId: string): CardStage | null {
@@ -168,6 +173,30 @@ export function Lesson() {
               )}
             </>
           )}
+        </section>
+      )}
+      {types.length > 0 && (
+        <section className="lesson-types">
+          <h3>Problem types</h3>
+          <ul>
+            {types.map((t) => {
+              const count = content.questionsByType.get(t.id)?.length ?? 0
+              const score = byType.get(t.id)?.score ?? null
+              return (
+                <li key={t.id}>
+                  <span className="type-name">{t.name}</span>{' '}
+                  <span className="type-meta">
+                    {`${count} ${count === 1 ? 'question' : 'questions'}, ${score === null ? 'untested' : `${Math.round(score * 100)}%`}`}
+                  </span>{' '}
+                  {count > 0 && (
+                    <Link to={practiseTypeLink(t.id)} aria-label={`Practise this type: ${t.name}`}>
+                      Practise this type
+                    </Link>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
         </section>
       )}
       <h3>Exam questions</h3>

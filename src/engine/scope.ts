@@ -47,3 +47,15 @@ export function examScope(settings: Settings, lessons: Lesson[], now: Date): Exa
   const passed = settings.examDate !== null && daysUntil(settings.examDate, now) < 0
   return { lessonIds, active: lessonIds.length > 0 && !passed }
 }
+
+/**
+ * The lessons the student is studying now: the exam's lessons while an exam scope is active,
+ * otherwise every planned lesson up to the current one (all of them when none is set).
+ */
+export function studyLessonIds(settings: Settings, lessons: Lesson[], now: Date): string[] {
+  const scope = examScope(settings, lessons, now)
+  if (scope.active) return scope.lessonIds
+  const list = planned(lessons)
+  const current = settings.currentLessonId === null ? undefined : list.find((l) => l.id === settings.currentLessonId)
+  return list.filter((l) => current === undefined || l.number <= current.number).map((l) => l.id)
+}

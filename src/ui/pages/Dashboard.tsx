@@ -1,24 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
-import { Link } from 'react-router'
-import { lessonMastery } from '../../engine/mastery'
+import { lessonMastery, typeMastery } from '../../engine/mastery'
 import type { Mastery } from '../../engine/mastery'
-import { coveredLessonIds, dailyQueue } from '../../engine/queue'
-import { daysUntil } from '../../engine/scope'
+import { todayPlan, type PlanItem } from '../../engine/today'
+import type { SessionRecord } from '../../storage/types'
 import { isPlanned } from '../../content/schema'
 import { useContent, useNow, useScheduler, useSettings, useStore } from '../../storage/context'
 import { MasteryGrid } from '../MasteryGrid'
-
-function examLine(days: number): string {
-  if (days < 0) return 'Exam has passed'
-  if (days === 0) return 'Exam is today'
-  return `${days} ${days === 1 ? 'day' : 'days'} until the exam`
-}
-
-function dueLine(n: number): string {
-  if (n === 0) return 'No cards due today'
-  return `${n} ${n === 1 ? 'card' : 'cards'} due today`
-}
+import { ReadinessPanel } from '../ReadinessPanel'
+import { TodayPlan } from '../TodayPlan'
 
 export function Dashboard() {
   const store = useStore()
@@ -27,7 +17,9 @@ export function Dashboard() {
   const { settings, save } = useSettings()
   const now = useNow()
   const [mastery, setMastery] = useState<Map<string, Mastery> | null>(null)
-  const [dueCount, setDueCount] = useState<number | null>(null)
+  const [byType, setByType] = useState<Map<string, Mastery>>(new Map())
+  const [plan, setPlan] = useState<PlanItem[] | null>(null)
+  const [records, setRecords] = useState<SessionRecord[]>([])
   const [pick, setPick] = useState('')
   const [error, setError] = useState<string | null>(null)
 
@@ -38,7 +30,12 @@ export function Dashboard() {
     setError(null)
     ;(async () => {
       try {
-        const [attempts, states] = await Promise.all([store.listAttempts(), store.listCardStates()])
+        const [attempts, states, guided, sessions] = await Promise.all([
+          store.listAttempts(),
+          store.listCardStates(),
+          store.listGuidedResults(),
+          store.listSessionRecords(),
+        ])
         if (cancelled) return
         setMastery(
           lessonMastery(
@@ -47,16 +44,9 @@ export function Dashboard() {
             planned.map((l) => l.id),
           ),
         )
-        setDueCount(
-          dailyQueue({
-            now: now(),
-            cards: content.cards,
-            states,
-            lessons: content.lessons,
-            settings,
-            isDue: scheduler.isDue,
-          }).due.length,
-        )
+        setByType(typeMastery(attempts, content.questionById, [...content.typeById.keys()]))
+        setRecords(sessions)
+        setPlan(todayPlan({ now: now(), attempts, states, guided, settings, content, isDue: scheduler.isDue }))
       } catch {
         if (!cancelled) setError('Could not load your progress.')
       }
@@ -76,22 +66,6 @@ export function Dashboard() {
       setError('Could not save your setting. Try again.')
     }
   }
-
-  const weakest = useMemo(() => {
-    if (!mastery) return []
-    const allowed = settings.examLessonIds.length ? new Set(settings.examLessonIds) : null
-    return coveredLessonIds(content.lessons, settings.currentLessonId)
-      .filter((id) => !allowed || allowed.has(id))
-      .map((id, i) => ({ id, i, score: mastery.get(id)?.score ?? null }))
-      .sort((a, b) => {
-        if (a.score === null || b.score === null) {
-          return a.score === b.score ? a.i - b.i : a.score === null ? -1 : 1
-        }
-        return a.score - b.score || a.i - b.i
-      })
-      .slice(0, 5)
-      .map((x) => content.lessonById.get(x.id)!)
-  }, [mastery, settings.examLessonIds, settings.currentLessonId, content])
 
   const current = settings.currentLessonId ? content.lessonById.get(settings.currentLessonId) : undefined
 
@@ -117,29 +91,11 @@ export function Dashboard() {
       )}
       <div className="today">
         <div className="today-main">
-          {dueCount !== null && <p className="due-line">{dueLine(dueCount)}</p>}
+          {plan && <TodayPlan items={plan} content={content} />}
           {current && <p className="today-where">{`You are on Lesson ${current.number}: ${current.title}.`}</p>}
-          <p className="actions">
-            <Link to="/review" className="button primary">
-              Review cards
-            </Link>
-            <Link to="/practice" className="button">
-              Start smart practice
-            </Link>
-          </p>
         </div>
-        {settings.examDate && (
-          <aside className="exam-countdown" aria-label="Next exam">
-            <p className="countdown-line">{examLine(daysUntil(settings.examDate, now()))}</p>
-            <h3>Weakest lessons</h3>
-            <ol>
-              {weakest.map((l) => (
-                <li key={l.id}>
-                  <Link to={`/course/${l.id}`}>{`L${l.number}: ${l.title}`}</Link>
-                </li>
-              ))}
-            </ol>
-          </aside>
+        {(settings.examDate || settings.examLessonIds.length > 0) && (
+          <ReadinessPanel settings={settings} content={content} mastery={byType} records={records} now={now()} />
         )}
       </div>
       <MasteryGrid lessons={content.lessons} mastery={mastery ?? new Map()} currentLessonId={settings.currentLessonId} />

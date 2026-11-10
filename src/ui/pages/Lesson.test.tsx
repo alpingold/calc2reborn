@@ -6,7 +6,7 @@ import { Lesson } from './Lesson'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { buildContent } from '../../content'
-import { fixtureCard, fixtureLesson, fixtureLessons } from '../../test/fixtures'
+import { fixtureCard, fixtureLesson, fixtureLessons, fixtureTypes } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -26,6 +26,7 @@ const question: Question = {
   choices,
   answer: 'A',
   lessonIds: ['L19'],
+  typeIds: ['L19-a'],
   status: 'reviewed',
 }
 const seedExam: Exam = {
@@ -57,7 +58,7 @@ const secondExam: Exam = {
   questions: [{ ...question, id: 'f2025-e2-q07', number: 7 }],
 }
 const lessons = [
-  ...fixtureLessons().map((l) => (l.id === 'L19' ? { ...l, keyIdeas: 'Compare **terms**.' } : l)),
+  ...fixtureLessons().map((l) => (l.id === 'L19' ? { ...l, keyIdeas: 'Compare **terms**.', problemTypes: fixtureTypes('L19') } : l)),
   // no key ideas, cards, or questions
   fixtureLesson(100, { id: 'L-empty' }),
 ]
@@ -158,4 +159,36 @@ test('with nothing due, the summary leaves out due cards and there is no Review 
   await setup('/course/L19')
   expect(await screen.findByText('3 flashcards: 3 not started yet')).toBeInTheDocument()
   expect(screen.queryByRole('link', { name: 'Open Review' })).not.toBeInTheDocument()
+})
+
+test('lists the lesson\'s problem types with a practice link for each that has questions', async () => {
+  await setup('/course/L19', async (store) => {
+    for (const [i, correct] of [true, true, true].entries()) {
+      await store.logAttempt({
+        id: `a${i}`,
+        questionId: 't-q3',
+        chosen: 'A',
+        correct,
+        seconds: 5,
+        timestamp: new Date(2026, 10, 1, 10, i).toISOString(),
+        mode: 'practice',
+      })
+    }
+  })
+  const section = (await screen.findByRole('heading', { name: 'Problem types' })).parentElement as HTMLElement
+  const items = within(section).getAllByRole('listitem')
+  expect(items).toHaveLength(2)
+  expect(await within(items[0]).findByText('3 questions, 100%')).toBeInTheDocument()
+  expect(within(items[0]).getByRole('link', { name: 'Practise this type: L19 type A' })).toHaveAttribute(
+    'href',
+    '/practice?types=L19-a&n=10',
+  )
+  expect(within(items[1]).getByText('0 questions, untested')).toBeInTheDocument()
+  expect(within(items[1]).queryByRole('link')).not.toBeInTheDocument()
+})
+
+test('a lesson with no problem types has no such section', async () => {
+  await setup('/course/L-empty')
+  await screen.findByRole('heading', { level: 2 })
+  expect(screen.queryByRole('heading', { name: 'Problem types' })).not.toBeInTheDocument()
 })

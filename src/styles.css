@@ -319,11 +319,99 @@ input[type='checkbox'] {
   border-bottom: 1px solid var(--rule-strong);
 }
 
-.due-line {
-  margin: 0;
+.plan h3 {
+  margin: 0 0 10px;
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-weight: 400;
   line-height: 1.1;
+}
+
+.plan-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--rule-strong);
+  font-size: 1.05rem;
+}
+
+.plan-mark {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  border: 1.5px solid var(--ink);
+  font-size: 0.85rem;
+  line-height: 1.1em;
+  text-align: center;
+  align-self: center;
+}
+
+.plan-item.done {
+  color: var(--muted);
+}
+
+.plan-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.plan-done,
+.plan-empty {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.readiness-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.readiness-rows li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 0;
+  font-size: 0.85rem;
+}
+
+.readiness-rows li > a {
+  flex: none;
+  width: 2.4em;
+}
+
+.readiness-count,
+.readiness-mock {
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.type-tiles {
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 1px 0 0 1px;
+}
+
+.type-tile {
+  width: 22px;
+  height: 22px;
+  margin: -1px 0 0 -1px;
+  border: 1px solid var(--grid-major);
+}
+
+.type-tile:hover,
+.type-tile:focus-visible {
+  position: relative;
+  border-color: var(--ink);
 }
 
 .today-where {
@@ -1229,4 +1317,17 @@ legend {
 .feedback-cards li {
   border-left: 2px solid currentColor;
   padding-left: 0.75rem;
+}
+
+.lesson-types ul {
+  padding-left: 1.2em;
+}
+
+.lesson-types li {
+  padding: 2px 0;
+}
+
+.type-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
 }

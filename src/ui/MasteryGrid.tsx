@@ -3,7 +3,7 @@ import { isPlanned } from '../content/schema'
 import type { Lesson } from '../content/schema'
 import type { Mastery } from '../engine/mastery'
 
-function stateOf(score: number | null): 'untested' | 'weak' | 'ok' | 'strong' {
+export function masteryState(score: number | null): 'untested' | 'weak' | 'ok' | 'strong' {
   if (score === null) return 'untested'
   if (score < 0.7) return 'weak'
   if (score < 0.9) return 'ok'
@@ -52,7 +52,7 @@ export function MasteryGrid({
             {ls.map((l) => {
               const score = mastery.get(l.id)?.score ?? null
               const label = score === null ? 'untested' : `${Math.round(score * 100)}%`
-              const cls = `tile mastery-${stateOf(score)}${l.id === currentLessonId ? ' current' : ''}`
+              const cls = `tile mastery-${masteryState(score)}${l.id === currentLessonId ? ' current' : ''}`
               return (
                 // the tooltip is mouse-only, so the link's name also carries the title and score
                 <Link
