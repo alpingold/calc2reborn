@@ -54,7 +54,7 @@ export function checkMath(ownerId: string, text: string): void {
     try {
       katex.renderToString(fragment, { throwOnError: true, displayMode })
     } catch (e) {
-      throw new Error(`KaTeX failed in ${ownerId}: ${JSON.stringify(fragment)}: ${(e as Error).message}`)
+      throw new Error(`KaTeX failed in ${ownerId}: ${JSON.stringify(fragment)}: ${(e as Error).message}`, { cause: e })
     }
   }
 }
@@ -311,7 +311,7 @@ describe('checkMath', () => {
 })
 
 describe('escaped and unpaired dollars', () => {
-  test('a dollar amount written with \$ is text, and later math still pairs', () => {
+  test('a dollar amount written with \\$ is text, and later math still pairs', () => {
     expect(extractMath('costs \\$5 and $x^2$ here')).toEqual([{ fragment: 'x^2', displayMode: false }])
     expect(extractMath('costs \\$5 and \\$10')).toEqual([])
   })

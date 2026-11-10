@@ -48,7 +48,11 @@ async function renderPage(doc: pdfjs.PDFDocumentProxy, n: number, label: string,
   const viewport = page.getViewport({ scale: 2 })
   const canvas = createCanvas(viewport.width, viewport.height)
   const context = canvas.getContext('2d')
-  await page.render({ canvasContext: context as any, viewport, canvas: canvas as any }).promise
+  await page.render({
+    canvasContext: context as unknown as CanvasRenderingContext2D,
+    viewport,
+    canvas: canvas as unknown as HTMLCanvasElement,
+  }).promise
   const text = await page.getTextContent()
   const textChars = text.items.reduce((sum, item) => sum + ('str' in item ? item.str.replace(/\s/g, '').length : 0), 0)
   const { data } = context.getImageData(0, 0, canvas.width, canvas.height)

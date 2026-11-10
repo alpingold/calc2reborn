@@ -8,6 +8,7 @@ cd "$(dirname "$0")/.."
 VERCEL="npx --yes vercel@65.12.1"
 SITE=.deploy
 
+pnpm lint
 pnpm test
 pnpm build
 

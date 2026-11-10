@@ -99,7 +99,7 @@ test('lessons saved by the old list show as the span from lowest to highest', as
 })
 
 test('Export progress downloads a version 1 snapshot', async () => {
-  const create = vi.fn((_b: Blob) => 'blob:x')
+  const create = vi.fn<(b: Blob) => string>(() => 'blob:x')
   const revoke = vi.fn()
   Object.assign(URL, { createObjectURL: create, revokeObjectURL: revoke })
   vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})

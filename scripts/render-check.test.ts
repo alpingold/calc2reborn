@@ -151,7 +151,11 @@ describe('pdfjsResourceOptions', () => {
     const viewport = page.getViewport({ scale: 1 })
     const canvas = createCanvas(viewport.width, viewport.height)
     const context = canvas.getContext('2d')
-    await page.render({ canvasContext: context as any, viewport, canvas: canvas as any }).promise
+    await page.render({
+    canvasContext: context as unknown as CanvasRenderingContext2D,
+    viewport,
+    canvas: canvas as unknown as HTMLCanvasElement,
+  }).promise
     const { data } = context.getImageData(0, 0, canvas.width, canvas.height)
     await task.destroy()
     expect(countDarkPixels(data)).toBeGreaterThan(0.9 * canvas.width * canvas.height)

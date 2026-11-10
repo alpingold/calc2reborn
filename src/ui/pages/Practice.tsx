@@ -170,6 +170,8 @@ function PracticeSession({
   const retried = useRef(new Set<string>())
   const [question, setQuestion] = useState<Question | null | undefined>(undefined)
   const [isRetry, setIsRetry] = useState(false)
+  // the number of the showing on screen: a new one remounts the question view and restarts its timer
+  const [shown, setShown] = useState(0)
   const [chosen, setChosen] = useState<Choice['label'] | undefined>(undefined)
   const [revealed, setRevealed] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -194,6 +196,7 @@ function PracticeSession({
   const show = useCallback((q: Question, retry: boolean) => {
     served.current.add(q.id)
     showing.current++
+    setShown(showing.current)
     setQuestion(q)
     setIsRetry(retry)
     setChosen(undefined)
@@ -404,7 +407,7 @@ function PracticeSession({
       </div>
       {isRetry && <p className="note">You missed this one earlier in this session. Second try.</p>}
       <QuestionView
-        key={showing.current}
+        key={shown}
         question={question}
         mode="immediate"
         chosen={chosen}

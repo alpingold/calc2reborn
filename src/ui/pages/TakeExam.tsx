@@ -85,6 +85,8 @@ function ExamSessionView({
   const [error, setError] = useState<string | null>(null)
   // the saved session in the way of this request, shown with Resume and Discard
   const [conflict, setConflict] = useState<ExamSession | null>(null)
+  // set once the attempts are frozen for submission; answers lock from then on
+  const [submitting, setSubmitting] = useState(false)
   const alive = useRef(true)
   const sessionRef = useRef<ExamSession | null>(null)
   const busy = useRef(false)
@@ -211,7 +213,6 @@ function ExamSessionView({
 
   useEffect(() => {
     alive.current = true
-    let cancelled = false
     const saved = loadSession()
     if (saved && saved.sessionId === resumeId) {
       // asked for by a Resume link: restore it even if its time is up, which submits it
@@ -229,7 +230,6 @@ function ExamSessionView({
       showIntro()
     }
     return () => {
-      cancelled = true
       alive.current = false
     }
     // the session is created or restored once on mount
@@ -279,6 +279,7 @@ function ExamSessionView({
       if (!pending.current) {
         const at = now()
         pending.current = { attempts: finishSession(s, content, at), logged: new Set(), at }
+        setSubmitting(true)
       }
       const p = pending.current
       try {
@@ -318,7 +319,7 @@ function ExamSessionView({
     void submit(true)
   }, [status, untimed, clock, submit])
 
-  const locked = pending.current !== null || (status === 'ready' && !untimed && clock === 0)
+  const locked = submitting || (status === 'ready' && !untimed && clock === 0)
 
   const choose = useCallback(
     (label: Choice['label']) => {
