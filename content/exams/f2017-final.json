@@ -38,6 +38,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-variable-load-work"
+      ],
+      "solution": "Divide the cable into thin pieces. The cable weighs $\\frac{100}{20} = 5$ lb per foot, so a piece of length $dx$ at distance $x$ feet below the top weighs $5\\,dx$ lb and is lifted $x$ feet.\n\n$$\nW = \\int_0^{20} 5x\\,dx = \\left[\\frac{5x^2}{2}\\right]_0^{20} = 1000\n$$\n\nso the work is $1{,}000$ ft-lb. The trap is multiplying the whole $100$ lb by the full $20$ feet, which gives $2{,}000$ ft-lb and treats every piece as if it moved the full length.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "X2"
       ],
+      "typeIds": [
+        "X2-conic-sections"
+      ],
+      "solution": "The conic is an ellipse, so complete the square in $x$: $(x-1)^2 - 1 + 4y^2 = 3$, which gives\n\n$$\n\\frac{(x-1)^2}{4} + \\frac{y^2}{1} = 1\n$$\n\nThe major axis is horizontal with $a^2 = 4$ and $b^2 = 1$, so $c^2 = a^2 - b^2 = 3$ and $c = \\sqrt{3}$. The foci lie $\\sqrt{3}$ either side of the centre $(1, 0)$, so they are $(1 - \\sqrt{3}, 0)$ and $(1 + \\sqrt{3}, 0)$. The classic slip is using $c^2 = a^2 + b^2$, which is the hyperbola rule.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -107,6 +115,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-angle-dot-and-cross"
+      ],
+      "solution": "Use $\\boldsymbol{a}\\cdot\\boldsymbol{b} = |\\boldsymbol{a}||\\boldsymbol{b}|\\cos\\theta$ and $|\\boldsymbol{a}\\times\\boldsymbol{b}| = |\\boldsymbol{a}||\\boldsymbol{b}|\\sin\\theta$, and divide to remove the lengths:\n\n$$\n\\tan\\theta = \\frac{|\\boldsymbol{a}\\times\\boldsymbol{b}|}{\\boldsymbol{a}\\cdot\\boldsymbol{b}}\n$$\n\nHere $|\\langle 1, 2, 2 \\rangle| = \\sqrt{1 + 4 + 4} = 3$, so $\\tan\\theta = \\frac{3}{\\sqrt{3}} = \\sqrt{3}$. The dot product is positive, so $\\theta$ is acute, and therefore $\\theta = \\frac{\\pi}{3}$ radians.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -141,6 +153,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Use the Taylor formula about $a = 2$, so the coefficient of $(x-2)^2$ is $\\frac{f''(2)}{2!}$ for $f(x) = e^{x^2}$. By the product rule\n\n$$\nf'(x) = 2x\\,e^{x^2}, \\qquad f''(x) = \\left(2 + 4x^2\\right)e^{x^2}\n$$\n\nso $f''(2) = (2 + 16)e^4 = 18e^4$, and dividing by $2!$ gives $9e^4$ as the coefficient.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -175,6 +191,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "The curves meet where $y = y^2$, so at $(0, 0)$ and $(1, 1)$. For $0 \\le x \\le 1$ the curve $y = \\sqrt{x}$ lies above $y = x$, so the washers have outer radius $\\sqrt{x}$ and inner radius $x$:\n\n$$\nV = \\pi\\int_0^1 \\left[(\\sqrt{x})^2 - x^2\\right]dx = \\pi\\int_0^1 (x - x^2)\\,dx = \\pi\\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{\\pi}{6}\n$$\n\nso the volume is $\\frac{\\pi}{6}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -209,6 +229,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "Find the radius with the ratio test. Since $\\cos n\\pi = (-1)^n$, the terms are $\\frac{(-1)^n}{n}x^n$, and $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{n}{n+1}|x| \\to |x|$, so $R = 1$.\n\nAt $x = 1$ the series is $\\sum \\frac{(-1)^n}{n}$, which converges by the alternating series test. At $x = -1$ the terms become $\\frac{(-1)^n(-1)^n}{n} = \\frac{1}{n}$, the harmonic series, which diverges.\n\nSo the interval of convergence is $(-1, 1]$. Testing only $x = 1$ and stopping is the trap, since $x = -1$ removes the alternating signs.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -243,6 +267,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Use Hooke's law, $F = kx$, where $x$ is the stretch beyond the natural length. The natural length is $0.1$ m and $4$ N stretches the spring to $0.2$ m, so the stretch is $0.1$ m and $k = \\frac{4}{0.1} = 40$ N/m.\n\nStretching from natural length to $0.6$ m is a stretch from $0$ to $0.5$ m, so\n\n$$\nW = \\int_0^{0.5} 40x\\,dx = \\left[20x^2\\right]_0^{0.5} = 5\n$$\n\nso the work is $5$ joules.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -277,6 +305,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$. With $r = e^{-2\\theta}$, $\\frac{dr}{d\\theta} = -2e^{-2\\theta}$, so the integrand is\n\n$$\n\\sqrt{e^{-4\\theta} + 4e^{-4\\theta}} = \\sqrt{5}\\,e^{-2\\theta}\n$$\n\nThen\n\n$$\nL = \\sqrt{5}\\int_0^{1/2} e^{-2\\theta}\\,d\\theta = \\sqrt{5}\\left[-\\frac{e^{-2\\theta}}{2}\\right]_0^{1/2} = \\frac{\\sqrt{5}}{2}\\left(1 - e^{-1}\\right)\n$$\n\nso the length is $\\frac{\\sqrt{5}\\,(e-1)}{2e}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -311,6 +343,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-cone-odd-shape"
+      ],
+      "solution": "Put the base on the ground at height $y = 0$, so the vertex is at $y = 5$. At height $y$ the cross-section is a disk of radius $r = 2 - \\frac{2y}{5}$. Let $s = 5 - y$ be the distance from the slice up to the vertex, so $r = \\frac{2s}{5}$. A slice of thickness $ds$ has weight $\\rho g\\pi r^2\\,ds$ and is lifted a distance $s$ to the vertex:\n\n$$\nW = \\rho g\\int_0^5 \\pi\\left(\\frac{2s}{5}\\right)^2 s\\,ds = \\frac{4\\pi\\rho g}{25}\\left[\\frac{s^4}{4}\\right]_0^5 = \\frac{4\\pi\\rho g}{25}\\cdot\\frac{625}{4}\n$$\n\nso the work is $25\\pi\\rho g$. The trap is lifting each slice only its height $y$ above the base, which gives a different value.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -346,6 +382,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "Use the integral test on $f(x) = \\frac{\\ln x}{x^2}$. It is positive and decreasing for $x \\ge \\sqrt{e}$, so the test applies from $k = 2$ on. An antiderivative is $-\\frac{\\ln x + 1}{x}$, so\n\n$$\n\\int_1^{\\infty}\\frac{\\ln x}{x^2}\\,dx = \\lim_{b\\to\\infty}\\left[-\\frac{\\ln x + 1}{x}\\right]_1^{b} = 1\n$$\n\nwhich is finite, so the series converges by the integral test.\n\nThe trap is comparing with a $p$-series. For $k \\ge 3$, $\\ln k > 1$, so the terms exceed $\\frac{1}{k^2}$, which proves nothing about convergence. The terms are also less than $\\frac{1}{k}$, which proves nothing about divergence.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -380,6 +420,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-tangent-substitution"
+      ],
+      "solution": "Substitute $x = 5\\tan\\theta$, so $dx = 5\\sec^2\\theta\\,d\\theta$ and $\\sqrt{25 + x^2} = 5\\sec\\theta$. The integral becomes\n\n$$\n\\int \\frac{5\\sec^2\\theta}{5\\sec\\theta}\\,d\\theta = \\int \\sec\\theta\\,d\\theta = \\ln|\\sec\\theta + \\tan\\theta| + C\n$$\n\nWith $\\sec\\theta = \\frac{\\sqrt{25 + x^2}}{5}$ and $\\tan\\theta = \\frac{x}{5}$, the integral is\n\n$$\n\\ln\\left|\\frac{\\sqrt{25 + x^2} + x}{5}\\right| + C\n$$\n\nLeaving out the $\\frac{1}{5}$ in front of $\\sqrt{25+x^2}$ gives $\\ln\\left|\\sqrt{25+x^2}+\\frac{x}{5}\\right|$, which is not an antiderivative because the two terms do not scale together.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -417,6 +461,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "Test the curve by symmetry and by its extreme distances. Replacing $\\theta$ by $-\\theta$ leaves $r$ unchanged, so the curve is symmetric about the $x$-axis. Replacing $\\theta$ by $\\pi - \\theta$ also leaves $r$ unchanged, so it is symmetric about the $y$-axis too.\n\nThe largest distance from the origin is $r = 5$ at $\\theta = 0$ and $\\theta = \\pi$, so the curve reaches $\\pm 5$ along the $x$-axis. The smallest is $r = 1$ at $\\theta = \\frac{\\pi}{2}$, so the curve only reaches $\\pm 1$ along the $y$-axis, which makes two dents there. Since $r \\ge 1$ for every $\\theta$, the curve never passes through the origin.\n\nSo the graph is the curve symmetric about both axes, stretched along the $x$-axis and dented on the $y$-axis. The trap is reading the $\\cos 2\\theta$ as a four-petal rose: the constant $3$ means there are no petals through the origin.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -451,6 +499,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "Split the integrand by partial fractions, using the repeated factor $x^2$ and the irreducible factor $x^2 + 1$:\n\n$$\n\\frac{1}{x^2(x^2+1)} = \\frac{1}{x^2} - \\frac{1}{x^2+1}\n$$\n\nThe right side combines to $\\frac{(x^2+1) - x^2}{x^2(x^2+1)}$, which checks. Then\n\n$$\n\\int_1^{\\sqrt{3}}\\left(\\frac{1}{x^2} - \\frac{1}{x^2+1}\\right)dx = \\left[-\\frac{1}{x} - \\arctan x\\right]_1^{\\sqrt{3}} = \\left(-\\frac{1}{\\sqrt{3}} - \\frac{\\pi}{3}\\right) - \\left(-1 - \\frac{\\pi}{4}\\right)\n$$\n\nso the integral is $1 - \\frac{1}{\\sqrt{3}} - \\frac{\\pi}{12}$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -485,6 +537,10 @@
       "lessonIds": [
         "X3"
       ],
+      "typeIds": [
+        "X3-complex-numbers"
+      ],
+      "solution": "Multiply the numerator and denominator by the conjugate $3 + 2i$ of the denominator:\n\n$$\n\\frac{13}{3-2i} = \\frac{13(3+2i)}{(3-2i)(3+2i)} = \\frac{13(3+2i)}{9 - 4i^2}\n$$\n\nSince $i^2 = -1$, the denominator is $9 + 4 = 13$, so the quotient is $3 + 2i$. Writing $9 - 4 = 5$ forgets that $i^2 = -1$ and gives a wrong value.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -519,6 +575,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Factor each denominator. $x^2 + 3x + 2 = (x+1)(x+2)$, $x^2 - 4x + 4 = (x-2)^2$, and $x^2 - 2x + 5$ has discriminant $4 - 20 < 0$, so it is irreducible. The numerator has degree $4$ and the denominator degree $6$, so no division is needed. Each distinct linear factor gets one term with a constant numerator. The repeated factor $(x-2)$ needs a term for each power up to $2$, and the irreducible quadratic gets a linear numerator:\n\n$$\n\\frac{A}{x+2} + \\frac{B}{x+1} + \\frac{C}{x-2} + \\frac{D}{(x-2)^2} + \\frac{Ex+F}{x^2-2x+5}\n$$\n\nSo the form has five terms. A repeated factor needs both $\\frac{C}{x-2}$ and $\\frac{D}{(x-2)^2}$, not only the squared term.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -553,6 +613,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
+      "solution": "Split the term into two geometric series:\n\n$$\n\\sum_{m=1}^{\\infty}\\frac{3 + 2^m}{4^m} = \\sum_{m=1}^{\\infty} 3\\left(\\frac{1}{4}\\right)^m + \\sum_{m=1}^{\\infty}\\left(\\frac{1}{2}\\right)^m\n$$\n\nEach has sum $\\frac{a}{1-r}$ for $|r| < 1$. The first is $3\\cdot\\frac{1/4}{1 - 1/4} = 1$ and the second is $\\frac{1/2}{1 - 1/2} = 1$, so the total is $2$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -587,6 +651,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Factor the denominator and split with partial fractions:\n\n$$\n\\frac{1}{x^2+3x+2} = \\frac{1}{(x+1)(x+2)} = \\frac{1}{x+1} - \\frac{1}{x+2}\n$$\n\nSo the antiderivative is $\\ln\\left|\\frac{x+1}{x+2}\\right|$, and\n\n$$\n\\int_1^2 \\frac{dx}{x^2+3x+2} = \\left[\\ln\\frac{x+1}{x+2}\\right]_1^2 = \\ln\\frac{3}{4} - \\ln\\frac{2}{3} = \\ln\\frac{9}{8}\n$$\n\nso the integral is $\\ln\\frac{9}{8}$. Reversing the limits gives $\\ln\\frac{8}{9}$, the negative of the answer.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -621,6 +689,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "Use $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ and $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\Big/ \\frac{dx}{dt}$.\n\n$$\n\\frac{dx}{dt} = 1 + \\frac{1}{t}, \\qquad \\frac{dy}{dt} = 1 - \\frac{1}{t}, \\qquad \\frac{dy}{dx} = \\frac{t-1}{t+1}\n$$\n\nThen\n\n$$\n\\frac{d}{dt}\\left(\\frac{t-1}{t+1}\\right) = \\frac{(t+1) - (t-1)}{(t+1)^2} = \\frac{2}{(t+1)^2}\n$$\n\nAt $t = 1$ this is $\\frac{2}{4} = \\frac{1}{2}$ and $\\frac{dx}{dt} = 2$, so $\\frac{d^2y}{dx^2} = \\frac{1/2}{2} = \\frac{1}{4}$. Omitting the division by $\\frac{dx}{dt}$ gives $\\frac{1}{2}$, which is the trap.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -655,6 +727,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The integrand is undefined at $x = 2$, which lies inside $[0, 5]$, so the integral is improper and must be split there:\n\n$$\n\\int_0^5 \\frac{dx}{x-2} = \\int_0^2 \\frac{dx}{x-2} + \\int_2^5 \\frac{dx}{x-2}\n$$\n\nThe piece $\\int_2^5 \\frac{dx}{x-2} = \\lim_{t\\to 2^+}\\left[\\ln(x-2)\\right]_t^5 = \\ln 3 - \\lim_{t\\to 2^+}\\ln(t-2)$ tends to $+\\infty$, so the integral diverges.\n\nSo the integral is divergent. Evaluating $\\ln|x-2|$ from $0$ to $5$ as if the integrand were continuous gives $\\ln 3 - \\ln 2$, which is the classic trap.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -689,6 +765,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Use the root test on the terms $a_j(x+2)^j$, where $a_j = \\frac{2^j+1}{3^j+2}$. Since $(2^j+1)^{1/j} \\to 2$ and $(3^j+2)^{1/j} \\to 3$, we get $|a_j|^{1/j} \\to \\frac{2}{3}$. The series converges when $\\frac{2}{3}|x+2| < 1$, that is, $|x+2| < \\frac{3}{2}$.\n\nSo the radius of convergence is $\\frac{3}{2}$. Reporting the limit $\\frac{2}{3}$ itself, rather than its reciprocal, gives the wrong radius.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -723,6 +803,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "Use $L = \\int_a^b \\sqrt{1 + (y')^2}\\,dx$. With $y' = \\frac{x}{2} - \\frac{1}{2x}$,\n\n$$\n1 + (y')^2 = 1 + \\frac{x^2}{4} - \\frac{1}{2} + \\frac{1}{4x^2} = \\left(\\frac{x}{2} + \\frac{1}{2x}\\right)^2\n$$\n\nso $\\sqrt{1 + (y')^2} = \\frac{x}{2} + \\frac{1}{2x}$ on $[1, 2]$, and\n\n$$\nL = \\int_1^2 \\left(\\frac{x}{2} + \\frac{1}{2x}\\right)dx = \\left[\\frac{x^2}{4} + \\frac{1}{2}\\ln x\\right]_1^2 = \\left(1 + \\frac{1}{2}\\ln 2\\right) - \\frac{1}{4}\n$$\n\nso the arc length is $\\frac{3 + 2\\ln 2}{4}$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -757,6 +841,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-between"
+      ],
+      "solution": "Use the polar area between two curves, $A = \\frac{1}{2}\\int_\\alpha^\\beta (R^2 - r^2)\\,d\\theta$, where $R$ is the outer curve. For $0 \\le \\theta \\le \\frac{\\pi}{2}$ we have $2\\theta \\ge \\theta$, so $r = 2\\theta$ is outer and $r = \\theta$ is inner:\n\n$$\nA = \\frac{1}{2}\\int_0^{\\pi/2}\\left((2\\theta)^2 - \\theta^2\\right)d\\theta = \\frac{3}{2}\\left[\\frac{\\theta^3}{3}\\right]_0^{\\pi/2} = \\frac{1}{2}\\left(\\frac{\\pi}{2}\\right)^3 = \\frac{\\pi^3}{16}\n$$\n\nso the area is $\\frac{\\pi^3}{16}$. Subtracting in the wrong order, inner squared minus outer, gives a negative area, so check that the outer curve is first.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -791,6 +879,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-alternating-claims"
+      ],
+      "solution": "Check each statement.\n\nI. True. Absolute convergence implies convergence.\n\nII. False. The alternating harmonic series $\\sum \\frac{(-1)^{k+1}}{k}$ converges, but not absolutely, since the series of absolute values is the divergent harmonic series.\n\nIII. True. A conditionally convergent series converges, so a series that diverges cannot be conditionally convergent.\n\nSo statements I and III are true and II is false. Statement II is the converse of I, and the converse does not hold.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -825,6 +917,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "The point $(1, \\sqrt{3})$ has $r = \\sqrt{1 + 3} = 2$ and $\\theta = \\frac{\\pi}{3}$ in the first quadrant. Adding a multiple of $2\\pi$ to $\\theta$ keeps the same point.\n\nI. $(2, \\frac{\\pi}{3})$ is the basic representation, so this is true.\n\nII. $-\\frac{5\\pi}{3} + 2\\pi = \\frac{\\pi}{3}$, so $(2, -\\frac{5\\pi}{3})$ is the same point. This is true.\n\nIII. $(2, \\frac{4\\pi}{3})$ has $x = 2\\cos\\frac{4\\pi}{3} = -1$ and $y = 2\\sin\\frac{4\\pi}{3} = -\\sqrt{3}$, which is $(-1, -\\sqrt{3})$, not $(1, \\sqrt{3})$. This is false.\n\nSo statements I and II are true and III is false.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -859,6 +955,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass"
+      ],
+      "solution": "The region lies between $y = x^2$ and $y = \\sqrt{x}$ for $0 \\le x \\le 1$. With density $1$, its mass is the area\n\n$$\nm = \\int_0^1 \\left(\\sqrt{x} - x^2\\right)dx = \\frac{2}{3} - \\frac{1}{3} = \\frac{1}{3}\n$$\n\nThe moment about the $y$-axis is\n\n$$\nM_y = \\int_0^1 x\\left(\\sqrt{x} - x^2\\right)dx = \\left[\\frac{2}{5}x^{5/2} - \\frac{x^4}{4}\\right]_0^1 = \\frac{3}{20}\n$$\n\nSo $\\bar{x} = \\frac{M_y}{m} = \\frac{3/20}{1/3} = \\frac{9}{20}$. The region is symmetric in the line $y = x$, so $\\bar{y} = \\frac{9}{20}$ as well, and the centroid is $\\left(\\frac{9}{20}, \\frac{9}{20}\\right)$. Guessing the midpoint of the intersection points, $\\left(\\frac{1}{2}, \\frac{1}{2}\\right)$, ignores the shape of the region.",
       "sourcePage": 14,
       "status": "reviewed"
     }

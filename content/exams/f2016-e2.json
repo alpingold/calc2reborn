@@ -38,6 +38,9 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-tangent-substitution"
+      ],
       "sourcePage": 2,
       "solution": "Let $x = 3\\tan\\theta$, $dx = 3\\sec^2\\theta\\,d\\theta$. The bounds become $0$ and $\\frac{\\pi}{4}$.\n\n$$\n\\int_0^{\\pi/4} \\frac{3\\sec^2\\theta\\,d\\theta}{(9\\sec^2\\theta)^{3/2}} = \\int_0^{\\pi/4} \\frac{3\\sec^2\\theta}{27\\sec^3\\theta}\\,d\\theta = \\frac{1}{9}\\int_0^{\\pi/4} \\cos\\theta\\,d\\theta\n$$\n\n$$\n= \\frac{1}{9} \\cdot \\frac{\\sqrt{2}}{2} = \\frac{\\sqrt{2}}{18}\n$$",
       "status": "reviewed"
@@ -72,6 +75,9 @@
       "answer": "C",
       "lessonIds": [
         "L14"
+      ],
+      "typeIds": [
+        "L14-secant-substitution"
       ],
       "sourcePage": 2,
       "solution": "Let $x = \\frac{1}{2}\\sec\\theta$, $dx = \\frac{1}{2}\\sec\\theta\\tan\\theta\\,d\\theta$. Then $\\sqrt{4x^2 - 1} = \\tan\\theta$, and the bounds $\\theta_0$, $\\theta_1$ satisfy $\\sec\\theta_0 = \\sqrt{2}$ and $\\sec\\theta_1 = 2$.\n\n$$\n\\int_{\\theta_0}^{\\theta_1} \\frac{\\frac{1}{2}\\sec\\theta\\tan\\theta}{\\tan\\theta}\\,d\\theta = \\frac{1}{2}\\int_{\\theta_0}^{\\theta_1} \\sec\\theta\\,d\\theta = \\frac{1}{2}\\ln|\\sec\\theta + \\tan\\theta|\\,\\Big|_{\\theta_0}^{\\theta_1}\n$$\n\n$$\n= \\frac{1}{2}\\ln|2 + \\sqrt{3}| - \\frac{1}{2}\\ln|\\sqrt{2} + 1| = \\frac{1}{2}\\ln\\frac{2+\\sqrt{3}}{1+\\sqrt{2}}\n$$",
@@ -108,6 +114,9 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-integrate-quadratic-factor"
+      ],
       "sourcePage": 3,
       "solution": "$$\n\\frac{1}{x(x^2+1)} = \\frac{1}{x} - \\frac{x}{x^2+1}\n$$\n\n$$\n\\int_1^2 \\frac{dx}{x(x^2+1)} = \\int_1^2 \\frac{dx}{x} - \\frac{1}{2}\\int_1^2 \\frac{2x\\,dx}{x^2+1} = \\ln 2 - \\frac{1}{2}\\int_2^5 \\frac{du}{u}\n$$\n\n$$\n= \\ln 2 - \\frac{1}{2}(\\ln 5 - \\ln 2) = \\frac{3}{2}\\ln 2 - \\frac{1}{2}\\ln 5 = \\frac{1}{2}\\ln\\left(\\frac{8}{5}\\right)\n$$",
       "status": "reviewed"
@@ -142,6 +151,9 @@
       "answer": "E",
       "lessonIds": [
         "L16"
+      ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
       ],
       "sourcePage": 3,
       "solution": "$$\n\\frac{1}{x^2+x-2} = \\frac{1}{(x+2)(x-1)} = \\frac{1}{3}\\cdot\\frac{1}{x-1} - \\frac{1}{3}\\cdot\\frac{1}{x+2}\n$$\n\n$$\n\\int_2^3 \\frac{dx}{x^2+x-2} = \\frac{1}{3}\\int_2^3 \\frac{dx}{x-1} - \\frac{1}{3}\\int_2^3 \\frac{dx}{x+2} = \\frac{1}{3}\\ln 2 - \\frac{1}{3}(\\ln 5 - \\ln 4)\n$$\n\n$$\n= \\frac{1}{3}\\ln 2 - \\frac{1}{3}\\ln 5 + \\frac{2}{3}\\ln 2 = \\ln 2 - \\frac{1}{3}\\ln 5\n$$",
@@ -178,6 +190,9 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
       "sourcePage": 4,
       "solution": "Let $u = \\ln x$, $du = \\frac{dx}{x}$. The bounds become $1$ and $\\infty$.\n\n$$\n\\int_1^{\\infty} u^{-3}\\,du = -\\frac{1}{2}u^{-2}\\,\\Big|_1^{\\infty} = \\frac{1}{2}\n$$",
       "status": "reviewed"
@@ -212,6 +227,9 @@
       "answer": "E",
       "lessonIds": [
         "L18"
+      ],
+      "typeIds": [
+        "L18-which-converge"
       ],
       "sourcePage": 4,
       "solution": "I converges:\n\n$$\n\\int_0^1 x^{-1/2}\\,dx = 2x^{1/2}\\,\\Big|_0^1 = 2\n$$\n\nII does not converge: the integrand is undefined at $x = 1$, and with $u = x - 1$,\n\n$$\n\\int_0^1 \\frac{dx}{x-1} = \\int_{-1}^0 \\frac{du}{u}\n$$\n\ndiverges.\n\nIII converges:\n\n$$\n\\int_{10}^N \\frac{dx}{x^2+1} = \\arctan x\\,\\Big|_{10}^N = \\arctan N - \\arctan 10\n$$\n\n$$\n\\lim_{N\\to\\infty}\\int_{10}^N \\frac{dx}{x^2+1} = \\frac{\\pi}{2} - \\arctan 10\n$$\n\nSo only I and III converge.",
@@ -248,6 +266,9 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-setup"
+      ],
       "sourcePage": 5,
       "solution": "$1 + f'(x)^2 = \\sec^4 x$, so\n\n$$\nL = \\int_0^{\\pi/3} \\sqrt{\\sec^4 x}\\,dx = \\int_0^{\\pi/3} \\sec^2 x\\,dx = \\tan x\\,\\Big|_0^{\\pi/3} = \\frac{\\sin(\\pi/3)}{\\cos(\\pi/3)} = \\frac{\\sqrt{3}/2}{1/2} = \\sqrt{3}\n$$",
       "status": "reviewed"
@@ -282,6 +303,9 @@
       "answer": "B",
       "lessonIds": [
         "L8"
+      ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
       ],
       "sourcePage": 5,
       "solution": "$y' = \\frac{2}{\\sqrt{x}}$, so\n\n$$\nA = 2\\pi\\int_0^1 4\\sqrt{x}\\sqrt{1 + \\left(\\frac{2}{\\sqrt{x}}\\right)^2}\\,dx = 8\\pi\\int_0^1 \\sqrt{x + 4}\\,dx\n$$\n\nWith $u = x + 4$:\n\n$$\n8\\pi\\int_4^5 u^{1/2}\\,du = 8\\pi \\cdot \\frac{2}{3}u^{3/2}\\,\\Big|_4^5 = \\frac{16\\pi}{3}(5\\sqrt{5} - 8)\n$$",
@@ -318,6 +342,9 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass"
+      ],
       "sourcePage": 6,
       "solution": "The curves meet at $x = 0$ and $x = 1$, and $y = x$ is on top.\n\n$$\nA = \\int_0^1 (x - x^2)\\,dx = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}\n$$\n\n$$\nM_y = \\int_0^1 (x^2 - x^3)\\,dx = \\frac{1}{3} - \\frac{1}{4} = \\frac{1}{12}\n$$\n\n$$\nM_x = \\frac{1}{2}\\int_0^1 (x^2 - x^4)\\,dx = \\frac{1}{2}\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{1}{15}\n$$\n\nSo $\\bar{x} = \\frac{1/12}{1/6} = \\frac{1}{2}$ and $\\bar{y} = \\frac{1/15}{1/6} = \\frac{6}{15} = \\frac{2}{5}$.",
       "status": "reviewed"
@@ -352,6 +379,9 @@
       "answer": "E",
       "lessonIds": [
         "L20"
+      ],
+      "typeIds": [
+        "L20-sequence-limit"
       ],
       "sourcePage": 6,
       "solution": "$$\n\\lim_{n\\to\\infty} \\frac{2n^3 + 3n^2 - 2 - 2n^3}{n^2} = \\lim_{n\\to\\infty} \\frac{3n^2 - 2}{n^2} = \\lim_{n\\to\\infty}\\left(3 - \\frac{2}{n^2}\\right) = 3\n$$",
@@ -388,6 +418,9 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
       "sourcePage": 7,
       "solution": "$$\n2\\sum_{k=0}^{\\infty} \\frac{1}{4^k} + \\sum_{k=0}^{\\infty} \\left(\\frac{3}{4}\\right)^k = 2 \\cdot \\frac{1}{1 - 1/4} + \\frac{1}{1 - 3/4} = \\frac{2}{3/4} + \\frac{1}{1/4} = \\frac{8}{3} + 4 = \\frac{20}{3}\n$$",
       "status": "reviewed"
@@ -422,6 +455,9 @@
       "answer": "C",
       "lessonIds": [
         "L21"
+      ],
+      "typeIds": [
+        "L21-telescoping"
       ],
       "sourcePage": 7,
       "solution": "$$\n\\sum_{n=1}^{\\infty} \\frac{2}{n(n+2)} = \\sum_{n=1}^{\\infty} \\left(\\frac{1}{n} - \\frac{1}{n+2}\\right) = 1 + \\frac{1}{2} = \\frac{3}{2}\n$$",

@@ -39,6 +39,10 @@
         "L22",
         "L24"
       ],
+      "typeIds": [
+        "L24-alternating-test"
+      ],
+      "solution": "Decide each series in turn.\n\nFor I, the terms $\\frac{3^n}{n^4}$ grow without bound, so the series diverges by the divergence test.\n\nFor II, the terms $b_n = \\frac{1}{\\ln^2(n+1)}$ decrease to $0$, so the alternating series test gives convergence. The series of absolute values does not converge: $\\ln^2(n+1) < n+1$ gives $\\frac{1}{\\ln^2(n+1)} > \\frac{1}{n+1}$, and $\\sum \\frac{1}{n+1}$ diverges. So II converges conditionally.\n\nFor III, $b_n = \\frac{\\sqrt{n}}{n+1}$ decreases to $0$ for $n \\ge 1$, so the alternating series test gives convergence. The absolute series also diverges: $\\frac{\\sqrt{n}}{n+1} \\ge \\frac{\\sqrt{n}}{2n} = \\frac{1}{2\\sqrt{n}}$, and $\\sum \\frac{1}{\\sqrt{n}}$ diverges. So III converges conditionally.\n\nSo II and III converge. The trap is series I: the $n^4$ in the denominator does not rescue it, because $3^n$ in the numerator grows faster than any power of $n$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -77,6 +81,10 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-alternating-claims"
+      ],
+      "solution": "Take the statements in turn.\n\nFor $|r| \\ge 1$, the terms $r^n$ do not tend to $0$, so $\\sum r^n$ diverges. This statement is true.\n\nFor $\\sum (-1)^{n-1}\\frac{1}{\\sqrt{n}}$, the alternating series test gives convergence. The series of absolute values is $\\sum \\frac{1}{\\sqrt{n}}$, a $p$-series with $p = \\frac12 \\le 1$, which diverges. So the convergence is conditional, and the statement that the series is absolutely convergent is false.\n\nFor $\\sum \\frac{2^n}{n^p}$, the factor $2^n$ beats any power of $n$, so the terms tend to $\\infty$ and the series diverges for every $p$. This statement is true.\n\nFor $p > 1$, $\\frac{1}{n^p + n} \\le \\frac{1}{n^p}$, and $\\sum \\frac{1}{n^p}$ converges, so the comparison test gives convergence. This statement is true.\n\nFor $r > 1$, the ratio of consecutive terms of $\\sum \\frac{n^2}{r^n}$ tends to $\\frac{1}{r} < 1$, so the ratio test gives convergence. This statement is true.\n\nSo the false statement is the one about absolute convergence. The trap is reading the alternating sign as making the series absolutely convergent: the sign pattern gives convergence, not absolute convergence.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -111,6 +119,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "Use the arc length formula for a parametric curve, $L = \\int_a^b \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\, dt$.\n\nHere $\\frac{dx}{dt} = 2t^3$ and $\\frac{dy}{dt} = t^4$, so\n\n$$\n\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2 = 4t^6 + t^8 = t^6(4 + t^2).\n$$\n\nFor $0 \\le t \\le 1$, $\\sqrt{t^6(4 + t^2)} = t^3\\sqrt{4 + t^2}$, so the length is $\\int_0^1 t^3\\sqrt{4 + t^2}\\, dt$.\n\nThe trap is using $x$ and $y$ themselves under the root instead of their derivatives.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -145,6 +157,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Use the binomial series $(1+u)^k = \\sum_{n=0}^{\\infty} \\binom{k}{n} u^n$ with $k = -\\frac14$ and $u = 2x$.\n\nThe first two coefficients are $\\binom{-1/4}{1} = -\\frac14$ and $\\binom{-1/4}{2} = \\frac{\\left(-\\frac14\\right)\\left(-\\frac54\\right)}{2} = \\frac{5}{32}$.\n\nSo\n\n$$\n1 + \\left(-\\frac14\\right)(2x) + \\frac{5}{32}(2x)^2 = 1 - \\frac12 x + \\frac58 x^2.\n$$\n\nThe expansion begins $1 - \\frac12 x + \\frac58 x^2$. The trap is forgetting to substitute $2x$ for $u$, which gives the wrong coefficients for the $x$ and $x^2$ terms.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -179,6 +195,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The series is centered at $-2$. The ratio test gives $\\lim_{n\\to\\infty} \\left|\\frac{(x+2)^{n+1}}{n+1}\\cdot\\frac{n}{(x+2)^n}\\right| = |x+2|$, so the series converges for $|x+2| < 1$. The radius of convergence is $1$.\n\nAt $x = -3$, $(x+2)^n = (-1)^n$, so the terms become $\\frac{(-1)^{n-1}(-1)^n}{n} = -\\frac{1}{n}$. This is a negative harmonic series, which diverges.\n\nAt $x = -1$, the terms are $\\frac{(-1)^{n-1}}{n}$, an alternating series that converges by the alternating series test.\n\nSo the interval of convergence is $(-3, -1]$. The trap is testing only one endpoint, or dropping the right endpoint because it is a boundary.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -213,6 +233,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Write $\\frac{x}{3+x} = \\frac{x}{3} \\cdot \\frac{1}{1 - \\left(-\\frac{x}{3}\\right)}$, a geometric series with ratio $-\\frac{x}{3}$, valid for $|x| < 3$.\n\n$$\n\\frac{x}{3+x} = \\frac{x}{3}\\sum_{n=0}^{\\infty}\\left(-\\frac{x}{3}\\right)^n = \\sum_{n=0}^{\\infty} (-1)^n\\, 3^{-n-1}\\, x^{n+1}.\n$$\n\nSo the power series is $\\sum_{n=0}^{\\infty} (-1)^n\\, 3^{-n-1}\\, x^{n+1}$. The usual slips are a wrong power of $3$ or a missing factor of $x$, so check the leading factor $\\frac{x}{3}$ separately.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -247,6 +271,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Write $\\frac{x}{\\sqrt{1-x^2}} = x\\,(1-x^2)^{-1/2}$. The binomial series with exponent $-\\frac12$ and $u = x^2$ gives\n\n$$\n(1-x^2)^{-1/2} = \\sum_{k=0}^{\\infty} \\frac{1 \\cdot 3 \\cdots (2k-1)}{2^k\\, k!}\\, x^{2k}.\n$$\n\nMultiplying by $x$ raises each power by one, so\n\n$$\n\\frac{x}{\\sqrt{1-x^2}} = \\sum_{k=0}^{\\infty} \\frac{1 \\cdot 3 \\cdots (2k-1)}{2^k\\, k!}\\, x^{2k+1}.\n$$\n\nThe trap is the alternating sign: that comes from the series for $(1+x^2)^{-1/2}$, and here every coefficient is positive.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -281,6 +309,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "For an alternating series whose terms decrease to $0$, the error after $n$ terms satisfies $|S - S_n| \\le b_{n+1}$, where $b_m = \\frac{1}{m^3}$. The condition is therefore\n\n$$\n\\frac{1}{(n+1)^3} \\le 8 \\times 10^{-6} = \\frac{1}{125000} = \\frac{1}{50^3}.\n$$\n\nThis holds exactly when $n + 1 \\ge 50$, that is $n \\ge 49$. Each of $n = 49$, $n = 51$ and $n = 99$ satisfies it, so all three statements hold.\n\nThe trap is using $b_n$ instead of $b_{n+1}$. At $n = 49$, $b_{49} = \\frac{1}{117649} \\approx 8.5 \\times 10^{-6}$ would fail, but the error is governed by the first omitted term, $b_{50}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -315,6 +347,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Let $t = x + 1$, so $x = t - 1$ and $x^2 = (t-1)^2 = (1-t)^2$. Then\n\n$$\n\\frac{1}{x^2} = \\frac{1}{(1-t)^2} = \\sum_{k=0}^{\\infty} (k+1)\\, t^k.\n$$\n\nThis is the geometric series $\\frac{1}{1-t} = \\sum_{k=0}^{\\infty} t^k$ differentiated term by term: the derivative is $\\sum_{k=1}^{\\infty} k\\, t^{k-1} = \\sum_{k=0}^{\\infty} (k+1)\\, t^k$.\n\nThe coefficient of $t^4 = (x+1)^4$ is $4 + 1 = 5$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -349,6 +385,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "At $t = \\pi$, $x = \\pi\\cos\\pi = -\\pi$ and $y = \\pi^2\\sin 2\\pi = 0$, so the point is $(-\\pi, 0)$.\n\nThe slope is $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$. Here $\\frac{dx}{dt} = \\cos t - t\\sin t$, which equals $-1$ at $t = \\pi$. Also $\\frac{dy}{dt} = 2t\\sin 2t + 2t^2\\cos 2t$, which equals $2\\pi^2$ at $t = \\pi$. So the slope is $\\frac{2\\pi^2}{-1} = -2\\pi^2$.\n\nThe tangent line through $(-\\pi, 0)$ is $y = -2\\pi^2(x + \\pi)$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -385,6 +425,11 @@
         "L23",
         "L24"
       ],
+      "typeIds": [
+        "L24-alternating-test",
+        "L23-comparison-decide"
+      ],
+      "solution": "Check each series.\n\nFor I, the terms $(-1)^{k-1}\\sin k$ do not tend to $0$, since $\\sin k$ does not tend to $0$ as the integers $k$ grow. The series diverges by the divergence test. The outside alternating sign does not help, because the size of the terms stays near $1$.\n\nFor II, $b_k = \\frac{1}{\\sqrt{k}+1}$ decreases to $0$, so the alternating series test gives convergence.\n\nFor III, $\\left|\\frac{\\cos k}{k^2+1}\\right| \\le \\frac{1}{k^2}$, and $\\sum \\frac{1}{k^2}$ converges. So the series converges absolutely, and therefore converges.\n\nSo II and III converge.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -419,6 +464,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
+      "solution": "Expand each part with its Maclaurin series.\n\n$$\nx\\cos x = x\\sum_{n=0}^{\\infty} \\frac{(-1)^n x^{2n}}{(2n)!} = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!}\\, x^{2n+1}.\n$$\n\n$$\n\\sin 2x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n (2x)^{2n+1}}{(2n+1)!} = \\sum_{n=0}^{\\infty} \\frac{(-1)^n\\, 2^{2n+1}}{(2n+1)!}\\, x^{2n+1}.\n$$\n\nAdding, and using $\\frac{1}{(2n)!} = \\frac{2n+1}{(2n+1)!}$, the coefficient of $x^{2n+1}$ is\n\n$$\n(-1)^n\\,\\frac{(2n+1) + 2^{2n+1}}{(2n+1)!}.\n$$\n\nSo the series is $\\sum_{n=0}^{\\infty} (-1)^n \\frac{2n+1+2^{2n+1}}{(2n+1)!}\\, x^{2n+1}$. The trap is the power of $x$: both parts have only odd powers, so any choice with even powers is wrong.",
       "sourcePage": 7,
       "status": "reviewed"
     }

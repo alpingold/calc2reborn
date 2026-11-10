@@ -38,6 +38,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Use cross sections, since the slices perpendicular to the $y$ axis are given. At height $y$ with $0 \\le y \\le 1$, the base is the horizontal chord from $x = -\\sqrt{1-y^2}$ to $x = \\sqrt{1-y^2}$. The square on that chord has side $2\\sqrt{1-y^2}$, so its area is $4(1-y^2)$.\n\n$$\nV = \\int_0^1 4(1-y^2)\\,dy = 4\\left[y - \\frac{y^3}{3}\\right]_0^1 = 4 \\cdot \\frac{2}{3} = \\frac{8}{3}.\n$$\n\nSo the volume is $\\frac{8}{3}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Vectors are orthogonal when their dot product is zero. Here\n\n$$\n\\langle -6, b, 2 \\rangle \\cdot \\langle b, b^2, b \\rangle = -6b + b^3 + 2b = b^3 - 4b.\n$$\n\nSetting $b(b^2 - 4) = 0$ gives $b = 0$ or $b^2 = 4$, so $b = 0$, $b = 2$ or $b = -2$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-variable-load-work"
+      ],
+      "solution": "The mass of the basket changes while it is lifted, so the work is found by slicing by height $y$. The basket rises at $1$ m/s, so it reaches height $y$ after $t = y$ seconds. By then it has leaked $y$ kg, so it holds $10 - y$ kg of dirt, for $0 \\le y \\le 4$. With $g = 10$, the weight at height $y$ is $10(10 - y)$ N.\n\n$$\nW = \\int_0^4 10(10 - y)\\,dy = 10\\left[10y - \\frac{y^2}{2}\\right]_0^4 = 10(40 - 8) = 320.\n$$\n\nSo the work is $320$ J.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "The work done by a constant force is $W = \\vec{F} \\cdot \\vec{d}$, which is $|\\vec{F}|\\,|\\vec{d}|\\cos\\theta$ with $\\theta$ the angle between the force and the displacement. Here $\\theta = 30^\\circ$, so\n\n$$\nW = 30 \\cdot 100 \\cdot \\cos 30^\\circ = 3000 \\cdot \\frac{\\sqrt{3}}{2} = 1500\\sqrt{3}.\n$$\n\nSo the work is $1500\\sqrt{3}$ J. Using $\\sin 30^\\circ$ instead of $\\cos 30^\\circ$ gives $1500$ J, but only the horizontal part of the force does work along the path.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-parallelepiped-volume"
+      ],
+      "solution": "The volume of a parallelepiped is the absolute value of the scalar triple product of its three edge vectors, which is the determinant of the matrix whose rows are those vectors.\n\n$$\n\\begin{vmatrix} 1 & 2 & 2 \\\\ 2 & 1 & 1 \\\\ 1 & 0 & 3 \\end{vmatrix} = 1(1 \\cdot 3 - 1 \\cdot 0) - 2(2 \\cdot 3 - 1 \\cdot 1) + 2(2 \\cdot 0 - 1 \\cdot 1) = 3 - 10 - 2 = -9.\n$$\n\nThe volume is $|-9| = 9$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-in-y"
+      ],
+      "solution": "Use horizontal slices, since the curves are given with $x$ in terms of $y$. Setting $y^2 = 3y - 2y^2$ gives $3y^2 - 3y = 0$, so the curves meet at $y = 0$ and $y = 1$. On this interval $3y - 2y^2 \\ge y^2$, so the right curve is $x = 3y - 2y^2$ and the left curve is $x = y^2$.\n\n$$\nA = \\int_0^1 \\big[(3y - 2y^2) - y^2\\big]\\,dy = \\int_0^1 (3y - 3y^2)\\,dy = \\frac{3}{2} - 1 = \\frac{1}{2}.\n$$\n\nSo the area is $\\frac{1}{2}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells, since the region is revolved about the $y$ axis and is described with $x$ as the variable. A shell at position $x$ has radius $x$, circumference $2\\pi x$, and height equal to the top curve minus the bottom curve, $(1 + 2x) - \\sqrt{1 + x^2}$. Adding the shells for $0 \\le x \\le 1$ gives\n\n$$\nV = \\int_0^1 2\\pi x\\left(1 + 2x - \\sqrt{1 + x^2}\\right)\\,dx.\n$$\n\nSo the volume is $\\int_0^1 2\\pi x\\left(1 + 2x - \\sqrt{1 + x^2}\\right)\\,dx$. Squaring the height, as a disk would, gives the wrong integrand, because a shell's height enters only once.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -275,6 +303,9 @@
       "answer": "B",
       "lessonIds": [
         "L4"
+      ],
+      "typeIds": [
+        "L4-area-from-points"
       ],
       "sourcePage": 5,
       "solution": "The official key accepted every choice for this question.\n\nTwo sides of the triangle start at the origin: $\\vec{u} = \\langle 1, 1, 1 \\rangle$ and $\\vec{v} = \\langle 2, -2, 2 \\rangle$. Their cross product is\n\n$$\n\\vec{u} \\times \\vec{v} = \\langle 1 \\cdot 2 - 1 \\cdot (-2),\\ 1 \\cdot 2 - 1 \\cdot 2,\\ 1 \\cdot (-2) - 1 \\cdot 2 \\rangle = \\langle 4, 0, -4 \\rangle,\n$$\n\nso $|\\vec{u} \\times \\vec{v}| = \\sqrt{16 + 0 + 16} = 4\\sqrt{2}$. The triangle is half the parallelogram, so its area is $\\frac{1}{2} \\cdot 4\\sqrt{2} = 2\\sqrt{2}$, which is choice B.",
@@ -311,6 +342,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives the spring force $F = kx$, where $x$ is the stretch in metres. Stretching the spring $0.2$ m takes\n\n$$\n\\int_0^{0.2} kx\\,dx = \\frac{k(0.2)^2}{2} = 0.02k = 3,\n$$\n\nso $k = 150$ N/m. The work to stretch it from $0.2$ m to $0.4$ m is\n\n$$\n\\int_{0.2}^{0.4} 150x\\,dx = 75\\left[x^2\\right]_{0.2}^{0.4} = 75(0.16 - 0.04) = 9.\n$$\n\nSo the additional work is $9$ J. The second $0.2$ m costs more than the first, since the force grows with the stretch, so doubling $3$ J to $6$ J is the classic mistake.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -345,6 +380,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use the dot product formula $\\cos\\theta = \\dfrac{\\mathbf{a} \\cdot \\mathbf{b}}{|\\mathbf{a}|\\,|\\mathbf{b}|}$. Here $\\mathbf{a} \\cdot \\mathbf{b} = 1 + 0 = 1$, $|\\mathbf{a}| = 1$ and $|\\mathbf{b}| = \\sqrt{1 + 3} = 2$. So $\\cos\\theta = \\frac{1}{2}$, and since $0 \\le \\theta \\le \\pi$, the angle is $\\theta = \\frac{\\pi}{3}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -379,6 +418,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-center-radius"
+      ],
+      "solution": "Complete the square in each variable to put the equation in the form $(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2$. Group the terms as $(x^2 + 8x) + (y^2 - 6y) + (z^2 + 2z) = -17$. Adding $16$, $9$ and $1$ to complete the squares gives\n\n$$\n(x + 4)^2 + (y - 3)^2 + (z + 1)^2 = -17 + 16 + 9 + 1 = 9.\n$$\n\nSo the center is $(-4, 3, -1)$ and the radius is $3$. The center takes the opposite signs of the linear coefficients, and the radius is the square root of $9$, not the constant $17$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -413,6 +456,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Use integration by parts with $u = \\ln x$ and $dv = \\sqrt[3]{x}\\,dx$, so $du = \\frac{dx}{x}$ and $v = \\frac{3}{4}x^{4/3}$. Then\n\n$$\n\\int_1^8 \\sqrt[3]{x}\\ln x\\,dx = \\left[\\frac{3}{4}x^{4/3}\\ln x\\right]_1^8 - \\frac{3}{4}\\int_1^8 x^{1/3}\\,dx.\n$$\n\nAt $x = 8$, $x^{4/3} = 16$, so the boundary term is $12\\ln 8$, and it is $0$ at $x = 1$. The remaining integral is\n\n$$\n\\frac{3}{4}\\int_1^8 x^{1/3}\\,dx = \\frac{3}{4}\\cdot\\frac{3}{4}\\left[x^{4/3}\\right]_1^8 = \\frac{9}{16}(16 - 1) = \\frac{135}{16}.\n$$\n\nSo the integral is $12\\ln 8 - \\frac{135}{16}$.",
       "sourcePage": 7,
       "status": "reviewed"
     }

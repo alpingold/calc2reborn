@@ -38,6 +38,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-in-y"
+      ],
+      "solution": "Integrate in $y$, since the curves are given as $x$ in terms of $y$. They meet where $2y = y^2$, so $y = 0$ or $y = 2$. For $0 \\le y \\le 2$ the line $x = 2y$ lies to the right of $x = y^2$, so take right minus left:\n\n$$\n\\int_0^2 (2y - y^2)\\,dy = \\left[y^2 - \\frac{y^3}{3}\\right]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3}.\n$$\n\nSo the area is $\\frac{4}{3}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells, since the region is revolved about a vertical line. The region is $0 \\le x \\le 1$, and each shell has radius $x - (-1) = x + 1$ and height $x - x^2$:\n\n$$\nV = 2\\pi \\int_0^1 (x+1)(x - x^2)\\,dx = 2\\pi \\int_0^1 (x - x^3)\\,dx = 2\\pi\\left(\\frac{1}{2} - \\frac{1}{4}\\right) = \\frac{\\pi}{2}.\n$$\n\nSo the volume is $\\frac{\\pi}{2}$. Measuring the radius from the $y$-axis instead of from $x = -1$ is the classic slip, and it gives $\\frac{\\pi}{6}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Use Hooke's law $F = kx$, where $x$ is the stretch from natural length. The force $4$ N stretches the spring from $10$ cm to $20$ cm, a stretch of $0.1$ m, so $4 = k(0.1)$ and $k = 40$ N/m. Stretching from the natural length $10$ cm to $60$ cm means a stretch from $0$ to $0.5$ m:\n\n$$\nW = \\int_0^{0.5} 40x\\,dx = \\left[20x^2\\right]_0^{0.5} = 5.\n$$\n\nSo the work is $5$ J.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts with $u = x$ and $dv = \\cos 2x\\,dx$, so $v = \\frac{1}{2}\\sin 2x$:\n\n$$\n\\int_{-\\pi/2}^{\\pi/2} x\\cos 2x\\,dx = \\left[\\frac{x\\sin 2x}{2} + \\frac{\\cos 2x}{4}\\right]_{-\\pi/2}^{\\pi/2}.\n$$\n\nAt $x = \\pm\\frac{\\pi}{2}$ the first term is $0$, since $\\sin(\\pm\\pi) = 0$, and the second term is $\\frac{\\cos(\\pm\\pi)}{4} = -\\frac{1}{4}$ at both ends. The two ends cancel, so the value is $0$. The integrand is odd, which gives the same answer at once.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "Use the sine substitution $x = 3\\sin\\theta$, so $dx = 3\\cos\\theta\\,d\\theta$ and $\\sqrt{9 - x^2} = 3\\cos\\theta$. The limits run from $\\theta = 0$ to $\\theta = \\frac{\\pi}{2}$:\n\n$$\n\\int_0^{\\pi/2} 9\\cos^2\\theta\\,d\\theta = \\frac{9}{2}\\int_0^{\\pi/2} (1 + \\cos 2\\theta)\\,d\\theta = \\frac{9}{2}\\left[\\theta + \\frac{\\sin 2\\theta}{2}\\right]_0^{\\pi/2} = \\frac{9\\pi}{4}.\n$$\n\nSo the integral is $\\frac{9\\pi}{4}$, which is a quarter of a disk of radius $3$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-y-axis"
+      ],
+      "solution": "Use the surface area formula for revolution about the $y$-axis, $S = 2\\pi\\int x\\sqrt{1 + (y')^2}\\,dx$. Here $y' = 2x$, so\n\n$$\nS = 2\\pi \\int_0^1 x\\sqrt{1 + 4x^2}\\,dx.\n$$\n\nLet $u = 1 + 4x^2$, so $du = 8x\\,dx$, with $u$ running from $1$ to $5$:\n\n$$\nS = \\frac{2\\pi}{8}\\int_1^5 \\sqrt{u}\\,du = \\frac{\\pi}{4}\\cdot\\frac{2}{3}\\left[u^{3/2}\\right]_1^5 = \\frac{\\pi}{6}\\left(5^{3/2} - 1\\right).\n$$\n\nSo the surface area is $\\frac{\\pi}{6}\\left(5^{3/2} - 1\\right)$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-parallelepiped-volume"
+      ],
+      "solution": "The volume is the absolute value of the scalar triple product $\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c})$. First,\n\n$$\n\\mathbf{b}\\times\\mathbf{c} = (1, 2, 1)\\times(1, 3, -2) = \\big(2(-2) - 1\\cdot 3,\\; 1\\cdot 1 - 1\\cdot(-2),\\; 1\\cdot 3 - 2\\cdot 1\\big) = (-7, 3, 1).\n$$\n\nThen $\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c}) = 3(-7) + 1(3) + 3(1) = -15$, so the volume is $|-15| = 15$. The minus sign only records orientation, so the volume is $15$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -277,6 +305,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-angle-dot-and-cross"
+      ],
+      "solution": "Use $\\mathbf{a}\\cdot\\mathbf{b} = |\\mathbf{a}||\\mathbf{b}|\\cos\\theta$ and $|\\mathbf{a}\\times\\mathbf{b}| = |\\mathbf{a}||\\mathbf{b}|\\sin\\theta$ together, so that the unknown lengths cancel. The cross product is $(1, 2, 2)$, with length $\\sqrt{1 + 4 + 4} = 3$, so\n\n$$\n\\tan\\theta = \\frac{|\\mathbf{a}\\times\\mathbf{b}|}{\\mathbf{a}\\cdot\\mathbf{b}} = \\frac{3}{3} = 1.\n$$\n\nThe dot product is positive, so $\\cos\\theta > 0$, and with $0 \\le \\theta \\le \\pi$ this gives $\\theta = \\frac{\\pi}{4}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -311,6 +343,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass"
+      ],
+      "solution": "Use $\\bar{x} = \\frac{1}{A}\\int x\\,dA$ and $\\bar{y} = \\frac{1}{A}\\int \\frac{1}{2}(f^2 - g^2)\\,dx$, where $f(x) = x$ is the upper curve and $g(x) = x^2$ the lower, for $0 \\le x \\le 1$. The area is\n\n$$\nA = \\int_0^1 (x - x^2)\\,dx = \\frac{1}{6}.\n$$\n\nThen $\\int_0^1 x(x - x^2)\\,dx = \\frac{1}{12}$ and $\\int_0^1 \\frac{1}{2}(x^2 - x^4)\\,dx = \\frac{1}{15}$. So $\\bar{x} = 6\\cdot\\frac{1}{12} = \\frac{1}{2}$ and $\\bar{y} = 6\\cdot\\frac{1}{15} = \\frac{2}{5}$, and the centroid is $\\left(\\frac{1}{2}, \\frac{2}{5}\\right)$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -345,6 +381,10 @@
       "lessonIds": [
         "X3"
       ],
+      "typeIds": [
+        "X3-complex-numbers"
+      ],
+      "solution": "Since $(-1)^3 = -1$, the root $z = -1$ is one of the three. The cube roots of $-1 = e^{i\\pi}$ are $e^{i(\\pi + 2k\\pi)/3}$ for $k = 0, 1, 2$, which are $e^{i\\pi/3}$, $-1$ and $e^{-i\\pi/3}$. In rectangular form they are $\\frac{1}{2} \\pm \\frac{\\sqrt{3}}{2}i$, so the roots are $-1$, $\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$ and $\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$. The trap is to take the cube roots of $1$ instead, which puts $1$ in the list.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -379,6 +419,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
+      "solution": "Split the limit into two parts. For the first, put $t = \\frac{\\pi}{n}$, so $n\\sin(\\pi/n) = \\pi\\cdot\\frac{\\sin t}{t}$. As $n \\to \\infty$, $t \\to 0$ and $\\frac{\\sin t}{t} \\to 1$, so this part tends to $\\pi$. For the second, $\\frac{n!}{n^n} = \\frac{1}{n}\\cdot\\frac{2}{n}\\cdots\\frac{n}{n} \\le \\frac{1}{n} \\to 0$. So the limit is $\\pi + 0 = \\pi$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -413,6 +457,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Write the function as a geometric series in $x$:\n\n$$\n\\frac{1}{x-2} = -\\frac{1}{2}\\cdot\\frac{1}{1 - x/2} = -\\sum_{n=0}^{\\infty}\\frac{x^n}{2^{n+1}}.\n$$\n\nMultiplying by $x^2 + 1$, the coefficient of $x^5$ comes from $x^2$ times the $x^3$ term and from $1$ times the $x^5$ term:\n\n$$\n-\\frac{1}{2^4} - \\frac{1}{2^6} = -\\frac{4}{64} - \\frac{1}{64} = -\\frac{5}{64}.\n$$\n\nSo the coefficient of $x^5$ is $-\\frac{5}{64}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -447,6 +495,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-one-curve"
+      ],
+      "solution": "Use the polar area formula $A = \\frac{1}{2}\\int r^2\\,d\\theta$ over one full trip around the cardioid, $0 \\le \\theta \\le 2\\pi$:\n\n$$\nA = \\frac{1}{2}\\int_0^{2\\pi} (1 - \\sin\\theta)^2\\,d\\theta = \\frac{1}{2}\\int_0^{2\\pi}\\left(1 - 2\\sin\\theta + \\sin^2\\theta\\right)d\\theta.\n$$\n\nThe $\\sin\\theta$ term integrates to $0$ over a full period, and $\\int_0^{2\\pi}\\sin^2\\theta\\,d\\theta = \\pi$. So $A = \\frac{1}{2}(2\\pi + \\pi) = \\frac{3\\pi}{2}$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -481,6 +533,10 @@
       "lessonIds": [
         "X2"
       ],
+      "typeIds": [
+        "X2-conic-sections"
+      ],
+      "solution": "Divide by $2$ to get $\\frac{x^2}{2/3} + \\frac{y^2}{1} = 1$. The larger denominator is under $y^2$, so the major axis is vertical, with $a^2 = 1$ and $b^2 = \\frac{2}{3}$. Then $c^2 = a^2 - b^2 = \\frac{1}{3}$, so the foci are $\\left(0, \\pm\\frac{1}{\\sqrt{3}}\\right)$. The classic slip is to put the foci on the $x$-axis; the foci lie on the axis of the variable with the larger denominator, which is $y$ here.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -516,6 +572,10 @@
         "L24",
         "L32"
       ],
+      "typeIds": [
+        "L32-estimate-with-error"
+      ],
+      "solution": "Integrate the Maclaurin series of $\\frac{1}{1+x^2}$ term by term:\n\n$$\n\\int_0^{0.1}\\frac{dx}{1+x^2} = \\sum_{n=0}^{\\infty}\\frac{(-1)^n(0.1)^{2n+1}}{2n+1} = 0.1 - \\frac{(0.1)^3}{3} + \\frac{(0.1)^5}{5} - \\cdots\n$$\n\nThis is an alternating series with decreasing terms. The Estimation Theorem says the error after stopping is at most the first omitted term in absolute value. The approximation keeps the $n = 0$ and $n = 1$ terms, so the first omitted term is $n = 2$, which is $\\frac{(0.1)^5}{5}$. So $c = \\frac{(0.1)^5}{5}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -550,6 +610,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Factor the denominator, $x^2 - 3x + 2 = (x-1)(x-2)$, and decompose:\n\n$$\n\\frac{1}{(x-1)(x-2)} = \\frac{1}{x-2} - \\frac{1}{x-1}.\n$$\n\nAn antiderivative is $\\ln|x-2| - \\ln|x-1|$, which is continuous on $[3, 4]$. So\n\n$$\n\\int_3^4 \\frac{dx}{x^2 - 3x + 2} = \\left[\\ln\\frac{|x-2|}{|x-1|}\\right]_3^4 = \\ln\\frac{2}{3} - \\ln\\frac{1}{2} = \\ln\\frac{4}{3}.\n$$\n\nSo the integral is $\\ln\\frac{4}{3}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -584,6 +648,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "Use $L = \\int\\sqrt{1 + (y')^2}\\,dx$ with $y' = \\frac{-2x}{1 - x^2}$. Then\n\n$$\n1 + (y')^2 = \\frac{(1 - x^2)^2 + 4x^2}{(1 - x^2)^2} = \\frac{(1 + x^2)^2}{(1 - x^2)^2},\n$$\n\nso $\\sqrt{1 + (y')^2} = \\frac{1 + x^2}{1 - x^2}$ on $0 \\le x \\le \\frac{1}{2}$. Write $\\frac{1 + x^2}{1 - x^2} = -1 + \\frac{2}{1 - x^2}$, so\n\n$$\nL = \\int_0^{1/2}\\left(-1 + \\frac{2}{1 - x^2}\\right)dx = \\left[-x + \\ln\\frac{1+x}{1-x}\\right]_0^{1/2} = -\\frac{1}{2} + \\ln 3.\n$$\n\nSo the length is $\\ln 3 - \\frac{1}{2}$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -618,6 +686,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The $n$th term is $\\left(\\frac{3(x-5)}{n}\\right)^n$. By the root test,\n\n$$\n\\lim_{n\\to\\infty}\\frac{3|x-5|}{n} = 0\n$$\n\nfor every $x$, so the series converges for all $x$. The interval of convergence is $(-\\infty, \\infty)$, with no endpoints to test. The trap is the $3^n$ factor, which suggests radius $\\frac{1}{3}$; the $n^n$ in the denominator makes the terms shrink faster than any geometric series.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -652,6 +724,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Use the binomial series $(1+u)^{-1/2} = 1 - \\frac{1}{2}u + \\frac{3}{8}u^2 - \\cdots$ with $u = -x^2$. The $u^2$ term has coefficient $\\frac{\\left(-\\frac12\\right)\\left(-\\frac32\\right)}{2} = \\frac{3}{8}$, and $u^2 = x^4$, so\n\n$$\n\\frac{1}{\\sqrt{1 - x^2}} = 1 + \\frac{1}{2}x^2 + \\frac{3}{8}x^4 + \\cdots.\n$$\n\nSo the coefficient of $x^4$ is $\\frac{3}{8}$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -686,6 +762,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-circle-equations"
+      ],
+      "solution": "A circle through the origin with center $(0, 3)$ and radius $3$ has polar equation $r = 6\\sin\\theta$. To check, $r = 6\\sin\\theta$ gives $r^2 = 6r\\sin\\theta$, so $x^2 + y^2 = 6y$, which is $x^2 + (y-3)^2 = 9$. The trap is $r = 3\\sin\\theta$, which is a circle of radius $\\frac{3}{2}$ centered at $\\left(0, \\frac{3}{2}\\right)$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -723,6 +803,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-roses"
+      ],
+      "solution": "The curve $r = \\sin 3\\theta$ is positive when $0 < 3\\theta < \\pi$, so over $0 \\le \\theta \\le \\frac{\\pi}{3}$ it traces a single petal. The tip is at $\\theta = \\frac{\\pi}{6}$, where $r = 1$, and the curve returns to the origin at $\\theta = \\frac{\\pi}{3}$. So the petal lies in the first quadrant, between the directions $0$ and $\\frac{\\pi}{3}$, with its tip at $30^\\circ$. The matching picture is the one showing a single loop in the first quadrant. A slip is to draw the full three-petal rose, which needs $0 \\le \\theta \\le \\pi$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -757,6 +841,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "Use the arc length formula $L = \\int\\sqrt{(x')^2 + (y')^2}\\,d\\theta$. Differentiating,\n\n$$\nx' = -\\sin\\theta + \\sin\\theta + \\theta\\cos\\theta = \\theta\\cos\\theta, \\qquad y' = \\cos\\theta - \\cos\\theta + \\theta\\sin\\theta = \\theta\\sin\\theta.\n$$\n\nSo $(x')^2 + (y')^2 = \\theta^2$ and the speed is $\\theta$. Then\n\n$$\nL = \\int_0^{\\pi}\\theta\\,d\\theta = \\frac{\\pi^2}{2}.\n$$\n\nSo the length is $\\frac{\\pi^2}{2}$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -791,6 +879,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-p-range"
+      ],
+      "solution": "Compare with a $p$-series $\\sum n^{-s}$, which converges exactly when $s > 1$.\n\nFor (a), every term $\\frac{n^{2p} + 1}{\\sqrt{n+2}}$ is positive and at least $\\frac{1}{\\sqrt{n+2}} \\ge \\frac{1}{\\sqrt{3n}}$ for $n \\ge 1$. Since $\\sum \\frac{1}{\\sqrt{3n}}$ has $s = \\frac{1}{2} \\le 1$, it diverges, and so does (a) for every $p$. Dropping the $+1$ would suggest $p < -\\frac{1}{4}$, which is the trap.\n\nFor (b), $\\frac{n^{2q}}{\\sqrt{n+2}}$ behaves like $n^{2q - 1/2}$, since the limit of the ratio is $1$. This converges exactly when $2q - \\frac{1}{2} < -1$, that is, $q < -\\frac{1}{4}$.\n\nSo (a) has no values of $p$ and (b) is $q < -\\frac{1}{4}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -826,6 +918,10 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "For I, the terms $\\frac{1}{\\sqrt{n}}$ are positive, decreasing and tend to $0$, so the series converges. The series of absolute values is a $p$-series with $p = \\frac{1}{2} \\le 1$, so it diverges. I converges conditionally.\n\nFor II, the terms $\\frac{1}{\\ln n}$ are positive, decreasing and tend to $0$ for $n \\ge 2$, so the series converges. Since $\\ln n < n$, we get $\\frac{1}{\\ln n} > \\frac{1}{n}$, and $\\sum \\frac{1}{n}$ diverges. II converges conditionally.\n\nFor III, let $a_n = \\frac{n!}{1\\cdot 3\\cdot 5\\cdots(2n-1)}$. The ratio $\\frac{a_{n+1}}{a_n} = \\frac{n+1}{2n+1}$ tends to $\\frac{1}{2} < 1$, so $\\sum |a_n|$ converges and III converges absolutely, not conditionally. The alternating series test alone would pass III, which is the trap.\n\nSo I and II only.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -860,6 +956,10 @@
       "lessonIds": [
         "X2"
       ],
+      "typeIds": [
+        "X2-conic-sections"
+      ],
+      "solution": "Complete the square in both variables. Grouping gives $4(x^2 - 2x) + (y^2 + 4y) = -4$, so\n\n$$\n4\\big((x-1)^2 - 1\\big) + \\big((y+2)^2 - 4\\big) = -4, \\qquad\\text{so}\\qquad 4(x-1)^2 + (y+2)^2 = 4.\n$$\n\nDividing by $4$ gives $\\frac{(x-1)^2}{1} + \\frac{(y+2)^2}{4} = 1$, an ellipse with center $(1, -2)$. The shifts $x - 1$ and $y + 2$ change sign, which is where $(-1, 2)$ would come from.",
       "sourcePage": 14,
       "status": "reviewed"
     }

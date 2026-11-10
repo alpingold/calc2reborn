@@ -39,6 +39,10 @@
         "L23",
         "L25"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "Test each statement with the right test. Statement (I) is false: the ratio test gives $\\lim_{n\\to\\infty} \\frac{n^2+1}{(n+1)^2+1} = 1$, which is inconclusive, so it cannot establish convergence.\n\nStatement (II) is true. Let $a_n = \\frac{1}{n^2+1}$ and $b_n = \\frac{1}{n^2}$. Then $\\lim_{n\\to\\infty} \\frac{a_n}{b_n} = \\lim_{n\\to\\infty} \\frac{n^2}{n^2+1} = 1$, which is finite and positive, and $\\sum \\frac{1}{n^2}$ converges, so $\\sum a_n$ converges by the limit comparison test.\n\nStatement (III) is true. For $n \\ge 1$, $0 < \\frac{1}{n^2+1} < \\frac{1}{n^2}$, and $\\sum \\frac{1}{n^2}$ converges, so the direct comparison test gives convergence.\n\nSo II and III are true and I is false. The trap is accepting the ratio test in (I): its limit is $1$, so it says nothing.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-decide"
+      ],
+      "solution": "Use the limit comparison test on each series.\n\nPart (I): $\\frac{1}{n+\\sqrt{n}} \\div \\frac{1}{n} = \\frac{n}{n+\\sqrt{n}} \\to 1$, and $\\sum \\frac{1}{n}$ diverges, so the series diverges.\n\nPart (II): compare with the geometric series $\\sum \\left(\\frac{2}{3}\\right)^n$. Then $\\frac{2^n}{n+3^n} \\div \\left(\\frac{2}{3}\\right)^n = \\frac{3^n}{n+3^n} \\to 1$, which is finite and positive. The geometric series converges since $\\frac{2}{3} < 1$, so the series converges.\n\nPart (III): the absolute values of the terms behave like $\\frac{2\\sqrt{n}}{n^3} = 2n^{-5/2}$. Since $\\sum \\frac{1}{n^{5/2}}$ converges ($\\frac52 > 1$), the series converges absolutely.\n\nSo I diverges, while II and III converge.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -107,6 +115,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "The alternating series estimation theorem says the error after $N$ terms is at most the size of the first omitted term, $b_{N+1}$, where $b_n = \\frac{1}{n^2}$ decreases to $0$.\n\nThe requirement is $\\frac{1}{(N+1)^2} < \\frac{1}{15}$, so $(N+1)^2 > 15$. Since $3^2 = 9 < 15 \\le 16 = 4^2$, we need $N+1 \\ge 4$, so $N \\ge 3$.\n\nCheck: $b_4 = \\frac{1}{16} < \\frac{1}{15}$, while $b_3 = \\frac{1}{9} > \\frac{1}{15}$. So the smallest number of terms is $3$.\n\nThe trap is using $b_N$ instead of $b_{N+1}$: $b_4 = \\frac{1}{16} < \\frac{1}{15}$ would wrongly suggest $4$ terms.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -141,6 +153,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-decide"
+      ],
+      "solution": "Test each part by limit comparison.\n\nPart (I): for large $n$, $\\ln\\left(1+\\frac{1}{n^2}\\right) \\approx \\frac{1}{n^2}$, since $\\ln(1+t) \\approx t$ as $t \\to 0$. The limit of the ratio with $\\frac{1}{n^2}$ is $1$, and $\\sum \\frac{1}{n^2}$ converges, so the series converges.\n\nPart (II): $\\sin\\left(\\frac{1}{n}\\right) \\approx \\frac{1}{n}$, and the limit of the ratio with $\\frac{1}{n}$ is $1$. Since $\\sum \\frac{1}{n}$ diverges, the series diverges.\n\nPart (III): rationalize first: $\\sqrt{n^3} - \\sqrt{n^3-1} = \\frac{1}{\\sqrt{n^3} + \\sqrt{n^3-1}}$, which behaves like $\\frac{1}{2n^{3/2}}$. Since $\\sum \\frac{1}{n^{3/2}}$ converges, the series converges by limit comparison.\n\nSo I and III converge, and II diverges.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -175,6 +191,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Check each series in turn.\n\nPart (I): $\\cos\\left(\\frac{\\pi}{n^2}\\right) \\to \\cos 0 = 1$, so the terms $(-1)^{n-1}\\cos\\left(\\frac{\\pi}{n^2}\\right)$ do not tend to $0$. The series diverges by the test for divergence, and its absolute series diverges too.\n\nPart (II): $\\left|(-1)^{n-1}\\sin\\left(\\frac{\\pi}{n^2}\\right)\\right| = \\sin\\left(\\frac{\\pi}{n^2}\\right) \\le \\frac{\\pi}{n^2}$, and $\\sum \\frac{\\pi}{n^2}$ converges. So the series converges absolutely.\n\nPart (III): $\\frac{\\cos(\\pi n)}{n} = \\frac{(-1)^n}{n}$. The absolute series $\\sum \\frac{1}{n}$ diverges, but $\\frac{1}{n}$ decreases to $0$, so the alternating series test gives convergence. The series converges conditionally.\n\nSo I is divergent, II is absolutely convergent, and III is conditionally convergent.\n\nThe trap in (I) is applying the alternating series test to a series whose terms do not go to $0$. Check that the terms tend to $0$ before using that test.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -209,6 +229,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "The ratio test uses $L = \\lim_{n\\to\\infty} \\left|\\frac{a_{n+1}}{a_n}\\right|$, and it is inconclusive when $L = 1$.\n\nPart (I): $\\frac{10^{n+1}/(n+1)!}{10^n/n!} = \\frac{10}{n+1} \\to 0$, so $L = 0 < 1$ and the test is conclusive.\n\nPart (II): $\\frac{1/(n+1)^2}{1/n^2} = \\frac{n^2}{(n+1)^2} \\to 1$, so the test is inconclusive.\n\nPart (III): $\\frac{\\ln(n+1)/(n+1)}{\\ln n / n} = \\frac{n}{n+1}\\cdot\\frac{\\ln(n+1)}{\\ln n} \\to 1$, so the test is inconclusive.\n\nSo the ratio test is inconclusive for II and III. A limit of $1$ settles nothing, even though $\\sum \\frac{1}{n^2}$ converges and $\\sum \\frac{\\ln n}{n}$ diverges.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -243,6 +267,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Use the binomial series $(1+u)^k = \\sum_{n=0}^{\\infty}\\binom{k}{n}u^n$ with $k = -\\frac13$ and $u = 3x$.\n\nThe first three terms are\n\n$$\n\\binom{-\\frac13}{0}(3x)^0 = 1\n$$\n\n$$\n\\binom{-\\frac13}{1}(3x) = -\\frac13 \\cdot 3x = -x\n$$\n\n$$\n\\binom{-\\frac13}{2}(3x)^2 = \\frac{\\left(-\\frac13\\right)\\left(-\\frac43\\right)}{2}\\cdot 9x^2 = \\frac{4}{9}\\cdot\\frac{1}{2}\\cdot 9x^2 = 2x^2\n$$\n\nSo the series begins $1 - x + 2x^2$. The trap is forgetting the $3$ in $u = 3x$, which would give $-\\frac13 x$ instead of $-x$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -277,6 +305,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "Apply the ratio test to the terms $\\frac{(-1)^{n-1}}{n}(x+3)^n$. The limit is $\\lim_{n\\to\\infty} \\frac{n}{n+1}|x+3| = |x+3|$, so the series converges for $|x+3| < 1$ and the radius of convergence is $1$.\n\nAt $x = -2$ the series is $\\sum \\frac{(-1)^{n-1}}{n}$, the alternating harmonic series, which converges by the alternating series test.\n\nAt $x = -4$ the series is $\\sum \\frac{(-1)^{n-1}(-1)^n}{n} = -\\sum \\frac{1}{n}$, the harmonic series, which diverges.\n\nSo the interval of convergence is $(-4, -2]$. The trap is testing only one endpoint: the right endpoint is included and the left one is not.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -311,6 +343,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Factor the denominator as $2 + 3x = 2\\left(1 + \\frac{3x}{2}\\right)$ and use $\\frac{1}{1-r} = \\sum_{n=0}^{\\infty} r^n$ with $r = -\\frac{3x}{2}$:\n\n$$\nf(x) = \\frac{x}{2}\\cdot\\frac{1}{1+\\frac{3x}{2}} = \\frac{x}{2}\\sum_{n=0}^{\\infty}\\left(-\\frac{3x}{2}\\right)^n\n$$\n\nSince $\\frac{x}{2}\\left(-\\frac{3}{2}\\right)^n x^n = (-1)^n\\frac{3^n}{2^{n+1}}x^{n+1}$,\n\n$$\nf(x) = \\sum_{n=0}^{\\infty}(-1)^n\\frac{3^n}{2^{n+1}}x^{n+1}.\n$$",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -345,6 +381,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
+      "solution": "Expand each part using $\\cos x = \\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n}}{(2n)!}$ and $\\sin u = \\sum_{n=0}^{\\infty}(-1)^n\\frac{u^{2n+1}}{(2n+1)!}$.\n\n$$\nx\\cos x = \\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{(2n)!}\n$$\n\n$$\n\\sin 3x = \\sum_{n=0}^{\\infty}(-1)^n\\frac{3^{2n+1}x^{2n+1}}{(2n+1)!}\n$$\n\nWrite $\\frac{1}{(2n)!} = \\frac{2n+1}{(2n+1)!}$, so the coefficient of $x^{2n+1}$ in $f$ is\n\n$$\n(-1)^n\\frac{2n+1}{(2n+1)!} - (-1)^n\\frac{3^{2n+1}}{(2n+1)!} = (-1)^n\\frac{2n+1-3^{2n+1}}{(2n+1)!}.\n$$\n\nSo $f(x) = \\sum_{n=0}^{\\infty}(-1)^n\\frac{2n+1-3^{2n+1}}{(2n+1)!}x^{2n+1}$. The trap is leaving $x\\cos x$ over $(2n)!$ when subtracting: both series must be over $(2n+1)!$ first.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -379,6 +419,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Start from $\\ln(1+u) = \\int \\frac{du}{1+u} = \\sum_{n=0}^{\\infty}(-1)^n\\frac{u^{n+1}}{n+1}$, valid for $|u| < 1$. With $u = 2x$,\n\n$$\n\\ln(1+2x) = \\sum_{n=0}^{\\infty}(-1)^n\\frac{2^{n+1}x^{n+1}}{n+1}.\n$$\n\nIntegrate term by term and add the constant of integration:\n\n$$\n\\int \\ln(1+2x)\\,dx = \\sum_{n=0}^{\\infty}(-1)^n\\frac{2^{n+1}x^{n+2}}{(n+1)(n+2)} + C.\n$$\n\nThe trap is forgetting that integrating $x^{n+1}$ divides by $n+2$, not by $n+1$ alone.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -413,6 +457,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Write $\\frac{x}{\\sqrt{3+x}} = \\frac{x}{\\sqrt{3}}\\left(1+\\frac{x}{3}\\right)^{-1/2}$.\n\nUsing the binomial series with $k = -\\frac12$ and $u = \\frac{x}{3}$,\n\n$$\n\\left(1+\\frac{x}{3}\\right)^{-1/2} = \\sum_{n=0}^{\\infty}\\binom{-\\frac12}{n}\\frac{x^n}{3^n}.\n$$\n\nMultiply by $\\frac{x}{\\sqrt{3}}$, and note $\\frac{1}{3^n}\\cdot\\frac{1}{\\sqrt{3}} = \\frac{1}{3^{n+\\frac12}}$, so\n\n$$\nf(x) = \\sum_{n=0}^{\\infty}\\binom{-\\frac12}{n}\\frac{1}{3^{n+\\frac12}}x^{n+1}.\n$$\n\nThe trap is the constant $\\frac{1}{\\sqrt{3}}$, which goes in the denominator, so the power of $3$ is $-\\left(n+\\frac12\\right)$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

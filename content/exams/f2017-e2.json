@@ -38,6 +38,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-tangent-substitution"
+      ],
+      "solution": "Substitute $u = 2y$, so $dy = \\frac12\\,du$, and the limits become $0$ and $3$:\n\n$$\n\\int_0^{3/2} \\frac{dy}{4y^2+9} = \\frac12 \\int_0^{3} \\frac{du}{u^2+9}\n$$\n\nSince $\\int \\frac{du}{u^2+a^2} = \\frac1a \\arctan\\frac ua$ with $a = 3$,\n\n$$\n\\frac12 \\cdot \\frac13 \\left[\\arctan\\frac u3\\right]_0^3 = \\frac16\\left(\\frac{\\pi}{4} - 0\\right)\n$$\n\nso the integral is $\\frac{\\pi}{24}$. Forgetting the factor $\\frac12$ from $dy = \\frac12\\,du$ gives $\\frac{\\pi}{12}$, a common wrong value.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Split the integrand, since the integral diverges if either piece does:\n\n$$\n\\frac{2+u}{u^2} = \\frac{2}{u^2} + \\frac{1}{u}\n$$\n\nThe piece $\\int_2^\\infty \\frac{2}{u^2}\\,du = 1$ converges. But $\\int_2^\\infty \\frac{1}{u}\\,du = \\lim_{b\\to\\infty}\\left(\\ln b - \\ln 2\\right) = \\infty$ diverges.\n\nSo the integral is divergent. Evaluating only the $\\frac{2}{u^2}$ piece gives $1$ and misses the divergence of $\\frac1u$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass"
+      ],
+      "solution": "Use $\\bar x = \\frac{M_y}{A}$ with $M_y = \\int x\\,(\\text{top} - \\text{bottom})\\,dx$. The curves meet where $2x = x^2$, so $x = 0$ and $x = 2$, and $2x \\ge x^2$ on this interval.\n\n$$\nA = \\int_0^2 (2x - x^2)\\,dx = \\left[x^2 - \\frac{x^3}{3}\\right]_0^2 = \\frac43\n$$\n\n$$\nM_y = \\int_0^2 x(2x - x^2)\\,dx = \\left[\\frac{2x^3}{3} - \\frac{x^4}{4}\\right]_0^2 = \\frac43\n$$\n\nso $\\bar x = \\frac{4/3}{4/3} = 1$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-decide"
+      ],
+      "solution": "Compare each series by limit comparison with a $p$-series.\n\nFor the first series, $\\frac{n^2-1}{3n^4+1} \\div \\frac{1}{n^2} = \\frac{n^2(n^2-1)}{3n^4+1} \\to \\frac13 > 0$. Since $\\sum \\frac{1}{n^2}$ converges, the first series converges.\n\nFor the second series, $\\frac{1}{\\sqrt{n^2+1}} \\div \\frac1n = \\frac{n}{\\sqrt{n^2+1}} \\to 1 > 0$. Since $\\sum \\frac1n$ diverges, the second series diverges.\n\nSo the first series converges and the second diverges. The terms of the second series tend to $0$, but that alone does not make it converge; they would have to fall faster than $\\frac1n$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -173,6 +189,9 @@
       "answer": "E",
       "lessonIds": [
         "L8"
+      ],
+      "typeIds": [
+        "L8-arc-length-setup"
       ],
       "sourcePage": 4,
       "solution": "**Note on this question:** The given $f'(x)=\\sqrt{\\sec^2x\\tan^2x-1}$ is not a real number near $x=0$: the expression under the root is $-1$ at $x=0$ and stays negative until $x\\approx0.666$. Formally, $1+(f'(x))^2=\\sec^2x\\tan^2x$, so $L=\\int_0^{\\pi/3}\\sec x\\tan x\\,dx=\\sec\\frac{\\pi}{3}-\\sec 0=1$, the keyed answer E.",
@@ -209,6 +228,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Use the surface area about the $x$-axis, $S = \\int 2\\pi y\\,ds$ with $ds = \\sqrt{1+(y')^2}\\,dx$. Here $y' = \\frac{1}{\\sqrt x}$, so $1 + (y')^2 = \\frac{x+1}{x}$.\n\n$$\nS = \\int_0^1 2\\pi \\cdot 2\\sqrt x\\,\\sqrt{\\frac{x+1}{x}}\\,dx = 4\\pi \\int_0^1 \\sqrt{x+1}\\,dx\n$$\n\n$$\n= 4\\pi \\cdot \\frac23 \\left[(x+1)^{3/2}\\right]_0^1 = \\frac{8\\pi}{3}\\left(2\\sqrt2 - 1\\right)\n$$\n\nso the area is $\\frac{8\\pi(2\\sqrt2-1)}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -243,6 +266,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "Write $\\cos^4 x = (\\cos^2 x)^2$ and use $\\cos^2 x = \\frac{1+\\cos 2x}{2}$ twice:\n\n$$\n\\cos^4 x = \\frac14\\left(1 + 2\\cos 2x + \\cos^2 2x\\right) = \\frac38 + \\frac12\\cos 2x + \\frac18\\cos 4x\n$$\n\nOn $\\left[0, \\frac\\pi2\\right]$, the $\\cos 2x$ and $\\cos 4x$ terms integrate to $0$, since $\\sin 2x$ and $\\sin 4x$ vanish at both ends. So the integral is $\\frac38 \\cdot \\frac\\pi2 = \\frac{3\\pi}{16}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -278,6 +305,11 @@
         "L16",
         "L17"
       ],
+      "typeIds": [
+        "L17-long-division",
+        "L17-decomposition-form"
+      ],
+      "solution": "Divide first, since the numerator has the same degree as the denominator $(x-2)^2$:\n\n$$\n\\frac{x^2+1}{(x-2)^2} = 1 + \\frac{4x-3}{(x-2)^2}\n$$\n\nThe remainder is proper, with a repeated factor, so decompose it as $\\frac{A}{x-2} + \\frac{B}{(x-2)^2}$. Since $4x - 3 = 4(x-2) + 5$, we have $A = 4$ and $B = 5$. The integrand is therefore reduced to\n\n$$\n1 + \\frac{A}{x-2} + \\frac{B}{(x-2)^2}\n$$\n\nSkipping the division drops the constant $1$, and repeating $\\frac{1}{x-2}$ twice in place of a squared factor is another common error.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -312,6 +344,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "The sine power is odd, so save one factor of $\\sin t$ and convert the rest with $\\sin^2 t = 1 - \\cos^2 t$:\n\n$$\n\\sin^3 t\\cos^4 t = \\sin t\\,(1-\\cos^2 t)\\cos^4 t\n$$\n\nLet $u = \\cos t$, so $du = -\\sin t\\,dt$. The limits become $u = 1$ at $t = 0$ and $u = 0$ at $t = \\frac\\pi2$:\n\n$$\n\\int_0^{\\pi/2}\\sin^3 t\\cos^4 t\\,dt = \\int_0^1 (1-u^2)u^4\\,du = \\int_0^1 (u^4 - u^6)\\,du\n$$\n\n$$\n= \\frac15 - \\frac17 = \\frac{2}{35}\n$$",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -346,6 +382,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-transformed-integral"
+      ],
+      "solution": "Complete the square in the radicand: $x^2 - 2x + 2 = (x-1)^2 + 1$. Let $x - 1 = \\tan t$, so $dx = \\sec^2 t\\,dt$ and $\\sqrt{(x-1)^2+1} = \\sec t$ for $|t| < \\frac\\pi2$.\n\nSince $x^2 = (1+\\tan t)^2$, the integrand becomes $\\frac{(1+\\tan t)^2\\sec^2 t}{\\sec t} = (1+\\tan t)^2\\sec t$.\n\nThe limits follow from $x - 1 = \\tan t$. At $x = 0$, $\\tan t = -1$, so $t = -\\frac\\pi4$. At $x = 1$, $t = 0$. So\n\n$$\n\\int_0^1 \\frac{x^2}{\\sqrt{x^2-2x+2}}\\,dx = \\int_{-\\pi/4}^{0} (1+\\tan t)^2\\sec t\\,dt.\n$$\n\nThe lower limit is $-\\frac\\pi4$, not $\\frac\\pi4$, because $x = 0$ lies to the left of the center $x = 1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -380,6 +420,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-p-range"
+      ],
+      "solution": "The term is $\\sqrt{\\frac{k^4}{k^p+2}} = \\frac{k^2}{\\sqrt{k^p+2}}$. For large $k$, $\\sqrt{k^p+2} \\sim k^{p/2}$, so the term behaves like $k^{2-p/2}$.\n\nLimit comparison with $\\frac{1}{k^{p/2-2}}$ gives the limit $1$, so the series converges exactly when $\\frac p2 - 2 > 1$, that is, $p > 6$.\n\nThe value $p = 6$ is excluded because the terms then behave like $\\frac1k$, which diverges. Including $p = 6$ is therefore the common error.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -414,6 +458,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
+      "solution": "Split the terms into two geometric series:\n\n$$\n\\sum_{k=0}^\\infty \\frac{2+2^k}{3^k} = 2\\sum_{k=0}^\\infty \\left(\\frac13\\right)^k + \\sum_{k=0}^\\infty \\left(\\frac23\\right)^k\n$$\n\nEach series starts at $1$ with ratio $r$, so $\\sum_{k=0}^\\infty r^k = \\frac{1}{1-r}$ for $|r| < 1$:\n\n$$\n= 2\\cdot\\frac{1}{1-\\frac13} + \\frac{1}{1-\\frac23} = 3 + 3 = 6\n$$\n\nso the sum is $6$. Keeping only the $\\frac{2^k}{3^k}$ part gives $3$.",
       "sourcePage": 7,
       "status": "reviewed"
     }
