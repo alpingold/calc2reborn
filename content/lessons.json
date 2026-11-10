@@ -12,7 +12,21 @@
     "notesUrl": "https://www.math.purdue.edu/%7Echenjk/MA16200F23/Lesson%201--13.1,%2013.2%281%29-acc.html",
     "prerequisites": [],
     "keyIdeas": "### Scalars and vectors\n- Scalar: a number such as $5$, $\\pi$, or $e$. Magnitude only, no direction.\n- Vector: magnitude and direction.\n- The vector from $P$ to $Q$ is end minus start. For $P(1, 2)$ and $Q(3, -4)$: $\\vec{PQ} = \\langle 3-1, -4-2 \\rangle = \\langle 2, -6 \\rangle$, which is 2 units right and 6 units down.\n- **Trap:** order matters. $\\vec{QP} = \\langle -2, 6 \\rangle = -\\vec{PQ}$. The minus sign reverses direction and keeps the length.\n\n### Length\nFor $\\vec{u} = \\langle a, b \\rangle$,\n\n$$\n|\\vec{u}| = \\sqrt{a^2 + b^2}\n$$\n\n- In 3D add the third square: $|\\langle a, b, c \\rangle| = \\sqrt{a^2 + b^2 + c^2}$.\n- $|\\langle -2, 6 \\rangle| = \\sqrt{(-2)^2 + 6^2} = \\sqrt{40}$. Square the whole component, sign included.\n\n### Arithmetic\n- Work component by component. With $\\vec{u} = \\langle 1, 2 \\rangle$ and $\\vec{v} = \\langle 0, 3 \\rangle$: $\\vec{u} + \\vec{v} = \\langle 1, 5 \\rangle$, $\\vec{u} - \\vec{v} = \\langle 1, -1 \\rangle$, $2\\vec{u} - 3\\vec{v} = \\langle 2, -5 \\rangle$.\n- $2\\vec{a}$ points the same way as $\\vec{a}$ and is twice as long. $-2\\vec{a}$ points the opposite way and is twice as long.\n- Triangle rule: tail of $\\vec{v}$ at the head of $\\vec{u}$; $\\vec{u} + \\vec{v}$ runs from the tail of $\\vec{u}$ to the head of $\\vec{v}$.\n- Parallelogram rule: both tails at one point; $\\vec{u} + \\vec{v}$ is the diagonal from that point.\n\n### Unit vectors\n- A unit vector has length $1$. For $\\vec{a} \\ne \\vec{0}$, $\\frac{\\vec{a}}{|\\vec{a}|}$ is the unit vector in the direction of $\\vec{a}$.\n- $\\langle 3, 2 \\rangle$ has length $\\sqrt{13}$, so its unit vector is $\\left\\langle \\frac{3}{\\sqrt{13}}, \\frac{2}{\\sqrt{13}} \\right\\rangle$.\n- Unit vector opposite $\\vec{b}$: $-\\frac{\\vec{b}}{|\\vec{b}|}$. Length $3$ opposite $\\vec{b}$: $-3\\frac{\\vec{b}}{|\\vec{b}|}$.\n- Special unit vectors in 2D: $\\vec{i} = \\langle 1, 0 \\rangle$, $\\vec{j} = \\langle 0, 1 \\rangle$. In 3D: $\\vec{i} = \\langle 1, 0, 0 \\rangle$, $\\vec{j} = \\langle 0, 1, 0 \\rangle$, $\\vec{k} = \\langle 0, 0, 1 \\rangle$.\n\n### 3D\n- Same rule, one more component. For $P(1, 2, 3)$ and $Q(4, 6, 8)$: $\\vec{PQ} = \\langle 3, 4, 5 \\rangle = 3\\vec{i} + 4\\vec{j} + 5\\vec{k}$.\n- **Trap:** an equation that fixes one coordinate changes shape with the dimension. $y = 5$ in 2D is a line. $z = 5$ in 3D is a horizontal plane, all points $(x, y, 5)$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L1-unit-vector-direction",
+        "name": "Unit vector or scaled direction vector"
+      },
+      {
+        "id": "L1-vector-arithmetic-magnitude",
+        "name": "Combine vectors and find magnitude"
+      },
+      {
+        "id": "L1-vector-concept-statements",
+        "name": "Conceptual vector properties"
+      }
+    ]
   },
   {
     "id": "L2",
@@ -28,7 +42,25 @@
       "L1"
     ],
     "keyIdeas": "### Sphere\nA point $(x, y, z)$ is on the sphere with center $C(h, k, l)$ and radius $r$ when its vector from $C$ has length $r$: $|\\langle x-h, y-k, z-l \\rangle| = r$. Squaring gives the standard form:\n\n$$\n(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2\n$$\n\n- **Trap:** the center's signs are opposite those in the parentheses. $(y+2)^2$ means $k = -2$.\n- **Trap:** the right side is $r^2$. Take the square root for the radius.\n- From a diameter $PQ$: the center is the midpoint, and the radius is half of $|\\vec{PQ}|$. For $P(-2, 3, 6)$ and $Q(4, -7, 5)$: $C\\left(1, -2, \\frac{11}{2}\\right)$ and $|\\vec{PQ}| = \\sqrt{137}$, so $r^2 = \\frac{137}{4}$.\n\n### Completing the square\n- The coefficients of $x^2$, $y^2$, $z^2$ must be equal, or the equation is not a sphere: $x^2 + 2y^2 + z^2 = 1$ cannot be fixed by dividing. If they are equal but not $1$, divide by that coefficient first.\n- For each variable, take half the linear coefficient, square it, and add it to **both** sides.\n- $x^2 + y^2 + z^2 - 14x + 16y - 10z + 102 = 0$: add $49$, $64$, $25$. The right side is $-102 + 49 + 64 + 25 = 36$.\n- So $(x-7)^2 + (y+8)^2 + (z-5)^2 = 6^2$: center $(7, -8, 5)$, radius $6$.\n- No linear term in a variable means that center coordinate is $0$: $x^2$ alone is $(x-0)^2$.\n- The final right side decides the shape: positive is a sphere, $0$ is a single point, negative is no points (beyond Chen's notes).\n\n### Regions\nWith center $(h, k, l)$ and radius $r$:\n- $(x-h)^2 + (y-k)^2 + (z-l)^2 \\le r^2$: solid ball, the sphere plus all the space inside.\n- $(x-h)^2 + (y-k)^2 + (z-l)^2 < r^2$: the ball without its spherical skin.\n- $(x-h)^2 + (y-k)^2 + (z-l)^2 > r^2$: all space outside, not including the sphere.\n- $9 \\le (x-1)^2 + (y+2)^2 + (z-5)^2 \\le 25$: shell centered at $(1, -2, 5)$, between radius $3$ and radius $5$. The bounds are $r^2$ values.\n\n### Collinear points\n- $P$, $Q$, $R$ lie on one line when $\\vec{PQ} \\parallel \\vec{PR}$, that is $\\vec{PQ} = k\\vec{PR}$ for some constant $k$ (taking $R \\ne P$). Distances between the points do not matter.\n- The same $k$ must work in every component.\n- $P(1, 3, 2)$, $Q(5, 1, 3)$, $R(x, 2, z)$: $\\langle 4, -2, 1 \\rangle = k\\langle x-1, -1, z-2 \\rangle$. The $y$ component gives $k = 2$, then $x = 3$ and $z = \\frac{5}{2}$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L2-sphere-center-radius",
+        "name": "Center and radius from equation"
+      },
+      {
+        "id": "L2-radius-from-point",
+        "name": "Radius from center and point"
+      },
+      {
+        "id": "L2-sphere-equation-constant",
+        "name": "Sphere equation or unknown constant"
+      },
+      {
+        "id": "L2-sphere-relations",
+        "name": "Compare spheres, circles and planes"
+      }
+    ]
   },
   {
     "id": "L3",
@@ -44,7 +76,29 @@
       "L2"
     ],
     "keyIdeas": "### Dot product\nFor $\\vec{u} = \\langle a, b \\rangle$ and $\\vec{v} = \\langle c, d \\rangle$, $\\vec{u} \\cdot \\vec{v} = ac + bd$. In 3D add the third product.\n- **The result is a scalar**, not a vector: $\\langle 1, 2, 3 \\rangle \\cdot \\langle 4, 5, 7 \\rangle = 4 + 10 + 21 = 35$.\n- Order does not matter: $\\vec{u} \\cdot \\vec{v} = \\vec{v} \\cdot \\vec{u}$.\n- $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$.\n\n### Geometric form and angles\nWith $\\theta$ the included angle, $0 \\le \\theta \\le 180^\\circ$:\n\n$$\n\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta\n$$\n\n- For nonzero vectors, $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$. A positive dot product means $\\theta < 90^\\circ$, $0$ means $\\theta = 90^\\circ$, negative means $\\theta > 90^\\circ$.\n- $\\langle 1, 2, -2 \\rangle$ and $\\langle 6, 0, -8 \\rangle$: $22 = 3 \\cdot 10 \\cos\\theta$, so $\\theta = \\cos^{-1}\\left(\\frac{22}{30}\\right) \\approx 43^\\circ$.\n- Angle with an axis: dot with a vector along it. $\\langle 3, 1, 5 \\rangle$ with $\\langle 1, 0, 0 \\rangle$: $\\cos\\theta = \\frac{3}{\\sqrt{35}}$ (direction cosine), $\\theta \\approx 60^\\circ$ (direction angle). Any $\\langle k, 0, 0 \\rangle$ with $k > 0$ gives the same angle. With $k < 0$ you measure from the negative $x$-axis instead.\n\n### Perpendicular vectors\n- If $\\vec{a} \\perp \\vec{b}$, then $\\cos\\theta = 0$ and $\\vec{a} \\cdot \\vec{b} = 0$.\n- For nonzero vectors the converse holds: $\\vec{a} \\cdot \\vec{b} = 0$ means $\\vec{a} \\perp \\vec{b}$.\n- **Trap:** if either vector is $\\vec{0}$, the dot product is $0$ automatically and no angle is defined. By the usual convention $\\vec{0}$ counts as orthogonal to every vector (beyond Chen's notes).\n\n### Projections of $\\vec{b}$ onto $\\vec{a}$ ($\\vec{a} \\ne \\vec{0}$)\n\n$$\n\\text{scal}_{\\vec{a}} \\vec{b} = |\\vec{b}|\\cos\\theta = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}\n$$\n\n$$\n\\text{proj}_{\\vec{a}} \\vec{b} = \\left(\\text{scal}_{\\vec{a}} \\vec{b}\\right)\\frac{\\vec{a}}{|\\vec{a}|} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^2}\\vec{a}\n$$\n\n- **Trap:** scal is a number; proj is a vector, a scalar multiple of $\\vec{a}$.\n- **Trap:** the subscript is the vector you project onto, and its length is in the denominator. Swapping the vectors generally changes the answer.\n- Chen calls scal the length of the \"shadow\"; his example gets $-\\sqrt{5}$, negative because the angle is obtuse, so read it as a signed length. For $\\theta > 90^\\circ$, proj points opposite $\\vec{a}$.\n- $\\vec{a} = \\langle 1, 2 \\rangle$, $\\vec{b} = \\langle 3, -4 \\rangle$: $\\text{scal}_{\\vec{a}} \\vec{b} = \\frac{-5}{\\sqrt{5}} = -\\sqrt{5}$ and $\\text{proj}_{\\vec{a}} \\vec{b} = \\langle -1, -2 \\rangle$.\n\n### Splitting a vector\nTo write $\\vec{u} = \\vec{p} + \\vec{n}$ with $\\vec{p} \\parallel \\vec{v}$ and $\\vec{n} \\perp \\vec{v}$: $\\vec{p} = \\text{proj}_{\\vec{v}} \\vec{u}$ and $\\vec{n} = \\vec{u} - \\vec{p}$. Check with $\\vec{n} \\cdot \\vec{v} = 0$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L3-angle-between-vectors",
+        "name": "Angle between two vectors"
+      },
+      {
+        "id": "L3-angle-dot-and-cross",
+        "name": "Angle from dot and cross"
+      },
+      {
+        "id": "L3-vector-projection",
+        "name": "Vector or scalar projection"
+      },
+      {
+        "id": "L3-dot-orthogonal-work",
+        "name": "Dot product, orthogonality and work"
+      },
+      {
+        "id": "L3-dot-product-statements",
+        "name": "Dot and cross product statements"
+      }
+    ]
   },
   {
     "id": "L4",
@@ -60,7 +114,29 @@
       "L3"
     ],
     "keyIdeas": "### What the cross product is\n- Dot product: $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, a **scalar**. Cross product: $\\vec{u} \\times \\vec{v}$, a **vector**, defined for 3D vectors.\n- Magnitude: $|\\vec{u} \\times \\vec{v}| = |\\vec{u}||\\vec{v}|\\sin\\theta$, with $\\theta$ the included angle, $0 \\le \\theta \\le 180^\\circ$. Direction: right-hand rule.\n- $\\vec{u} \\times \\vec{v}$ is orthogonal to both $\\vec{u}$ and $\\vec{v}$: $(\\vec{u} \\times \\vec{v}) \\cdot \\vec{u} = 0$ and $(\\vec{u} \\times \\vec{v}) \\cdot \\vec{v} = 0$.\n\n### Right-hand rule and order\n- Index finger along $\\vec{a}$, middle finger along $\\vec{b}$, thumb along $\\vec{a} \\times \\vec{b}$. Or curl your fingers, sweeping $\\vec{a}$ into $\\vec{b}$; the thumb gives $\\vec{a} \\times \\vec{b}$.\n- $\\vec{i} \\times \\vec{j} = \\vec{k}$ and $\\vec{j} \\times \\vec{i} = -\\vec{k}$.\n- **Trap:** order matters. $\\vec{u} \\times \\vec{v} = -(\\vec{v} \\times \\vec{u})$: same length and, unless the result is $\\vec{0}$, opposite direction. The dot product does not care about order.\n\n### Computing it\nA $2 \\times 2$ determinant: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$. For the cross product, row 1 is $\\vec{i}, \\vec{j}, \\vec{k}$, row 2 the first vector, row 3 the second:\n\n$$\n\\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ a & b & c \\\\ d & e & f \\end{vmatrix} = \\vec{i}\\begin{vmatrix} b & c \\\\ e & f \\end{vmatrix} - \\vec{j}\\begin{vmatrix} a & c \\\\ d & f \\end{vmatrix} + \\vec{k}\\begin{vmatrix} a & b \\\\ d & e \\end{vmatrix}\n$$\n\n- In components: $\\langle a, b, c \\rangle \\times \\langle d, e, f \\rangle = \\langle bf - ce, -(af - cd), ae - bd \\rangle$.\n- **Trap:** the $\\vec{j}$ term gets a minus sign.\n- $\\langle 2, 1, 2 \\rangle \\times \\langle 5, 0, 1 \\rangle = \\vec{i}(1) - \\vec{j}(-8) + \\vec{k}(-5) = \\langle 1, 8, -5 \\rangle$. Swapped: $\\langle -1, -8, 5 \\rangle$.\n- Check by dotting with both vectors. A nonzero result shows an error, but $0$ does not prove the answer right: the check cannot catch swapped order.\n\n### Area\n- $\\vec{u}$ and $\\vec{v}$ as two sides of a parallelogram sharing a corner: area $= |\\vec{u} \\times \\vec{v}| = |\\vec{u}||\\vec{v}|\\sin\\theta$, the magnitude and not the vector.\n- **Trap:** a triangle with those two sides has half that area, $\\frac{1}{2}|\\vec{u} \\times \\vec{v}|$ (beyond Chen's notes).\n- In 2D, add a $0$ component. $A(-3, 4)$, $B(-1, 7)$, $C(3, 5)$, $D(1, 2)$: $\\vec{AD} = \\langle 4, -2, 0 \\rangle$, $\\vec{AB} = \\langle 2, 3, 0 \\rangle$, cross product $\\langle 0, 0, 16 \\rangle$, area $16$.\n\n### Parallel vectors\n- If $\\vec{u} \\parallel \\vec{v}$, then $\\theta = 0$ or $180^\\circ$, $\\sin\\theta = 0$, and $\\vec{u} \\times \\vec{v} = \\vec{0}$.\n- For nonzero vectors the converse holds: $\\vec{u} \\times \\vec{v} = \\vec{0}$ means parallel.\n- **Trap:** if either vector is $\\vec{0}$, the cross product is $\\vec{0}$ automatically and no angle is defined. Many texts count $\\vec{0}$ as parallel to every vector (beyond Chen's notes). $\\vec{u} \\cdot \\vec{v}$ and $\\vec{u} \\times \\vec{v}$ are zero at the same time only when one vector is $\\vec{0}$.\n- A nonzero cross product of two vectors lying in a plane is orthogonal to that plane.\n\n### Applications\nTorque about pivot $O$ from force $\\vec{F}$ at $P$: $\\vec{OP} \\times \\vec{F}$. Magnetic force: $\\vec{F} = q(\\vec{v} \\times \\vec{B})$, with $q$ the charge, $\\vec{v}$ its velocity, and $\\vec{B}$ the magnetic field.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L4-area-from-points",
+        "name": "Area of triangle or parallelogram"
+      },
+      {
+        "id": "L4-parallelepiped-volume",
+        "name": "Volume of a parallelepiped"
+      },
+      {
+        "id": "L4-cross-product-normal-torque",
+        "name": "Cross product, normal vector, torque"
+      },
+      {
+        "id": "L4-cross-magnitude-angle",
+        "name": "Cross product magnitude and angle"
+      },
+      {
+        "id": "L4-cross-product-statements",
+        "name": "Cross product property statements"
+      }
+    ]
   },
   {
     "id": "L5",
@@ -76,7 +152,21 @@
       "L4"
     ],
     "keyIdeas": "### Area between curves, integrating in $x$\nIf $f(x) \\ge g(x)$ on $[a, b]$, a thin vertical rectangle has height $f(x) - g(x)$ and width $dx$. Integration accumulates the rectangles:\n\n$$\n\\text{area} = \\int_a^b [\\underbrace{f(x)}_{\\text{top}} - \\underbrace{g(x)}_{\\text{bottom}}]\\,dx\n$$\n\n- **Trap:** it is top minus bottom, not the order the curves are listed. This holds below the $x$-axis too: the height is still top minus bottom. A negative answer means the order is reversed.\n- When only the curves are given, set them equal: the intersections are the left and right ends of the region.\n- **Trap:** a curve's own intercepts are not limits unless the region ends there. For $y = x^2 - 2x$ and $y = 2x$, the parabola's intercept $x = 2$ plays no role.\n- Chen: $x^2 - 2x = 2x$ gives $x = 0, 4$. The line is on top, so the height is $4x - x^2$ and the area is $\\int_0^4 (4x - x^2)\\,dx = \\frac{32}{3}$.\n\n### Curves that cross\n- Top and bottom can swap only at an intersection (for continuous curves). Test one point in each piece, and start a new integral at each crossing.\n- **Trap:** one integral across a crossing lets the pieces cancel. It gives a signed difference, not the area.\n- Chen: $y = \\cos x$ and $y = \\sin 2x$ on $\\left[0, \\frac{\\pi}{2}\\right]$. Using $\\sin 2x = 2\\sin x\\cos x$: $\\cos x(1 - 2\\sin x) = 0$, so $x = \\frac{\\pi}{2}$ or $x = \\frac{\\pi}{6}$.\n- **Trap:** factor, do not divide by $\\cos x$, which would lose $x = \\frac{\\pi}{2}$.\n\n$$\n\\int_0^{\\pi/6} (\\cos x - \\sin 2x)\\,dx + \\int_{\\pi/6}^{\\pi/2} (\\sin 2x - \\cos x)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}\n$$\n\n- A single integral $\\int_0^{\\pi/2} (\\cos x - \\sin 2x)\\,dx$ gives $0$, which is wrong.\n\n### Integrating in $y$\nIf $x = f(y)$ is to the right of $x = g(y)$ for $c \\le y \\le d$, use horizontal rectangles with width $f(y) - g(y)$ and thickness $dy$:\n\n$$\n\\text{area} = \\int_c^d [\\underbrace{f(y)}_{\\text{right}} - \\underbrace{g(y)}_{\\text{left}}]\\,dy\n$$\n\n- Right minus left, with $y$-values as limits and every curve written as $x = \\ldots$.\n- Use it when vertical rectangles would change their top or bottom curve partway, but right and left stay the same.\n- Chen: $x = y^2 - 6$ and $x = y$. Vertical rectangles switch curves. Horizontally, the right curve is always $x = y$ and the left is always $x = y^2 - 6$.\n- $y^2 - y - 6 = 0$ gives $y = -2, 3$, so the area is $\\int_{-2}^{3} (y - y^2 + 6)\\,dy = \\frac{125}{6}$.\n- **Trap:** $y = \\pm\\sqrt{6}$ are only where the parabola meets the $y$-axis. They are not limits.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L5-area-top-bottom",
+        "name": "Area between curves y = f(x)"
+      },
+      {
+        "id": "L5-area-in-y",
+        "name": "Area between curves x = g(y)"
+      },
+      {
+        "id": "L5-area-split-or-axis",
+        "name": "Area needing a split or axis"
+      }
+    ]
   },
   {
     "id": "L6",
@@ -92,7 +182,25 @@
       "L5"
     ],
     "keyIdeas": "### Volume by slicing\nIf the cross-section at $x$ has area $A(x)$, a slice has volume $A(x)\\,dx$:\n\n$$\nV = \\int_a^b A(x)\\,dx\n$$\n\n- Sketch the base, draw the bar across it, turn the bar into the shape's dimension, then find $A$.\n- Chen: base between $y = 1 - x$ and $y = -1 + x$, $0 \\le x \\le 1$, with semicircular slices perpendicular to the $x$-axis. Bar length $2 - 2x$ is the diameter, so the radius is $1 - x$, $A = \\frac{1}{2}\\pi(1-x)^2$, and $V = \\frac{\\pi}{6}$.\n- **Trap:** when the bar is a diameter, halve it. A semicircle has area $\\frac{1}{2}\\pi r^2$.\n- Slices perpendicular to the $x$-axis integrate in $x$. Perpendicular to the $y$-axis, integrate in $y$ and measure the bar as right minus left.\n\n### Disks\nRevolving makes slices perpendicular to the axis. Slice volume is $\\pi(\\text{radius})^2(\\text{thickness})$.\n- About the $x$-axis: $V = \\int_a^b \\pi[f(x)]^2\\,dx$. Chen: $y = 2 - x$ on $[0, 2]$ sweeps a cone, $\\int_0^2 \\pi(2-x)^2\\,dx = \\frac{8\\pi}{3}$.\n- About the $y$-axis: thickness $dy$, so everything is in $y$. Chen: $x = \\sqrt{3y}$, $x = 0$, $y = 2$ gives $\\int_0^2 \\pi(\\sqrt{3y})^2\\,dy = 6\\pi$.\n\n### Washers\nA slice with a hole has area $\\pi(\\text{outer})^2 - \\pi(\\text{inner})^2$:\n\n$$\nV = \\int_a^b \\left[\\pi(\\text{outer})^2 - \\pi(\\text{inner})^2\\right]dx\n$$\n\n- $y = 2\\sqrt{x}$ and $y = x$ about the $x$-axis, $0 \\le x \\le 4$. Outer $2\\sqrt{x}$, inner $x$: $\\int_0^4 (4\\pi x - \\pi x^2)\\,dx = \\frac{32\\pi}{3}$.\n- **Trap:** square each radius, then subtract. $\\int_0^4 \\pi(2\\sqrt{x} - x)^2\\,dx = \\frac{32\\pi}{15}$ is wrong.\n- **Disk or washer?** Draw a slice perpendicular to the axis. If it reaches the axis, disk. If there is a gap, washer.\n\n### An axis other than a coordinate axis\nEach radius is measured **from the axis of revolution**. With the region on one side of the axis, and $k > 0$:\n- Axis $y = k$ above the region: radius $= k - y_{\\text{curve}}$. The curve farther from the axis is the outer one, so the **top** curve gives the **inner** radius.\n- Axis $y = -k$ below the region: radius $= y_{\\text{curve}} + k$.\n- Axis $x = k$ to the right: radius $= k - x_{\\text{curve}}$. Axis $x = -k$ to the left: radius $= x_{\\text{curve}} + k$. Thickness is $dy$.\n- **Trap:** a region's edge on the $x$-axis or $y$-axis gives radius $0$ only if that axis is the axis of revolution. Otherwise that edge has a nonzero radius.\n- Chen: $y = 1$, $y = x$, $x = 0$ about $y = 1$. The region touches the axis, so these are disks, with radius $1 - x$ and not $x$: $\\int_0^1 \\pi(1-x)^2\\,dx = \\frac{\\pi}{3}$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L6-known-cross-sections",
+        "name": "Volume from known cross-sections"
+      },
+      {
+        "id": "L6-disk-washer-x-axis",
+        "name": "Disks and washers about x-axis"
+      },
+      {
+        "id": "L6-disk-washer-y-axis",
+        "name": "Disks and washers about y-axis"
+      },
+      {
+        "id": "L6-disk-washer-other-line",
+        "name": "Disks and washers about another line"
+      }
+    ]
   },
   {
     "id": "L7",
@@ -108,7 +216,21 @@
       "L6"
     ],
     "keyIdeas": "### Cylindrical shells\nDraw the rectangle **parallel** to the axis of revolution. (Disks and washers use rectangles **perpendicular** to it.) Revolving it gives a thin shell, like an onion layer. Unwrap the shell into a slab with length $2\\pi(\\text{radius})$, the rectangle's height, and the rectangle's thickness:\n\n$$\nV = \\int 2\\pi(\\text{radius})(\\text{height})(\\text{thickness})\n$$\n\n- **Radius:** distance from the rectangle to the axis of revolution.\n- **Height:** length of the rectangle, which is top minus bottom for vertical rectangles and right minus left for horizontal ones.\n- **Limits:** left to right end of the region for $dx$; bottom to top for $dy$.\n- **Trap:** nothing is squared. Squares belong to disks and washers.\n\n### Which variable?\n- Vertical axis ($y$-axis or $x = k$): shells use $dx$, washers use $dy$.\n- Horizontal axis ($x$-axis or $y = k$): shells use $dy$, washers use $dx$.\n- **Trap:** everything must match the thickness. With $dy$ there is \"NO $x$ in any part\", so $y = x^3$ becomes $x = y^{1/3}$.\n- Set up correctly, shells and washers give the same volume. Pick the easier integral, for example when one would need a curve solved for the other variable.\n\n### Chen's examples\n- $y = 2 - x$, $y = 0$, $x = 0$ about the $y$-axis: radius $x$, height $2 - x$, and $\\int_0^2 2\\pi x(2-x)\\,dx = \\frac{8\\pi}{3}$. Same cone as with disks in L6.\n- $y = e^{x^2}$, $y = 0$, $0 \\le x \\le 1$ about the $y$-axis: $\\int_0^1 2\\pi x e^{x^2}\\,dx = \\pi(e - 1)$. The radius supplies the factor $x$ that makes $u = x^2$ work.\n- $y = x^3$, $x = 1$, $y = 0$ about $y = 1$: rectangles are horizontal, radius $1 - y$, height $1 - y^{1/3}$ (right curve $x = 1$, left curve $x = y^{1/3}$):\n\n$$\n\\int_0^1 2\\pi(1-y)(1-y^{1/3})\\,dy = \\frac{5\\pi}{14}\n$$\n\n### Shifting the axis\nWith the region on one side of the axis, and $k > 0$:\n- Axis $x = k$ to the right of the region: radius $= k - x$.\n- Axis $x = -k$ to the left: radius $= x + k$.\n- Axis $y = k$ above the region: radius $= k - y$.\n- Axis $y = -k$ below: radius $= y + k$.\n- **Trap:** shifting the axis changes the radius, not the height, because the rectangle itself is the same.\n- **Trap:** the radius is a distance, so it is positive. Write $k - x$, not $x - k$, when the axis is to the right. (It is also not just $x$.)",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L7-shell-y-axis",
+        "name": "Shells about the y-axis"
+      },
+      {
+        "id": "L7-shell-vertical-line",
+        "name": "Shells about a vertical line"
+      },
+      {
+        "id": "L7-shell-horizontal-axis",
+        "name": "Shells about a horizontal axis"
+      }
+    ]
   },
   {
     "id": "L8",
@@ -125,7 +247,25 @@
       "L7"
     ],
     "keyIdeas": "### Arc length\nA small piece of curve is about the hypotenuse $\\sqrt{(\\Delta x)^2 + (\\Delta y)^2}$. Factor out $(\\Delta x)^2$ and shrink: the piece has length $\\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}\\,dx$. So the length of $y = f(x)$ from $x = a$ to $x = b$ is\n\n$$\nL = \\int_a^b \\sqrt{1 + [f'(x)]^2}\\,dx\n$$\n\n- Chen's condition: $f$ continuous and differentiable, with $f'(x)$ existing on $a \\le x \\le b$. Texts usually state it as $f'$ continuous on $[a, b]$ (beyond Chen's notes).\n- **Trap:** the derivative is squared: $\\sqrt{1 + (f')^2}$, not $\\sqrt{1 + f'}$.\n- Chen: $y = \\frac{2}{3}(x^2-1)^{3/2}$ on $[1, \\sqrt{10}]$. $y' = 2x(x^2-1)^{1/2}$, so $1 + (y')^2 = 4x^4 - 4x^2 + 1 = (2x^2-1)^2$. Since $2x^2 - 1 > 0$ here, $L = \\int_1^{\\sqrt{10}} (2x^2-1)\\,dx = \\frac{17}{3}\\sqrt{10} + \\frac{1}{3}$.\n- Look for a perfect square under the root. When there is one, the root disappears.\n\n### Arc length in $y$\nFor $x = g(y)$ from $y = c$ to $y = d$:\n\n$$\nL = \\int_c^d \\sqrt{1 + \\left(\\frac{dx}{dy}\\right)^2}\\,dy\n$$\n\n- Switch for convenience, or when $f'(x)$ does not exist somewhere on $[a, b]$.\n- Chen: $y = x^{2/3}$ on $[0, 1]$ has $y' = \\frac{2}{3x^{1/3}}$, undefined at $x = 0$. Write $x = y^{3/2}$, with $\\frac{dx}{dy} = \\frac{3}{2}y^{1/2}$ existing on $[0, 1]$. Then $L = \\int_0^1 \\sqrt{1 + \\frac{9}{4}y}\\,dy = \\frac{1}{27}(13\\sqrt{13} - 8) \\approx 1.44$.\n- **Trap:** the limits become the $y$-values of the start and end points.\n\n### Surface area of revolution\nA thin strip unwraps to about a rectangle: one side is the circumference $2\\pi(\\text{radius})$, the other is the arc length piece, not $dx$. For $f \\ge 0$ (around the $x$-axis) and $g \\ge 0$ (around the $y$-axis):\n\n$$\n\\text{around the } x\\text{-axis: } \\int_a^b 2\\pi f(x)\\sqrt{1 + [f'(x)]^2}\\,dx\n$$\n\n$$\n\\text{around the } y\\text{-axis: } \\int_c^d 2\\pi g(y)\\sqrt{1 + [g'(y)]^2}\\,dy\n$$\n\n- **Trap:** $2\\pi\\int f(x)\\,dx$ omits the arc length element and is wrong unless the curve is horizontal.\n- **Trap:** the radius is the distance to the axis of revolution: $y$-height around the $x$-axis, $x$-distance around the $y$-axis. Around $y = -1$, the radius is $f(x) + 1$ (beyond Chen's notes).\n- **Trap:** this is the curved surface only. Flat end disks are not included.\n- Compare: volume uses $\\pi f^2\\,dx$; surface area uses $2\\pi f\\,\\sqrt{1 + (f')^2}\\,dx$.\n- Chen: $y = \\sqrt{x}$ on $[1, 4]$ around the $x$-axis: $2\\pi\\int_1^4 \\sqrt{x + \\frac{1}{4}}\\,dx = \\frac{\\pi}{6}(17\\sqrt{17} - 5\\sqrt{5})$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L8-arc-length-compute",
+        "name": "Compute an arc length"
+      },
+      {
+        "id": "L8-arc-length-setup",
+        "name": "Arc length setup or given derivative"
+      },
+      {
+        "id": "L8-surface-area-x-axis",
+        "name": "Surface area about the x-axis"
+      },
+      {
+        "id": "L8-surface-area-y-axis",
+        "name": "Surface area about y-axis or solid"
+      }
+    ]
   },
   {
     "id": "L9",
@@ -141,7 +281,21 @@
       "L8"
     ],
     "keyIdeas": "### Mass from density\nA long thin bar or wire: only the length matters, so density here is per length (kg/m).\n- Constant density: $m = \\rho L$.\n- Variable density $\\rho(x)$: a thin segment has mass $\\rho(x)\\,dx$, so\n\n$$\nm = \\int_0^L \\rho(x)\\,dx\n$$\n\n- Chen: wire of length $6$ m with density twice the distance from the left end: $\\rho(x) = 2x$, so $m = \\int_0^6 2x\\,dx = 36$. The right half is $\\int_3^6 2x\\,dx = 27$.\n- **Trap:** half the length is not half the mass when the density varies.\n- **Trap:** check which end distance is measured from. From the right end, the same rule reads $\\rho(x) = 2(6 - x)$ when $x$ is measured from the left.\n\n### Work by a variable force\n- Work $=$ force $\\cdot$ distance assumes the force is constant. Units: N$\\cdot$m, or joules.\n- If the force varies: $W = \\int_a^b F(x)\\,dx$.\n\n### Springs and Hooke's law\n\n$$\nF = kx\n$$\n\n- $k$ is the spring constant (stiffness). $x$ is the **deviation from the equilibrium position**. At equilibrium the spring has its natural length and no force is involved.\n- **Trap:** $x$ is not the total length. Subtract the natural length first.\n\n$$\nW = \\int_a^b kx\\,dx = \\frac{k}{2}\\left(b^2 - a^2\\right)\n$$\n\n- $a$ and $b$ are the starting and ending positions, both measured from natural length.\n- **Trap:** \"stretch it further\" starts at the current stretch, not at $0$.\n- Chen: natural length $1$ m, $40$ N holds it $0.1$ m from equilibrium, so $k = 400$. Compressing from natural to length $0.5$ m ($x = -0.5$): $\\int_0^{-0.5} 400x\\,dx = 50$ J. Another $0.5$ m: $\\int_{-0.5}^{-1} 400x\\,dx = 150$ J.\n- Going farther from equilibrium, each equal distance costs more work, because the force keeps growing.\n- Moving away from equilibrium gives $W > 0$, stretched or compressed. Moving toward equilibrium, $\\int_a^b kx\\,dx$ comes out negative, because the spring pulls in the direction of motion. When a problem asks how much work is *needed* to return a spring to equilibrium from $x = a$, give the size, $\\frac{k}{2}a^2$ (beyond Chen's notes).\n\n### Work against gravity\nIf the change in height is small compared to the size of the Earth, treat $g = 9.8\\text{ m/s}^2$ as constant. The force is the weight $mg$.\n- Chen: $45$ kg from the ground to $60$ m: $W = (45g)(60) = 2700g$.\n- **Trap:** kg is mass, not force, so multiply by $g$. A weight given in newtons is already a force, so do not multiply again.\n- If the distance varies from piece to piece, integrate. Chen names winding up a chain or cable (distributed mass).\n- Worked (beyond Chen's notes): a $30$ m cable of density $2$ kg/m hangs from a roof. A slice $y$ below the top has weight $2g\\,dy$ and rises $y$, so $W = \\int_0^{30} 2gy\\,dy = 900g$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L9-spring-work",
+        "name": "Work to stretch a spring"
+      },
+      {
+        "id": "L9-centroid-or-mass",
+        "name": "Centroid or mass of a region"
+      },
+      {
+        "id": "L9-variable-load-work",
+        "name": "Work lifting a cable or load"
+      }
+    ]
   },
   {
     "id": "L10",
@@ -157,7 +311,21 @@
       "L9"
     ],
     "keyIdeas": "### Pumping: slice, weigh, move, accumulate\nWork on one horizontal slice is its weight times its distance to go:\n- Volume $= (\\text{cross-section area}) \\cdot dy$. Mass $=$ density $\\cdot$ volume. Weight $=$ mass $\\cdot\\, g$. Work $=$ weight $\\cdot$ distance.\n- Different slices travel different distances, so integrate over the slices that hold water.\n\nWith $y$ measured up from the bottom, $A(y)$ the slice area, and $D(y)$ the distance to go:\n\n$$\nW = \\int_{\\text{bottom}}^{\\text{water surface}} \\rho g\\, A(y)\\, D(y)\\,dy\n$$\n\n- Chen: aquarium $2 \\times 1 \\times 1$ m, full, pumped over the top. Slice weight $2\\rho g\\,dy$, distance $1 - y$: $\\int_0^1 2\\rho g(1-y)\\,dy = \\rho g$ J.\n\n### Limits and distance traps\n- **Trap (partly full):** the upper limit is the water surface, but the distance is still to the discharge height.\n- **Trap (spout):** a spout $s$ above the top adds $s$ to every distance. It does not change the limits.\n- **Trap (origin):** you may measure $y$ down from the top instead. Then the distance over the top is $y$ and the limits change. Any origin works if the limits, $A$, and the distance all use it.\n- **Trap:** the cross-section may change with $y$. Find it before integrating.\n\n### Chen's cone\nVertex up, height $8$ m, base radius $1$ m, full. The side is the line through $(0, 8)$ and $(1, 0)$, or by similar triangles $\\frac{1}{8} = \\frac{r}{8-y}$, so $r = 1 - \\frac{1}{8}y$. Distance $8 - y$:\n\n$$\n\\int_0^8 \\pi\\rho g\\left(1 - \\frac{1}{8}y\\right)^2(8-y)\\,dy = 16\\pi\\rho g \\text{ J}\n$$\n\n- Half full by height: same integrand, upper limit $4$, giving $15\\pi\\rho g$ J.\n- With $\\rho = 1000$ and $g = 9.8$, those are $156800\\pi$ J and $147000\\pi$ J. Use the $g$ the problem gives.\n\n### Mass density and weight density\n- Chen's $\\rho$ is mass density: water is $1000\\text{ kg/m}^3$. Then $\\rho g$ is weight per volume, in N/m$^3$: $(\\text{kg/m}^3)(\\text{m/s}^2) = \\text{N/m}^3$.\n- **Trap:** a density already given as weight per volume, such as $62.4\\text{ lb/ft}^3$, includes gravity. Do not multiply by $g$ again (beyond Chen's notes).\n\n### Hydrostatic force\nForce $=$ pressure $\\cdot$ area, and pressure $= \\rho g \\cdot (\\text{depth below the water surface})$.\n- Pressure varies with depth, so use horizontal strips, each at one depth, and integrate.\n\n$$\nF = \\int \\rho g\\,(\\text{depth})(\\text{strip width})\\,dy\n$$\n\n- **Trap:** depth is measured down from the surface. With $y$ up from the bottom and surface at $y = H$, depth is $H - y$, not $y$.\n- Force is in newtons, work in joules.\n- Chen's dam: trapezoid, top $10$, bottom $20$, height $15$ m, water even with the top. A strip at height $y$ is $15 - y$ below the surface with height $dy$. The notes stop here. Completing it (beyond Chen's notes): the width is $20 - \\frac{2}{3}y$, so $F = \\rho g\\int_0^{15} (15-y)\\left(20 - \\frac{2}{3}y\\right)dy = 1875\\rho g$ N.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L10-pump-prism-cylinder",
+        "name": "Pump a prism or cylinder"
+      },
+      {
+        "id": "L10-pump-cone-odd-shape",
+        "name": "Pump a cone or odd shape"
+      },
+      {
+        "id": "L10-hydrostatic-force",
+        "name": "Hydrostatic force on a wall"
+      }
+    ]
   },
   {
     "id": "L11",
@@ -173,7 +341,29 @@
       "L10"
     ],
     "keyIdeas": "### Integration by parts\nProduct rule in reverse: $d(uv) = u\\,dv + v\\,du$, so\n\n$$\n\\int u\\,dv = uv - \\int v\\,du\n$$\n\n- Split the integrand into $u$ (to differentiate) and $dv$ (everything else, including $dx$, to integrate). Want $u$ with a simpler derivative and $dv$ easy to integrate.\n- LIATE, a rule of thumb for $u$: **L**ogarithmic, **I**nverse trig, **A**lgebraic (such as $x^2$), **T**rig, **E**xponential. Pick whichever comes first.\n- No $+C$ when finding $v$; add $C$ at the end. Check by differentiating the answer.\n- $\\int x^5\\ln x\\,dx$: $u = \\ln x$ (L before A), $dv = x^5\\,dx$, $v = \\frac{1}{6}x^6$, giving $\\frac{x^6}{6}\\ln x - \\frac{x^6}{36} + C$.\n- $\\int x\\sin x\\,dx$: $u = x$ (A before T), $dv = \\sin x\\,dx$, giving $-x\\cos x + \\sin x + C$.\n- **Trap:** the wrong $u$ makes it worse. With $u = \\sin x$ and $dv = x\\,dx$, the new integral $\\int \\frac{x^2}{2}\\cos x\\,dx$ has a higher power of $x$.\n- A lone $\\ln x$ or inverse trig function: take $dv = dx$, so $\\int \\cos^{-1}x\\,dx = x\\cos^{-1}x - \\sqrt{1 - x^2} + C$ (beyond Chen's notes).\n- If a substitution works, use it instead: $\\int x\\cos(x^2)\\,dx = \\frac{1}{2}\\sin(x^2) + C$.\n\n### Definite integrals\n\n$$\n\\int_a^b u\\,dv = uv\\Big|_a^b - \\int_a^b v\\,du\n$$\n\n- **Trap:** evaluate $uv$ at both limits as well. $\\int_0^{\\pi} x\\sin x\\,dx = -x\\cos x\\Big|_0^{\\pi} + \\int_0^{\\pi}\\cos x\\,dx = \\pi + 0 = \\pi$: here the $uv$ term is the whole answer.\n\n### Repeated parts\n- $\\int x^n\\cos x\\,dx$ takes $n$ rounds: each round lowers the power of $x$ by one.\n- $\\int x^2\\cos 3x\\,dx = \\frac{1}{3}x^2\\sin 3x - \\frac{2}{3}\\int x\\sin 3x\\,dx = \\frac{1}{3}x^2\\sin 3x + \\frac{2}{9}x\\cos 3x - \\frac{2}{27}\\sin 3x + C$.\n- **Trap:** the $-\\frac{2}{3}$ multiplies the whole second round: $-\\frac{2}{3}\\left(-\\frac{1}{3}x\\cos 3x + \\frac{1}{9}\\sin 3x\\right)$.\n- Tabular shortcut (beyond Chen's notes): list $u, u', u'', \\dots$ down to $0$ beside $dv$ integrated again and again, multiply along the diagonals with signs $+, -, +, \\dots$, and add. Use it when $u$ is a polynomial.\n\n### Cyclic integrals\nExample: $\\int e^x\\cos 2x\\,dx$. Parts with $u = \\cos 2x$, then again with $u = \\sin 2x$, gives\n\n$$\n\\int e^x\\cos 2x\\,dx = e^x\\cos 2x + 2e^x\\sin 2x - 4\\int e^x\\cos 2x\\,dx\n$$\n\n- The original integral reappears: stop and solve the equation. $5\\int e^x\\cos 2x\\,dx = e^x(\\cos 2x + 2\\sin 2x)$, so $\\int e^x\\cos 2x\\,dx = \\frac{1}{5}e^x(\\cos 2x + 2\\sin 2x) + C$.\n- **Trap:** keep the same kind of $u$ in round two (trig again here). Switching to $u = e^x$ undoes round one and gives $I = I$.\n- Going against LIATE also works here: start with $u = e^x$, $dv = \\cos 2x\\,dx$, as Chen does in his own example (with $u$ the exponential). Finishing that way takes $u = e^x$ again in round two.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L11-parts-poly-exp-trig",
+        "name": "Polynomial times exponential or trig"
+      },
+      {
+        "id": "L11-parts-log-inverse-trig",
+        "name": "Logarithm or inverse-trig factor"
+      },
+      {
+        "id": "L11-parts-applied",
+        "name": "Parts inside an applied setup"
+      },
+      {
+        "id": "L11-cyclic-parts",
+        "name": "Cyclic integrals (exp times trig)"
+      },
+      {
+        "id": "L11-recognise-or-complete",
+        "name": "Recognise or complete a parts step"
+      }
+    ]
   },
   {
     "id": "L12",
@@ -189,7 +379,25 @@
       "L11"
     ],
     "keyIdeas": "### Basic idea\n$\\sin x$ and $\\cos x$ are each other's derivative up to sign, so when both appear a substitution may work.\n- Chen: $\\int \\frac{\\sin x}{\\cos x}\\,dx$ with $u = \\cos x$ gives $-\\ln|\\cos x| + C$. So $\\int \\tan x\\,dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$. Keep the absolute value.\n- Bring in $1 - \\sin^2 x = \\cos^2 x$ with a conjugate. Chen: $\\int \\frac{dx}{1 - \\sin x} = \\int \\frac{1 + \\sin x}{\\cos^2 x}\\,dx = \\tan x + \\frac{1}{\\cos x} + C$.\n- **Trap:** $\\sqrt{f^2} = |f|$. Chen: $\\int_{-\\pi/2}^{0}\\sqrt{1 + \\cos 2x}\\,dx$ becomes $\\int_{-\\pi/2}^{0} \\frac{|\\sin 2x|}{\\sqrt{1 - \\cos 2x}}\\,dx$, and $\\sin 2x < 0$ there, so $|\\sin 2x| = -\\sin 2x$. The answer is $\\sqrt{2}$. (Faster: $1 + \\cos 2x = 2\\cos^2 x$, so the integrand is $\\sqrt{2}\\,|\\cos x|$.)\n\n### Powers: $\\int \\sin^m x\\cos^n x\\,dx$\n**Case 1: $m$ or $n$ is positive and odd.** Save one factor of the odd-power function, turn the rest into the other function with $\\sin^2 x + \\cos^2 x = 1$, and substitute.\n- Odd power of cosine: save $\\cos x$, $u = \\sin x$, $du = \\cos x\\,dx$.\n- Odd power of sine: save $\\sin x$, $u = \\cos x$, $du = -\\sin x\\,dx$.\n- $\\int \\sin^8 x\\cos^3 x\\,dx = \\int \\sin^8 x(1 - \\sin^2 x)\\cos x\\,dx = \\frac{1}{9}\\sin^9 x - \\frac{1}{11}\\sin^{11} x + C$.\n- **Trap:** saving a factor from the even power fails: the other function is left with an odd power, which converts only with a square root.\n- Both odd: either choice works, and the answers differ by a constant.\n\n**Case 2: $m$ and $n$ are both even.** Use the half-angle identities:\n\n$$\n\\cos^2 x = \\frac{1 + \\cos 2x}{2}, \\qquad \\sin^2 x = \\frac{1 - \\cos 2x}{2}\n$$\n\n- **Trap:** plus for cosine, minus for sine. Check at $x = 0$: $\\cos^2 0 = 1 = \\frac{1 + 1}{2}$ and $\\sin^2 0 = 0 = \\frac{1 - 1}{2}$.\n- The same identities also handle a zero power: $\\int \\sin^2 x\\,dx = \\frac{x}{2} - \\frac{\\sin 2x}{4} + C$.\n- Chen: $\\int \\sin^2 x\\cos^2 x\\,dx = \\frac{1}{4}\\int \\sin^2 2x\\,dx = \\frac{1}{8}\\int (1 - \\cos 4x)\\,dx = \\frac{1}{8}\\left(x - \\frac{1}{4}\\sin 4x\\right) + C$. Apply an identity again whenever an even power remains.\n- $\\int \\cos kx\\,dx = \\frac{1}{k}\\sin kx + C$: keep the $\\frac{1}{k}$.\n\n### Basic tan, sec, and cot integrals\n- $\\frac{d}{dx}\\tan x = \\sec^2 x$, $\\frac{d}{dx}\\sec x = \\sec x\\tan x$, and $\\tan^2 x + 1 = \\sec^2 x$.\n- $\\frac{d}{dx}\\cot x = -\\csc^2 x$, $\\frac{d}{dx}\\csc x = -\\csc x\\cot x$, and $1 + \\cot^2 x = \\csc^2 x$.\n- $\\int \\cot^3 x\\,dx = \\int \\cot x(\\csc^2 x - 1)\\,dx = -\\frac{1}{2}\\cot^2 x - \\ln|\\sin x| + C$.\n- Chen: $\\int \\cot^2 x\\,dx = \\int (\\csc^2 x - 1)\\,dx = -\\cot x - x + C$.\n- $\\int \\cot x\\,dx = \\int \\frac{\\cos x}{\\sin x}\\,dx = \\ln|\\sin x| + C$ (beyond Chen's notes).",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L12-odd-power-substitution",
+        "name": "Sine/cosine with an odd power"
+      },
+      {
+        "id": "L12-even-powers-half-angle",
+        "name": "Even sine/cosine powers, half-angle"
+      },
+      {
+        "id": "L12-choose-method",
+        "name": "Choose the right trig method"
+      },
+      {
+        "id": "L12-tan-identities",
+        "name": "Tan integrals and identities"
+      }
+    ]
   },
   {
     "id": "L13",
@@ -205,7 +413,21 @@
       "L12"
     ],
     "keyIdeas": "### Strategy for $\\int \\tan^m x\\sec^n x\\,dx$\nBring in a derivative so a substitution works: $\\frac{d}{dx}\\tan x = \\sec^2 x$, $\\frac{d}{dx}\\sec x = \\sec x\\tan x$, and $\\tan^2 x + 1 = \\sec^2 x$.\n- **$\\sec x$ has a positive even power:** save $\\sec^2 x$, turn the other secants into tangents with $\\sec^2 x = \\tan^2 x + 1$, and let $u = \\tan x$, $du = \\sec^2 x\\,dx$.\n- **$\\tan x$ has a positive odd power:** save $\\sec x\\tan x$, turn the other tangents into secants with $\\tan^2 x = \\sec^2 x - 1$, and let $u = \\sec x$, $du = \\sec x\\tan x\\,dx$.\n- Chen: $\\int \\tan x\\sec^7 x\\,dx = \\int \\sec^6 x\\cdot\\sec x\\tan x\\,dx = \\frac{1}{7}\\sec^7 x + C$.\n- When both hold, either works. Chen: $\\int \\tan^5 x\\sec^6 x\\,dx$ is $\\frac{1}{10}\\tan^{10}x + \\frac{1}{4}\\tan^8 x + \\frac{1}{6}\\tan^6 x + C$ with $u = \\tan x$, or $\\frac{1}{10}\\sec^{10}x - \\frac{1}{4}\\sec^8 x + \\frac{1}{6}\\sec^6 x + C$ with $u = \\sec x$.\n- **Trap:** match the saved factor to the parity. With an odd power of $\\sec x$, saving $\\sec^2 x$ leaves an odd power of $\\sec x$, which needs a square root to write in $\\tan x$. With an even power of $\\tan x$, saving $\\sec x\\tan x$ leaves an odd power of $\\tan x$.\n- Neither rule applies when the power of $\\tan x$ is even (or zero) and the power of $\\sec x$ is odd (or zero), such as $\\int \\tan^2 x\\sec x\\,dx$, $\\int \\sec^3 x\\,dx$, or $\\int \\tan^4 x\\,dx$. Powers of $\\tan x$ alone are handled below. Odd powers of $\\sec x$ need other tools, such as parts (beyond Chen's notes). Also beyond the notes: $\\int \\sec x\\,dx = \\ln|\\sec x + \\tan x| + C$.\n\n### Powers of $\\tan x$ alone\nSplit off $\\tan^2 x = \\sec^2 x - 1$, as often as needed.\n- $\\int \\tan^4 x\\,dx = \\int \\tan^2 x\\sec^2 x\\,dx - \\int \\tan^2 x\\,dx = \\frac{1}{3}\\tan^3 x - \\tan x + x + C$, using $\\int \\tan^2 x\\,dx = \\int (\\sec^2 x - 1)\\,dx = \\tan x - x$.\n- Odd powers end in $\\int \\tan x\\,dx = \\ln|\\sec x|$: $\\int \\tan^5 x\\,dx = \\frac{1}{4}\\tan^4 x - \\int \\tan^3 x\\,dx = \\frac{1}{4}\\tan^4 x - \\frac{1}{2}\\tan^2 x + \\int \\tan x\\,dx = \\frac{1}{4}\\tan^4 x - \\frac{1}{2}\\tan^2 x + \\ln|\\sec x| + C$, splitting off $\\tan^2 x = \\sec^2 x - 1$ at each step.\n\n### Different-looking answers\n- Two substitutions can give different-looking answers. $\\int \\tan x\\sec^2 x\\,dx$ is $\\frac{1}{2}\\tan^2 x + C$ with $u = \\tan x$, and $\\frac{1}{2}\\sec^2 x + C$ with $u = \\sec x$ (saving $\\sec x\\tan x$).\n- **Trap:** different-looking answers can both be right. Since $\\sec^2 x = \\tan^2 x + 1$, the second answer is the first plus the constant $\\frac{1}{2}$.\n\n### Rewrite in sine and cosine\n- When no pattern fits, use $\\sec x = \\frac{1}{\\cos x}$ and $\\tan x = \\frac{\\sin x}{\\cos x}$.\n- Chen: $\\int \\frac{dx}{\\sec x - 1} = \\int \\frac{\\cos x}{1 - \\cos x}\\,dx$. Multiply by $\\frac{1 + \\cos x}{1 + \\cos x}$:\n\n$$\n\\int \\frac{\\cos x + \\cos^2 x}{\\sin^2 x}\\,dx = \\int \\frac{\\cos x}{\\sin^2 x}\\,dx + \\int \\csc^2 x\\,dx - \\int 1\\,dx\n$$\n\n- With $u = \\sin x$ in the first piece, the answer is $-\\frac{1}{\\sin x} - \\cot x - x + C$.\n- **Trap:** $\\int \\csc^2 x\\,dx = -\\cot x + C$, with a minus sign, while $\\int \\sec^2 x\\,dx = \\tan x + C$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L13-even-sec-power",
+        "name": "Tan and sec with even sec"
+      },
+      {
+        "id": "L13-sec-tan-odd",
+        "name": "Sec-tan products, u = sec"
+      },
+      {
+        "id": "L13-choose-substitution",
+        "name": "Choose the right substitution"
+      }
+    ]
   },
   {
     "id": "L14",
@@ -221,7 +443,25 @@
       "L13"
     ],
     "keyIdeas": "### Idea\nTrig substitution sets $x$ equal to a trig function so that a Pythagorean identity removes a square root (or a power of one).\n- Chen: $\\int \\frac{dx}{\\sqrt{1 - x^2}}$ with $x = \\sin\\theta$, $dx = \\cos\\theta\\,d\\theta$: $\\int \\frac{\\cos\\theta}{\\sqrt{\\cos^2\\theta}}\\,d\\theta = \\theta + C = \\sin^{-1}x + C$.\n- Substitute for $dx$ too, then simplify the root.\n\n### Building the triangle (Chen's method)\n- The three sides are the radical, the variable part, and the constant, each the square root of a square. For $\\sqrt{x^2 + 4}$ they are $\\sqrt{x^2 + 4}$, $x$, and $2$.\n- The hypotenuse is the side whose square is the sum of the other two squares.\n- Rule of thumb: the constant, or the side containing a constant, is adjacent to $\\theta$.\n- Relate $x$ and $\\theta$ with the two simplest sides, the ones without a radical.\n\n### Which substitution ($a > 0$)\n- $\\sqrt{a^2 - x^2}$: hypotenuse $a$, opposite $x$. So $x = a\\sin\\theta$ and $\\sqrt{a^2 - x^2} = a\\cos\\theta$.\n- $\\sqrt{a^2 + x^2}$: hypotenuse $\\sqrt{a^2 + x^2}$, adjacent $a$. So $x = a\\tan\\theta$ and $\\sqrt{a^2 + x^2} = a\\sec\\theta$.\n- $\\sqrt{x^2 - a^2}$: hypotenuse $x$, adjacent $a$. So $x = a\\sec\\theta$ and $\\sqrt{x^2 - a^2} = a\\tan\\theta$ for $x \\ge a$. Chen's notes have no worked example of this case; the triangle method is the same.\n- With a coefficient, match the squares: $\\sqrt{9x^2 + 4}$ has sides $3x$ and $2$, so $3x = 2\\tan\\theta$.\n- Writing $\\sqrt{a^2\\cos^2\\theta} = a\\cos\\theta$ without an absolute value is safe: $x = a\\sin\\theta$ uses $-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$, where $\\cos\\theta \\ge 0$ (beyond Chen's notes).\n\n### Back to $x$ with the triangle\n- Chen: $\\int \\frac{x^3}{\\sqrt{x^2 + 4}}\\,dx$. With $x = 2\\tan\\theta$ it is $8\\int \\tan^3\\theta\\sec\\theta\\,d\\theta = \\frac{8}{3}\\sec^3\\theta - 8\\sec\\theta + C$. The triangle gives $\\sec\\theta = \\frac{\\sqrt{x^2 + 4}}{2}$, so the answer is $\\frac{1}{3}(x^2 + 4)^{3/2} - 4(x^2 + 4)^{1/2} + C$.\n- $\\int \\frac{dx}{(9 - x^2)^{3/2}}$. With $x = 3\\sin\\theta$ it is $\\frac{1}{9}\\int \\sec^2\\theta\\,d\\theta = \\frac{1}{9}\\tan\\theta + C = \\frac{x}{9\\sqrt{9 - x^2}} + C$.\n- **Trap:** an indefinite answer must be in $x$. Read $\\sin\\theta$, $\\tan\\theta$, $\\sec\\theta$ off the triangle, and use $\\theta = \\sin^{-1}\\left(\\frac{x}{a}\\right)$ or $\\theta = \\tan^{-1}\\left(\\frac{x}{a}\\right)$.\n\n### Definite integrals: change the limits\n- $\\int_0^{\\sqrt{3}} \\frac{dx}{(1 + x^2)^{3/2}}$ with $x = \\tan\\theta$, $dx = \\sec^2\\theta\\,d\\theta$, and $(1 + x^2)^{3/2} = \\sec^3\\theta$. The limits become $x = 0 \\to \\theta = 0$ and $x = \\sqrt{3} \\to \\theta = \\tan^{-1}\\sqrt{3} = \\frac{\\pi}{3}$. Then $\\int_0^{\\pi/3}\\cos\\theta\\,d\\theta = \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$, with no need to return to $x$. (Chen changes limits the same way in his examples.)\n- **Trap:** either change the limits to $\\theta$ or convert back to $x$ first. Never put $x$-limits into a $\\theta$ antiderivative.\n\n### Standard forms ($a > 0$)\n- $\\int \\frac{dx}{\\sqrt{a^2 - x^2}} = \\sin^{-1}\\left(\\frac{x}{a}\\right) + C$ and $\\int \\frac{dx}{a^2 + x^2} = \\frac{1}{a}\\tan^{-1}\\left(\\frac{x}{a}\\right) + C$. Only the arctangent has the $\\frac{1}{a}$.\n- Try a plain substitution first: $\\int \\frac{x}{\\sqrt{x^2 + 4}}\\,dx = \\sqrt{x^2 + 4} + C$ with $u = x^2 + 4$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L14-identify-substitution",
+        "name": "Set up a trig substitution"
+      },
+      {
+        "id": "L14-sine-substitution",
+        "name": "Evaluate with x = a sin(theta)"
+      },
+      {
+        "id": "L14-tangent-substitution",
+        "name": "Evaluate with x = a tan(theta)"
+      },
+      {
+        "id": "L14-secant-substitution",
+        "name": "Evaluate with x = a sec(theta)"
+      }
+    ]
   },
   {
     "id": "L15",
@@ -237,7 +477,21 @@
       "L14"
     ],
     "keyIdeas": "### Arc length that needs a trig substitution\n- Chen: the length of $y = \\sqrt{1 - x^2}$ from $x = 0$ to $x = \\frac{1}{\\sqrt{2}}$. Here $1 + (y')^2 = 1 + \\frac{x^2}{1 - x^2} = \\frac{1}{1 - x^2}$, so $L = \\int_0^{1/\\sqrt{2}}\\frac{dx}{\\sqrt{1 - x^2}}$.\n- With $x = \\sin\\theta$ the limits are $0$ and $\\frac{\\pi}{4}$, and $L = \\frac{\\pi}{4}$: an arc of the unit circle, as the geometry says.\n\n### Other triangle orientations\n- The hypotenuse is fixed, but the two legs can swap. Chen redoes the arc with $x = \\cos\\theta$: $dx = -\\sin\\theta\\,d\\theta$, the limits become $x = 0 \\to \\theta = \\frac{\\pi}{2}$ and $x = \\frac{1}{\\sqrt{2}} \\to \\theta = \\frac{\\pi}{4}$, and $\\int_{\\pi/2}^{\\pi/4} -d\\theta = \\frac{\\pi}{4}$ again.\n- Putting the constant (or the side containing a constant) adjacent limits the choices to $\\sin\\theta$, $\\tan\\theta$, $\\sec\\theta$. Swapping the legs adds $\\cos\\theta$, $\\cot\\theta$, $\\csc\\theta$.\n\n### Completing the square\nWhen the quadratic is not a sum or difference of squares, there is no triangle yet. Complete the square first:\n\n$$\nx^2 + bx + c = \\left(x + \\frac{b}{2}\\right)^2 + c - \\frac{b^2}{4}\n$$\n\n- Then match the shape: $a^2 - (x - h)^2$ gives $x - h = a\\sin\\theta$; $(x - h)^2 + a^2$ gives $x - h = a\\tan\\theta$; $(x - h)^2 - a^2$ gives $x - h = a\\sec\\theta$.\n- Chen: $\\int \\frac{dx}{x^2 - 6x + 45}$. Here $x^2 - 6x + 45 = (x - 3)^2 + 6^2$. With $u = x - 3$ and $u = 6\\tan\\theta$ the integral is $\\int \\frac{1}{6}\\,d\\theta$, so the answer is $\\frac{1}{6}\\tan^{-1}\\left(\\frac{x - 3}{6}\\right) + C$.\n- **Trap:** with a negative $x^2$ term, factor out $-1$ first. With a leading coefficient other than $\\pm 1$, write the square as $(kx + m)^2$ and keep the factor that comes from $du = k\\,dx$.\n\n### Factored radicals\n- Multiply out, then complete the square. Chen: $(x - 5)(1 - x) = -x^2 + 6x - 5 = -[(x - 3)^2 - 2^2] = 2^2 - (x - 3)^2$.\n- So in $\\int \\frac{dx}{\\sqrt{(x - 5)(1 - x)}}$ let $x - 3 = 2\\sin\\theta$. Then $dx = 2\\cos\\theta\\,d\\theta$ and the root is $2\\cos\\theta$, so the integral is $\\int d\\theta = \\sin^{-1}\\left(\\frac{x - 3}{2}\\right) + C$.\n- The triangle has hypotenuse $2$, opposite side $x - 3$, and adjacent side $\\sqrt{4 - (x - 3)^2}$.\n\n### Before substituting\n- If the numerator is the derivative of the quadratic, let $u$ be the quadratic: $\\int \\frac{2x + 4}{x^2 + 4x + 8}\\,dx = \\ln(x^2 + 4x + 8) + C$.\n- A quadratic that factors into real linear factors, with no radical, is easier by partial fractions (L16).\n- The arctangent and arcsine forms from L14 apply with $x - h$ in place of $x$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L15-choose-completed-square-sub",
+        "name": "Choose substitution after completing square"
+      },
+      {
+        "id": "L15-transformed-integral",
+        "name": "Integral after completing the square"
+      },
+      {
+        "id": "L15-evaluate-completed-square",
+        "name": "Evaluate after completing the square"
+      }
+    ]
   },
   {
     "id": "L16",
@@ -253,7 +507,17 @@
       "L15"
     ],
     "keyIdeas": "### Why partial fractions\nChen: $\\frac{x - 8}{x^2 - 7x + 10} = \\frac{2}{x - 2} - \\frac{1}{x - 5}$, so\n\n$$\n\\int \\frac{x - 8}{x^2 - 7x + 10}\\,dx = 2\\ln|x - 2| - \\ln|x - 5| + C\n$$\n\n- Each piece integrates to a logarithm with an absolute value: $\\int \\frac{A}{x - r}\\,dx = A\\ln|x - r| + C$.\n- **Trap:** a coefficient on $x$ divides out, sign included: $\\int \\frac{dx}{ax + b} = \\frac{1}{a}\\ln|ax + b| + C$, so $\\int \\frac{dx}{5 - 2x} = -\\frac{1}{2}\\ln|5 - 2x| + C$.\n\n### Proper fractions only\n- The numerator must have lower degree than the denominator. If not, rewrite first. Chen: $\\frac{-2x^3 + 5x^2 + 10}{-2x^3 + 5x^2} = 1 + \\frac{10}{-2x^3 + 5x^2}$. Long division is in L17.\n\n### Case 1: distinct linear factors\n- One constant over each factor: $\\frac{x - 8}{(x - 5)(x - 2)} = \\frac{A}{x - 5} + \\frac{B}{x - 2}$.\n- Multiply through by the denominator: $x - 8 = A(x - 2) + B(x - 5)$. Then either equate coefficients ($A + B = 1$ and $-2A - 5B = -8$) or plug in $x$-values that make factors zero ($x = 5$ gives $A = -1$, $x = 2$ gives $B = 2$).\n- Chen: $\\frac{1}{x^2 - 4} = \\frac{1/4}{x - 2} - \\frac{1/4}{x + 2}$, so $\\int \\frac{dx}{x^2 - 4} = \\frac{1}{4}\\ln|x - 2| - \\frac{1}{4}\\ln|x + 2| + C$.\n\n### Case 2: repeated linear factors\n- Each time a factor repeats, bump the power by one: $(x - r)^k$ contributes $\\frac{A_1}{x - r} + \\frac{A_2}{(x - r)^2} + \\dots + \\frac{A_k}{(x - r)^k}$.\n- Chen's form: $\\frac{1}{x^2(x - 1)^3(x + 10)} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x - 1} + \\frac{D}{(x - 1)^2} + \\frac{E}{(x - 1)^3} + \\frac{F}{x + 10}$.\n- Chen: $\\frac{10}{5x^2 - 2x^3} = \\frac{10}{x^2(5 - 2x)} = \\frac{4/5}{x} + \\frac{2}{x^2} + \\frac{8/5}{5 - 2x}$, so the integral is $\\frac{4}{5}\\ln|x| - \\frac{2}{x} - \\frac{4}{5}\\ln|5 - 2x| + D$.\n- Higher powers integrate by the power rule, not to a logarithm: for $k \\ge 2$, $\\int \\frac{B}{(x - r)^k}\\,dx = -\\frac{B}{(k - 1)(x - r)^{k - 1}} + C$.\n\n### Plugging in roots (the cover-up idea)\n- A root of a linear factor kills every term but one. It gives the constant over each distinct linear factor, and the constant over the **highest** power of a repeated one.\n- **Trap:** it cannot isolate the lower powers of a repeated factor. In Chen's $10 = Ax(5 - 2x) + B(5 - 2x) + Cx^2$, $x = 0$ gives $B = 2$ and $x = \\frac{5}{2}$ gives $C = \\frac{8}{5}$, but $A$ needs another value ($x = 1$) or matching coefficients.\n- The identity holds for every $x$, so plugging in values and matching coefficients can be mixed.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L16-coefficients-or-form",
+        "name": "Coefficients or form of decomposition"
+      },
+      {
+        "id": "L16-integrate-linear-factors",
+        "name": "Integrate with distinct linear factors"
+      }
+    ]
   },
   {
     "id": "L17",
@@ -269,7 +533,21 @@
       "L16"
     ],
     "keyIdeas": "### Long division first\n- If the numerator's degree is at least the denominator's, divide: $\\frac{N(x)}{D(x)} = q(x) + \\frac{r(x)}{D(x)}$ with $\\deg r < \\deg D$. Integrate $q$ directly and decompose $\\frac{r}{D}$.\n- Chen: $\\frac{26x^3 - 52x^2 + 2}{x^2 - 2x} = 26x + \\frac{2}{x(x - 2)}$, and $\\frac{2}{x(x - 2)} = -\\frac{1}{x} + \\frac{1}{x - 2}$. The integral is $13x^2 - \\ln|x| + \\ln|x - 2| + C$ (the finish is beyond Chen's notes).\n- **Trap:** decomposing an improper fraction directly cannot work; the polynomial part $q(x)$ would be missing.\n\n### Irreducible quadratic factors\n- Irreducible means it cannot be factored into real linear factors, such as $x^2 + 4$. For $ax^2 + bx + c$ this means $b^2 - 4ac < 0$ (beyond Chen's notes).\n- **Trap:** factor reducible quadratics first, such as $x^2 - 2x = x(x - 2)$ and $x^2 - 9 = (x - 3)(x + 3)$.\n- Each numerator is one degree lower than its factor: a constant over a linear factor, $Bx + C$ over an irreducible quadratic.\n- Chen's form: $\\frac{2x^2 - x + 4}{x(x^2 + 4)} = \\frac{A}{x} + \\frac{Bx + C}{x^2 + 4}$.\n- Chen: $\\frac{x^2 + x + 2}{(x + 1)(x^2 + 1)} = \\frac{1}{x + 1} + \\frac{1}{x^2 + 1}$ ($A = 1$, $B = 0$, $C = 1$), so the integral is $\\ln|x + 1| + \\tan^{-1}x + D$.\n\n### Repeated irreducible quadratic factors\n- Handle them like repeated linear factors, each with a linear numerator: $(x^2 + 4)^2$ contributes $\\frac{Ax + B}{x^2 + 4} + \\frac{Cx + D}{(x^2 + 4)^2}$.\n- Example: since $x^3 = x(x^2 + 4) - 4x$, $\\frac{x^3}{(x^2 + 4)^2} = \\frac{x}{x^2 + 4} - \\frac{4x}{(x^2 + 4)^2}$ ($A = 1$, $B = 0$, $C = -4$, $D = 0$). The integral is $\\frac{1}{2}\\ln(x^2 + 4) + \\frac{2}{x^2 + 4} + K$.\n- Chen's form for $\\frac{2x^3 + 5x - 10}{x^2(x^2 + 4)^3(x^2 - 9)^2}$, where $x^2 - 9 = (x + 3)(x - 3)$ is reducible:\n\n$$\n\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 4} + \\frac{Ex + F}{(x^2 + 4)^2} + \\frac{Gx + H}{(x^2 + 4)^3} + \\frac{I}{x + 3} + \\frac{J}{(x + 3)^2} + \\frac{K}{x - 3} + \\frac{L}{(x - 3)^2}\n$$\n\n### Integrating the quadratic pieces\n- $\\int \\frac{Bx}{x^2 + a^2}\\,dx = \\frac{B}{2}\\ln(x^2 + a^2) + C$ by $u = x^2 + a^2$. No absolute value is needed, since $x^2 + a^2 > 0$.\n- $\\int \\frac{C}{x^2 + a^2}\\,dx = \\frac{C}{a}\\tan^{-1}\\left(\\frac{x}{a}\\right) + K$, the arctangent form from L14.\n- $\\int \\frac{x}{(x^2 + a^2)^2}\\,dx = -\\frac{1}{2(x^2 + a^2)} + C$ by the same $u$.\n- If the quadratic is $x^2 + bx + c$ with a linear term, complete the square first (L15) and split the numerator to match.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L17-decomposition-form",
+        "name": "Form of a partial fraction decomposition"
+      },
+      {
+        "id": "L17-long-division",
+        "name": "Polynomial long division first"
+      },
+      {
+        "id": "L17-integrate-quadratic-factor",
+        "name": "Integrate with an irreducible quadratic"
+      }
+    ]
   },
   {
     "id": "L18",
@@ -285,7 +563,21 @@
       "L17"
     ],
     "keyIdeas": "### Infinite limits of integration\n\n$$\n\\int_a^\\infty f(x)\\,dx = \\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx\n$$\n\n- **Converges** if the limit is a finite number. **Diverges** if it is $\\pm\\infty$ (Chen) or does not exist, such as $\\int_0^\\infty \\cos x\\,dx$ (beyond Chen's notes).\n- Chen: $\\int_1^\\infty \\frac{dx}{x} = \\lim_{b\\to\\infty}\\ln b = \\infty$ diverges, but $\\int_1^\\infty \\frac{dx}{x^2} = \\lim_{b\\to\\infty}\\left(1 - \\frac{1}{b}\\right) = 1$ converges.\n- For $a > 0$: $\\int_a^\\infty \\frac{dx}{x^p}$ converges if $p > 1$ and diverges if $p \\le 1$. The difference is how fast $\\frac{1}{x^p}$ decreases. The lower limit must be positive: with $a \\le 0$ and $p > 0$ the integrand is also undefined at $x = 0$.\n- Both limits infinite: split at any point $c$. $\\int_{-\\infty}^\\infty f(x)\\,dx = \\int_{-\\infty}^c f(x)\\,dx + \\int_c^\\infty f(x)\\,dx$ converges only if **both** pieces converge.\n- Chen: $\\int_{-\\infty}^\\infty \\frac{dx}{x^2 + 1} = \\lim_{a\\to-\\infty}\\left(-\\tan^{-1}a\\right) + \\lim_{b\\to\\infty}\\tan^{-1}b = \\frac{\\pi}{2} + \\frac{\\pi}{2} = \\pi$.\n- **Trap:** $\\lim_{R\\to\\infty}\\int_{-R}^{R}$ is not the definition. $\\int_{-R}^{R}x\\,dx = 0$ for every $R$, yet $\\int_{-\\infty}^\\infty x\\,dx$ diverges (beyond Chen's notes).\n\n### Infinite discontinuities\nThe limits are finite but $f(x) \\to \\pm\\infty$ somewhere on $[a, b]$. Approach the bad point with a one-sided limit.\n- At the left endpoint: $\\int_a^b f(x)\\,dx = \\lim_{t\\to a^+}\\int_t^b f(x)\\,dx$, and use $t \\to b^-$ at the right endpoint.\n- At a point $c$ **inside** $(a, b)$: split, $\\int_a^b f(x)\\,dx = \\lim_{t\\to c^-}\\int_a^t f(x)\\,dx + \\lim_{s\\to c^+}\\int_s^b f(x)\\,dx$. It converges only if both pieces converge.\n- **Trap:** an interior blow-up is easy to miss. Chen: $\\int_{-2}^{3}\\frac{dx}{x^4}$ blows up at $x = 0$. Split there, both pieces are $\\infty$, so it diverges. The naive $-\\frac{1}{3x^3}\\Big|_{-2}^{3} = -\\frac{35}{648}$ is meaningless: a negative value for a positive integrand.\n- Before using the Fundamental Theorem, check for zeros of a denominator, $\\ln x$ at $0$, and $\\tan x$ or $\\sec x$ at odd multiples of $\\frac{\\pi}{2}$ inside the interval.\n- On $(0, 1]$ the ranges flip: $\\int_0^1 \\frac{dx}{x^p}$ converges if $p < 1$ and diverges if $p \\ge 1$ (beyond Chen's notes).\n- An integral with several problems: split it so each piece has only one.\n\n### Comparison\nFor $0 \\le f(x) \\le g(x)$ on $[a, \\infty)$:\n- If $\\int_a^\\infty g(x)\\,dx$ converges, so does $\\int_a^\\infty f(x)\\,dx$ (smaller and finite).\n- If $\\int_a^\\infty f(x)\\,dx$ diverges, so does $\\int_a^\\infty g(x)\\,dx$ (bigger).\n- Chen: $0 \\le \\frac{1}{x^2 + 1} \\le \\frac{1}{x^2}$, so $\\int_1^\\infty \\frac{dx}{x^2 + 1}$ converges. And $\\frac{1}{x - \\frac{1}{2}} \\ge \\frac{1}{x} > 0$ on $[1, \\infty)$, so $\\int_1^\\infty \\frac{dx}{x - \\frac{1}{2}}$ diverges.\n- **Trap:** being below a divergent integral, or above a convergent one, tells you nothing.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L18-which-converge",
+        "name": "Which improper integrals converge"
+      },
+      {
+        "id": "L18-infinite-interval",
+        "name": "Improper integral, infinite limit"
+      },
+      {
+        "id": "L18-discontinuity",
+        "name": "Improper integral, infinite discontinuity"
+      }
+    ]
   },
   {
     "id": "L19",
@@ -301,7 +593,21 @@
       "L18"
     ],
     "keyIdeas": "### Sequences\n- A **sequence** is an ordered list of numbers $\\{a_n\\}_{n=1}^{\\infty} = \\{a_1, a_2, a_3, \\dots\\}$; $a_n$ is the $n$th term.\n- Given by an **explicit formula** (such as $a_n = 2n$) or a **recurrence relation**: first term(s) plus a rule, such as $a_1 = 2$, $a_{n+1} = a_n + 2$. Fibonacci: $a_1 = a_2 = 1$, $a_{n+2} = a_{n+1} + a_n$.\n- The sequence **converges** if $\\lim_{n\\to\\infty} a_n$ exists (a finite number); otherwise it **diverges**.\n\n### Series and partial sums\n- A **series** is the sum of the terms of a sequence:\n\n$$\n\\sum_{k=1}^{\\infty} a_k = a_1 + a_2 + a_3 + \\cdots\n$$\n\n- The $n$th **partial sum** is the sum of the first $n$ terms: $S_n = a_1 + a_2 + \\cdots + a_n$.\n- The series **converges** if the partial sums have a finite limit, and then $\\sum_{k=1}^{\\infty} a_k = \\lim_{n\\to\\infty} S_n$. Otherwise it **diverges**.\n\n### Two sequences, two questions\n- Every series carries two sequences: the terms $\\{a_k\\}$ and the partial sums $\\{S_n\\}$. \"Does $a_k$ converge?\" and \"Does $\\sum a_k$ converge?\" are different questions.\n- $\\sum_{k=1}^{\\infty} \\frac{1}{2^k}$: $S_1 = \\frac{1}{2}$, $S_2 = \\frac{3}{4}$, $S_3 = \\frac{7}{8}$, $S_n = 1 - \\frac{1}{2^n} \\to 1$, so the series converges to $1$.\n- $\\sum_{n=1}^{\\infty} \\cos\\left(\\frac{2n\\pi}{3}\\right) = -\\frac{1}{2} - \\frac{1}{2} + 1 - \\frac{1}{2} - \\cdots$ has partial sums $-\\frac{1}{2}, -1, 0$, repeating, which never settle: diverges.\n- $\\sum_{k=1}^{\\infty} k$ diverges, since $S_n = \\frac{n(n+1)}{2} \\to \\infty$.\n- Going back: $a_1 = S_1$ and $a_n = S_n - S_{n-1}$ for $n \\ge 2$.\n\n### Limit tools (review)\n- For large $n$, keep the dominant terms: $\\frac{2n}{n+1} \\approx \\frac{2n}{n} = 2$.\n- L'Hospital's Rule only for $\\frac{0}{0}$ or $\\frac{\\infty}{\\infty}$: $\\lim_{n\\to\\infty} \\frac{n}{2n^2+1} = \\lim_{n\\to\\infty} \\frac{1}{4n} = 0$.\n- A factor $(-1)^n$ only flips signs: if $|a_n| \\to 0$ then $a_n \\to 0$ (Chen: $\\frac{(-1)^n n}{2n^2+1} \\to 0$), but $a_n = (-1)^n b_n$ with $b_n \\to L \\ne 0$ diverges.\n\n### Traps\n- $a_k \\to 0$ does **not** mean $\\sum a_k$ converges: $\\frac{1}{k} \\to 0$ but $\\sum \\frac{1}{k}$ diverges.\n- A sequence converging to a nonzero number means its series diverges: $\\frac{2n}{n+1} \\to 2$, so $\\sum \\frac{2n}{n+1}$ diverges.\n- A few partial sums suggest a limit; they do not prove one.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L19-recurrence-term",
+        "name": "Compute a term of a recurrence"
+      },
+      {
+        "id": "L19-recurrence-match",
+        "name": "Match a recurrence to a term"
+      },
+      {
+        "id": "L19-partial-sums",
+        "name": "Partial sums and series ideas"
+      }
+    ]
   },
   {
     "id": "L20",
@@ -317,7 +623,25 @@
       "L19"
     ],
     "keyIdeas": "### Limits of sequences\n- $\\{a_n\\}$ converges to $L$ if $\\lim_{n\\to\\infty} a_n = L$ (finite). If $a_n = f(n)$ and $\\lim_{x\\to\\infty} f(x) = L$, then $a_n \\to L$, so function tools like L'Hospital's Rule apply.\n- Limit laws (sums, products, quotients, constant multiples) work as for functions.\n- **Squeeze Theorem:** if $b_n \\le a_n \\le c_n$ and $b_n \\to L$, $c_n \\to L$, then $a_n \\to L$. Example: $-\\frac{1}{n} \\le \\frac{\\cos n}{n} \\le \\frac{1}{n}$, so $\\frac{\\cos n}{n} \\to 0$.\n\n### Indeterminate powers $\\infty^0$, $1^\\infty$, $0^0$\n- For $y = a_n > 0$, take $\\ln y$ and find $L = \\lim_{n\\to\\infty} \\ln y$ (usually rewrite as a quotient and use L'Hospital). If $L$ is finite, $\\lim_{n\\to\\infty} y = e^L$.\n- If $L = \\infty$ then $y \\to \\infty$, and if $L = -\\infty$ then $y \\to 0$. Example: $\\left(1 + \\frac{1}{n}\\right)^{n^2} \\to \\infty$, since $\\ln y = n^2 \\ln\\left(1 + \\frac{1}{n}\\right) \\to \\infty$.\n- Chen: $y = n^{13/n}$ gives $\\ln y = \\frac{13 \\ln n}{n} \\to 0$, so $n^{13/n} \\to e^0 = 1$.\n- The key $1^\\infty$ limit:\n\n$$\n\\lim_{n\\to\\infty} \\left(1 + \\frac{a}{n}\\right)^n = e^a\n$$\n\n- **Trap:** $\\lim_{n\\to\\infty} n\\ln\\left(1 + \\frac{5}{n}\\right) = 5$ is the limit of $\\ln y$, not of $y$. The answer is $\\left(1 + \\frac{5}{n}\\right)^n \\to e^5$. Do not stop at $L$.\n\n### Monotonic and bounded\n- **Monotonic:** increasing for all $n$ or decreasing for all $n$. The theorem below still holds if this is true only from some $n$ on. $n^{13/n}$ rises and then falls, so it is not monotonic.\n- **Bounded:** there are numbers $m$, $M$ with $m \\le a_n \\le M$ for all $n$.\n- **Bounded Monotonic Sequence Theorem:** bounded and monotonic implies convergent. Example: $\\frac{n}{n+1}$ increases and $\\frac{1}{2} \\le \\frac{n}{n+1} < 1$, so it converges (to $1$).\n- Bounded alone is not enough: $(-1)^n$ is bounded but diverges.\n- Check monotonic with $a_{n+1} - a_n$, the ratio $\\frac{a_{n+1}}{a_n}$ (positive terms only), or the sign of $f'(x)$.\n\n### Geometric sequence $\\{r^n\\}$\n- Converges exactly when $-1 < r \\le 1$: $r^n \\to 0$ if $|r| < 1$, and $r^n = 1$ for all $n$ if $r = 1$.\n- Diverges if $r = -1$ (oscillates $-1, 1, -1, \\dots$) or $|r| > 1$.\n- Do not confuse with the geometric **series** $\\sum r^k$, which needs $|r| < 1$ ($r = 1$ fails there).\n\n### Growth rates as $n \\to \\infty$\n\n$$\n\\ln n \\ll n^p \\ll b^n \\ll n! \\ll n^n \\quad (p > 0,\\ b > 1)\n$$\n\n- So $\\frac{n}{n!} \\to 0$, $\\frac{e^n}{n!} \\to 0$, $\\frac{n^{100}}{1.01^n} \\to 0$, $\\frac{\\ln n}{\\sqrt{n}} \\to 0$.\n- $n! = n(n-1)(n-2)\\cdots 1$; simplify ratios: $\\frac{(n+1)!}{n!} = n+1$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L20-sequence-limit",
+        "name": "Evaluate a sequence limit"
+      },
+      {
+        "id": "L20-monotone-bounded",
+        "name": "Monotonic, bounded and limit-definition"
+      },
+      {
+        "id": "L20-sequence-claims",
+        "name": "True or false about sequences"
+      },
+      {
+        "id": "L20-which-converge",
+        "name": "Which sequences converge"
+      }
+    ]
   },
   {
     "id": "L21",
@@ -333,7 +657,25 @@
       "L20"
     ],
     "keyIdeas": "### Geometric series\n\n$$\n\\sum_{k=0}^{\\infty} ar^k = a + ar + ar^2 + ar^3 + \\cdots\n$$\n\n- $a$ is the first term and $r$ the common ratio (each term divided by the one before).\n- Partial sum ($r \\ne 1$): $S_n = a + ar + \\cdots + ar^{n-1} = \\frac{a(1-r^n)}{1-r}$.\n- For $a \\ne 0$, converges **if and only if** $|r| < 1$, and then\n\n$$\n\\sum_{k=0}^{\\infty} ar^k = \\frac{a}{1-r} = \\frac{\\text{first term}}{1 - \\text{ratio}}\n$$\n\n- For $a \\ne 0$, diverges if $|r| \\ge 1$, including $r = 1$ and $r = -1$ ($1 - 1 + 1 - \\cdots$ has $S_n = 1, 0, 1, 0, \\dots$).\n- Chen: $\\frac{1}{4} + \\frac{1}{12} + \\frac{1}{36} + \\cdots = \\frac{1/4}{1 - 1/3} = \\frac{3}{8}$ and $1 - \\frac{1}{2} + \\frac{1}{4} - \\cdots = \\frac{1}{1 - (-1/2)} = \\frac{2}{3}$.\n- The starting index changes the first term, not $r$: $\\sum_{k=2}^{\\infty} \\left(\\frac{1}{3}\\right)^k$ has $a = \\frac{1}{9}$, sum $\\frac{1/9}{1 - 1/3} = \\frac{1}{6}$.\n- Rewrite into the form $ar^k$: $\\sum_{k=1}^{\\infty} \\frac{2^{k+1}}{5^k} = \\sum_{k=1}^{\\infty} 2\\left(\\frac{2}{5}\\right)^k$, first term $\\frac{4}{5}$, sum $\\frac{4/5}{1 - 2/5} = \\frac{4}{3}$.\n\n### Telescoping series\n- Split with partial fractions, write out $S_n$, cancel. Chen:\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{1}{(k+11)(k+12)} = \\sum_{k=1}^{\\infty} \\left(\\frac{1}{k+11} - \\frac{1}{k+12}\\right)\n$$\n\n- $S_n = \\frac{1}{12} - \\frac{1}{n+12} \\to \\frac{1}{12}$, so the series converges to $\\frac{1}{12}$.\n- Always find $S_n$ and take $\\lim_{n\\to\\infty} S_n$. More than one term can survive: $\\sum_{k=1}^{\\infty} \\left(\\frac{1}{k} - \\frac{1}{k+2}\\right) = 1 + \\frac{1}{2} = \\frac{3}{2}$.\n\n### Properties of series\n- If $\\sum a_k$ and $\\sum b_k$ converge, then $\\sum (a_k \\pm b_k) = \\sum a_k \\pm \\sum b_k$ and $\\sum c\\,a_k = c \\sum a_k$.\n- Convergent plus divergent is divergent. Divergent plus divergent can go either way.\n- Changing the starting index, or adding or removing finitely many terms, does not change convergence (the sum changes by the total of those terms). A finite sum such as $\\sum_{k=0}^{3} \\left(\\frac{1}{2}\\right)^k$ is always a number.\n\n### Traps\n- Use $\\frac{a}{1-r}$ only when $|r| < 1$, and $a$ must be the **first term actually in the sum**, not the coefficient in front of $r^k$.\n- Terms going to $0$ is not enough: $\\sum_{k=1}^{\\infty} \\ln\\frac{k+2}{k}$ telescopes to $S_n = \\ln(n+1) + \\ln(n+2) - \\ln 2 \\to \\infty$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L21-geometric-sum",
+        "name": "Sum a single geometric series"
+      },
+      {
+        "id": "L21-geometric-mix",
+        "name": "Sum of mixed geometric series"
+      },
+      {
+        "id": "L21-telescoping",
+        "name": "Telescoping series sum"
+      },
+      {
+        "id": "L21-series-properties",
+        "name": "Properties of series statements"
+      }
+    ]
   },
   {
     "id": "L22",
@@ -349,7 +691,25 @@
       "L21"
     ],
     "keyIdeas": "### Divergence Test\n- If $\\sum_{k=1}^{\\infty} a_k$ converges, then $\\lim_{k\\to\\infty} a_k = 0$ (because $a_k = S_k - S_{k-1} \\to L - L = 0$).\n- As a test: if $\\lim_{k\\to\\infty} a_k \\ne 0$ (or the limit does not exist), then $\\sum a_k$ **diverges**.\n- **One way only.** If $\\lim_{k\\to\\infty} a_k = 0$, the test says **nothing**: the harmonic series $\\sum_{k=1}^{\\infty} \\frac{1}{k}$ has $\\frac{1}{k} \\to 0$ but diverges (its partial sums grow like $\\ln n$).\n- Always try it first: it is the fastest way to catch divergence.\n\n### Integral Test\n- **Conditions:** $a_k = f(k)$ where $f$ is **positive, continuous, and decreasing** for $x \\ge 1$ (decreasing for $x \\ge N$ is enough).\n- Then $\\sum_{k=1}^{\\infty} a_k$ and $\\int_1^{\\infty} f(x)\\,dx$ **both converge or both diverge**.\n- Why (Chen's rectangles under and over the curve), when $f$ is decreasing from $x = 1$:\n\n$$\n\\int_1^{\\infty} f(x)\\,dx \\le \\sum_{k=1}^{\\infty} a_k \\le a_1 + \\int_1^{\\infty} f(x)\\,dx\n$$\n\n- The integral's value is **not** the sum of the series; the test only decides convergence.\n- Remainder estimate, when $f$ is decreasing on $[n, \\infty)$: with $R_n = S - S_n$, $\\int_{n+1}^{\\infty} f(x)\\,dx \\le R_n \\le \\int_n^{\\infty} f(x)\\,dx$.\n- Good when $f$ has an easy antiderivative: $\\frac{1}{x \\ln x}$, $\\frac{1}{x(\\ln x)^p}$, $x e^{-x^2}$ (use $u$-substitution). Start the integral where the series starts: $\\sum_{k=2}^{\\infty} \\frac{1}{k(\\ln k)^{3/2}}$ goes with $\\int_2^{\\infty}$, since $\\frac{1}{x(\\ln x)^{3/2}}$ is undefined at $x = 1$.\n\n### p-series\n\n$$\n\\sum_{k=1}^{\\infty} \\frac{1}{k^p} \\text{ converges if } p > 1 \\text{ and diverges if } p \\le 1\n$$\n\n- **Boundary:** $p = 1$ is the harmonic series, which **diverges**. The inequality is strict.\n- Comes from the Integral Test: $\\int_1^{\\infty} \\frac{1}{x^p}\\,dx = \\frac{1}{p-1}$ if $p > 1$, infinite if $p \\le 1$.\n- $\\sum \\frac{1}{k^7}$ converges ($p = 7$); $\\sum \\frac{1}{\\sqrt{k}}$ diverges ($p = \\frac{1}{2}$).\n\n### Notes and traps\n- The starting index does not affect convergence: $\\sum_{k=1}^{\\infty} a_k$ and $\\sum_{k=1337}^{\\infty} a_k$ converge or diverge together.\n- Not for terms that oscillate or change sign ($\\frac{2 + \\sin k}{k^2}$, $\\frac{(-1)^k}{k}$): $f$ must be positive and decreasing. Use comparison or the Alternating Series Test.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L22-integral-test",
+        "name": "Integral test and p-series"
+      },
+      {
+        "id": "L22-divergence-test",
+        "name": "Divergence test on terms"
+      },
+      {
+        "id": "L22-series-claims",
+        "name": "Sequence versus series claims"
+      },
+      {
+        "id": "L22-other-tests",
+        "name": "Series settled by other tests"
+      }
+    ]
   },
   {
     "id": "L23",
@@ -365,7 +725,25 @@
       "L22"
     ],
     "keyIdeas": "Both tests are for series with **positive terms** ($a_k > 0$, $b_k > 0$, at least eventually). Compare the unknown $\\sum a_k$ to a known $\\sum b_k$, usually a p-series or geometric series found by keeping the dominant terms: $\\frac{1}{k^3 + 5} \\approx \\frac{1}{k^3}$, $\\frac{k+1}{k^2} \\approx \\frac{1}{k}$.\n\n### Direct Comparison Test\n- If $0 \\le a_k \\le b_k$ and $\\sum b_k$ **converges**, then $\\sum a_k$ **converges** (smaller than convergent).\n- If $a_k \\ge b_k \\ge 0$ and $\\sum b_k$ **diverges**, then $\\sum a_k$ **diverges** (bigger than divergent).\n- The wrong direction proves nothing: smaller than a divergent series, or bigger than a convergent series, is **inconclusive**.\n- Chen: $\\frac{1}{k^3 + 5} \\le \\frac{1}{k^3}$, converges. $\\frac{k+1}{k^2} \\ge \\frac{1}{k}$, diverges. $\\frac{k-1}{k^2} \\le \\frac{1}{k}$ is the wrong direction: no conclusion.\n- Useful bounds: $-1 \\le \\sin k \\le 1$, $0 \\le \\cos^2 k \\le 1$, $\\ln k < k$; making a denominator smaller makes the fraction bigger.\n\n### Limit Comparison Test\nWith $a_k > 0$, $b_k > 0$ and the **unknown series on top**:\n\n$$\n\\lim_{k\\to\\infty} \\frac{a_k}{b_k} = c\n$$\n\n- $0 < c < \\infty$: $\\sum a_k$ and $\\sum b_k$ **both converge or both diverge**.\n- $c = 0$: if $\\sum b_k$ converges, then $\\sum a_k$ converges ($a_k$ is eventually smaller). If $\\sum b_k$ diverges: no conclusion.\n- $c = \\infty$: if $\\sum b_k$ diverges, then $\\sum a_k$ diverges ($a_k$ is eventually bigger). If $\\sum b_k$ converges: no conclusion.\n- Chen: $\\sum \\left(\\frac{k}{2k+3}\\right)^k$ with $b_k = \\left(\\frac{1}{2}\\right)^k$ gives $c = \\lim_{k\\to\\infty} \\left(\\frac{2k}{2k+3}\\right)^k = e^{-3/2}$, positive and finite, and $\\sum \\left(\\frac{1}{2}\\right)^k$ converges, so the series converges.\n- LCT rescues a wrong-direction comparison: $\\frac{k-1}{k^2}$ against $\\frac{1}{k}$ gives $c = 1$, so $\\sum \\frac{k-1}{k^2}$ diverges.\n\n### Traps\n- Check the Divergence Test first; comparison is for terms that go to $0$.\n- Positive terms only. For mixed signs, compare $\\sum |a_k|$ instead (absolute convergence).\n- If $\\lim \\frac{a_k}{b_k}$ does not exist and is not $\\infty$ (for example $1 + \\sin 9k$), LCT fails; use Direct Comparison.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L23-p-range",
+        "name": "Find p for convergence"
+      },
+      {
+        "id": "L23-comparison-claims",
+        "name": "Comparison theory true or false"
+      },
+      {
+        "id": "L23-test-justification",
+        "name": "Which comparison or test justifies it"
+      },
+      {
+        "id": "L23-comparison-decide",
+        "name": "Decide convergence by comparison"
+      }
+    ]
   },
   {
     "id": "L24",
@@ -381,7 +759,25 @@
       "L23"
     ],
     "keyIdeas": "### Alternating series\n\n$$\n\\sum_{k=1}^{\\infty} (-1)^{k+1} a_k = a_1 - a_2 + a_3 - a_4 + \\cdots, \\quad a_k \\ge 0\n$$\n\n- The sign comes from $(-1)^k$, $(-1)^{k+1}$, $(-1)^{k-1}$, or $\\cos(k\\pi)$; $a_k$ is the magnitude, without the sign.\n- Alternating harmonic series $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{k}$ converges by the AST below, even though $\\sum \\frac{1}{k}$ diverges. Its sum is $\\ln 2 \\approx 0.693$ (from the $\\ln(1+x)$ series in L31). Leibniz series: $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1}}{2k-1} = \\frac{\\pi}{4}$.\n\n### Alternating Series Test (AST)\n$\\sum (-1)^{k+1} a_k$ with $a_k > 0$ converges if **both**:\n1. $a_{k+1} \\le a_k$ for all $k$ from some point on (magnitudes nonincreasing), and\n2. $\\lim_{k\\to\\infty} a_k = 0$.\n\n- Check decreasing directly or with $f'(x) \\le 0$. Chen: $\\frac{d}{dx} \\frac{1}{x^6 + 9} = \\frac{-6x^5}{(x^6 + 9)^2} < 0$, so $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k^6 + 9}$ converges.\n- If $\\lim a_k \\ne 0$, the series diverges by the **Divergence Test**. If only the decreasing condition fails, the AST is inconclusive: it never proves divergence.\n\n### Error bound (remainder)\n- If $a_k$ is nonincreasing from $k = n+1$ onward and $a_k \\to 0$, then $S$ lies between $S_n$ and $S_{n+1}$, and\n\n$$\n|S - S_n| \\le a_{n+1}\n$$\n\n- The error after $n$ terms is at most the magnitude of the **first omitted term**. The formula assumes the sum starts at $k = 1$; for Chen's $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k^6 + 9}$, the first omitted term after $n$ terms is $a_n$.\n- Chen: for the alternating harmonic series $S_4 = \\frac{7}{12}$, so $|S - \\frac{7}{12}| \\le a_5 = \\frac{1}{5}$.\n- To guarantee error $< \\varepsilon$, find $n$ with $a_{n+1} < \\varepsilon$. For $\\sum \\frac{(-1)^{k+1}}{k^2}$ and $\\varepsilon = 0.001$: $(n+1)^2 > 1000$, so $n = 31$ terms.\n- Guaranteed for $n$ past the point where the magnitudes stop increasing. Chen's page 6 says $S$ is \"always\" between consecutive partial sums; that needs the terms to be decreasing from that point. For $1 - \\frac{1}{10} + 1 - \\frac{1}{4} + \\frac{1}{5} - \\cdots$, $S \\approx 1.76$, so $|S - S_1| \\approx 0.76 > a_2$.\n\n### Absolute and conditional convergence\n- $\\sum a_k$ **converges absolutely** if $\\sum |a_k|$ converges. Absolute convergence implies convergence.\n- $\\sum a_k$ **converges conditionally** if $\\sum a_k$ converges but $\\sum |a_k|$ diverges.\n- $\\sum \\frac{(-1)^{k+1}}{k^2}$: absolutely convergent. $\\sum \\frac{(-1)^{k+1}}{k}$: conditionally convergent.\n- Procedure: test $\\sum |a_k|$ first (p-series, comparison, ratio). If it diverges, apply the AST to $\\sum a_k$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L24-error-estimate",
+        "name": "Alternating series error estimate"
+      },
+      {
+        "id": "L24-alternating-test",
+        "name": "Does the alternating series converge"
+      },
+      {
+        "id": "L24-absolute-conditional",
+        "name": "Absolute, conditional or divergent"
+      },
+      {
+        "id": "L24-alternating-claims",
+        "name": "Absolute and conditional claims"
+      }
+    ]
   },
   {
     "id": "L25",
@@ -397,7 +793,25 @@
       "L24"
     ],
     "keyIdeas": "### Ratio Test\nFor $\\sum a_k$ (any signs, $a_k \\ne 0$), let\n\n$$\nL = \\lim_{k\\to\\infty} \\left|\\frac{a_{k+1}}{a_k}\\right|\n$$\n\n- $L < 1$: converges **absolutely** (so converges).\n- $L > 1$ (including $L = \\infty$): diverges.\n- $L = 1$, or the limit does not exist (and is not $\\infty$): **inconclusive**, use another test. Chen's L26 notes (page 2) correct the lecture video on this case.\n- Why: $|a_{k+1}| \\approx L |a_k|$, so the tail behaves like a geometric series with ratio $L$.\n- Often a good first test. Best for factorials and exponentials: $\\frac{(k+1)!}{k!} = k + 1$, $\\frac{(2k+8)!}{(2k+6)!} = (2k+8)(2k+7)$, $\\frac{3^{k+1}}{3^k} = 3$.\n- Gives $L = 1$ for every p-series and every rational function of $k$ (such as $\\frac{k}{k^2+1}$): use comparison there.\n\n### Root Test\n\n$$\nL = \\lim_{k\\to\\infty} \\sqrt[k]{|a_k|}\n$$\n\n- Same conclusions: $L < 1$ converges absolutely, $L > 1$ (or $L = \\infty$) diverges, and $L = 1$ or a limit that does not exist (and is not $\\infty$) is inconclusive. Chen's L26 notes, page 2, make the same correction here. Example: $\\sum k^k$ has $\\sqrt[k]{k^k} = k \\to \\infty$, so it diverges.\n- Good when $k$ appears in an exponent, best when the whole term is a $k$th power: $\\sum \\frac{(k+1)^k}{k^{2k}} = \\sum \\left(\\frac{k+1}{k^2}\\right)^k$ gives $L = 0$, converges.\n- Useful limits: $\\sqrt[k]{k} \\to 1$ and $\\sqrt[k]{c} \\to 1$ for $c > 0$.\n\n### Absolute convergence\n- If $\\sum |a_k|$ converges, then $\\sum a_k$ converges (absolutely). Convergent with $\\sum |a_k|$ divergent: conditional.\n- Both tests look at $|a_k|$, so $L < 1$ always means **absolute** convergence. They can never establish conditional convergence: $L < 1$ means absolute convergence and $L > 1$ (or $L = \\infty$) means divergence.\n\n### Chen's examples\n- $\\sum k \\left(\\frac{1}{4}\\right)^k$: $L = \\frac{1}{4}$, converges.\n- $\\sum \\frac{k!}{(2k+6)!}$: $L = \\lim \\frac{k+1}{(2k+8)(2k+7)} = 0$, converges.\n- $\\sum \\frac{5x^k}{4k}$: $L = |x|$, converges for $|x| < 1$. At $x = \\pm 1$, $L = 1$, so check each separately: $x = -1$ converges (AST), $x = 1$ diverges (harmonic). Answer: $-1 \\le x < 1$.\n- $\\sum \\frac{k}{k^2+1}$: $L = 1$, inconclusive; Limit Comparison with $\\frac{1}{k}$ shows it diverges.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L25-ratio-apply",
+        "name": "Apply the ratio test"
+      },
+      {
+        "id": "L25-root-test",
+        "name": "Apply the root test"
+      },
+      {
+        "id": "L25-ratio-inconclusive",
+        "name": "When is the ratio test conclusive"
+      },
+      {
+        "id": "L25-absolute-claims",
+        "name": "Absolute convergence and general claims"
+      }
+    ]
   },
   {
     "id": "L26",
@@ -413,7 +827,17 @@
       "L25"
     ],
     "keyIdeas": "### Order of attack\n1. **Divergence Test** first: if $\\lim_{k\\to\\infty} a_k \\ne 0$, the series diverges. If the limit is $0$, keep going.\n2. **Known series:** geometric ($|r| < 1$, sum $\\frac{a}{1-r}$ with $a$ the first term), p-series ($p > 1$), telescoping.\n3. **Looks like a p-series or geometric for large $k$** (rational or algebraic in $k$): Direct or Limit Comparison.\n4. **Factorials or exponentials** ($k!$, $3^k$): Ratio Test. **Whole term a $k$th power:** Root Test.\n5. **Alternating signs:** test $\\sum |a_k|$ first (absolute); if that diverges, use the AST (conditional).\n6. **Easy antiderivative** ($\\frac{1}{k(\\ln k)^{3/2}}$, $k^3 e^{-k^4}$) with $f$ positive, continuous, decreasing: Integral Test.\n- Simplify messy terms first (rationalize, split fractions), then look at the large-$k$ behavior.\n\n### Test summary\n- **Divergence:** $\\lim a_k \\ne 0 \\Rightarrow$ diverges; $\\lim a_k = 0 \\Rightarrow$ no information.\n- **Integral:** $f$ positive, continuous, decreasing; the series and the integral from its first index, such as $\\int_1^{\\infty} f(x)\\,dx$, converge or diverge together.\n- **p-series:** $\\sum \\frac{1}{k^p}$ converges if $p > 1$, diverges if $p \\le 1$.\n- **Geometric:** $\\sum_{k=0}^{\\infty} ar^k$ converges if $|r| < 1$, sum $\\frac{a}{1-r}$.\n- **Direct Comparison** (positive terms): smaller than convergent converges; bigger than divergent diverges.\n- **Limit Comparison** (positive terms): $0 < c < \\infty$ same behavior; $c = 0$ and $\\sum b_k$ converges gives convergence; $c = \\infty$ and $\\sum b_k$ diverges gives divergence.\n- **AST:** $a_k$ eventually nonincreasing and $a_k \\to 0$; error $|S - S_n| \\le a_{n+1}$ once $a_k$ is nonincreasing from $k = n+1$ on.\n- **Ratio / Root:** $L < 1$ converges absolutely, $L > 1$ (or $L = \\infty$) diverges, $L = 1$ or DNE (and not $\\infty$) inconclusive.\n\n### Chen's worked examples\n- $\\sum \\frac{11k^5 - 9k^3 + 5k + 10}{12k^5 + k^2 - k + 110}$: $a_k \\to \\frac{11}{12} \\ne 0$, diverges.\n- $\\sum \\left(1 - \\frac{1}{k}\\right)^k$: $a_k \\to e^{-1} \\ne 0$, diverges. (A $1^\\infty$ limit: the exponent limit is $-1$, the answer is $e^{-1}$.)\n- $\\sum \\frac{1 + \\sin 9k}{k^2}$: $0 \\le a_k \\le \\frac{2}{k^2}$, converges by Direct Comparison. LCT with $\\frac{1}{k^2}$ gives $\\lim (1 + \\sin 9k)$, which does not exist.\n- $\\sum_{k=2}^{\\infty} \\frac{5}{k(\\ln k)^9}$: Integral Test with $u = \\ln x$ gives $\\int_{\\ln 2}^{\\infty} \\frac{5}{u^9}\\,du$, finite, so it converges.\n- $\\sum \\left(\\sqrt{16k^4 + 1} - 4k^2\\right) = \\sum \\frac{1}{\\sqrt{16k^4 + 1} + 4k^2}$: behaves like $\\frac{1}{8k^2}$, converges by Limit Comparison with $\\frac{1}{k^2}$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L26-classify-each",
+        "name": "Decide convergence of each listed series"
+      },
+      {
+        "id": "L26-odd-one-out",
+        "name": "Find the one that differs"
+      }
+    ]
   },
   {
     "id": "L27",
@@ -429,7 +853,17 @@
       "L26"
     ],
     "keyIdeas": "### Power series\n\n$$\n\\sum_{k=0}^{\\infty} C_k (x-a)^k = C_0 + C_1(x-a) + C_2(x-a)^2 + C_3(x-a)^3 + \\cdots\n$$\n\n- $a$ is the **center**; $C_k$ is the **coefficient** of the $k$th-order term.\n- Idea: choose the $C_k$ so the series behaves like a chosen $f(x)$ near $x = a$.\n\n### Taylor series of $f(x)$ at $x = a$\nMatch the value and every derivative at $x = a$. Differentiating the series $k$ times and setting $x = a$ gives $f^{(k)}(a) = k!\\,C_k$ (with $0! = 1$), so $C_k = \\frac{f^{(k)}(a)}{k!}$ and the series is\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x-a)^k = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\frac{f'''(a)}{3!}(x-a)^3 + \\cdots\n$$\n\n- Writing it down needs derivatives of every order at $x = a$. Where it converges, and whether its sum is $f(x)$, are separate questions (L29, L31).\n\n### Taylor polynomials\nCut the series off after order $k$ to get the $k$th-order **Taylor polynomial** $P_k$ (textbooks often write $p_n$):\n\n$$\nP_k(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\cdots + \\frac{f^{(k)}(a)}{k!}(x-a)^k\n$$\n\n- **Polynomial versus series:** $P_k$ is a finite sum with $f(x) \\approx P_k(x)$ near $a$. The Taylor series is the infinite sum.\n- $P_k$ has the same value and the same first $k$ derivatives as $f$ at $x = a$.\n- $P_0 = f(a)$ is a constant. $P_1 = f(a) + f'(a)(x-a)$ is the linear approximation (tangent line).\n- Order is not always degree. If $f^{(k)}(a) = 0$, that term vanishes: for $\\sin x$ at $a = 0$, $P_2(x) = x$.\n- $P_k = f$ exactly when $f$ is a polynomial of degree at most $k$. Otherwise expect an approximation (L28).\n\n### Chen's examples\n- $e^x$ at $a = 0$: every $f^{(k)}(0) = 1$, so $e^x = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\cdots$. Then $P_1 = 1 + x$, $P_2 = 1 + x + \\frac{x^2}{2}$, $P_3 = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}$.\n- $e^{0.5} \\approx P_1(0.5) = 1.5$; the true value is $1.6487\\ldots$, and $P_2(0.5) = 1.625$ is closer.\n- $\\cos(2x)$ at $a = \\frac{\\pi}{8}$, with $u = x - \\frac{\\pi}{8}$: $P_4 = \\frac{\\sqrt{2}}{2} - \\sqrt{2}\\,u - \\sqrt{2}\\,u^2 + \\frac{2\\sqrt{2}}{3}u^3 + \\frac{\\sqrt{2}}{3}u^4$.\n\n### Traps\n- Divide by $k!$: the coefficient of $(x-a)^3$ is $\\frac{f'''(a)}{3!}$, not $f'''(a)$.\n- Differentiate first, then evaluate at $a$. Keep powers of $(x-a)$, not $x$, when $a \\ne 0$. Use the chain rule: each derivative of $\\cos(2x)$ brings a factor of $2$.\n- Adding a term need not shrink the error at a given $x$. At $x = -3$, $P_0 = 1$ misses $e^{-3}$ by about $0.95$ but $P_1 = -2$ misses by about $2.05$, even though $P_k(-3) \\to e^{-3}$ in the long run.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L27-build-taylor-polynomial",
+        "name": "Build or read a Taylor polynomial"
+      },
+      {
+        "id": "L27-approximate-with-polynomial",
+        "name": "Approximate a value with a polynomial"
+      }
+    ]
   },
   {
     "id": "L28",
@@ -445,7 +879,17 @@
       "L27"
     ],
     "keyIdeas": "### Remainder\n$$\nf(x) = P_k(x) + R_k(x), \\qquad R_k(x) = f(x) - P_k(x)\n$$\n\n- $|R_k(x)| = |f(x) - P_k(x)|$ is the absolute error of the approximation.\n- Chen pictures $R_k$ as the terms thrown away: $R_2 = \\frac{f'''(a)}{3!}(x-a)^3 + \\frac{f^{(4)}(a)}{4!}(x-a)^4 + \\cdots$. That holds only where the Taylor series converges to $f(x)$. The definition $f - P_k$ works regardless.\n\n### Taylor's Remainder Theorem\nIf $f$ has derivatives through order $k+1$ on an interval containing $a$ and $x$, with $x \\ne a$, then for some $c$ strictly between $a$ and $x$,\n\n$$\nR_k(x) = \\frac{f^{(k+1)}(c)}{(k+1)!}(x-a)^{k+1}\n$$\n\n- Chen writes $a < c < x$, which is the case $x > a$. If $x < a$, then $x < c < a$.\n- It is order $k+1$ on top and $(k+1)!$ below: one past the last term of $P_k$.\n- $c$ depends on $x$ and $k$, and is usually not found. Bound $f^{(k+1)}(c)$ instead.\n\n### Error bound\nIf $|f^{(k+1)}(t)| \\le M$ for **every $t$ between $a$ and $x$**, then\n\n$$\n|R_k(x)| \\le \\frac{M}{(k+1)!}|x-a|^{k+1}\n$$\n\n- $M$ must work on the whole interval, not only at $a$. Any valid upper bound is fine; a smaller $M$ gives a sharper result.\n- Find where the maximum sits. $e^{-2t}$ is decreasing, so its maximum is at the left end: $t = 0$ if $x > 0$, but $t = x$ if $x < 0$. For $\\sin$ and $\\cos$ factors, use $|\\sin t| \\le 1$ and $|\\cos t| \\le 1$.\n- This bounds the size of the error. The true error may be smaller.\n\n### Chen's example: $f(x) = e^{-2x}$, $a = 0$\n- $f^{(k)}(0) = (-2)^k$, so $P_2(x) = 1 - 2x + 2x^2$ and $R_2(x) = -\\frac{4}{3}e^{-2c}x^3$ for some $c$ between $0$ and $x$.\n- $e^{-0.02}$ means $x = 0.01$ (not $x = -0.02$): $P_2(0.01) = \\frac{4901}{5000} = 0.9802$.\n- On $0 < c < 0.01$, $e^{-2c} \\le 1$, so $|R_2(0.01)| \\le \\frac{4}{3}(0.01)^3 = \\frac{4}{3{,}000{,}000}$. Hence $\\frac{4901}{5000} - \\frac{4}{3{,}000{,}000} \\le e^{-0.02} \\le \\frac{4901}{5000} + \\frac{4}{3{,}000{,}000}$.\n- $e^{-1}$ means $x = \\frac{1}{2}$: $P_3\\left(\\frac{1}{2}\\right) = \\frac{1}{3}$. With $|f^{(4)}(t)| = 16e^{-2t} \\le 16$ on $\\left[0, \\frac{1}{2}\\right]$, $|R_3| \\le \\frac{16}{4!}\\left(\\frac{1}{2}\\right)^4 = \\frac{1}{24}$. (Chen stops before this step.)\n\n### Traps\n- For $P_k$, use the $(k+1)$st derivative, not the $k$th.\n- Solve for $x$ before plugging in: the input to $f$ is $x$, not the exponent you see.\n- For \"how many terms\", increase $k$ until the bound is below the target; $M$ may change with $k$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L28-remainder-formula",
+        "name": "Write the remainder term"
+      },
+      {
+        "id": "L28-error-bound",
+        "name": "Bound the error"
+      }
+    ]
   },
   {
     "id": "L29",
@@ -461,7 +905,17 @@
       "L28"
     ],
     "keyIdeas": "### Interval and radius of convergence\n\n$$\n\\sum_{k=0}^{\\infty} c_k (x-a)^k\n$$\n\nConvergence depends on $x$. There are exactly three possibilities:\n- Only at the center $x = a$: radius $R = 0$.\n- For $|x-a| < R$ with $0 < R < \\infty$, and divergence for $|x-a| > R$. Each endpoint $x = a \\pm R$ must be checked.\n- For every $x$: $R = \\infty$, interval $(-\\infty, \\infty)$, no endpoints.\n\n**Interval of convergence:** all $x$ where the series converges. **Radius:** center to one end. The radius does not tell you about the endpoints: $R = 1$ fits all of $(-1,1)$, $[-1,1)$, $(-1,1]$, $[-1,1]$. Inside the interval convergence is absolute; at an endpoint it can be absolute, conditional, or fail.\n\n### Procedure\n1. Apply the Ratio Test to the whole term, with $x$ included in $a_k$: $L = \\lim_{k\\to\\infty} \\left|\\frac{a_{k+1}}{a_k}\\right|$.\n2. Solve $L < 1$ for $x$. This gives $R$.\n3. At each endpoint $L = 1$ (inconclusive), so substitute and use another test: p-series, AST, Divergence Test.\n4. Write the interval.\n\nKeep the extreme cases straight, as in L25:\n- $L = 0$ for every $x \\ne a$: $R = \\infty$.\n- $L = \\infty$ for every $x \\ne a$: $R = 0$. At $x = a$ every term with $k \\ge 1$ is $0$, so the series converges there; check this directly, since the ratio is $\\frac{0}{0}$.\n- If the limit fails to exist and is not $\\infty$, the Ratio Test is inconclusive for that $x$.\n\n### Chen's examples\n- $\\sum_{k=1}^{\\infty} \\frac{(-1)^k k}{4^k}(x+3)^k$: center $a = -3$, $L = \\frac{|x+3|}{4}$, so $-7 < x < 1$ and $R = 4$. At $x = -7$ the series is $\\sum k$; at $x = 1$ it is $\\sum (-1)^k k$. Both diverge, so the interval is $(-7, 1)$.\n- $\\sum_{k=1}^{\\infty} (kx)^k$: $L = \\lim \\left(1 + \\frac{1}{k}\\right)^k (k+1)|x| = \\infty$ unless $x = 0$. So $R = 0$, and the series converges only at $x = 0$.\n- $x - \\frac{x^3}{4} + \\frac{x^5}{9} - \\frac{x^7}{16} + \\cdots = \\sum_{k=1}^{\\infty} (-1)^{k+1} \\frac{x^{2k-1}}{k^2}$. Choose a starting $k$, then fit the sign, power, and denominator to it.\n\n### Geometric series as a model\n\n$$\n\\frac{1}{1-x} = \\sum_{k=0}^{\\infty} x^k = 1 + x + x^2 + \\cdots, \\quad |x| < 1\n$$\n\n- Replace $x$ with an expression; the condition becomes $|\\text{expression}| < 1$. The endpoints of this model always diverge.\n- Replacing $x$ with $-x$: $\\frac{1}{1+x} = \\sum_{k=0}^{\\infty} (-1)^k x^k$ for $|x| < 1$.\n- Replacing $x$ with $-x^2$, then multiplying by $x^2$, which shifts exponents and leaves the interval alone: $\\frac{x^2}{1+x^2} = x^2 \\sum_{k=0}^{\\infty} (-x^2)^k = \\sum_{k=0}^{\\infty} (-1)^k x^{2k+2}$ for $-1 < x < 1$.\n- The denominator must start with $1$: $\\frac{1}{3-x} = \\frac{1}{3} \\cdot \\frac{1}{1-\\frac{x}{3}} = \\sum_{k=0}^{\\infty} \\frac{x^k}{3^{k+1}}$, with $\\left|\\frac{x}{3}\\right| < 1$, so $-3 < x < 3$.\n- A function can exist where its series does not converge: $\\frac{1}{1-x}$ is $\\frac{1}{2}$ at $x = -1$, but $\\sum (-1)^k$ diverges.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L29-radius-of-convergence",
+        "name": "Radius of convergence"
+      },
+      {
+        "id": "L29-interval-with-endpoints",
+        "name": "Interval of convergence with endpoints"
+      }
+    ]
   },
   {
     "id": "L30",
@@ -477,7 +931,21 @@
       "L29"
     ],
     "keyIdeas": "### Term-by-term differentiation and integration\nStart from a power series with radius $R > 0$: $f(x) = \\sum_{k=0}^{\\infty} c_k (x-a)^k$ for $|x-a| < R$. Then on $|x-a| < R$,\n\n$$\nf'(x) = \\sum_{k=1}^{\\infty} k\\,c_k (x-a)^{k-1}\n$$\n\n$$\n\\int f(x)\\,dx = C + \\sum_{k=0}^{\\infty} c_k \\frac{(x-a)^{k+1}}{k+1}\n$$\n\n- **The radius stays $R$, but the endpoints can change**, so recheck each endpoint separately.\n- Lost by differentiating: $\\tan^{-1} x$ has a series that converges on $[-1, 1]$, but its derivative $\\frac{1}{1+x^2} = \\sum_{k=0}^{\\infty} (-1)^k x^{2k}$ converges only on $(-1, 1)$.\n- Gained by integrating: $\\sum_{k=0}^{\\infty} x^k$ on $(-1, 1)$ integrates to $\\sum_{k=1}^{\\infty} \\frac{x^k}{k} = -\\ln(1-x)$ on $[-1, 1)$.\n- Differentiating kills the constant term, so the sum starts at $k = 1$ when the original started at $k = 0$.\n- Integrating adds $C$. Find it by setting $x$ to the center.\n- Substitution is different and can change the radius: $x \\to \\left(\\frac{x}{4}\\right)^2$ in $\\frac{1}{1-x}$ turns radius $1$ into radius $4$.\n\n### Chen's method: reuse the \"model series\"\nWrite the target in terms of something you already have, a derivative or an integral of a known series.\n\n### Chen's examples\n- $g(x) = \\frac{1}{(1+x^2)^2}$. Since $\\frac{d}{dx}\\frac{1}{1+x^2} = -2x\\,g(x)$, differentiate $1 - x^2 + x^4 - \\cdots$ and divide by $-2x$:\n\n$$\n\\frac{1}{(1+x^2)^2} = 1 - 2x^2 + 3x^4 - 4x^6 + \\cdots = \\sum_{k=1}^{\\infty} (-1)^{k-1} k\\,x^{2k-2}, \\quad |x| < 1\n$$\n\n- The lecture's exponent was wrong; his notes correct it to $2k-2$. Starting at $k = 1$ gives the first term $1$. At $x = \\pm 1$ the terms do not approach $0$, so the series diverges there even though $g$ is defined for all $x$.\n- $\\ln\\sqrt{16-x^2} = \\frac{1}{2}\\ln(16-x^2)$ has derivative $-x \\cdot \\frac{1}{16-x^2}$, and $\\frac{1}{16-x^2} = \\frac{1}{16}\\sum_{k=0}^{\\infty} \\frac{x^{2k}}{4^{2k}}$. Integrate and use $x = 0$ to get $C = \\ln 4$:\n\n$$\n\\ln\\sqrt{16-x^2} = \\ln 4 - \\sum_{k=1}^{\\infty} \\frac{x^{2k}}{2k \\cdot 4^{2k}}, \\quad |x| < 4\n$$\n\n- Endpoint check: at $x = \\pm 4$ it is $\\ln 4 - \\sum_{k=1}^{\\infty} \\frac{1}{2k}$, which diverges.\n- What function is $\\sum_{k=0}^{\\infty} \\frac{(x-2)^k}{3^{2k}}$? Geometric with ratio $\\frac{x-2}{9}$, so it is $\\frac{9}{11-x}$ for $|x-2| < 9$, that is $-7 < x < 11$. (Chen gives the function only; the interval is the condition on the ratio.)\n\n### Traps\n- Do not forget $C$. It need not be $0$: here it is $\\ln 4$.\n- A closed form does not extend the series: $\\frac{9}{11-x}$ exists at $x = 20$, but the series diverges there.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L30-series-from-geometric",
+        "name": "Power series from geometric series"
+      },
+      {
+        "id": "L30-differentiate-integrate-series",
+        "name": "Differentiate or integrate a series"
+      },
+      {
+        "id": "L30-sum-by-differentiating",
+        "name": "Sum a series using a derivative"
+      }
+    ]
   },
   {
     "id": "L31",
@@ -493,7 +961,25 @@
       "L30"
     ],
     "keyIdeas": "### Taylor and Maclaurin series\nTaylor series of $f$ centered at $a$: $\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x-a)^k$. When $a = 0$ it is the **Maclaurin series**:\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{f^{(k)}(0)}{k!} x^k = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 + \\frac{f'''(0)}{3!}x^3 + \\cdots\n$$\n\n### Common Maclaurin series ($a = 0$ only)\n- $\\frac{1}{1-x} = 1 + x + x^2 + \\cdots = \\sum_{k=0}^{\\infty} x^k$, for $|x| < 1$\n- $\\frac{1}{1+x} = 1 - x + x^2 - \\cdots = \\sum_{k=0}^{\\infty} (-1)^k x^k$, for $|x| < 1$\n- $e^x = 1 + x + \\frac{x^2}{2!} + \\cdots = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$, for all $x$\n- $\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}$, for all $x$\n- $\\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!}$, for all $x$\n- $\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots = \\sum_{k=1}^{\\infty} \\frac{(-1)^{k+1} x^k}{k}$, for $-1 < x \\le 1$\n- $-\\ln(1-x) = x + \\frac{x^2}{2} + \\frac{x^3}{3} + \\cdots = \\sum_{k=1}^{\\infty} \\frac{x^k}{k}$, for $-1 \\le x < 1$\n- $\\tan^{-1} x = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{2k+1}$, for $|x| \\le 1$\n- $\\sinh x = x + \\frac{x^3}{3!} + \\frac{x^5}{5!} + \\cdots = \\sum_{k=0}^{\\infty} \\frac{x^{2k+1}}{(2k+1)!}$, for all $x$\n- $\\cosh x = 1 + \\frac{x^2}{2!} + \\frac{x^4}{4!} + \\cdots = \\sum_{k=0}^{\\infty} \\frac{x^{2k}}{(2k)!}$, for all $x$\n\nThe logarithm series start at $k = 1$; the rest start at $k = 0$. For $\\sin x$ the Ratio Test gives $L = 0$ for every $x \\ne 0$, so $R = \\infty$. Here $\\tan^{-1} x$ is $\\arctan x$.\n\n### Does the series equal $f$?\nThese are three separate questions:\n1. Can you write it? Needs derivatives of every order at $a$.\n2. Where does it converge? Ratio Test and endpoint checks.\n3. Is the sum $f(x)$? Yes at exactly those $x$ where $\\lim_{k\\to\\infty} R_k(x) = 0$.\n\n- For $\\sin x$ at $a = \\frac{\\pi}{6}$: $|R_k(x)| \\le \\frac{|x-a|^{k+1}}{(k+1)!} \\to 0$ for every fixed $x$, since $|f^{(k+1)}(c)| \\le 1$ and the factorial outgrows the power of $|x-a|$.\n- Convergence alone is not enough: $f(x) = e^{-1/x^2}$ with $f(0) = 0$ has Maclaurin series $0$, which converges for all $x$ but equals $f$ only at $x = 0$ (beyond Chen's notes).\n\n### Reusing the table\n- Replace $x$ with an expression, then simplify: $x^3 \\sin\\left(\\frac{x^2}{3}\\right) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{(2k+1)!} \\cdot \\frac{x^{4k+5}}{3^{2k+1}} = \\frac{x^5}{3} - \\frac{x^9}{3! \\cdot 3^3} + \\cdots$, for all $x$.\n- $\\frac{e^x - 1}{5x}$: subtracting $1$ removes $k = 0$, so $\\frac{e^x-1}{5x} = \\sum_{k=1}^{\\infty} \\frac{x^{k-1}}{5 \\cdot k!} = \\frac{1}{5} + \\frac{x}{5 \\cdot 2!} + \\cdots$ for $x \\ne 0$.\n\n### Other centers\n- For $a \\ne 0$, Chen differentiates and uses the formula. For $\\sin x$ at $a = \\frac{\\pi}{6}$: $\\frac{1}{2} + \\frac{\\sqrt{3}}{2}u - \\frac{1/2}{2!}u^2 - \\frac{\\sqrt{3}/2}{3!}u^3 + \\cdots$, with $u = x - \\frac{\\pi}{6}$.\n- Rewriting as a model in $(x-a)$ also works, as with $\\frac{9}{11-x}$ at $a = 2$ in L30.\n- **Trap:** swapping $x$ for $x-a$ in the table gives a series for $f(x-a)$, a different function from $f(x)$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L31-maclaurin-from-table",
+        "name": "Maclaurin series from known series"
+      },
+      {
+        "id": "L31-binomial-series",
+        "name": "Binomial series expansion"
+      },
+      {
+        "id": "L31-taylor-series-other-center",
+        "name": "Taylor series at a nonzero center"
+      },
+      {
+        "id": "L31-derivative-from-series",
+        "name": "Derivative value from a series"
+      }
+    ]
   },
   {
     "id": "L32",
@@ -509,7 +995,21 @@
       "L31"
     ],
     "keyIdeas": "### Working from the model series\nStart from the Maclaurin table in L31 and add, multiply, substitute, differentiate, or integrate.\n\n- Chen's page 1 says \"Any differentiable $f(x)$ near $x = a$ can be expressed as a Taylor series.\" That is too strong. The series needs derivatives of every order at $a$ ($x|x|$ is differentiable but has no second derivative at $0$), and its sum is $f(x)$ only where $R_k(x) \\to 0$. For the table functions this holds on the listed intervals.\n\n### Building a series\n$$\n\\frac{9\\tan^{-1} x - 9x + 3x^3}{5x^5} = \\frac{9}{5}\\left(\\frac{1}{5} - \\frac{x^2}{7} + \\frac{x^4}{9} - \\cdots\\right) = \\frac{9}{5}\\sum_{k=0}^{\\infty} (-1)^k \\frac{x^{2k}}{2k+5}\n$$\n\n- Multiply $\\tan^{-1} x$ by $9$; the $9x$ and $-3x^3$ terms cancel; divide what remains by $5x^5$. This holds for $0 < |x| \\le 1$.\n\n### Use 1: limits\nNear $x = 0$, a series that converges to $f$ can replace $f$.\n- $\\lim_{x\\to 0} \\frac{9\\tan^{-1} x - 9x + 3x^3}{5x^5} = \\frac{9}{5} \\cdot \\frac{1}{5} = \\frac{9}{25}$. Higher-order terms go to $0$. l'Hospital's Rule would take five rounds.\n- $\\lim_{x\\to 0} \\frac{\\sin x - x}{x^3} = -\\frac{1}{6}$ and $\\lim_{x\\to 0} \\frac{1 - \\cos x}{x^2} = \\frac{1}{2}$.\n\n### Use 2: integrals\nIntegrate term by term, then cut off the series.\n- $\\int_0^1 \\frac{9\\tan^{-1} x - 9x + 3x^3}{5x^5}\\,dx = \\frac{9}{5}\\left(\\frac{1}{5} - \\frac{1}{21} + \\frac{1}{45} - \\frac{1}{77} + \\cdots\\right) \\approx \\frac{9}{5}\\left(\\frac{1}{5} - \\frac{1}{21} + \\frac{1}{45}\\right) \\approx 0.3143$.\n- The first omitted term gives $|\\text{error}| \\le \\frac{9}{5} \\cdot \\frac{1}{77} \\approx 0.0234$.\n- $x = 1$ is an endpoint here. It is allowed because the table includes $x = 1$ and the integrated series converges there.\n- $\\int e^{-x^2}\\,dx$ has no elementary closed form. Use $e^{-x^2} = 1 - x^2 + \\frac{x^4}{2!} - \\frac{x^6}{3!} + \\cdots$:\n\n$$\n\\int_0^{0.1} e^{-x^2}\\,dx = 0.1 - \\frac{(0.1)^3}{3} + \\frac{(0.1)^5}{5 \\cdot 2!} - \\frac{(0.1)^7}{7 \\cdot 3!} + \\cdots\n$$\n\n- To get within $10^{-8}$: $\\frac{(0.1)^5}{5 \\cdot 2!} = 10^{-6}$ is too big and $\\frac{(0.1)^7}{7 \\cdot 3!} \\approx 2.38 \\times 10^{-9}$ is below it, so keep three terms: $\\approx 0.09966767$, which rounds to $0.099668$. Chen's page 7 prints $0.099068$, a one-digit slip.\n\n### Which error bound?\n- Alternating Series bound: $|\\text{error}| \\le |\\text{first term thrown out}|$. It needs alternating signs, with magnitudes nonincreasing and tending to $0$ from the first omitted term on (L24).\n- Taylor's Remainder bound (L28): $|R_k(x)| \\le \\frac{M}{(k+1)!}|x-a|^{k+1}$, with $|f^{(k+1)}(t)| \\le M$ for all $t$ between $a$ and $x$. It needs no alternating signs.\n\n### Use 3: sums of numerical series\n- $1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\cdots = \\ln 2$: set $x = 1$ in $\\ln(1+x)$.\n- $x$ must be in the interval. $x = 2$ in the $\\ln(1+x)$ series diverges, though $\\ln 3$ exists.\n- More: $\\sum_{k=0}^{\\infty} \\frac{1}{k!} = e$; $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{2k+1} = \\frac{\\pi}{4}$ ($x = 1$ in $\\tan^{-1} x$).",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L32-series-for-integral",
+        "name": "Series for an integral or product"
+      },
+      {
+        "id": "L32-limits-and-sums",
+        "name": "Limits and sums using series"
+      },
+      {
+        "id": "L32-estimate-with-error",
+        "name": "Estimate an integral with error"
+      }
+    ]
   },
   {
     "id": "L33",
@@ -525,7 +1025,21 @@
       "L32"
     ],
     "keyIdeas": "### Polar coordinates $(r, \\theta)$\n- $r$: signed distance from the origin (the pole) to the point. $\\theta$: angle from the positive $x$-axis, counterclockwise positive.\n- Both can be negative. For $r < 0$, face the direction $\\theta$, then go $|r|$ the opposite way. So $(r, \\theta)$ and $(-r, \\theta + \\pi)$ are the same point.\n- **Trap:** a point has infinitely many polar representations: $(r, \\theta)$, $(r, \\theta + 2k\\pi)$, and $(-r, \\theta + (2k+1)\\pi)$ for every integer $k$. The pole is $(0, \\theta)$ for every $\\theta$.\n- Chen: $(-2, -\\pi/3)$, $(2, 2\\pi/3)$, and $(-2, 5\\pi/3)$ are one point, in quadrant II. Also $(-1, -7\\pi/6) = (1, -\\pi/6) = (-1, 5\\pi/6) = (1, 11\\pi/6)$, in quadrant IV.\n\n### Polar to Cartesian\n\n$$\nx = r\\cos\\theta, \\qquad y = r\\sin\\theta, \\qquad x^2 + y^2 = r^2\n$$\n\n- Chen: $(-2, \\pi/3)$ gives $x = (-2)\\cdot\\frac{1}{2} = -1$ and $y = (-2)\\cdot\\frac{\\sqrt{3}}{2} = -\\sqrt{3}$, in quadrant III. Check that the signs fit the quadrant and that $x^2 + y^2 = 4 = r^2$.\n\n### Cartesian to polar\n- $r^2 = x^2 + y^2$, so $r = \\sqrt{x^2+y^2}$ or $r = -\\sqrt{x^2+y^2}$, and $\\tan\\theta = \\frac{y}{x}$ (for $x \\ne 0$).\n- **Trap:** $\\tan^{-1}\\left(\\frac{y}{x}\\right)$ always lies in $(-\\pi/2, \\pi/2)$, pointing to the right. For a point with $x < 0$ (quadrant II or III, or the negative $x$-axis), add $\\pi$ (keeping $r > 0$), or keep that angle and use $r < 0$. Check quadrants!\n- Chen: $(-1, -\\sqrt{3})$ is in quadrant III. $r = \\pm 2$, and $\\tan\\theta = \\sqrt{3}$ gives $\\theta = \\pi/3$ or $4\\pi/3$. Pair them to land in quadrant III: $(2, 4\\pi/3)$ or $(-2, \\pi/3)$.\n- On the $y$-axis ($x = 0$) use $\\theta = \\pi/2$ for $y > 0$ and $\\theta = 3\\pi/2$ for $y < 0$.\n\n### Converting equations\n- Polar to Cartesian: make $r\\cos\\theta$, $r\\sin\\theta$, or $r^2$ appear, often by multiplying by a denominator or by $r$.\n- $r = 3$: $r^2 = 9$, so $x^2 + y^2 = 9$, the circle of radius 3 about the origin.\n- Chen: $r = \\frac{1}{2\\cos\\theta + 4\\sin\\theta}$ gives $2r\\cos\\theta + 4r\\sin\\theta = 1$, the line $2x + 4y = 1$.\n- $\\theta = c$ is the whole line through the origin at angle $c$, since $r$ takes both signs (beyond Chen's notes).\n- **Trap:** $r = 2a\\cos\\theta$ and $r = 2a\\sin\\theta$ ($a \\ne 0$) are circles through the pole. Multiply by $r$: $r^2 = 2ar\\cos\\theta$ gives $x^2 + y^2 = 2ax$, so $(x-a)^2 + y^2 = a^2$, with center $(a, 0)$ and radius $|a|$. Likewise $r = 2a\\sin\\theta$ becomes $x^2 + (y-a)^2 = a^2$. Multiplying by $r$ adds only the pole, which is already on the curve. (Chen does not work this conversion; L34 graphs $r = \\cos\\theta$ as a circle.)\n- Cartesian to polar: substitute $x = r\\cos\\theta$ and $y = r\\sin\\theta$. Chen: $y = \\frac{1}{x}$ becomes $r^2\\sin\\theta\\cos\\theta = 1$, so $r^2 = \\csc\\theta\\sec\\theta$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L33-convert-points",
+        "name": "Convert points between polar and Cartesian"
+      },
+      {
+        "id": "L33-circle-equations",
+        "name": "Circles given by polar equations"
+      },
+      {
+        "id": "L33-convert-equations",
+        "name": "Convert equations, lines in polar form"
+      }
+    ]
   },
   {
     "id": "L34",
@@ -541,7 +1055,17 @@
       "L33"
     ],
     "keyIdeas": "### Graphing by a table\n- List $\\theta$ in steps of $\\pi/4$ (or $\\pi/8$), compute $r$, plot each $(r, \\theta)$, and join the points in order of $\\theta$. Negative $r$ is plotted on the opposite ray.\n- Where $r$ changes sign the curve passes through the pole, so add points there. For $r = 1 - 3\\cos\\theta$, Chen inserts a point between $\\pi/4$ and $\\pi/2$: $r = 0$ where $\\cos\\theta = \\frac{1}{3}$.\n- The Cartesian graph of $r$ against $\\theta$ shows at a glance where $r = 0$ and where $r < 0$.\n\n### Circles\n- Chen: $r = \\cos\\theta$ is the circle with center $(\\frac{1}{2}, 0)$ and radius $\\frac{1}{2}$ (in L33 form, $x^2 + y^2 = x$).\n- Chen's labels show $0\\le\\theta\\le\\pi$ traces the circle once counterclockwise and $\\pi\\le\\theta\\le2\\pi$ retraces it. The same holds for every $r = 2a\\cos\\theta$ and $r = 2a\\sin\\theta$.\n\n### Roses $r = a\\cos n\\theta$ and $r = a\\sin n\\theta$ ($n \\ge 2$ an integer)\n- $n$ odd: $n$ petals. $n$ even: $2n$ petals. A circle is a one-petal rose ($n = 1$).\n- Each petal has length $|a|$ and lies between consecutive zeros of $r$, which are $\\pi/n$ apart.\n- Why: for odd $n$ the stretches with $r < 0$ retrace petals already drawn; for even $n$ they point in new directions.\n- The whole rose is traced once on $0 \\le \\theta \\le \\pi$ for odd $n$, and needs $0 \\le \\theta \\le 2\\pi$ for even $n$.\n- Chen: $r = \\sin 2\\theta$ has 4 petals, one per quadrant, whose tips point in the directions $\\theta = \\frac{\\pi}{4} + \\frac{k\\pi}{2}$. On $\\frac{\\pi}{2} < \\theta < \\pi$, $r < 0$, which draws the quadrant IV petal.\n\n### Limaçons $r = a \\pm b\\cos\\theta$ and $r = a \\pm b\\sin\\theta$ ($a, b > 0$)\n- $a < b$: inner loop, traced while $r < 0$. Chen: $r = 1 - 3\\cos\\theta$, with $r < 0$ when $\\cos\\theta > \\frac{1}{3}$.\n- $a = b$: cardioid (heart), touching the pole at a cusp. Chen: $r = 1 - \\sin\\theta$, with $r = 0$ at $\\theta = \\pi/2$ and largest $r = 2$ at $\\theta = 3\\pi/2$.\n- $a > b$: no inner loop, and $r \\ge a - b > 0$, so the curve never reaches the pole.\n- Chen shows only the two examples; this $a$ versus $b$ rule is beyond his notes.\n- The farthest point has $r = a + b$, where the $\\pm b\\cos\\theta$ (or $\\pm b\\sin\\theta$) term equals $+b$: $r = 1 - 3\\cos\\theta$ reaches $r = 4$ at $\\theta = \\pi$, on the left.\n\n### Symmetry tests (beyond Chen's notes)\n- About the $x$-axis: replacing $\\theta$ by $-\\theta$ gives an equivalent equation.\n- About the $y$-axis: replacing $\\theta$ by $\\pi - \\theta$ gives an equivalent equation.\n- About the origin: replacing $r$ by $-r$, or $\\theta$ by $\\theta + \\pi$, gives an equivalent equation.\n- A test that passes proves the symmetry. One that fails proves nothing, since points have other representations: $r = \\sin 2\\theta$ fails the $-\\theta$ test, yet replacing $(r, \\theta)$ by $(-r, \\pi - \\theta)$ shows the rose is symmetric about the $x$-axis.\n- Any two of the three symmetries imply the third.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L34-roses",
+        "name": "Match roses and cos n-theta curves"
+      },
+      {
+        "id": "L34-limacons-symmetry",
+        "name": "Cardioids, limacons, circles, symmetry"
+      }
+    ]
   },
   {
     "id": "L35",
@@ -557,7 +1081,25 @@
       "L34"
     ],
     "keyIdeas": "### Area\nA thin slice is a circular sector of area $\\frac{1}{2}r^2\\Delta\\theta$, the polar version of a rectangle. Summing the slices from $\\alpha$ to $\\beta$:\n\n$$\nA = \\int_{\\alpha}^{\\beta} \\frac{1}{2} r^2\\,d\\theta = \\int_{\\alpha}^{\\beta} \\frac{1}{2}[f(\\theta)]^2\\,d\\theta\n$$\n\n- This is the region swept by the segment from the pole to $r = f(\\theta)$ as $\\theta$ runs from $\\alpha$ to $\\beta$.\n- **Trap:** choose $\\alpha$ and $\\beta$ so the region is traced exactly once. For one petal, use consecutive zeros of $r$. Since $r^2 \\ge 0$, a part traced twice is counted twice; nothing cancels.\n- Use $\\sin^2 u = \\frac{1 - \\cos 2u}{2}$ and $\\cos^2 u = \\frac{1 + \\cos 2u}{2}$.\n- One petal of $r = \\sin 4\\theta$ lies between the zeros $\\theta = 0$ and $\\theta = \\pi/4$: $\\int_0^{\\pi/4} \\frac{1}{2}\\sin^2 4\\theta\\,d\\theta = \\frac{\\pi}{16}$. By symmetry, $2\\int_0^{\\pi/8} \\frac{1}{2}\\sin^2 4\\theta\\,d\\theta$ gives the same.\n- Whole roses: integrate over $0 \\le \\theta \\le \\pi$ for odd $n$ and $0 \\le \\theta \\le 2\\pi$ for even $n$. For $r = \\cos 3\\theta$, $\\int_0^{\\pi} \\frac{1}{2}\\cos^2 3\\theta\\,d\\theta = \\frac{\\pi}{4}$; using $0$ to $2\\pi$ gives $\\frac{\\pi}{2}$, twice the area.\n- Circles $r = 2a\\cos\\theta$ and $r = 2a\\sin\\theta$: use $0 \\le \\theta \\le \\pi$.\n- A limaçon with an inner loop: $\\int_0^{2\\pi} \\frac{1}{2}r^2\\,d\\theta$ is the area inside the outer loop plus the inner loop's area again. Integrate the inner loop alone between the zeros of $r$.\n\n### Area between two curves\nFor $0 \\le g(\\theta) \\le f(\\theta)$ on $[\\alpha, \\beta]$:\n\n$$\nA = \\int_{\\alpha}^{\\beta} \\frac{1}{2}\\left([f(\\theta)]^2 - [g(\\theta)]^2\\right) d\\theta\n$$\n\n- **Trap:** the integrand is $\\frac{1}{2}(f^2 - g^2)$, not $\\frac{1}{2}(f - g)^2$.\n- **Trap:** get the limits from the intersections. Solve $f(\\theta) = g(\\theta)$, then check the pole separately: each curve can reach $r = 0$ at a different $\\theta$, so solving misses it. A point where one curve has $r < 0$ can also be missed. Sketch both curves.\n- Example: inside $r = 3\\cos\\theta$ and outside $r = 1 + \\cos\\theta$. Solving gives $\\cos\\theta = \\frac{1}{2}$, $\\theta = \\pm\\frac{\\pi}{3}$; the curves also share the pole ($\\theta = \\frac{\\pi}{2}$ on the circle, $\\theta = \\pi$ on the cardioid). Area $= \\int_{-\\pi/3}^{\\pi/3} \\frac{1}{2}\\left(9\\cos^2\\theta - (1 + \\cos\\theta)^2\\right) d\\theta = \\pi$.\n- Chen: the region inside both $r = \\frac{1}{\\sqrt{2}}$ and $r = \\sin 2\\theta$ (closer to the origin). In quadrant I, $\\sin 2\\theta = \\frac{1}{\\sqrt{2}}$ at $\\theta = \\frac{\\pi}{8}$ and $\\frac{3\\pi}{8}$. The petal outside the circle has area $\\int_{\\pi/8}^{3\\pi/8} \\left(\\frac{1}{2}\\sin^2 2\\theta - \\frac{1}{2}\\cdot\\frac{1}{2}\\right) d\\theta = \\frac{1}{8}$, so the part inside the circle is one petal's area minus $\\frac{1}{8}$, times four petals. (Chen stops before this number.)\n\n### Arc length\nFrom $(\\Delta s)^2 \\approx (\\Delta r)^2 + (r\\,\\Delta\\theta)^2$:\n\n$$\nL = \\int_{\\alpha}^{\\beta} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta\n$$\n\n- Trace the curve once here too: $r = 2\\cos\\theta$ on $0 \\le \\theta \\le \\pi$ has length $2\\pi$, but $0$ to $2\\pi$ gives $4\\pi$.\n- $r = \\sin^3\\frac{\\theta}{3}$ on $0 \\le \\theta \\le 3\\pi$: $r^2 + (r')^2 = \\sin^4\\frac{\\theta}{3}$, so $L = \\int_0^{3\\pi} \\sin^2\\frac{\\theta}{3}\\,d\\theta = \\frac{3\\pi}{2}$.",
-    "isReview": false
+    "isReview": false,
+    "problemTypes": [
+      {
+        "id": "L35-area-one-curve",
+        "name": "Area enclosed by one polar curve"
+      },
+      {
+        "id": "L35-area-between",
+        "name": "Area between or shaded polar regions"
+      },
+      {
+        "id": "L35-length-spirals",
+        "name": "Arc length of exponential or spiral"
+      },
+      {
+        "id": "L35-length-trig",
+        "name": "Arc length of cardioid or circle"
+      }
+    ]
   },
   {
     "id": "R-exam1",
@@ -646,7 +1188,13 @@
     ],
     "keyIdeas": "### Parametric curves\n- A curve given by $x = f(t)$, $y = g(t)$ for $t$ in an interval. As $t$ increases the point moves along the curve, so a parametrization also has a direction, and it can trace part of the curve more than once.\n- To see which curve it is, eliminate $t$. For $x = 3\\cos t$, $y = 3\\sin t$: $x^2 + y^2 = 9$, a circle of radius 3.\n- To find the direction, plot two values of $t$. Here $t = 0$ gives $(3, 0)$ and $t = \\frac{\\pi}{2}$ gives $(0, 3)$, so the motion is counterclockwise, once around for $0 \\le t \\le 2\\pi$.\n\n### Slopes\n- $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ wherever $\\frac{dx}{dt} \\ne 0$.\n- Horizontal tangent: $\\frac{dy}{dt} = 0$ and $\\frac{dx}{dt} \\ne 0$. Vertical tangent: $\\frac{dx}{dt} = 0$ and $\\frac{dy}{dt} \\ne 0$.\n- Example: $x = t^2$, $y = t^3 - 3t$ gives $\\frac{dy}{dx} = \\frac{3t^2 - 3}{2t}$. Horizontal tangents at $t = \\pm 1$, the points $(1, -2)$ and $(1, 2)$. A vertical tangent at $t = 0$, the origin.\n- Second derivative: differentiate $\\frac{dy}{dx}$ with respect to $t$, then divide by $\\frac{dx}{dt}$ again.\n\n$$\n\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right)}{dx/dt}\n$$\n\n- Leaving out that second division is the usual mistake. In the example, $\\frac{dy}{dx} = \\frac{3}{2}\\left(t - \\frac{1}{t}\\right)$, so $\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) = \\frac{3}{2}\\left(1 + \\frac{1}{t^2}\\right)$ and $\\frac{d^2y}{dx^2} = \\frac{3(t^2 + 1)}{4t^3}$.\n\n### Arc length\n- For a curve traced once as $t$ runs from $a$ to $b$:\n\n$$\nL = \\int_a^b \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\,dt\n$$\n\n- Example: $x = 3t^2$, $y = 2t^3$, $0 \\le t \\le 1$. The integrand is $\\sqrt{36t^2 + 36t^4} = 6t\\sqrt{1 + t^2}$ for $t \\ge 0$, and $u = 1 + t^2$ gives $L = 2(1 + t^2)^{3/2}\\Big|_0^1 = 4\\sqrt{2} - 2$.\n- Polar curves are parametric curves with $x = r\\cos\\theta$ and $y = r\\sin\\theta$, which is where the polar arc length formula in L35 comes from.",
     "isReview": false,
-    "isExtra": true
+    "isExtra": true,
+    "problemTypes": [
+      {
+        "id": "X1-parametric-curves",
+        "name": "Parametric curves"
+      }
+    ]
   },
   {
     "id": "X2",
@@ -661,7 +1209,13 @@
     "prerequisites": [],
     "keyIdeas": "### Parabolas\n- The points at equal distance from a point, the focus, and a line, the directrix.\n- $y^2 = 4px$: vertex at the origin, focus $(p, 0)$, directrix $x = -p$, opening right when $p > 0$. $x^2 = 4py$: focus $(0, p)$, directrix $y = -p$, opening up when $p > 0$.\n- Example: $x^2 = 12y$ has $4p = 12$, so the focus is $(0, 3)$ and the directrix is $y = -3$.\n\n### Ellipses\n- The points whose distances to two foci add up to a constant.\n- $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ with $a > b > 0$: vertices $(\\pm a, 0)$ and foci $(\\pm c, 0)$, where $c^2 = a^2 - b^2$.\n- When the larger denominator is under $y^2$, the long axis is vertical: vertices $(0, \\pm a)$ and foci $(0, \\pm c)$.\n\n### Hyperbolas\n- The points whose distances to two foci differ by a constant.\n- $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$: vertices $(\\pm a, 0)$, foci $(\\pm c, 0)$ where $c^2 = a^2 + b^2$, and asymptotes $y = \\pm\\frac{b}{a}x$.\n- When the $y^2$ term is the positive one, the hyperbola opens up and down, with its vertices and foci on the $y$-axis.\n- Ellipse: $c^2 = a^2 - b^2$. Hyperbola: $c^2 = a^2 + b^2$. Mixing these up is the most common mistake.\n\n### Shifted conics\n- Complete the square in $x$ and in $y$, read off the center, and shift every point by it.\n- Example: $9x^2 + 4y^2 - 18x + 16y - 11 = 0$ becomes $9(x - 1)^2 + 4(y + 2)^2 = 36$, that is,\n\n$$\n\\frac{(x - 1)^2}{4} + \\frac{(y + 2)^2}{9} = 1\n$$\n\n- The center is $(1, -2)$. The larger denominator is under the $y$ term, so the long axis is vertical, with $a = 3$, $b = 2$ and $c = \\sqrt{5}$. The vertices are $(1, 1)$ and $(1, -5)$, and the foci are $(1, -2 \\pm \\sqrt{5})$.",
     "isReview": false,
-    "isExtra": true
+    "isExtra": true,
+    "problemTypes": [
+      {
+        "id": "X2-conic-sections",
+        "name": "Conic sections"
+      }
+    ]
   },
   {
     "id": "X3",
@@ -677,7 +1231,13 @@
     ],
     "keyIdeas": "### Arithmetic\n- $i^2 = -1$. A complex number is $z = a + bi$, with real part $a$ and imaginary part $b$.\n- Add and multiply as with polynomials, replacing $i^2$ by $-1$: $(2 + i)(3 - 2i) = 6 - 4i + 3i - 2i^2 = 8 - i$.\n- The conjugate of $z = a + bi$ is $\\bar{z} = a - bi$, and $z\\bar{z} = a^2 + b^2$ is real.\n- To divide, multiply the top and bottom by the conjugate of the bottom: $\\frac{5}{1 + 2i} = \\frac{5(1 - 2i)}{1 + 4} = 1 - 2i$.\n\n### Polar form\n- Plot $a + bi$ as the point $(a, b)$. Its distance from the origin is the modulus $|z| = r = \\sqrt{a^2 + b^2}$. Its angle $\\theta$, the argument, is found as in L33: use $\\tan\\theta = \\frac{b}{a}$ and check the quadrant.\n- $z = r(\\cos\\theta + i\\sin\\theta) = re^{i\\theta}$. Example: $-1 + i\\sqrt{3}$ has $r = 2$ and lies in quadrant II, so $\\theta = \\frac{2\\pi}{3}$ and $-1 + i\\sqrt{3} = 2e^{2\\pi i/3}$.\n- Euler's formula $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$ comes from the Maclaurin series in L31: put $x = i\\theta$ into the series for $e^x$ and collect the real and imaginary terms.\n\n### Products, powers and roots\n- Multiply the moduli and add the arguments: $r_1e^{i\\theta_1} \\cdot r_2e^{i\\theta_2} = r_1r_2e^{i(\\theta_1 + \\theta_2)}$. So $(re^{i\\theta})^n = r^ne^{in\\theta}$, which is De Moivre's theorem.\n- $z^n = w$ with $w = re^{i\\theta}$ has $n$ roots, equally spaced on the circle of radius $r^{1/n}$:\n\n$$\nz_k = r^{1/n}e^{i(\\theta + 2\\pi k)/n}, \\quad k = 0, 1, \\ldots, n - 1\n$$\n\n- Example: $z^4 = 16$, with $16 = 16e^{i \\cdot 0}$, has the roots $2e^{i\\pi k/2}$, which are $2$, $2i$, $-2$ and $-2i$.",
     "isReview": false,
-    "isExtra": true
+    "isExtra": true,
+    "problemTypes": [
+      {
+        "id": "X3-complex-numbers",
+        "name": "Complex numbers"
+      }
+    ]
   },
   {
     "id": "X4",
@@ -692,6 +1252,12 @@
     "prerequisites": [],
     "keyIdeas": "### The three rules\n- Split $[a, b]$ into $n$ pieces of width $\\Delta x = \\frac{b - a}{n}$, with endpoints $x_0 = a$, $x_1$, and so on up to $x_n = b$.\n- Midpoint Rule: $M_n = \\Delta x\\left[f(m_1) + f(m_2) + \\cdots + f(m_n)\\right]$, where $m_i$ is the midpoint of the $i$th piece.\n- Trapezoid Rule:\n\n$$\nT_n = \\frac{\\Delta x}{2}\\left[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)\\right]\n$$\n\n- Simpson's Rule, for an even $n$:\n\n$$\nS_n = \\frac{\\Delta x}{3}\\left[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\right]\n$$\n\n### Example\n- $\\int_0^2 x^2\\,dx = \\frac{8}{3}$. With $n = 2$ and $\\Delta x = 1$: $M_2 = f(0.5) + f(1.5) = 2.5$, $T_2 = \\frac{1}{2}\\left[0 + 2(1) + 4\\right] = 3$, and $S_2 = \\frac{1}{3}\\left[0 + 4(1) + 4\\right] = \\frac{8}{3}$.\n\n### Errors\n- When $f$ is concave up ($f'' > 0$), the Midpoint Rule underestimates and the Trapezoid Rule overestimates, as in the example. Concave down reverses both.\n- Simpson's Rule is exact for polynomials of degree 3 or less.\n- Doubling $n$ cuts the Midpoint and Trapezoid errors by about a factor of 4, and Simpson's error by about 16.",
     "isReview": false,
-    "isExtra": true
+    "isExtra": true,
+    "problemTypes": [
+      {
+        "id": "X4-numerical-integration",
+        "name": "Numerical integration rules"
+      }
+    ]
   }
 ]
