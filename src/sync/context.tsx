@@ -29,8 +29,12 @@ export interface SyncValue {
   /** stop syncing here; progress stays on this device and on the server */
   stop(): void
   syncNow(): Promise<boolean>
-  /** after a reset or an import: this device's progress replaces the server's copy */
-  replaceRemote(): Promise<boolean>
+  /**
+   * A reset or an import: `change` replaces this device's progress, and the result then replaces the
+   * server's copy. The two happen together, after any sync already under way, so that sync cannot
+   * bring the old progress back in between. Rejects if `change` fails; resolves false if only the upload did.
+   */
+  replaceRemote(change: () => Promise<void>): Promise<boolean>
 }
 
 const SyncContext = createContext<SyncValue | null>(null)
@@ -69,8 +73,9 @@ export function SyncProvider({ api, quietMs = QUIET_MS, children }: { api?: Sync
   const queue = useRef<Promise<unknown>>(Promise.resolve())
 
   const run = useCallback(
-    (mode: 'merge' | 'join' | 'replace', from?: SyncState): Promise<boolean> => {
+    (mode: 'merge' | 'join' | 'replace', from?: SyncState, before?: () => Promise<void>): Promise<boolean> => {
       const next = queue.current.then(async () => {
+        if (before) await quietly(before)
         const current = from ?? stateRef.current
         if (!current) return false
         setBusy(true)
@@ -117,7 +122,7 @@ export function SyncProvider({ api, quietMs = QUIET_MS, children }: { api?: Sync
     setError(null)
   }, [])
   const syncNow = useCallback(() => run('merge'), [run])
-  const replaceRemote = useCallback(() => run('replace'), [run])
+  const replaceRemote = useCallback((change: () => Promise<void>) => run('replace', undefined, change), [run])
 
   const on = state !== null
   useEffect(() => {

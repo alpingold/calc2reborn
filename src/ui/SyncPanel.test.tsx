@@ -187,3 +187,35 @@ test('when the server cannot be reached, it says so and the progress stays on th
   expect(screen.getByRole('button', { name: 'Turn on sync' })).toBeInTheDocument()
   expect(await store.listAttempts()).toHaveLength(1)
 })
+
+test('a reset pressed while a sync is under way is not undone by that sync', async () => {
+  const s = server()
+  const store = new MemoryStore()
+  await store.logAttempt(attempt('a1'))
+  // every read from the server waits until released, as on a slow connection
+  let release: (() => void) | undefined
+  let hold = false
+  const slow: SyncApi = {
+    async get(key) {
+      const out = await s.api.get(key)
+      if (hold) await new Promise<void>((r) => (release = r))
+      return out
+    },
+    put: s.api.put,
+  }
+  await device(s, store, slow)
+  await userEvent.click(screen.getByRole('button', { name: 'Turn on sync' }))
+  const code = await shownCode()
+  await screen.findByText(/^Last synced/)
+
+  hold = true
+  await userEvent.click(screen.getByRole('button', { name: 'Sync now' }))
+  await waitFor(() => expect(release).toBeDefined())
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await userEvent.click(screen.getByRole('button', { name: 'Reset progress' }))
+  hold = false
+  release!()
+  await screen.findByText('Progress reset')
+  expect(await store.listAttempts()).toEqual([])
+  expect((await stored(s, code))!.attempts).toEqual([])
+})

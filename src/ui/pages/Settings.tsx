@@ -166,24 +166,28 @@ export function Settings() {
     if (parsed.snapshot.sessions === undefined) {
       parsed.snapshot.sessions = sessionsFromAttempts(parsed.snapshot.attempts, content)
     }
-    try {
+    let imported = false
+    const change = async () => {
       // one transaction: a failure leaves the stored progress as it was
       await store.importAll(parsed.snapshot)
-    } catch {
-      setError('Could not import progress. Your data was not changed.')
-      return
-    }
-    // an exam in progress belonged to the progress that was just replaced
-    clearSession()
-    try {
+      imported = true
+      // an exam in progress belonged to the progress that was just replaced
+      clearSession()
       await save(parsed.snapshot.settings)
+    }
+    try {
+      // with sync on, the imported progress replaces the synced copy too, with no sync in between
+      if (sync?.code) await sync.replaceRemote(change)
+      else await change()
     } catch {
-      setError('Progress imported, but the settings could not be applied. Reload the page.')
+      setError(
+        imported
+          ? 'Progress imported, but the settings could not be applied. Reload the page.'
+          : 'Could not import progress. Your data was not changed.',
+      )
       return
     }
     await loadFlags()
-    // with sync on, the imported progress replaces the synced copy too
-    if (sync?.code) await sync.replaceRemote()
     setStatus('Progress imported')
   }
 
@@ -194,16 +198,20 @@ export function Settings() {
     if (!window.confirm(question)) return
     setError(null)
     setStatus(null)
-    try {
+    const change = async () => {
       await store.clear()
       await save(DEFAULT_SETTINGS)
+    }
+    try {
+      // with sync on, the empty progress replaces the synced copy too, with no sync in between
+      if (sync?.code) await sync.replaceRemote(change)
+      else await change()
     } catch {
       setError('Could not reset progress.')
       return
     }
     clearSession()
     await loadFlags()
-    if (sync?.code) await sync.replaceRemote()
     setStatus('Progress reset')
   }
 
