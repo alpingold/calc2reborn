@@ -40,6 +40,9 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
       "sourcePage": 3,
       "solution": "I. For large $n$, $\\frac{n}{n^2+7} \\sim \\frac{1}{n}$, so $\\sum_{n=1}^{\\infty} \\frac{n}{n^2+7}$ diverges. The series $\\sum_{n=1}^{\\infty} (-1)^n \\frac{n}{n^2+7}$ is alternating, so it converges. (I) converges conditionally.\n\nII. With $a_n = (-1)^n \\frac{n}{5^n}$,\n\n$$\n\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{n+1}{5^{n+1}} \\cdot \\frac{5^n}{n} = \\frac{n+1}{n} \\cdot \\frac{1}{5}, \\qquad \\lim_{n\\to\\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{1}{5} < 1.\n$$\n\n(II) converges absolutely.",
       "status": "reviewed"
@@ -76,6 +79,9 @@
         "L22",
         "L25"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
       "sourcePage": 3,
       "solution": "The integral test gives that $\\sum_{n=2}^{\\infty} \\frac{1}{n(\\ln n)^p}$ converges if $p > 1$. Here the series has $\\ln(2n)$ in place of $\\ln n$, and the same integral works: with $u = \\ln(2x)$, $du = \\frac{dx}{x}$,\n\n$$\n\\int_1^{\\infty} \\frac{dx}{x(\\ln(2x))^2} = \\int_{\\ln 2}^{\\infty} \\frac{du}{u^2} = \\frac{1}{\\ln 2},\n$$\n\nwhich is finite, so the series converges. The ratio test and the root test are inconclusive.",
       "status": "reviewed"
@@ -110,6 +116,9 @@
       "answer": "C",
       "lessonIds": [
         "L23"
+      ],
+      "typeIds": [
+        "L23-comparison-decide"
       ],
       "sourcePage": 4,
       "solution": "I. $\\frac{3n^2}{n^3+1} \\sim \\frac{3}{n}$ for $n$ large. The series diverges.\n\nII. $\\frac{3n^2}{(n^3+1)^2} \\sim \\frac{3n^2}{n^6} = \\frac{3}{n^4}$ for $n$ large. It converges.\n\nIII. $\\frac{3n^2}{(n^3+1)^{4/3}} \\sim \\frac{3n^2}{n^4} = \\frac{3}{n^2}$. It converges.",
@@ -146,6 +155,9 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
       "sourcePage": 4,
       "solution": "Let $a_n = \\left(\\frac{n}{an+1}\\right)^n$. Then $|a_n|^{1/n} = \\frac{n}{|an+1|}$ and\n\n$$\n\\lim_{n\\to\\infty} |a_n|^{1/n} = \\frac{1}{|a|} < 1\n$$\n\nexactly when $|a| > 1$.\n\nThe case $a = 1$: $a_n = \\left(\\frac{n}{n+1}\\right)^n = \\frac{1}{\\left(1 + \\frac{1}{n}\\right)^n} \\to \\frac{1}{e}$ as $n \\to \\infty$.\n\nThe case $a = -1$: $a_n = \\left(\\frac{n}{1-n}\\right)^n = (-1)^n \\frac{1}{\\left(1 - \\frac{1}{n}\\right)^n}$, and $\\lim_{n\\to\\infty} a_n$ does not exist.\n\nIn both cases the terms do not tend to $0$, so the series diverges.",
       "status": "reviewed"
@@ -180,6 +192,9 @@
       "answer": "C",
       "lessonIds": [
         "L31"
+      ],
+      "typeIds": [
+        "L31-derivative-from-series"
       ],
       "sourcePage": 5,
       "solution": "Write\n\n$$\n\\frac{1}{x} = \\frac{1}{4 + x - 4} = \\frac{1}{4} \\cdot \\frac{1}{1 + \\frac{x-4}{4}}.\n$$\n\nRecall that $\\frac{1}{1+r} = \\sum_{n=0}^{\\infty} (-1)^n r^n$ for $|r| < 1$. So, for $\\left|\\frac{x-4}{4}\\right| < 1$,\n\n$$\n\\frac{1}{1 + \\frac{x-4}{4}} = \\sum_{n=0}^{\\infty} (-1)^n \\frac{(x-4)^n}{4^n}, \\qquad \\frac{1}{x} = \\sum_{n=0}^{\\infty} (-1)^n \\frac{(x-4)^n}{4^{n+1}}.\n$$\n\nIntegrate from $4$ to $x$:\n\n$$\n\\ln x - \\ln 4 = \\int_4^x \\frac{1}{t}\\,dt = \\sum_{n=0}^{\\infty} \\int_4^x (-1)^n \\frac{(t-4)^n}{4^{n+1}}\\,dt = \\sum_{n=0}^{\\infty} (-1)^n \\frac{(x-4)^{n+1}}{(n+1)4^{n+1}}.\n$$\n\nThe coefficient of $(x-4)^9$ comes from $n + 1 = 9$:\n\n$$\n\\frac{f^{(9)}(4)}{9!} = (-1)^8 \\frac{1}{9 \\cdot 4^9}, \\qquad f^{(9)}(4) = \\frac{9!}{9 \\cdot 4^9} = \\frac{8!}{4^9}.\n$$",
@@ -216,6 +231,9 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
       "sourcePage": 5,
       "solution": "Use $\\frac{1}{1-r} = \\sum_{n=0}^{\\infty} r^n$:\n\n$$\n\\frac{1}{9-x^2} = \\frac{1}{9} \\cdot \\frac{1}{1 - \\frac{x^2}{9}} = \\frac{1}{9}\\sum_{n=0}^{\\infty} \\left(\\frac{x^2}{9}\\right)^n = \\sum_{n=0}^{\\infty} \\frac{x^{2n}}{9^{n+1}}.\n$$\n\n$$\n\\frac{x}{9-x^2} = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{9^{n+1}} = \\frac{x}{9} + \\frac{x^3}{81} + \\cdots\n$$",
       "status": "reviewed"
@@ -251,6 +269,9 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
       "sourcePage": 6,
       "solution": "$$\n\\sum_{n=2}^{\\infty} (-4)^n \\frac{x^n}{2n\\sqrt{\\ln n}} = \\sum_{n=2}^{\\infty} \\frac{(-4x)^n}{2n\\sqrt{\\ln n}}\n$$\n\nWith $a_n = (-4)^n \\frac{x^n}{2n\\sqrt{\\ln n}}$,\n\n$$\n\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{4^{n+1}|x|^{n+1}}{2(n+1)\\sqrt{\\ln(n+1)}} \\cdot \\frac{2n\\sqrt{\\ln n}}{4^n|x|^n} = 4|x|\\left(\\frac{n}{n+1}\\right)\\sqrt{\\frac{\\ln n}{\\ln(n+1)}} \\to 4|x| \\text{ as } n \\to \\infty.\n$$\n\nSo $4|x| < 1$, that is $|x| < \\frac{1}{4}$.\n\nWhen $4x = 1$: $\\sum_{n=2}^{\\infty} \\frac{(-1)^n}{2n\\sqrt{\\ln n}}$ converges.\n\nWhen $4x = -1$: $\\sum_{n=2}^{\\infty} \\frac{1}{2n\\sqrt{\\ln n}}$ diverges.\n\nThe interval is $\\left(-\\frac{1}{4}, \\frac{1}{4}\\right]$.",
       "status": "reviewed"
@@ -285,6 +306,9 @@
       "answer": "D",
       "lessonIds": [
         "L30"
+      ],
+      "typeIds": [
+        "L30-series-from-geometric"
       ],
       "sourcePage": 6,
       "solution": "$$\n\\frac{1}{x^2+4x+6} = \\frac{1}{2 + (x+2)^2} = \\frac{1}{2} \\cdot \\frac{1}{1 + \\frac{(x+2)^2}{2}} = \\frac{1}{2}\\sum_{n=0}^{\\infty} (-1)^n \\left(\\frac{(x+2)^2}{2}\\right)^n = \\sum_{n=0}^{\\infty} (-1)^n \\frac{(x+2)^{2n}}{2^{n+1}},\n$$\n\nprovided $\\frac{(x+2)^2}{2} < 1$, that is $|x+2| < \\sqrt{2}$. The radius of convergence is $\\sqrt{2}$.",
@@ -322,6 +346,9 @@
         "L25",
         "L29"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
       "sourcePage": 7,
       "solution": "$$\n\\left|\\frac{x^n}{(1+\\frac{1}{n})^{n^2}}\\right|^{1/n} = \\frac{|x|}{(1+\\frac{1}{n})^n} \\to \\frac{|x|}{e} \\text{ as } n \\to \\infty.\n$$\n\n$\\frac{|x|}{e} < 1$ gives $|x| < e$. The radius of convergence is $e$.",
       "status": "reviewed"
@@ -356,6 +383,9 @@
       "answer": "A",
       "lessonIds": [
         "L32"
+      ],
+      "typeIds": [
+        "L32-estimate-with-error"
       ],
       "sourcePage": 7,
       "solution": "**Note on this question:** Choice B is also within $10^{-6}$: its third term is not a term of the series, but its actual error is about $7.2\\times10^{-7}$. Choice A is the partial sum that the Alternating Series Estimation Theorem certifies, with error at most $b_4=5\\times10^{-7}$, and the key gives A.\n\nIntegrate term by term:\n\n$$\nF(x) = \\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{(x-3)^{n+1}}{n(n+1)}, \\qquad F(3.1) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n(n+1)}\\left(\\frac{1}{10}\\right)^{n+1}.\n$$\n\nHere $b_n = \\frac{1}{n(n+1)}\\left(\\frac{1}{10}\\right)^{n+1}$, and we want $b_{N+1} \\le 10^{-6}$. That gives $N = 3$: $b_4 = \\frac{1}{4 \\cdot 5 \\cdot 10^5} = 5 \\times 10^{-7}$, while $b_3 = \\frac{1}{3 \\cdot 4 \\cdot 10^4} > 10^{-6}$. We need the first 3 terms of $F(3.1)$:\n\n$$\nF(3.1) \\approx \\frac{1}{2(10)^2} - \\frac{1}{6(10)^3} + \\frac{1}{12(10)^4}.\n$$",
@@ -392,6 +422,9 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
       "sourcePage": 8,
       "solution": "$$\n\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} + \\cdots\n$$\n\n$$\n\\sin x^2 = x^2 - \\frac{x^6}{3!} + \\frac{x^{10}}{5!} - \\frac{x^{14}}{7!} + \\cdots\n$$\n\n$$\n\\frac{\\sin x^2 - x^2}{x^6} = -\\frac{1}{3!} + \\frac{x^4}{5!} - \\frac{x^8}{7!} + \\cdots\n$$",
       "status": "reviewed"
@@ -414,6 +447,9 @@
       "answer": "A",
       "lessonIds": [
         "L23"
+      ],
+      "typeIds": [
+        "L23-comparison-claims"
       ],
       "sourcePage": 8,
       "solution": "True, because $\\left|\\frac{a_n}{n}\\right| \\le |a_n|$.",
@@ -438,6 +474,9 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
       "sourcePage": 8,
       "solution": "False. If $a_n = \\frac{1}{n^2}$, then $\\sqrt{a_n} = \\frac{1}{n}$: $\\sum_{n=1}^{\\infty} a_n$ converges, but $\\sum \\sqrt{a_n}$ diverges.",
       "status": "reviewed"
@@ -460,6 +499,9 @@
       "answer": "B",
       "lessonIds": [
         "L22"
+      ],
+      "typeIds": [
+        "L22-divergence-test"
       ],
       "sourcePage": 8,
       "solution": "False, the series diverges: $\\lim_{n\\to\\infty} (-1)^n e^{1/n}$ does not exist.",

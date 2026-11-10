@@ -38,6 +38,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use $\\cos\\theta = \\frac{\\mathbf{u}\\cdot\\mathbf{v}}{|\\mathbf{u}|\\,|\\mathbf{v}|}$ with $\\mathbf{u} = \\langle 3, 0, -3 \\rangle$ and $\\mathbf{v} = \\langle 1, -1, 0 \\rangle$.\n\n$\\mathbf{u}\\cdot\\mathbf{v} = 3$, $|\\mathbf{u}| = \\sqrt{9 + 9} = 3\\sqrt{2}$, and $|\\mathbf{v}| = \\sqrt{2}$.\n\nSo $\\cos\\theta = \\frac{3}{3\\sqrt{2}\\cdot\\sqrt{2}} = \\frac{1}{2}$, and on $[0, \\pi]$ this gives $\\theta = \\frac{\\pi}{3}$.\n\nSo the angle is $\\frac{\\pi}{3}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "The area of a parallelogram is $|\\vec{AB} \\times \\vec{AC}|$ for two adjacent sides. Here $D = B + C - A$, so the parallelogram has $\\vec{AB}$ and $\\vec{AC}$ as adjacent sides, and $AD$ is a diagonal.\n\n$\\vec{AB} = \\langle 1, 1, 1 \\rangle$ and $\\vec{AC} = \\langle 1, 2, 1 \\rangle$, so\n\n$$\n\\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 1 & 1 \\\\ 1 & 2 & 1 \\end{vmatrix} = -\\vec{i} + \\vec{k}\n$$\n\nIts length is $\\sqrt{1 + 0 + 1} = \\sqrt{2}$, so the area is $\\sqrt{2}$.\n\nThe trap is reading $A$, $B$, $C$, $D$ as in order around the figure: $D$ is the vertex opposite $A$, so the adjacent sides at $A$ are $\\vec{AB}$ and $\\vec{AC}$, not $\\vec{AB}$ and $\\vec{AD}$ with $\\vec{BC}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Slice the solid perpendicular to the $x$-axis. Each square has side equal to the vertical length of the triangle at that $x$.\n\nThe lower edge of the triangle is the line from $(0,0)$ to $(2,1)$, which is $y = \\frac{x}{2}$, and the upper edge is $y = 1$. So the side at $x$ is $1 - \\frac{x}{2}$ for $0 \\le x \\le 2$, and the cross-sectional area is $\\left(1 - \\frac{x}{2}\\right)^2$.\n\n$$\nV = \\int_0^2 \\left(1 - \\frac{x}{2}\\right)^2 dx = \\left[-\\frac{2}{3}\\left(1 - \\frac{x}{2}\\right)^3\\right]_0^2 = 0 + \\frac{2}{3} = \\frac{2}{3}\n$$\n\nso the volume is $\\frac{2}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-split-or-axis"
+      ],
+      "solution": "Find the crossings: $\\cos 2x = \\sin 4x = 2\\sin 2x\\cos 2x$ gives $\\cos 2x\\,(1 - 2\\sin 2x) = 0$. In $\\left[0, \\frac{\\pi}{4}\\right]$ the crossings are $x = \\frac{\\pi}{12}$ and $x = \\frac{\\pi}{4}$.\n\nAt $x = 0$, $\\cos 2x = 1 > 0 = \\sin 4x$, so $\\cos 2x$ is the upper curve on $\\left[0, \\frac{\\pi}{12}\\right]$. At $x = \\frac{\\pi}{6}$, $\\sin 4x = \\frac{\\sqrt3}{2} > \\frac{1}{2} = \\cos 2x$, so $\\sin 4x$ is the upper curve on $\\left[\\frac{\\pi}{12}, \\frac{\\pi}{4}\\right]$.\n\nAn antiderivative of $\\cos 2x - \\sin 4x$ is $G(x) = \\frac{1}{2}\\sin 2x + \\frac{1}{4}\\cos 4x$, with $G(0) = \\frac{1}{4}$, $G\\left(\\frac{\\pi}{12}\\right) = \\frac{3}{8}$, and $G\\left(\\frac{\\pi}{4}\\right) = \\frac{1}{4}$.\n\n$$\nA = \\left[G\\left(\\frac{\\pi}{12}\\right) - G(0)\\right] + \\left[G\\left(\\frac{\\pi}{12}\\right) - G\\left(\\frac{\\pi}{4}\\right)\\right] = \\frac{1}{8} + \\frac{1}{8} = \\frac{1}{4}\n$$\n\nso the area is $\\frac{1}{4}$.\n\nThe trap is integrating from $0$ to $\\frac{\\pi}{4}$ without splitting at $\\frac{\\pi}{12}$, which gives $0$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-horizontal-axis"
+      ],
+      "solution": "Use shells in $y$, since the region is revolved about the horizontal $x$-axis, and the shell radius is $y$.\n\nThe curves $y = x^2$ and $y = 2x$ meet at $(0,0)$ and $(2,4)$, so $y$ runs from $0$ to $4$. For a fixed $y$, the region runs from the line $x = \\frac{y}{2}$ to the parabola $x = \\sqrt{y}$, so the shell height is $\\sqrt{y} - \\frac{y}{2}$.\n\n$$\nV = \\int_0^4 2\\pi y\\left(\\sqrt{y} - \\frac{y}{2}\\right)\\,dy\n$$\n\nso the volume is represented by the integral $\\int_0^4 2\\pi y\\left(\\sqrt{y} - \\frac{y}{2}\\right)dy$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use disks about the $x$-axis, with radius $e^{3x}$, so the volume is $\\pi\\int_0^c \\left(e^{3x}\\right)^2 dx$.\n\n$$\nV = \\pi\\int_0^c e^{6x}\\,dx = \\frac{\\pi}{6}\\left(e^{6c} - 1\\right)\n$$\n\nSetting $V = \\pi$ gives $e^{6c} - 1 = 6$, so $e^{6c} = 7$ and $c = \\frac{1}{6}\\ln 7$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$ and $dv = x^{1/2}\\,dx$, so $du = \\frac{dx}{x}$ and $v = \\frac{2}{3}x^{3/2}$.\n\n$$\n\\int_1^e x^{1/2}\\ln x\\,dx = \\left[\\frac{2}{3}x^{3/2}\\ln x\\right]_1^e - \\frac{2}{3}\\int_1^e x^{1/2}\\,dx\n$$\n\nThe boundary term is $\\frac{2}{3}e^{3/2}$, since $\\ln 1 = 0$. The remaining integral is $\\frac{2}{3}\\left[\\frac{2}{3}x^{3/2}\\right]_1^e = \\frac{4}{9}\\left(e^{3/2} - 1\\right)$.\n\nSo the integral is $\\frac{2}{3}e^{3/2} - \\frac{4}{9}e^{3/2} + \\frac{4}{9} = \\frac{2}{9}e^{3/2} + \\frac{4}{9}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Write one term for each power of each factor in the denominator. The factor $x^2$ needs $\\frac{A}{x} + \\frac{B}{x^2}$. The repeated irreducible factor $(x^2+1)^2$ needs $\\frac{Cx + D}{x^2+1} + \\frac{Ex + F}{(x^2+1)^2}$, since each power of an irreducible quadratic takes a linear numerator. The numerator has degree $3$, below the degree $6$ of the denominator, so no polynomial part is needed.\n\nSo the expansion is\n\n$$\n\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 1} + \\frac{Ex + F}{(x^2 + 1)^2}\n$$\n\nThe trap is a constant numerator over an irreducible quadratic factor, or a missing $\\frac{A}{x}$ term.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-long-division"
+      ],
+      "solution": "Divide first, since the numerator has degree $2$, not less than the degree $1$ of the denominator. Writing $x^2 = (x+2)(x-2) + 4$ gives\n\n$$\n\\frac{x^2}{x+2} = x - 2 + \\frac{4}{x+2}\n$$\n\nIntegrate term by term: $\\int \\frac{x^2}{x+2}\\,dx = \\frac{x^2}{2} - 2x + 4\\ln|x+2| + C$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -345,6 +381,11 @@
         "L12",
         "L13"
       ],
+      "typeIds": [
+        "L13-choose-substitution",
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "Check each statement.\n\nI. Put $u = \\tan x$, so $du = \\sec^2 x\\,dx$. Then $\\tan^3 x\\sec^4 x\\,dx = \\tan^3 x\\,(1 + \\tan^2 x)\\sec^2 x\\,dx = u^3(1 + u^2)\\,du$, which is a polynomial. True.\n\nII. Put $u = \\sin 3x$, so $du = 3\\cos 3x\\,dx$. Then $\\cos^5 3x\\,\\sin^4 3x\\,dx = (1 - \\sin^2 3x)^2\\sin^4 3x\\,\\cos 3x\\,dx = \\frac{1}{3}(1 - u^2)^2u^4\\,du$. True.\n\nIII. Using $\\sin^2\\theta = \\frac{1 - \\cos 2\\theta}{2}$,\n\n$$\n\\int_0^{\\pi/2}\\sin^2\\theta\\,d\\theta = \\left[\\frac{\\theta}{2} - \\frac{\\sin 2\\theta}{4}\\right]_0^{\\pi/2} = \\frac{\\pi}{4}\n$$\n\nTrue.\n\nSo all three statements are true.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -379,6 +420,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "Substitute $x = 5\\tan\\theta$, so $dx = 5\\sec^2\\theta\\,d\\theta$ and $\\sqrt{x^2 + 25} = \\sqrt{25\\tan^2\\theta + 25} = 5\\sec\\theta$.\n\n$$\n\\int \\frac{x^2}{\\sqrt{x^2+25}}\\,dx = \\int \\frac{25\\tan^2\\theta}{5\\sec\\theta}\\cdot 5\\sec^2\\theta\\,d\\theta = 25\\int \\tan^2\\theta\\,\\sec\\theta\\,d\\theta\n$$\n\nThe factor $25$ comes from $x^2 = 25\\tan^2\\theta$, and the $5$ in the denominator cancels the $5$ from $dx$. So the integral becomes $25\\int \\tan^2\\theta\\,\\sec\\theta\\,d\\theta$.\n\nThe trap is forgetting the factor $dx = 5\\sec^2\\theta\\,d\\theta$, which leaves $5\\int \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -413,6 +458,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives a force $F = kx$, where $x$ is the stretch beyond the natural length. Stretching from $10$ m to $11$ m is a stretch from $0$ to $1$.\n\n$$\nW = \\int_0^1 kx\\,dx = \\frac{k}{2} = \\frac{5}{2}\n$$\n\nso $k = 5$ N/m. Stretching to $20$ m is a stretch of $10$ m, so the force is $F = 5 \\cdot 10 = 50$ N.\n\nThe trap is using the length $20$ m as the stretch, which would give $100$ N.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -447,6 +496,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-which-converge"
+      ],
+      "solution": "Check each statement.\n\nI. True. Since $0 < f < g$ and $\\int_0^\\infty g\\,dx$ converges, the comparison test shows $\\int_0^\\infty f\\,dx$ converges.\n\nII. False. The constant $f = 1$ has limit $1$ at infinity, but $\\int_0^\\infty 1\\,dx$ diverges. A limit of $1$ says nothing about convergence.\n\nIII. False. $\\int_0^1 x^{-p}\\,dx$ converges for $p = \\frac{1}{2}$, but for $q = \\frac{3}{2}$ the integral $\\int_0^1 x^{-3/2}\\,dx$ diverges.\n\nIV. True, but only vacuously. $\\int_0^\\infty x^{-p}\\,dx$ never converges, since $\\int_0^1$ needs $p < 1$ and $\\int_1^\\infty$ needs $p > 1$. The hypothesis is never met, so the statement holds.\n\nStatements II and III are false, so the answer is $2$. The trap is IV, which is true because its hypothesis never holds, not false.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -481,6 +534,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-alternating-test"
+      ],
+      "solution": "Apply the alternating series test to each series, which needs the sizes of the terms to decrease to $0$ eventually.\n\nI. The terms have size $f(n)$ with $f(x) = \\frac{\\sqrt{x} - 3}{x} = x^{-1/2} - 3x^{-1}$. Then $f'(x) = \\frac{3 - \\frac{1}{2}\\sqrt{x}}{x^2}$, which is negative for $x > 36$. So the terms eventually decrease, and they tend to $0$. The series converges.\n\nII. $b_n = \\frac{1}{[\\ln(n+1)]^2}$ is positive, decreasing, and tends to $0$. The series converges.\n\nIII. If $\\sin n \\to 0$, then $\\sin(n+1) = \\sin n\\cos 1 + \\cos n\\sin 1$ would force $\\cos n \\to 0$ as well, which is impossible since $\\sin^2 n + \\cos^2 n = 1$. So the terms do not tend to $0$ and the series diverges by the divergence test. Here the alternating test cannot be used, because $|\\sin n|$ is not monotone.\n\nSo exactly I and II converge. The trap is III: an alternating sign alone does not make a series converge.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -515,6 +572,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "This is geometric with first term $a = \\frac{1}{3}$ and ratio $r = \\frac{1}{3}$. Since $|r| < 1$, it converges to $\\frac{a}{1 - r}$.\n\n$$\nS = \\frac{1/3}{1 - 1/3} = \\frac{1/3}{2/3} = \\frac{1}{2}\n$$\n\nso the series converges to $\\frac{1}{2}$.\n\nThe trap is the value $\\frac{3}{2}$, which is $\\frac{1}{1-r}$ with the first term left out.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -549,6 +610,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-partial-sums"
+      ],
+      "solution": "The difference of consecutive partial sums is one term: $S_{50} - S_{49} = a_{50}$.\n\n$$\na_{50} = (-1)^{49}\\frac{1}{2(50) - 1} = -\\frac{1}{99}\n$$\n\nso $S_{50} - S_{49} = -\\frac{1}{99}$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -585,6 +650,11 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-absolute-conditional",
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "Check each statement.\n\nI. False. The terms have $\\left|\\frac{\\cos n\\pi}{n^2}\\right| = \\frac{1}{n^2}$, and $\\sum \\frac{1}{n^2}$ converges. So the series converges absolutely, not conditionally.\n\nII. False. For $\\sum \\frac{1}{n^{10}}$ the ratio test limit is $\\lim \\frac{n^{10}}{(n+1)^{10}} = 1$, which is inconclusive. The $p$-test is what shows convergence.\n\nIII. False. Bounded partial sums are not enough. The series $\\sum (-1)^{n-1}$ has partial sums $1, 0, 1, 0, \\ldots$, which are bounded, yet the series diverges.\n\nSo none of the three statements is correct. The trap in III is that bounded partial sums are necessary for convergence, but not sufficient.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -618,6 +688,9 @@
       "answer": "D",
       "lessonIds": [
         "L29"
+      ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
       ],
       "sourcePage": 11,
       "solution": "**Note on this question:** As printed, the sum starts at $n=0$, where the denominator $n^5 3^n$ is $0$, so its first term is undefined. The intended reading starts at $n=1$, which gives the keyed interval $[1,7]$: the Ratio Test gives radius $3$ about $x=4$, and both endpoints converge absolutely, since there $\\left|\\frac{(x-4)^n}{n^5 3^n}\\right|=\\frac{1}{n^5}$.",
@@ -654,6 +727,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Write $\\frac{1}{x}$ as a geometric series in $x - 3$, using $x = 3 + (x - 3)$:\n\n$$\n\\frac{1}{x} = \\frac{1}{3}\\cdot\\frac{1}{1 + \\frac{x-3}{3}} = \\frac{1}{3}\\sum_{n=0}^{\\infty}(-1)^n\\left(\\frac{x-3}{3}\\right)^n = \\sum_{n=0}^{\\infty}\\frac{(-1)^n(x-3)^n}{3^{n+1}}\n$$\n\nso this is the series for $\\frac{1}{x}$ in powers of $x - 3$.\n\nThe trap is a series with the right signs but the wrong power of $3$, missing the factor $\\frac{1}{3}$ in front.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -688,6 +765,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
+      ],
+      "solution": "Write $f$ as a geometric series in $x$:\n\n$$\n\\frac{1}{2 - x} = \\frac{1}{2}\\cdot\\frac{1}{1 - \\frac{x}{2}} = \\frac{1}{2}\\sum_{k=0}^{\\infty}\\left(\\frac{x}{2}\\right)^k = \\sum_{k=0}^{\\infty}\\frac{x^k}{2^{k+1}}\n$$\n\nThe terms of degree at most $3$ are $\\frac{1}{2} + \\frac{x}{4} + \\frac{x^2}{8} + \\frac{x^3}{16}$, which is the answer.\n\nThe trap is the expansion of $\\frac{1}{2 + x}$, which has the sign of $x$ reversed.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -722,6 +803,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Divide the series for $\\sin x$ by $x$:\n\n$$\n\\frac{\\sin x}{x} = \\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n}}{(2n+1)!}\n$$\n\nIntegrate term by term from $0$ to $1$, using $\\int_0^1 x^{2n}\\,dx = \\frac{1}{2n+1}$:\n\n$$\n\\int_0^1\\frac{\\sin x}{x}\\,dx = \\sum_{n=0}^{\\infty}(-1)^n\\frac{1}{(2n+1)(2n+1)!}\n$$\n\nso this is the series. The factor $\\frac{1}{2n+1}$ from the integral is what separates it from a series with an extra factor $2$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -756,6 +841,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-circle-equations"
+      ],
+      "solution": "A polar curve $r = a\\cos\\theta + b\\sin\\theta$ is a circle of radius $\\frac{1}{2}\\sqrt{a^2 + b^2}$. Here $a = 2$ and $b = 1$, so the radius is $\\frac{\\sqrt{5}}{2}$.\n\nCheck by converting: multiplying by $r$ gives $x^2 + y^2 = 2x + y$, so $(x - 1)^2 + \\left(y - \\frac{1}{2}\\right)^2 = \\frac{5}{4}$, a circle of radius $\\frac{\\sqrt{5}}{2}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -790,6 +879,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int_\\alpha^\\beta \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$.\n\nWith $r = e^{4\\theta}$, $\\frac{dr}{d\\theta} = 4e^{4\\theta}$, so $\\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2} = \\sqrt{17}\\,e^{4\\theta}$.\n\n$$\nL = \\int_0^{\\pi}\\sqrt{17}\\,e^{4\\theta}\\,d\\theta = \\frac{\\sqrt{17}}{4}\\left(e^{4\\pi} - 1\\right)\n$$\n\nThe trap is an answer that drops the factor $\\frac{1}{4}$ from integrating $e^{4\\theta}$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -824,6 +917,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-between"
+      ],
+      "solution": "The circles $r = 8\\cos\\theta$ (centre $(4,0)$, radius $4$) and $r = 8\\sin\\theta$ (centre $(0,4)$, radius $4$) meet where $\\sin\\theta = \\cos\\theta$, that is at $\\theta = \\frac{\\pi}{4}$. On $\\left[\\frac{\\pi}{4}, \\frac{\\pi}{2}\\right]$ the smaller of the two radii is $8\\cos\\theta$, and the region is symmetric about the line $y = x$. So the area is twice the part for $\\frac{\\pi}{4} \\le \\theta \\le \\frac{\\pi}{2}$:\n\n$$\nA = 2\\cdot\\frac{1}{2}\\int_{\\pi/4}^{\\pi/2}(8\\cos\\theta)^2\\,d\\theta = 64\\int_{\\pi/4}^{\\pi/2}\\cos^2\\theta\\,d\\theta\n$$\n\nUsing $\\int\\cos^2\\theta\\,d\\theta = \\frac{\\theta}{2} + \\frac{\\sin 2\\theta}{4}$, the integral is $\\left[\\frac{\\theta}{2} + \\frac{\\sin 2\\theta}{4}\\right]_{\\pi/4}^{\\pi/2} = \\frac{\\pi}{8} - \\frac{1}{4}$.\n\nSo $A = 8\\pi - 16 = 8(\\pi - 2)$.\n\nThe trap is $16\\pi$, which is the area of one whole circle and ignores the overlap.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -861,6 +958,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-roses"
+      ],
+      "solution": "This is a three-petal rose, since $\\cos 3\\theta$ has period $\\frac{2\\pi}{3}$ and the largest $|r|$ is $4$. Find the petal tips:\n\n- At $\\theta = 0$, $r = -4$, so the point is $(-4, 0)$, a tip on the negative $x$-axis.\n- At $\\theta = \\frac{\\pi}{3}$, $r = -4\\cos\\pi = 4$, so the point is $\\left(2, 2\\sqrt{3}\\right)$, in the upper right.\n- At $\\theta = -\\frac{\\pi}{3}$, $r = 4$, so the point is $\\left(2, -2\\sqrt{3}\\right)$, in the lower right.\n\nThe graph with petals pointing left, upper right and lower right has these three directions, so it is the answer.\n\nThe trap is the graph with a petal along the positive $x$-axis, which is $r = 4\\cos 3\\theta$ with the minus sign dropped.",
       "sourcePage": 15,
       "status": "reviewed"
     }

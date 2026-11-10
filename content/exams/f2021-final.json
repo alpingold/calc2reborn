@@ -42,6 +42,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-cyclic-parts"
+      ],
+      "solution": "Integrate by parts twice and solve for the original integral. Let $I = \\int e^{3x}\\sin x\\,dx$. With $u = \\sin x$ and $dv = e^{3x}\\,dx$,\n\n$$\nI = \\frac{1}{3}e^{3x}\\sin x - \\frac{1}{3}\\int e^{3x}\\cos x\\,dx.\n$$\n\nApply parts again to the remaining integral, with $u = \\cos x$ and $dv = e^{3x}\\,dx$:\n\n$$\n\\int e^{3x}\\cos x\\,dx = \\frac{1}{3}e^{3x}\\cos x + \\frac{1}{3}I.\n$$\n\nSubstituting back,\n\n$$\nI = \\frac{1}{3}e^{3x}\\sin x - \\frac{1}{9}e^{3x}\\cos x - \\frac{1}{9}I.\n$$\n\nSo $\\frac{10}{9}I = \\frac{1}{9}e^{3x}(3\\sin x - \\cos x)$, and the integral is $\\frac{e^{3x}(3\\sin x - \\cos x)}{10} + C$.\nTrap: one round of parts only trades the sine integral for a cosine integral of the same difficulty, so the second round is needed to bring back $I$ and solve for it.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -81,6 +85,10 @@
         "L14",
         "L15"
       ],
+      "typeIds": [
+        "L15-evaluate-completed-square"
+      ],
+      "solution": "Complete the square: $x^2 + 4x - 5 = (x+2)^2 - 9$. Substitute $x + 2 = 3\\sec\\theta$, so $dx = 3\\sec\\theta\\tan\\theta\\,d\\theta$ and $\\sqrt{x^2+4x-5} = 3\\tan\\theta$. Then\n\n$$\n\\int_1^4 \\frac{3\\tan\\theta}{3\\sec\\theta}\\cdot 3\\sec\\theta\\tan\\theta\\,d\\theta = 3\\int \\tan^2\\theta\\,d\\theta = 3\\int (\\sec^2\\theta - 1)\\,d\\theta.\n$$\n\nAt $x = 1$, $\\sec\\theta = 1$, so $\\theta = 0$. At $x = 4$, $\\sec\\theta = 2$, so $\\theta = \\frac{\\pi}{3}$. Hence\n\n$$\n3\\left[\\tan\\theta - \\theta\\right]_0^{\\pi/3} = 3\\left(\\sqrt{3} - \\frac{\\pi}{3}\\right),\n$$\n\nso the value is $3\\sqrt{3} - \\pi$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -122,6 +130,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-one-curve"
+      ],
+      "solution": "Use the polar area formula $A = \\frac12 \\int r^2\\,d\\theta$. The graph shows $r = \\theta$ for both positive and negative $\\theta$. For $\\theta < 0$ the radius is negative, and the point $(r, \\theta) = (-t, -t)$ is the same as $(t, \\pi - t)$, so the negative branch is the mirror image of the positive branch in the $y$-axis.\n\nThe two branches leave the pole and first meet on the positive $y$-axis, where $\\theta = \\frac{\\pi}{2}$ and $r = \\frac{\\pi}{2}$. The small shaded region is the loop they enclose. Its right half is swept out by $r = \\theta$ for $0 \\le \\theta \\le \\frac{\\pi}{2}$:\n\n$$\n\\frac12 \\int_0^{\\pi/2} \\theta^2\\,d\\theta = \\frac12 \\cdot \\frac{1}{3}\\left(\\frac{\\pi}{2}\\right)^3 = \\frac{\\pi^3}{48}\n$$\n\nThe left half is its mirror image, so the area of the shaded region is $2 \\cdot \\frac{\\pi^3}{48} = \\frac{\\pi^3}{24}$. Stopping at the right half alone gives $\\frac{\\pi^3}{48}$, half the shaded region.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -160,6 +172,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Factor $x^3$ out and write the rest as a geometric series in $\\frac{x^2}{2}$:\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{x^{2k+3}}{2^k} = x^3 \\sum_{k=0}^{\\infty} \\left(\\frac{x^2}{2}\\right)^k.\n$$\n\nThe ratio is $\\frac{x^2}{2}$, so the series converges for $\\frac{x^2}{2} < 1$, which is $|x| < \\sqrt{2}$. Its sum is $\\frac{1}{1 - x^2/2} = \\frac{2}{2 - x^2}$, so\n\n$$\nf(x) = \\frac{2x^3}{2 - x^2} \\quad \\text{for } |x| < \\sqrt{2}.\n$$\n\nTrap: the factor $2$ in the numerator comes from clearing the fraction in $\\frac{1}{1 - x^2/2}$, and it is easy to drop.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -198,6 +214,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells, since the region is revolved about the $y$-axis. The region lies between $x = 0$ and $x = 1$, where $y = x - x^2 \\ge 0$. A shell at $x$ has radius $x$ and height $x - x^2$, so\n\n$$\nV = 2\\pi\\int_0^1 x(x - x^2)\\,dx = 2\\pi\\int_0^1 (x^2 - x^3)\\,dx = 2\\pi\\left(\\frac{1}{3} - \\frac{1}{4}\\right) = \\frac{\\pi}{6}.\n$$\n\nso the volume is $\\frac{\\pi}{6}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -236,6 +256,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-trig"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int \\sqrt{r^2 + (r')^2}\\,d\\theta$. With $r = 1 + \\cos\\theta$ and $r' = -\\sin\\theta$,\n\n$$\nr^2 + (r')^2 = 1 + 2\\cos\\theta + \\cos^2\\theta + \\sin^2\\theta = 2 + 2\\cos\\theta = 4\\cos^2\\frac{\\theta}{2}.\n$$\n\nThe cardioid is traced once for $0 \\le \\theta \\le 2\\pi$. Since $\\cos\\frac{\\theta}{2}$ changes sign there, take the absolute value. With $u = \\frac{\\theta}{2}$,\n\n$$\nL = \\int_0^{2\\pi} 2\\left|\\cos\\frac{\\theta}{2}\\right|\\,d\\theta = 4\\int_0^{\\pi}|\\cos u|\\,du = 4 \\cdot 2 = 8.\n$$\n\nso the length is $8$.\nTrap: taking $\\sqrt{\\cos^2(\\theta/2)}$ as $\\cos\\frac{\\theta}{2}$ without the absolute value makes the integral $0$, which cannot be a length.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -274,6 +298,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Multiply both sides by $\\cos\\theta + \\sin\\theta$ to get $r\\cos\\theta + r\\sin\\theta = 1$. Since $x = r\\cos\\theta$ and $y = r\\sin\\theta$, this is $x + y = 1$, so $y = 1 - x$. The graph is a line.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -312,6 +340,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "The distance from the pole is $r = \\sqrt{(-\\sqrt{3})^2 + (-3)^2} = \\sqrt{12} = 2\\sqrt{3}$, taking the positive root. The point is in the third quadrant, and $\\tan\\theta = \\frac{y}{x} = \\sqrt{3}$, so the reference angle is $\\frac{\\pi}{3}$ and the angle in the third quadrant is $\\theta = \\frac{4\\pi}{3}$. So $(r, \\theta) = \\left(2\\sqrt{3}, \\frac{4\\pi}{3}\\right)$.\nTrap: $\\tan\\theta$ alone gives the same value for both the first and third quadrants, so the quadrant has to be checked from the signs of $x$ and $y$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -350,6 +382,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "Both powers are even, so use the half-angle identities. Since $\\sin^2\\theta\\cos^2\\theta = \\frac{1}{4}\\sin^2 2\\theta$ and $\\sin^2 2\\theta = \\frac{1}{2}(1 - \\cos 4\\theta)$,\n\n$$\n\\sin^2\\theta\\cos^2\\theta = \\frac{1}{8}(1 - \\cos 4\\theta).\n$$\n\nThen\n\n$$\n\\int_0^{\\pi/4} \\frac{1}{8}(1 - \\cos 4\\theta)\\,d\\theta = \\frac{1}{8}\\left[\\theta - \\frac{\\sin 4\\theta}{4}\\right]_0^{\\pi/4} = \\frac{1}{8}\\left(\\frac{\\pi}{4} - 0\\right) = \\frac{\\pi}{32}.\n$$\n\nso the integral is $\\frac{\\pi}{32}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -388,6 +424,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "Write each term as $\\frac{1}{2^{2k+1}} = \\frac{1}{2}\\left(\\frac{1}{4}\\right)^k$. This is geometric with first term $a = \\frac{1}{2}$ and ratio $r = \\frac{1}{4}$, and $|r| < 1$, so\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{1}{2^{2k+1}} = \\frac{a}{1 - r} = \\frac{1/2}{3/4} = \\frac{2}{3}.\n$$\n\nso the sum is $\\frac{2}{3}$.\nTrap: forgetting the $\\frac{1}{2}$ in the first term, so that $a = 1$, gives $\\frac{4}{3}$ instead.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -426,6 +466,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Substitute $x^2$ for $x$ in the series for $\\tan^{-1}x$, which is valid since $|x^2| \\le 1$:\n\n$$\n\\tan^{-1}(x^2) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{4k+2}}{2k+1}.\n$$\n\nIntegrate term by term from $0$ to $1$, using $\\int_0^1 x^{4k+2}\\,dx = \\frac{1}{4k+3}$:\n\n$$\n\\int_0^1 \\tan^{-1}(x^2)\\,dx = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{(2k+1)(4k+3)} = \\frac{1}{3 \\cdot 1} - \\frac{1}{7 \\cdot 3} + \\frac{1}{11 \\cdot 5} - \\frac{1}{15 \\cdot 7} + \\dots\n$$\n\nso the series is the one with denominators $(4k+3)(2k+1)$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -464,6 +508,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-odd-one-out"
+      ],
+      "solution": "The first series has terms $\\frac{k}{(k+3)^2}$, which behave like $\\frac{1}{k}$. Limit comparison with $\\sum \\frac{1}{k}$ gives $\\lim_{k\\to\\infty} \\frac{k^2}{(k+3)^2} = 1$, so this is the series that diverges. Its terms tend to $0$, so the divergence test cannot show it; comparison is needed.\n\nThe other five converge:\n\n- The series $\\sum \\frac{2^n}{n!}$ converges by the ratio test, since $\\frac{2}{n+1} \\to 0$.\n- The series $\\sum \\frac{1}{k\\sqrt{k}}$ is a $p$-series with $p = \\frac{3}{2} > 1$.\n- The alternating harmonic series converges by the alternating series test.\n- The geometric series with ratio $0.9$ converges, since $0.9 < 1$.\n- The alternating series with terms $\\frac{1}{\\ln(1 + 0.2n)}$ converges by the alternating series test, since these terms decrease to $0$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -502,6 +550,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Water fills the bottom half of the tank, so it reaches height $y = 2$ and the limits run from $0$ to $2$. A horizontal slice of thickness $dy$ has volume $\\pi(1)^2\\,dy$, weight $\\rho g\\pi\\,dy$, and must be lifted $4 - y$ to the top. So\n\n$$\nW = \\int_0^2 \\rho g\\pi(4 - y)\\,dy = \\rho g\\pi\\left[4y - \\frac{y^2}{2}\\right]_0^2 = \\rho g\\pi(8 - 2) = 6\\pi\\rho g.\n$$\n\nso the work is $6\\pi\\rho g$ N·m.\nTrap: the limits stop at height $2$ where the water is, not at the top of the tank.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -540,6 +592,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "A vector orthogonal to both $\\vec a$ and $\\vec b$ is their cross product. Compute\n\n$$\n\\vec a \\times \\vec b = \\begin{vmatrix} \\vec i & \\vec j & \\vec k \\\\ \\frac{5}{2} & 3 & 4 \\\\ 1 & 2 & 2 \\end{vmatrix} = (6 - 8)\\vec i - (5 - 4)\\vec j + (5 - 3)\\vec k = \\langle -2, -1, 2 \\rangle.\n$$\n\nIts length is $\\sqrt{4 + 1 + 4} = 3$. Dividing by the length gives a unit vector, and taking the opposite direction gives the unit normal $\\left\\langle \\frac{2}{3}, \\frac{1}{3}, -\\frac{2}{3} \\right\\rangle$.\nTrap: stopping at $\\langle -2, -1, 2 \\rangle$ forgets that the answer must have length $1$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -578,6 +634,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "Use $L = \\int_a^b \\sqrt{1 + (y')^2}\\,dx$. Here $y' = \\tan x$, and $1 + \\tan^2 x = \\sec^2 x$, so\n\n$$\nL = \\int_0^{\\pi/4} \\sec x\\,dx = \\left[\\ln|\\sec x + \\tan x|\\right]_0^{\\pi/4} = \\ln(\\sqrt{2} + 1) - \\ln 1 = \\ln(1 + \\sqrt{2}).\n$$\n\nso the length is $\\ln(1 + \\sqrt{2})$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -616,6 +676,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Expand each piece far enough to reach $x^{12}$. From the cosine series with $u = x^3$,\n\n$$\n\\cos(x^3) = 1 - \\frac{x^6}{2} + \\frac{x^{12}}{24} - \\dots\n$$\n\nFrom the arctangent series with $u = \\frac{x^6}{2}$, the first term is $\\frac{x^6}{2}$ and the next term is of order $x^{18}$. So the numerator is\n\n$$\n\\cos(x^3) + \\tan^{-1}\\left(\\frac{x^6}{2}\\right) - 1 = \\frac{x^{12}}{24} + \\dots,\n$$\n\nand the $x^6$ terms cancel. Therefore\n\n$$\n\\lim_{x \\to 0} \\frac{\\frac{x^{12}}{24} + \\dots}{x^{12}} = \\frac{1}{24},\n$$\n\nso the limit is $\\frac{1}{24}$.\nTrap: stopping the expansion at $x^6$ makes the numerator look like it has no $x^{12}$ term, which gives the wrong limit.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -657,6 +721,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "At position $x$ the square's side runs from the $x$-axis up to the curve, so its side length is $y = \\sqrt{3 - x}$ and its area is $y^2 = 3 - x$. The base runs from $x = 0$ to $x = 2$, so\n\n$$\nV = \\int_0^2 (3 - x)\\,dx = \\left[3x - \\frac{x^2}{2}\\right]_0^2 = 6 - 2 = 4.\n$$\n\nso the volume is $4$.\nTrap: the cross-section area is $y^2$, not $y$, and squaring the radical is what makes the integrand linear.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -695,6 +763,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Rewrite $\\sin(\\pi x)$ around $x = 1$ by writing $\\pi x = \\pi + \\pi(x - 1)$:\n\n$$\n\\sin(\\pi x) = \\sin\\big(\\pi + \\pi(x-1)\\big) = -\\sin\\big(\\pi(x-1)\\big),\n$$\n\nsince $\\sin(\\theta + \\pi) = -\\sin\\theta$. Now use the Maclaurin series of $\\sin u$ with $u = \\pi(x-1)$:\n\n$$\n-\\sum_{k=0}^{\\infty} \\frac{(-1)^k \\pi^{2k+1}(x-1)^{2k+1}}{(2k+1)!} = \\sum_{k=0}^{\\infty} \\frac{(-1)^{k+1}\\pi^{2k+1}}{(2k+1)!}(x - 1)^{2k+1}.\n$$\n\nAs a check, the first term is $-\\pi(x-1)$, and $f'(1) = \\pi\\cos\\pi = -\\pi$.\nTrap: using the Maclaurin series in $x$ directly gives a series centered at $0$, not at $1$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -734,6 +806,11 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-absolute-conditional",
+        "L25-root-test"
+      ],
+      "solution": "First series. The absolute values are $\\left|\\tan\\frac{1}{k}\\right| = \\tan\\frac{1}{k}$, and $\\tan\\frac{1}{k} \\sim \\frac{1}{k}$ as $k \\to \\infty$, so $\\sum \\left|(-1)^k\\tan\\frac{1}{k}\\right|$ diverges by limit comparison with $\\sum \\frac{1}{k}$. The terms $\\tan\\frac{1}{k}$ decrease to $0$, so the alternating series test shows the series converges. It converges conditionally.\n\nSecond series. Take the root test on the absolute values: $\\left(\\frac{1}{\\ln k}\\right)^k$ has $k$th root $\\frac{1}{\\ln k} \\to 0 < 1$. So this series converges absolutely.\n\nSo one series converges conditionally and the other converges absolutely.\nTrap: the alternating series test alone shows only convergence; the root test is needed to see that the second series converges absolutely.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -772,6 +849,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "The dot product of $\\vec w$ with the unit vector $\\vec u$ is the scalar component of $\\vec w$ along $\\vec v$. Since $\\vec u$ points along $\\vec v$, the angle between $\\vec w$ and $\\vec u$ is $\\frac{\\pi}{3}$, so\n\n$$\n6 = \\vec w \\cdot \\vec u = |\\vec w|\\cos\\frac{\\pi}{3} = \\frac{|\\vec w|}{2},\n$$\n\nand $|\\vec w| = 12$.\nTrap: because $\\vec u$ is a unit vector, no division by $|\\vec v|$ is needed.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -810,6 +891,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "The denominator is $(x^2+1)^2$. Split the numerator as $3x^2 + 2x + 3 = 3(x^2 + 1) + 2x$, so\n\n$$\n\\int \\frac{3x^2 + 2x + 3}{(x^2+1)^2}\\,dx = \\int \\frac{3}{x^2+1}\\,dx + \\int \\frac{2x}{(x^2+1)^2}\\,dx.\n$$\n\nThe first integral is $3\\tan^{-1}x$. For the second, let $u = x^2 + 1$, so $du = 2x\\,dx$, and $\\int u^{-2}\\,du = -\\frac{1}{u} = -\\frac{1}{x^2+1}$. So\n\n$$\n\\int \\frac{3x^2 + 2x + 3}{(x^2+1)^2}\\,dx = 3\\tan^{-1}x - \\frac{1}{x^2+1} + C.\n$$\n\nTrap: the $2x$ part is not another arctangent term; it integrates by $u = x^2 + 1$ to $-\\frac{1}{x^2+1}$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -848,6 +933,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
+      ],
+      "solution": "The second-order Taylor polynomial at $a = 1$ is $p_2(x) = f(1) + f'(1)(x - 1) + \\frac{f''(1)}{2}(x-1)^2$. For $f(x) = x^{10}$, $f(1) = 1$, $f'(1) = 10$, and $\\frac{f''(1)}{2} = \\frac{90}{2} = 45$. So $p_2(x) = 1 + 10(x-1) + 45(x-1)^2$, and\n\n$$\np_2(0) = 1 - 10 + 45 = 36.\n$$\n\nso the value is $36$.\nTrap: at $x = 0$ the factor $x - 1$ is $-1$, and its square is positive, so the last term adds $45$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -886,6 +975,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The ratio test gives $\\frac{|x|^{k+1}/\\sqrt{k+1}}{|x|^k/\\sqrt{k}} \\to |x|$, so the radius of convergence is $1$. Check each endpoint.\n\nAt $x = 1$, the series is $\\sum \\frac{1}{\\sqrt{k}}$, a $p$-series with $p = \\frac{1}{2} \\le 1$, which diverges.\n\nAt $x = -1$, the series is $\\sum \\frac{(-1)^k}{\\sqrt{k}}$, which converges by the alternating series test since $\\frac{1}{\\sqrt{k}}$ decreases to $0$.\n\nSo the interval of convergence is $[-1, 1)$.\nTrap: both endpoints must be tested, since they can behave differently.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -927,6 +1020,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-roses"
+      ],
+      "solution": "The curve has two large lobes along the horizontal axis, reaching distance $4$ on the $x$-axis, and two smaller lobes along the vertical axis, reaching distance $2$. Take $r = 1 + 3\\cos 2\\theta$. At $\\theta = 0$, $r = 4$, which gives the far point on the positive $x$-axis. At $\\theta = \\frac{\\pi}{2}$, $r = 1 + 3\\cos\\pi = -2$, which puts a point at distance $2$ on the negative $y$-axis. Both lengths match the graph, and the curve is symmetric about both axes, as $\\cos 2\\theta$ is.\nTrap: a sine in place of the cosine rotates the lobes, so check which axis the large lobes lie on by evaluating at $\\theta = 0$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -965,6 +1062,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Differentiate the series for $\\tan x$ term by term, since $\\frac{d}{dx}\\tan x = \\sec^2 x$:\n\n$$\n\\sec^2 x = 1 + x^2 + \\frac{2x^4}{3} + \\frac{17x^6}{45} + \\dots\n$$\n\nNow replace $x$ by $x^3$:\n\n$$\n\\sec^2(x^3) = 1 + x^6 + \\frac{2x^{12}}{3} + \\frac{17x^{18}}{45} + \\dots\n$$\n\nso the series starts $1 + x^6$ and continues with the terms above.\nTrap: substituting $x^3$ into the series for $\\tan x$ gives a different function, not $\\sec^2(x^3)$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

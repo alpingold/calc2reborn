@@ -38,6 +38,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Use integration by parts with $u = 2x - 1$ and $dv = e^{2x}\\,dx$, so $du = 2\\,dx$ and $v = \\frac{1}{2}e^{2x}$.\n\n$$\n\\int (2x-1)e^{2x}\\,dx = \\frac{(2x-1)e^{2x}}{2} - \\int e^{2x}\\,dx = \\frac{(2x-1)e^{2x}}{2} - \\frac{e^{2x}}{2} = (x-1)e^{2x} + C\n$$\n\nEvaluate from $0$ to $1$. At $x = 1$ the antiderivative is $0$, and at $x = 0$ it is $(0-1)e^0 = -1$. So the integral equals $0 - (-1) = 1$.\n\nThe usual slip is to forget the $\\frac{1}{2}$ in $v$, which changes every later term.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,9 @@
       "lessonIds": [
         "L12",
         "L13"
+      ],
+      "typeIds": [
+        "L13-choose-substitution"
       ],
       "sourcePage": 3,
       "solution": "The official key accepted both C and D for this question. D is stored here because statement I can be defended as true.\n\nII is true. The power of $\\cos(2x)$ is odd, so save one factor $\\cos(2x)$, write $\\cos^2(2x) = 1 - \\sin^2(2x)$, and let $u = \\sin(2x)$, $du = 2\\cos(2x)\\,dx$:\n\n$$\n\\int \\cos^3(2x)\\sin^4(2x)\\,dx = \\frac{1}{2}\\int (1 - u^2)u^4\\,du\n$$\n\nIII is true:\n\n$$\n\\int_0^{\\pi/2} \\cos^2\\theta\\,d\\theta = \\frac{1}{2}\\left[\\theta + \\frac{1}{2}\\sin 2\\theta\\right]_0^{\\pi/2} = \\frac{\\pi}{4}\n$$\n\nI is the disputed statement. With $u = \\tan x$, save $\\sec^2 x\\,dx = du$ and write the other $\\sec^2 x = 1 + \\tan^2 x$:\n\n$$\n\\int \\tan^5 x\\sec^4 x\\,dx = \\int u^5(1 + u^2)\\,du\n$$\n\nBecause the power of $\\tan x$ is odd, $u = \\sec x$ also works, giving $\\int (u^2 - 1)^2u^3\\,du$, a longer polynomial. Both substitutions succeed, so \"most appropriate\" is a judgment call. Reading $u = \\tan x$ as the most appropriate makes all three statements true (D); reading the existence of $u = \\sec x$ as making I false leaves II and III only (C).",
@@ -108,6 +115,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Pump each horizontal slice to the top. Measure height $y$ from the bottom of the tank. A slice of thickness $dy$ has volume $3 \\cdot 2\\,dy = 6\\,dy$ m$^3$, so its mass is $\\frac{1}{3}\\cdot 6\\,dy = 2\\,dy$ kg and its weight is $10 \\cdot 2\\,dy = 20\\,dy$ N. The slice must be lifted $h - y$ m to the top.\n\n$$\nW = \\int_0^h 20(h-y)\\,dy = 20\\left[hy - \\frac{y^2}{2}\\right]_0^h = 10h^2\n$$\n\nSetting $10h^2 = 90$ gives $h^2 = 9$, so $h = 3$, taking $h > 0$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -142,6 +153,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "Substitute $x = 2\\tan\\theta$, so $dx = 2\\sec^2\\theta\\,d\\theta$. Also $4 + x^2 = 4 + 4\\tan^2\\theta = 4\\sec^2\\theta$, and since $\\sec\\theta > 0$ on the range used, $(4 + x^2)^{3/2} = 8\\sec^3\\theta$.\n\n$$\n\\int \\frac{1}{(4+x^2)^{3/2}}\\,dx = \\int \\frac{2\\sec^2\\theta}{8\\sec^3\\theta}\\,d\\theta = \\frac{1}{4}\\int \\frac{1}{\\sec\\theta}\\,d\\theta = \\frac{1}{4}\\int \\cos\\theta\\,d\\theta\n$$\n\nSo the integral becomes $\\frac{1}{4}\\int \\cos\\theta\\,d\\theta$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -176,6 +191,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Complete the square under the root. Since $-(x-5)^2 = -x^2 + 10x - 25$,\n\n$$\n24 + 10x - x^2 = 49 - (x-5)^2 = 7^2 - (x-5)^2\n$$\n\nThe substitution $x - 5 = 7\\sin\\theta$ gives a right triangle with opposite side $x - 5$ and hypotenuse $7$. So the hypotenuse is $7$.\n\nThe trap is to call $\\sqrt{24 + 10x - x^2}$ the hypotenuse. That root equals $7\\cos\\theta$, the side adjacent to $\\theta$; the hypotenuse is the constant $7$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -210,6 +229,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Factor the denominator as $x^2 - 5x + 6 = (x-2)(x-3)$ and decompose\n\n$$\n\\frac{x-4}{(x-2)(x-3)} = \\frac{A}{x-2} + \\frac{B}{x-3}\n$$\n\nMultiplying out gives $x - 4 = A(x-3) + B(x-2)$. Setting $x = 2$ gives $-2 = -A$, so $A = 2$. Setting $x = 3$ gives $-1 = B$.\n\n$$\n\\int_0^1 \\frac{x-4}{x^2-5x+6}\\,dx = \\left[2\\ln|x-2| - \\ln|x-3|\\right]_0^1\n$$\n\nBoth factors are negative on $[0, 1]$, so the absolute values only remove a sign. At $x = 1$ the bracket is $2\\ln 1 - \\ln 2 = -\\ln 2$, and at $x = 0$ it is $2\\ln 2 - \\ln 3$. Subtracting, the integral is $-\\ln 2 - 2\\ln 2 + \\ln 3 = \\ln 3 - 3\\ln 2$.\n\nSo the integral equals $\\ln\\frac{3}{8}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -244,6 +267,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "The numerator has degree $4$ and the denominator has degree $2 + 2 + 4 = 8$, so no long division is needed. Give each factor its own terms:\n\n- For $x^2$, a term for each power: $\\frac{A}{x} + \\frac{B}{x^2}$.\n- For $(x+1)^2$, a term for each power: $\\frac{C}{x+1} + \\frac{D}{(x+1)^2}$.\n- For the irreducible $x^2 + 1$, a linear numerator: $\\frac{Ex + F}{x^2+1}$, and for its square, $\\frac{Gx + H}{(x^2+1)^2}$.\n\nThe decomposition is the sum of these six terms.\n\nThe usual mistakes are to leave out the lower powers, such as $\\frac{A}{x}$ and $\\frac{C}{x+1}$, or to use constant numerators over $x^2 + 1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -278,6 +305,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Write the integral as a limit:\n\n$$\n\\int_0^{\\infty} x e^{-x^2}\\,dx = \\lim_{t \\to \\infty} \\int_0^t x e^{-x^2}\\,dx\n$$\n\nAn antiderivative of $xe^{-x^2}$ is $-\\frac{1}{2}e^{-x^2}$, so the integral over $[0, t]$ is $\\frac{1}{2} - \\frac{1}{2}e^{-t^2}$. As $t \\to \\infty$, $e^{-t^2} \\to 0$, so the integral equals $\\frac{1}{2}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -312,6 +343,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "For a curve revolved about the x-axis, $S = 2\\pi\\int_a^b y\\sqrt{1 + (y')^2}\\,dx$. Here $y = 2x$, so $y' = 2$ and $\\sqrt{1 + (y')^2} = \\sqrt{5}$.\n\n$$\nS = 2\\pi\\int_1^3 2x\\sqrt{5}\\,dx = 2\\pi\\sqrt{5}\\left[x^2\\right]_1^3 = 2\\pi\\sqrt{5}\\cdot 8\n$$\n\nSo the surface area is $16\\sqrt{5}\\pi$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -345,6 +380,9 @@
       "answer": "A",
       "lessonIds": [
         "L9"
+      ],
+      "typeIds": [
+        "L9-centroid-or-mass"
       ],
       "sourcePage": 7,
       "solution": "**Note on this question:** The printed hint $\\int_1^e x^2\\ln x\\,dx=\\frac{2(1+e^3)}{9}$ is wrong; integration by parts gives $\\left[\\frac{x^3}{3}\\ln x-\\frac{x^3}{9}\\right]_1^e=\\frac{2e^3+1}{9}$. The centroid does not need this integral, and only the wrong choice E uses the printed value, so the answer A is unaffected.",
@@ -382,6 +420,10 @@
         "L20",
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Check each statement in turn.\n\nI. The terms $\\frac{1}{\\sqrt{n}}$ decrease to $0$, so the sequence converges. This statement is true.\n\nII. The series $\\sum \\frac{1}{\\sqrt{n}}$ is a $p$-series with $p = \\frac{1}{2} \\le 1$, so it diverges. This statement is false.\n\nIII. The terms are $\\sin\\left(\\frac{(2n-1)\\pi}{2}\\right) = \\sin\\left(n\\pi - \\frac{\\pi}{2}\\right) = -(-1)^n$, which alternate between $1$ and $-1$. Every term lies in $[-1, 1]$, so the sequence is bounded. This statement is true.\n\nSo statements I and III are true and II is false.\n\nThe trap is to accept II because its terms tend to $0$. Terms tending to $0$ do not make a series converge.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -416,6 +458,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
+      "solution": "Split the term into two geometric pieces:\n\n$$\n\\sum_{n=1}^{\\infty} \\frac{1 + 3^n}{7^n} = \\sum_{n=1}^{\\infty} \\left(\\frac{1}{7}\\right)^n + \\sum_{n=1}^{\\infty} \\left(\\frac{3}{7}\\right)^n\n$$\n\nBoth series have $|r| < 1$ and start at $n = 1$, so each sums to $\\frac{r}{1 - r}$. The first gives $\\frac{1/7}{1 - 1/7} = \\frac{1}{6}$, and the second gives $\\frac{3/7}{1 - 3/7} = \\frac{3}{4}$.\n\nSo the series converges, with sum $\\frac{1}{6} + \\frac{3}{4} = \\frac{11}{12}$.\n\nThe usual slip is to use $\\frac{a}{1-r}$ with $a = 1$, as if the sums started at $n = 0$. That makes each piece too large by $1$.",
       "sourcePage": 8,
       "status": "reviewed"
     }
