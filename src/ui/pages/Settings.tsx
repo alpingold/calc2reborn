@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { useContent, useSettings, useStore } from '../../storage/context'
+import { sessionsFromAttempts } from '../../storage/backfill'
 import { parseSnapshot } from '../../storage/snapshot'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import type { Flag } from '../../storage/types'
@@ -157,6 +158,10 @@ export function Settings() {
     if (!parsed.ok) {
       setError(parsed.error)
       return
+    }
+    // a file from before session records existed: rebuild its exam history from its attempts
+    if (parsed.snapshot.sessions === undefined) {
+      parsed.snapshot.sessions = sessionsFromAttempts(parsed.snapshot.attempts, content)
     }
     try {
       // one transaction: a failure leaves the stored progress as it was

@@ -55,6 +55,30 @@ export interface Flag {
   note: string
   timestamp: string
 }
+/** A finished exam or mock, kept so its results can be reopened and listed under Past attempts. */
+export interface SessionRecord {
+  sessionId: string
+  kind: 'exam' | 'mock'
+  examId?: string
+  /** a mock's lesson range */
+  from?: string
+  to?: string
+  /** in the order shown, including questions left unanswered */
+  questionIds: string[]
+  startedAt: string
+  finishedAt: string
+  /** taken with feedback after each answer */
+  feedback: boolean
+  correct: number
+  total: number
+}
+/** A guided problem the student has worked through; finishing it again replaces the record. */
+export interface GuidedResult {
+  problemId: string
+  completedAt: string
+  steps: number
+  firstTryCorrect: number
+}
 export interface ProgressSnapshot {
   version: 1
   exportedAt: string
@@ -63,6 +87,9 @@ export interface ProgressSnapshot {
   settings: Settings
   /** absent in files exported before reports existed */
   flags?: Flag[]
+  /** absent in files exported before version 2.0 */
+  sessions?: SessionRecord[]
+  guided?: GuidedResult[]
 }
 export interface AttemptFilter {
   questionIds?: string[]
@@ -82,6 +109,11 @@ export interface ProgressStore {
   /** oldest first */
   listFlags(): Promise<Flag[]>
   deleteFlag(id: string): Promise<void>
+  saveSessionRecord(r: SessionRecord): Promise<void>
+  /** newest first */
+  listSessionRecords(): Promise<SessionRecord[]>
+  saveGuidedResult(r: GuidedResult): Promise<void>
+  listGuidedResults(): Promise<GuidedResult[]>
   exportAll(): Promise<ProgressSnapshot>
   importAll(s: ProgressSnapshot): Promise<void>
   clear(): Promise<void>

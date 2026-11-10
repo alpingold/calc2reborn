@@ -99,4 +99,39 @@ describe('parseSnapshot', () => {
     const r = parseSnapshot({ ...valid, exportedAt: at, attempts: [{ ...attempt, timestamp: at }] })
     expect(r.ok).toBe(true)
   })
+  const sessionRecord = {
+    sessionId: 's1', kind: 'exam', examId: 'e1', questionIds: ['q1'], startedAt: '2026-01-01T00:00:00.000Z',
+    finishedAt: '2026-01-01T01:00:00.000Z', feedback: false, correct: 1, total: 1,
+  }
+  const guidedResult = { problemId: 'L1-g1', completedAt: '2026-01-01T00:00:00.000Z', steps: 4, firstTryCorrect: 3 }
+  test('accepts session records and guided results', () => {
+    const r = parseSnapshot({ ...valid, sessions: [sessionRecord], guided: [guidedResult] })
+    expect(r.ok).toBe(true)
+    if (r.ok) {
+      expect(r.snapshot.sessions).toEqual([sessionRecord])
+      expect(r.snapshot.guided).toEqual([guidedResult])
+    }
+  })
+  test('a file without them, as version 1 of the app wrote it, still parses and leaves them undefined', () => {
+    const r = parseSnapshot(valid)
+    expect(r.ok).toBe(true)
+    if (r.ok) {
+      expect(r.snapshot.sessions).toBeUndefined()
+      expect(r.snapshot.guided).toBeUndefined()
+    }
+  })
+  test('rejects a repeated session id or guided problem id', () => {
+    const a = parseSnapshot({ ...valid, sessions: [sessionRecord, sessionRecord] })
+    expect(a).toEqual({ ok: false, error: 'Duplicate session s1' })
+    const b = parseSnapshot({ ...valid, guided: [guidedResult, guidedResult] })
+    expect(b).toEqual({ ok: false, error: 'Duplicate guided result L1-g1' })
+  })
+  test.each([
+    ['a session kind the app does not know', { ...sessionRecord, kind: 'practice' }],
+    ['a session with no question list', { ...sessionRecord, questionIds: undefined }],
+    ['a negative score', { ...sessionRecord, correct: -1 }],
+    ['a finish time that is not a date', { ...sessionRecord, finishedAt: 'later' }],
+  ])('rejects %s', (_name, bad) => {
+    expect(parseSnapshot({ ...valid, sessions: [bad] }).ok).toBe(false)
+  })
 })

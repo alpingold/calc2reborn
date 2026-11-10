@@ -1,5 +1,15 @@
 import { DEFAULT_SETTINGS } from './types'
-import type { Attempt, AttemptFilter, CardState, Flag, ProgressSnapshot, ProgressStore, Settings } from './types'
+import type {
+  Attempt,
+  AttemptFilter,
+  CardState,
+  Flag,
+  GuidedResult,
+  ProgressSnapshot,
+  ProgressStore,
+  SessionRecord,
+  Settings,
+} from './types'
 import { SNAPSHOT_VERSION } from './snapshot'
 import { filterAttempts } from './filter'
 
@@ -8,6 +18,8 @@ export class MemoryStore implements ProgressStore {
   private attempts = new Map<string, Attempt>()
   private settings: Settings | undefined
   private flags = new Map<string, Flag>()
+  private sessions = new Map<string, SessionRecord>()
+  private guided = new Map<string, GuidedResult>()
 
   async getCardState(cardId: string) {
     return this.cards.get(cardId)
@@ -39,6 +51,18 @@ export class MemoryStore implements ProgressStore {
   async deleteFlag(id: string) {
     this.flags.delete(id)
   }
+  async saveSessionRecord(r: SessionRecord) {
+    this.sessions.set(r.sessionId, r)
+  }
+  async listSessionRecords() {
+    return [...this.sessions.values()].sort((a, b) => (a.finishedAt < b.finishedAt ? 1 : a.finishedAt > b.finishedAt ? -1 : 0))
+  }
+  async saveGuidedResult(r: GuidedResult) {
+    this.guided.set(r.problemId, r)
+  }
+  async listGuidedResults() {
+    return [...this.guided.values()]
+  }
   async exportAll(): Promise<ProgressSnapshot> {
     return {
       version: SNAPSHOT_VERSION,
@@ -47,6 +71,8 @@ export class MemoryStore implements ProgressStore {
       attempts: await this.listAttempts(),
       settings: await this.getSettings(),
       flags: await this.listFlags(),
+      sessions: await this.listSessionRecords(),
+      guided: await this.listGuidedResults(),
     }
   }
   async importAll(s: ProgressSnapshot) {
@@ -55,11 +81,15 @@ export class MemoryStore implements ProgressStore {
     s.attempts.forEach((a) => this.attempts.set(a.id, a))
     this.settings = s.settings
     ;(s.flags ?? []).forEach((f) => this.flags.set(f.id, f))
+    ;(s.sessions ?? []).forEach((r) => this.sessions.set(r.sessionId, r))
+    ;(s.guided ?? []).forEach((g) => this.guided.set(g.problemId, g))
   }
   async clear() {
     this.cards.clear()
     this.attempts.clear()
     this.settings = undefined
     this.flags.clear()
+    this.sessions.clear()
+    this.guided.clear()
   }
 }

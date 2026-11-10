@@ -57,6 +57,33 @@ const SnapshotSchema = z.object({
       }),
     )
     .optional(),
+  sessions: z
+    .array(
+      z.object({
+        sessionId: z.string().min(1),
+        kind: z.enum(['exam', 'mock']),
+        examId: z.string().optional(),
+        from: z.string().optional(),
+        to: z.string().optional(),
+        questionIds: z.array(z.string()),
+        startedAt: iso,
+        finishedAt: iso,
+        feedback: z.boolean(),
+        correct: z.number().int().min(0),
+        total: z.number().int().min(0),
+      }),
+    )
+    .optional(),
+  guided: z
+    .array(
+      z.object({
+        problemId: z.string().min(1),
+        completedAt: iso,
+        steps: z.number().int().min(0),
+        firstTryCorrect: z.number().int().min(0),
+      }),
+    )
+    .optional(),
 })
 
 function formatPath(path: PropertyKey[]): string {
@@ -88,6 +115,16 @@ export function parseSnapshot(
     for (const f of r.data.flags ?? []) {
       if (flagIds.has(f.id)) return { ok: false, error: `Duplicate report ${f.id}` }
       flagIds.add(f.id)
+    }
+    const sessionIds = new Set<string>()
+    for (const s of r.data.sessions ?? []) {
+      if (sessionIds.has(s.sessionId)) return { ok: false, error: `Duplicate session ${s.sessionId}` }
+      sessionIds.add(s.sessionId)
+    }
+    const problemIds = new Set<string>()
+    for (const g of r.data.guided ?? []) {
+      if (problemIds.has(g.problemId)) return { ok: false, error: `Duplicate guided result ${g.problemId}` }
+      problemIds.add(g.problemId)
     }
     return { ok: true, snapshot: r.data as ProgressSnapshot }
   }

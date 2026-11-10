@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { Content } from '../content'
 import { createScheduler } from '../engine/fsrs'
 import type { Scheduler } from '../engine/fsrs'
+import { sessionsFromAttempts } from './backfill'
 import { DexieStore } from './dexie'
 import { MemoryStore } from './memory'
 import { DEFAULT_SETTINGS } from './types'
@@ -44,9 +45,10 @@ async function loadDefaultContent(): Promise<Content> {
   return (await import('../content/load')).loadContent()
 }
 
-async function openDefaultStore(): Promise<{ store: ProgressStore; fallback: boolean }> {
+async function openDefaultStore(content: Content): Promise<{ store: ProgressStore; fallback: boolean }> {
   try {
-    const db = new DexieStore()
+    // an older database is upgraded on open; its exam history is rebuilt from the attempts it holds
+    const db = new DexieStore(undefined, (attempts) => sessionsFromAttempts(attempts, content))
     await db.open()
     return { store: db, fallback: false }
   } catch {
@@ -70,7 +72,7 @@ export function StoreProvider({ store, scheduler, content, rng = Math.random, no
           scheduler ?? createScheduler(),
         ])
         if (cancelled) return
-        const { store: s, fallback } = store ? { store, fallback: false } : await openDefaultStore()
+        const { store: s, fallback } = store ? { store, fallback: false } : await openDefaultStore(loadedContent)
         if (!store && s instanceof DexieStore) opened = s
         if (cancelled) {
           // cleanup ran while open() was pending (e.g. StrictMode remount): release the connection

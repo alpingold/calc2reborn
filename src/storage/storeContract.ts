@@ -1,12 +1,29 @@
 import { beforeEach, describe, expect, test } from 'vitest'
 import { DEFAULT_SETTINGS } from './types'
-import type { Attempt, CardState, Flag, ProgressStore, SerializedFsrsCard } from './types'
+import type { Attempt, CardState, Flag, GuidedResult, ProgressStore, SerializedFsrsCard, SessionRecord } from './types'
 
 function att(id: string, timestamp: string, extra: Partial<Attempt> = {}): Attempt {
   return { id, questionId: 'q1', chosen: 'A', correct: true, seconds: 30, timestamp, mode: 'practice', ...extra }
 }
 function flag(id: string, timestamp: string): Flag {
   return { id, questionId: 'q1', reason: 'answer', note: 'B looks right to me', timestamp }
+}
+function sess(sessionId: string, finishedAt: string, extra: Partial<SessionRecord> = {}): SessionRecord {
+  return {
+    sessionId,
+    kind: 'exam',
+    examId: 'e1',
+    questionIds: ['q1', 'q2'],
+    startedAt: '2026-01-01T00:00:00.000Z',
+    finishedAt,
+    feedback: false,
+    correct: 1,
+    total: 2,
+    ...extra,
+  }
+}
+function guided(problemId: string, firstTryCorrect = 3): GuidedResult {
+  return { problemId, completedAt: '2026-01-05T00:00:00.000Z', steps: 4, firstTryCorrect }
 }
 const BASE_FSRS: SerializedFsrsCard = {
   dueAt: '2026-01-02T00:00:00.000Z',
@@ -141,6 +158,55 @@ export function storeContract(name: string, make: () => Promise<ProgressStore>):
       await store.saveFlag(flag('old', '2026-01-01T00:00:00.000Z'))
       await store.importAll({ version: 1, exportedAt: '2026-02-01T00:00:00.000Z', cardStates: [], attempts: [], settings: DEFAULT_SETTINGS })
       expect(await store.listFlags()).toEqual([])
+    })
+
+    test('session records are saved and listed newest first', async () => {
+      await store.saveSessionRecord(sess('s1', '2026-01-02T00:00:00.000Z'))
+      await store.saveSessionRecord(sess('s3', '2026-01-04T00:00:00.000Z', { kind: 'mock', examId: undefined, from: 'L1', to: 'L4' }))
+      await store.saveSessionRecord(sess('s2', '2026-01-03T00:00:00.000Z'))
+      expect((await store.listSessionRecords()).map((r) => r.sessionId)).toEqual(['s3', 's2', 's1'])
+      expect((await store.listSessionRecords())[0]).toMatchObject({ kind: 'mock', from: 'L1', to: 'L4', questionIds: ['q1', 'q2'] })
+    })
+
+    test('saving a session record again replaces it', async () => {
+      await store.saveSessionRecord(sess('s1', '2026-01-02T00:00:00.000Z', { correct: 1 }))
+      await store.saveSessionRecord(sess('s1', '2026-01-02T00:00:00.000Z', { correct: 2 }))
+      expect(await store.listSessionRecords()).toEqual([sess('s1', '2026-01-02T00:00:00.000Z', { correct: 2 })])
+    })
+
+    test('a guided result is kept once per problem, the latest replacing the earlier', async () => {
+      await store.saveGuidedResult(guided('L1-g1', 2))
+      await store.saveGuidedResult(guided('L1-g2'))
+      await store.saveGuidedResult(guided('L1-g1', 4))
+      const all = (await store.listGuidedResults()).sort((a, b) => a.problemId.localeCompare(b.problemId))
+      expect(all).toEqual([guided('L1-g1', 4), guided('L1-g2')])
+    })
+
+    test('a fresh store has no session records or guided results', async () => {
+      expect(await store.listSessionRecords()).toEqual([])
+      expect(await store.listGuidedResults()).toEqual([])
+    })
+
+    test('session records and guided results travel with export and import, and clear removes them', async () => {
+      await store.saveSessionRecord(sess('s1', '2026-01-02T00:00:00.000Z'))
+      await store.saveGuidedResult(guided('L1-g1'))
+      const snap = await store.exportAll()
+      expect(snap.sessions).toEqual([sess('s1', '2026-01-02T00:00:00.000Z')])
+      expect(snap.guided).toEqual([guided('L1-g1')])
+      await store.clear()
+      expect(await store.listSessionRecords()).toEqual([])
+      expect(await store.listGuidedResults()).toEqual([])
+      await store.importAll(snap)
+      expect(await store.listSessionRecords()).toEqual([sess('s1', '2026-01-02T00:00:00.000Z')])
+      expect(await store.listGuidedResults()).toEqual([guided('L1-g1')])
+    })
+
+    test('importing a file from before 2.0 replaces records with none', async () => {
+      await store.saveSessionRecord(sess('old', '2026-01-02T00:00:00.000Z'))
+      await store.saveGuidedResult(guided('old'))
+      await store.importAll({ version: 1, exportedAt: '2026-02-01T00:00:00.000Z', cardStates: [], attempts: [], settings: DEFAULT_SETTINGS })
+      expect(await store.listSessionRecords()).toEqual([])
+      expect(await store.listGuidedResults()).toEqual([])
     })
   })
 }
