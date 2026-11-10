@@ -45,7 +45,9 @@ export function FeedbackPanel({ question, chosen, lessonTitle, lessonHref, onSim
 
   return (
     <div className="feedback">
-      <p role="status">{isCorrect ? 'Correct' : 'Not quite'}</p>
+      <p role="status" className={`feedback-verdict ${isCorrect ? 'right' : 'wrong'}`}>
+        {isCorrect ? 'Correct' : 'Not quite'}
+      </p>
       {question.answerSource === 'written' && (
         <p>
           This question was written for this app, not taken from a Purdue exam. Its answer was checked independently

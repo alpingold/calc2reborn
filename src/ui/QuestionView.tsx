@@ -118,7 +118,7 @@ export function QuestionView({
         ))}
       </div>
       {mode === 'immediate' && onSubmit && !revealed && (
-        <button type="button" disabled={!chosen} onClick={submit}>
+        <button type="button" className="primary" disabled={!chosen} onClick={submit}>
           {submitLabel}
         </button>
       )}

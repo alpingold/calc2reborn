@@ -154,14 +154,24 @@ function ExamSessionView(props: {
   const isMarked = session.marked.includes(questionId)
   const isChecked = untimed && (session.checked ?? []).includes(questionId)
   const lesson = question?.lessonIds[0] ? content.lessonById.get(question.lessonIds[0]) : undefined
+  const answeredCount = session.questionIds.filter((id) => session.answers[id]).length
 
   return (
     <section className="exam">
-      <h2>{heading}</h2>
+      <header className="exam-bar">
+        <h2>{heading}</h2>
+        <div className="exam-clock">
+          <span className="exam-clock-label">{untimed ? 'Elapsed' : 'Time left'}</span>
+          <p
+            className={`exam-timer${!untimed && clock <= 300 ? ' low' : ''}`}
+            role="timer"
+            aria-label={untimed ? 'Time elapsed' : 'Time remaining'}
+          >
+            {formatClock(clock)}
+          </p>
+        </div>
+      </header>
       {errorLine}
-      <p className="exam-timer" role="timer" aria-label={untimed ? 'Time elapsed' : 'Time remaining'}>
-        {formatClock(clock)}
-      </p>
       <h3>{`Question ${index + 1} of ${total}`}</h3>
       {question ? (
         untimed ? (
@@ -183,7 +193,7 @@ function ExamSessionView(props: {
       ) : (
         <p>This question is no longer available</p>
       )}
-      <div className="exam-controls">
+      <div className="exam-controls exam-actions">
         <button type="button" disabled={index === 0} onClick={() => goTo(index - 1)}>
           Prev
         </button>
@@ -193,28 +203,42 @@ function ExamSessionView(props: {
         <button type="button" onClick={toggleMark}>
           {isMarked ? 'Unmark' : 'Mark for review'}
         </button>
-        <button type="button" onClick={onSubmit}>
+        <button type="button" className="exam-submit" onClick={onSubmit}>
           Submit
         </button>
       </div>
-      <nav className="exam-nav" aria-label="Questions">
-        {session.questionIds.map((id, i) => {
-          const classes = [session.answers[id] ? 'answered' : '', session.marked.includes(id) ? 'marked' : '']
-            .filter(Boolean)
-            .join(' ')
-          return (
-            <button
-              key={id}
-              type="button"
-              className={classes || undefined}
-              aria-current={i === index ? 'true' : undefined}
-              onClick={() => goTo(i)}
-            >
-              {i + 1}
-            </button>
-          )
-        })}
-      </nav>
+      <div className="exam-map">
+        <p className="exam-map-head">
+          <span>{`${answeredCount} of ${total} answered`}</span>
+          {session.marked.length > 0 && <span>{`${session.marked.length} marked for review`}</span>}
+        </p>
+        <nav className="exam-nav" aria-label="Questions">
+          {session.questionIds.map((id, i) => {
+            const classes = [session.answers[id] ? 'answered' : '', session.marked.includes(id) ? 'marked' : '']
+              .filter(Boolean)
+              .join(' ')
+            return (
+              <button
+                key={id}
+                type="button"
+                className={classes || undefined}
+                aria-current={i === index ? 'true' : undefined}
+                onClick={() => goTo(i)}
+              >
+                {i + 1}
+              </button>
+            )
+          })}
+        </nav>
+        <ul className="exam-legend" aria-hidden="true">
+          <li>
+            <span className="swatch answered" /> Answered
+          </li>
+          <li>
+            <span className="swatch marked" /> Marked for review
+          </li>
+        </ul>
+      </div>
     </section>
   )
 }

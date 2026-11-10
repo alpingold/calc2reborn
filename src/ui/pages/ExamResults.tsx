@@ -60,6 +60,14 @@ function ResultsView({ sessionId }: { sessionId: string }) {
   const exam = session.examId ? content.exams.find((e) => e.id === session.examId) : undefined
   const title = session.kind === 'mock' ? 'Mock exam' : exam ? examTitle(exam) : 'Exam'
 
+  function verdict(id: string): { kind: 'right' | 'wrong' | 'blank'; label: string } | null {
+    const question = content.questionById.get(id)
+    if (!question || !session) return null
+    const chosen = session.answers[id]
+    if (!chosen) return { kind: 'blank', label: 'Not answered' }
+    return chosen === question.answer ? { kind: 'right', label: 'Correct' } : { kind: 'wrong', label: 'Missed' }
+  }
+
   return (
     <section className="results">
       <h2>Results</h2>
@@ -69,17 +77,48 @@ function ResultsView({ sessionId }: { sessionId: string }) {
         <p className="results-score">{`Score: ${score.correct} / ${score.total}`}</p>
         <p className="results-points">{`Points: ${formatPoints(score.points)} / ${formatPoints(score.maxPoints)}`}</p>
       </div>
+      <nav className="results-map" aria-label="Jump to a question">
+        {session.questionIds.map((id, i) => {
+          const v = verdict(id)
+          if (!v) return null
+          return (
+            <button
+              key={id}
+              type="button"
+              className={v.kind}
+              aria-label={`Question ${i + 1}: ${v.label.toLowerCase()}`}
+              onClick={() => document.getElementById(`result-q-${i + 1}`)?.scrollIntoView?.()}
+            >
+              {i + 1}
+            </button>
+          )
+        })}
+      </nav>
+      <ul className="exam-legend" aria-hidden="true">
+        <li>
+          <span className="swatch right" /> Correct
+        </li>
+        <li>
+          <span className="swatch wrong" /> Missed
+        </li>
+        <li>
+          <span className="swatch" /> Left blank
+        </li>
+      </ul>
       <ol className="results-list">
         {session.questionIds.map((id, i) => {
           const question = content.questionById.get(id)
-          if (!question) return null
+          const v = verdict(id)
+          if (!question || !v) return null
           const chosen = session.answers[id]
           const lesson = question.lessonIds[0] ? content.lessonById.get(question.lessonIds[0]) : undefined
           const headingId = `result-q-${i + 1}`
           return (
             <li key={id} aria-labelledby={headingId}>
-              <h3 id={headingId}>{`Question ${i + 1}`}</h3>
-              {!chosen && <p>Not answered</p>}
+              <div className="results-item-head">
+                <h3 id={headingId}>{`Question ${i + 1}`}</h3>
+                <p className={`results-verdict ${v.kind}`}>{v.label}</p>
+              </div>
               <QuestionView
                 question={question}
                 mode="deferred"
@@ -94,7 +133,9 @@ function ResultsView({ sessionId }: { sessionId: string }) {
           )
         })}
       </ol>
-      <Link to="/exams">Back to exams</Link>
+      <Link to="/exams" className="button">
+        Back to exams
+      </Link>
     </section>
   )
 }

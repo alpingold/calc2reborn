@@ -201,7 +201,8 @@ export function Settings() {
   return (
     <section className="settings">
       <h2>Settings</h2>
-      <form className="settings-group" onSubmit={onSave} noValidate>
+      <div className="settings-grid">
+      <form className="settings-group settings-plan" onSubmit={onSave} noValidate>
         <h3>Study plan</h3>
         <p>
           <label>
@@ -276,51 +277,64 @@ export function Settings() {
           Save
         </button>
       </form>
-      <section className="settings-group">
-        <h3>Your data</h3>
-        <p className="panel-hint">Progress lives in this browser only. Export it to move it to another device or keep a backup.</p>
-        <p>
-          <button type="button" onClick={onExport}>
-            Export progress
-          </button>
-        </p>
-        <p>
-          <label>
-            Import progress
-            <input type="file" accept="application/json" onChange={onImport} />
-          </label>
-        </p>
-        <h4>Reported problems</h4>
-        {flags.length === 0 ? (
-          <p className="panel-hint">No reported problems.</p>
-        ) : (
-          <>
-            <ul className="report-list" aria-label="Reported problems">
-              {flags.map((f) => (
-                <li key={f.id}>
-                  <span>{flagLine(f)}</span>
-                  <button type="button" onClick={() => void onRemoveFlag(f.id)}>
-                    Remove
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <p>
-              <button type="button" onClick={() => void onCopyReport()}>
-                Copy report
-              </button>
-            </p>
-            {manualCopy && <textarea className="report-text" readOnly rows={4} value={reportText} aria-label="Report text" />}
-          </>
-        )}
-        <p className="danger-zone">
+      <div className="settings-side">
+        <section className="settings-group">
+          <h3>Your data</h3>
+          <p className="panel-hint">
+            Progress lives in this browser only. Export it to move it to another device or keep a backup.
+          </p>
+          <div className="actions">
+            <button type="button" onClick={onExport}>
+              Export progress
+            </button>
+            <label className="button file-button">
+              Import progress
+              <input type="file" accept="application/json" className="visually-hidden" onChange={onImport} />
+            </label>
+          </div>
+          <p className="panel-hint">Importing replaces the progress saved in this browser.</p>
+        </section>
+        <section className="settings-group">
+          <h3>Reported problems</h3>
+          {flags.length === 0 ? (
+            <>
+              <p className="panel-hint">No reported problems.</p>
+              <p className="panel-hint">"Report a problem" under any answered question adds it here, ready to copy and send.</p>
+            </>
+          ) : (
+            <>
+              <ul className="report-list" aria-label="Reported problems">
+                {flags.map((f) => (
+                  <li key={f.id}>
+                    <span>{flagLine(f)}</span>
+                    <button type="button" onClick={() => void onRemoveFlag(f.id)}>
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <p>
+                <button type="button" onClick={() => void onCopyReport()}>
+                  Copy report
+                </button>
+              </p>
+              {manualCopy && <textarea className="report-text" readOnly rows={4} value={reportText} aria-label="Report text" />}
+            </>
+          )}
+        </section>
+        <section className="settings-group danger-zone">
+          <h3>Start over</h3>
+          <p className="panel-hint">Deletes every answer, flashcard schedule and setting saved in this browser.</p>
           <button type="button" className="danger" onClick={onReset}>
             Reset progress
           </button>
-        </p>
-      </section>
-      {error && <p role="alert">{error}</p>}
-      {status && <p role="status">{status}</p>}
+        </section>
+      </div>
+      </div>
+      <div className="settings-messages">
+        {error && <p role="alert">{error}</p>}
+        {status && <p role="status">{status}</p>}
+      </div>
     </section>
   )
 }
