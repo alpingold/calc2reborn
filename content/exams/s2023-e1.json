@@ -38,6 +38,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Vectors are orthogonal exactly when their dot product is zero. Set the dot product to zero:\n\n$$\n\\vec{\\mathbf{v}} \\cdot \\vec{\\mathbf{w}} = 5a + 8(-3) + 3(7) = 5a - 3 = 0\n$$\n\nSo $5a = 3$, and the value is $a = \\frac{3}{5}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells, since the region is revolved about a vertical line. A shell at position $x$ has radius equal to its distance from the line $x = -1$, which is $x + 1$, and height $\\sin(x)$. The shells run over $0 \\le x \\le \\frac{\\pi}{2}$, so\n\n$$\nV = \\int_0^{\\frac{\\pi}{2}} 2\\pi (x+1)\\sin(x)\\,dx\n$$\n\nThe trap is taking the radius as $x$ instead of $x+1$, which measures the distance to the $y$-axis rather than to $x = -1$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "The torque about the pivot is $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$, where $\\vec{r} = \\langle 5, 0, -5 \\rangle$ runs from the pivot to $P$ and $\\vec{F} = \\langle 0, 1, -10 \\rangle$.\n\n$$\n\\vec{r} \\times \\vec{F} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 5 & 0 & -5 \\\\ 0 & 1 & -10 \\end{vmatrix} = \\bigl(0 \\cdot (-10) - (-5)(1)\\bigr)\\vec{i} - \\bigl(5 \\cdot (-10) - (-5)(0)\\bigr)\\vec{j} + \\bigl(5 \\cdot 1 - 0 \\cdot 0\\bigr)\\vec{k}\n$$\n\n$$\n= 5\\vec{i} + 50\\vec{j} + 5\\vec{k}\n$$\n\nSo the torque is $\\langle 5, 50, 5 \\rangle$. The trap is taking the magnitude $\\sqrt{2550} = 5\\sqrt{102}$, which gives a number, when torque about a pivot is a vector.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-radius-from-point"
+      ],
+      "solution": "The radius is the distance from the center $(1, 2, 3)$ to the point $(-2, 0, 4)$ on the sphere:\n\n$$\nr = \\sqrt{(-2-1)^2 + (0-2)^2 + (4-3)^2} = \\sqrt{9 + 4 + 1} = \\sqrt{14}\n$$\n\nSo the radius is $\\sqrt{14}$. The trap is stopping at $14$, which is the squared radius.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives $F(x) = kx$, where $x$ is the distance from equilibrium. From $60 = k(0.3)$, the spring constant is $k = 200$ N/m.\n\nThe work to stretch the spring from $x = 0.3$ m to $x = 0.5$ m is\n\n$$\nW = \\int_{0.3}^{0.5} 200x\\,dx = \\left[100x^2\\right]_{0.3}^{0.5} = 100(0.25 - 0.09) = 16\n$$\n\nSo the work is $16$ N·m. The trap is integrating from $0$, which finds the work to stretch the spring from equilibrium to $0.5$ m, not the additional stretch.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Slice the water horizontally. The base is $5 \\cdot 6 = 30$ m², so a slice at height $y$ has volume $30\\,dy$. The water fills $0 \\le y \\le 1$, since the pool is 2 m deep and half full. Each slice must rise a distance $2 - y$ to reach the top, so\n\n$$\nW = \\int_0^1 \\rho g \\cdot 30(2-y)\\,dy = 30\\rho g \\left[2y - \\frac{y^2}{2}\\right]_0^1 = 30\\rho g \\left(2 - \\frac{1}{2}\\right) = 45\\rho g\n$$\n\nSo the work is $45\\rho g$ N·m. The trap is integrating over the full 2 m depth instead of the 1 m of water, which gives $60\\rho g$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "Find the intersection points by setting the curves equal: $2x = 2x^2 - 2x$ gives $2x^2 - 4x = 0$, so $x = 0$ or $x = 2$. On $[0, 2]$ the line lies above the parabola, for example at $x = 1$ where $2 > 0$. Using top minus bottom,\n\n$$\nA = \\int_0^2 \\bigl[2x - (2x^2 - 2x)\\bigr]\\,dx = \\int_0^2 (4x - 2x^2)\\,dx = \\left[2x^2 - \\frac{2x^3}{3}\\right]_0^2 = 8 - \\frac{16}{3} = \\frac{8}{3}\n$$\n\nSo the area is $\\frac{8}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Revolving about the $x$-axis with the region between two curves gives washers in $x$. On $[0, 1]$ we have $x^{1/4} \\ge x$, so the outer radius is $x^{1/4}$ and the inner radius is $x$:\n\n$$\nV = \\pi \\int_0^1 \\left[\\left(x^{1/4}\\right)^2 - x^2\\right]dx = \\pi \\int_0^1 \\left(x^{1/2} - x^2\\right)dx = \\pi \\left[\\frac{2}{3}x^{3/2} - \\frac{x^3}{3}\\right]_0^1 = \\pi \\left(\\frac{2}{3} - \\frac{1}{3}\\right)\n$$\n\nSo the volume is $\\frac{\\pi}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "The projection is $\\text{proj}_{\\vec{\\mathbf{v}}}\\vec{\\mathbf{u}} = \\dfrac{\\vec{\\mathbf{u}} \\cdot \\vec{\\mathbf{v}}}{\\vec{\\mathbf{v}} \\cdot \\vec{\\mathbf{v}}}\\,\\vec{\\mathbf{v}}$.\n\n$$\n\\vec{\\mathbf{u}} \\cdot \\vec{\\mathbf{v}} = 20 + 30 = 50, \\qquad \\vec{\\mathbf{v}} \\cdot \\vec{\\mathbf{v}} = 4 + 36 = 40\n$$\n\nSo\n\n$$\n\\text{proj}_{\\vec{\\mathbf{v}}}\\vec{\\mathbf{u}} = \\frac{50}{40}\\langle 2, 6 \\rangle = \\left\\langle \\frac{5}{2}, \\frac{15}{2} \\right\\rangle\n$$\n\nThe trap is dividing by $|\\vec{\\mathbf{v}}|$ instead of $|\\vec{\\mathbf{v}}|^2$, which scales the projection by the wrong factor.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -344,6 +380,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Surface area about the $x$-axis is $S = \\int_a^b 2\\pi y\\sqrt{1 + (y')^2}\\,dx$. For $y = \\sqrt{6x - x^2}$ we have $y^2 = 6x - x^2$ and $y' = \\frac{3 - x}{y}$. Then\n\n$$\n1 + (y')^2 = \\frac{y^2 + (3-x)^2}{y^2} = \\frac{6x - x^2 + 9 - 6x + x^2}{y^2} = \\frac{9}{y^2}\n$$\n\nso $\\sqrt{1 + (y')^2} = \\frac{3}{y}$. The surface area is\n\n$$\nS = \\int_1^2 2\\pi y \\cdot \\frac{3}{y}\\,dx = \\int_1^2 6\\pi\\,dx = 6\\pi\n$$\n\nSo the surface area is $6\\pi$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -378,6 +418,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-unit-vector-direction"
+      ],
+      "solution": "Find $\\overrightarrow{PQ} = Q - P = \\langle 1 - (-3), -2 - 1 \\rangle = \\langle 4, -3 \\rangle$, which has length $\\sqrt{16 + 9} = 5$. A vector parallel to it with length $2$ is $2$ times its unit vector:\n\n$$\n\\frac{2}{5}\\langle 4, -3 \\rangle = \\left\\langle \\frac{8}{5}, -\\frac{6}{5} \\right\\rangle\n$$\n\nSo the required vector is $\\left\\langle \\frac{8}{5}, -\\frac{6}{5} \\right\\rangle$. The trap is stopping at the unit vector $\\left\\langle \\frac{4}{5}, -\\frac{3}{5} \\right\\rangle$, which has the right direction but length $1$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -415,6 +459,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Slice perpendicular to the $x$-axis. At position $x$, the base chord of the disk runs from $y = -\\sqrt{4 - x^2}$ to $y = \\sqrt{4 - x^2}$, so its length is $L = 2\\sqrt{4 - x^2}$. The chord is one leg of the isosceles right triangle, with the right angle at one of its ends, so the other leg also has length $L$. The area of the slice is\n\n$$\nA(x) = \\frac{1}{2}L^2 = \\frac{1}{2} \\cdot 4(4 - x^2) = 2(4 - x^2)\n$$\n\nand the volume is\n\n$$\nV = \\int_{-2}^{2} 2(4 - x^2)\\,dx = 2\\left[4x - \\frac{x^3}{3}\\right]_{-2}^{2} = 2 \\cdot \\frac{32}{3} = \\frac{64}{3}\n$$\n\nSo the volume is $\\frac{64}{3}$. The trap is treating the chord as the hypotenuse, which gives area $\\frac{L^2}{4}$ and half the correct volume.",
       "sourcePage": 7,
       "status": "reviewed"
     }

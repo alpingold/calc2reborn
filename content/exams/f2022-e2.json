@@ -38,6 +38,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Slice the water into horizontal layers of thickness $dy$ at height $y$ above the bottom, where $0 \\le y \\le \\frac{1}{2}$. Each layer has area $2 \\cdot 1 = 2$ m$^2$, so its weight is $\\rho g \\cdot 2\\,dy = 1000(0.02)(2)\\,dy = 40\\,dy$ N. Each layer is lifted over the top, a distance $\\frac{1}{2} - y$, so the work is\n\n$$\nW = \\int_0^{1/2} 40\\left(\\frac{1}{2} - y\\right)dy = 40\\left[\\frac{y}{2} - \\frac{y^2}{2}\\right]_0^{1/2} = 40 \\cdot \\frac{1}{8} = 5.\n$$\n\nSo the work is $5$ J.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-cone-odd-shape"
+      ],
+      "solution": "Put the vertex at the origin and let $y$ be the height above the vertex, so $y$ runs from $0$ at the vertex to $2$ at the top. The radius grows linearly with height and equals $1$ at $y = 2$, so $r = \\frac{y}{2}$. A horizontal layer at height $y$ has area $\\pi r^2 = \\frac{\\pi y^2}{4}$, and it is lifted a distance $2 - y$. With $g = \\frac{1}{\\pi}$ and density $\\rho$,\n\n$$\nW = \\int_0^2 \\rho \\cdot \\frac{1}{\\pi} \\cdot \\frac{\\pi y^2}{4}(2 - y)\\,dy = \\frac{\\rho}{4}\\int_0^2 (2y^2 - y^3)\\,dy = \\frac{\\rho}{4}\\left[\\frac{2y^3}{3} - \\frac{y^4}{4}\\right]_0^2 = \\frac{\\rho}{4}\\cdot\\frac{4}{3} = \\frac{\\rho}{3}.\n$$\n\nSetting $\\frac{\\rho}{3} = 2$ gives $\\rho = 6$, so the density is $6$ kg/m$^3$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$ and $dv = x^{1/2}\\,dx$, so $du = \\frac{dx}{x}$ and $v = \\frac{2}{3}x^{3/2}$:\n\n$$\n\\int_1^e x^{1/2}\\ln x\\,dx = \\left[\\frac{2}{3}x^{3/2}\\ln x\\right]_1^e - \\int_1^e \\frac{2}{3}x^{1/2}\\,dx.\n$$\n\nSince $\\ln 1 = 0$, the boundary term is $\\frac{2}{3}e^{3/2}$. The remaining integral is\n\n$$\n\\int_1^e \\frac{2}{3}x^{1/2}\\,dx = \\frac{4}{9}\\left[x^{3/2}\\right]_1^e = \\frac{4}{9}\\left(e^{3/2} - 1\\right).\n$$\n\nSo the integral is $\\frac{2}{3}e^{3/2} - \\frac{4}{9}e^{3/2} + \\frac{4}{9} = \\frac{2}{9}e^{3/2} + \\frac{4}{9}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -143,6 +155,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-choose-method"
+      ],
+      "solution": "The power of $\\sin x$ is odd, so save one factor $\\sin x\\,dx$ and write the rest in terms of cosine:\n\n$$\n\\sin^5 x\\cos^4 x\\,dx = (1 - \\cos^2 x)^2 \\cos^4 x\\,\\sin x\\,dx.\n$$\n\nWith $u = \\cos x$ and $du = -\\sin x\\,dx$, the integral becomes a polynomial in $u$. So the right procedure is the substitution $u = \\cos x$. Half-angle identities are for even powers of both sine and cosine, and reaching for them because there are two powers is the trap here.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -178,6 +194,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-tan-identities"
+      ],
+      "solution": "On $\\left[0, \\frac{\\pi}{4}\\right]$ we have $\\sec^2\\theta - 1 = \\tan^2\\theta$, and $\\tan\\theta \\ge 0$, so the integrand equals $\\tan\\theta$:\n\n$$\n\\int_0^{\\pi/4}\\sqrt{\\sec^2\\theta - 1}\\,d\\theta = \\int_0^{\\pi/4}\\tan\\theta\\,d\\theta = \\left[-\\ln\\cos\\theta\\right]_0^{\\pi/4} = -\\ln\\frac{\\sqrt{2}}{2} + \\ln 1 = \\ln\\sqrt{2}.\n$$\n\nSo the value is $\\ln\\sqrt{2}$. Using $\\cos\\frac{\\pi}{4} = \\frac{1}{2}$ instead of $\\frac{\\sqrt{2}}{2}$ gives $\\ln 2$, which is a common slip.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -213,6 +233,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-even-sec-power"
+      ],
+      "solution": "Save a factor $\\sec^2 x$ and write the rest in terms of $\\tan x$:\n\n$$\n\\sec^4 x\\,dx = \\sec^2 x\\,(1 + \\tan^2 x)\\,dx.\n$$\n\nLet $u = \\tan x$, so $du = \\sec^2 x\\,dx$. The limits become $u = 0$ at $x = 0$ and $u = 1$ at $x = \\frac{\\pi}{4}$:\n\n$$\n\\int_0^{\\pi/4}\\sec^4 x\\,dx = \\int_0^1 (1 + u^2)\\,du = \\left[u + \\frac{u^3}{3}\\right]_0^1 = \\frac{4}{3}.\n$$\n\nSo the value is $\\frac{4}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -248,6 +272,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "The radical $\\sqrt{4 - x^2}$ has the form $\\sqrt{a^2 - x^2}$ with $a = 2$, so use $x = 2\\sin\\theta$, $dx = 2\\cos\\theta\\,d\\theta$. Then $\\sqrt{4 - x^2} = 2\\cos\\theta$ and $(4 - x^2)^{3/2} = 8\\cos^3\\theta$, so\n\n$$\n\\int \\frac{x^2}{(4 - x^2)^{3/2}}\\,dx = \\int \\frac{4\\sin^2\\theta \\cdot 2\\cos\\theta}{8\\cos^3\\theta}\\,d\\theta = \\int \\tan^2\\theta\\,d\\theta = \\int (\\sec^2\\theta - 1)\\,d\\theta = \\tan\\theta - \\theta + C.\n$$\n\nBack-substitute with $\\tan\\theta = \\frac{x}{\\sqrt{4 - x^2}}$ and $\\theta = \\sin^{-1}\\left(\\frac{x}{2}\\right)$, giving $\\frac{x}{\\sqrt{4 - x^2}} - \\sin^{-1}\\left(\\frac{x}{2}\\right) + C$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -283,6 +311,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Complete the square: $t^2 - 4t + 20 = (t - 2)^2 + 16$. With $u = t - 2$ and $a = 4$, the radical has the form $\\sqrt{u^2 + a^2}$, so the tangent substitution is $u = a\\tan\\theta$, that is, $t - 2 = 4\\tan\\theta$. This gives $t = 4\\tan\\theta + 2$, which turns the radical into $4\\sec\\theta$ and the integral into $\\int \\sec\\theta\\,d\\theta$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -318,6 +350,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form"
+      ],
+      "solution": "Find $B$ and $A$ from the expansion near $x = 0$. Write the left side as $\\frac{g(x)}{x^2}$ with $g(x) = \\frac{1}{(x-1)^2} = \\frac{1}{(1-x)^2}$. Since $\\frac{1}{(1-x)^2} = 1 + 2x + \\cdots$,\n\n$$\n\\frac{1}{x^2(x-1)^2} = \\frac{1}{x^2} + \\frac{2}{x} + \\cdots,\n$$\n\nso $B = 1$ and $A = 2$.\n\nFind $D$ and $C$ from the expansion near $x = 1$. Put $x = 1 + s$, so $\\frac{1}{x^2} = \\frac{1}{(1+s)^2} = 1 - 2s + \\cdots$ and\n\n$$\n\\frac{1}{x^2(x-1)^2} = \\frac{1}{s^2} - \\frac{2}{s} + \\cdots,\n$$\n\nso $D = 1$ and $C = -2$. Then $A - B + C - D = 2 - 1 - 2 - 1 = -2$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -353,6 +389,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "The denominator has distinct linear factors and the numerator has lower degree, so use partial fractions:\n\n$$\n\\frac{x + 2}{(x + 3)(x + 1)} = \\frac{P}{x + 3} + \\frac{Q}{x + 1}, \\qquad x + 2 = P(x + 1) + Q(x + 3).\n$$\n\nSetting $x = -1$ gives $1 = 2Q$, so $Q = \\frac{1}{2}$. Setting $x = -3$ gives $-1 = -2P$, so $P = \\frac{1}{2}$. Then\n\n$$\n\\int_0^1 \\frac{x + 2}{(x + 3)(x + 1)}\\,dx = \\frac{1}{2}\\left[\\ln(x + 3) + \\ln(x + 1)\\right]_0^1 = \\frac{1}{2}\\left(\\ln 4 - \\ln 3 + \\ln 2\\right) = \\frac{1}{2}\\ln\\frac{8}{3}.\n$$\n\nSo the value is $\\frac{1}{2}\\ln\\frac{8}{3}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -388,6 +428,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-which-converge"
+      ],
+      "solution": "Use the $p$-test for $\\int_1^\\infty \\frac{dx}{x^{q}}$, which converges exactly when $q > 1$. Here $q = p + 1$, so the integral converges when $p + 1 > 1$, that is, $p > 0$. Choosing $p > 1$ comes from comparing the exponent $p$ itself with $1$ and forgetting the $+1$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -423,6 +467,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The integrand $(2 - x)^{-1/2}$ is unbounded as $x \\to 2$, the right endpoint, so write the integral as a limit:\n\n$$\n\\int_1^2 \\frac{dx}{\\sqrt{2 - x}} = \\lim_{b \\to 2^-}\\int_1^b (2 - x)^{-1/2}\\,dx = \\lim_{b \\to 2^-}\\left[-2\\sqrt{2 - x}\\right]_1^b = \\lim_{b \\to 2^-}\\left(-2\\sqrt{2 - b} + 2\\right) = 2.\n$$\n\nSo the integral converges to $2$.",
       "sourcePage": 8,
       "status": "reviewed"
     }

@@ -38,6 +38,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Find the limit of each sequence.\n\nI. Divide the top and bottom by $n$: $\\frac{n}{2n + (-1)^n} = \\frac{1}{2 + \\frac{(-1)^n}{n}}$. Since $\\frac{(-1)^n}{n} \\to 0$, the limit is $\\frac{1}{2}$, so this sequence converges.\n\nII. The terms $\\sin\\left(\\frac{n\\pi}{2}\\right)$ run $1, 0, -1, 0, 1, \\dots$ and never settle, so this sequence diverges.\n\nIII. Write $\\frac{(-2)^n}{3^{n+1}} = \\frac{1}{3}\\left(-\\frac{2}{3}\\right)^n$. Since $\\left|-\\frac{2}{3}\\right| < 1$, the powers tend to $0$, so this sequence converges.\n\nSo I and III converge, and II diverges.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-sec-tan-odd"
+      ],
+      "solution": "Use the substitution $u = \\sec x$, since its derivative $\\sec x \\tan x$ is already in the integrand. Then $\\sec^{3/2}(x)\\tan(x)\\,dx = \\sec^{1/2}(x) \\cdot \\sec x \\tan x\\,dx = u^{1/2}\\,du$. The limits change to $u = \\sec 0 = 1$ at the bottom and $u = \\sec\\frac{\\pi}{3} = 2$ at the top.\n\n$$\n\\int_1^2 u^{1/2}\\,du = \\frac{2}{3}\\left[u^{3/2}\\right]_1^2 = \\frac{2}{3}\\left(2\\sqrt{2} - 1\\right) = \\frac{4\\sqrt{2} - 2}{3}\n$$\n\nso the integral is $\\frac{4\\sqrt{2} - 2}{3}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$ and $dv = x^2\\,dx$, so $du = \\frac{dx}{x}$ and $v = \\frac{x^3}{3}$.\n\n$$\n\\int_1^e x^2\\ln(x)\\,dx = \\left[\\frac{x^3\\ln x}{3}\\right]_1^e - \\int_1^e \\frac{x^2}{3}\\,dx\n$$\n\nSince $\\ln 1 = 0$, the first term is $\\frac{e^3}{3}$. The second is $\\left[\\frac{x^3}{9}\\right]_1^e = \\frac{e^3 - 1}{9}$. Subtracting, $\\frac{e^3}{3} - \\frac{e^3 - 1}{9} = \\frac{2e^3 + 1}{9}$, so the integral is $\\frac{2e^3 + 1}{9}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Substitute $u = x^3$, so $du = 3x^2\\,dx$ and $x^2\\,dx = \\frac{1}{3}\\,du$. The limits stay $0$ and $\\infty$, so the integral becomes an improper integral with an infinite limit:\n\n$$\n\\int_0^{\\infty} x^2 e^{-x^3}\\,dx = \\frac{1}{3}\\lim_{b \\to \\infty}\\int_0^{b} e^{-u}\\,du = \\frac{1}{3}\\lim_{b \\to \\infty}\\left(1 - e^{-b}\\right)\n$$\n\nThe limit is $1$, so the integral converges to $\\frac{1}{3}$. A student who drops the factor $\\frac{1}{3}$ from the substitution gets $1$ instead.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "Use partial fractions, since the denominator is $x(x^2+1)$ and $x^2+1$ is irreducible. Write\n\n$$\n\\frac{3x^2 - 1}{x(x^2+1)} = \\frac{A}{x} + \\frac{Bx + C}{x^2 + 1}\n$$\n\nso $A(x^2+1) + (Bx + C)x = 3x^2 - 1$. Setting $x = 0$ gives $A = -1$. Comparing $x^2$ terms gives $A + B = 3$, so $B = 4$. Comparing $x$ terms gives $C = 0$. Therefore\n\n$$\n\\frac{3x^2 - 1}{x^3 + x} = -\\frac{1}{x} + \\frac{4x}{x^2 + 1}\n$$\n\nBecause $\\int \\frac{4x}{x^2 + 1}\\,dx = 2\\ln(x^2 + 1)$, an antiderivative is $-\\ln x + 2\\ln(x^2 + 1)$. Evaluating from $1$ to $2$ gives $(-\\ln 2 + 2\\ln 5) - (2\\ln 2) = 2\\ln 5 - 3\\ln 2$, so the integral is $\\ln\\left(\\frac{25}{8}\\right)$.\n\nThe trap is forgetting the factor $2$ in $2\\ln(x^2 + 1)$, which gives $\\ln\\left(\\frac{5}{4}\\right)$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts twice, since a polynomial times an exponential appears. First take $u = x^2$ and $dv = e^{-x}\\,dx$: $\\int x^2 e^{-x}\\,dx = -x^2 e^{-x} + \\int 2x e^{-x}\\,dx$. Then take $u = 2x$ and $dv = e^{-x}\\,dx$: $\\int 2x e^{-x}\\,dx = -2x e^{-x} - 2e^{-x}$. Together,\n\n$$\n\\int x^2 e^{-x}\\,dx = -e^{-x}\\left(x^2 + 2x + 2\\right) + C\n$$\n\nEvaluating from $0$ to $1$ gives $-5e^{-1} - (-2) = 2 - \\frac{5}{e}$. Multiplying by $5$, the integral is $10 - \\frac{25}{e}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-which-converge"
+      ],
+      "solution": "Check each integral.\n\nI. $\\int_2^{\\infty} \\frac{dx}{x} = \\lim_{b \\to \\infty}\\left[\\ln x\\right]_2^b = \\infty$, so it diverges.\n\nII. $\\int_0^1 \\frac{dx}{x^2}$ has an infinite discontinuity at $0$. Using $\\lim_{a \\to 0^+}\\left[-\\frac{1}{x}\\right]_a^1 = \\lim_{a \\to 0^+}\\left(-1 + \\frac{1}{a}\\right) = \\infty$, it diverges.\n\nIII. $\\int_3^5 \\frac{dx}{(x-3)^{1/2}}$ has its discontinuity at $3$. Using $\\lim_{a \\to 3^+}\\left[2(x-3)^{1/2}\\right]_a^5 = 2\\sqrt{2}$, it converges.\n\nSo only III converges.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form"
+      ],
+      "solution": "The constant $D$ is found by covering up the factor $(x+1)$ in the denominator and substituting $x = -1$ into what remains. Multiply both sides by $x + 1$:\n\n$$\nD = \\left.\\frac{x^3 - 14x^2 - 3x + 2}{x^2(x - 1)}\\right|_{x = -1}\n$$\n\nAt $x = -1$ the numerator is $-1 - 14 + 3 + 2 = -10$, and the denominator is $(1)(-2) = -2$. So $D = \\frac{-10}{-2} = 5$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-secant-substitution"
+      ],
+      "solution": "Use the secant substitution $x = 5\\sec\\theta$, since the integrand contains $\\sqrt{x^2 - 25}$. Then $dx = 5\\sec\\theta\\tan\\theta\\,d\\theta$ and $\\sqrt{x^2 - 25} = 5\\tan\\theta$. The limits are $\\theta = 0$ at $x = 5$ and $\\theta = \\frac{\\pi}{3}$ at $x = 10$, since $\\sec\\theta = 2$ there. The integral becomes\n\n$$\n\\int_0^{\\pi/3} \\frac{5\\tan\\theta}{5\\sec\\theta}\\cdot 5\\sec\\theta\\tan\\theta\\,d\\theta = 5\\int_0^{\\pi/3} \\left(\\sec^2\\theta - 1\\right)d\\theta\n$$\n\nThis equals $5\\left[\\tan\\theta - \\theta\\right]_0^{\\pi/3} = 5\\left(\\sqrt{3} - \\frac{\\pi}{3}\\right)$, so the integral is $5\\sqrt{3} - \\frac{5\\pi}{3}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -344,6 +380,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-recurrence-match"
+      ],
+      "solution": "Compute $a_2$ and $a_3$ for each recurrence and keep the one with $a_3 = \\frac{3}{4}$. Only the recurrence $a_{n+1} = \\frac{a_n + 1}{2}$ with $a_1 = 0$ works: $a_2 = \\frac{0 + 1}{2} = \\frac{1}{2}$ and $a_3 = \\frac{\\frac{1}{2} + 1}{2} = \\frac{3}{4}$. The other four give $a_3 = \\frac{17}{16}$, $\\frac{1}{4}$, $1$ and $\\frac{7}{2}$.\n\nThe trap is the recurrence with $a_1 = \\frac{1}{2}$, whose $a_2$ is $\\frac{3}{4}$. The question asks for the third term, not the second.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -378,6 +418,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "Write $\\sin^4 x = (\\sin^2 x)^2$ and use $\\sin^2 x = \\frac{1 - \\cos 2x}{2}$. Then $\\sin^4 x = \\frac{1}{4}\\left(1 - 2\\cos 2x + \\cos^2 2x\\right)$, and $\\cos^2 2x = \\frac{1 + \\cos 4x}{2}$. Together,\n\n$$\n\\sin^4 x = \\frac{3}{8} - \\frac{1}{2}\\cos 2x + \\frac{1}{8}\\cos 4x\n$$\n\nIntegrating term by term gives $\\int \\sin^4 x\\,dx = \\frac{3x}{8} - \\frac{\\sin 2x}{4} + \\frac{\\sin 4x}{32} + C$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -412,6 +456,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-tangent-substitution"
+      ],
+      "solution": "Use the tangent substitution $3x = \\tan\\theta$, since the integrand contains $1 + 9x^2$. Then $dx = \\frac{1}{3}\\sec^2\\theta\\,d\\theta$ and $1 + 9x^2 = \\sec^2\\theta$, so $(1 + 9x^2)^{3/2} = \\sec^3\\theta$. The integral becomes\n\n$$\n\\int \\frac{dx}{(1 + 9x^2)^{3/2}} = \\frac{1}{3}\\int \\frac{\\sec^2\\theta}{\\sec^3\\theta}\\,d\\theta = \\frac{1}{3}\\int \\cos\\theta\\,d\\theta = \\frac{1}{3}\\sin\\theta + C\n$$\n\nSince $\\sin\\theta = \\frac{\\tan\\theta}{\\sec\\theta} = \\frac{3x}{\\sqrt{1 + 9x^2}}$, the integral is $\\frac{x}{\\sqrt{1 + 9x^2}} + C$.",
       "sourcePage": 7,
       "status": "reviewed"
     }

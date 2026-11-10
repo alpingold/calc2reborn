@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-center-radius"
+      ],
+      "solution": "Complete the square in each variable. A sphere has the form $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$, so group the terms and complete the square.\n\n$$\n(x^2 + 8x) + (y^2 - 6y) + (z^2 + 2z) = -17\n$$\n\n$$\n(x+4)^2 - 16 + (y-3)^2 - 9 + (z+1)^2 - 1 = -17\n$$\n\nso $(x+4)^2 + (y-3)^2 + (z+1)^2 = 9$. The center is $(-4, 3, -1)$ and the radius is $\\sqrt{9} = 3$.\n\nThe center has the opposite signs to the linear terms, so $+8x$ gives $-4$; writing $4$ is the usual slip.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Vectors are orthogonal when their dot product is $0$. Here\n\n$$\n\\langle -6, b, 2 \\rangle \\cdot \\langle b, b^2, b \\rangle = -6b + b^3 + 2b = b^3 - 4b = b(b-2)(b+2)\n$$\n\nso $b(b-2)(b+2) = 0$. The solutions are $b = 0$, $b = 2$ and $b = -2$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use $\\cos\\theta = \\frac{\\boldsymbol{a}\\cdot\\boldsymbol{b}}{|\\boldsymbol{a}|\\,|\\boldsymbol{b}|}$. We get $\\boldsymbol{a}\\cdot\\boldsymbol{b} = 1\\cdot 1 + 0\\cdot\\sqrt{3} = 1$, $|\\boldsymbol{a}| = 1$ and $|\\boldsymbol{b}| = \\sqrt{1 + 3} = 2$. So $\\cos\\theta = \\frac{1}{2}$, and since $0 \\le \\theta \\le \\pi$, the angle is $\\theta = \\frac{\\pi}{3}$.\n\nConfusing $\\frac{1}{2}$ with $\\frac{\\sqrt{3}}{2}$, the cosine of $\\frac{\\pi}{6}$, leads to $\\frac{\\pi}{6}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Work is the dot product of the force and the displacement, $W = \\boldsymbol{F}\\cdot\\boldsymbol{d} = |\\boldsymbol{F}|\\,|\\boldsymbol{d}|\\cos\\theta$, where $\\theta$ is the angle between them. The force makes $30^\\circ$ with the horizontal path, so\n\n$$\nW = 30 \\cdot 100 \\cos 30^\\circ = 3000 \\cdot \\frac{\\sqrt{3}}{2} = 1500\\sqrt{3}\n$$\n\nso the work is $1500\\sqrt{3}$ joules.\n\nUsing $\\sin 30^\\circ$ gives $1500$, but that is the vertical component of the force, which does no work on a horizontal displacement.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "For $\\boldsymbol{a} = \\langle a_1, a_2, a_3 \\rangle$ and $\\boldsymbol{b} = \\langle b_1, b_2, b_3 \\rangle$,\n\n$$\n\\boldsymbol{a}\\times\\boldsymbol{b} = \\langle a_2 b_3 - a_3 b_2,\\; a_3 b_1 - a_1 b_3,\\; a_1 b_2 - a_2 b_1 \\rangle\n$$\n\nWith $a_1 = -2$, $a_2 = -1$, $a_3 = 2$ and $b_1 = 1$, $b_2 = 3$, $b_3 = 2$,\n\n$$\n\\boldsymbol{a}\\times\\boldsymbol{b} = \\langle (-1)(2) - (2)(3),\\; (2)(1) - (-2)(2),\\; (-2)(3) - (-1)(1) \\rangle = \\langle -8, 6, -5 \\rangle\n$$\n\nso $\\boldsymbol{a}\\times\\boldsymbol{b} = \\langle -8, 6, -5 \\rangle$. As a check, this is perpendicular to $\\boldsymbol{a}$, since $16 - 6 - 10 = 0$.\n\nReversing the order of the vectors changes the sign of every component, giving $\\langle 8, -6, 5 \\rangle$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "The curves meet where $x^2 = 3x - 2x^2$, that is $3x^2 - 3x = 0$, so $x = 0$ or $x = 1$. On $[0, 1]$ the parabola $y = 3x - 2x^2$ lies above $y = x^2$ (at $x = \\frac{1}{2}$, $1 > \\frac{1}{4}$). Top minus bottom gives\n\n$$\nA = \\int_0^1 \\left((3x - 2x^2) - x^2\\right) dx = \\int_0^1 (3x - 3x^2)\\, dx = \\left[\\frac{3x^2}{2} - x^3\\right]_0^1 = \\frac{3}{2} - 1 = \\frac{1}{2}\n$$\n\nso the area is $\\frac{1}{2}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Use cross-sections: $V = \\int_a^b A(x)\\, dx$, where $A(x)$ is the area of the slice at $x$. The base is the triangle $x \\ge 0$, $y \\ge 0$, $x + y \\le 1$, so at a given $x$ the base runs from $y = 0$ to $y = 1 - x$. A square on that base has side $1 - x$ and area $(1-x)^2$. So\n\n$$\nV = \\int_0^1 (1 - x)^2\\, dx = \\left[-\\frac{(1-x)^3}{3}\\right]_0^1 = \\frac{1}{3}\n$$\n\nso the volume is $\\frac{1}{3}$.\n\nIntegrating the side $1 - x$ instead of its square gives $\\frac{1}{2}$, which is the usual slip.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "The triangle has sides on $x = 0$, on $y = 1$, and on $y = x$. For each $x$ in $[0, 1]$, the vertical slice runs from $y = x$ up to $y = 1$. Revolving about the $x$-axis, the outer radius is $1$ and the inner radius is $x$, so the washer has area $\\pi(1^2 - x^2) = \\pi(1 - x^2)$. Hence\n\n$$\nV = \\pi \\int_0^1 (1 - x^2)\\, dx\n$$\n\nso the washer integral is $\\pi\\int_0^1 (1 - x^2)\\, dx$.\n\nThe slices are taken in $x$ here, so the integral is in $x$, not $y$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "The curves $\\cos x$ and $\\sin x$ cross where $\\cos x = \\sin x$, that is at $x = \\frac{\\pi}{4}$. On $\\left[\\frac{\\pi}{4}, \\frac{\\pi}{2}\\right]$ the sine curve is on top, so a vertical strip at $x$ has height $\\sin x - \\cos x$. Its distance to the axis $x = \\frac{\\pi}{2}$ is $\\frac{\\pi}{2} - x$, which is the shell radius. The shell method gives\n\n$$\nV = 2\\pi \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{2}} \\left(\\frac{\\pi}{2} - x\\right)(\\sin x - \\cos x)\\, dx\n$$\n\nso the volume is given by this integral.\n\nUsing $\\cos x - \\sin x$ for the height gives a negative integrand on this interval, which is the usual slip.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -345,6 +381,11 @@
         "L6",
         "L7"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis",
+        "L7-shell-horizontal-axis"
+      ],
+      "solution": "The washer integrand $x - x^4$ equals $R^2 - r^2$ with $R = \\sqrt{x}$ and $r = x^2$, so the region lies between $y = x^2$ (below) and $y = \\sqrt{x}$ (above) for $0 \\le x \\le 1$. Shells about the $x$-axis are horizontal strips at height $y$, with radius $y$ and length equal to the right boundary minus the left one. For $0 \\le y \\le 1$ the strip runs from $x = y^2$ (on $y = \\sqrt{x}$) to $x = \\sqrt{y}$ (on $y = x^2$), so its length is $\\sqrt{y} - y^2$. Hence\n\n$$\nV = 2\\pi \\int_0^1 y\\left(\\sqrt{y} - y^2\\right) dy\n$$\n\nso the shell integral is $2\\pi\\int_0^1 y\\left(\\sqrt{y} - y^2\\right) dy$.\n\nWriting the height as $y^2 - \\sqrt{y}$ reverses the top and bottom curves and gives a negative volume.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -379,6 +420,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-setup"
+      ],
+      "solution": "The arc length of $y = f(x)$ from $x = a$ to $x = b$ is $L = \\int_a^b \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}\\, dx$. Here $\\frac{dy}{dx} = x^2$, so $\\left(\\frac{dy}{dx}\\right)^2 = x^4$. The points $(0, 0)$ and $(3, 9)$ give the limits $0$ and $3$, so\n\n$$\nL = \\int_0^3 \\sqrt{1 + x^4}\\, dx\n$$\n\nso the length is $\\int_0^3 \\sqrt{1 + x^4}\\, dx$.\n\nSquaring the slope is the step most often missed: writing $\\sqrt{1 + x^2}$ uses $x$ where $x^4$ belongs.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -413,6 +458,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives $F = kx$, where $x$ is the displacement from equilibrium. With $F = 40$ N at $x = 0.1$ m, $k = \\frac{40}{0.1} = 400$ N/m. Compressing the spring by $d$ takes the same work as stretching it by $d$, so\n\n$$\nW = \\int_0^d kx\\, dx = \\frac{kd^2}{2} = 200d^2\n$$\n\nSetting $200d^2 = 32$ gives $d^2 = \\frac{32}{200} = \\frac{4}{25}$, so $d = \\frac{2}{5}$ m.",
       "sourcePage": 7,
       "status": "reviewed"
     }

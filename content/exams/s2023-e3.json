@@ -38,6 +38,10 @@
       "lessonIds": [
         "L28"
       ],
+      "typeIds": [
+        "L28-remainder-formula"
+      ],
+      "solution": "Use the Taylor remainder with $n = 2$, so the error is $R_2(\\pi) = \\frac{f'''(c)}{3!}(\\pi - 3)^3$ for some $c$ between $3$ and $\\pi$.\n\nFor $f(x) = \\ln(x)$, we get $f'(x) = x^{-1}$, $f''(x) = -x^{-2}$, and $f'''(x) = \\frac{2}{x^3}$.\n\nSo the error is $\\frac{2}{3!\\,c^3}(\\pi - 3)^3 = \\frac{(\\pi - 3)^3}{3c^3}$ for some $c$ between $3$ and $\\pi$.\n\nThe trap is the simplification $\\frac{2}{6} = \\frac{1}{3}$: choices with $6c^3$ or with $c^2$ in the denominator come from a slip in $f'''$ or in the factorial.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-p-range"
+      ],
+      "solution": "Use the limit comparison test with a $p$-series. For large $k$, $k^4 + 2k^2 \\approx k^4$ and $3 + k^p \\approx k^p$, so the terms behave like $\\sqrt{\\frac{k^4}{k^p}} = k^{\\frac{4-p}{2}} = \\frac{1}{k^{(p-4)/2}}$.\n\nThis is a $p$-series with exponent $\\frac{p-4}{2}$, which converges exactly when $\\frac{p-4}{2} > 1$, that is, $p > 6$. For $p \\le 6$ the exponent is at most $1$, so the series diverges.\n\nSo the series converges for $p > 6$.\n\nThe trap is forgetting the square root, which halves the exponent: without it the threshold comes out as $p > 5$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -107,6 +115,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Use the integral test. Let $f(x) = \\frac{1}{x(\\ln x)^2}$. On $[2, \\infty)$ the function $f$ is positive, continuous, and decreasing, since $x$ and $(\\ln x)^2$ both increase there.\n\nThen $\\int_2^\\infty \\frac{dx}{x(\\ln x)^2} = \\lim_{t\\to\\infty}\\left[-\\frac{1}{\\ln x}\\right]_2^t = \\lim_{t\\to\\infty}\\left(\\frac{1}{\\ln 2} - \\frac{1}{\\ln t}\\right) = \\frac{1}{\\ln 2}$, which is finite.\n\nSo the integral converges, and the series converges by the integral test.\n\nThe trap is the comparison with $\\sum \\frac{1}{k}$: for $k \\ge 3$ the terms are smaller than $\\frac{1}{k}$, and a series smaller than a divergent one proves nothing, so that comparison cannot show divergence.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -141,6 +153,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
+      "solution": "Use the root test. The $k$th root of the term is $\\sqrt[k]{\\left[\\sin\\left(\\frac{1}{k}\\right)\\right]^k} = \\sin\\left(\\frac{1}{k}\\right)$.\n\nAs $k\\to\\infty$, $\\sin\\left(\\frac{1}{k}\\right)\\to 0$, so $\\rho = 0$.\n\nSince $\\rho = 0 < 1$, the series converges. The root test is inconclusive only when $\\rho = 1$, so a limit of $0$ is conclusive.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -176,6 +192,10 @@
         "L22",
         "L24"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Judge each statement in turn.\n\nI. False. Take $a_n = \\frac{1}{n}$: the terms tend to $0$, but $\\sum \\frac{1}{n}$ is the divergent harmonic series. Tending to zero is necessary for convergence, not sufficient.\n\nII. True. If $\\sum |a_n|$ converges, then $\\sum (a_n + |a_n|)$ converges by comparison with $\\sum 2|a_n|$, so $\\sum a_n = \\sum (a_n + |a_n|) - \\sum |a_n|$ converges.\n\nIII. False. A decreasing sequence need not tend to $0$: $a_n = 1 + \\frac{1}{n}$ decreases to $1$, and the terms $(-1)^{n+1}\\left(1 + \\frac{1}{n}\\right)$ do not tend to $0$, so the series diverges.\n\nSo only statement II is true.\n\nThe trap is statement III: the alternating series test needs the terms to tend to $0$ as well as decrease.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -210,6 +230,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "Rewrite the term as a geometric term: $(-e)^{k+1} = (-e)(-e)^k$, so $\\frac{(-e)^{k+1}}{5^k} = -e\\left(-\\frac{e}{5}\\right)^k$.\n\nThe ratio $r = -\\frac{e}{5}$ has $|r| = \\frac{e}{5} \\approx 0.54 < 1$, so the series converges. Using $\\sum_{k=1}^{\\infty} r^k = \\frac{r}{1-r}$ gives $\\sum_{k=1}^{\\infty} \\left(-\\frac{e}{5}\\right)^k = \\frac{-e/5}{1 + e/5} = -\\frac{e}{5+e}$.\n\nMultiplying by $-e$ gives $-e \\cdot \\left(-\\frac{e}{5+e}\\right) = \\frac{e^2}{5+e}$.\n\nSo the sum is $\\frac{e^2}{5+e}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -244,6 +268,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-classify-each"
+      ],
+      "solution": "Check each series in turn.\n\nI. Since $0 < \\frac{7^k}{k!+10} < \\frac{7^k}{k!}$, compare with $\\sum \\frac{7^k}{k!}$. Its ratio is $\\frac{7}{k+1}\\to 0$, so it converges. Hence series I converges.\n\nII. The terms satisfy $0 < \\frac{1}{2^k} \\le \\frac{2+(-1)^k}{2^k} \\le \\frac{3}{2^k}$, and $\\sum \\frac{3}{2^k}$ is a convergent geometric series. Hence series II converges.\n\nIII. Since $\\sin x \\sim x$ as $x \\to 0$, the limit comparison with $\\sum \\frac{1}{\\sqrt{k}}$ gives $\\lim_{k\\to\\infty} \\frac{\\sin(1/\\sqrt{k})}{1/\\sqrt{k}} = 1$. The comparison series is a $p$-series with $p = \\frac{1}{2} \\le 1$, so it diverges. Hence series III diverges.\n\nSo only I and II converge.\n\nThe trap is series III: its terms tend to $0$, so the divergence test cannot settle it.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -278,6 +306,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "Compute the limit of $\\left|\\frac{a_{k+1}}{a_k}\\right|$ for each series.\n\nA. $\\frac{a_{k+1}}{a_k} = \\frac{(k+4)(5k-1)}{(5k+4)(k+3)} \\to \\frac{5}{5} = 1$, so the ratio test is inconclusive.\n\nB. $\\frac{a_{k+1}}{a_k} = \\frac{1}{k+1}\\sqrt{\\frac{k+1}{k}} \\to 0$, which is less than $1$.\n\nC. $\\frac{a_{k+1}}{a_k} = \\frac{k+1}{2} \\to \\infty$, which is greater than $1$.\n\nD. $\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{10}{49}\\cdot\\frac{k}{k+1} \\to \\frac{10}{49}$, which is less than $1$.\n\nE. $\\frac{a_{k+1}}{a_k} = \\frac{ek}{k+1} \\to e$, which is greater than $1$.\n\nSo only series A has a limit of exactly $1$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -312,6 +344,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Use the ratio test on the absolute values of the terms. With $a_k = \\frac{k(x-6)^k}{3^k}$,\n\n$$\n\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{k+1}{k}\\cdot\\frac{|x-6|}{3} \\to \\frac{|x-6|}{3}.\n$$\n\nThe series converges when $\\frac{|x-6|}{3} < 1$, that is, $|x-6| < 3$.\n\nSo the radius of convergence is $3$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -346,6 +382,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-approximate-with-polynomial"
+      ],
+      "solution": "Use the second-order Taylor polynomial of $e^x$ at $a = 0$, which is $P_2(x) = 1 + x + \\frac{x^2}{2}$.\n\nAt $x = -0.1$, we get $P_2(-0.1) = 1 - 0.1 + \\frac{0.01}{2} = 0.9 + 0.005 = 0.905$.\n\nSo $e^{-0.1} \\approx 0.905$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -380,6 +420,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Find the partial sums, since the terms telescope. Each $\\ln(k) - \\ln(k+1)$ cancels against its neighbors, so\n\n$$\nS_N = \\sum_{k=1}^{N} \\left[\\ln(k) - \\ln(k+1)\\right] = \\ln(1) - \\ln(N+1) = -\\ln(N+1).\n$$\n\nAs $N\\to\\infty$, $S_N \\to -\\infty$, so the series diverges.\n\nThe trap is the divergence test: the terms $\\ln\\frac{k}{k+1}$ tend to $0$, so that test is inconclusive. It is the partial sums that show divergence, and the sum is not $0$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -414,6 +458,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "Use the alternating series estimation theorem: the error after $N$ terms is at most the first omitted term in absolute value. Here $b_k = \\frac{1}{(2k+1)^2}$, so\n\n$$\n|S_N - S| \\le b_{N+1} = \\frac{1}{(2N+3)^2}.\n$$\n\nWe need $\\frac{1}{(2N+3)^2} < \\frac{1}{400}$, that is, $(2N+3)^2 > 400$, so $2N+3 > 20$ and $N > 8.5$. The smallest integer is $N = 9$.\n\nCheck: for $N = 9$, $(2N+3)^2 = 441 > 400$, while for $N = 8$, $(2N+3)^2 = 361 < 400$.\n\nThe trap is using $b_N$ instead of $b_{N+1}$, which gives $N = 10$.",
       "sourcePage": 7,
       "status": "reviewed"
     }
