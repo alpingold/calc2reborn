@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-relations"
+      ],
+      "solution": "A sphere meets a coordinate plane exactly when the distance from the center to that plane is less than the radius. The sphere has center $(1, 2, -4)$ and radius $3$.\n\n- The $yz$-plane ($x = 0$): the distance is $|1| = 1 < 3$, so the sphere meets it.\n- The $xz$-plane ($y = 0$): the distance is $|2| = 2 < 3$, so the sphere meets it.\n- The $xy$-plane ($z = 0$): the distance is $|-4| = 4 > 3$, so the sphere misses it.\n\nSo the sphere meets the $xz$- and $yz$-planes but not the $xy$-plane.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-hydrostatic-force"
+      ],
+      "solution": "Use $p = \\rho g h$ and integrate the pressure over the wall in horizontal strips. The liquid has $\\rho g = 100 \\cdot 10 = 1000$, so the pressure at depth $h$ is $1000h$ Pa.\n\nMeasure $h$ down from the top of the liquid, so $0 \\le h \\le 1$. A strip at depth $h$ has width $1$ and height $dh$, so its area is $dh$ and the force on it is $1000h\\,dh$.\n\n$$\nF = \\int_0^1 1000h\\,dh = 1000\\left[\\frac{h^2}{2}\\right]_0^1 = 500\n$$\n\nSo the total force on one side wall is $500$ N. Using the pressure at the bottom for the whole wall gives $1000$ N, which is double the force, since the pressure is not constant over the wall.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-in-y"
+      ],
+      "solution": "Use horizontal slices, integrating right minus left with respect to $y$, since both curves are given as $x$ in terms of $y$.\n\nThe curves meet where $y^2 = 8 - y^2$, so $y^2 = 4$ and $y = \\pm 2$. For $-2 \\le y \\le 2$, the right curve is $x = 8 - y^2$ and the left curve is $x = y^2$, so\n\n$$\nA = \\int_{-2}^{2} \\big((8 - y^2) - y^2\\big)\\,dy = \\int_{-2}^{2} (8 - 2y^2)\\,dy\n$$\n\n$$\n= \\left[8y - \\frac{2y^3}{3}\\right]_{-2}^{2} = \\frac{32}{3} - \\left(-\\frac{32}{3}\\right) = \\frac{64}{3}\n$$\n\nSo the area is $\\frac{64}{3}$. Integrating in $x$ would need two separate integrals, split at $x = 4$, each between $-\\sqrt{\\cdot}$ and $+\\sqrt{\\cdot}$ curves, which is why $y$ is the better variable here.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law: at equilibrium the spring force balances the weight, so $30 = k(0.1)$ and $k = 300$ N/m. The work to move the spring from displacement $x = 0.1$ back to $x = 0$ is\n\n$$\nW = \\int_0^{0.1} 300x\\,dx = \\left[150x^2\\right]_0^{0.1} = 1.5\n$$\n\nSo the work is $1.5$ J. Leaving out the factor $\\frac{1}{2}$ from the integral gives $300(0.1)^2 = 3$ J, which is double the work.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use $\\cos\\theta = \\frac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|\\,|\\vec{b}|}$. Here $\\vec{a} = \\langle 3, 0, 0 \\rangle$ and $\\vec{b} = \\langle -1, -\\sqrt{2}, 1 \\rangle$.\n\n$$\n\\vec{a}\\cdot\\vec{b} = -3, \\qquad |\\vec{a}| = 3, \\qquad |\\vec{b}| = \\sqrt{1 + 2 + 1} = 2\n$$\n\n$$\n\\cos\\theta = \\frac{-3}{3 \\cdot 2} = -\\frac{1}{2}\n$$\n\nSince $0 \\le \\theta \\le \\pi$, this gives $\\theta = \\frac{2\\pi}{3}$, so the angle is $\\frac{2\\pi}{3}$. The negative dot product makes the angle obtuse; taking $\\arccos\\frac{1}{2}$ gives $\\frac{\\pi}{3}$, which drops the sign.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "The area of the triangle is $\\frac{1}{2}\\left|\\overrightarrow{PQ} \\times \\overrightarrow{PR}\\right|$. With $P = (1, 1, 1)$, $Q = (3, -1, 2)$, $R = (5, 1, -2)$, we get $\\overrightarrow{PQ} = \\langle 2, -2, 1 \\rangle$ and $\\overrightarrow{PR} = \\langle 4, 0, -3 \\rangle$.\n\n$$\n\\overrightarrow{PQ} \\times \\overrightarrow{PR} = \\begin{vmatrix} \\vec{\\imath} & \\vec{\\jmath} & \\vec{k} \\\\ 2 & -2 & 1 \\\\ 4 & 0 & -3 \\end{vmatrix} = 6\\vec{\\imath} + 10\\vec{\\jmath} + 8\\vec{k}\n$$\n\n$$\n\\left|\\overrightarrow{PQ} \\times \\overrightarrow{PR}\\right| = \\sqrt{36 + 100 + 64} = \\sqrt{200} = 10\\sqrt{2}\n$$\n\nSo the area is $\\frac{1}{2} \\cdot 10\\sqrt{2} = 5\\sqrt{2}$. Omitting the factor $\\frac{1}{2}$ gives $10\\sqrt{2}$, which is the area of the parallelogram, not the triangle.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-y-axis"
+      ],
+      "solution": "Use disks in $y$, since the region is revolved about the $y$-axis. The curve $y = x^2$ gives $x = \\sqrt{y}$, so for $0 \\le y \\le 2$ the horizontal slice at height $y$ runs from $x = 0$ to $x = \\sqrt{y}$. Revolving it about the $y$-axis gives a disk of radius $\\sqrt{y}$.\n\n$$\nV = \\int_0^2 \\pi\\left(\\sqrt{y}\\right)^2\\,dy = \\pi\\int_0^2 y\\,dy = \\pi\\left[\\frac{y^2}{2}\\right]_0^2 = 2\\pi\n$$\n\nSo the volume is $2\\pi$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -279,6 +307,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "The base is the half-disk $x^2 + y^2 \\le 9$ with $y \\ge 0$, lying in the $xy$-plane with its straight edge along the $x$-axis. The squares stand on chords parallel to that edge, so slice the solid by planes $y = c$ and use $V = \\int A(y)\\,dy$.\n\nAt height $y$ the chord runs from $x = -\\sqrt{9 - y^2}$ to $x = \\sqrt{9 - y^2}$, so its length is $2\\sqrt{9 - y^2}$. The square has this chord as one side, so\n\n$$\nA(y) = \\left(2\\sqrt{9 - y^2}\\right)^2 = 4(9 - y^2)\n$$\n\n$$\nV = \\int_0^3 4(9 - y^2)\\,dy = 4\\left[9y - \\frac{y^3}{3}\\right]_0^3 = 4(27 - 9) = 72\n$$\n\nSo the volume is $72$. Taking the half-chord $\\sqrt{9 - y^2}$ as the side gives $\\int_0^3 (9 - y^2)\\,dy = 18$ instead, which is a quarter of the true volume.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -313,6 +345,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Rotating about the $x$-axis gives $S = \\int 2\\pi y\\,ds$ with $ds = \\sqrt{1 + (y')^2}\\,dx$.\n\nHere $y' = x^2$, so $1 + (y')^2 = 1 + x^4$ and\n\n$$\nS = \\int_0^1 2\\pi\\cdot\\frac{x^3}{3}\\sqrt{1 + x^4}\\,dx\n$$\n\nLet $u = 1 + x^4$, so $du = 4x^3\\,dx$, with $u = 1$ at $x = 0$ and $u = 2$ at $x = 1$:\n\n$$\nS = \\frac{2\\pi}{3}\\int_1^2 \\sqrt{u}\\,\\frac{du}{4} = \\frac{\\pi}{6}\\left[\\frac{2}{3}u^{3/2}\\right]_1^2 = \\frac{\\pi}{9}\\left(2\\sqrt{2} - 1\\right)\n$$\n\nSo the surface area is $\\frac{\\pi(2\\sqrt{2} - 1)}{9}$. The common slip is to drop the arc-length factor and integrate $2\\pi y\\,dx$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -347,6 +383,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-setup"
+      ],
+      "solution": "The arc length of $y = f(x)$ on $[a, b]$ is $\\int_a^b \\sqrt{1 + (y')^2}\\,dx$.\n\nHere $y' = 3x^2$, so $(y')^2 = 9x^4$, and\n\n$$\nL = \\int_1^2 \\sqrt{1 + 9x^4}\\,dx\n$$\n\nSo the arc length is $\\int_1^2 \\sqrt{9x^4 + 1}\\,dx$. Writing $\\sqrt{1 + 3x^2}$ forgets to square the derivative.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -381,6 +421,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells about the vertical line $x = 3$. The curves $y = x^2$ and $y = x$ meet at $x = 0$ and $x = 1$, and for $0 \\le x \\le 1$ the line $y = x$ is on top. A shell at position $x$ has height $x - x^2$ and radius $3 - x$, since the distance from $x$ to the line $x = 3$ is $3 - x$. Each shell contributes $2\\pi(\\text{radius})(\\text{height})\\,dx$, so\n\n$$\nV = \\int_0^1 2\\pi(3 - x)(x - x^2)\\,dx\n$$\n\nSo the volume is $\\int_0^1 2\\pi(3 - x)(x - x^2)\\,dx$. The usual slips are to use $3 - x^2$ as the radius or to square the height.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -419,6 +463,10 @@
         "L9",
         "L10"
       ],
+      "typeIds": [
+        "L9-variable-load-work"
+      ],
+      "solution": "Lift each slice of the bar to vertical. A slice at distance $x$ from the hinge ends at height $x$, so it is raised by $x$. Its mass is $(10 + x)\\,dx$ kg, so its weight is $10(10 + x)\\,dx$ N using $g = 10$.\n\nThe work against gravity is the weight times the height, summed over the bar:\n\n$$\nW = \\int_0^2 10(10 + x)\\,x\\,dx = \\int_0^2 (100x + 10x^2)\\,dx = \\left[50x^2 + \\frac{10x^3}{3}\\right]_0^2 = 200 + \\frac{80}{3} = \\frac{680}{3}\n$$\n\nSo the work is $\\frac{680}{3}$ joules.",
       "sourcePage": 7,
       "status": "reviewed"
     }

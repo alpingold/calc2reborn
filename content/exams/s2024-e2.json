@@ -38,6 +38,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The integrand is not continuous on $[0, 2]$: the denominator $(2x-2)^2$ vanishes at $x = 1$, which lies inside the interval. So the integral is improper at $x = 1$ and must be split there and evaluated with limits.\n\nAn antiderivative is found first. $\\int \\frac{1}{(2x-2)^2}\\,dx = \\frac{1}{4}\\int (x-1)^{-2}\\,dx = -\\frac{1}{4(x-1)} + C$.\n\nTake the limit as $t \\to 1^-$ on the left piece: $\\lim_{t \\to 1^-} \\left[-\\frac{1}{4(x-1)}\\right]_0^t = \\lim_{t \\to 1^-} \\left(-\\frac{1}{4(t-1)} - \\frac{1}{4}\\right)$. Since $t - 1$ is negative and tends to $0$, $-\\frac{1}{4(t-1)} \\to +\\infty$, so this limit is infinite.\n\nSo the integral does not converge. Evaluating the antiderivative at the endpoints $0$ and $2$ gives $-\\frac{1}{2}$, which is the trap: the function is not continuous on the interval, so that value means nothing.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -76,6 +80,11 @@
         "L5",
         "L12"
       ],
+      "typeIds": [
+        "L5-area-split-or-axis",
+        "L12-tan-identities"
+      ],
+      "solution": "The region lies between the curve and the $x$-axis, and the curve meets $y = 0$ at $x = 0$ because $\\tan 0 = 0$. Since $y \\geq 0$ there, the area is $\\int_0^{\\pi/4} 4\\tan^2 x\\,dx$.\n\nUse the identity $\\tan^2 x = \\sec^2 x - 1$ to rewrite the integrand:\n\n$$\n\\int_0^{\\pi/4} 4\\tan^2 x\\,dx = \\int_0^{\\pi/4} \\left(4\\sec^2 x - 4\\right)dx = \\left[4\\tan x - 4x\\right]_0^{\\pi/4}.\n$$\n\nAt $x = \\frac{\\pi}{4}$ the bracket is $4 - \\pi$, and at $x = 0$ it is $0$. So the area is $4 - \\pi$.\n\nDropping the $-1$ from the identity is the usual slip. It gives $\\int_0^{\\pi/4} 4\\sec^2 x\\,dx = 4$, which is not the area.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -110,6 +119,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "Integrate $x\\ln x$ by parts with $u = \\ln x$ and $dv = x\\,dx$, so $du = \\frac{dx}{x}$ and $v = \\frac{x^2}{2}$:\n\n$$\n\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\int \\frac{x}{2}\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C.\n$$\n\nAt $x = e^4$, $\\ln x = 4$, so the antiderivative is $\\frac{e^8}{2}\\cdot 4 - \\frac{e^8}{4} = \\frac{7e^8}{4}$. At $x = 1$ it is $0 - \\frac{1}{4} = -\\frac{1}{4}$. So $\\int_1^{e^4} x\\ln x\\,dx = \\frac{7e^8}{4} + \\frac{1}{4}$.\n\nThe second integral is $\\int_1^{e^4} \\frac{x}{2}\\,dx = \\left[\\frac{x^2}{4}\\right]_1^{e^4} = \\frac{e^8}{4} - \\frac{1}{4}$.\n\nThe equation becomes $\\frac{7e^8}{4} + \\frac{1}{4} = A - \\left(\\frac{e^8}{4} - \\frac{1}{4}\\right)$, so $A = \\frac{7e^8}{4} + \\frac{e^8}{4} + \\frac{1}{4} - \\frac{1}{4} = 2e^8$.\n\nSo $A = 2e^8$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -144,6 +157,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Complete the square under the root: $x^2 - 4x + 13 = (x-2)^2 + 9$. With $u = x - 2$ the radical is $\\sqrt{u^2 + 3^2}$, which matches the tangent pattern $\\sqrt{a^2 + u^2}$ with $a = 3$. So set $u = 3\\tan\\theta$, that is, $x - 2 = 3\\tan\\theta$.\n\nSo the substitution is $x = 3\\tan(\\theta) + 2$. The trap is mixing up the centre $2$ and the radius $3$, as a substitution of the form $x = 2\\tan\\theta + 3$ does.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -178,6 +195,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Factor the denominator: $x^5 + 2x^3 + x = x(x^4 + 2x^2 + 1) = x(x^2 + 1)^2$. The factor $x$ is linear and $x^2 + 1$ is an irreducible quadratic that appears squared.\n\nEach linear factor gets one term. Each power of an irreducible quadratic gets a term with a linear numerator, $Bx + C$ over $x^2 + 1$ and $Dx + E$ over $(x^2 + 1)^2$. So\n\n$$\n\\frac{1}{x(x^2 + 1)^2} = \\frac{A}{x} + \\frac{Bx + C}{x^2 + 1} + \\frac{Dx + E}{(x^2 + 1)^2}.\n$$\n\nSo the form is $\\frac{A}{x}$, plus a linear numerator over $x^2 + 1$, plus a linear numerator over $(x^2 + 1)^2$. The usual trap is a constant numerator over $(x^2 + 1)^2$, which is not enough.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -212,6 +233,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "The degree of the numerator is less than that of the denominator, and the denominator has two distinct linear factors. So use partial fractions:\n\n$$\n\\frac{5x + 1}{(2x + 1)(x - 1)} = \\frac{A}{2x + 1} + \\frac{B}{x - 1}.\n$$\n\nClearing denominators gives $5x + 1 = A(x - 1) + B(2x + 1)$. Setting $x = 1$ gives $6 = 3B$, so $B = 2$. Setting $x = -\\frac{1}{2}$ gives $-\\frac{3}{2} = -\\frac{3}{2}A$, so $A = 1$.\n\nIntegrate term by term:\n\n$$\n\\int \\left(\\frac{1}{2x + 1} + \\frac{2}{x - 1}\\right)dx = \\frac{1}{2}\\ln|2x + 1| + 2\\ln|x - 1| + C.\n$$\n\nSo the integral is $\\frac{1}{2}\\ln|2x + 1| + 2\\ln|x - 1| + C$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -246,6 +271,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "The upper limit is infinite, so write the integral as a limit:\n\n$$\n\\int_0^{\\infty} xe^{-x^2}\\,dx = \\lim_{t \\to \\infty} \\int_0^t xe^{-x^2}\\,dx.\n$$\n\nLet $u = -x^2$, so $du = -2x\\,dx$ and $x\\,dx = -\\frac{1}{2}\\,du$. Then $\\int xe^{-x^2}\\,dx = -\\frac{1}{2}e^{-x^2} + C$.\n\nSo $\\int_0^t xe^{-x^2}\\,dx = -\\frac{1}{2}e^{-t^2} + \\frac{1}{2}$. As $t \\to \\infty$, $e^{-t^2} \\to 0$, so the limit is $\\frac{1}{2}$.\n\nSo the integral converges to $\\frac{1}{2}$. Forgetting the factor $\\frac{1}{2}$ from the substitution gives $1$, which is the trap.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -280,6 +309,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Save one factor of $\\cos x$ and convert the rest with $\\cos^2 x = 1 - \\sin^2 x$:\n\n$$\n\\int_0^{\\pi} \\cos^3 x\\,dx = \\int_0^{\\pi} (1 - \\sin^2 x)\\cos x\\,dx.\n$$\n\nLet $u = \\sin x$, so $du = \\cos x\\,dx$. The limits become $u = \\sin 0 = 0$ at $x = 0$ and $u = \\sin \\pi = 0$ at $x = \\pi$. Hence\n\n$$\n\\int_0^{0} (1 - u^2)\\,du = 0.\n$$\n\nSo the integral equals $0$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -314,6 +347,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts with $u = 4x$ and $dv = \\cos 2x\\,dx$, so $du = 4\\,dx$ and $v = \\frac{1}{2}\\sin 2x$:\n\n$$\n\\int_0^{\\pi/4} 4x\\cos 2x\\,dx = \\left[2x\\sin 2x\\right]_0^{\\pi/4} - \\int_0^{\\pi/4} 2\\sin 2x\\,dx.\n$$\n\nThe boundary term is $2\\cdot\\frac{\\pi}{4}\\cdot\\sin\\frac{\\pi}{2} - 0 = \\frac{\\pi}{2}$. For the remaining integral, $\\int 2\\sin 2x\\,dx = -\\cos 2x$, so\n\n$$\n\\int_0^{\\pi/4} 2\\sin 2x\\,dx = \\left[-\\cos 2x\\right]_0^{\\pi/4} = 0 - (-1) = 1.\n$$\n\nSo the integral is $\\frac{\\pi}{2} - 1 = \\frac{\\pi - 2}{2}$. The trap is dropping the minus sign in front of the second integral, which gives $\\frac{\\pi}{2} + 1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -348,6 +385,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form"
+      ],
+      "solution": "Let $f(x) = \\frac{1}{x^2(x - 1)^2}$. The coefficients $B$ and $D$ come from covering up the factors.\n\nMultiply by $x^2$ and set $x = 0$: $B = \\frac{1}{(0 - 1)^2} = 1$. Multiply by $(x - 1)^2$ and set $x = 1$: $D = \\frac{1}{1^2} = 1$.\n\nThe coefficients $A$ and $C$ are derivatives of the cleared forms. $A$ is the derivative of $\\frac{1}{(x - 1)^2}$ at $x = 0$, so $A = \\frac{-2}{(0 - 1)^3} = 2$. $C$ is the derivative of $\\frac{1}{x^2}$ at $x = 1$, so $C = \\frac{-2}{1^3} = -2$.\n\nAs a check, $A + C = 0$ must hold, because $f(x)$ decays faster than $\\frac{1}{x}$ as $x \\to \\infty$.\n\nSo $A + B + C + D = 2 + 1 - 2 + 1 = 2$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -383,6 +424,10 @@
         "L11",
         "L18"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "The integrand is a polynomial times an exponential, so integrate by parts twice. With $u = x^2$, $\\int x^2 e^x\\,dx = x^2e^x - 2\\int xe^x\\,dx$. With $u = x$, $\\int xe^x\\,dx = xe^x - e^x$. So\n\n$$\n\\int x^2 e^x\\,dx = e^x(x^2 - 2x + 2) + C.\n$$\n\nThe lower limit is $-\\infty$, so write\n\n$$\n\\int_{-\\infty}^{0} x^2e^x\\,dx = \\lim_{t \\to -\\infty} \\left[e^x(x^2 - 2x + 2)\\right]_t^0.\n$$\n\nAt $x = 0$ the bracket is $2$. As $t \\to -\\infty$, $e^t(t^2 - 2t + 2) \\to 0$, because the exponential decay beats the polynomial growth.\n\nSo the integral is $2 - 0 = 2$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -418,6 +463,10 @@
         "L14",
         "L18"
       ],
+      "typeIds": [
+        "L14-secant-substitution"
+      ],
+      "solution": "Use the secant substitution $x = \\frac{1}{2}\\sec\\theta$. Then $2x = \\sec\\theta$, so $\\sqrt{4x^2 - 1} = \\sqrt{\\sec^2\\theta - 1} = \\tan\\theta$ on $0 \\leq \\theta < \\frac{\\pi}{2}$, and $dx = \\frac{1}{2}\\sec\\theta\\tan\\theta\\,d\\theta$.\n\nThe integrand becomes\n\n$$\n\\frac{1}{\\frac{1}{2}\\sec\\theta \\cdot \\tan\\theta} \\cdot \\frac{1}{2}\\sec\\theta\\tan\\theta\\,d\\theta = d\\theta.\n$$\n\nThe upper limit $x = 1$ gives $\\sec\\theta = 2$, so $\\theta = \\frac{\\pi}{3}$. The lower limit $x = \\frac{1}{2}$ gives $\\theta = 0$. The integrand blows up at $x = \\frac{1}{2}$, where $4x^2 - 1 = 0$, so take the limit $\\lim_{\\varepsilon \\to 0^+} \\int_{\\varepsilon}^{\\pi/3} d\\theta = \\frac{\\pi}{3}$.\n\nSo the integral converges to $\\frac{\\pi}{3}$.",
       "sourcePage": 7,
       "status": "reviewed"
     }

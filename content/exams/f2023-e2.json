@@ -38,6 +38,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Use integration by parts, since the integrand is $x$ times $\\cos x$. Take $u = x$ and $dv = \\cos x\\,dx$, so $du = dx$ and $v = \\sin x$.\n\n$$\n\\int_0^{\\pi} x\\cos x\\,dx = \\left[x\\sin x\\right]_0^{\\pi} - \\int_0^{\\pi} \\sin x\\,dx\n$$\n\nThe boundary term is $\\pi\\sin\\pi - 0 = 0$. Also $\\int_0^{\\pi} \\sin x\\,dx = \\left[-\\cos x\\right]_0^{\\pi} = 1 + 1 = 2$, so $\\int_0^{\\pi} x\\cos x\\,dx = 0 - 2 = -2$.\n\nThe original integral has the factor $\\frac{1}{2}$, so it equals $\\frac{1}{2}(-2)$, which is $-1$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-cyclic-parts"
+      ],
+      "solution": "Use integration by parts twice, since the integrand is an exponential times a cosine, and the second step returns the original integral. Take $u = e^x$ and $dv = \\cos x\\,dx$, so $du = e^x\\,dx$ and $v = \\sin x$:\n\n$$\nI = \\int_0^{\\frac{\\pi}{2}} e^x\\cos x\\,dx = \\left[e^x\\sin x\\right]_0^{\\frac{\\pi}{2}} - \\int_0^{\\frac{\\pi}{2}} e^x\\sin x\\,dx\n$$\n\nThe boundary term is $e^{\\frac{\\pi}{2}} - 0 = e^{\\frac{\\pi}{2}}$. For the new integral, take $u = e^x$ and $dv = \\sin x\\,dx$, so $v = -\\cos x$:\n\n$$\n\\int_0^{\\frac{\\pi}{2}} e^x\\sin x\\,dx = \\left[-e^x\\cos x\\right]_0^{\\frac{\\pi}{2}} + \\int_0^{\\frac{\\pi}{2}} e^x\\cos x\\,dx\n$$\n\nThe boundary term is $0 - (-1) = 1$, so this new integral equals $1 + I$. Substituting back gives $I = e^{\\frac{\\pi}{2}} - (1 + I)$, so $2I = e^{\\frac{\\pi}{2}} - 1$.\n\nSo the integral is $\\frac{1}{2}\\left(e^{\\frac{\\pi}{2}} - 1\\right)$. Getting the sign of the boundary term in the second step wrong gives $\\frac{1}{2}\\left(e^{\\frac{\\pi}{2}} + 1\\right)$ instead.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Use the odd-power method: save one factor of $\\sin x$ and rewrite the rest in $\\cos x$. Since $1 - \\sin^2 x = \\cos^2 x$, the integrand is $(\\cos^2 x)^2\\sin x = \\cos^4 x\\sin x$.\n\nLet $u = \\cos x$, so $du = -\\sin x\\,dx$, and $\\sin x\\,dx = -du$. The limits become $u = 1$ at $x = 0$ and $u = 0$ at $x = \\frac{\\pi}{2}$, so\n\n$$\n\\int_0^{\\frac{\\pi}{2}} \\cos^4 x\\sin x\\,dx = \\int_1^0 u^4(-du) = \\int_0^1 u^4\\,du = \\left[\\frac{u^5}{5}\\right]_0^1 = \\frac{1}{5}.\n$$\n\nSo the integral is $\\frac{1}{5}$. Dropping the minus sign in $du = -\\sin x\\,dx$ gives $-\\frac{1}{5}$, which is the trap.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -143,6 +155,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-sec-tan-odd"
+      ],
+      "solution": "Save the factor $\\sec x\\tan x$ and write the rest in $\\sec x$. Let $u = \\sec x$, so $du = \\sec x\\tan x\\,dx$. Since $\\sec^{\\frac{3}{2}}x\\tan x\\,dx = \\sec^{\\frac{1}{2}}x\\,(\\sec x\\tan x\\,dx) = u^{\\frac{1}{2}}\\,du$,\n\n$$\n\\int \\frac{3}{2}\\sec^{\\frac{3}{2}}x\\tan x\\,dx = \\int \\frac{3}{2}u^{\\frac{1}{2}}\\,du = \\frac{3}{2}\\cdot\\frac{u^{\\frac{3}{2}}}{\\frac{3}{2}} + C = \\sec^{\\frac{3}{2}}x + C.\n$$\n\nSo the antiderivative is $\\sec^{\\frac{3}{2}}x + C$. Differentiating $\\sec^{\\frac{3}{2}}x$ gives $\\frac{3}{2}\\sec^{\\frac{1}{2}}x\\cdot\\sec x\\tan x$, which matches the integrand.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -178,6 +194,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "Use a sine substitution, since $\\sqrt{4 - 9x^2}$ has the form $\\sqrt{a^2 - u^2}$ with $a = 2$ and $u = 3x$. Let $3x = 2\\sin\\theta$, so $x = \\frac{2}{3}\\sin\\theta$ and $dx = \\frac{2}{3}\\cos\\theta\\,d\\theta$.\n\nThen $4 - 9x^2 = 4 - 4\\sin^2\\theta = 4\\cos^2\\theta$, so $\\sqrt{4 - 9x^2} = 2\\cos\\theta$, since $\\cos\\theta \\ge 0$ for $0 \\le \\theta \\le \\frac{\\pi}{6}$.\n\nThe limits are $x = 0$ at $\\theta = 0$, and $x = \\frac{1}{3}$ at $\\sin\\theta = \\frac{1}{2}$, so $\\theta = \\frac{\\pi}{6}$. Substituting,\n\n$$\n\\int_0^{\\frac{1}{3}} \\sqrt{4 - 9x^2}\\,dx = \\int_0^{\\frac{\\pi}{6}} 2\\cos\\theta\\cdot\\frac{2}{3}\\cos\\theta\\,d\\theta = \\frac{4}{3}\\int_0^{\\frac{\\pi}{6}} \\cos^2\\theta\\,d\\theta.\n$$\n\nSo the integral becomes $\\frac{4}{3}\\int_0^{\\frac{\\pi}{6}} \\cos^2\\theta\\,d\\theta$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -213,6 +233,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "Use a tangent substitution, since $\\sqrt{x^2 + 25}$ has the form $\\sqrt{x^2 + a^2}$ with $a = 5$. Let $x = 5\\tan\\theta$, so $dx = 5\\sec^2\\theta\\,d\\theta$, and $\\sqrt{x^2 + 25} = \\sqrt{25\\tan^2\\theta + 25} = 5\\sec\\theta$.\n\nSubstituting,\n\n$$\n\\int \\frac{x^2}{\\sqrt{x^2 + 25}}\\,dx = \\int \\frac{25\\tan^2\\theta}{5\\sec\\theta}\\cdot 5\\sec^2\\theta\\,d\\theta.\n$$\n\nThe constants give $\\frac{25 \\cdot 5}{5} = 25$, and one $\\sec\\theta$ stays in the numerator. So the integral becomes $25\\int (\\tan^2\\theta)(\\sec\\theta)\\,d\\theta$.\n\nWriting $5$ in front instead of $25$, by forgetting the factor $5$ in $dx = 5\\sec^2\\theta\\,d\\theta$, is the classic slip.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -248,6 +272,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Use partial fractions with distinct linear factors. Write\n\n$$\n\\frac{8}{(x-2)(x+6)} = \\frac{A}{x-2} + \\frac{B}{x+6}, \\quad \\text{so} \\quad 8 = A(x+6) + B(x-2).\n$$\n\nSetting $x = 2$ gives $8 = 8A$, so $A = 1$. Setting $x = -6$ gives $8 = -8B$, so $B = -1$.\n\nThen\n\n$$\n\\int_3^4 \\left(\\frac{1}{x-2} - \\frac{1}{x+6}\\right)dx = \\left[\\ln|x-2| - \\ln|x+6|\\right]_3^4 = (\\ln 2 - \\ln 10) - (\\ln 1 - \\ln 9).\n$$\n\nThis simplifies to $\\ln 2 + \\ln 9 - \\ln 10 = \\ln\\frac{9}{5}$, and $\\ln\\frac{9}{5} = 2\\ln 3 - \\ln 5$.\n\nSo the integral is $2\\ln 3 - \\ln 5$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -283,6 +311,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Write one partial fraction term for each power of each denominator factor. The denominator has the factors $x^2$, $(x+1)^2$ and $(x^2+1)^2$, and the numerator degree $4$ is less than the denominator degree $8$, so no long division is needed.\n\n- The factor $x^2$ gives $\\frac{A}{x} + \\frac{B}{x^2}$.\n- The factor $(x+1)^2$ gives $\\frac{C}{x+1} + \\frac{D}{(x+1)^2}$.\n- The irreducible quadratic $x^2 + 1$, repeated twice, gives $\\frac{Ex + F}{x^2 + 1} + \\frac{Gx + H}{(x^2 + 1)^2}$.\n\nSo the decomposition is\n\n$$\n\\frac{x^4 + 1}{x^2(x + 1)^2(x^2 + 1)^2} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x + 1} + \\frac{D}{(x + 1)^2} + \\frac{Ex + F}{x^2 + 1} + \\frac{Gx + H}{(x^2 + 1)^2}.\n$$\n\nA constant numerator over $(x^2 + 1)^2$, with no $x$ term, is the trap for an irreducible quadratic factor.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -318,6 +350,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "The upper limit is infinite, so write the integral as a limit:\n\n$$\n\\int_0^{\\infty} \\frac{x}{(x^2 + 1)^2}\\,dx = \\lim_{t \\to \\infty} \\int_0^t \\frac{x}{(x^2 + 1)^2}\\,dx.\n$$\n\nLet $u = x^2 + 1$, so $du = 2x\\,dx$. The limits become $u = 1$ and $u = t^2 + 1$, so\n\n$$\n\\frac{1}{2}\\int_1^{t^2 + 1} u^{-2}\\,du = \\frac{1}{2}\\left[-\\frac{1}{u}\\right]_1^{t^2 + 1} = \\frac{1}{2}\\left(1 - \\frac{1}{t^2 + 1}\\right).\n$$\n\nAs $t \\to \\infty$ this tends to $\\frac{1}{2}$, so the integral converges to $\\frac{1}{2}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -353,6 +389,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The denominator $(x+2)^3$ is zero at $x = -2$, which lies inside $[-3, 3]$. The integral is therefore improper at an interior point and must be split there:\n\n$$\n\\int_{-3}^{3} \\frac{dx}{(x+2)^3} = \\int_{-3}^{-2} \\frac{dx}{(x+2)^3} + \\int_{-2}^{3} \\frac{dx}{(x+2)^3}.\n$$\n\nAn antiderivative is $-\\frac{1}{2(x+2)^2}$. The left piece is $\\lim_{t \\to -2^-}\\left[-\\frac{1}{2(x+2)^2}\\right]_{-3}^{t}$, and $-\\frac{1}{2(t+2)^2} \\to -\\infty$ as $t \\to -2^-$, so the left piece diverges. The right piece has $+\\frac{1}{2(s+2)^2} \\to +\\infty$ as $s \\to -2^+$, so it also diverges.\n\nA piece that diverges makes the whole integral diverge, so the integral diverges. The two infinite parts cannot be cancelled against each other. Applying the Fundamental Theorem directly on $[-3, 3]$ gives $-\\frac{1}{50} + \\frac{1}{2} = \\frac{12}{25}$, which is the trap.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -388,6 +428,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Find the limit of each sequence as $n \\to \\infty$.\n\n- (i) $\\frac{1}{2^n} \\to 0$, so it converges.\n- (ii) $\\frac{n}{n+1} = \\frac{1}{1 + \\frac{1}{n}} \\to 1$, so it converges.\n- (iii) The terms are $(-1)^{n+1}\\frac{n}{n+1}$. Their magnitudes tend to $1$, but the signs alternate, so the terms approach $1$ and $-1$ alternately and have no limit. It diverges.\n- (iv) $\\sin(n\\pi) = 0$ for every $n$, so it converges to $0$.\n- (v) $\\cos(n\\pi) = (-1)^n$ alternates between $-1$ and $1$, so it diverges.\n\nSo (i), (ii) and (iv) converge, and (iii) and (v) diverge. Judging (iii) convergent because its magnitudes converge is the trap.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -423,6 +467,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-recurrence-term"
+      ],
+      "solution": "Compute the terms in order from the recurrence $a_{n+2} = a_{n+1} - a_n$, starting from $a_1 = 1$ and $a_2 = 2$:\n\n$$\na_3 = a_2 - a_1 = 1, \\quad a_4 = a_3 - a_2 = -1, \\quad a_5 = a_4 - a_3 = -2, \\quad a_6 = a_5 - a_4 = -1.\n$$\n\nSo $a_6 = -1$.",
       "sourcePage": 7,
       "status": "reviewed"
     }

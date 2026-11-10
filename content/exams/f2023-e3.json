@@ -38,6 +38,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Decide each sequence by whether $\\lim_{k\\to\\infty} a_k$ exists.\n\nI. $\\lim_{k\\to\\infty} \\frac{2k}{3k+5} = \\frac{2}{3}$, so this sequence converges.\n\nII. $\\cos k\\pi = (-1)^k$ alternates between $1$ and $-1$ and has no limit, so this sequence diverges.\n\nIII. Write $k\\tan\\left(\\frac{1}{k}\\right) = \\frac{\\tan(1/k)}{1/k}$. As $k\\to\\infty$, $\\frac{1}{k}\\to 0$, and $\\frac{\\tan t}{t}\\to 1$ as $t\\to 0$, so this sequence converges to $1$.\n\nSo the convergent sequences are I and III. The trap is II: a bounded sequence is not necessarily convergent, since its terms must settle toward one value.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
+      "solution": "The first term is $\\sqrt[k]{k^2} = k^{2/k} = e^{(2\\ln k)/k}$. Since $\\lim_{k\\to\\infty}\\frac{\\ln k}{k} = 0$, this term tends to $e^0 = 1$.\n\nFor the second term, $\\left|\\frac{(-1)^k\\sqrt{k}}{k+1}\\right| \\le \\frac{\\sqrt{k}}{k} = \\frac{1}{\\sqrt{k}} \\to 0$, so it tends to $0$ by the squeeze theorem.\n\nSo the sequence converges, and its limit is $1 + 0 = 1$. The trap is reading the alternating sign as a reason for divergence: the sign flips, but the size goes to $0$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Use the partial fraction form given, and write the $N$th partial sum so that the terms cancel. The terms $\\frac{1}{k}$ for $k=1,2,3$ are not cancelled, and the terms $-\\frac{1}{k+3}$ for the last three values of $k$ are left at the end:\n\n$$\nS_N = \\left(1+\\frac{1}{2}+\\frac{1}{3}\\right) - \\left(\\frac{1}{N+1}+\\frac{1}{N+2}+\\frac{1}{N+3}\\right)\n$$\n\nAs $N\\to\\infty$ the bracketed terms go to $0$, so the sum is $1+\\frac{1}{2}+\\frac{1}{3} = \\frac{11}{6}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -143,6 +155,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-p-range"
+      ],
+      "solution": "Compare with a $p$-series. For $p>0$ and large $k$, $k^{3p}+1$ behaves like $k^{3p}$, so the term behaves like $\\frac{1}{(k^{3p})^{1/6}} = \\frac{1}{k^{p/2}}$.\n\nTo confirm, use limit comparison with $b_k = \\frac{1}{k^{p/2}}$: $\\frac{a_k}{b_k} = \\left(\\frac{k^{3p}}{k^{3p}+1}\\right)^{1/6} \\to 1$, so both series converge or both diverge.\n\nThe $p$-series $\\sum \\frac{1}{k^q}$ converges exactly when $q>1$. Here $q=\\frac{p}{2}$, so the series converges exactly when $p>2$. The trap is stopping at $3p>1$, which ignores the sixth root and gives $p>\\frac{1}{3}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -178,6 +194,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "This is a geometric series. Rewrite the term as $8\\left(-\\frac{1}{3}\\right)^k$, so the first term (at $k=0$) is $a=8$ and the ratio is $r=-\\frac{1}{3}$. Since $|r|<1$, the series converges to\n\n$$\n\\frac{a}{1-r} = \\frac{8}{1+\\frac{1}{3}} = \\frac{8}{\\frac{4}{3}} = 6.\n$$\n\nSo the sum is $6$. The trap is dropping the $(-1)^k$ and using $r=\\frac{1}{3}$, which gives $\\frac{8}{2/3}=12$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -213,6 +233,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Use the integral test with $f(x)$ equal to the term with $k$ replaced by $x$. Each $f$ is positive, continuous and decreasing on $[2,\\infty)$, so the series and $\\int_2^\\infty f(x)\\,dx$ behave alike.\n\nI. $\\int_2^{\\infty}\\frac{dx}{x\\ln x} = \\lim_{t\\to\\infty}\\Big[\\ln(\\ln x)\\Big]_2^t = \\infty$, so the series diverges.\n\nII. $\\frac{1}{k\\ln(k^2)} = \\frac{1}{2k\\ln k}$, which is half the term in I, so it diverges too.\n\nIII. With $u=\\ln x$, $\\int_2^{\\infty}\\frac{dx}{x(\\ln x)^2} = \\int_{\\ln 2}^{\\infty}\\frac{du}{u^2} = \\frac{1}{\\ln 2}$, which is finite, so the series converges.\n\nThe trap is reading $\\ln(k^2)$ as $(\\ln k)^2$; it equals $2\\ln k$, which is why II behaves like I.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -248,6 +272,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-decide"
+      ],
+      "solution": "Limit comparison with a simpler series $\\sum b_k$: if $\\lim_{k\\to\\infty} \\frac{a_k}{b_k}$ is finite and positive, both series converge or both diverge.\n\nI. Take $b_k = \\frac{1}{\\sqrt{k}}$. Then $\\frac{a_k}{b_k} = \\frac{\\sqrt{k}}{\\sqrt{k}-1} \\to 1$. Since $\\sum \\frac{1}{\\sqrt{k}}$ is a $p$-series with $p=\\frac{1}{2}\\le 1$, it diverges, so I diverges.\n\nII. Take $b_k = \\left(\\frac{2}{3}\\right)^k$. Then $\\frac{a_k}{b_k} = \\frac{2^k+1}{2^k} \\to 1$. The geometric series $\\sum \\left(\\frac{2}{3}\\right)^k$ converges, so II converges.\n\nIII. Take $b_k = \\frac{1}{k^2}$. Then $\\frac{a_k}{b_k} = \\frac{k(k+15)}{(k-3)(k+2)} \\to 1$. Since $\\sum \\frac{1}{k^2}$ converges, III converges.\n\nSo II and III converge and I does not. The trap is judging I by its numerator alone; the $-1$ in the denominator changes nothing for large $k$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -284,6 +312,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "Check the sign and size of each term. The numerator $10+7\\cos(k\\pi) = 10+7(-1)^k$ is $3$ or $17$, so it is positive and at most $17$. Therefore\n\n$$\n0 < \\frac{10+7\\cos(k\\pi)}{k^2+\\sqrt{k}} \\le \\frac{17}{k^2+\\sqrt{k}} \\le \\frac{17}{k^2}.\n$$\n\nSince $\\sum \\frac{17}{k^2}$ is a convergent $p$-series ($p=2>1$), the given series converges by direct comparison.\n\nThe other statements fail. $\\sum \\frac{17}{\\sqrt{k}}$ diverges, so it cannot show convergence. $\\sum \\frac{3}{k^2}$ converges, so it cannot show divergence. The terms tend to $0$, so the claim that the limit does not exist is false. The trap is using $\\sum \\frac{17}{\\sqrt{k}}$ because it looks like the same shape; it is larger and diverges, so it proves nothing here.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -318,6 +350,9 @@
       "answerSource": "derived",
       "lessonIds": [
         "L24"
+      ],
+      "typeIds": [
+        "L24-error-estimate"
       ],
       "sourcePage": 6,
       "solution": "**Note on this question:** The course counts terms by the alternating series bound $|S-S_n|\\le b_{n+1}$, as Purdue's own keys do for the same question (Spring 2024 Exam 3 Q9, Spring 2016 Exam 3 Q5): here $b_{n+1}=\\frac{1}{(n+1)^3}<\\frac{1}{1000}$ needs $(n+1)^3>1000$, so $n+1\\ge 11$ and $n=10$, since $9$ terms give a bound of exactly $\\frac{1}{1000}$. The true error is already below $\\frac{1}{1000}$ after $8$ terms ($|S-S_8|\\approx 0.0008$), but $8$ is not a choice, so the answer follows the bound.",
@@ -355,6 +390,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Check absolute convergence first, then the alternating series test.\n\nI. $\\sum \\left|(-1)^k\\frac{\\pi}{k^4}\\right| = \\pi\\sum \\frac{1}{k^4}$, which converges because it is a $p$-series with $p=4>1$. So I is absolutely convergent.\n\nII. Let $a_k = \\frac{k}{k^2+4k+5}$. Compare with $\\frac{1}{k}$: $\\frac{a_k}{1/k} = \\frac{k^2}{k^2+4k+5} \\to 1$, and $\\sum \\frac{1}{k}$ diverges, so $\\sum a_k$ diverges. So II is not absolutely convergent.\n\nFor the alternating test on II, $f(x) = \\frac{x}{x^2+4x+5}$ has $f'(x) = \\frac{5-x^2}{(x^2+4x+5)^2}$, which is negative for $x>\\sqrt{5}$. So $a_k$ is decreasing for $k\\ge 3$, and $a_k\\to 0$. The alternating series test applies, so II converges.\n\nSo I is absolutely convergent and II is conditionally convergent. The trap is calling II absolutely convergent just because it converges.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -390,6 +429,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
+      "solution": "Apply the root test: the series converges when $\\lim_{k\\to\\infty}\\sqrt[k]{|a_k|} < 1$ and diverges when this limit is $> 1$.\n\nI. $\\sqrt[k]{\\left(\\frac{k}{k+5}\\right)^{2k^2}} = \\left(1+\\frac{5}{k}\\right)^{-2k} \\to e^{-10} < 1$. The series converges.\n\nII. $\\sqrt[k]{\\left(1+\\frac{19}{k}\\right)^{k^2}} = \\left(1+\\frac{19}{k}\\right)^{k} \\to e^{19} > 1$. The series diverges, so the root test does not show convergence.\n\nIII. $\\sqrt[k]{\\left(\\frac{k-4}{k}\\right)^k} = \\frac{k-4}{k} \\to 1$. The test is inconclusive.\n\nIV. $\\sqrt[k]{\\left(\\frac{1}{k}-\\frac{1}{k^2}\\right)^k} = \\frac{1}{k}-\\frac{1}{k^2} \\to 0 < 1$. The series converges.\n\nSo the root test shows convergence for I and IV, which is 2 series.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -425,6 +468,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "Apply the ratio test to $\\sum \\frac{3x^k}{2k^2}$: $\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{k^2}{(k+1)^2}\\,|x| \\to |x|$, so the radius of convergence is $R=1$. The series converges for $|x|<1$ and diverges for $|x|>1$.\n\nCheck the endpoints. At $x=1$ the series is $\\sum \\frac{3}{2k^2}$, a convergent $p$-series. At $x=-1$ the series is $\\sum \\frac{3(-1)^k}{2k^2}$, which converges absolutely because $\\sum \\frac{3}{2k^2}$ converges. So the interval is $-1\\le x\\le 1$.\n\nThe trap is excluding an endpoint because the series alternates; the $\\frac{1}{k^2}$ makes both endpoints converge.",
       "sourcePage": 7,
       "status": "reviewed"
     }

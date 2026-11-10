@@ -38,6 +38,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-claims"
+      ],
+      "solution": "Check each statement with the limit laws for sums of sequences.\n\n(I) True. If $a_n \\to L$ and $b_n \\to M$, then $a_n + b_n \\to L + M$.\n\n(II) False. Take $a_n = n$ and $b_n = -n$. Both diverge, but $a_n + b_n = 0$ converges.\n\n(III) True. If $a_n + b_n \\to S$ and $a_n \\to L$, then $b_n = (a_n + b_n) - a_n \\to S - L$, which contradicts the divergence of $b_n$. So $a_n + b_n$ must diverge.\n\nSo (I) and (III) are true. The trap is (II): two divergent sequences can cancel to a convergent one.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Check each statement against the Divergence Test.\n\n(I) True. If $\\lim_{n\\to\\infty} a_n$ does not exist, the terms cannot tend to $0$, so the series diverges.\n\n(II) False. The harmonic series $\\sum \\frac{1}{n}$ diverges, yet $\\lim \\frac{1}{n} = 0$. A divergent series can have terms that tend to $0$.\n\n(III) True. If $\\lim a_n = \\frac{1}{2} \\ne 0$, the terms do not tend to $0$, so the series diverges.\n\nSo (I) and (III) are true. The trap is (II): the Divergence Test says that terms not tending to $0$ force divergence, and its converse is false.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-recurrence-term"
+      ],
+      "solution": "Compute the terms one at a time from $a_1 = 1$.\n\n$$\na_2 = 1^2 - 1 = 0, \\quad a_3 = 0^2 - 1 = -1, \\quad a_4 = (-1)^2 - 1 = 0, \\quad a_5 = 0^2 - 1 = -1\n$$\n\nSo $a_5 = -1$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -142,6 +154,10 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Apply the ratio test to the absolute values $|a_k| = \\frac{\\arctan k}{k!}$, since the sign $(-1)^k$ does not change $|a_k|$.\n\n$$\n\\frac{|a_{k+1}|}{|a_k|} = \\frac{\\arctan(k+1)}{(k+1)\\arctan k}\n$$\n\nFor $k \\ge 1$, $\\frac{\\pi}{4} \\le \\arctan k < \\frac{\\pi}{2}$, so $\\frac{\\arctan(k+1)}{\\arctan k} < \\frac{\\pi/2}{\\pi/4} = 2$. The ratio is therefore less than $\\frac{2}{k+1}$, which tends to $0$. The limit is $0 < 1$, so $\\sum |a_k|$ converges.\n\nSo the series is absolutely convergent by the ratio test.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -175,6 +191,9 @@
       "answer": "B",
       "lessonIds": [
         "L22"
+      ],
+      "typeIds": [
+        "L22-integral-test"
       ],
       "sourcePage": 4,
       "solution": "**Note on this question:** At $n=1$ the term is $\\frac{(\\ln 1)^p}{1}=0^p$, which is undefined for every $p<0$, including the keyed values $p<-1$. Read the series as starting at $n=2$: the Integral Test with $u=\\ln x$ turns $\\int_2^\\infty\\frac{(\\ln x)^p}{x}\\,dx$ into $\\int_{\\ln 2}^\\infty u^p\\,du$, which converges exactly when $p<-1$, so the intended answer is B.",
@@ -211,6 +230,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Write the general term with partial fractions: $\\frac{1}{(k+2)(k+3)} = \\frac{1}{k+2} - \\frac{1}{k+3}$.\n\nThe partial sums telescope:\n\n$$\nS_N = \\sum_{k=1}^{N} \\left(\\frac{1}{k+2} - \\frac{1}{k+3}\\right) = \\frac{1}{3} - \\frac{1}{N+3}\n$$\n\nAs $N \\to \\infty$, $\\frac{1}{N+3} \\to 0$, so the sum is $\\frac{1}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -245,6 +268,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-claims"
+      ],
+      "solution": "Check each statement.\n\n(I) False. Take $a_n = \\frac{1}{n}$, so $\\sum a_n$ diverges. Then $(a_n)^n = \\frac{1}{n^n} \\le \\frac{1}{2^n}$ for $n \\ge 2$, so $\\sum (a_n)^n$ converges by comparison with a geometric series.\n\n(II) True. If $\\sum a_n$ converges, then $a_n \\to 0$, so $0 \\le a_n \\le 1$ for large $n$. Then $a_n^n \\le a_n$, and $\\sum a_n^n$ converges by comparison with $\\sum a_n$.\n\n(III) True. For the same large $n$, $0 \\le a_n \\le 1$ gives $a_n^2 \\le a_n$, so $\\sum a_n^2$ converges by comparison with $\\sum a_n$.\n\nSo (II) and (III) are true. The trap is (I): divergence of $\\sum a_n$ does not carry over to $\\sum (a_n)^n$, because raising a number below $1$ to the power $n$ can make the terms far smaller.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -279,6 +306,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "This is a geometric series with ratio $r = \\frac{2}{3}$, and it starts at $m = 4$, so the first term is $\\left(\\frac{2}{3}\\right)^4$. Since $|r| < 1$, it converges.\n\n$$\n\\sum_{m=4}^{\\infty} \\left(\\frac{2}{3}\\right)^m = \\frac{\\left(\\frac{2}{3}\\right)^4}{1 - \\frac{2}{3}} = \\frac{\\frac{16}{81}}{\\frac{1}{3}} = \\frac{16}{27}\n$$\n\nSo the sum is $\\frac{16}{27}$. The trap is using $\\frac{2}{3}$ as the first term, which gives a different value.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -313,6 +344,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "Use the alternating series estimation theorem: after $N$ terms, the error is at most the first omitted term, $\\frac{1}{(N+1)^3}$.\n\nRequire this bound to be below $10^{-3}$, that is $(N+1)^3 > 1000$. Since $10^3 = 1000$ exactly, $N+1 = 10$ only makes the bound equal to $10^{-3}$, so $N+1 \\ge 11$ and $N \\ge 10$.\n\nCheck: $\\frac{1}{11^3} = \\frac{1}{1331} < 10^{-3}$.\n\nSo ten terms are summed. Nine terms give a bound of exactly $10^{-3}$, which does not guarantee an error strictly below it.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -348,6 +383,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "Compare $a_n = \\sin\\left(\\frac{1}{n}\\right)$ with $b_n = \\frac{1}{n}$. Since $\\sin x \\sim x$ as $x \\to 0$,\n\n$$\n\\lim_{n\\to\\infty} \\frac{\\sin(1/n)}{1/n} = 1\n$$\n\nThe limit is positive and finite, so the limit comparison test applies. Since $\\sum \\frac{1}{n}$ diverges, $\\sum \\sin\\left(\\frac{1}{n}\\right)$ diverges.\n\nSo the series is divergent by the limit comparison test with $\\sum \\frac{1}{n}$. The trap is comparing with $\\sum \\frac{1}{n^2}$, which gives a limit of $\\infty$ and shows nothing about convergence.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -383,6 +422,11 @@
         "L23",
         "L25"
       ],
+      "typeIds": [
+        "L23-comparison-decide",
+        "L25-ratio-apply"
+      ],
+      "solution": "Use one test for each series.\n\nFor $S_1$, the ratio test gives $\\lim \\frac{a_{k+1}}{a_k} = \\frac{1}{2} < 1$, so $S_1$ converges.\n\nFor $S_2$, compare with the convergent series $S_1$ by the limit comparison test: $\\lim_{k\\to\\infty} \\frac{b_k}{a_k} = 2$ is positive and finite, so $\\sum b_k$ and $\\sum a_k$ both converge or both diverge. Since $S_1$ converges, $S_2$ converges.\n\nSo $S_1$ and $S_2$ must both be convergent.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -418,6 +462,11 @@
         "L22",
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional",
+        "L22-divergence-test"
+      ],
+      "solution": "Check each series separately.\n\nFor $S_1$, the absolute series $\\sum \\frac{\\sqrt{k}}{k+4}$ behaves like $\\sum \\frac{1}{\\sqrt{k}}$, a $p$-series with $p = \\frac{1}{2} \\le 1$, so it diverges. The alternating series test applies: $b_k = \\frac{\\sqrt{k}}{k+4} \\to 0$, and $b_k$ is eventually decreasing, since the derivative of $\\frac{\\sqrt{x}}{x+4}$ has the sign of $4 - x$. So $S_1$ converges, and as its absolute series diverges, $S_1$ is conditionally convergent.\n\nFor $S_2$, the terms $\\frac{(-1)^k 2k^2}{3k^2+1}$ have magnitudes tending to $\\frac{2}{3} \\ne 0$. By the Divergence Test, $S_2$ diverges.\n\nSo $S_1$ is conditionally convergent and $S_2$ is divergent. The trap is calling $S_2$ convergent by the alternating series test, which needs $b_k \\to 0$.",
       "sourcePage": 7,
       "status": "reviewed"
     }
