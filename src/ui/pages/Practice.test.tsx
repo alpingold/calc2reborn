@@ -8,7 +8,8 @@ import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import { buildContent } from '../../content'
-import { fixtureCard, fixtureLessons } from '../../test/fixtures'
+import type { Content } from '../../content'
+import { fixtureCard, fixtureLessons, fixtureTypes } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -48,7 +49,7 @@ function Where() {
 }
 
 async function setup(
-  opts: { url?: string; store?: MemoryStore; extra?: ReactNode; settings?: Partial<typeof DEFAULT_SETTINGS>; wait?: string } = {},
+  opts: { url?: string; store?: MemoryStore; extra?: ReactNode; settings?: Partial<typeof DEFAULT_SETTINGS>; wait?: string; content?: Content } = {},
 ) {
   const store = opts.store ?? new MemoryStore()
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', ...opts.settings })
@@ -58,7 +59,7 @@ async function setup(
   const clock = { t: NOW }
   render(
     <MemoryRouter initialEntries={[opts.url ?? RANGE]}>
-      <StoreProvider store={store} scheduler={scheduler} content={content} rng={() => 0} now={() => clock.t}>
+      <StoreProvider store={store} scheduler={scheduler} content={opts.content ?? content} rng={() => 0} now={() => clock.t}>
         <Practice />
         {opts.extra}
       </StoreProvider>
@@ -359,4 +360,145 @@ test('a failed question load offers Try again', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Try again' }))
   expect(await screen.findByText('Stem one')).toBeInTheDocument()
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
+
+// ---- practice by problem type, and retry-only practice
+
+const typedLessons = fixtureLessons().map((l) => (['L18', 'L19', 'L20'].includes(l.id) ? { ...l, problemTypes: fixtureTypes(l.id) } : l))
+function tq(n: number, stem: string, lessonId: string, typeIds?: string[]): Question {
+  return { id: `ty-q${n}`, number: n, points: 6, stem, choices, answer: 'C', lessonIds: [lessonId], typeIds, status: 'reviewed' }
+}
+const typedExam: Exam = {
+  id: 'typed-fall-2025-1',
+  term: 'Fall',
+  year: 2025,
+  exam: '1',
+  examUrl: '',
+  durationMinutes: 60,
+  questions: [
+    tq(1, 'A one', 'L19', ['L19-a']),
+    tq(2, 'A two', 'L19', ['L19-a']),
+    tq(3, 'B one', 'L19', ['L19-b']),
+    tq(4, 'Plain', 'L19'),
+    tq(5, 'Eighteen', 'L18', ['L18-a']),
+    tq(6, 'Twenty', 'L20', ['L20-a']),
+  ],
+}
+const typedContent = buildContent(typedLessons, [fixtureCard('L19-c01', 'L19')], [typedExam])
+const TYPED_STEMS = ['A one', 'A two', 'B one', 'Plain', 'Eighteen', 'Twenty']
+const typedStem = () => TYPED_STEMS.find((x) => screen.queryByText(x))!
+
+/** Answer every question served until the session ends; returns the stems in the order served. */
+async function playThrough(key = 'c'): Promise<string[]> {
+  const seen: string[] = []
+  for (let i = 0; i < 12; i++) {
+    const stem = typedStem()
+    if (!stem) break
+    seen.push(stem)
+    await answer(key)
+    await userEvent.keyboard('{Enter}')
+    await act(async () => {})
+    if (screen.queryByText(/^No more questions|^Nothing to retry/) || screen.queryByRole('link', { name: 'Practice again' })) break
+  }
+  return seen
+}
+
+function miss(n: number, timestamp: string, correct = false) {
+  return { id: `m${n}-${timestamp}`, questionId: `ty-q${n}`, chosen: 'A' as const, correct, seconds: 5, timestamp, mode: 'practice' as const }
+}
+
+test('?types serves only questions of that problem type, then ends', async () => {
+  await setup({ url: '/practice?types=L19-a', content: typedContent, wait: 'A one' })
+  const seen = await playThrough()
+  expect(seen.sort()).toEqual(['A one', 'A two'])
+  expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
+})
+
+test('?types with two types serves both, and ?n ends the session early', async () => {
+  await setup({ url: '/practice?types=L19-a,L19-b&n=2', content: typedContent, wait: 'A one' })
+  expect(screen.getByText('Question 1 of 2')).toBeInTheDocument()
+  const seen = await playThrough()
+  expect(seen).toHaveLength(2)
+  expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Practice again' })).toBeInTheDocument()
+})
+
+test('?types with a type that does not exist says there are no questions', async () => {
+  await setup({ url: '/practice?types=L19-zzz', content: typedContent, wait: 'No more questions in range' })
+  expect(screen.queryByRole('link', { name: 'Practice again' })).not.toBeInTheDocument()
+})
+
+test('?types logs attempts as practice', async () => {
+  const { store } = await setup({ url: '/practice?types=L19-b', content: typedContent, wait: 'B one' })
+  await answer('c')
+  expect(await store.listAttempts()).toMatchObject([{ questionId: 'ty-q3', mode: 'practice', correct: true }])
+})
+
+test('?retry=1 serves only questions last missed a day or more ago, oldest miss first', async () => {
+  const store = new MemoryStore()
+  await store.logAttempt(miss(2, '2026-11-04T12:00:00.000Z'))
+  await store.logAttempt(miss(1, '2026-11-01T12:00:00.000Z'))
+  await store.logAttempt(miss(3, '2026-11-06T10:00:00.000Z')) // two hours ago: too recent
+  await store.logAttempt(miss(4, '2026-11-01T12:00:00.000Z'))
+  await store.logAttempt(miss(4, '2026-11-02T12:00:00.000Z', true)) // got it right since
+  await setup({ url: '/practice?retry=1', store, content: typedContent, wait: 'A one' })
+  const seen = await playThrough()
+  expect(seen).toEqual(['A one', 'A two'])
+  expect(await screen.findByText('No more questions to retry')).toBeInTheDocument()
+})
+
+test('a question missed again in a retry session does not come round a second time', async () => {
+  const store = new MemoryStore()
+  await store.logAttempt(miss(1, '2026-11-01T12:00:00.000Z'))
+  await store.logAttempt(miss(2, '2026-11-02T12:00:00.000Z'))
+  await setup({ url: '/practice?retry=1', store, content: typedContent, wait: 'A one' })
+  const seen = await playThrough('a')
+  expect(seen).toEqual(['A one', 'A two'])
+  expect(screen.getByText('Correct 0 of 2')).toBeInTheDocument()
+})
+
+test('?retry=1 keeps to the lessons covered so far, and to the exam lessons while an exam is ahead', async () => {
+  const seedMisses = async () => {
+    const store = new MemoryStore()
+    for (const n of [1, 5, 6]) await store.logAttempt(miss(n, `2026-11-0${n > 3 ? n - 3 : n}T12:00:00.000Z`))
+    return store
+  }
+  // current lesson L19: L18 and L19 are covered, L20 is not
+  const first = await setup({ url: '/practice?retry=1', store: await seedMisses(), content: typedContent, wait: 'A one' })
+  expect(first.store).toBeDefined()
+  expect((await playThrough()).sort()).toEqual(['A one', 'Eighteen'])
+})
+
+test('?retry=1 with an exam ahead serves only misses from the exam lessons', async () => {
+  const store = new MemoryStore()
+  for (const n of [1, 5, 6]) await store.logAttempt(miss(n, '2026-11-01T12:00:00.000Z'))
+  await setup({
+    url: '/practice?retry=1',
+    store,
+    content: typedContent,
+    settings: { currentLessonId: 'L20', examDate: '2026-11-20', examLessonIds: ['L20'] },
+    wait: 'Twenty',
+  })
+  expect(await playThrough()).toEqual(['Twenty'])
+})
+
+test('?retry=1 serves at most five questions', async () => {
+  const many: Exam = { ...typedExam, questions: Array.from({ length: 8 }, (_, i) => tq(i + 1, `Many ${i + 1}`, 'L19')) }
+  const store = new MemoryStore()
+  for (let n = 1; n <= 8; n++) await store.logAttempt(miss(n, `2026-11-01T12:0${n}:00.000Z`))
+  await setup({ url: '/practice?retry=1', store, content: buildContent(typedLessons, [], [many]), wait: 'Many 1' })
+  let served = 0
+  for (let i = 0; i < 10; i++) {
+    if (!screen.queryByText(/^Many \d$/)) break
+    served++
+    await answer('c')
+    await userEvent.keyboard('{Enter}')
+    await act(async () => {})
+  }
+  expect(served).toBe(5)
+})
+
+test('?retry=1 with nothing to retry says so', async () => {
+  await setup({ url: '/practice?retry=1', content: typedContent, wait: 'Nothing to retry right now' })
+  expect(screen.queryByRole('button', { name: 'Submit' })).not.toBeInTheDocument()
 })

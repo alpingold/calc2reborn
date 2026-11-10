@@ -5,7 +5,7 @@ import { isPlanned, lessonLabel } from '../../content/schema'
 import type { Choice, Question } from '../../content/schema'
 import { lessonMastery } from '../../engine/mastery'
 import { coveredLessonIds, pullForward } from '../../engine/queue'
-import { RETRY_AFTER, nextRetry, pickPracticeQuestion } from '../../engine/select'
+import { RETRY_AFTER, RETRY_LIMIT, nextRetry, pickPracticeQuestion, retryCandidates } from '../../engine/select'
 import type { PendingRetry } from '../../engine/select'
 import { examScope, lessonRange } from '../../engine/scope'
 import { useContent, useNow, useRng, useSettings, useStore } from '../../storage/context'
@@ -29,15 +29,26 @@ export function Practice() {
   const from = searchParams.get('from')
   const to = searchParams.get('to')
   const n = searchParams.get('n')
-  if (!lessonParam && !(from && to)) return <PracticeSetup />
-  const scope = lessonParam ? `lesson:${lessonParam}` : `range:${from}:${to}:${n}`
+  // ?types=a,b practises those problem types; ?retry=1 serves only questions missed a day or more ago
+  const typeIds = (searchParams.get('types') ?? '').split(',').filter(Boolean)
+  const retry = searchParams.get('retry') === '1'
+  if (!lessonParam && !(from && to) && typeIds.length === 0 && !retry) return <PracticeSetup />
+  const scope = retry
+    ? 'retry'
+    : typeIds.length > 0
+      ? `types:${typeIds.join(',')}:${n}`
+      : lessonParam
+        ? `lesson:${lessonParam}`
+        : `range:${from}:${to}:${n}`
   return (
     <PracticeSession
       key={`${scope}:${location.key}`}
-      lessonParam={lessonParam}
+      lessonParam={retry || typeIds.length > 0 ? null : lessonParam}
       from={from}
       to={to}
-      limit={lessonParam ? null : parseLimit(n)}
+      typeIds={retry || typeIds.length === 0 ? null : typeIds}
+      retry={retry}
+      limit={retry || lessonParam ? null : parseLimit(n)}
     />
   )
 }
@@ -140,15 +151,22 @@ function PracticeSession({
   lessonParam,
   from,
   to,
+  typeIds,
+  retry,
   limit,
 }: {
   lessonParam: string | null
   from: string | null
   to: string | null
+  /** practise these problem types only */
+  typeIds: string[] | null
+  /** serve only questions whose last answer was wrong at least a day ago */
+  retry: boolean
   limit: number | null
 }) {
   const store = useStore()
   const content = useContent()
+  const { settings } = useSettings()
   const now = useNow()
   const rng = useRng()
   const location = useLocation()
@@ -179,10 +197,36 @@ function PracticeSession({
   const [missed, setMissed] = useState<Set<string>>(new Set())
   const [finished, setFinished] = useState<Finish | null>(null)
 
+  // the questions a retry session works through, fixed when the session starts
+  const retryQueue = useRef<Question[] | null>(null)
+  // a question to show next ahead of everything else, set by "Try a similar question"
+  const forced = useRef<Question | null>(null)
+
   const pick = useCallback(async () => {
     const attempts = await store.listAttempts()
-    const mastery = lessonMastery(attempts, content.questionById, lessonIds)
+    if (retry) {
+      if (retryQueue.current === null) {
+        // the lessons on the coming exam, or everything covered so far
+        const scope = examScope(settings, content.lessons, now())
+        const scopeLessons = scope.active ? scope.lessonIds : coveredLessonIds(content.lessons, settings.currentLessonId)
+        const seen = new Set<string>()
+        const inScope: Question[] = []
+        for (const id of scopeLessons) {
+          for (const q of content.questionsByLesson.get(id) ?? []) {
+            if (!seen.has(q.id)) {
+              seen.add(q.id)
+              inScope.push(q)
+            }
+          }
+        }
+        retryQueue.current = retryCandidates(attempts, inScope, now()).slice(0, RETRY_LIMIT)
+      }
+      return retryQueue.current.find((q) => !served.current.has(q.id)) ?? null
+    }
+    const mastery = typeIds ? new Map() : lessonMastery(attempts, content.questionById, lessonIds)
     return pickPracticeQuestion({
+      typeIds: typeIds ?? undefined,
+      questionsByType: content.questionsByType,
       lessonIds,
       questionsByLesson: content.questionsByLesson,
       mastery,
@@ -191,7 +235,7 @@ function PracticeSession({
       now: now(),
       rng,
     })
-  }, [store, content, lessonIds, now, rng])
+  }, [store, content, lessonIds, typeIds, retry, settings, now, rng])
 
   const show = useCallback((q: Question, retry: boolean) => {
     served.current.add(q.id)
@@ -219,6 +263,11 @@ function PracticeSession({
     if (limit !== null && answered.current >= limit) {
       setFinished('limit')
       return
+    }
+    if (forced.current) {
+      const q = forced.current
+      forced.current = null
+      return show(q, false)
     }
     const due = takeRetry(false)
     if (due) return show(due, true)
@@ -277,7 +326,8 @@ function PracticeSession({
           logged.current = showing.current
           loggedChoice.current = used
           answered.current++
-          if (!correct && !retried.current.has(question.id)) {
+          // a retry session is already a second look; a miss there does not come round again
+          if (!correct && !retry && !retried.current.has(question.id)) {
             retried.current.add(question.id)
             pending.current = [...pending.current, { questionId: question.id, after: answered.current + RETRY_AFTER }]
           }
@@ -298,7 +348,7 @@ function PracticeSession({
       setRevealed(true)
       busy.current = false
     },
-    [question, revealed, now, lessonParam, store, content.cards],
+    [question, revealed, now, lessonParam, retry, store, content.cards],
   )
 
   const next = useCallback(async () => {
@@ -350,7 +400,9 @@ function PracticeSession({
         <h2>Practice</h2>
         {errorLine}
         {scoreLine}
-        {finished === 'exhausted' && <p>No more questions in range</p>}
+        {finished === 'exhausted' && (
+          <p>{retry ? (score.total === 0 ? 'Nothing to retry right now' : 'No more questions to retry') : 'No more questions in range'}</p>
+        )}
         {lessonsToRevisit.length > 0 ? (
           <>
             <h3>Lessons to revisit</h3>
