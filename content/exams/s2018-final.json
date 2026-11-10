@@ -38,6 +38,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-unit-vector-direction"
+      ],
+      "solution": "Scale a unit vector to length $2$. The length of $\\langle 2, 3, 2 \\rangle$ is $\\sqrt{2^2 + 3^2 + 2^2} = \\sqrt{17}$, so the unit vector opposite to it is $-\\frac{1}{\\sqrt{17}}\\langle 2, 3, 2 \\rangle$.\n\nMultiplying by $2$ gives a vector of length $2$ in the opposite direction, so the vector is $-\\frac{2}{\\sqrt{17}}\\langle 2, 3, 2 \\rangle$.\n\nThe trap is stopping at the unit vector $-\\frac{1}{\\sqrt{17}}\\langle 2, 3, 2 \\rangle$, which has length $1$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Two vectors are orthogonal when their dot product is $0$. So\n\n$$\n\\langle 3, 5, -1 \\rangle \\cdot \\langle t, -1, 1 \\rangle = 3t - 5 - 1 = 3t - 6 = 0.\n$$\n\nSo $t = 2$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "A normal vector to the plane is the cross product of two vectors lying in it. Take $\\overrightarrow{PQ} = Q - P = \\langle -1, -2, -1 \\rangle$ and $\\overrightarrow{PR} = R - P = \\langle -3, -1, -2 \\rangle$.\n\n$$\n\\overrightarrow{PQ} \\times \\overrightarrow{PR} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ -1 & -2 & -1 \\\\ -3 & -1 & -2 \\end{vmatrix} = (4 - 1)\\vec{i} - (2 - 3)\\vec{j} + (1 - 6)\\vec{k} = 3\\vec{i} + \\vec{j} - 5\\vec{k}\n$$\n\nSo the normal is $\\langle 3, 1, -5 \\rangle$. The vector $-6\\hat{\\mathbf{i}} - 2\\hat{\\mathbf{j}} + 10\\hat{\\mathbf{k}}$ is $-2\\langle 3, 1, -5 \\rangle$, a multiple of the normal, so it is perpendicular to the plane. The vector $3\\hat{\\mathbf{i}} - \\hat{\\mathbf{j}} - 5\\hat{\\mathbf{k}}$ has the wrong sign on its $\\hat{\\mathbf{j}}$ term, which is the usual cross product sign error.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use shells, since the region is revolved about the $y$-axis. The region lies over $0 \\le x \\le 1$, between $y = x^4$ below and $y = x$ above, because $x \\ge x^4$ there.\n\nA shell at $x$ has radius $x$ and height $x - x^4$, so\n\n$$\nV = 2\\pi \\int_0^1 x(x - x^4)\\, dx = 2\\pi \\int_0^1 (x^2 - x^5)\\, dx = 2\\pi\\left(\\frac{1}{3} - \\frac{1}{6}\\right) = \\frac{\\pi}{3}.\n$$\n\nSo the volume is $\\frac{\\pi}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts with $u = x$ and $dv = e^x\\, dx$, so $du = dx$ and $v = e^x$:\n\n$$\n\\int_0^1 xe^x\\, dx = \\left[xe^x - e^x\\right]_0^1 = (e - e) - (0 - 1) = 1.\n$$\n\nSo the integral is $1$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Let $u = \\sin(2x)$, so $du = 2\\cos(2x)\\, dx$. The limits become $u = 0$ and $u = \\sin\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$, so\n\n$$\n\\int_0^{\\pi/8} \\sin^3(2x)\\cos(2x)\\, dx = \\frac{1}{2}\\int_0^{\\sqrt{2}/2} u^3\\, du = \\frac{1}{8}\\left(\\frac{\\sqrt{2}}{2}\\right)^4 = \\frac{1}{8}\\cdot\\frac{1}{4} = \\frac{1}{32}.\n$$\n\nSo the integral is $\\frac{1}{32}$. Dropping the factor $\\frac{1}{2}$ that comes from $du = 2\\cos(2x)\\, dx$ gives $\\frac{1}{16}$, a classic slip.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$ and $dv = dx$, so $du = \\frac{1}{x}\\, dx$ and $v = x$:\n\n$$\n\\int_1^e \\ln x\\, dx = \\left[x\\ln x\\right]_1^e - \\int_1^e dx = e - (e - 1).\n$$\n\nSo the integral is $1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "Use the half-angle identity $\\sin^2(3x) = \\frac{1 - \\cos(6x)}{2}$:\n\n$$\n\\int_0^{\\pi/2} \\sin^2(3x)\\, dx = \\frac{1}{2}\\int_0^{\\pi/2} \\left(1 - \\cos(6x)\\right) dx = \\frac{1}{2}\\left[x - \\frac{\\sin(6x)}{6}\\right]_0^{\\pi/2}.\n$$\n\nAt $x = \\frac{\\pi}{2}$, $\\sin(3\\pi) = 0$, so the integral is $\\frac{1}{2}\\cdot\\frac{\\pi}{2} = \\frac{\\pi}{4}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Split the integrand into partial fractions. Since $3 = (x + 2) - (x - 1)$,\n\n$$\n\\frac{3}{(x-1)(x+2)} = \\frac{1}{x-1} - \\frac{1}{x+2}.\n$$\n\nSo\n\n$$\n\\int_2^3 \\left(\\frac{1}{x-1} - \\frac{1}{x+2}\\right) dx = \\left[\\ln|x-1| - \\ln|x+2|\\right]_2^3 = (\\ln 2 - \\ln 5) - (\\ln 1 - \\ln 4).\n$$\n\nThis simplifies to $\\ln 2 - \\ln 5 + \\ln 4 = \\ln\\left(\\frac{8}{5}\\right)$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -344,6 +380,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Let $u = x^2 + 9$, so $du = 2x\\, dx$. The limits become $u = 25$ and $u = \\infty$:\n\n$$\n\\int_4^{\\infty} \\frac{2x}{(x^2 + 9)^{1/3}}\\, dx = \\int_{25}^{\\infty} u^{-1/3}\\, du = \\lim_{b \\to \\infty} \\frac{3}{2}\\left[u^{2/3}\\right]_{25}^{b}.\n$$\n\nSince $b^{2/3} \\to \\infty$, the limit is infinite. The integral diverges.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -378,6 +418,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "The arc length formula is $L = \\int_a^b \\sqrt{1 + (y')^2}\\, dx$. Here $y' = x^{1/2}$, so $1 + (y')^2 = 1 + x$:\n\n$$\nL = \\int_0^3 \\sqrt{1 + x}\\, dx = \\left[\\frac{2}{3}(1 + x)^{3/2}\\right]_0^3 = \\frac{2}{3}(8 - 1) = \\frac{14}{3}.\n$$\n\nSo the length is $\\frac{14}{3}$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -412,6 +456,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
+      "solution": "Since $|\\sin(\\sqrt{2}\\, n)| \\le 1$, the terms satisfy\n\n$$\n-\\frac{1}{n} \\le \\frac{\\sin(\\sqrt{2}\\, n)}{n} \\le \\frac{1}{n}.\n$$\n\nBoth bounds tend to $0$, so by the squeeze theorem the sequence converges to $0$. The sine itself has no limit; only the bound $\\frac{1}{n}$ controls the sequence.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -446,6 +494,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "The first term is $a = \\frac{3}{2}$, and each term is $\\frac{3}{8}$ of the one before, since $\\frac{9/16}{3/2} = \\frac{3}{8}$. The common ratio $r = \\frac{3}{8}$ satisfies $|r| < 1$, so the sum is\n\n$$\n\\sum_{n=0}^{\\infty} \\frac{3}{2}\\left(\\frac{3}{8}\\right)^n = \\frac{3/2}{1 - 3/8} = \\frac{3/2}{5/8} = \\frac{12}{5}.\n$$\n\nSo the sum is $\\frac{12}{5}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -480,6 +532,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "The first term is $1 = \\frac{1}{1^{x-1}}$, so the series is $\\sum_{n=1}^{\\infty} \\frac{1}{n^{x-1}}$, a $p$-series with $p = x - 1$. It converges exactly when $p > 1$, that is, $x - 1 > 1$, so the series converges for $x > 2$.\n\nThe trap is reading the exponent as $x$, which would wrongly give $x > 1$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -515,6 +571,10 @@
         "L24",
         "L25"
       ],
+      "typeIds": [
+        "L24-alternating-claims"
+      ],
+      "solution": "Check each statement in turn.\n\nI. The terms satisfy $\\left|\\frac{(-1)^n}{n^3}\\right| = \\frac{1}{n^3}$, and $\\sum \\frac{1}{n^3}$ converges as a $p$-series with $p = 3 > 1$. So the series converges absolutely, and in particular converges. This is true.\n\nII. The tail from $n = 10$ is alternating, with decreasing terms tending to $0$. Its sum is at most its first term in absolute value, $\\frac{1}{10^3} = \\frac{1}{1000}$, by the alternating series estimate. This is true.\n\nIII. $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\left(\\frac{n}{n+1}\\right)^3 \\to 1$, so the Ratio Test gives no conclusion. This is true.\n\nSo all three statements are correct.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -549,6 +609,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Test each series for absolute convergence first, then for convergence.\n\nI. $\\sum \\frac{1}{5n + 1}$ diverges, like the harmonic series. The alternating series converges because $\\frac{1}{5n+1}$ decreases to $0$. So it converges conditionally.\n\nII. $\\sum \\frac{1}{2^n}$ is geometric with ratio $\\frac{1}{2}$, so this converges absolutely, not conditionally.\n\nIII. The terms $\\frac{n^2}{n^2 + 4}$ tend to $1$, not $0$, so the series diverges.\n\nIV. $\\sum \\frac{1}{n\\ln n}$ diverges by the integral test, since $\\int \\frac{dx}{x\\ln x} = \\ln\\ln x$ is unbounded. The alternating series converges because $\\frac{1}{n\\ln n}$ decreases to $0$. So it converges conditionally.\n\nSo two series converge conditionally. Counting II as conditional because it is alternating and convergent gives $3$, which is the trap.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -583,6 +647,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The ratio test gives $\\lim_{n \\to \\infty} \\left|\\frac{x^{n+1}/(n+1)}{x^n/n}\\right| = |x|$, so the radius of convergence is $1$.\n\nAt $x = 1$, the series is $\\sum \\frac{1}{n}$, which diverges. At $x = -1$, it is $\\sum \\frac{(-1)^n}{n}$, which converges by the alternating series test. So the interval of convergence is $[-1, 1)$.\n\nThe trap is including $x = 1$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -617,6 +685,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Write $\\frac{1}{1 + 4x^2}$ as a geometric series with ratio $r = -4x^2$, using $\\frac{1}{1 - r} = \\sum_{n=0}^{\\infty} r^n$:\n\n$$\n\\frac{x}{1 + 4x^2} = x\\sum_{n=0}^{\\infty} (-4x^2)^n = \\sum_{n=0}^{\\infty} (-4)^n x^{2n+1}.\n$$\n\nSo the Maclaurin series is $\\sum_{n=0}^{\\infty} (-4)^n x^{2n+1}$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -654,6 +726,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
+      "solution": "The graph passes through the origin with slope $1$ there. It has a low point near $x = -2$ at height about $-0.7$, then rises steeply to the right.\n\nThe coefficients $1, \\frac{1}{2}, \\frac{1}{8}$ are those of $xe^{x/2}$, since $e^{x/2} = 1 + \\frac{x}{2} + \\frac{x^2}{8} + \\cdots$, so\n\n$$\nxe^{x/2} = x + \\frac{1}{2}x^2 + \\frac{1}{8}x^3 + \\cdots.\n$$\n\nThis matches the graph: the derivative $e^{x/2}\\left(1 + \\frac{x}{2}\\right)$ vanishes at $x = -2$, where the function is $-2e^{-1} \\approx -0.74$, and at $x = 2$ it is $2e \\approx 5.4$. The sign-alternating series $x - \\frac{1}{2}x^2 + \\frac{1}{8}x^3 - \\cdots$ is $xe^{-x/2}$, which does not have this shape: it is $\\frac{2}{e}$ at $x = 2$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -688,6 +764,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "At $t = 1$ the point is $(x, y) = (1 + 1, 1 + 2) = (2, 3)$. The slope is\n\n$$\n\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt} = \\frac{4t^3 + 4t}{3t^2 + 1},\n$$\n\nwhich equals $\\frac{8}{4} = 2$ at $t = 1$.\n\nSo the tangent line is $y - 3 = 2(x - 2)$, that is, $y = 2x - 1$. Using the slope with the origin as the point gives $y = 2x$, which is wrong.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -722,6 +802,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "The arc length is $\\int \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\, dt$. Here $\\frac{dx}{dt} = -3\\cos^2 t\\sin t$ and $\\frac{dy}{dt} = 3\\sin^2 t\\cos t$, so\n\n$$\n\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2 = 9\\cos^4 t\\sin^2 t + 9\\sin^4 t\\cos^2 t.\n$$\n\nSo the length is $\\int_0^{\\pi/2} \\sqrt{9\\cos^4 t\\sin^2 t + 9\\sin^4 t\\cos^2 t}\\, dt$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -756,6 +840,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Since $x = r\\cos\\theta$, the line $x = 2$ is $r\\cos\\theta = 2$. Solving for $r$ gives $r = 2\\sec\\theta$.\n\nThe trap is $r = 2\\cos\\theta$, which is a circle, not a line.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -790,6 +878,10 @@
       "lessonIds": [
         "X3"
       ],
+      "typeIds": [
+        "X3-complex-numbers"
+      ],
+      "solution": "The modulus is $|-5 - 5i| = \\sqrt{25 + 25} = 5\\sqrt{2}$. The point lies in the third quadrant, so with the argument between $0$ and $2\\pi$ the angle is $\\pi + \\frac{\\pi}{4} = \\frac{5\\pi}{4}$. So\n\n$$\n-5 - 5i = 5\\sqrt{2}\\left(\\cos\\frac{5\\pi}{4} + i\\sin\\frac{5\\pi}{4}\\right).\n$$\n\nThe trap is leaving out the $\\sqrt{2}$ in the modulus.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -824,6 +916,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-one-curve"
+      ],
+      "solution": "The area enclosed by a polar curve is $\\frac{1}{2}\\int r^2\\, d\\theta$. On $0 \\le \\theta \\le \\frac{\\pi}{2}$, $\\sin(2\\theta) \\ge 0$, so the curve traces one petal, out from the origin to $r = 1$ at $\\theta = \\frac{\\pi}{4}$ and back. Then\n\n$$\nA = \\frac{1}{2}\\int_0^{\\pi/2} \\sin^2(2\\theta)\\, d\\theta = \\frac{1}{4}\\int_0^{\\pi/2} \\left(1 - \\cos(4\\theta)\\right) d\\theta = \\frac{1}{4}\\left[\\theta - \\frac{\\sin(4\\theta)}{4}\\right]_0^{\\pi/2} = \\frac{1}{4}\\cdot\\frac{\\pi}{2} = \\frac{\\pi}{8}.\n$$\n\nSo the area is $\\frac{\\pi}{8}$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -858,6 +954,10 @@
       "lessonIds": [
         "X2"
       ],
+      "typeIds": [
+        "X2-conic-sections"
+      ],
+      "solution": "Complete the square in $x$: $x^2 + 4x = (x + 2)^2 - 4$. The equation becomes $(x + 2)^2 - 4 - 4y + 8 = 0$, which is $(x + 2)^2 = 4(y - 1)$.\n\nThis is a parabola opening upward with vertex $(-2, 1)$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

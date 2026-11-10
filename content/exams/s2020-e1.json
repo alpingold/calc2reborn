@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-sphere-center-radius"
+      ],
+      "solution": "Divide both sides by $2$ and group the terms: $x^2 - 4x + y^2 + 6y + z^2 = 1$. Complete the square in each variable: $(x-2)^2 + (y+3)^2 + z^2 = 1 + 4 + 9 = 14$. Comparing with $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$ gives $r^2 = 14$, so the radius is $\\sqrt{14}$.\n\nCompleting the square without dividing by $2$ first gives $2\\big[(x-2)^2 + (y+3)^2 + z^2\\big] = 28$, and reading off $r^2 = 28$ gives the wrong radius $\\sqrt{28}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-unit-vector-direction"
+      ],
+      "solution": "Set the length of the vector equal to $1$ and solve for $x$. The length is\n\n$$\n\\left|\\left\\langle x, -\\frac{x}{2} \\right\\rangle\\right| = \\sqrt{x^2 + \\frac{x^2}{4}} = \\frac{\\sqrt{5}}{2}\\,|x|\n$$\n\n$$\n\\frac{\\sqrt{5}}{2}\\,|x| = 1 \\quad\\Longrightarrow\\quad |x| = \\frac{2}{\\sqrt{5}}\n$$\n\nso $x = \\pm\\frac{2}{\\sqrt{5}}$. Both signs are needed, since a unit vector can point in either direction along the line.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-dot-product-statements"
+      ],
+      "solution": "Take the statements in turn.\n\n- I. True: the length of a vector is never negative.\n- II. False: $|\\mathbf{u} + \\mathbf{v}| = |\\mathbf{u}| + |\\mathbf{v}|$ holds only when the vectors point the same way. For $\\mathbf{u} = \\langle 1, 0, 0 \\rangle$ and $\\mathbf{v} = \\langle -1, 0, 0 \\rangle$, the left side is $0$ and the right side is $2$.\n- III. True: swapping the factors of a cross product reverses its direction, so $\\mathbf{u} \\times \\mathbf{v} = -(\\mathbf{v} \\times \\mathbf{u})$.\n- IV. True: the dot product is commutative, since it is a sum of products of matching components.\n- V. False: the dot product uses cosine, $\\mathbf{u} \\cdot \\mathbf{v} = |\\mathbf{u}||\\mathbf{v}|\\cos\\theta$. For $\\mathbf{u} = \\langle 1, 0, 0 \\rangle$ and $\\mathbf{v} = \\langle 0, 1, 0 \\rangle$, the dot product is $0$ while the sine version gives $1$.\n\nStatements I, III and IV hold, so the count is $3$. Statement V is the trap: the sine formula belongs to the length of the cross product, not to the dot product.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -142,6 +154,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "Expand the determinant along its first row:\n\n$$\n\\mathbf{u} \\times \\mathbf{v} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & 1 & 0 \\\\ 1 & 0 & 1 \\end{vmatrix} = \\vec{i}\\,(1 \\cdot 1 - 0 \\cdot 0) - \\vec{j}\\,(2 \\cdot 1 - 0 \\cdot 1) + \\vec{k}\\,(2 \\cdot 0 - 1 \\cdot 1)\n$$\n\n$$\n= \\vec{i} - 2\\vec{j} - \\vec{k}\n$$\n\nso $\\mathbf{u} \\times \\mathbf{v} = \\langle 1, -2, -1 \\rangle$. The middle term carries a minus sign, and dropping it gives $\\langle 1, 2, -1 \\rangle$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -176,6 +192,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Work done by a constant force is the dot product $W = \\mathbf{F} \\cdot \\mathbf{d} = |\\mathbf{F}|\\,|\\mathbf{d}|\\cos\\theta$, where $\\theta$ is the angle between the force and the displacement. Here $|\\mathbf{F}| = 5$, $|\\mathbf{d}| = 2$ and $\\theta = 30^\\circ$, so\n\n$$\nW = 5 \\cdot 2 \\cdot \\cos 30^\\circ = 10 \\cdot \\frac{\\sqrt{3}}{2} = 5\\sqrt{3}\n$$\n\nso the work is $5\\sqrt{3}$ joules. Using $\\sin 30^\\circ$ instead of $\\cos 30^\\circ$ gives $5$ joules, but only the component of the force along the motion does work, and that component is the cosine.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -210,6 +230,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Two vectors are orthogonal exactly when their dot product is zero. Compute\n\n$$\n\\langle 1, x, 0 \\rangle \\cdot \\langle 2, -1, 2 \\rangle = 1 \\cdot 2 + x \\cdot (-1) + 0 \\cdot 2 = 2 - x\n$$\n\nSetting $2 - x = 0$ gives $x = 2$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -244,6 +268,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-in-y"
+      ],
+      "solution": "Use horizontal slices, since both curves are given with $x$ in terms of $y$. The intersection points come from $y^2 = 8 - y^2$, so $y^2 = 4$ and $y = \\pm 2$. For $-2 \\le y \\le 2$ the curve $x = 8 - y^2$ is to the right of $x = y^2$, so the area is\n\n$$\nA = \\int_{-2}^{2} \\big((8 - y^2) - y^2\\big)\\,dy = \\int_{-2}^{2} (8 - 2y^2)\\,dy\n$$\n\n$$\n= \\left[8y - \\frac{2y^3}{3}\\right]_{-2}^{2} = \\left(16 - \\frac{16}{3}\\right) - \\left(-16 + \\frac{16}{3}\\right) = \\frac{64}{3}\n$$\n\nso the area is $\\frac{64}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -278,6 +306,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Slice the solid perpendicular to the $x$-axis. At position $x$ with $0 \\le x \\le 2$, the base runs from $y = 0$ up to $y = x^2$, so the side of the square slice is $x^2$ and its area is $(x^2)^2 = x^4$. Then\n\n$$\nV = \\int_0^2 x^4\\,dx = \\left[\\frac{x^5}{5}\\right]_0^2 = \\frac{32}{5}\n$$\n\nso the volume is $\\frac{32}{5}$. Taking the area of each slice to be $x^2$, forgetting that the slice is a square, gives $\\frac{8}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -312,6 +344,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-y-axis"
+      ],
+      "solution": "The axis of revolution is the $y$-axis, so slice perpendicular to it. For $0 \\le y \\le \\frac12$ the region runs from $x = 0$ out to $x = e^y$, because $y = \\ln x$ means $x = e^y$. Each slice is a disk of radius $e^y$, so\n\n$$\nV = \\pi \\int_0^{1/2} (e^y)^2\\,dy = \\pi \\int_0^{1/2} e^{2y}\\,dy = \\pi \\left[\\frac{e^{2y}}{2}\\right]_0^{1/2}\n$$\n\n$$\n= \\frac{\\pi}{2}\\left(e - 1\\right)\n$$\n\nso the volume is $\\frac{\\pi}{2}(e - 1)$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -346,6 +382,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Use the surface area formula for revolution about the $x$-axis, $S = \\int 2\\pi y\\sqrt{1 + (y')^2}\\,dx$. Here $y' = 3x^2$, so $1 + (y')^2 = 1 + 9x^4$ and\n\n$$\nS = 2\\pi \\int_0^1 x^3\\sqrt{1 + 9x^4}\\,dx\n$$\n\nLet $u = 1 + 9x^4$, so $du = 36x^3\\,dx$. The limits become $u = 1$ and $u = 10$, giving\n\n$$\nS = \\frac{2\\pi}{36}\\int_1^{10} \\sqrt{u}\\,du = \\frac{\\pi}{18} \\cdot \\frac{2}{3}\\left[u^{3/2}\\right]_1^{10} = \\frac{\\pi}{27}\\left(10^{3/2} - 1\\right)\n$$\n\nso the surface area is $\\frac{\\pi}{27}\\left(10^{3/2} - 1\\right)$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -380,6 +420,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "The axis $x = 3$ is vertical and the region is bounded by $y = x^2$ and $y = x$, so use shells with vertical strips. On $0 \\le x \\le 1$ the line $y = x$ is above $y = x^2$, so a strip at $x$ has height $x - x^2$. Its distance to the axis is $3 - x$, which is the shell radius (not $x$). Then\n\n$$\nV = \\int_0^1 2\\pi(3 - x)(x - x^2)\\,dx = 2\\pi \\int_0^1 (3x - 4x^2 + x^3)\\,dx = 2\\pi\\left(\\frac32 - \\frac43 + \\frac14\\right) = \\frac{5\\pi}{6}\n$$\n\nso the volume is $\\frac{5\\pi}{6}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -414,6 +458,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives a force $F = kx$ at stretch $x$, so the work to stretch the spring $x$ feet is $W = \\frac12 k x^2$. Stretching 2 ft costs 8 ft-lb, so $8 = \\frac12 k (2)^2 = 2k$, which gives $k = 4$ lb/ft. Six inches is $\\frac12$ ft, so\n\n$$\nW = \\frac12 \\cdot 4 \\cdot \\left(\\frac12\\right)^2 = \\frac12\n$$\n\nso the work is $\\frac12$ ft-lb. Work grows with the square of the stretch, so a stretch of one quarter as long needs one sixteenth of the work, not one quarter of it.",
       "sourcePage": 7,
       "status": "reviewed"
     }

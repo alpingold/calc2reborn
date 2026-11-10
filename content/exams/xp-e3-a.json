@@ -36,6 +36,9 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
       "solution": "This is a $1^\\infty$ form, so take the log. Let $y = \\left(\\frac{n+2}{n-1}\\right)^{2n}$. Then\n\n$$\n\\ln y = 2n\\ln\\left(\\frac{n+2}{n-1}\\right) = \\frac{\\ln(n+2) - \\ln(n-1)}{\\frac{1}{2n}}\n$$\n\nThis is $\\frac{0}{0}$. By L'Hospital's Rule (in $x$), the top's derivative is $\\frac{1}{x+2} - \\frac{1}{x-1} = \\frac{-3}{(x+2)(x-1)}$ and the bottom's is $-\\frac{1}{2x^2}$. The ratio is\n\n$$\n\\frac{6x^2}{(x+2)(x-1)} \\to 6\n$$\n\nSo $\\ln y \\to 6$ and $y \\to e^6$. The answer is C.\n\n- $6$ is the limit of $\\ln y$, not of $y$. Do not stop there.\n- $e^3$ forgets the $2$ in the exponent $2n$.\n- $1$ treats $1^\\infty$ as $1$, which is not a valid limit law.",
       "status": "reviewed"
     },
@@ -70,6 +73,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L20"
+      ],
+      "typeIds": [
+        "L20-which-converge"
       ],
       "solution": "- **I diverges.** $\\frac{3n}{n+4} \\to 3$, so the even terms approach $3$ and the odd terms approach $-3$. The terms never settle on one number. Being bounded is not enough.\n- **II converges to $0$.** Since $-1 \\le \\sin(n^2) \\le 1$, we have $-\\frac{1}{\\sqrt{n}} \\le \\frac{\\sin(n^2)}{\\sqrt{n}} \\le \\frac{1}{\\sqrt{n}}$. Both bounds go to $0$, so the Squeeze Theorem gives $0$.\n- **III converges to $3$.** Factor out $3^n$:\n\n$$\n\\sqrt[n]{3^n + 2^n} = 3\\left(1 + \\left(\\tfrac{2}{3}\\right)^n\\right)^{1/n}\n$$\n\nThe inside is between $1$ and $2$, so the factor is between $1$ and $2^{1/n}$, and $2^{1/n} \\to 1$. The limit is $3$.\n\nOnly II and III converge. The answer is E.",
       "status": "reviewed"
@@ -106,6 +112,9 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
       "solution": "Write the term as a geometric term:\n\n$$\n\\frac{3^{k-1}}{(-4)^k} = \\frac{1}{3}\\left(-\\frac{3}{4}\\right)^k\n$$\n\nThe ratio is $r = -\\frac{3}{4}$, and $|r| < 1$, so the series converges. The first term in the sum is the $k = 2$ term, $\\frac{3}{(-4)^2} = \\frac{3}{16}$. So\n\n$$\n\\sum_{k=2}^{\\infty} \\frac{3^{k-1}}{(-4)^k} = \\frac{\\frac{3}{16}}{1 - \\left(-\\frac{3}{4}\\right)} = \\frac{3}{16} \\cdot \\frac{4}{7} = \\frac{3}{28}\n$$\n\nThe answer is A.\n\n- $\\frac{4}{21}$ uses the coefficient $\\frac{1}{3}$ as the first term.\n- $-\\frac{1}{7}$ starts the sum at $k = 1$.\n- $\\frac{3}{4}$ drops the minus sign from the ratio.",
       "status": "reviewed"
     },
@@ -140,6 +149,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L21"
+      ],
+      "typeIds": [
+        "L21-telescoping"
       ],
       "solution": "Factor $k^2 + 2k - 3 = (k-1)(k+3)$ and split with partial fractions:\n\n$$\n\\frac{6}{(k-1)(k+3)} = \\frac{3}{2}\\left(\\frac{1}{k-1} - \\frac{1}{k+3}\\right)\n$$\n\nWrite out the partial sum from $k = 2$ to $k = n$. Each negative piece $-\\frac{1}{k+3}$ cancels a positive piece four terms later. The positive pieces that survive are $1, \\frac{1}{2}, \\frac{1}{3}, \\frac{1}{4}$ (from $k = 2, 3, 4, 5$), so\n\n$$\nS_n = \\frac{3}{2}\\left(1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} - \\frac{1}{n} - \\frac{1}{n+1} - \\frac{1}{n+2} - \\frac{1}{n+3}\\right)\n$$\n\nAs $n \\to \\infty$, the last four terms go to $0$, so the sum is $\\frac{3}{2} \\cdot \\frac{25}{12} = \\frac{25}{8}$. The answer is D.\n\n- $\\frac{25}{12}$ forgets the factor $\\frac{3}{2}$.\n- $\\frac{3}{2}$ keeps only the first surviving term.\n- $\\frac{77}{40}$ shifts the surviving terms to $\\frac{1}{2}, \\dots, \\frac{1}{5}$, an off-by-one error.",
       "status": "reviewed"
@@ -176,6 +188,9 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
       "solution": "Use the Integral Test. With $u = x^2 + 3$:\n\n$$\n\\int_1^{\\infty} \\frac{x}{(x^2+3)^2}\\,dx = \\lim_{b\\to\\infty} \\left[-\\frac{1}{2(x^2+3)}\\right]_1^b = 0 + \\frac{1}{8} = \\frac{1}{8}\n$$\n\nThe integral is finite, so the series converges. The integral is not the sum. Since $f$ is decreasing from $x = 1$, the rectangles give\n\n$$\n\\int_1^{\\infty} f(x)\\,dx \\le S \\le a_1 + \\int_1^{\\infty} f(x)\\,dx\n$$\n\nHere $a_1 = \\frac{1}{16}$, so $\\frac{1}{8} \\le S \\le \\frac{1}{8} + \\frac{1}{16} = \\frac{3}{16}$. The answer is B. (In fact $S \\approx 0.157$.)\n\n- A treats the integral's value as the sum.\n- E has the inequality the wrong way: the integral from $1$ is a lower bound for $S$.",
       "status": "reviewed"
     },
@@ -210,6 +225,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L23"
+      ],
+      "typeIds": [
+        "L23-comparison-decide"
       ],
       "solution": "All terms are positive, so use comparison.\n\n- **I converges.** For large $k$ the term behaves like $\\frac{k^{1/3}}{k^2} = \\frac{1}{k^{5/3}}$. Limit Comparison with $\\frac{1}{k^{5/3}}$ gives a limit of $1$, and $p = \\frac{5}{3} > 1$.\n- **II diverges.** For $k \\ge 1$, $\\arctan k \\ge \\frac{\\pi}{4}$, so $\\frac{\\arctan k}{k} \\ge \\frac{\\pi}{4} \\cdot \\frac{1}{k}$. That is bigger than a divergent harmonic series. A bounded top does not make the series converge.\n- **III diverges.** $\\sqrt{k^2 + 5k} \\approx k$, and Limit Comparison with $\\frac{1}{k}$ gives a limit of $1$.\n- **IV converges.** Limit Comparison with $\\left(\\frac{2}{5}\\right)^k$:\n\n$$\n\\lim_{k\\to\\infty} \\frac{2^k/(5^k - 3^k)}{(2/5)^k} = \\lim_{k\\to\\infty} \\frac{5^k}{5^k - 3^k} = 1\n$$\n\nand $\\sum \\left(\\frac{2}{5}\\right)^k$ is a convergent geometric series.\n\nOnly I and IV converge. The answer is C.",
       "status": "reviewed"
@@ -246,7 +264,10 @@
       "lessonIds": [
         "L25"
       ],
-      "solution": "Simplify the ratio one factor at a time:\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{(2k+2)!}{(2k)!} \\cdot \\frac{k!}{(k+1)!} \\cdot \\frac{k^k}{(k+1)^{k+1}} = \\frac{(2k+2)(2k+1)}{k+1} \\cdot \\frac{k^k}{(k+1)^{k+1}}\n$$\n\nSince $\\frac{2k+2}{k+1} = 2$ and $\\frac{k^k}{(k+1)^{k+1}} = \\frac{1}{k+1}\\left(\\frac{k}{k+1}\\right)^k$, this is\n\n$$\n\\frac{2(2k+1)}{k+1}\\left(\\frac{k}{k+1}\\right)^k \\to 4 \\cdot e^{-1} = \\frac{4}{e}\n$$\n\nHere $\\left(\\frac{k}{k+1}\\right)^k = \\left(1 + \\frac{1}{k}\\right)^{-k} \\to e^{-1}$. Since $\\frac{4}{e} \\approx 1.47 > 1$, the series diverges. The answer is E.\n\n- $r = 4$ treats $\\left(\\frac{k}{k+1}\\right)^k$ as $1$; it is a $1^\\infty$ form.\n- $r = \\frac{1}{e}$ drops the factorial part, and $r = \\frac{2}{e}$ keeps only one factor of $2$.",
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Simplify the ratio one factor at a time:\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{(2k+2)!}{(2k)!} \\cdot \\frac{k!}{(k+1)!} \\cdot \\frac{k^k}{(k+1)^{k+1}} = \\frac{(2k+2)(2k+1)}{k+1} \\cdot \\frac{k^k}{(k+1)^{k+1}}\n$$\n\nSince $\\frac{2k+2}{k+1} = 2$ and $\\frac{k^k}{(k+1)^{k+1}} = \\frac{1}{k+1}\\left(\\frac{k}{k+1}\\right)^k$, this is\n\n$$\n\\frac{2(2k+1)}{k+1}\\left(\\frac{k}{k+1}\\right)^k \\to 4 \\cdot e^{-1} = \\frac{4}{e}\n$$\n\nHere $\\left(\\frac{k}{k+1}\\right)^k = \\left(1 + \\frac{1}{k}\\right)^{-k} \\to e^{-1}$. Since $\\frac{4}{e} \\approx 1.47 > 1$, the series diverges. The answer is E.\n\n- $r = 4$ treats $\\left(\\frac{k}{k+1}\\right)^k$ as $1$; it is a $1^\\infty$ form.\n- $r = \\frac{1}{e}$ keeps only $\\left(\\frac{k}{k+1}\\right)^k$ and loses the factor $4$ that the factorials leave, and $r = \\frac{2}{e}$ keeps only one factor of $2$.",
       "status": "reviewed"
     },
     {
@@ -280,6 +301,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L24"
+      ],
+      "typeIds": [
+        "L24-absolute-conditional"
       ],
       "solution": "- **I is conditionally convergent.** Absolute values: $\\ln k \\le \\sqrt{k}$ for $k \\ge 2$, so $\\frac{1}{\\sqrt{k}\\ln k} \\ge \\frac{1}{k}$, and $\\sum \\frac{1}{k}$ diverges. So I is not absolutely convergent. For the AST, $b_k = \\frac{1}{\\sqrt{k}\\ln k}$ is decreasing (its denominator increases) and goes to $0$, so I converges.\n- **II is absolutely convergent.** $\\frac{k}{k^3 + 2} \\le \\frac{k}{k^3} = \\frac{1}{k^2}$, and $\\sum \\frac{1}{k^2}$ converges ($p = 2$).\n- **III is divergent.** The magnitudes are $2^{1/k} \\to 2^0 = 1$, not $0$. The terms do not go to $0$, so the Divergence Test says III diverges. The magnitudes do decrease, but the AST also needs them to go to $0$.\n\nThe answer is A.",
       "status": "reviewed"
@@ -316,6 +340,9 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
       "solution": "The magnitudes $\\frac{1}{k!}$ decrease to $0$, so $|S - S_n| \\le a_{n+1} = \\frac{1}{(n+1)!}$, the first term left out.\n\nWe need $\\frac{1}{(n+1)!} < 0.0005$, which means $(n+1)! > 2000$.\n\n- $6! = 720$, which is too small.\n- $7! = 5040 > 2000$, so $n + 1 = 7$ works.\n\nThe smallest $n$ is $6$. The answer is B.\n\n- $7$ comes from requiring $n! > 2000$, which bounds the error by the last term kept instead of the first term left out.\n- $5$ gives a bound of $\\frac{1}{720} \\approx 0.0014$, which is too big.\n- $2000$ forgets the factorial and treats the terms as $\\frac{1}{k}$: $\\frac{1}{n+1} < 0.0005$ gives $n \\ge 2000$.",
       "status": "reviewed"
     },
@@ -350,6 +377,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L26"
+      ],
+      "typeIds": [
+        "L26-classify-each"
       ],
       "solution": "- **I converges** by the Ratio Test: $\\frac{(k+1)^5}{5^{k+1}} \\cdot \\frac{5^k}{k^5} = \\frac{1}{5}\\left(\\frac{k+1}{k}\\right)^5 \\to \\frac{1}{5} < 1$.\n- **II diverges** by the Divergence Test. This is a $1^\\infty$ form: $\\left(\\frac{k}{k+3}\\right)^k = \\left(1 + \\frac{3}{k}\\right)^{-k} \\to e^{-3} \\ne 0$. (The Root Test gives $1$ here, which is inconclusive, not convergence.)\n- **III converges.** For large $k$ the term behaves like $\\frac{1}{k^{1/2} k^{2/3}} = \\frac{1}{k^{7/6}}$. Limit Comparison with $\\frac{1}{k^{7/6}}$ gives $1$, and $p = \\frac{7}{6} > 1$.\n- **IV converges** by the Alternating Series Test: $\\frac{1}{k^{1/4}}$ decreases to $0$. (It converges only conditionally, since $p = \\frac{1}{4} \\le 1$, but the question asks only about convergence.)\n\nThree series converge. The answer is D.",
       "status": "reviewed"
@@ -386,6 +416,9 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
+      ],
       "solution": "The coefficient of $x^k$ in a Taylor polynomial centered at $0$ is $\\frac{f^{(k)}(0)}{k!}$. For $k = 3$:\n\n$$\n\\frac{f'''(0)}{3!} = -\\frac{2}{3} \\quad\\Longrightarrow\\quad f'''(0) = 6 \\cdot \\left(-\\frac{2}{3}\\right) = -4\n$$\n\nThe answer is C.\n\n- $-\\frac{2}{3}$ is the coefficient itself; it forgets the $3!$.\n- $-\\frac{1}{9}$ divides by $3!$ instead of multiplying.\n- $-2$ multiplies by $3$ instead of $3! = 6$.\n- $3$ is $f^{(4)}(0) = 24 \\cdot \\frac{1}{8}$, the wrong derivative.",
       "status": "reviewed"
     },
@@ -420,6 +453,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L27"
+      ],
+      "typeIds": [
+        "L27-approximate-with-polynomial"
       ],
       "solution": "Find the derivatives and evaluate at $0$:\n\n- $f(0) = \\ln 1 = 0$\n- $f'(x) = \\frac{3}{1+3x}$, so $f'(0) = 3$\n- $f''(x) = -\\frac{9}{(1+3x)^2}$, so $f''(0) = -9$\n\nSo $P_2(x) = 0 + 3x - \\frac{9}{2!}x^2 = 3x - \\frac{9}{2}x^2$.\n\nNext, find $x$: $\\ln(1.3) = f(x)$ when $1 + 3x = 1.3$, so $x = 0.1$. Then\n\n$$\nP_2(0.1) = 0.3 - \\frac{9}{2}(0.01) = 0.3 - 0.045 = 0.255\n$$\n\nThe answer is A. (The true value is $\\ln 1.3 \\approx 0.2624$.)\n\n- $0.495$ plugs in $x = 0.3$; the input to $f$ is $x$, not $3x$.\n- $0.21$ forgets to divide $f''(0)$ by $2!$.\n- $0.3$ is only the first-order (linear) approximation.\n- $0.345$ has the wrong sign on the $x^2$ term.",
       "status": "reviewed"

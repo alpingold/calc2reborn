@@ -38,6 +38,10 @@
       "lessonIds": [
         "L2"
       ],
+      "typeIds": [
+        "L2-radius-from-point"
+      ],
+      "solution": "Use the distance formula, since the radius is the distance from the center to a point on the sphere.\n\n$$\nr = \\sqrt{(1-(-4))^2 + (-2-5)^2 + (3-(-2))^2} = \\sqrt{5^2 + (-7)^2 + 5^2} = \\sqrt{99}\n$$\n\nSo the radius is $\\sqrt{99} = 3\\sqrt{11}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "Use the vector projection formula $\\text{proj}_{\\vec{v}}\\vec{w} = \\frac{\\vec{w}\\cdot\\vec{v}}{\\vec{v}\\cdot\\vec{v}}\\,\\vec{v}$.\n\nHere $\\vec{w}\\cdot\\vec{v} = 2(1) + 3(2) = 8$ and $\\vec{v}\\cdot\\vec{v} = 1 + 4 = 5$, so\n\n$$\n\\text{proj}_{\\vec{v}}\\vec{w} = \\frac{8}{5}\\langle 1, 2 \\rangle = \\left\\langle \\frac{8}{5}, \\frac{16}{5} \\right\\rangle\n$$\n\nSo the vector projection is $\\langle 8/5, 16/5 \\rangle$. Dividing by $|\\vec{v}|$ instead of $|\\vec{v}|^2$ gives a vector of the wrong length.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "Use the area between curves, with the top curve minus the bottom curve between the intersection points.\n\nSetting the two equations equal gives $0.5x + 3 = x^2 - 1.5x + 3$, so $x^2 - 2x = 0$ and the curves meet at $x = 0$ and $x = 2$. On this interval the line is on top, since $(0.5x + 3) - (x^2 - 1.5x + 3) = 2x - x^2 \\ge 0$ for $0 \\le x \\le 2$.\n\n$$\nA = \\int_0^2 (2x - x^2)\\,dx = \\left[x^2 - \\frac{x^3}{3}\\right]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3}\n$$\n\nSo the area is $\\frac{4}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use the washer method about the $x$-axis: the outer radius is the curve and the inner radius is the line.\n\nThe curves meet at $x = 0$, and on $[-2, 0]$ we have $e^{-x} \\ge 1$, so the outer radius is $e^{-x}$ and the inner radius is $1$. The area of a washer is $\\pi(R^2 - r^2)$, so\n\n$$\nV = \\int_{-2}^{0} \\pi\\left((e^{-x})^2 - 1^2\\right)dx = \\int_{-2}^{0} \\pi(e^{-2x} - 1)\\,dx\n$$\n\nSo the washer integral is $\\int_{-2}^{0} \\pi(e^{-2x} - 1)\\,dx$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use $\\cos\\theta = \\dfrac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|\\,|\\vec{b}|}$.\n\nHere $\\vec{a}\\cdot\\vec{b} = (-1)(-1) + (2)(1) + (2)(0) = 3$, $|\\vec{a}| = \\sqrt{1 + 4 + 4} = 3$, and $|\\vec{b}| = \\sqrt{1 + 1} = \\sqrt{2}$. So\n\n$$\n\\cos\\theta = \\frac{3}{3\\sqrt{2}} = \\frac{1}{\\sqrt{2}}\n$$\n\nSince $0 \\le \\theta \\le \\pi$, the angle is $\\theta = \\frac{\\pi}{4}$. A negative angle can never come out of this formula.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-parallelepiped-volume"
+      ],
+      "solution": "Use the scalar triple product: the volume of the parallelepiped is $|\\vec{PQ}\\cdot(\\vec{PR}\\times\\vec{PS})|$.\n\nThe edge vectors are $\\vec{PQ} = \\langle 1-2, 3-1, 4-3 \\rangle = \\langle -1, 2, 1 \\rangle$, $\\vec{PR} = \\langle 0, 0, -4 \\rangle$ and $\\vec{PS} = \\langle 0, 1, 2 \\rangle$. Then\n\n$$\n\\vec{PR}\\times\\vec{PS} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 0 & 0 & -4 \\\\ 0 & 1 & 2 \\end{vmatrix} = 4\\vec{i}\n$$\n\nSo $\\vec{PQ}\\cdot(\\vec{PR}\\times\\vec{PS}) = (-1)(4) = -4$, and the volume is $|-4| = 4$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-y-axis"
+      ],
+      "solution": "Use the shell method about the $y$-axis, since the region is revolved about the $y$-axis and the shells are easiest in $x$.\n\nThe curves meet at $x = 0$ and $x = 1$, and on $[0, 1]$ the line $y = x$ is above $y = x^2$. A shell at $x$ has radius $x$ and height $x - x^2$, so\n\n$$\nV = \\int_0^1 2\\pi x(x - x^2)\\,dx = 2\\pi\\int_0^1 (x^2 - x^3)\\,dx = 2\\pi\\left[\\frac{x^3}{3} - \\frac{x^4}{4}\\right]_0^1 = 2\\pi\\cdot\\frac{1}{12} = \\frac{\\pi}{6}\n$$\n\nSo the volume is $\\frac{\\pi}{6}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Use slicing: each cross section is a square, so its area is the square of its side.\n\nThe side of the square at $x$ runs from the $x$-axis up to the curve, so its length is $\\sqrt{\\cos x}$ and the area of the slice is $(\\sqrt{\\cos x})^2 = \\cos x$.\n\n$$\nV = \\int_{-\\pi/2}^{\\pi/2} \\cos x\\,dx = \\Big[\\sin x\\Big]_{-\\pi/2}^{\\pi/2} = 1 - (-1) = 2\n$$\n\nSo the volume is $2$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-other-line"
+      ],
+      "solution": "Use the washer method with vertical slices, so each washer is perpendicular to the axis of revolution $y = -1$.\n\nThe axis lies below the region, so both radii are measured from $y = -1$. The outer radius runs up to the curve, $\\sin x - (-1) = \\sin x + 1$, and the inner radius runs up to the $x$-axis, $0 - (-1) = 1$. So\n\n$$\nV = \\int_0^{\\pi} \\pi\\left((\\sin x + 1)^2 - 1^2\\right)dx\n$$\n\nSo the volume is $\\pi \\int_0^{\\pi} ((\\sin x + 1)^2 - 1)\\,dx$. Measuring the radii from the $x$-axis instead of from $y = -1$ is the trap to avoid.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -344,6 +380,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Use the surface area formula for revolution about the $x$-axis, $S = \\int 2\\pi y\\,ds$, with $ds = \\sqrt{1 + (y')^2}\\,dx$.\n\nHere $y = x^3$ and $y' = 3x^2$, so $1 + (y')^2 = 1 + 9x^4$ and\n\n$$\nS = \\int_0^1 2\\pi x^3\\sqrt{1 + 9x^4}\\,dx\n$$\n\nLet $u = 1 + 9x^4$, so $du = 36x^3\\,dx$. The limits become $u = 1$ at $x = 0$ and $u = 10$ at $x = 1$. Then\n\n$$\nS = \\frac{2\\pi}{36}\\int_1^{10} \\sqrt{u}\\,du = \\frac{\\pi}{18}\\cdot\\frac{2}{3}\\left[u^{3/2}\\right]_1^{10} = \\frac{\\pi}{27}\\left(10^{3/2} - 1\\right)\n$$\n\nSo the surface area is $\\frac{\\pi}{27}\\left(10^{3/2} - 1\\right)$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -378,6 +418,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells, since the region is revolved about a vertical line and the shells are easiest in $x$.\n\nThe curve meets the $x$-axis at $x = 0$ and $x = 1$. A shell at $x$ has height $x - x^2$ and radius equal to its distance from the line $x = -1$, which is $x + 1$. So\n\n$$\nV = \\int_0^1 2\\pi(x+1)(x - x^2)\\,dx = 2\\pi\\int_0^1 (x - x^3)\\,dx = 2\\pi\\left[\\frac{x^2}{2} - \\frac{x^4}{4}\\right]_0^1 = 2\\pi\\cdot\\frac{1}{4} = \\frac{\\pi}{2}\n$$\n\nSo the volume is $\\frac{\\pi}{2}$. Using radius $x$ instead of $x + 1$ is the trap: the radius is measured from $x = -1$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -412,6 +456,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Use Hooke's law, $F = kx$, where $x$ is the stretch from the natural length, and find $k$ first.\n\nThe stretch is $1.5 - 1 = 0.5$ m under a force of $50$ N, so $50 = k(0.5)$ and $k = 100$ N/m.\n\nStretching from a length of 2 m to 3 m means stretching from an extension of $x = 1$ to $x = 2$, so\n\n$$\nW = \\int_1^2 100x\\,dx = \\left[50x^2\\right]_1^2 = 200 - 50 = 150\n$$\n\nSo the work is $150$ J. Measuring the stretch from 2 m and 3 m rather than from the natural length of 1 m gives $250$ J, which is the trap.",
       "sourcePage": 14,
       "status": "reviewed"
     }

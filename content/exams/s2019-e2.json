@@ -39,6 +39,9 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
       "sourcePage": 2,
       "solution": "Write $\\frac{x+13}{x^2+5x-6} = \\frac{A}{x-1} + \\frac{B}{x+6}$. Then $x + 13 = (A+B)x + 6A - B$, so $A = 2$ and $B = -1$.\n\n$$\n\\int \\left(\\frac{2}{x-1} - \\frac{1}{x+6}\\right) dx = 2\\ln|x-1| - \\ln|x+6| + C = \\ln\\left|\\frac{(x-1)^2}{x+6}\\right| + C\n$$",
       "status": "reviewed"
@@ -73,6 +76,9 @@
       "answer": "B",
       "lessonIds": [
         "L17"
+      ],
+      "typeIds": [
+        "L17-decomposition-form"
       ],
       "sourcePage": 2,
       "solution": "Write\n\n$$\n\\frac{2x^3+5x^2+8x+4}{(x^2+2x+2)^2} = \\frac{Ax+B}{x^2+2x+2} + \\frac{Cx+D}{(x^2+2x+2)^2}.\n$$\n\nThen\n\n$$\n2x^3+5x^2+8x+4 = (Ax+B)(x^2+2x+2) + Cx + D = Ax^3 + (B+2A)x^2 + (2A+2B+C)x + (2B+D),\n$$\n\nso $A = 2$, $B = 1$, $C = 2$, and $D = 2$.",
@@ -109,6 +115,9 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
       "sourcePage": 3,
       "solution": "$S = \\int 2\\pi r\\,ds$ with radius $r = y = \\sin x$ and\n\n$$\nds = \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}\\,dx = \\sqrt{1+\\cos^2 x}\\,dx,\n$$\n\nso\n\n$$\nS = \\int_0^{\\frac{\\pi}{2}} 2\\pi \\sin x\\,\\sqrt{1+\\cos^2 x}\\,dx.\n$$",
       "status": "reviewed"
@@ -143,6 +152,9 @@
       "answer": "D",
       "lessonIds": [
         "L14"
+      ],
+      "typeIds": [
+        "L14-sine-substitution"
       ],
       "sourcePage": 3,
       "solution": "Let $x = 4\\sin\\theta$, so $dx = 4\\cos\\theta\\,d\\theta$. When $x = 2\\sqrt{2}$, $\\sin\\theta = \\frac{\\sqrt{2}}{2}$ and $\\theta = \\frac{\\pi}{4}$; when $x = 0$, $\\theta = 0$.\n\n$$\n\\int_0^{\\pi/4} \\frac{(4\\sin\\theta)^2\\,4\\cos\\theta}{\\sqrt{16-16\\sin^2\\theta}}\\,d\\theta = \\int_0^{\\pi/4} \\frac{(16\\sin^2\\theta)(4\\cos\\theta)}{4\\cos\\theta}\\,d\\theta = \\int_0^{\\pi/4} 16\\sin^2\\theta\\,d\\theta\n$$\n\n$$\n= \\int_0^{\\pi/4} 16\\left(\\frac{1-\\cos 2\\theta}{2}\\right) d\\theta = \\int_0^{\\pi/4} (8 - 8\\cos 2\\theta)\\,d\\theta = \\Big[8\\theta - 4\\sin 2\\theta\\Big]_0^{\\pi/4}\n$$\n\n$$\n= 8\\left(\\frac{\\pi}{4}\\right) - 4\\sin\\left(\\frac{\\pi}{2}\\right) - 8(0) + 4\\sin(0) = 2\\pi - 4\n$$",
@@ -179,6 +191,9 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
       "sourcePage": 4,
       "solution": "Let $u = 2\\sqrt{t}$, so $du = \\frac{1}{\\sqrt{t}}\\,dt$ and $\\sqrt{t} + 4t\\sqrt{t} = \\sqrt{t}\\,(1+u^2)$. When $t = \\frac{1}{4}$, $u = 1$; when $t = \\frac{1}{12}$, $u = \\frac{1}{\\sqrt{3}}$.\n\n$$\n\\int_{1/\\sqrt{3}}^{1} \\frac{12}{1+u^2}\\,du = 12\\tan^{-1} u\\,\\Big|_{1/\\sqrt{3}}^{1} = 12\\left(\\frac{\\pi}{4} - \\frac{\\pi}{6}\\right) = 3\\pi - 2\\pi = \\pi\n$$",
       "status": "reviewed"
@@ -213,6 +228,9 @@
       "answer": "D",
       "lessonIds": [
         "L8"
+      ],
+      "typeIds": [
+        "L8-arc-length-compute"
       ],
       "sourcePage": 4,
       "solution": "Solve for $y = \\left[1 - x^{2/3}\\right]^{3/2}$. Then\n\n$$\n\\frac{dy}{dx} = \\frac{3}{2}\\left[1 - x^{2/3}\\right]^{1/2}\\left(-\\frac{2}{3}x^{-1/3}\\right) = -x^{-1/3}\\left(1 - x^{2/3}\\right)^{1/2}\n$$\n\nand\n\n$$\nL = \\int_0^1 \\sqrt{1 + x^{-2/3}\\left(1 - x^{2/3}\\right)}\\,dx = \\int_0^1 \\sqrt{1 + x^{-2/3} - 1}\\,dx = \\int_0^1 x^{-1/3}\\,dx = \\frac{3}{2}x^{2/3}\\Big|_0^1 = \\frac{3}{2}.\n$$",
@@ -249,6 +267,9 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass"
+      ],
       "sourcePage": 5,
       "solution": "The region lies between $y = \\sqrt{x}$ (above) and $y = x^2$ (below), from $(0,0)$ to $(1,1)$.\n\n$$\nM_x = \\int_0^1 \\frac{1}{2}\\left[(\\sqrt{x})^2 - (x^2)^2\\right] dx = \\frac{1}{2}\\int_0^1 (x - x^4)\\,dx, \\qquad A = \\int_0^1 (\\sqrt{x} - x^2)\\,dx\n$$\n\n$$\n\\bar{y} = \\frac{M_x}{A} = \\frac{\\int_0^1 (x - x^4)\\,dx}{2\\int_0^1 (\\sqrt{x} - x^2)\\,dx}\n$$",
       "status": "reviewed"
@@ -283,6 +304,9 @@
       "answer": "C",
       "lessonIds": [
         "L18"
+      ],
+      "typeIds": [
+        "L18-discontinuity"
       ],
       "sourcePage": 5,
       "solution": "$$\n\\int_0^1 \\frac{1}{\\sqrt{x}}\\,dx = \\lim_{a\\to 0^+}\\int_a^1 x^{-1/2}\\,dx = \\lim_{a\\to 0^+} 2x^{1/2}\\Big|_a^1 = \\lim_{a\\to 0^+}\\left(2 - 2\\sqrt{a}\\right) = 2 - 0 = 2\n$$",
@@ -319,6 +343,9 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-monotone-bounded"
+      ],
       "sourcePage": 6,
       "solution": "$$\n\\lim_{n\\to\\infty}\\left(\\sqrt{n+1}-\\sqrt{n}\\right)\\left(\\frac{\\sqrt{n+1}+\\sqrt{n}}{\\sqrt{n+1}+\\sqrt{n}}\\right) = \\lim_{n\\to\\infty}\\frac{n+1-n}{\\sqrt{n+1}+\\sqrt{n}} = \\lim_{n\\to\\infty}\\frac{1}{\\sqrt{n+1}+\\sqrt{n}} = 0\n$$\n\nso the sequence converges. If $f(x) = \\sqrt{x+1} - \\sqrt{x}$, then\n\n$$\nf'(x) = \\frac{1}{2\\sqrt{x+1}} - \\frac{1}{2\\sqrt{x}} = \\frac{\\sqrt{x} - \\sqrt{x+1}}{2\\sqrt{x}\\sqrt{x+1}} < 0\n$$\n\nsince $x + 1 > x$, so the sequence is decreasing.",
       "status": "reviewed"
@@ -353,6 +380,9 @@
       "answer": "E",
       "lessonIds": [
         "L21"
+      ],
+      "typeIds": [
+        "L21-geometric-sum"
       ],
       "sourcePage": 6,
       "solution": "This is a geometric series with $a = \\frac{1}{e}$ and $r = \\frac{1}{e}$. Since $e > 1$, $|r| = \\frac{1}{e} < 1$, so the series converges to\n\n$$\n\\frac{a}{1-r} = \\frac{1/e}{1 - 1/e}\\cdot\\frac{e}{e} = \\frac{1}{e-1}.\n$$",
@@ -389,6 +419,9 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-odd-one-out"
+      ],
       "sourcePage": 7,
       "solution": "- A: a $p$-series with $p = \\frac{1}{2} \\le 1$, so it diverges.\n- B: $\\lim_{n\\to\\infty}\\frac{e^n}{\\ln n} \\ne 0$, so it diverges by the Divergence Test.\n- C: by Direct Comparison, $\\frac{2^n}{n+3^n} < \\left(\\frac{2}{3}\\right)^n$ and $\\sum\\left(\\frac{2}{3}\\right)^n$ converges ($|r| = \\frac{2}{3} < 1$), so C converges.\n- D: $\\int_2^{\\infty} \\frac{1}{x\\ln x}\\,dx = \\lim_{b\\to\\infty}\\ln(\\ln x)\\Big|_2^b = \\infty$, so it diverges by the Integral Test.\n- E: by Limit Comparison, $\\lim_{n\\to\\infty}\\frac{\\sin(1/n)}{1/n} = 1$ and $\\sum\\frac{1}{n}$ diverges, so it diverges.",
       "status": "reviewed"
@@ -423,6 +456,9 @@
       "answer": "D",
       "lessonIds": [
         "L23"
+      ],
+      "typeIds": [
+        "L23-comparison-claims"
       ],
       "sourcePage": 7,
       "solution": "- A: $\\sum a_n$ converges by Limit Comparison with $\\sum\\frac{1}{2^n}$ ($|r| = \\frac{1}{2} < 1$).\n- B: inconclusive.\n- C: inconclusive.\n- D: $\\sum\\sqrt{2^n} = \\sum\\left(\\sqrt{2}\\right)^n$ diverges ($|r| = \\sqrt{2} > 1$), so by Limit Comparison $\\sum a_n$ diverges.\n- E: inconclusive.",

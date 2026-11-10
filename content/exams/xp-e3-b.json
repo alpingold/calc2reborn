@@ -36,6 +36,9 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
       "solution": "This is an $\\infty - \\infty$ form. Multiply by the conjugate:\n\n$$\na_n = \\frac{(4n^2 + 12n) - 4n^2}{\\sqrt{4n^2 + 12n} + 2n} = \\frac{12n}{\\sqrt{4n^2 + 12n} + 2n}\n$$\n\nDivide the top and bottom by $n$:\n\n$$\na_n = \\frac{12}{\\sqrt{4 + \\frac{12}{n}} + 2} \\to \\frac{12}{2 + 2} = 3\n$$\n\nThe answer is B.\n\n- $0$ treats $\\infty - \\infty$ as $0$.\n- $6$ is $\\frac{12}{2}$: it forgets the $\\sqrt{4} = 2$ in the denominator.",
       "status": "reviewed"
     },
@@ -70,6 +73,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L20"
+      ],
+      "typeIds": [
+        "L20-monotone-bounded"
       ],
       "solution": "The first terms are $a_1 = \\frac{1}{3}$, $a_2 = \\frac{8}{9}$, $a_3 = 1$, $a_4 = \\frac{64}{81}$, $a_5 = \\frac{125}{243}$. The sequence rises and then falls.\n\nCheck where it decreases with the ratio:\n\n$$\n\\frac{a_{n+1}}{a_n} = \\frac{(n+1)^3}{3n^3} < 1 \\iff \\left(1 + \\frac{1}{n}\\right)^3 < 3 \\iff n > \\frac{1}{\\sqrt[3]{3} - 1} \\approx 2.26\n$$\n\nSo it decreases for $n \\ge 3$. All terms are positive and at most $1$, so it is bounded. Since $3^n$ grows faster than $n^3$, $a_n \\to 0$. The answer is D.\n\n- A is false because $a_1 < a_2 < a_3$.\n- B is false: a sequence need not be monotonic to converge, and this one is decreasing from $n = 3$ on and bounded below by $0$.\n- E confuses the largest term, $a_3 = 1$, with the limit.",
       "status": "reviewed"
@@ -106,6 +112,9 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
       "solution": "Split into two geometric series. Both converge, so the sum of the difference is the difference of the sums.\n\n$$\n\\sum_{k=1}^{\\infty} 5\\left(\\frac{5}{7}\\right)^k = \\frac{5 \\cdot \\frac{5}{7}}{1 - \\frac{5}{7}} = \\frac{25/7}{2/7} = \\frac{25}{2}\n$$\n\n$$\n\\sum_{k=1}^{\\infty} \\left(\\frac{2}{7}\\right)^k = \\frac{\\frac{2}{7}}{1 - \\frac{2}{7}} = \\frac{2}{5}\n$$\n\nThe sum is $\\frac{25}{2} - \\frac{2}{5} = \\frac{125 - 4}{10} = \\frac{121}{10}$. The answer is C.\n\n- $\\frac{161}{10}$ uses the $k = 0$ terms ($5$ and $1$) as the first terms, but the sum starts at $k = 1$.\n- $\\frac{21}{10}$ drops the factor $5$ in $5^{k+1} = 5 \\cdot 5^k$.\n- $\\frac{129}{10}$ adds the second series instead of subtracting it.",
       "status": "reviewed"
     },
@@ -140,6 +149,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L21"
+      ],
+      "typeIds": [
+        "L21-telescoping"
       ],
       "solution": "Split the log so the series telescopes:\n\n$$\n\\ln\\left(\\frac{k(k+2)}{(k+1)^2}\\right) = \\ln\\left(\\frac{k}{k+1}\\right) - \\ln\\left(\\frac{k+1}{k+2}\\right)\n$$\n\nWith $c_k = \\ln\\frac{k}{k+1}$, each term is $c_k - c_{k+1}$, so\n\n$$\nS_n = c_1 - c_{n+1} = \\ln\\frac{1}{2} - \\ln\\frac{n+1}{n+2}\n$$\n\nAs $n \\to \\infty$, $\\frac{n+1}{n+2} \\to 1$ and $\\ln 1 = 0$. So $S_n \\to \\ln\\frac{1}{2} = -\\ln 2$. The answer is A.\n\n- $\\ln 2$ has the sign wrong; every term is negative, since $k(k+2) < (k+1)^2$.\n- $\\ln\\frac{3}{4}$ is only the first term.\n- E is tempting because $\\sum \\ln\\frac{k+1}{k}$ diverges, but here the surviving piece $c_{n+1}$ goes to $0$.",
       "status": "reviewed"
@@ -176,6 +188,9 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
       "solution": "- **I is true.** $k^{-\\sqrt{2}} = \\frac{1}{k^{\\sqrt{2}}}$ and $\\sqrt{2} \\approx 1.41 > 1$.\n- **II is true.** $\\frac{k}{\\sqrt{k^2 + 4}} = \\frac{1}{\\sqrt{1 + 4/k^2}} \\to 1 \\ne 0$, so the series diverges.\n- **III is false.** The Integral Test only says the series and the integral both converge or both diverge. The integral is not the sum. For example, $f(x) = \\frac{2}{x^2}$ has $\\int_1^{\\infty} f(x)\\,dx = 2$, but $\\sum \\frac{2}{k^2} = \\frac{\\pi^2}{3} \\approx 3.29$.\n- **IV is false.** A limit of $0$ tells the Divergence Test nothing. In fact this is a $p$-series with $p = \\frac{1}{3} \\le 1$, so it diverges.\n\nTwo statements are true. The answer is C.",
       "status": "reviewed"
     },
@@ -210,6 +225,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L23"
+      ],
+      "typeIds": [
+        "L23-test-justification"
       ],
       "solution": "The terms are positive, since $0 < \\frac{1}{k} \\le 1$ makes $\\cos\\frac{1}{k} < 1$. Compare with $\\frac{1}{k^2}$ and let $t = \\frac{1}{k} \\to 0^+$:\n\n$$\n\\lim_{k\\to\\infty} \\frac{1 - \\cos\\frac{1}{k}}{\\frac{1}{k^2}} = \\lim_{t\\to 0^+} \\frac{1 - \\cos t}{t^2} = \\lim_{t\\to 0^+} \\frac{\\sin t}{2t} = \\frac{1}{2}\n$$\n\n(L'Hospital's Rule once.) The limit $\\frac{1}{2}$ is positive and finite, and $\\sum \\frac{1}{k^2}$ converges, so the series converges. The answer is A.\n\n- E: any limit with $0 < c < \\infty$ works; it does not need to be $1$.\n- B and C: against $\\frac{1}{k}$ the limit is $\\lim_{t\\to 0^+} \\frac{1 - \\cos t}{t} = 0$. A limit of $0$ with a divergent comparison series gives no conclusion either way.\n- D: the terms go to $1 - \\cos 0 = 0$, so the Divergence Test says nothing.",
       "status": "reviewed"
@@ -246,6 +264,9 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
       "solution": "The magnitudes $\\frac{1}{(k+2)^3}$ decrease to $0$, so the error is at most the magnitude of the **first term left out**.\n\nThe first four terms are $k = 0, 1, 2, 3$. The first term left out is $k = 4$, with magnitude\n\n$$\n\\frac{1}{(4 + 2)^3} = \\frac{1}{6^3} = \\frac{1}{216}\n$$\n\nSo $|S - S_4| \\le \\frac{1}{216}$. The answer is D.\n\n- $\\frac{1}{125}$ is the last term kept ($k = 3$), not the first term left out.\n- $\\frac{1}{343}$ is the $k = 5$ term. It comes from using the formula $a_{n+1}$ with $n = 4$ when the sum starts at $k = 0$; here the first omitted term after $n$ terms is the $k = n$ term.\n- $\\frac{1}{64}$ plugs $k = 4$ into $\\frac{1}{k^3}$ instead of $\\frac{1}{(k+2)^3}$.",
       "status": "reviewed"
     },
@@ -280,6 +301,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L24"
+      ],
+      "typeIds": [
+        "L24-absolute-conditional"
       ],
       "solution": "Test the absolute values first, then use the AST if needed.\n\n- **A** is absolutely convergent: $\\frac{k}{k^3 + 1} \\le \\frac{1}{k^2}$.\n- **B** is conditionally convergent. Absolute values: $\\frac{k}{\\sqrt{k^4 + 1}}$ behaves like $\\frac{k}{k^2} = \\frac{1}{k}$, and Limit Comparison with $\\frac{1}{k}$ gives $1$, so $\\sum |a_k|$ diverges. For the AST, $g(x) = \\frac{x}{\\sqrt{x^4+1}}$ has $g'(x) = \\frac{1 - x^4}{(x^4+1)^{3/2}} \\le 0$ for $x \\ge 1$, so the magnitudes decrease, and they go to $0$. So B converges, but only conditionally.\n- **C** is absolutely convergent by the Ratio Test: $\\frac{3^{k+1}/(k+1)!}{3^k/k!} = \\frac{3}{k+1} \\to 0$.\n- **D** diverges: $\\arctan k \\to \\frac{\\pi}{2} \\ne 0$, so the terms do not go to $0$.\n- **E** is absolutely convergent: $\\cos(k\\pi) = (-1)^k$, and $\\sum \\frac{1}{k^{3/2}}$ is a $p$-series with $p = \\frac{3}{2} > 1$.\n\nThe answer is B.",
       "status": "reviewed"
@@ -316,6 +340,9 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
       "solution": "The $k$th root removes $k$ from the exponent $2k$ and leaves a square:\n\n$$\n\\rho = \\lim_{k\\to\\infty} \\sqrt[k]{\\left(\\frac{5k^2 - 1}{4k^2 + 3k}\\right)^{2k}} = \\lim_{k\\to\\infty} \\left(\\frac{5k^2 - 1}{4k^2 + 3k}\\right)^2 = \\left(\\frac{5}{4}\\right)^2 = \\frac{25}{16}\n$$\n\nSince $\\frac{25}{16} > 1$, the series diverges. The answer is E.\n\n- B has the right conclusion but the wrong $\\rho$: it forgets the square left over from the exponent $2k$.\n- A flips the fraction.",
       "status": "reviewed"
     },
@@ -350,6 +377,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L25"
+      ],
+      "typeIds": [
+        "L25-ratio-apply"
       ],
       "solution": "Simplify the ratio:\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{(k+1)!\\,b^{k+1}}{(k+1)^{k+1}} \\cdot \\frac{k^k}{k!\\,b^k} = b \\cdot \\frac{(k+1)\\,k^k}{(k+1)^{k+1}} = b\\left(\\frac{k}{k+1}\\right)^k\n$$\n\nSince $\\left(\\frac{k}{k+1}\\right)^k = \\left(1 + \\frac{1}{k}\\right)^{-k} \\to e^{-1}$, the limit is $r = \\frac{b}{e}$.\n\nThe Ratio Test shows convergence exactly when $r < 1$, that is, $0 < b < e$. The answer is C.\n\n- D includes $b = e$, but there $r = 1$ and the Ratio Test is inconclusive.\n- A treats $\\left(\\frac{k}{k+1}\\right)^k$ as $1$, giving $r = b$.\n- B inverts the limit, using $e$ instead of $e^{-1}$.",
       "status": "reviewed"
@@ -386,6 +416,9 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-classify-each"
+      ],
       "solution": "- **I converges.** Split it: $\\sum \\frac{k^2}{3^k}$ converges by the Ratio Test ($r = \\frac{1}{3}$), and $\\sum \\left(\\frac{2}{3}\\right)^k$ is a convergent geometric series. The sum of two convergent series converges.\n- **II diverges.** $(\\ln k)^2 < k$ for $k \\ge 2$, so $\\frac{1}{(\\ln k)^2} > \\frac{1}{k}$. That is bigger than the divergent harmonic series.\n- **III converges** by the Ratio Test: $\\left(\\frac{k+1}{k}\\right)^{100} \\cdot \\frac{1}{1.1} \\to \\frac{1}{1.1} < 1$. The exponential beats the power, however large the power.\n- **IV diverges.** It looks like a $p$-series with $p > 1$, but the exponent $1 + \\frac{1}{k}$ is not a constant. Limit Comparison with $\\frac{1}{k}$:\n\n$$\n\\lim_{k\\to\\infty} \\frac{1/k^{1+1/k}}{1/k} = \\lim_{k\\to\\infty} \\frac{1}{k^{1/k}} = 1\n$$\n\nsince $k^{1/k} \\to 1$. So IV diverges with the harmonic series.\n\nOnly I and III converge. The answer is A.",
       "status": "reviewed"
     },
@@ -420,6 +453,9 @@
       "answerSource": "written",
       "lessonIds": [
         "L27"
+      ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
       ],
       "solution": "Differentiate, using the chain rule (each derivative brings a factor of $3$), then set $x = 0$:\n\n- $f(x) = \\cos 3x$, so $f(0) = 1$\n- $f'(x) = -3\\sin 3x$, so $f'(0) = 0$\n- $f''(x) = -9\\cos 3x$, so $f''(0) = -9$\n- $f'''(x) = 27\\sin 3x$, so $f'''(0) = 0$\n- $f^{(4)}(x) = 81\\cos 3x$, so $f^{(4)}(0) = 81$\n\nDivide each by $k!$:\n\n$$\nP_4(x) = 1 - \\frac{9}{2!}x^2 + \\frac{81}{4!}x^4 = 1 - \\frac{9}{2}x^2 + \\frac{27}{8}x^4\n$$\n\nThe answer is E.\n\n- A forgets to divide by $k!$.\n- B uses only one factor of $3$ per term instead of $3^k$.\n- C has the wrong sign on the $x^2$ term.\n- D divides by $4$ instead of $4! = 24$.",
       "status": "reviewed"

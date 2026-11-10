@@ -38,6 +38,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "Use half the length of the cross product of two sides at $A$. Here $\\overrightarrow{AB} = \\langle 2, 1, 1 \\rangle$ and $\\overrightarrow{AC} = \\langle 1, 2, 0 \\rangle$, so\n\n$$\n\\overrightarrow{AB} \\times \\overrightarrow{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & 1 & 1 \\\\ 1 & 2 & 0 \\end{vmatrix} = -2\\vec{i} + \\vec{j} + 3\\vec{k}.\n$$\n\nIts length is $\\sqrt{4 + 1 + 9} = \\sqrt{14}$, so the area of the triangle is $\\frac{\\sqrt{14}}{2}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Vectors are orthogonal when their dot product is zero. Here $\\langle x, 2, 3 \\rangle \\cdot \\langle x, 4, 2x \\rangle = x^2 + 8 + 6x$, so $x^2 + 6x + 8 = (x+2)(x+4) = 0$.\n\nThe values are $x = -2$ and $x = -4$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-top-bottom"
+      ],
+      "solution": "Find where the curves meet, then integrate top minus bottom. Setting $x^2 = 6x - 2x^2$ gives $3x^2 - 6x = 0$, so $x = 0$ and $x = 2$. Between these, $y = 6x - 2x^2$ lies above $y = x^2$, so\n\n$$\n\\int_0^2 \\left[(6x - 2x^2) - x^2\\right] dx = \\int_0^2 (6x - 3x^2)\\,dx = \\left[3x^2 - x^3\\right]_0^2 = 12 - 8 = 4.\n$$\n\nSo the area is $4$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -141,6 +153,11 @@
         "L11",
         "L18"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig",
+        "L18-discontinuity"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$ and $dv = 4x^3\\,dx$, so $du = \\frac{dx}{x}$ and $v = x^4$. The integrand is undefined at $0$, so the integral is improper and is written as a limit:\n\n$$\n\\int_0^1 4x^3 \\ln x\\,dx = \\lim_{t \\to 0^+} \\left[x^4 \\ln x - \\frac{x^4}{4}\\right]_t^1 = \\lim_{t \\to 0^+} \\left(-\\frac{1}{4} - t^4 \\ln t + \\frac{t^4}{4}\\right).\n$$\n\nSince $t^4 \\ln t \\to 0$ as $t \\to 0^+$, the limit is $-\\frac{1}{4}$. So the integral converges and is equal to $-\\frac{1}{4}$.\n\nThe trap is to see $\\ln x$ blow up at $0$ and call the integral divergent. The factor $x^3$ is small enough near $0$ to make the integral converge.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -175,6 +192,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Save one factor of $\\sin\\theta$ and substitute $u = \\cos\\theta$, since the power of cosine is odd. Then $du = -\\sin\\theta\\,d\\theta$, and the limits change from $\\theta = 0$ to $u = 1$ and from $\\theta = \\frac{\\pi}{2}$ to $u = 0$:\n\n$$\n\\int_0^{\\pi/2} \\cos^3\\theta \\sin\\theta\\,d\\theta = \\int_1^0 u^3(-du) = \\int_0^1 u^3\\,du = \\left[\\frac{u^4}{4}\\right]_0^1 = \\frac{1}{4}.\n$$\n\nSo the integral is $\\frac{1}{4}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -213,6 +234,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "Use the arc length formula $L = \\int_a^b \\sqrt{1 + (y')^2}\\,dx$. By the Fundamental Theorem of Calculus, $y' = \\sqrt{\\cos 2x}$, so $1 + (y')^2 = 1 + \\cos 2x$. The half-angle identity $\\cos^2 x = \\frac{1 + \\cos 2x}{2}$ gives $1 + \\cos 2x = 2\\cos^2 x$, so\n\n$$\nL = \\int_0^{\\pi/4} \\sqrt{2\\cos^2 x}\\,dx = \\sqrt{2}\\int_0^{\\pi/4} \\cos x\\,dx,\n$$\n\nsince $\\cos x \\ge 0$ on this interval. Then $L = \\sqrt{2}\\left[\\sin x\\right]_0^{\\pi/4} = \\sqrt{2} \\cdot \\frac{\\sqrt{2}}{2} = 1$.\n\nSo the arc length is $1$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -252,6 +277,11 @@
         "L9",
         "L12"
       ],
+      "typeIds": [
+        "L9-centroid-or-mass",
+        "L12-tan-identities"
+      ],
+      "solution": "Use the formula for the $y$-coordinate of the centroid with $g(x) = 0$: $\\overline{y} = \\frac{1}{A}\\int_0^{\\pi/4} \\frac{1}{2}\\left(\\tan x\\right)^2 dx$. Replace $\\tan^2 x$ by $\\sec^2 x - 1$:\n\n$$\n\\int_0^{\\pi/4} \\tan^2 x\\,dx = \\int_0^{\\pi/4} (\\sec^2 x - 1)\\,dx = \\left[\\tan x - x\\right]_0^{\\pi/4} = 1 - \\frac{\\pi}{4}.\n$$\n\nSo $\\overline{y} = \\frac{1}{2A}\\left(1 - \\frac{\\pi}{4}\\right)$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -287,6 +317,11 @@
         "L7",
         "L11"
       ],
+      "typeIds": [
+        "L7-shell-y-axis",
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Use shells, since the region is revolved about the $y$-axis. The shell radius is $x$ and the height is $\\sin x$, so\n\n$$\nV = 2\\pi \\int_0^{\\pi} x\\sin x\\,dx.\n$$\n\nIntegrate by parts with $u = x$ and $dv = \\sin x\\,dx$, so $du = dx$ and $v = -\\cos x$:\n\n$$\n\\int_0^{\\pi} x\\sin x\\,dx = \\left[-x\\cos x\\right]_0^{\\pi} + \\int_0^{\\pi} \\cos x\\,dx = \\pi + \\left[\\sin x\\right]_0^{\\pi} = \\pi.\n$$\n\nSo $V = 2\\pi \\cdot \\pi = 2\\pi^2$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -321,6 +356,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-y-axis"
+      ],
+      "solution": "Use washers in $y$, since the axis of revolution is the $y$-axis. The region is the triangle with vertices $(1, 0)$, $(2, 0)$ and $(2, 1)$. For $0 \\le y \\le 1$, the outer radius is the distance from the $y$-axis to the line $x = 2$, which is $2$. The inner radius is the distance to the line $y = x - 1$, written as $x = y + 1$. So\n\n$$\nV = \\pi \\int_0^1 \\left[2^2 - (y+1)^2\\right] dy = \\pi\\int_0^1 \\left[4 - (y+1)^2\\right] dy.\n$$",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -355,6 +394,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives the spring constant. A force of $10$ lb stretches the spring $2$ ft, so $10 = k \\cdot 2$ and $k = 5$ lb/ft. The work to stretch it from $0$ to $2$ ft is\n\n$$\nW = \\int_0^2 5x\\,dx = \\left[\\frac{5x^2}{2}\\right]_0^2 = 10.\n$$\n\nSo the work is $10$ ft-lb.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -389,6 +432,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Factor the denominator: $x^2 + 3x + 2 = (x+1)(x+2)$. Partial fractions give $\\frac{1}{(x+1)(x+2)} = \\frac{1}{x+1} - \\frac{1}{x+2}$, so\n\n$$\n\\int_0^1 \\frac{dx}{(x+1)(x+2)} = \\left[\\ln\\frac{x+1}{x+2}\\right]_0^1 = \\ln\\frac{2}{3} - \\ln\\frac{1}{2} = \\ln\\frac{4}{3}.\n$$\n\nSo the integral equals $\\ln\\frac{4}{3}$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -423,6 +470,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "Decompose the integrand as $\\frac{2}{(x+1)(x^2+1)} = \\frac{A}{x+1} + \\frac{Bx + C}{x^2 + 1}$. Setting $x = -1$ in $2 = A(x^2+1) + (Bx+C)(x+1)$ gives $A = 1$. Comparing the $x^2$ and constant terms gives $A + B = 0$ and $A + C = 2$, so $B = -1$ and $C = 1$. Then\n\n$$\n\\int_0^1 \\frac{2\\,dx}{(x+1)(x^2+1)} = \\int_0^1 \\left(\\frac{1}{x+1} + \\frac{1-x}{x^2+1}\\right) dx.\n$$\n\nEach part has a standard antiderivative:\n\n$$\n\\left[\\ln(x+1) + \\arctan x - \\frac{1}{2}\\ln(x^2+1)\\right]_0^1 = \\ln 2 + \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2 = \\frac{1}{2}\\left(\\frac{\\pi}{2} + \\ln 2\\right).\n$$\n\nSo the integral is $\\frac{1}{2}\\left(\\frac{\\pi}{2} + \\ln 2\\right)$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -460,6 +511,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Use the surface area formula for revolution about the $x$-axis, $S = 2\\pi\\int_a^b f(x)\\sqrt{1 + (f'(x))^2}\\,dx$. Here $f(x) = \\frac{1}{3}x^3$ and $f'(x) = x^2$, so $1 + (f')^2 = 1 + x^4$ and\n\n$$\nS = 2\\pi \\int_0^1 \\frac{x^3}{3}\\sqrt{1 + x^4}\\,dx.\n$$\n\nLet $u = 1 + x^4$, so $du = 4x^3\\,dx$ and $x^3\\,dx = \\frac{du}{4}$. The limits become $u = 1$ and $u = 2$:\n\n$$\nS = \\frac{2\\pi}{3}\\cdot\\frac{1}{4} \\int_1^2 u^{1/2}\\,du = \\frac{\\pi}{6}\\cdot\\frac{2}{3}\\left[u^{3/2}\\right]_1^2 = \\frac{\\pi}{9}\\left(2\\sqrt{2} - 1\\right).\n$$\n\nSo the surface area is $\\frac{\\pi}{9}\\left(2\\sqrt{2} - 1\\right)$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -494,6 +549,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-limit"
+      ],
+      "solution": "For $n > 0$, $\\frac{\\pi}{2} - \\arctan n = \\arctan\\frac{1}{n}$. Substitute $t = \\frac{1}{n}$, so $t \\to 0^+$ as $n \\to \\infty$, and the limit becomes\n\n$$\n\\lim_{t \\to 0^+} \\frac{\\arctan t}{t}.\n$$\n\nThis is $\\frac{0}{0}$, so L'Hospital's rule applies:\n\n$$\n\\lim_{t \\to 0^+} \\frac{\\arctan t}{t} = \\lim_{t \\to 0^+} \\frac{\\frac{1}{1 + t^2}}{1} = 1.\n$$\n\nSo the limit is $1$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -528,6 +587,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "Apply the ratio test to the absolute values:\n\n$$\n\\left|\\frac{a_{n+1}(x-3)^{n+1}}{a_n(x-3)^n}\\right| = 2|x-3|\\sqrt{\\frac{n+3}{n+4}} \\to 2|x-3|.\n$$\n\nThe series converges when $2|x-3| < 1$, so the radius is $R = \\frac{1}{2}$ and the series converges for $\\frac{5}{2} < x < \\frac{7}{2}$.\n\nNow test the endpoints. At $x = \\frac{5}{2}$ the terms are $\\frac{(-1)^n}{\\sqrt{n+3}}$, which alternate, decrease, and tend to $0$, so the series converges. At $x = \\frac{7}{2}$ the terms are $\\frac{1}{\\sqrt{n+3}}$, a $p$-series with $p = \\frac{1}{2} \\le 1$, which diverges.\n\nSo the interval of convergence is $\\left[\\frac{5}{2}, \\frac{7}{2}\\right)$.\n\nThe trap is to test only the open interval, which leaves out the left endpoint that does belong to the interval.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -562,6 +625,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "The series converges at $x = 4$, so its radius satisfies $R \\ge |4 - 2| = 2$. It diverges at $x = 6$, so $R \\le |6 - 2| = 4$. The series converges for $|x - 2| < R$, which includes every $x$ with $|x-2| < 2$, and diverges for $|x-2| > R$, which includes every $x$ with $|x-2| > 4$.\n\n- Statement (1): at $x = 7$, $|x - 2| = 5 > 4$, so the series diverges. This is true.\n- Statement (2): at $x = 0.5$, $|x - 2| = 1.5 < 2$, so the series converges. This is true.\n- Statement (3): at $x = 1$, $|x - 2| = 1 < 2$, so the series converges. The claim that it diverges is false.\n- Statement (4): at $x = -3$, $|x - 2| = 5 > 4$, so the series diverges. The claim that it converges is false.\n\nSo statements (1) and (2) are true, and the others are false.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -596,6 +663,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Write $\\frac{1}{x^2}$ in powers of $t = x - 1$: $\\frac{1}{x^2} = \\frac{1}{(1+t)^2}$. Start from the geometric series $\\frac{1}{1+t} = \\sum_{n=0}^{\\infty} (-1)^n t^n$ and differentiate term by term:\n\n$$\n-\\frac{1}{(1+t)^2} = \\sum_{n=1}^{\\infty} (-1)^n n\\,t^{n-1}.\n$$\n\nMultiply by $-1$ and shift the index to $m = n - 1$, which gives $\\frac{1}{(1+t)^2} = \\sum_{m=0}^{\\infty} (-1)^m (m+1)\\,t^m$. Substituting $t = x - 1$:\n\n$$\n\\frac{1}{x^2} = \\sum_{n=0}^{\\infty} (-1)^n (n+1)(x-1)^n.\n$$\n\nSo the Taylor series is $\\sum_{n=0}^{\\infty} (-1)^n (n+1)(x-1)^n$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -631,6 +702,10 @@
         "L22",
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "The terms $b_n = \\frac{1}{n\\ln n}$ are positive and decrease to $0$ for $n \\ge 2$, so the alternating series test shows that the series converges.\n\nFor absolute convergence, apply the integral test to $\\sum \\frac{1}{n\\ln n}$. Since\n\n$$\n\\int_2^{\\infty} \\frac{dx}{x\\ln x} = \\left[\\ln(\\ln x)\\right]_2^{\\infty} = \\infty,\n$$\n\nthe series of absolute values diverges. The series converges but not absolutely, so it is conditionally convergent.\n\nThe trap is to stop at the alternating series test, which shows convergence but says nothing about absolute convergence.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -665,6 +740,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "The series $\\sum_{n=0}^{\\infty} r^n$ is geometric with first term $1$ and ratio $r$. For $|r| < 1$ it sums to $\\frac{1}{1 - r}$, so\n\n$$\n4 \\cdot \\frac{1}{1 - r} = 3.\n$$\n\nThen $1 - r = \\frac{4}{3}$, so $r = -\\frac{1}{3}$, which satisfies $|r| < 1$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -699,6 +778,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Use the ratio test on the recurrence, where $\\frac{a_{n+1}}{a_n} = \\frac{3n^2 + 2}{n^p}$:\n\n$$\n\\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = \\lim_{n \\to \\infty} \\frac{3n^2 + 2}{n^p}.\n$$\n\nIf $p > 2$, the limit is $0 < 1$, so the series converges. If $p = 2$, the limit is $3 > 1$, so the series diverges. If $p < 2$, the limit is infinite, so the series diverges. Therefore the series converges exactly for $p > 2$.\n\nThe trap is $p = 2$: the ratio is $3$, not less than $1$, so the test fails there.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -733,6 +816,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-claims"
+      ],
+      "solution": "Check each reason with the limit comparison test.\n\n- Statement I: dividing by $\\frac{1}{n}$ gives $\\frac{n^7 + 8n^2}{n^8 + 4n + 10} \\to 0$. A limit of $0$ says nothing here, because $\\sum \\frac{1}{n}$ diverges. The comparison does not establish convergence, so the statement is false.\n- Statement II: dividing by $\\frac{1}{n^2}$ gives $\\arctan n \\to \\frac{\\pi}{2}$, a positive finite limit. Since $\\sum \\frac{1}{n^2}$ converges, the series converges. The statement is true.\n- Statement III: dividing by $\\frac{1}{n^{3/2}}$ gives $\\sqrt{\\frac{n^5 + 8n^3}{n^5 + 2}} \\to 1$. Since $\\sum \\frac{1}{n^{3/2}}$ converges, the series converges. The statement is true.\n\nSo statements II and III are true, and statement I is false.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -768,6 +855,10 @@
         "L24",
         "L32"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "The Maclaurin series for $\\cos x$ at $x = 0.1$ is $1 - \\frac{(0.1)^2}{2!} + \\frac{(0.1)^4}{4!} - \\cdots$. The approximation $1 - \\frac{1}{200}$ keeps the first two terms, which is $1 - \\frac{(0.1)^2}{2!}$. The series alternates and decreases in size, so by the Alternating Series Estimation Theorem the error is at most the first omitted term in absolute value:\n\n$$\n\\left|\\frac{(0.1)^4}{4!}\\right| = \\frac{1}{24\\,(10^4)}.\n$$\n\nSo the error is less than or equal to $\\frac{1}{24\\,(10^4)}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -802,6 +893,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Use the binomial series $(1+u)^k = \\sum_{n=0}^{\\infty} \\binom{k}{n} u^n$ with $k = \\frac{1}{5}$ and $u = x^2$. The first coefficients are\n\n- $\\binom{1/5}{1} = \\frac{1}{5}$,\n- $\\binom{1/5}{2} = \\frac{\\frac{1}{5}\\cdot\\left(-\\frac{4}{5}\\right)}{2!} = -\\frac{4}{2!\\,5^2}$,\n- $\\binom{1/5}{3} = \\frac{\\frac{1}{5}\\cdot\\left(-\\frac{4}{5}\\right)\\cdot\\left(-\\frac{9}{5}\\right)}{3!} = \\frac{36}{3!\\,5^3}$.\n\nSo $(1+x^2)^{1/5} = 1 + \\frac{1}{5}x^2 - \\frac{4}{2!\\,5^2}x^4 + \\frac{36}{3!\\,5^3}x^6 + \\cdots$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -836,6 +931,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Multiply both sides by $r$ to get $r^2 = -4r\\sin\\theta$. Since $r^2 = x^2 + y^2$ and $r\\sin\\theta = y$, this becomes $x^2 + y^2 = -4y$. Complete the square in $y$:\n\n$$\nx^2 + y^2 + 4y + 4 = 4, \\qquad\\text{so}\\qquad x^2 + (y+2)^2 = 4.\n$$\n\nThis is a circle of radius $2$ centered at $(0, -2)$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -870,6 +969,10 @@
       "lessonIds": [
         "X2"
       ],
+      "typeIds": [
+        "X2-conic-sections"
+      ],
+      "solution": "The larger denominator, $16$, is under $y^2$, so the major axis lies along the $y$-axis. Here $a^2 = 16$ and $b^2 = 9$, so $c^2 = a^2 - b^2 = 7$. The foci are at $(0, \\pm\\sqrt{7})$.\n\nThe trap is using $c^2 = a^2 + b^2$, which gives $(0, \\pm 5)$, or reading the vertices $(0, \\pm 4)$ as the foci.",
       "sourcePage": 15,
       "status": "reviewed"
     }

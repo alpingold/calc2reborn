@@ -38,6 +38,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use the dot product, $\\cos\\theta = \\frac{\\mathbf{v}\\cdot\\mathbf{w}}{|\\mathbf{v}|\\,|\\mathbf{w}|}$.\n\n$\\mathbf{v}\\cdot\\mathbf{w} = (1)(-1) + (2)(1) + (1)(1) = 2$, $|\\mathbf{v}| = \\sqrt{1+4+1} = \\sqrt{6}$, and $|\\mathbf{w}| = \\sqrt{1+1+1} = \\sqrt{3}$.\n\nSo $\\cos\\theta = \\frac{2}{\\sqrt{6}\\sqrt{3}} = \\frac{2}{\\sqrt{18}} = \\frac{2}{3\\sqrt{2}} = \\frac{\\sqrt{2}}{3}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "The area of a triangle is half the length of the cross product of two side vectors that start at the same vertex. Take $P = (1,0,-2)$, $Q = (2,1,-1)$ and $R = (3,2,-1)$, so $\\overrightarrow{PQ} = \\langle 1, 1, 1 \\rangle$ and $\\overrightarrow{PR} = \\langle 2, 2, 1 \\rangle$.\n\n$$\n\\overrightarrow{PQ} \\times \\overrightarrow{PR} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 1 & 1 \\\\ 2 & 2 & 1 \\end{vmatrix} = \\langle -1, 1, 0 \\rangle\n$$\n\nIts length is $\\sqrt{1 + 1 + 0} = \\sqrt{2}$, so the area is $\\frac{1}{2}\\sqrt{2} = \\frac{\\sqrt{2}}{2}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-other-line"
+      ],
+      "solution": "Slice the solid perpendicular to the line $y = 1$. The curves meet at $x = \\pm 1$, and the region lies between $y = x^2$ below and $y = 1$ above. The top edge $y = 1$ is the axis itself, so each slice is a disk with no hole. Its radius is the distance from $y = 1$ down to $y = x^2$, which is $1 - x^2$.\n\n$$\nV = \\pi\\int_{-1}^{1} (1-x^2)^2\\,dx = 2\\pi\\int_0^1 (1 - 2x^2 + x^4)\\,dx = 2\\pi\\left(1 - \\frac{2}{3} + \\frac{1}{5}\\right) = \\frac{16\\pi}{15}.\n$$\n\nSo the volume is $\\frac{16}{15}\\pi$. The trap is to measure the radius from the $x$-axis, which gives $x^2$ and a wrong answer.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells about the vertical line $x = 2$. The curves meet at $x = \\pm 2$, so the region runs over $-2 \\le x \\le 2$ from $y = x^2$ up to $y = 4$. A shell at $x$ has height $4 - x^2$ and radius equal to its distance from the axis, $2 - x$, which is positive throughout $[-2, 2]$.\n\nSo the volume is $2\\pi\\int_{-2}^{2} (2-x)(4-x^2)\\,dx$. The trap is to use $x$ as the radius, which is correct only for the $y$-axis.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "The average value on $[0, 2]$ is $\\frac{1}{2-0}\\int_0^2 f(x)\\,dx = \\frac{1}{2}\\int_0^2 x^2\\sqrt{x^3+1}\\,dx$.\n\nLet $u = x^3 + 1$, so $du = 3x^2\\,dx$. The limits become $u = 1$ at $x = 0$ and $u = 9$ at $x = 2$.\n\n$$\n\\frac{1}{2}\\int_0^2 x^2\\sqrt{x^3+1}\\,dx = \\frac{1}{2}\\cdot\\frac{1}{3}\\int_1^9 u^{1/2}\\,du = \\frac{1}{6}\\cdot\\frac{2}{3}\\left[u^{3/2}\\right]_1^9 = \\frac{1}{9}(27 - 1) = \\frac{26}{9}.\n$$\n\nSo the average value is $\\frac{26}{9}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-cyclic-parts"
+      ],
+      "solution": "Apply parts with $u = \\sin x$ and $dv = e^{2x}\\,dx$, so $du = \\cos x\\,dx$ and $v = \\frac{1}{2}e^{2x}$. Call the integral $I$:\n\n$$\nI = \\frac{1}{2}e^{2x}\\sin x - \\frac{1}{2}\\int e^{2x}\\cos x\\,dx.\n$$\n\nApply parts to the new integral with $u = \\cos x$ and $dv = e^{2x}\\,dx$, so $du = -\\sin x\\,dx$:\n\n$$\n\\int e^{2x}\\cos x\\,dx = \\frac{1}{2}e^{2x}\\cos x + \\frac{1}{2}I.\n$$\n\nSubstituting back, $I = \\frac{1}{2}e^{2x}\\sin x - \\frac{1}{4}e^{2x}\\cos x - \\frac{1}{4}I$, so $\\frac{5}{4}I = \\frac{e^{2x}}{4}(2\\sin x - \\cos x)$ and $I = \\frac{e^{2x}}{5}(2\\sin x - \\cos x) + C$.\n\nThe trap is a sign slip in the second round, since $\\frac{d}{dx}\\cos x = -\\sin x$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Write $\\cos^5 x = (1 - \\sin^2 x)^2 \\cos x$ and save one $\\cos x$ factor for $u = \\sin x$. The limits become $u = 0$ to $u = 1$:\n\n$$\n\\int_0^{\\pi/2}\\cos^5 x\\,dx = \\int_0^{\\pi/2}(1-\\sin^2 x)^2\\cos x\\,dx = \\int_0^1 (1-u^2)^2\\,du.\n$$\n\nExpanding gives $\\int_0^1 (1 - 2u^2 + u^4)\\,du = 1 - \\frac{2}{3} + \\frac{1}{5} = \\frac{8}{15}$.\n\nSo the integral is $\\frac{8}{15}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-identify-substitution"
+      ],
+      "solution": "The radicand $4 - 9x^2 = 4 - (3x)^2$ has the form $a^2 - u^2$ with $a = 2$ and $u = 3x$. Put $3x = 2\\sin\\theta$, so $x = \\frac{2}{3}\\sin\\theta$ and $dx = \\frac{2}{3}\\cos\\theta\\,d\\theta$. Then $\\sqrt{4 - 9x^2} = \\sqrt{4\\cos^2\\theta} = 2\\cos\\theta$, which removes the root.\n\nThe integral becomes $\\int \\frac{\\frac{4}{9}\\sin^2\\theta \\cdot \\frac{2}{3}\\cos\\theta}{2\\cos\\theta}\\,d\\theta = \\int \\frac{4}{27}\\sin^2\\theta\\,d\\theta$.\n\nSo the substitution is $x = \\frac{2}{3}\\sin\\theta$. The trap is the tangent form, which suits $a^2 + u^2$ and not a minus sign.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "The denominator factors as $x^2 - 1 = (x-1)(x+1)$, so write\n\n$$\n\\frac{x+3}{(x-1)(x+1)} = \\frac{A}{x-1} + \\frac{B}{x+1}.\n$$\n\nSetting $x = 1$ gives $A = \\frac{4}{2} = 2$, and setting $x = -1$ gives $B = \\frac{2}{-2} = -1$. Hence\n\n$$\n\\int_2^3 \\frac{x+3}{x^2-1}\\,dx = \\left[2\\ln|x-1| - \\ln|x+1|\\right]_2^3.\n$$\n\nAt $x = 3$ this is $2\\ln 2 - \\ln 4 = 0$, and at $x = 2$ it is $0 - \\ln 3$. So the integral is $0 - (-\\ln 3) = \\ln 3$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -344,6 +380,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Write the integral as a limit, $\\lim_{t\\to\\infty}\\int_0^t (2x+3)^{-3}\\,dx$. An antiderivative is $-\\frac{1}{4}(2x+3)^{-2}$, since differentiating $(2x+3)^{-2}$ gives $-4(2x+3)^{-3}$. Hence\n\n$$\n\\int_0^t \\frac{dx}{(2x+3)^3} = \\left[-\\frac{1}{4(2x+3)^2}\\right]_0^t = \\frac{1}{36} - \\frac{1}{4(2t+3)^2}.\n$$\n\nAs $t \\to \\infty$ the second term tends to $0$, so the integral converges to $\\frac{1}{36}$. The usual slip is to drop the $\\frac{1}{4}$, which gives a value that is too large.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -378,6 +418,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-evaluate-completed-square"
+      ],
+      "solution": "Complete the square: $x^2 - 4x + 7 = (x-2)^2 + 3$. Put $u = x - 2$, so $du = dx$, with $u = 0$ at $x = 2$ and $u = 1$ at $x = 3$. Writing $a^2 = 3$, the given formula applies:\n\n$$\n\\int_2^3 \\frac{dx}{(x^2-4x+7)^{3/2}} = \\int_0^1 \\frac{du}{(u^2+3)^{3/2}} = \\left[\\frac{u}{3\\sqrt{u^2+3}}\\right]_0^1 = \\frac{1}{3\\cdot 2} - 0 = \\frac{1}{6}.\n$$\n\nSo the value is $\\frac{1}{6}$. The trap is to take $a = 3$ rather than $a^2 = 3$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -412,6 +456,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-setup"
+      ],
+      "solution": "The arc length of $y = f(x)$ on $[a, b]$ is $\\int_a^b \\sqrt{1 + (f'(x))^2}\\,dx$. For $y = \\sqrt{x}$, $f'(x) = \\frac{1}{2\\sqrt{x}}$, and squaring gives $(f'(x))^2 = \\frac{1}{4x}$.\n\nSo the length is $\\int_1^9 \\sqrt{1 + \\frac{1}{4x}}\\,dx$. The common trap is to leave $\\frac{1}{2\\sqrt{x}}$ inside the root, which is not what squaring gives.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -446,6 +494,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Check the limit of each sequence in turn.\n\nI. $\\frac{1}{n} \\to 0$, so this sequence converges.\n\nII. $\\frac{(-1)^{n+1}}{n}$ has absolute value $\\frac{1}{n} \\to 0$, so its terms tend to $0$ and it converges.\n\nIII. $\\frac{n}{\\ln n} \\to \\infty$, since $\\ln n$ grows far more slowly than $n$. By L'Hospital's rule, $\\lim \\frac{n}{\\ln n} = \\lim n = \\infty$, so it diverges.\n\nIV. By L'Hospital's rule twice, $\\lim \\frac{n^2}{e^n} = \\lim \\frac{2n}{e^n} = \\lim \\frac{2}{e^n} = 0$, so it converges.\n\nSo I, II and IV converge.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -480,6 +532,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "After the first term $2$, the rest is $-1 + \\frac{1}{2} - \\frac{1}{4} + \\cdots$. Each term is $-\\frac{1}{2}$ times the one before, so this is geometric with $a = -1$ and $r = -\\frac{1}{2}$. Since $|r| < 1$,\n\n$$\n-1 + \\frac{1}{2} - \\frac{1}{4} + \\cdots = \\frac{a}{1-r} = \\frac{-1}{1 + \\frac{1}{2}} = -\\frac{2}{3}.\n$$\n\nAdding the first term gives $2 - \\frac{2}{3} = \\frac{4}{3}$, so the sum is $\\frac{4}{3}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -514,6 +570,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "The integral test applies to each series, since $f(x) = \\frac{1}{x^2}$ is positive and decreasing for $x \\ge 1$, and so is $f(x) = x^5 e^{-x^6}$, whose derivative is $x^4 e^{-x^6}(5 - 6x^6) < 0$ for $x \\ge 1$.\n\nFor series $A$, $\\int_1^{\\infty} \\frac{dx}{x^2} = 1$, which is finite, so $A$ converges.\n\nFor series $B$, put $u = x^6$, so $du = 6x^5\\,dx$:\n\n$$\n\\int_1^{\\infty} x^5 e^{-x^6}\\,dx = \\frac{1}{6}\\int_1^{\\infty} e^{-u}\\,du = \\frac{1}{6}e^{-1}.\n$$\n\nThis is finite, so $B$ converges too. Both series converge.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -548,6 +608,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-classify-each"
+      ],
+      "solution": "Each series is checked with a suitable test.\n\n1. $(-1)^n\\sqrt{n}$ does not tend to $0$, so $\\sum (-1)^n\\sqrt{n}$ diverges by the divergence test.\n\n2. $\\frac{n^3}{n^4+5}$ behaves like $\\frac{1}{n}$, and the limit comparison with $\\sum \\frac{1}{n}$ gives $\\lim \\frac{n^4}{n^4+5} = 1$, so the series diverges.\n\n3. The ratio is $\\frac{(n+1)!}{n!}\\cdot\\frac{n^{2002}}{(n+1)^{2002}} = (n+1)\\left(\\frac{n}{n+1}\\right)^{2002} \\to \\infty$, so the series diverges.\n\n4. $\\int_2^{\\infty} \\frac{dx}{x(\\ln x)^2} = \\left[-\\frac{1}{\\ln x}\\right]_2^{\\infty} = \\frac{1}{\\ln 2}$ is finite, so $\\sum \\frac{1}{n(\\ln n)^2}$ converges.\n\n5. $\\left(1 + \\frac{1}{n}\\right)^{n} \\to e$, so the terms tend to $\\frac{1}{e} \\ne 0$ and the series diverges.\n\nOnly the fourth series converges, so the answer is one.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -582,6 +646,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "A series is conditionally convergent when it converges but the series of absolute values diverges. Each series is considered in turn.\n\n1. The terms $\\frac{1}{n\\ln n}$ are positive and decrease to $0$, so the alternating series converges. The absolute series diverges, since $\\int_2^{\\infty} \\frac{dx}{x\\ln x} = \\infty$. This is conditional.\n\n2. The absolute series is geometric with ratio $\\frac{1}{2}$, so it converges absolutely. This is not conditional.\n\n3. The absolute series is a $p$-series with $p = 0.998 < 1$, so it diverges. The alternating series converges because $n^{-0.998}$ decreases to $0$. This is conditional.\n\n4. The alternating harmonic series converges and the harmonic series diverges. This is conditional.\n\n5. The absolute series is a $p$-series with $p = 1.001 > 1$, so it converges absolutely. This is not conditional. The trap is to read $p$ just above $1$ as conditional convergence.\n\nThree series are conditionally convergent.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -617,6 +685,10 @@
         "L24",
         "L32"
       ],
+      "typeIds": [
+        "L32-estimate-with-error"
+      ],
+      "solution": "Replace $x$ by $x^2$ in the series for $\\ln(1+x)$:\n\n$$\n\\ln(1+x^2) = x^2 - \\frac{x^4}{2} + \\frac{x^6}{3} - \\frac{x^8}{4} + \\cdots\n$$\n\nIntegrating term by term from $0$ to $1$ gives\n\n$$\nS = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n(2n+1)} = \\frac{1}{3} - \\frac{1}{10} + \\frac{1}{21} - \\frac{1}{36} + \\cdots\n$$\n\nThis is an alternating series whose terms $b_n = \\frac{1}{n(2n+1)}$ decrease to $0$. Stopping after three terms leaves an error no larger than the next term, so the maximum error is $b_4 = \\frac{1}{36}$.\n\nSo the maximum possible error is $\\frac{1}{36}$. The trap is to take the last term used, $\\frac{1}{21}$, as the error; the bound is the first term left out.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -651,6 +723,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The ratio of consecutive absolute terms tends to $2|x-2|$, since $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{2|x-2|\\,(n+1)}{n+2}$. The series converges when $2|x-2| < 1$, that is, $\\frac{3}{2} < x < \\frac{5}{2}$.\n\nAt $x = \\frac{3}{2}$, $(x-2)^n = \\left(-\\frac{1}{2}\\right)^n$, so $2^n(x-2)^n = (-1)^n$ and the terms are $\\frac{(-1)^n(-1)^n}{n+1} = \\frac{1}{n+1}$. This series diverges, as the harmonic series does. The trap is to see the $(-1)^n$ and call it alternating when the two signs cancel.\n\nAt $x = \\frac{5}{2}$, the terms are $\\frac{(-1)^n}{n+1}$, which converge by the alternating series test.\n\nSo the interval of convergence is $\\left(\\frac{3}{2}, \\frac{5}{2}\\right]$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -685,6 +761,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "The coefficient of $(x-2)^3$ in the Taylor series about $a = 2$ is $c_3 = \\frac{f'''(2)}{3!}$. Here $f'''(x) = 24x - 6$, so $f'''(2) = 42$ and\n\n$$\nc_3 = \\frac{42}{3!} = \\frac{42}{6} = 7.\n$$\n\nAs a check, put $x = 2 + t$: the $t^3$ terms are $8t^3$ from $(2+t)^4$ and $-t^3$ from $-(2+t)^3$, giving $7$. The trap is to omit the $3!$, which gives $42$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -719,6 +799,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-differentiate-integrate-series"
+      ],
+      "solution": "Write $\\frac{1}{(x-2)^2} = \\frac{1}{4}\\cdot\\frac{1}{\\left(1 - \\frac{x}{2}\\right)^2}$. Start from the geometric series $\\frac{1}{1-u} = \\sum_{n=0}^{\\infty} u^n$, and differentiate with respect to $u$:\n\n$$\n\\frac{1}{(1-u)^2} = \\sum_{n=1}^{\\infty} n u^{n-1} = \\sum_{n=0}^{\\infty} (n+1)u^n.\n$$\n\nPut $u = \\frac{x}{2}$ and multiply by $\\frac{1}{4}$:\n\n$$\n\\frac{1}{(x-2)^2} = \\sum_{n=0}^{\\infty} \\frac{n+1}{2^{n+2}}\\,x^n.\n$$\n\nFor $x^3$, $n = 3$ gives $\\frac{4}{2^5} = \\frac{1}{8}$. The trap is to forget the factor $n+1$ from differentiating, which gives $\\frac{1}{32}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -753,6 +837,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "Each option is a circle centred at $(3, -1)$. Options B and C use $\\cos 2t$ or $\\sin 2t$, which has period $\\pi$, so they go around $4$ times over $0 \\le t \\le 4\\pi$. Option A goes around twice, but counterclockwise, since $y = 2\\sin t - 1$ rises from the rightmost point. Option D starts at the bottom and moves right, so it is also counterclockwise.\n\nOption E has $x = 2\\cos t + 3$ and $y = -2\\sin t - 1$. It starts at the rightmost point $(5, -1)$ and $y$ falls at first, so it moves clockwise. Its period is $2\\pi$, so it goes around twice over $0 \\le t \\le 4\\pi$.\n\nSo the curve that goes twice clockwise is the one in option E. The trap is a circle traced in the right direction but at the wrong rate, as in the $\\cos 2t$ options.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -787,6 +875,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "For a parametric curve, $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ and $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\Big/ \\frac{dx}{dt}$.\n\nHere $\\frac{dx}{dt} = 2\\cos t$ and $\\frac{dy}{dt} = -3\\sin t$, so $\\frac{dy}{dx} = -\\frac{3}{2}\\tan t$.\n\nDifferentiating, $\\frac{d}{dt}\\left(-\\frac{3}{2}\\tan t\\right) = -\\frac{3}{2}\\sec^2 t$, so\n\n$$\n\\frac{d^2y}{dx^2} = \\frac{-\\frac{3}{2}\\sec^2 t}{2\\cos t} = -\\frac{3}{4}\\sec^3 t.\n$$\n\nAt $t = 0$, $\\sec 0 = 1$, so the second derivative is $-\\frac{3}{4}$. The trap is to stop after differentiating $\\frac{dy}{dx}$ and forget to divide by $\\frac{dx}{dt}$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -821,6 +913,10 @@
       "lessonIds": [
         "X3"
       ],
+      "typeIds": [
+        "X3-complex-numbers"
+      ],
+      "solution": "Write $e^{i\\pi/4} = \\frac{\\sqrt{2}}{2} + i\\frac{\\sqrt{2}}{2} = \\frac{\\sqrt{2}}{2}(1+i)$, so\n\n$$\n(2+3i)e^{i\\pi/4} = \\frac{\\sqrt{2}}{2}(2+3i)(1+i).\n$$\n\nExpanding, $(2+3i)(1+i) = 2 + 2i + 3i + 3i^2 = -1 + 5i$. Hence $(2+3i)e^{i\\pi/4} = \\frac{\\sqrt{2}}{2}(-1+5i) = -\\frac{\\sqrt{2}}{2} + \\frac{5\\sqrt{2}}{2}i$.\n\nSo $a = -\\frac{\\sqrt{2}}{2}$ and $b = \\frac{5\\sqrt{2}}{2}$.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -858,6 +954,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-roses"
+      ],
+      "solution": "The curve $r = \\cos 2\\theta$ is a four-petal rose, and $r$ is negative when $\\cos 2\\theta < 0$. The two pieces in the picture are the lower half of the left petal, running from $(-1, 0)$ to the origin, and the lower-right piece running from the origin to $(0, -1)$.\n\nThe first piece is traced for $\\theta \\in [\\pi, \\frac{5\\pi}{4}]$. At $\\theta = \\pi$, $r = \\cos 2\\pi = 1$, giving $(-1, 0)$; at $\\theta = \\frac{5\\pi}{4}$, $r = \\cos\\frac{5\\pi}{2} = 0$, giving the origin. Here $r \\ge 0$.\n\nThe second piece is traced for $\\theta \\in [\\frac{\\pi}{2}, \\frac{3\\pi}{4}]$. At $\\theta = \\frac{\\pi}{2}$, $r = \\cos\\pi = -1$, which plots at $(0, -1)$; at $\\theta = \\frac{3\\pi}{4}$, $r = 0$. Since $r < 0$ here, the points lie in the direction $\\theta + \\pi$, which is lower right. The trap is to read these points as lying in the upper left, forgetting that $r < 0$.\n\nSo the two intervals are $\\left[\\frac{\\pi}{2}, \\frac{3\\pi}{4}\\right]$ and $\\left[\\pi, \\frac{5\\pi}{4}\\right]$.",
       "sourcePage": 15,
       "status": "reviewed"
     }
