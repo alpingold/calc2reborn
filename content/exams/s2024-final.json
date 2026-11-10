@@ -38,6 +38,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Apply the divergence test to (I) and the alternating series test to (II).\n\nFor (I), the terms $\\frac{10^k}{k^{10}}$ do not tend to $0$, because $10^k$ grows much faster than $k^{10}$. So $(-1)^k \\frac{10^k}{k^{10}}$ has no limit, and the series diverges.\n\nFor (II), the terms $\\frac{1}{\\sqrt{k}}$ are positive, decreasing, and tend to $0$, so the series converges by the alternating series test. The series of absolute values $\\sum \\frac{1}{\\sqrt{k}}$ is a $p$-series with $p = \\frac12 \\le 1$, so it diverges. Hence (II) is conditionally convergent.\n\nSo (I) is divergent and (II) is conditionally convergent. Stopping at \"(II) converges\" misses the difference between absolute and conditional convergence.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Use the root test on the coefficients $c_k = \\left(1 + \\frac{2}{k}\\right)^k$.\n\nThe $k$th root of the coefficient is $|c_k|^{1/k} = 1 + \\frac{2}{k}$, which tends to $1$ as $k \\to \\infty$. So the limit in the root test is $L = 1$, and the radius of convergence is $R = \\frac{1}{L} = 1$.\n\nThe trap is taking the limit of $c_k$ itself, which is $e^2$, and then answering $e^{-2}$ or $e^2$. The root test takes the $k$th root first.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Use the binomial series $(1+x)^{k} = \\sum_{n=0}^{\\infty} \\binom{k}{n} x^n$ with $k = \\frac12$.\n\n$$\n\\sqrt{1+x} = 1 + \\frac12 x + \\frac{\\frac12\\left(\\frac12 - 1\\right)}{2!}x^2 + \\cdots\n$$\n\nThe $x^2$ coefficient is $\\frac{\\frac12 \\cdot \\left(-\\frac12\\right)}{2} = -\\frac18$. So the first three terms are $1 + \\frac{x}{2} - \\frac{x^2}{8}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Write the sum as an arctangent series with $x^2 = \\frac13$.\n\nSince $\\frac{1}{(-3)^n} = (-1)^n \\left(\\frac{1}{\\sqrt3}\\right)^{2n}$, the sum is $\\sum_{n=0}^{\\infty} \\frac{(-1)^n x^{2n}}{2n+1}$ with $x = \\frac{1}{\\sqrt3}$.\n\n$$\n\\arctan x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{2n+1}, \\quad \\text{so} \\quad \\sum_{n=0}^{\\infty} \\frac{(-1)^n x^{2n}}{2n+1} = \\frac{\\arctan x}{x}\n$$\n\nAt $x = \\frac{1}{\\sqrt3}$ this gives $\\sqrt3 \\arctan\\left(\\frac{1}{\\sqrt3}\\right) = \\sqrt3 \\cdot \\frac{\\pi}{6}$.\n\nSo the sum is $\\frac{\\sqrt3\\,\\pi}{6}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -175,6 +191,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-angle-dot-and-cross"
+      ],
+      "solution": "Use the dot and cross products together: $\\vec v \\cdot \\vec w = |\\vec v||\\vec w|\\cos\\theta$ and $|\\vec v \\times \\vec w| = |\\vec v||\\vec w|\\sin\\theta$. Dividing gives $\\tan\\theta = \\frac{|\\vec v \\times \\vec w|}{\\vec v \\cdot \\vec w}$.\n\nThe cross product has length $\\sqrt{1 + 4 + 4} = 3$, so $\\tan\\theta = \\frac{3}{-3} = -1$.\n\nSince $\\vec v \\cdot \\vec w < 0$, $\\cos\\theta < 0$, so $\\theta$ lies in $\\left[\\frac{\\pi}{2}, \\pi\\right]$ with $\\tan\\theta = -1$. Hence $\\theta = \\frac{3\\pi}{4}$.\n\nThe trap is reading only $\\tan\\theta = -1$ or ignoring the sign of the dot product: an acute angle such as $\\frac{\\pi}{4}$ has a positive dot product, so the negative dot product forces the obtuse angle.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -212,6 +232,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Use slicing with the straight edge of the semicircle as the $x$-axis from $-2$ to $2$, and the base as the region $x^2 + y^2 \\le 4$ with $y \\ge 0$. Each slice lies in a plane at distance $y$ from the straight edge, and the slice is a square whose side is the chord of the base at that $y$.\n\nAt height $y$, the chord runs from $x = -\\sqrt{4 - y^2}$ to $x = \\sqrt{4 - y^2}$, so its length is $2\\sqrt{4 - y^2}$. A square with this side has area $4(4 - y^2)$.\n\n$$\nV = \\int_0^2 4(4 - y^2)\\,dy = 4\\left[4y - \\frac{y^3}{3}\\right]_0^2 = 4 \\cdot \\frac{16}{3} = \\frac{64}{3}\n$$\n\nSo the volume is $\\frac{64}{3}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -249,6 +273,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "Multiply $r = \\cos\\theta + \\sin\\theta$ by $r$: $r^2 = r\\cos\\theta + r\\sin\\theta$, so $x^2 + y^2 = x + y$. Completing the square gives\n\n$$\n\\left(x - \\frac12\\right)^2 + \\left(y - \\frac12\\right)^2 = \\frac12.\n$$\n\nSo the graph is a circle with center $\\left(\\frac12, \\frac12\\right)$ and radius $\\frac{\\sqrt2}{2}$. It crosses both axes at the origin and at $(1, 0)$ and $(0, 1)$.\n\nThe circle in graph B has its center in the first quadrant and crosses the axes at the origin. Graph A has its center on the vertical axis, graph C is centered at the origin, and graph E is centered in the third quadrant. Graph D is centered on the horizontal axis, to the right of the origin.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -283,6 +311,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "Integrate the left side by parts once, with $u = e^{2t}$ and $dv = \\sin t\\,dt$, so $du = 2e^{2t}\\,dt$ and $v = -\\cos t$.\n\n$$\n\\int_0^{\\pi/2} e^{2t}\\sin t\\,dt = \\left[-e^{2t}\\cos t\\right]_0^{\\pi/2} + \\int_0^{\\pi/2} 2e^{2t}\\cos t\\,dt\n$$\n\nThe boundary term is $\\left(-e^{\\pi}\\cos\\frac{\\pi}{2}\\right) - \\left(-e^{0}\\cos 0\\right) = 0 + 1 = 1$.\n\nComparing with the given equation, $A = 1$. The trap is the sign of $v$: taking $v = \\cos t$ instead of $-\\cos t$ gives $A = -1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -317,6 +349,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "The radius $R$ is the distance from the center $x = 1$ to the boundary of convergence.\n\nConvergence at $x = -1$ means the distance $|-1 - 1| = 2$ is at most $R$, so $R \\ge 2$. Divergence at $x = 4$ means the distance $|4 - 1| = 3$ is at least $R$, so $R \\le 3$.\n\nSo $2 \\le R \\le 3$. The trap is writing strict inequalities: convergence at distance $2$ allows $R = 2$, and divergence at distance $3$ allows $R = 3$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -351,6 +387,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "Use $x = r\\cos\\theta$ and $y = r\\sin\\theta$ with $r = 4$ and $\\theta = \\frac{7\\pi}{2}$.\n\nSince $\\cos\\frac{7\\pi}{2} = 0$ and $\\sin\\frac{7\\pi}{2} = -1$, we get $x = 0$ and $y = -4$.\n\nSo the Cartesian point is $(0, -4)$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -385,6 +425,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-derivative-from-series"
+      ],
+      "solution": "The Maclaurin coefficient of $x^n$ is $c_n = \\frac{f^{(n)}(0)}{n!}$, so $f^{(n)}(0) = n!\\,c_n$.\n\nFor $n = 6$, the term $(-1)^6 \\frac{x^6}{3 \\cdot 6 \\cdot 12}$ gives $c_6 = \\frac{1}{216}$.\n\n$$\nf^{(6)}(0) = 6! \\cdot \\frac{1}{216} = \\frac{720}{216} = \\frac{10}{3}\n$$\n\nSo $f^{(6)}(0) = \\frac{10}{3}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -419,6 +463,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Rewrite the denominator in the form $1 - u$ with $u = \\frac{x}{2}$:\n\n$$\n\\frac{1}{(x-2)^2} = \\frac{1}{4\\left(1 - \\frac{x}{2}\\right)^2}\n$$\n\nDifferentiating the geometric series $\\frac{1}{1-u} = \\sum_{n=0}^{\\infty} u^n$ gives $\\frac{1}{(1-u)^2} = \\sum_{n=0}^{\\infty} (n+1)u^n$. So\n\n$$\nf(x) = \\frac14 \\sum_{n=0}^{\\infty} (n+1)\\left(\\frac{x}{2}\\right)^n.\n$$\n\nShift the index with $k = n + 1$:\n\n$$\nf(x) = \\sum_{k=1}^{\\infty} \\frac{k\\,x^{k-1}}{4 \\cdot 2^{k-1}} = \\sum_{k=1}^{\\infty} \\frac{k\\,x^{k-1}}{2^{k+1}}.\n$$",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -453,6 +501,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "The coefficient is $c_3 = \\frac{f'''(2)}{3!}$. Write $f(x) = \\ln(3x) = \\ln 3 + \\ln x$, so the constant $\\ln 3$ does not affect the derivatives.\n\n$$\nf'(x) = \\frac1x, \\quad f''(x) = -\\frac{1}{x^2}, \\quad f'''(x) = \\frac{2}{x^3}\n$$\n\nAt $x = 2$, $f'''(2) = \\frac{2}{8} = \\frac14$, so $c_3 = \\frac{1/4}{6} = \\frac{1}{24}$.\n\nThe trap is forgetting to divide by $3! = 6$, which gives $\\frac14$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -487,6 +539,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-which-converge"
+      ],
+      "solution": "Check each sequence separately.\n\n$a_n = \\frac{\\sin n}{n^2}$: since $|\\sin n| \\le 1$, we have $|a_n| \\le \\frac{1}{n^2} \\to 0$, so $a_n$ converges to $0$.\n\n$b_n = \\sin\\left(\\frac{n\\pi}{2}\\right)$ cycles through $1, 0, -1, 0$ and never settles on one value, so $b_n$ diverges.\n\n$c_n = n\\sin\\frac1n$: with $t = \\frac1n$, this is $\\frac{\\sin t}{t} \\to 1$ as $t \\to 0$, so $c_n$ converges to $1$.\n\nSo $a_n$ and $c_n$ are convergent and $b_n$ is divergent.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -521,6 +577,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Multiply both sides by $\\cos\\theta$ to get $r\\cos\\theta = 4$. Since $x = r\\cos\\theta$, this is $x = 4$.\n\nThe equation $x = 4$ is a vertical line.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -555,6 +615,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int_\\alpha^\\beta \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$.\n\nFor $r = e^{2\\theta}$, $\\frac{dr}{d\\theta} = 2e^{2\\theta}$, so the integrand is\n\n$$\n\\sqrt{e^{4\\theta} + 4e^{4\\theta}} = \\sqrt5\\, e^{2\\theta}.\n$$\n\n$$\nL = \\sqrt5 \\int_0^{2\\pi} e^{2\\theta}\\,d\\theta = \\sqrt5 \\cdot \\frac{e^{4\\pi} - 1}{2}\n$$\n\nSo the arc length is $\\frac{\\sqrt5}{2}(e^{4\\pi} - 1)$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -623,6 +687,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-between"
+      ],
+      "solution": "The area between polar curves, with outer curve $R$ and inner curve $r$ over $\\alpha \\le \\theta \\le \\beta$, is $\\frac12 \\int_\\alpha^\\beta (R^2 - r^2)\\,d\\theta$.\n\nFor $0 \\le \\theta \\le \\frac{\\pi}{4}$ we have $\\theta \\le 2\\theta$, so $R = 2\\theta$ and $r = \\theta$.\n\n$$\nA = \\frac12 \\int_0^{\\pi/4} \\left((2\\theta)^2 - \\theta^2\\right) d\\theta = \\frac12 \\int_0^{\\pi/4} 3\\theta^2\\,d\\theta = \\frac12 \\left[\\theta^3\\right]_0^{\\pi/4} = \\frac12 \\cdot \\frac{\\pi^3}{64}\n$$\n\nSo the area is $\\frac{\\pi^3}{128}$. The trap is dropping the factor $\\frac12$, which gives $\\frac{\\pi^3}{64}$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -657,6 +725,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "Use the ratio test: $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{|x-2|(n+5)}{n+6} \\to |x-2|$. So the radius is $R = 1$, and the series converges for $|x - 2| < 1$, that is $1 < x < 3$.\n\nCheck the endpoints:\n\n- At $x = 1$, $(x-2)^n = (-1)^n$, so the terms become $\\frac{1}{n+5}$. This series diverges, since it is a shifted harmonic series.\n- At $x = 3$, the terms are $\\frac{(-1)^n}{n+5}$. They decrease to $0$, so the alternating series converges.\n\nSo the interval of convergence is $(1, 3]$. The trap is testing only one endpoint, which leaves choices A and B both looking possible.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -692,6 +764,11 @@
         "L17",
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval",
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "Split the integrand by partial fractions. Since $\\frac{1}{x^2} - \\frac{1}{1+x^2} = \\frac{(1 + x^2) - x^2}{x^2(1+x^2)}$, we have\n\n$$\n\\frac{1}{x^2 + x^4} = \\frac{1}{x^2(1+x^2)} = \\frac{1}{x^2} - \\frac{1}{1+x^2}.\n$$\n\nThe integral is improper, so take a limit:\n\n$$\n\\int_1^{\\infty} \\frac{dx}{x^2 + x^4} = \\lim_{b \\to \\infty} \\left[-\\frac1x - \\arctan x\\right]_1^b = \\left(0 - \\frac{\\pi}{2}\\right) - \\left(-1 - \\frac{\\pi}{4}\\right).\n$$\n\nSo the integral is $1 - \\frac{\\pi}{4}$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -726,6 +803,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Expand $e^{2x} = \\sum_{n=0}^{\\infty} \\frac{(2x)^n}{n!}$, so $e^{2x} - 1 = \\sum_{n=1}^{\\infty} \\frac{2^n x^n}{n!}$, with the constant term removed.\n\nDividing by $x$ gives $\\frac{e^{2x} - 1}{x} = \\sum_{n=1}^{\\infty} \\frac{2^n x^{n-1}}{n!}$.\n\nIntegrate term by term, using $\\int x^{n-1}\\,dx = \\frac{x^n}{n}$:\n\n$$\n\\int \\frac{e^{2x} - 1}{x}\\,dx = \\sum_{n=1}^{\\infty} \\frac{2^n x^n}{n! \\cdot n} + c.\n$$\n\nThe trap is forgetting the $\\frac1n$ from integrating $x^{n-1}$, which gives choice B.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -761,6 +842,10 @@
         "L14",
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Complete the square: $x^2 - 4x + 3 = (x-2)^2 - 1$. Let $u = x - 2$, so the radical is $\\sqrt{u^2 - 1}$.\n\nThis has the form $\\sqrt{u^2 - a^2}$ with $a = 1$, which calls for $u = a\\sec\\theta$. So $x - 2 = \\sec\\theta$, that is, $x = \\sec\\theta + 2$.\n\nThe trap is choosing $\\tan\\theta$, which suits $\\sqrt{u^2 + 1}$ and not $\\sqrt{u^2 - 1}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -795,6 +880,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "The point $(2\\sqrt3, 2)$ has $r = \\sqrt{12 + 4} = 4$ and $\\theta = \\frac{\\pi}{6}$.\n\nCheck each description by converting to Cartesian coordinates with $x = r\\cos\\theta$ and $y = r\\sin\\theta$:\n\n- (I) $(4, \\frac{\\pi}{6})$ gives $(2\\sqrt3, 2)$. Correct.\n- (II) $(-4, -\\frac{11\\pi}{6})$: since $\\cos\\left(-\\frac{11\\pi}{6}\\right) = \\frac{\\sqrt3}{2}$ and $\\sin\\left(-\\frac{11\\pi}{6}\\right) = \\frac12$, this gives $-4\\left(\\frac{\\sqrt3}{2}, \\frac12\\right) = (-2\\sqrt3, -2)$. Not the point.\n- (III) $(-4, \\frac{7\\pi}{6})$: since $\\cos\\frac{7\\pi}{6} = -\\frac{\\sqrt3}{2}$ and $\\sin\\frac{7\\pi}{6} = -\\frac12$, this gives $-4\\left(-\\frac{\\sqrt3}{2}, -\\frac12\\right) = (2\\sqrt3, 2)$. Correct.\n\nSo only (I) and (III) describe the point. The trap is (II): its radius has the right size, but the angle sends it to the opposite side of the origin.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -829,6 +918,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Slice the liquid into horizontal layers, with the bottom of the tank at height $0$ and $y$ the height in meters. A layer at height $y$ with thickness $dy$ has volume $1 \\cdot 1 \\cdot dy$, so its weight is $\\rho g\\,dy = 1200 \\cdot 10\\,dy = 12000\\,dy$ newtons. It must be lifted to the top at height $1$, a distance $1 - y$.\n\n$$\nW = \\int_0^1 12000(1 - y)\\,dy = 12000 \\left[y - \\frac{y^2}{2}\\right]_0^1 = 12000 \\cdot \\frac12 = 6000\n$$\n\nSo the work is $6000$ joules.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -863,6 +956,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "For an alternating series, the error after truncating is at most the size of the first omitted term. Here $x = 0.1$, and the $n$th term has size $\\frac{(0.1)^n}{n}$.\n\n- After $6$ terms, the first omitted term is $n = 7$: $\\frac{(0.1)^7}{7} \\approx 1.4 \\times 10^{-8} > 10^{-8}$, which is too large.\n- After $7$ terms, the first omitted term is $n = 8$: $\\frac{(0.1)^8}{8} = 1.25 \\times 10^{-9} \\le 10^{-8}$, which is small enough.\n\nSo the series needs the terms $n = 1$ through $n = 7$, which is $7$ terms. The trap is giving the index of the first omitted term, $8$, instead of the number of terms kept, $7$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

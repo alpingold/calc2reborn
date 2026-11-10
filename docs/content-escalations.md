@@ -12,9 +12,17 @@ Questions the checking pass held back, and how each was settled. A question is h
 
 None.
 
+## Lesson-tag notes
+
+Suggestions from the checker that hold nothing back.
+
+- `s2024-e1-q12`: the hinged bar fits L9 and L10 only loosely.
+- `s2024-final-q07`: the circle $r = \cos\theta + \sin\theta$ would also fit L33; it is tagged to L34 only.
+
 ## Batches
 
 | Batch | Exams | Questions | Pass | Fix | Reject | Held | Blind answer differed from key |
 |---|---|---|---|---|---|---|---|
 | Pilot | `f2018-e1` | 12 | 12 | 0 | 0 | 0 | 0 |
 | 1 | `f2024-e1`, `f2024-e2`, `f2024-e3`, `f2024-final`, `f2025-e1`, `f2025-e2`, `f2025-e3`, `f2025-final` | 115 | 105 | 10 | 0 | 1 | 1 |
+| 2 | `s2024-e1`, `s2024-e2`, `s2024-e3`, `s2024-final`, `f2023-e1`, `f2023-e2`, `f2023-e3`, `f2023-final` | 122 | 105 | 17 | 0 | 0 | 2, both the checker's own slips |
