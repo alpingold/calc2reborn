@@ -38,6 +38,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-split-or-axis"
+      ],
+      "solution": "Integrate with respect to $x$, splitting the region at the point where the two curves meet. Solving $\\sqrt{x} = 2 - x$ gives $x = (2 - x)^2$, so $x^2 - 5x + 4 = 0$ and $x = 1$ or $x = 4$.\n\nFor $0 \\le x \\le 1$, the region lies between the $x$-axis and $y = \\sqrt{x}$. For $1 \\le x \\le 2$, it lies between the $x$-axis and $y = 2 - x$, which meets the axis at $x = 2$.\n\n$$\n\\int_0^1 \\sqrt{x}\\,dx = \\left[\\frac{2}{3}x^{3/2}\\right]_0^1 = \\frac{2}{3}, \\qquad \\int_1^2 (2 - x)\\,dx = \\left[2x - \\frac{x^2}{2}\\right]_1^2 = \\frac{1}{2}\n$$\n\nSo the area is $\\frac{2}{3} + \\frac{1}{2} = \\frac{7}{6}$.\n\nThe second intersection at $x = 4$ is a trap: the line lies below the $x$-axis there, so integrating out to $x = 4$ gives the wrong region.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-hydrostatic-force"
+      ],
+      "solution": "Use the hydrostatic force $F = \\int \\rho g h\\,w\\,dh$, where $h$ is the depth and $w$ the width of the window. The bottom edge of the window is at the floor of the 5 m deep aquarium, so the window spans heights $0$ to $1$ m above the floor. Those are depths $4$ m to $5$ m, and the width is $1$ m.\n\n$$\nF = \\int_4^5 1000 \\cdot 10 \\cdot h \\cdot 1\\,dh = 10000 \\left[\\frac{h^2}{2}\\right]_4^5 = 10000 \\cdot \\frac{25 - 16}{2}\n$$\n\nSo the force is $45000$ N.\n\nCheck the depths first: a window at the top, between depths $0$ and $1$, would give only $5000$ N.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "Use the sine substitution $x = \\sin\\theta$, since $(1 - x^2)^{3/2}$ is in the denominator. Then $dx = \\cos\\theta\\,d\\theta$ and $1 - x^2 = \\cos^2\\theta$, so the integrand becomes\n\n$$\n\\frac{\\cos\\theta}{(\\cos^2\\theta)^{3/2}} = \\frac{\\cos\\theta}{\\cos^3\\theta} = \\sec^2\\theta.\n$$\n\nThe limits change from $x = 0$ to $\\theta = 0$, and from $x = \\frac{1}{2}$ to $\\sin\\theta = \\frac{1}{2}$, so $\\theta = \\frac{\\pi}{6}$. Then\n\n$$\n\\int_0^{\\pi/6} \\sec^2\\theta\\,d\\theta = \\left[\\tan\\theta\\right]_0^{\\pi/6} = \\frac{1}{\\sqrt{3}}.\n$$\n\nSo the integral is $\\frac{1}{\\sqrt{3}}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "Rearranging the equation gives $A = \\int_1^{e^2} \\left(\\ln^3 x + 3\\ln^2 x\\right)dx$. Integrate $\\ln^3 x$ by parts with $u = \\ln^3 x$ and $dv = dx$, so $du = \\frac{3\\ln^2 x}{x}\\,dx$ and $v = x$:\n\n$$\n\\int \\ln^3 x\\,dx = x\\ln^3 x - \\int x \\cdot \\frac{3\\ln^2 x}{x}\\,dx = x\\ln^3 x - \\int 3\\ln^2 x\\,dx.\n$$\n\nSo $\\int \\ln^3 x\\,dx + \\int 3\\ln^2 x\\,dx = x\\ln^3 x$, and the two integrals together give\n\n$$\nA = \\left[x\\ln^3 x\\right]_1^{e^2} = e^2 \\cdot 2^3 - 1 \\cdot 0 = 8e^2.\n$$\n\nSo $A = 8e^2$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -175,6 +191,10 @@
         "L14",
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Complete the square under the root: $(x + 1)(x + 5) = x^2 + 6x + 5 = (x + 3)^2 - 4$.\n\nThe integrand is $\\sqrt{(x+3)^2 - 2^2}$, which has the form $\\sqrt{u^2 - a^2}$ with $u = x + 3$ and $a = 2$. The secant substitution fits this form, so set $x + 3 = 2\\sec\\theta$, that is $x = 2\\sec\\theta - 3$. Then $\\sqrt{(x+3)^2 - 4} = 2\\tan\\theta$, and $dx = 2\\sec\\theta\\tan\\theta\\,d\\theta$.\n\nThe tangent form $x = 2\\tan\\theta - 3$ is a trap: it suits $u^2 + a^2$, but here the constant is subtracted inside the root.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -209,6 +229,10 @@
       "lessonIds": [
         "L13"
       ],
+      "typeIds": [
+        "L13-choose-substitution"
+      ],
+      "solution": "Rewrite the integrand before substituting: $\\frac{\\tan x}{\\sec^2 x} = \\frac{\\sin x}{\\cos x} \\cdot \\cos^2 x = \\sin x \\cos x$.\n\nLet $u = \\sin x$, so $du = \\cos x\\,dx$ and $\\sin x \\cos x\\,dx = u\\,du$. The limits are $u = \\sin\\frac{\\pi}{6} = \\frac{1}{2}$ and $u = \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$. Then\n\n$$\n\\int_{1/2}^{\\sqrt{3}/2} u\\,du = \\left[\\frac{u^2}{2}\\right]_{1/2}^{\\sqrt{3}/2} = \\frac{1}{2}\\left(\\frac{3}{4} - \\frac{1}{4}\\right) = \\frac{1}{4}.\n$$\n\nSo the integral is $\\frac{1}{4}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -246,6 +270,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-y-axis"
+      ],
+      "solution": "The region is revolved about the $y$-axis, so slice the bowl horizontally with disks. At height $y$, the parabola gives $x = \\sqrt{10y}$, so each slice is a disk of area $\\pi x^2 = 10\\pi y$.\n\nThe full bowl holds\n\n$$\nV_{\\text{full}} = \\int_0^{10} 10\\pi y\\,dy = 10\\pi \\left[\\frac{y^2}{2}\\right]_0^{10} = 500\\pi.\n$$\n\nMilk to depth $h$ fills $\\int_0^h 10\\pi y\\,dy = 5\\pi h^2$. Half the volume is $250\\pi$, so $5\\pi h^2 = 250\\pi$, which gives $h^2 = 50$ and $h = 5\\sqrt{2}$.\n\nSo the depth of milk is $5\\sqrt{2}$ cm, about $7.07$ cm.\n\nHalving the height to $5$ cm is a trap: the bowl narrows toward the bottom, so the bottom $5$ cm holds only a quarter of the volume.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -281,6 +309,10 @@
         "L9",
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-applied"
+      ],
+      "solution": "The total mass is $\\int_0^2 (x + 1)e^{-x}\\,dx$. Integrate $x e^{-x}$ by parts with $u = x$ and $dv = e^{-x}\\,dx$, so $du = dx$ and $v = -e^{-x}$:\n\n$$\n\\int x e^{-x}\\,dx = -xe^{-x} + \\int e^{-x}\\,dx = -xe^{-x} - e^{-x}.\n$$\n\nAdding $\\int e^{-x}\\,dx = -e^{-x}$ gives $\\int (x+1)e^{-x}\\,dx = -(x + 2)e^{-x}$. Then\n\n$$\n\\int_0^2 (x + 1)e^{-x}\\,dx = \\left[-(x + 2)e^{-x}\\right]_0^2 = -4e^{-2} + 2.\n$$\n\nSo the total mass is $2 - 4e^{-2}$ kg.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -318,6 +350,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-arc-length-compute"
+      ],
+      "solution": "The arc length is $L = \\int_{-2}^{2} \\sqrt{1 + f'(x)^2}\\,dx$. Here $f'(x) = \\frac{1}{2}\\left(e^{x/2} - e^{-x/2}\\right)$, so\n\n$$\n1 + f'(x)^2 = 1 + \\frac{1}{4}\\left(e^{x} - 2 + e^{-x}\\right) = \\frac{1}{4}\\left(e^{x} + 2 + e^{-x}\\right) = \\frac{1}{4}\\left(e^{x/2} + e^{-x/2}\\right)^2.\n$$\n\nThe square root is positive, so $\\sqrt{1 + f'(x)^2} = \\frac{1}{2}\\left(e^{x/2} + e^{-x/2}\\right)$. Then\n\n$$\nL = \\int_{-2}^{2} \\frac{1}{2}\\left(e^{x/2} + e^{-x/2}\\right)dx = \\frac{1}{2}\\left[2e^{x/2} - 2e^{-x/2}\\right]_{-2}^{2} = \\frac{1}{2}\\left(4e - 4e^{-1}\\right) = 2\\left(e - e^{-1}\\right).\n$$\n\nSo the portion hanging between the posts is $2(e - e^{-1})$ m.\n\nForgetting the $\\frac{1}{2}$ from the square root is a trap: it doubles the length to $4(e - e^{-1})$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -352,6 +388,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law $F = kx$ gives the spring constant from $40 = k(0.8)$, so $k = 50$ N/m.\n\nThe spring is already compressed to $x = 0.8$ m, so the extra work compresses it from $0.8$ m to $1.2$ m:\n\n$$\nW = \\int_{0.8}^{1.2} 50x\\,dx = \\left[25x^2\\right]_{0.8}^{1.2} = 25(1.44 - 0.64) = 20.\n$$\n\nSo the work is $20$ J.\n\nIntegrating from $0$ to $1.2$ m gives $36$ J, which counts the work already done in the first compression.",
       "sourcePage": 8,
       "status": "reviewed"
     }

@@ -38,6 +38,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Check each statement in turn, using the divergence test and the fact that dropping finitely many terms does not change convergence.\n\n(I) is false. The harmonic series $\\sum \\frac{1}{n}$ diverges, yet $\\lim_{n\\to\\infty} \\frac{1}{n} = 0$. The divergence test only says that a nonzero limit forces divergence, and it cannot be reversed.\n\n(II) is true. The tail $\\sum_{n=43}^{\\infty} a_n$ differs from the full series by the finite sum $a_1 + \\cdots + a_{42}$, so the two series both converge or both diverge.\n\n(III) is true. If $\\sum a_n$ converged, then $\\lim_{n\\to\\infty} a_n = 0$ by the divergence test, so the limit would exist. A series whose terms have no limit must therefore diverge.\n\nSo the true statements are (II) and (III). The trap is (I): a terms-to-zero check does not prove convergence, and the divergence test cannot be read backwards.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "Write the repeating block as a geometric series with first term $\\frac{30}{100}$ and ratio $\\frac{1}{100}$.\n\n$$\n0.\\overline{30} = \\frac{30}{100} + \\frac{30}{100^2} + \\cdots = \\frac{30/100}{1 - 1/100} = \\frac{30}{99} = \\frac{10}{33}\n$$\n\nSo $1.\\overline{30} = 1 + \\frac{10}{33} = \\frac{43}{33}$. Leaving the repeat out gives $\\frac{13}{10}$, which is only the first two digits.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Substitute $u = x^3$, so $du = 3x^2\\,dx$. The lower limit becomes $u = 1$, and the upper limit becomes $u \\to \\infty$.\n\n$$\n\\int_1^{\\infty} \\frac{3x^2}{x^6 + 1}\\,dx = \\int_1^{\\infty} \\frac{du}{u^2 + 1} = \\lim_{t\\to\\infty} \\big[\\arctan u\\big]_1^t = \\frac{\\pi}{2} - \\frac{\\pi}{4}\n$$\n\nSo the integral converges to $\\frac{\\pi}{4}$. Forgetting the lower limit gives $\\frac{\\pi}{2}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Factor the denominator first: $x^4 + 16x^2 = x^2(x^2 + 16)$. The factor $x$ appears squared, so it needs terms with powers 1 and 2. The irreducible quadratic $x^2 + 16$ needs a linear numerator. The degree of the numerator is 3 and the denominator has degree 4, so no division is needed first.\n\n$$\n\\frac{x^3 - 1}{x^2(x^2 + 16)} = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 16}\n$$\n\nThe constants $A$, $B$, $C$ and $D$ would be found afterwards. The quadratic is $x^2 + 16$, not $x^2 + 4$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The denominator $x^2 - 4$ vanishes at $x = 2$, which lies inside $[0, 4]$. The integral is therefore improper at an interior point, so split it there:\n\n$$\n\\int_0^4 \\frac{2x}{x^2 - 4}\\,dx = \\int_0^2 \\frac{2x}{x^2 - 4}\\,dx + \\int_2^4 \\frac{2x}{x^2 - 4}\\,dx\n$$\n\nThe antiderivative is $\\ln|x^2 - 4|$. For the left piece, $\\lim_{t\\to 2^-} \\big[\\ln|x^2 - 4|\\big]_0^t = \\lim_{t\\to 2^-} \\ln|t^2 - 4| - \\ln 4 = -\\infty$, so that piece diverges. One divergent piece is enough, so the whole integral does not converge.\n\nThe trap is evaluating $\\ln|x^2 - 4|$ at the endpoints alone. That gives $\\ln 12 - \\ln 4 = \\ln 3$, but it ignores the discontinuity at $x = 2$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-coefficients-or-form"
+      ],
+      "solution": "Multiply both sides by the denominator $x(x - 1)^2$ on the right:\n\n$$\n3x^2 - x + 1 = A(x - 1)^2 + Bx(x - 1) + Cx\n$$\n\nPut $x = 0$ to get $1 = A$. Put $x = 1$ to get $3 = C$. Comparing the $x^2$ coefficients gives $3 = A + B$, so $B = 2$.\n\nCheck the $x$ coefficient: $-2A - B + C = -2 - 2 + 3 = -1$, which matches. So $A + B + C = 1 + 2 + 3 = 6$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Check absolute convergence first, then the alternating series test where it applies.\n\n$S_1$: the series $\\sum \\frac{1}{\\sqrt{k}}$ is a $p$-series with $p = \\frac12 \\le 1$, so it diverges. The terms $\\frac{1}{\\sqrt{k}}$ decrease to $0$, so the alternating series test shows $S_1$ converges. Hence $S_1$ is conditionally convergent.\n\n$S_2$: the terms $\\frac{(-1)^k k}{k+1}$ have absolute values tending to $1$, not $0$. The terms do not tend to $0$, so $S_2$ diverges. Alternating signs alone do not give convergence.\n\n$S_3$: $\\sum \\frac{1}{2^k}$ is a convergent geometric series with ratio $\\frac12$, so $S_3$ is absolutely convergent.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L19"
       ],
+      "typeIds": [
+        "L19-recurrence-term"
+      ],
+      "solution": "Apply the recurrence one term at a time from $a_1 = 0$:\n\n$$\na_2 = 0^2 - 2 = -2, \\quad a_3 = (-2)^2 - 2 = 2, \\quad a_4 = 2^2 - 2 = 2\n$$\n\nOnce a term equals $2$, the next term is $2^2 - 2 = 2$ again, so $a_5 = a_6 = 2$. Hence $a_6 = 2$. A common slip is writing $(-2)^2 = -4$; squaring gives $+4$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -311,6 +343,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "The terms are positive, so compare with $\\sum \\frac{1}{k}$, a divergent $p$-series. The limit comparison test gives\n\n$$\n\\lim_{k\\to\\infty} \\frac{\\frac{1}{\\sqrt{k^2 + k}}}{\\frac{1}{k}} = \\lim_{k\\to\\infty} \\frac{k}{\\sqrt{k^2 + k}} = \\lim_{k\\to\\infty} \\frac{1}{\\sqrt{1 + \\frac{1}{k}}} = 1\n$$\n\nThe limit is positive and finite, so the series diverges together with $\\sum \\frac{1}{k}$.\n\nThe trap is the direct comparison $\\frac{1}{\\sqrt{k^2 + k}} \\le \\frac{1}{k}$. Being smaller than a divergent series proves nothing, since a smaller series may still diverge, so that comparison cannot justify divergence. The terms also tend to $0$, so the divergence test is inconclusive.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -345,6 +381,10 @@
       "lessonIds": [
         "L20"
       ],
+      "typeIds": [
+        "L20-sequence-claims"
+      ],
+      "solution": "Test each statement with a counterexample, or with a limit law for the true one.\n\nReciprocals of a divergent sequence: false. Take $a_n = (-1)^n$, which diverges. Then $\\frac{1}{a_n} = (-1)^n$ also diverges.\n\nDifferences of two divergent sequences: false. Take $a_n = b_n = n$. Then $a_n - b_n = 0$ converges.\n\nProducts of two divergent sequences: false. Take $a_n = b_n = (-1)^n$. Then $a_n b_n = 1$ converges.\n\nQuotients of two convergent sequences: false. Take $a_n = 1$ and $b_n = \\frac{1}{n}$, both convergent, so that $\\frac{a_n}{b_n} = n$ diverges.\n\nSums of two convergent sequences: true. If $a_n \\to L$ and $b_n \\to M$, then $a_n + b_n \\to L + M$ by the sum law.\n\nThe trap in the quotient case is that the quotient law needs $\\lim b_n \\ne 0$.",
       "sourcePage": 7,
       "status": "reviewed"
     }

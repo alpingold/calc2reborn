@@ -38,6 +38,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-long-division"
+      ],
+      "solution": "Use polynomial long division, since the numerator has degree $3$ and the denominator has degree $2$.\n\nThe first term of the quotient is $x$, and $x(x^2 + x - 3) = x^3 + x^2 - 3x$. Subtracting leaves $-x^2 + 3x$.\n\nThe next term of the quotient is $-1$, and $-1(x^2 + x - 3) = -x^2 - x + 3$. Subtracting leaves $4x - 3$.\n\nSo $q(x) = x - 1$ and $r(x) = 4x - 3$, which has degree less than $2$ as required. The usual slip is the sign when subtracting the second product, so multiply back as a check: $(x-1)(x^2+x-3) + (4x-3) = x^3$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-infinite-interval"
+      ],
+      "solution": "Substitute $u = x^3 + 1$, so $du = 3x^2\\,dx$. The lower limit becomes $u = 1$, and the upper limit is infinite, so the integral is improper and needs a limit.\n\n$$\n\\int_0^{\\infty} \\frac{3x^2}{(x^3+1)^3}\\,dx = \\int_1^{\\infty} u^{-3}\\,du = \\lim_{B \\to \\infty} \\left[-\\frac{1}{2u^2}\\right]_1^{B} = \\lim_{B \\to \\infty}\\left(\\frac{1}{2} - \\frac{1}{2B^2}\\right)\n$$\n\nSince $\\frac{1}{2B^2} \\to 0$, the limit is $\\frac{1}{2}$, so the integral converges to $\\frac{1}{2}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -122,6 +130,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-which-converge"
+      ],
+      "solution": "Judge each integral by whether its integrand is bounded on the interval.\n\n(i) The integrand $\\frac{1}{x^2}$ is unbounded at $x = 0$, which lies inside $[-1, 1]$, so the integral is improper. The half $\\int_0^1 \\frac{dx}{x^2} = \\lim_{t \\to 0^+}\\left[-\\frac{1}{x}\\right]_t^1 = \\lim_{t \\to 0^+}\\left(-1 + \\frac{1}{t}\\right)$ is infinite, so the integral diverges.\n\n(ii) On $[0, 1]$ the denominator $e^{-x} + e^{x}$ is at least $2$, so the integrand is continuous there and the integral is not improper.\n\nSo (i) is a divergent improper integral and (ii) is not an improper integral. The trap in (i) is evaluating $\\left[-\\frac{1}{x}\\right]_{-1}^{1} = -2$ directly, which is not valid when the integrand is unbounded at $0$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -159,6 +171,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-choose-completed-square-sub"
+      ],
+      "solution": "Use a secant substitution, since $x(x-2) = (x-1)^2 - 1$ has the form $u^2 - a^2$ with $u = x - 1$ and $a = 1$.\n\nSet $x - 1 = \\sec\\theta$, so $\\sqrt{(x-1)^2 - 1} = \\tan\\theta$. In the right triangle for $\\theta$, the hypotenuse is $x - 1$ and the side adjacent to $\\theta$ is $1$, since $\\cos\\theta = \\frac{1}{x-1}$. The opposite side is then $\\sqrt{(x-1)^2 - 1}$.\n\nSo the triangle needed has hypotenuse $x - 1$ and horizontal side $1$. The hypotenuse must be the longest side, so a triangle that puts $x - 1$ on a leg is wrong.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -193,6 +209,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-decomposition-form"
+      ],
+      "solution": "Factor the denominator first: $x^5 + 4x^3 + 4x = x(x^4 + 4x^2 + 4) = x(x^2 + 2)^2$. The factor $x$ is linear, and $x^2 + 2$ is irreducible over the real numbers because it has no real roots. Its square means there are two terms for it.\n\nThe linear factor $x$ gets $\\frac{A}{x}$. Each irreducible quadratic power needs a linear numerator, so the terms are $\\frac{Bx + C}{x^2 + 2}$ and $\\frac{Dx + E}{(x^2 + 2)^2}$.\n\nSo the form is $\\frac{A}{x} + \\frac{Bx + C}{x^2 + 2} + \\frac{Dx + E}{(x^2 + 2)^2}$. The trap is a constant numerator over $x^2 + 2$, which is wrong for an irreducible quadratic.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -227,6 +247,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "Use a sine substitution, since $\\sqrt{1 - x^2}$ has the form $\\sqrt{a^2 - x^2}$ with $a = 1$. Set $x = \\sin\\theta$, so $dx = \\cos\\theta\\,d\\theta$ and $\\sqrt{1 - x^2} = \\cos\\theta$ for $0 \\le \\theta \\le \\frac{\\pi}{2}$. The limits become $\\theta = 0$ at $x = 0$ and $\\theta = \\frac{\\pi}{2}$ at $x = 1$.\n\n$$\n\\int_0^1 x^3\\sqrt{1 - x^2}\\,dx = \\int_0^{\\pi/2} \\sin^3\\theta\\,\\cos^2\\theta\\,d\\theta\n$$\n\nSave one factor of $\\sin\\theta$ and write $\\sin^2\\theta = 1 - \\cos^2\\theta$:\n\n$$\n\\int_0^{\\pi/2} (1 - \\cos^2\\theta)\\cos^2\\theta\\,\\sin\\theta\\,d\\theta\n$$\n\nLet $u = \\cos\\theta$, so $du = -\\sin\\theta\\,d\\theta$, and $u$ runs from $1$ to $0$:\n\n$$\n\\int_0^1 (u^2 - u^4)\\,du = \\left[\\frac{u^3}{3} - \\frac{u^5}{5}\\right]_0^1 = \\frac{1}{3} - \\frac{1}{5} = \\frac{2}{15}\n$$\n\nso the integral is $\\frac{2}{15}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -261,6 +285,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Use partial fractions, since the denominator factors into distinct linear factors. Write\n\n$$\n\\frac{3x - 4}{(x-3)(x+2)} = \\frac{A}{x-3} + \\frac{B}{x+2}, \\quad \\text{so} \\quad 3x - 4 = A(x+2) + B(x-3).\n$$\n\nSetting $x = 3$ gives $5 = 5A$, so $A = 1$. Setting $x = -2$ gives $-10 = -5B$, so $B = 2$.\n\nThe poles $x = 3$ and $x = -2$ lie outside $[-1, 2]$, so the integral is proper:\n\n$$\n\\int_{-1}^{2} \\left(\\frac{1}{x-3} + \\frac{2}{x+2}\\right)dx = \\Big[\\ln|x-3| + 2\\ln|x+2|\\Big]_{-1}^{2}\n$$\n\nAt $x = 2$ this is $\\ln 1 + 2\\ln 4 = 4\\ln 2$. At $x = -1$ it is $\\ln 4 + 2\\ln 1 = 2\\ln 2$. The difference is $4\\ln 2 - 2\\ln 2 = 2\\ln 2 = \\ln 4$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -295,6 +323,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-recognise-or-complete"
+      ],
+      "solution": "Use integration by parts on the first integral, with $u = x$ and $dv = \\sec^2 x\\,dx$, so $du = dx$ and $v = \\tan x$.\n\n$$\n\\int_0^{\\pi/4} x\\sec^2 x\\,dx = \\Big[x\\tan x\\Big]_0^{\\pi/4} - \\int_0^{\\pi/4} \\tan x\\,dx\n$$\n\nAt $x = \\frac{\\pi}{4}$, $\\tan x = 1$, and the term at $x = 0$ is $0$, so $\\Big[x\\tan x\\Big]_0^{\\pi/4} = \\frac{\\pi}{4}$.\n\nHence $\\int_0^{\\pi/4} x\\sec^2 x\\,dx = \\frac{\\pi}{4} - \\int_0^{\\pi/4} \\tan x\\,dx$, so $A = \\frac{\\pi}{4}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -329,6 +361,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Use integration by parts with $u = x$ and $dv = e^x\\,dx$, so $du = dx$ and $v = e^x$.\n\n$$\n\\int x e^x\\,dx = x e^x - \\int e^x\\,dx = x e^x - e^x + C\n$$\n\nCheck by differentiating: $(xe^x - e^x)' = e^x + xe^x - e^x = xe^x$, so the antiderivative is $xe^x - e^x + C$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -364,6 +400,10 @@
         "L16",
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The integrand is unbounded at both endpoints, since $x^2 - x = x(x-1)$ vanishes at $x = 0$ and $x = 1$. Use partial fractions:\n\n$$\n\\frac{1}{x(x-1)} = \\frac{1}{x-1} - \\frac{1}{x}\n$$\n\nCheck: $\\frac{1}{x-1} - \\frac{1}{x} = \\frac{x - (x-1)}{x(x-1)} = \\frac{1}{x(x-1)}$.\n\nSplit at $\\frac{1}{2}$ and look at the piece next to $x = 1$:\n\n$$\n\\int_{1/2}^{1} \\frac{dx}{x-1} = \\lim_{t \\to 1^-}\\Big[\\ln|x-1|\\Big]_{1/2}^{t} = \\lim_{t \\to 1^-}\\left(\\ln(1-t) - \\ln\\tfrac{1}{2}\\right) = -\\infty\n$$\n\nSince this piece diverges, the integral diverges. The trap is substituting the endpoints into the antiderivative $\\ln\\left|\\frac{x-1}{x}\\right|$ as if the integral were proper; at $x = 0$ this gives $\\ln$ of an infinite quantity, which signals divergence.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -398,6 +438,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-tangent-substitution"
+      ],
+      "solution": "Use a tangent substitution, since $x^2 + 1$ appears. Set $x = \\tan\\theta$, so $dx = \\sec^2\\theta\\,d\\theta$ and $x^2 + 1 = \\sec^2\\theta$. The limits become $\\theta = 0$ at $x = 0$ and $\\theta = \\frac{\\pi}{4}$ at $x = 1$.\n\n$$\n\\int_0^1 \\frac{dx}{(x^2+1)^2} = \\int_0^{\\pi/4} \\frac{\\sec^2\\theta}{\\sec^4\\theta}\\,d\\theta = \\int_0^{\\pi/4} \\cos^2\\theta\\,d\\theta\n$$\n\nUse $\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$:\n\n$$\n\\int_0^{\\pi/4} \\cos^2\\theta\\,d\\theta = \\left[\\frac{\\theta}{2} + \\frac{\\sin 2\\theta}{4}\\right]_0^{\\pi/4} = \\frac{\\pi}{8} + \\frac{1}{4}\n$$\n\nso the integral is $\\frac{\\pi}{8} + \\frac{1}{4}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -432,6 +476,10 @@
       "lessonIds": [
         "L12"
       ],
+      "typeIds": [
+        "L12-odd-power-substitution"
+      ],
+      "solution": "Save one factor of $\\cos x$ and write $\\cos^2 x = 1 - \\sin^2 x$, then substitute $u = \\sin x$.\n\n$$\n\\int_0^{\\pi/2} \\cos^3 x\\,dx = \\int_0^{\\pi/2} (1 - \\sin^2 x)\\cos x\\,dx\n$$\n\nWith $u = \\sin x$, $du = \\cos x\\,dx$, and the limits run from $0$ to $1$:\n\n$$\n\\int_0^1 (1 - u^2)\\,du = \\left[u - \\frac{u^3}{3}\\right]_0^1 = \\frac{2}{3}\n$$\n\nso the integral is $\\frac{2}{3}$.",
       "sourcePage": 9,
       "status": "reviewed"
     }

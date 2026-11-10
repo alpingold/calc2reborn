@@ -38,6 +38,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-approximate-with-polynomial"
+      ],
+      "solution": "Use the third-order Maclaurin polynomial $e^x \\approx 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!}$ with $x = -2$.\n\n$$\n1 + (-2) + \\frac{(-2)^2}{2} + \\frac{(-2)^3}{6} = 1 - 2 + 2 - \\frac{4}{3}\n$$\n\nSo the approximation is $-\\frac{1}{3}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Apply the ratio test to $a_n = \\frac{(n!)^2}{(2n)!}$.\n\n$$\n\\frac{a_{n+1}}{a_n} = \\frac{((n+1)!)^2}{(2n+2)!} \\cdot \\frac{(2n)!}{(n!)^2} = \\frac{(n+1)^2}{(2n+1)(2n+2)} = \\frac{n+1}{2(2n+1)}\n$$\n\nThis tends to $\\frac{1}{4}$ as $n \\to \\infty$, so $r = \\frac{1}{4}$. Since $r < 1$, the series is absolutely convergent. Inverting the ratio to get $r = 4$ wrongly suggests divergence.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-maclaurin-from-table"
+      ],
+      "solution": "Recognize the series as the Maclaurin series of $e^u = \\sum_{k=0}^{\\infty} \\frac{u^k}{k!}$ with $u = -x^2$. Since $(-x^2)^k = (-1)^k x^{2k}$,\n\n$$\n\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k!} x^{2k} = \\sum_{k=0}^{\\infty} \\frac{(-x^2)^k}{k!} = e^{-x^2}.\n$$\n\nSo the function is $e^{-x^2}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Apply the ratio test to $a_k = \\frac{k+1}{k!}(x+1)^k$. Since $(k+1)! = (k+1)\\,k!$,\n\n$$\n\\left|\\frac{a_{k+1}}{a_k}\\right| = \\frac{k+2}{(k+1)^2}\\,|x+1|\n$$\n\nFor each fixed $x$ this tends to $0$, which is less than $1$, so the series converges for every $x$. The radius of convergence is $\\infty$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Write $f$ as a geometric series in $-\\frac{x}{2}$:\n\n$$\n\\frac{2}{2+x} = \\frac{1}{1+\\frac{x}{2}} = \\frac{1}{1-\\left(-\\frac{x}{2}\\right)}\n$$\n\nUsing $\\frac{1}{1-t} = \\sum_{k=0}^{\\infty} t^k$ with $t = -\\frac{x}{2}$ gives\n\n$$\n\\frac{2}{2+x} = \\sum_{k=0}^{\\infty} \\left(-\\frac{x}{2}\\right)^k = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{2^k} x^k\n$$\n\nvalid for $|x| < 2$. So the power series is $\\sum_{k=0}^{\\infty} \\frac{(-1)^k}{2^k} x^k$. The common slips are dropping the $(-1)^k$, which gives $\\sum \\frac{1}{2^k}x^k$, and writing $\\frac{x}{2}$ as $2x$, which gives $2^k$ in the numerator instead of the denominator.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
+      ],
+      "solution": "Use $p_3(x) = \\sum_{k=0}^{3} \\frac{f^{(k)}(a)}{k!}(x-a)^k$ with $a = \\frac{\\pi}{3}$. Evaluate the derivatives at $a$:\n\n- $f(a) = \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$\n- $f'(x) = \\cos x$, so $f'(a) = \\frac{1}{2}$\n- $f''(x) = -\\sin x$, so $f''(a) = -\\frac{\\sqrt{3}}{2}$\n- $f'''(x) = -\\cos x$, so $f'''(a) = -\\frac{1}{2}$\n\nDivide each by $k!$ and multiply by $(x-a)^k$:\n\n$$\np_3(x) = \\frac{\\sqrt{3}}{2} + \\frac{1}{2}\\left(x-\\frac{\\pi}{3}\\right) + \\frac{-\\frac{\\sqrt{3}}{2}}{2!}\\left(x-\\frac{\\pi}{3}\\right)^2 + \\frac{-\\frac{1}{2}}{3!}\\left(x-\\frac{\\pi}{3}\\right)^3\n$$\n\n$$\n= \\frac{\\sqrt{3}}{2} + \\frac{1}{2}\\left(x-\\frac{\\pi}{3}\\right) - \\frac{\\sqrt{3}}{4}\\left(x-\\frac{\\pi}{3}\\right)^2 - \\frac{1}{12}\\left(x-\\frac{\\pi}{3}\\right)^3\n$$\n\nSo the third-order Taylor polynomial is $\\frac{\\sqrt{3}}{2} + \\frac{1}{2}\\left(x-\\frac{\\pi}{3}\\right) - \\frac{\\sqrt{3}}{4}\\left(x-\\frac{\\pi}{3}\\right)^2 - \\frac{1}{12}\\left(x-\\frac{\\pi}{3}\\right)^3$. Leaving out the $k!$ divisors gives the wrong coefficients $-\\frac{\\sqrt{3}}{2}$ and $-\\frac{1}{2}$ on the square and cube terms.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -245,6 +269,10 @@
         "L25",
         "L26"
       ],
+      "typeIds": [
+        "L23-test-justification"
+      ],
+      "solution": "Check each claim.\n\n- Limit comparison with $\\sum \\frac{1}{n}$: $\\frac{2n}{n^2-1} \\div \\frac{1}{n} = \\frac{2n^2}{n^2-1} \\to 2$, a positive finite limit, and $\\sum \\frac{1}{n}$ diverges. The claim is correct.\n- Ratio test: $\\frac{a_{n+1}}{a_n} \\to 1$, so the test is inconclusive and cannot show divergence. The claim is wrong.\n- Integral test: $f(x) = \\frac{2x}{x^2-1}$ is positive and decreasing for $x \\ge 2$, and $\\int_2^{\\infty} \\frac{2x}{x^2-1}\\,dx = \\lim_{t \\to \\infty} \\left[\\ln(x^2-1)\\right]_2^t = \\infty$. The claim is correct.\n- Divergence test: the terms tend to $0$, so the test gives no conclusion. The claim is wrong.\n\nSo exactly two of the four claims are applied correctly. The divergence test is the trap here: a limit of $0$ decides nothing, since the test proves divergence only when the terms do not tend to $0$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -279,6 +307,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-sum-by-differentiating"
+      ],
+      "solution": "Start from the geometric series $\\sum_{n=0}^{\\infty} x^n = \\frac{1}{1-x}$, valid for $|x| < 1$. Differentiating term by term gives\n\n$$\n\\sum_{n=1}^{\\infty} n x^{n-1} = \\frac{d}{dx}\\left(\\frac{1}{1-x}\\right) = \\frac{1}{(1-x)^2}, \\qquad |x| < 1.\n$$\n\nSince $\\frac{1}{2}$ lies inside the interval, set $x = \\frac{1}{2}$: $S = \\frac{1}{(1/2)^2} = 4$. So the sum is $4$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -313,6 +345,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-root-test"
+      ],
+      "solution": "Apply the root test to $a_n = \\left(\\frac{n+1}{n}\\right)^{-n^2}$. Taking the $n$th root,\n\n$$\n|a_n|^{1/n} = \\left(\\frac{n+1}{n}\\right)^{-n} = \\left(1 + \\frac{1}{n}\\right)^{-n} \\to \\frac{1}{e}\n$$\n\nbecause $\\left(1+\\frac{1}{n}\\right)^n \\to e$. So $\\rho = \\frac{1}{e}$, which is less than $1$, and the series is absolutely convergent.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -347,6 +383,10 @@
       "lessonIds": [
         "L28"
       ],
+      "typeIds": [
+        "L28-error-bound"
+      ],
+      "solution": "Use the Lagrange form of the remainder for $p_2$. It involves the third derivative: $R_2(x) = \\frac{f'''(c)}{3!}x^3$ for some $c$ between $0$ and $x$. With $x = 0.1$,\n\n$$\n|R_2(0.1)| = \\frac{|f'''(c)|}{3!}(0.1)^3 \\quad \\text{for some } 0 \\le c \\le 0.1.\n$$\n\nHere $f'''(x) = \\frac{2}{(1+x)^3}$ is positive and decreasing, so its largest value on $[0, 0.1]$ is at $c = 0$, where $f'''(0) = 2$. Hence $|f'''(c)| \\le 2$ and\n\n$$\n|R_2(0.1)| \\le \\frac{2}{3!}(0.1)^3.\n$$\n\nThe trap is to bound $f'''(c)$ by its value at $c = 0.1$, $\\frac{2}{(1.1)^3}$, which is the smallest value on the interval, not the largest. Using $f''$ instead of $f'''$ is a separate error.",
       "sourcePage": 7,
       "status": "reviewed"
     }
