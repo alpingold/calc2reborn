@@ -174,7 +174,7 @@
       "typeIds": [
         "L15-choose-completed-square-sub"
       ],
-      "solution": "Use a secant substitution, since $x(x-2) = (x-1)^2 - 1$ has the form $u^2 - a^2$ with $u = x - 1$ and $a = 1$.\n\nSet $x - 1 = \\sec\\theta$, so $\\sqrt{(x-1)^2 - 1} = \\tan\\theta$. In the right triangle for $\\theta$, the hypotenuse is $x - 1$ and the side adjacent to $\\theta$ is $1$, since $\\cos\\theta = \\frac{1}{x-1}$. The opposite side is then $\\sqrt{(x-1)^2 - 1}$.\n\nSo the triangle needed has hypotenuse $x - 1$ and horizontal side $1$. The hypotenuse must be the longest side, so a triangle that puts $x - 1$ on a leg is wrong.",
+      "solution": "Use a secant substitution, since $x(x-2) = (x-1)^2 - 1$ has the form $u^2 - a^2$ with $u = x - 1$ and $a = 1$.\n\nSet $x - 1 = \\sec\\theta$, so $\\sqrt{(x-1)^2 - 1} = \\tan\\theta$. In the right triangle for $\\theta$, the hypotenuse is $x - 1$ and the side adjacent to $\\theta$ is $1$, since $\\cos\\theta = \\frac{1}{x-1}$. The opposite side is then $\\sqrt{(x-1)^2 - 1}$.\n\nSo the triangle needed has hypotenuse $x - 1$ and horizontal side $1$. The trap is a triangle with $x - 1$ on a leg: one with $x - 1$ opposite and $1$ adjacent gives $\\sqrt{(x-1)^2 + 1}$, and one with hypotenuse $1$ and $x - 1$ opposite gives $\\sqrt{1 - (x-1)^2}$, neither of which is $\\sqrt{(x-1)^2 - 1}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },

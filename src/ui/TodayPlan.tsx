@@ -48,15 +48,17 @@ export function TodayPlan({ items, content }: { items: PlanItem[]; content: Cont
               <span className="plan-mark" aria-hidden="true">
                 {item.done ? '✓' : ''}
               </span>
-              {item.done ? (
-                <span>
-                  {text}
-                  <span className="visually-hidden"> (done)</span>
-                </span>
-              ) : (
-                <Link to={to}>{text}</Link>
-              )}
-              {note && <span className="plan-note">{note}</span>}
+              <div className="plan-body">
+                {item.done ? (
+                  <span>
+                    {text}
+                    <span className="visually-hidden"> (done)</span>
+                  </span>
+                ) : (
+                  <Link to={to}>{text}</Link>
+                )}
+                {note && <span className="plan-note">{note}</span>}
+              </div>
             </li>
           )
         })}
