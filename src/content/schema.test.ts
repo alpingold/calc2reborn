@@ -7,7 +7,7 @@ const labeled = (n: number) => CHOICE_LABELS.slice(0, n).map((label) => ({ label
 const q = {
   id: 'Q1', number: 1, points: 6, stem: 'What is $1+1$?',
   choices: ['A', 'B', 'C', 'D', 'E'].map((label) => ({ label, text: label })),
-  answer: 'A', lessonIds: ['L1'], status: 'transcribed',
+  answer: 'A', lessonIds: ['L1'], status: 'transcribed', solution: 'It is $2$.', typeIds: ['L1-a'],
 }
 const lesson = {
   id: 'L1', number: 1, title: '13.1 Vectors', sections: ['13.1'], unit: 'Vectors',
@@ -17,6 +17,15 @@ const lesson = {
 describe('QuestionSchema', () => {
   test('accepts a valid question', () => {
     expect(QuestionSchema.safeParse(q).success).toBe(true)
+  })
+  test('needs a solution and a problem type', () => {
+    const { solution: _s, ...noSolution } = q
+    const { typeIds: _t, ...noTypes } = q
+    void _s
+    void _t
+    expect(QuestionSchema.safeParse(noSolution).success).toBe(false)
+    expect(QuestionSchema.safeParse({ ...q, solution: '' }).success).toBe(false)
+    expect(QuestionSchema.safeParse(noTypes).success).toBe(false)
   })
   test('accepts two to ten choices labeled from A', () => {
     expect(QuestionSchema.safeParse({ ...q, choices: q.choices.slice(0, 2) }).success).toBe(true)

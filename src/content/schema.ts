@@ -77,7 +77,11 @@ export interface Question {
   answerSource?: 'key' | 'derived' | 'written'
   figures?: string[]
   lessonIds: string[]
-  /** one or two problem types, each belonging to one of the question's lessons */
+  /**
+   * One or two problem types, each belonging to one of the question's lessons. Every question in the
+   * content files has types and a solution (QuestionSchema requires them); they stay optional here so
+   * the app keeps working on content that lacks them.
+   */
   typeIds?: string[]
   solution?: string
   status: 'transcribed' | 'reviewed'
@@ -239,8 +243,8 @@ export const QuestionSchema = z
     answerSource: z.enum(['key', 'derived', 'written']).optional(),
     figures: z.array(z.string()).optional(),
     lessonIds: z.array(z.string()),
-    typeIds: z.array(z.string().min(1)).min(1).max(2).optional(),
-    solution: z.string().optional(),
+    typeIds: z.array(z.string().min(1)).min(1).max(2),
+    solution: z.string().min(1),
     status: z.enum(['transcribed', 'reviewed']),
     sourcePage: z.number().int().positive().optional(),
   })

@@ -43,7 +43,7 @@ None of these has been seen to cause a problem. They are edge cases the task rev
 | 4.1 | After an exam submit fails partway and the page is reloaded, some answers can be logged twice | Write the attempts with stable ids saved in the session, so a repeat write replaces rather than adds | S |
 | 4.2 | For about a second after Submit starts, a click can still change an answer; that answer reaches the results page but not the saved attempts | Lock answering on the same render that freezes the attempts | S |
 | 4.3 | Results are reached with a normal navigation, so Back returns to the finished exam page | Navigate with `replace` | S |
-| 4.4 | Rebuilt mock results (after a reload) only list answered questions | Save the mock's question list with its attempts, or in the results route state | S |
+| 4.4 | Rebuilt mock results (after a reload) only list answered questions | Done on 2026-11-10: each finished exam is saved as a session with its question list, and the results page is built from it. Checked in the browser: a 12-question exam with 5 answered lists all 12 after a reload | S |
 | 4.5 | An imported progress file with duplicate attempt ids fails in IndexedDB but is silently deduplicated in memory | Reject duplicate ids when the file is checked | S |
 | 4.6 | Practice: retrying after a failed save can change the chosen answer after the attempt was logged. A failed question load has no retry button | Freeze the choice once logged; add a Retry button | S |
 | 4.7 | Review: keyboard shortcuts fire with modifier keys and on key repeat; cards whose id no longer exists are counted in the summary | Ignore modifiers and repeats; drop unknown cards from the counts | S |
@@ -56,7 +56,7 @@ None of these has been seen to cause a problem. They are edge cases the task rev
 
 | # | Gap | Fix | Size |
 |---|-----|-----|------|
-| 5.1 | The build warns that the main JavaScript chunk is over 500 kB, mostly the exam content compiled into the bundle | Load exam JSON per exam on demand, and lesson cards per lesson, and split KaTeX into its own chunk | M |
+| 5.1 | The build warns that the main JavaScript chunk is over 500 kB, mostly the exam content compiled into the bundle | Partly done on 2026-11-10: all content loads as its own chunk after the first paint (2.0 MB, 471 kB gzipped, now including 994 solutions and 88 guided problems). The app chunk is still 1.0 MB (318 kB gzipped), so the warning remains. Still open: load exams and guided problems per file on demand, and split KaTeX out | M |
 
 ## 6. Larger features you asked for earlier
 
