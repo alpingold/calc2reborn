@@ -1,0 +1,459 @@
+[
+  {
+    "id": "L8-g1",
+    "lessonId": "L8",
+    "typeId": "L8-arc-length-compute",
+    "stem": "The curve $y = \\frac{x^4}{8} + \\frac{1}{4x^2}$ runs from $x = 1$ to $x = 2$. (a) Find its exact length. (b) Check the result against the straight-line distance between the endpoints.",
+    "steps": [
+      {
+        "prompt": "(a) Which integral gives the length of the curve?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_1^2 \\sqrt{1 + y'}\\,dx$",
+            "note": "The derivative has to be squared inside the root, since the small piece of curve is the hypotenuse of a triangle with legs $dx$ and $y'\\,dx$."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_1^2 \\sqrt{1 + (y')^2}\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$\\int_1^2 \\left(1 + (y')^2\\right)dx$",
+            "note": "This leaves out the square root: the length of the small piece is a hypotenuse, so a root is needed."
+          }
+        ],
+        "answer": "B",
+        "explanation": "A small piece of the curve is about the hypotenuse of a right triangle with legs $dx$ and $dy = y'\\,dx$, so its length is $\\sqrt{1 + (y')^2}\\,dx$. Then\n\n$$\nL = \\int_1^2 \\sqrt{1 + (y')^2}\\,dx\n$$"
+      },
+      {
+        "prompt": "Find $y'$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{x^3}{2} + \\frac{1}{2x^3}$",
+            "note": "Look again at the sign: differentiating $\\frac{1}{4}x^{-2}$ brings down a negative exponent."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{x^3}{2} - \\frac{1}{2x}$",
+            "note": "The power drops by one, so $x^{-2}$ leads to a multiple of $x^{-3}$, not $x^{-1}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x^3}{2} - \\frac{1}{2x^3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Write $y = \\frac{1}{8}x^4 + \\frac{1}{4}x^{-2}$. The power rule gives\n\n$$\ny' = \\frac{4}{8}x^3 - \\frac{2}{4}x^{-3} = \\frac{x^3}{2} - \\frac{1}{2x^3}\n$$"
+      },
+      {
+        "prompt": "Which expression equals $1 + (y')^2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left(\\frac{x^3}{2} + \\frac{1}{2x^3}\\right)^2$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{x^6}{4} + \\frac{1}{4x^6} + 1$",
+            "note": "Squaring a difference gives a middle term $-2ab$, and here it is not zero. Expand $(y')^2$ again before adding the $1$."
+          },
+          {
+            "label": "C",
+            "text": "$\\left(\\frac{x^3}{2} - \\frac{1}{2x^3}\\right)^2$",
+            "note": "That is only $(y')^2$. The $1$ from the formula has not been added yet."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The middle term of $(y')^2$ is $2\\cdot\\frac{x^3}{2}\\cdot\\frac{1}{2x^3} = \\frac{1}{2}$ with a minus sign:\n\n$$\n(y')^2 = \\frac{x^6}{4} - \\frac{1}{2} + \\frac{1}{4x^6}\n$$\n\nAdding $1$ turns the $-\\frac12$ into $+\\frac12$:\n\n$$\n1 + (y')^2 = \\frac{x^6}{4} + \\frac{1}{2} + \\frac{1}{4x^6} = \\left(\\frac{x^3}{2} + \\frac{1}{2x^3}\\right)^2\n$$"
+      },
+      {
+        "prompt": "What is $\\sqrt{1 + (y')^2}$ on $1 \\le x \\le 2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{x^3}{4} + \\frac{1}{4x^3}$",
+            "note": "Taking the root of a square removes the square only. The coefficients are not halved."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{x^3}{2} + \\frac{1}{2x^3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x^3}{2} - \\frac{1}{2x^3}$",
+            "note": "That is $y'$ itself, and the expression under the root is not $y'$. Go back to what was squared in the previous step."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The root of a square is the absolute value of the base. The base $\\frac{x^3}{2} + \\frac{1}{2x^3}$ is positive for $x > 0$, so the absolute value changes nothing:\n\n$$\n\\sqrt{1 + (y')^2} = \\frac{x^3}{2} + \\frac{1}{2x^3}\n$$"
+      },
+      {
+        "prompt": "Find an antiderivative of $\\frac{x^3}{2} + \\frac{1}{2}x^{-3}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{x^4}{8} + \\frac{1}{4x^2}$",
+            "note": "Integrating $x^{-3}$ divides by the new exponent $-2$, so check the sign of the second term."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{x^4}{4} - \\frac{1}{4x^2}$",
+            "note": "The factor $\\frac12$ in front of $x^3$ stays when integrating, so the first term is not $\\frac{x^4}{4}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x^4}{8} - \\frac{1}{4x^2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Integrate term by term:\n\n$$\n\\int \\frac{x^3}{2}\\,dx = \\frac{x^4}{8}, \\qquad \\int \\frac{1}{2}x^{-3}\\,dx = \\frac{1}{2}\\cdot\\frac{x^{-2}}{-2} = -\\frac{1}{4x^2}\n$$\n\nSo $F(x) = \\frac{x^4}{8} - \\frac{1}{4x^2}$."
+      },
+      {
+        "prompt": "Evaluate $F(2) - F(1)$ to get the length.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{33}{16}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{31}{16}$",
+            "note": "This is $F(2)$ alone. The value at the lower limit still has to be subtracted."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{29}{16}$",
+            "note": "This adds $F(1)$ instead of subtracting it. $F(1)$ is negative, so the sign matters."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$F(2) = 2 - \\frac{1}{16} = \\frac{31}{16}$ and $F(1) = \\frac{1}{8} - \\frac{1}{4} = -\\frac{1}{8}$. Then\n\n$$\nL = \\frac{31}{16} - \\left(-\\frac{1}{8}\\right) = \\frac{31}{16} + \\frac{2}{16} = \\frac{33}{16}\n$$"
+      },
+      {
+        "prompt": "(b) The endpoints are $\\left(1, \\frac{3}{8}\\right)$ and $\\left(2, \\frac{33}{16}\\right)$, and the straight-line distance between them is $\\frac{\\sqrt{985}}{16} \\approx 1.96$. The length found in (a) is $\\frac{33}{16} \\approx 2.06$. What does the comparison show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The length is too small, so the answer must be wrong",
+            "note": "Compare $2.06$ with $1.96$ again and ask which is larger."
+          },
+          {
+            "label": "B",
+            "text": "The length is a little more than the chord, as it must be for a curve that bends"
+          },
+          {
+            "label": "C",
+            "text": "The length should equal the chord, so the answer must be wrong",
+            "note": "Equality would need the curve to be the straight segment itself, and this curve bends between the endpoints."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The segment between two points is the shortest path joining them, so any curve between the endpoints is at least as long. Here $2.06 > 1.96$, and the gap is small because the curve bends only slightly. The check agrees with\n\n$$\nL = \\frac{33}{16}\n$$"
+      }
+    ],
+    "takeaway": "When $1 + (y')^2$ is a perfect square, take its root with the sign checked on the interval, and compare the length with the chord as a sanity check."
+  },
+  {
+    "id": "L8-g2",
+    "lessonId": "L8",
+    "typeId": "L8-surface-area-x-axis",
+    "stem": "The curve $y = \\sqrt{x + 2}$, $0 \\le x \\le 4$, is revolved about the $x$-axis. (a) Find the exact area of the surface. (b) Write, without evaluating, the integral for the area when the same curve is revolved about the line $y = -1$.",
+    "steps": [
+      {
+        "prompt": "(a) Which integral gives the area of the surface?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2\\pi\\int_0^4 y\\,dx$",
+            "note": "The strip's width is the arc length piece, not $dx$. This would be correct only for a horizontal curve."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi\\int_0^4 y^2\\,dx$",
+            "note": "That is the volume of the solid by disks, not the area of its surface."
+          },
+          {
+            "label": "C",
+            "text": "$2\\pi\\int_0^4 y\\sqrt{1 + (y')^2}\\,dx$"
+          },
+          {
+            "label": "D",
+            "text": "$2\\pi\\int_0^4 x\\sqrt{1 + (y')^2}\\,dx$",
+            "note": "The radius is the distance from the curve to the axis of revolution, which here is a height, not $x$."
+          }
+        ],
+        "answer": "C",
+        "explanation": "A thin strip unwraps to about a rectangle. One side is the circumference $2\\pi y$, since the radius is the height $y$ above the $x$-axis. The other side is the arc length piece $\\sqrt{1 + (y')^2}\\,dx$:\n\n$$\nS = \\int_0^4 2\\pi y\\sqrt{1 + (y')^2}\\,dx\n$$"
+      },
+      {
+        "prompt": "Find $y'$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2\\sqrt{x+2}}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{\\sqrt{x+2}}$",
+            "note": "Check the coefficient: the power rule on $(x+2)^{1/2}$ brings down the exponent."
+          },
+          {
+            "label": "C",
+            "text": "$2\\sqrt{x+2}$",
+            "note": "The exponent drops by one when differentiating, so the new power is not $\\frac12$ again."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Write $y = (x+2)^{1/2}$. Then\n\n$$\ny' = \\frac{1}{2}(x+2)^{-1/2} = \\frac{1}{2\\sqrt{x+2}}\n$$"
+      },
+      {
+        "prompt": "Which expression equals $1 + (y')^2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1 + \\frac{1}{2(x+2)}$",
+            "note": "Squaring the denominator $2\\sqrt{x+2}$ squares the $2$ as well as the root."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{4x + 9}{4(x+2)}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x + 3}{x + 2}$",
+            "note": "This comes from squaring $\\frac{1}{\\sqrt{x+2}}$, which has lost the factor $\\frac12$ that $y'$ carries."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Squaring gives $(y')^2 = \\frac{1}{4(x+2)}$. Over a common denominator:\n\n$$\n1 + (y')^2 = \\frac{4(x+2) + 1}{4(x+2)} = \\frac{4x + 9}{4(x+2)}\n$$"
+      },
+      {
+        "prompt": "Multiply $y$ by $\\sqrt{1 + (y')^2}$ and simplify. What does the surface area integral become?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2\\pi\\int_0^4 \\sqrt{4x+9}\\,dx$",
+            "note": "The root of the denominator $4(x+2)$ is $2\\sqrt{x+2}$, and the $2$ stays in the denominator."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi\\int_0^4 \\sqrt{x+2}\\,\\sqrt{4x+9}\\,dx$",
+            "note": "The root of the denominator $4(x+2)$ is $2\\sqrt{x+2}$, not just $2$. Check what happens to the factor $y$ against it."
+          },
+          {
+            "label": "C",
+            "text": "$\\pi\\int_0^4 \\sqrt{4x+9}\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The root of the fraction is $\\sqrt{1+(y')^2} = \\frac{\\sqrt{4x+9}}{2\\sqrt{x+2}}$. The factor $y = \\sqrt{x+2}$ cancels the root in the denominator:\n\n$$\n2\\pi\\sqrt{x+2}\\cdot\\frac{\\sqrt{4x+9}}{2\\sqrt{x+2}} = \\pi\\sqrt{4x+9}\n$$\n\nSo $S = \\pi\\int_0^4 \\sqrt{4x+9}\\,dx$."
+      },
+      {
+        "prompt": "Which substitution turns the integral into a power of $u$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$u = 4x + 9$, giving $\\frac{\\pi}{4}\\int_9^{25}\\sqrt{u}\\,du$"
+          },
+          {
+            "label": "B",
+            "text": "$u = 4x + 9$, giving $\\pi\\int_9^{25}\\sqrt{u}\\,du$",
+            "note": "Here $du = 4\\,dx$, so $dx$ is not $du$. A constant factor is left over."
+          },
+          {
+            "label": "C",
+            "text": "$u = 4x + 9$, giving $\\frac{\\pi}{4}\\int_0^4\\sqrt{u}\\,du$",
+            "note": "The limits belong to $x$. When the variable changes to $u$, the limits have to be changed as well."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $u = 4x + 9$, $du = 4\\,dx$, so $dx = \\frac{du}{4}$. At $x = 0$, $u = 9$, and at $x = 4$, $u = 25$:\n\n$$\nS = \\frac{\\pi}{4}\\int_9^{25} u^{1/2}\\,du\n$$"
+      },
+      {
+        "prompt": "Evaluate the integral.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{125\\pi}{6}$",
+            "note": "This is the value at $u = 25$ alone. The value at the lower limit has to be subtracted."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{49\\pi}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{147\\pi}{4}$",
+            "note": "Integrating $u^{1/2}$ divides by the new exponent $\\frac32$, which is multiplication by its reciprocal, not by $\\frac32$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The antiderivative of $u^{1/2}$ is $\\frac{2}{3}u^{3/2}$, and $25^{3/2} = 125$, $9^{3/2} = 27$:\n\n$$\nS = \\frac{\\pi}{4}\\cdot\\frac{2}{3}\\left[u^{3/2}\\right]_9^{25} = \\frac{\\pi}{6}(125 - 27) = \\frac{98\\pi}{6} = \\frac{49\\pi}{3}\n$$"
+      },
+      {
+        "prompt": "(b) The axis is now the line $y = -1$, below the curve. Which integral gives the area of the surface?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2\\pi\\int_0^4 \\left(\\sqrt{x+2} - 1\\right)\\sqrt{1 + (y')^2}\\,dx$",
+            "note": "The axis lies below the curve, so the distance from a point of the curve to it is larger than $y$, not smaller."
+          },
+          {
+            "label": "B",
+            "text": "$2\\pi\\int_0^4 \\sqrt{x+2}\\,\\sqrt{1 + (y')^2}\\,dx$",
+            "note": "This is the integral for the $x$-axis from part (a). The axis has moved, so the radius has to change."
+          },
+          {
+            "label": "C",
+            "text": "$2\\pi\\int_0^4 \\left(\\sqrt{x+2} + 1\\right)dx$",
+            "note": "The arc length element is missing: the strip's width is not $dx$ for a curve that slopes."
+          },
+          {
+            "label": "D",
+            "text": "$2\\pi\\int_0^4 \\left(\\sqrt{x+2} + 1\\right)\\sqrt{1 + (y')^2}\\,dx$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "A point at height $y$ is $y - (-1) = y + 1$ above the line $y = -1$, so the radius is $\\sqrt{x+2} + 1$. The arc length element does not depend on the axis:\n\n$$\nS = 2\\pi\\int_0^4 \\left(\\sqrt{x+2} + 1\\right)\\sqrt{1 + (y')^2}\\,dx = 2\\pi\\int_0^4 \\left(\\sqrt{x+2} + 1\\right)\\frac{\\sqrt{4x+9}}{2\\sqrt{x+2}}\\,dx\n$$"
+      }
+    ],
+    "takeaway": "The radius is the distance from the curve to the axis, and the arc length element $\\sqrt{1 + (y')^2}\\,dx$ always goes with it."
+  },
+  {
+    "id": "L8-g3",
+    "lessonId": "L8",
+    "typeId": "L8-arc-length-setup",
+    "stem": "A curve $y = f(x)$ has $f'(x) = \\sqrt{e^{4x} + 2e^{2x}}$. (a) Write the length of the curve from $x = 0$ to $x = \\ln 2$ as an integral and simplify the integrand. (b) Evaluate it exactly.",
+    "steps": [
+      {
+        "prompt": "(a) Only $f'$ is given. What must hold before the arc length formula is used?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$f'$ must exist and be continuous on $[0, \\ln 2]$"
+          },
+          {
+            "label": "B",
+            "text": "A formula for $f$ itself must be found first",
+            "note": "Only $f'$ appears in the arc length integral, so $f$ is not needed."
+          },
+          {
+            "label": "C",
+            "text": "$f$ must be positive on the interval",
+            "note": "Positivity of $f$ matters when $f$ is a radius, as in surface area. Arc length has no such condition."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Arc length needs $f'$ to exist and be continuous on $[0, \\ln 2]$. The radicand is $e^{4x} + 2e^{2x} = e^{2x}\\left(e^{2x} + 2\\right) > 0$, so the root is defined and continuous for every $x$. The formula applies."
+      },
+      {
+        "prompt": "Which integral gives the length?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_0^{\\ln 2} \\sqrt{1 + f'(x)}\\,dx$",
+            "note": "The derivative has to be squared inside the root."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_0^{\\ln 2} \\sqrt{1 + (f'(x))^2}\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$\\int_0^{\\ln 2} \\sqrt{(f'(x))^2}\\,dx$",
+            "note": "The horizontal leg of each small triangle contributes the $1$ under the root, and it is missing here."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The limits are the $x$-values $0$ and $\\ln 2$, and the integrand is $\\sqrt{1 + (f')^2}$:\n\n$$\nL = \\int_0^{\\ln 2} \\sqrt{1 + (f'(x))^2}\\,dx\n$$"
+      },
+      {
+        "prompt": "What does $1 + (f'(x))^2$ simplify to?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^{4x} + 2e^{2x}$",
+            "note": "This is $(f')^2$ alone. The $1$ has not been added."
+          },
+          {
+            "label": "B",
+            "text": "$\\left(e^{x} + 1\\right)^2$",
+            "note": "Expanding gives $e^{2x} + 2e^{x} + 1$, whose exponents do not match $e^{4x} + 2e^{2x} + 1$."
+          },
+          {
+            "label": "C",
+            "text": "$\\left(e^{2x} + 1\\right)^2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Squaring the root removes it, so $(f')^2 = e^{4x} + 2e^{2x}$. Adding $1$ gives a perfect square:\n\n$$\n1 + (f')^2 = e^{4x} + 2e^{2x} + 1 = \\left(e^{2x} + 1\\right)^2\n$$"
+      },
+      {
+        "prompt": "What is the integrand $\\sqrt{1 + (f'(x))^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^{2x} + 1$"
+          },
+          {
+            "label": "B",
+            "text": "$e^{x} + 1$",
+            "note": "The root of $\\left(e^{2x} + 1\\right)^2$ is the base itself. The exponent inside the base is not halved."
+          },
+          {
+            "label": "C",
+            "text": "$\\pm\\left(e^{2x} + 1\\right)$",
+            "note": "The root symbol means the non-negative root, so no sign is attached."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The base $e^{2x} + 1$ is positive, so the root is the base itself:\n\n$$\nL = \\int_0^{\\ln 2} \\left(e^{2x} + 1\\right)dx\n$$"
+      },
+      {
+        "prompt": "(b) Find an antiderivative of $e^{2x} + 1$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$e^{2x} + x$",
+            "note": "The derivative of $e^{2x}$ is $2e^{2x}$, so this has the wrong factor in the first term."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{e^{2x}}{2} + x$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{e^{2x}}{2} + 1$",
+            "note": "The antiderivative of the constant $1$ is $x$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "For the first term, $\\frac{d}{dx}\\left(\\frac{e^{2x}}{2}\\right) = e^{2x}$. For the second, $\\int 1\\,dx = x$:\n\n$$\nF(x) = \\frac{e^{2x}}{2} + x\n$$"
+      },
+      {
+        "prompt": "Evaluate $F(\\ln 2) - F(0)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2 + \\ln 2$",
+            "note": "This is $F(\\ln 2)$ alone. The value at the lower limit has to be subtracted."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2} + \\ln 2$",
+            "note": "Check $e^{2\\ln 2}$: it is $\\left(e^{\\ln 2}\\right)^2$, not $e^{\\ln 2}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{3}{2} + \\ln 2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$e^{2\\ln 2} = \\left(e^{\\ln 2}\\right)^2 = 4$, so $F(\\ln 2) = \\frac{4}{2} + \\ln 2 = 2 + \\ln 2$ and $F(0) = \\frac{1}{2} + 0$. Then\n\n$$\nL = (2 + \\ln 2) - \\frac{1}{2} = \\frac{3}{2} + \\ln 2\n$$"
+      }
+    ],
+    "takeaway": "Square the given derivative, add the $1$, and look for a perfect square before the root is taken."
+  }
+]

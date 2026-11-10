@@ -1,0 +1,428 @@
+[
+  {
+    "id": "L11-g1",
+    "lessonId": "L11",
+    "typeId": "L11-parts-poly-exp-trig",
+    "stem": "(a) Find $\\int x^2\\sin 2x\\,dx$. (b) Evaluate $\\int_0^{\\pi/2} x^2\\sin 2x\\,dx$.",
+    "steps": [
+      {
+        "prompt": "(a) Which choice of $u$ and $dv$ starts the integral well?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$u=\\sin 2x$, $dv=x^2\\,dx$",
+            "note": "Then $v=\\frac{x^3}{3}$ and the new integral contains $x^3\\cos 2x$, a higher power of $x$ than before. The power should come down, not go up."
+          },
+          {
+            "label": "B",
+            "text": "$u=x^2$, $dv=\\sin 2x\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$u=x^2\\sin 2x$, $dv=dx$",
+            "note": "Then $v=x$ and $du$ is the derivative of a product, so the new integral is longer than the one we started with."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The algebraic factor $x^2$ comes before the trig factor in LIATE, and differentiating it lowers the power. Take $u=x^2$ and $dv=\\sin 2x\\,dx$, so $du=2x\\,dx$ and $v=-\\frac{1}{2}\\cos 2x$."
+      },
+      {
+        "prompt": "(a) Apply the formula once. What does the first round give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{1}{2}x^2\\cos 2x-\\int x\\cos 2x\\,dx$",
+            "note": "The formula subtracts $\\int v\\,du$, and $v\\,du$ is itself negative here. Recompute $v\\,du$ with its sign before subtracting."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{1}{2}x^2\\cos 2x+\\frac{1}{2}\\int x\\cos 2x\\,dx$",
+            "note": "This takes $du=x\\,dx$. The derivative of $x^2$ is $2x$, so the factor in $du$ is wrong."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{2}x^2\\cos 2x+\\int x\\cos 2x\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "With $u=x^2$ and $v=-\\frac{1}{2}\\cos 2x$, the product is $uv=-\\frac{1}{2}x^2\\cos 2x$ and\n\n$$\nv\\,du=-\\frac{1}{2}\\cos 2x\\cdot 2x\\,dx=-x\\cos 2x\\,dx.\n$$\n\nSo $\\int x^2\\sin 2x\\,dx=uv-\\int v\\,du=-\\frac{1}{2}x^2\\cos 2x+\\int x\\cos 2x\\,dx$."
+      },
+      {
+        "prompt": "The new integral $\\int x\\cos 2x\\,dx$ still has a power of $x$. What is the next move?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Parts again with $u=x$, $dv=\\cos 2x\\,dx$"
+          },
+          {
+            "label": "B",
+            "text": "Substitute $w=2x$ and integrate directly",
+            "note": "The substitution turns the integral into $\\frac{1}{4}\\int w\\cos w\\,dw$, which is still a product of a power and a trig function. It needs parts."
+          },
+          {
+            "label": "C",
+            "text": "Parts again with $u=\\cos 2x$, $dv=x\\,dx$",
+            "note": "Then $v=\\frac{x^2}{2}$ and the new integral contains $x^2\\sin 2x$, a higher power of $x$ again."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Keep the same kind of $u$: the power of $x$. Take $u=x$, $du=dx$, $dv=\\cos 2x\\,dx$, $v=\\frac{1}{2}\\sin 2x$:\n\n$$\n\\int x\\cos 2x\\,dx=\\frac{1}{2}x\\sin 2x-\\frac{1}{2}\\int\\sin 2x\\,dx=\\frac{1}{2}x\\sin 2x+\\frac{1}{4}\\cos 2x.\n$$\n\nThe power of $x$ is now gone."
+      },
+      {
+        "prompt": "(a) Put the two rounds together. What is $\\int x^2\\sin 2x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{1}{2}x^2\\cos 2x+\\frac{1}{2}x\\sin 2x-\\frac{1}{4}\\cos 2x+C$",
+            "note": "Recheck the sign when $-\\frac{1}{2}\\int\\sin 2x\\,dx$ is evaluated: the antiderivative of $\\sin 2x$ carries its own minus sign."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{1}{2}x^2\\cos 2x+\\frac{1}{2}x\\sin 2x+\\frac{1}{4}\\cos 2x+C$"
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{2}x^2\\cos 2x+x\\sin 2x+\\frac{1}{2}\\cos 2x+C$",
+            "note": "This drops the factor $\\frac{1}{2}$ in the second round, taking the antiderivative of $\\cos 2x$ to be $\\sin 2x$. Every term after it is then doubled."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Substitute the second round into the first:\n\n$$\n\\int x^2\\sin 2x\\,dx=-\\frac{1}{2}x^2\\cos 2x+\\frac{1}{2}x\\sin 2x+\\frac{1}{4}\\cos 2x+C.\n$$\n\nCheck by differentiating: the three terms give $-x\\cos 2x+x^2\\sin 2x$, then $\\frac{1}{2}\\sin 2x+x\\cos 2x$, then $-\\frac{1}{2}\\sin 2x$. These add to $x^2\\sin 2x$."
+      },
+      {
+        "prompt": "(b) Let $F$ be that antiderivative, without $C$. What is $F\\left(\\frac{\\pi}{2}\\right)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi^2}{8}+\\frac{1}{4}$",
+            "note": "At $x=\\frac{\\pi}{2}$ the angle $2x$ is $\\pi$, and $\\cos\\pi=-1$. Recheck the sign of the last term."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{\\pi^2}{8}-\\frac{1}{4}$",
+            "note": "The first term is $-\\frac{1}{2}x^2\\cos 2x$, and $\\cos\\pi=-1$ turns its minus sign into a plus. Recheck that term."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi^2}{8}-\\frac{1}{4}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x=\\frac{\\pi}{2}$, $2x=\\pi$, so $\\cos 2x=-1$ and $\\sin 2x=0$:\n\n$$\nF\\left(\\frac{\\pi}{2}\\right)=-\\frac{1}{2}\\cdot\\frac{\\pi^2}{4}\\cdot(-1)+0+\\frac{1}{4}(-1)=\\frac{\\pi^2}{8}-\\frac{1}{4}.\n$$"
+      },
+      {
+        "prompt": "(b) What is $F(0)$, and so what is the value of the definite integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi^2}{8}-\\frac{1}{2}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi^2}{8}-\\frac{1}{4}$",
+            "note": "This treats $F(0)$ as $0$ because the terms with $x$ vanish. The term $\\frac{1}{4}\\cos 2x$ does not vanish at $x=0$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi^2}{8}$",
+            "note": "This adds $F(0)$ instead of subtracting it. The definite integral is $F\\left(\\frac{\\pi}{2}\\right)-F(0)$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $x=0$ only the cosine term survives: $F(0)=\\frac{1}{4}\\cos 0=\\frac{1}{4}$. Then\n\n$$\n\\int_0^{\\pi/2}x^2\\sin 2x\\,dx=F\\left(\\frac{\\pi}{2}\\right)-F(0)=\\frac{\\pi^2}{8}-\\frac{1}{4}-\\frac{1}{4}=\\frac{\\pi^2}{8}-\\frac{1}{2}.\n$$"
+      }
+    ],
+    "takeaway": "Keep the same kind of $u$ in every round, and put the limits into the whole antiderivative, not only the terms with $x$ in them."
+  },
+  {
+    "id": "L11-g2",
+    "lessonId": "L11",
+    "typeId": "L11-parts-log-inverse-trig",
+    "stem": "Evaluate $\\int_0^1 x\\tan^{-1}x\\,dx$.",
+    "steps": [
+      {
+        "prompt": "Which choice of $u$ and $dv$ makes the integral easier?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$u=\\tan^{-1}x$, $dv=x\\,dx$"
+          },
+          {
+            "label": "B",
+            "text": "$u=x$, $dv=\\tan^{-1}x\\,dx$",
+            "note": "Finding $v$ would need $\\int\\tan^{-1}x\\,dx$, which is itself a parts problem. The $dv$ must be easy to integrate."
+          },
+          {
+            "label": "C",
+            "text": "$u=x\\tan^{-1}x$, $dv=dx$",
+            "note": "Then $v=x$, but $du$ contains $\\tan^{-1}x$ again, so the new integral still has $x\\tan^{-1}x$ in it and is no simpler."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The inverse trig factor comes before the algebraic factor in LIATE. Differentiating $\\tan^{-1}x$ gives a rational function, and $x$ integrates easily. Take $u=\\tan^{-1}x$ and $dv=x\\,dx$, so $du=\\frac{dx}{1+x^2}$ and $v=\\frac{x^2}{2}$."
+      },
+      {
+        "prompt": "What does the formula give for the definite integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left[\\frac{x^2}{2}\\tan^{-1}x\\right]_0^1+\\int_0^1\\frac{x^2}{2(1+x^2)}\\,dx$",
+            "note": "The formula subtracts $\\int v\\,du$. Recheck the sign in front of the remaining integral."
+          },
+          {
+            "label": "B",
+            "text": "$\\left[\\frac{x^2}{2}\\tan^{-1}x\\right]_0^1-\\int_0^1\\frac{x^2}{2(1+x^2)}\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$\\left[x\\tan^{-1}x\\right]_0^1-\\int_0^1\\frac{x}{1+x^2}\\,dx$",
+            "note": "This uses the wrong $v$. Recheck it by integrating $dv=x\\,dx$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "With $u=\\tan^{-1}x$, $du=\\frac{dx}{1+x^2}$ and $v=\\frac{x^2}{2}$,\n\n$$\n\\int_0^1x\\tan^{-1}x\\,dx=\\left[\\frac{x^2}{2}\\tan^{-1}x\\right]_0^1-\\int_0^1\\frac{x^2}{2}\\cdot\\frac{1}{1+x^2}\\,dx.\n$$"
+      },
+      {
+        "prompt": "The remaining integrand $\\frac{x^2}{2(1+x^2)}$ has numerator and denominator of the same degree. Which rewriting makes it integrable?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Substitute $w=1+x^2$, $dw=2x\\,dx$",
+            "note": "The numerator is $x^2$, so there is no $x\\,dx$ left over to become $dw$. The substitution does not fit."
+          },
+          {
+            "label": "B",
+            "text": "Parts again with $u=x^2$, $dv=\\frac{dx}{1+x^2}$",
+            "note": "The new integral contains $x\\tan^{-1}x$, the type of integral we started with, so nothing is gained."
+          },
+          {
+            "label": "C",
+            "text": "Write $\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Add and subtract $1$ in the numerator:\n\n$$\n\\frac{x^2}{1+x^2}=\\frac{(1+x^2)-1}{1+x^2}=1-\\frac{1}{1+x^2}.\n$$\n\nSo the remaining integral is $\\frac{1}{2}\\int_0^1\\left(1-\\frac{1}{1+x^2}\\right)dx$."
+      },
+      {
+        "prompt": "What is the value of $\\int_0^1\\frac{x^2}{2(1+x^2)}\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}\\left(1+\\frac{\\pi}{4}\\right)$",
+            "note": "The term $-\\frac{1}{1+x^2}$ integrates to $-\\tan^{-1}x$. Recheck the sign it carries."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}\\left(1-\\frac{\\pi}{4}\\right)$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{2}\\left(1-\\ln 2\\right)$",
+            "note": "The antiderivative of $\\frac{1}{1+x^2}$ is not a logarithm. A logarithm would need $x$ in the numerator."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Integrate term by term:\n\n$$\n\\frac{1}{2}\\int_0^1\\left(1-\\frac{1}{1+x^2}\\right)dx=\\frac{1}{2}\\Big[x-\\tan^{-1}x\\Big]_0^1=\\frac{1}{2}\\left(1-\\frac{\\pi}{4}\\right)=\\frac{1}{2}-\\frac{\\pi}{8}.\n$$"
+      },
+      {
+        "prompt": "Now evaluate the boundary term $\\left[\\frac{x^2}{2}\\tan^{-1}x\\right]_0^1$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{4}$",
+            "note": "Check the factor $\\frac{1}{2}$ in $\\frac{x^2}{2}$ at $x=1$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{2}$",
+            "note": "The value $\\tan^{-1}1$ is the angle whose tangent is $1$, not $1$ itself."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{8}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x=1$ the term is $\\frac{1}{2}\\tan^{-1}1=\\frac{1}{2}\\cdot\\frac{\\pi}{4}=\\frac{\\pi}{8}$. At $x=0$ it is $0$. So the boundary term is $\\frac{\\pi}{8}$."
+      },
+      {
+        "prompt": "Subtract the remaining integral from the boundary term. What is the value?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}$",
+            "note": "This adds the remaining integral. The formula subtracts it."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{4}-\\frac{1}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{8}-\\frac{1}{2}$",
+            "note": "The remaining integral is $\\frac{1}{2}-\\frac{\\pi}{8}$, not $\\frac{1}{2}$. The $\\frac{\\pi}{8}$ inside it must be subtracted too."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\int_0^1x\\tan^{-1}x\\,dx=\\frac{\\pi}{8}-\\left(\\frac{1}{2}-\\frac{\\pi}{8}\\right)=\\frac{\\pi}{4}-\\frac{1}{2}.\n$$"
+      }
+    ],
+    "takeaway": "When the integral left after parts has equal degrees on top and bottom, divide first; and subtract the whole remaining integral, including any constant inside it."
+  },
+  {
+    "id": "L11-g3",
+    "lessonId": "L11",
+    "typeId": "L11-recognise-or-complete",
+    "stem": "(a) Find the value of $A$ in $\\int_0^{\\pi/3}x\\sec x\\tan x\\,dx=A-\\int_0^{\\pi/3}\\sec x\\,dx$. (b) Hence find the value of the integral on the left.",
+    "steps": [
+      {
+        "prompt": "(a) The right side is what integration by parts leaves behind. Which choice of $u$ and $dv$ leads to an integral of $\\sec x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$u=\\sec x\\tan x$, $dv=x\\,dx$",
+            "note": "Then $v=\\frac{x^2}{2}$, so the new integral has $x^2$ in it and is not a lone trig function."
+          },
+          {
+            "label": "B",
+            "text": "$u=x$, $dv=\\sec x\\tan x\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$u=\\sec x$, $dv=x\\tan x\\,dx$",
+            "note": "The function $x\\tan x$ has no elementary antiderivative, so this $dv$ cannot be integrated."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The factor $x$ becomes $1$ when differentiated, and $\\sec x\\tan x$ is the derivative of a familiar function. Take $u=x$, $du=dx$, $dv=\\sec x\\tan x\\,dx$."
+      },
+      {
+        "prompt": "(a) What is $v$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$v=\\sec x$"
+          },
+          {
+            "label": "B",
+            "text": "$v=\\tan x$",
+            "note": "The derivative of $\\tan x$ is $\\sec^2 x$, not $\\sec x\\tan x$."
+          },
+          {
+            "label": "C",
+            "text": "$v=-\\sec x$",
+            "note": "The derivative of $\\sec x$ is $+\\sec x\\tan x$, so the minus sign is wrong."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Since $\\frac{d}{dx}\\sec x=\\sec x\\tan x$, integrating $dv$ gives $v=\\sec x$."
+      },
+      {
+        "prompt": "(a) Write out the formula for the definite integral. What does it give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\Big[x\\sec x\\Big]_0^{\\pi/3}+\\int_0^{\\pi/3}\\sec x\\,dx$",
+            "note": "The formula subtracts $\\int v\\,du$. Recheck the sign."
+          },
+          {
+            "label": "B",
+            "text": "$-\\int_0^{\\pi/3}\\sec x\\,dx$ alone, with no boundary term",
+            "note": "The $uv$ term stays in the answer and is evaluated at both limits. It is not dropped."
+          },
+          {
+            "label": "C",
+            "text": "$\\Big[x\\sec x\\Big]_0^{\\pi/3}-\\int_0^{\\pi/3}\\sec x\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "With $u=x$ and $v=\\sec x$,\n\n$$\n\\int_0^{\\pi/3}x\\sec x\\tan x\\,dx=\\Big[x\\sec x\\Big]_0^{\\pi/3}-\\int_0^{\\pi/3}\\sec x\\,dx.\n$$"
+      },
+      {
+        "prompt": "(a) Comparing with the given equation, what is $A$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{3}$",
+            "note": "The boundary term is $x\\sec x$, and $\\sec\\frac{\\pi}{3}$ is not $1$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{2\\pi}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{2\\pi}{3\\sqrt{3}}$",
+            "note": "Recall $\\sec x=\\frac{1}{\\cos x}$. This used the value of the wrong function at $\\frac{\\pi}{3}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The given equation has the same $-\\int_0^{\\pi/3}\\sec x\\,dx$, so $A$ is the boundary term. Since $\\sec\\frac{\\pi}{3}=\\frac{1}{1/2}=2$,\n\n$$\nA=\\Big[x\\sec x\\Big]_0^{\\pi/3}=\\frac{\\pi}{3}\\cdot 2-0=\\frac{2\\pi}{3}.\n$$"
+      },
+      {
+        "prompt": "(b) To finish, we need $\\int_0^{\\pi/3}\\sec x\\,dx$. What is an antiderivative of $\\sec x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln|\\sec x+\\tan x|$"
+          },
+          {
+            "label": "B",
+            "text": "$\\ln|\\cos x|$",
+            "note": "Its derivative is $-\\tan x$, not $\\sec x$."
+          },
+          {
+            "label": "C",
+            "text": "$\\sec x\\tan x$",
+            "note": "Its derivative is $\\sec x\\tan^2x+\\sec^3x$, not $\\sec x$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Check by differentiating:\n\n$$\n\\frac{d}{dx}\\ln|\\sec x+\\tan x|=\\frac{\\sec x\\tan x+\\sec^2x}{\\sec x+\\tan x}=\\sec x.\n$$"
+      },
+      {
+        "prompt": "(b) What is $\\int_0^{\\pi/3}\\sec x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln 2$",
+            "note": "The value of $\\tan\\frac{\\pi}{3}$ also goes into $\\sec x+\\tan x$."
+          },
+          {
+            "label": "B",
+            "text": "$\\ln\\sqrt{3}$",
+            "note": "The value of $\\sec\\frac{\\pi}{3}$ also goes into $\\sec x+\\tan x$."
+          },
+          {
+            "label": "C",
+            "text": "$\\ln(2+\\sqrt{3})$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x=\\frac{\\pi}{3}$, $\\sec x=2$ and $\\tan x=\\sqrt{3}$. At $x=0$, $\\sec x+\\tan x=1$ and $\\ln 1=0$. So\n\n$$\n\\int_0^{\\pi/3}\\sec x\\,dx=\\ln(2+\\sqrt{3})-0=\\ln(2+\\sqrt{3}).\n$$"
+      },
+      {
+        "prompt": "(b) What is the value of $\\int_0^{\\pi/3}x\\sec x\\tan x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{2\\pi}{3}-\\ln(2+\\sqrt{3})$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{2\\pi}{3}+\\ln(2+\\sqrt{3})$",
+            "note": "The given equation subtracts the integral of $\\sec x$ from $A$. Recheck the sign."
+          },
+          {
+            "label": "C",
+            "text": "$\\ln(2+\\sqrt{3})-\\frac{2\\pi}{3}$",
+            "note": "This reverses the subtraction. It is $A$ minus the integral of $\\sec x$, not the other way round."
+          }
+        ],
+        "answer": "A",
+        "explanation": "From the equation,\n\n$$\n\\int_0^{\\pi/3}x\\sec x\\tan x\\,dx=A-\\int_0^{\\pi/3}\\sec x\\,dx=\\frac{2\\pi}{3}-\\ln(2+\\sqrt{3}).\n$$\n\nThis is about $0.777$, positive as it should be, since the integrand is positive on the interval."
+      }
+    ],
+    "takeaway": "To find the unknown constant in a parts identity, do one round of parts and read it off as the evaluated $uv$ term."
+  }
+]

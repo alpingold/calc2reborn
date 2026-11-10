@@ -7,6 +7,10 @@
     "tags": [
       "shell",
       "formula"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis",
+      "L7-shell-vertical-line"
     ]
   },
   {
@@ -28,6 +32,10 @@
       "trap",
       "shell",
       "which-variable"
+    ],
+    "typeIds": [
+      "L7-shell-vertical-line",
+      "L7-shell-horizontal-axis"
     ]
   },
   {
@@ -38,6 +46,9 @@
     "tags": [
       "trap",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis"
     ]
   },
   {
@@ -48,6 +59,9 @@
     "tags": [
       "shell",
       "compute"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis"
     ]
   },
   {
@@ -60,6 +74,9 @@
       "shell",
       "washer",
       "which-method"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis"
     ]
   },
   {
@@ -71,6 +88,9 @@
       "shell",
       "which-method",
       "quick-decision"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis"
     ]
   },
   {
@@ -81,6 +101,9 @@
     "tags": [
       "shell",
       "substitution"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis"
     ]
   },
   {
@@ -91,6 +114,9 @@
     "tags": [
       "trap",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-y-axis"
     ]
   },
   {
@@ -102,6 +128,9 @@
       "trap",
       "shifted-axis",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-vertical-line"
     ]
   },
   {
@@ -113,6 +142,9 @@
       "trap",
       "shifted-axis",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-vertical-line"
     ]
   },
   {
@@ -124,6 +156,9 @@
       "trap",
       "shifted-axis",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-horizontal-axis"
     ]
   },
   {
@@ -135,6 +170,9 @@
       "trap",
       "shifted-axis",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-horizontal-axis"
     ]
   },
   {
@@ -146,6 +184,9 @@
       "trap",
       "shifted-axis",
       "shell"
+    ],
+    "typeIds": [
+      "L7-shell-vertical-line"
     ]
   }
 ]

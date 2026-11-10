@@ -98,6 +98,7 @@ export function GuidedProblemView({
           )
         })}
       </ol>
+      {!finished && <p className="guided-progress">{`Step ${solved + 1} of ${total}`}</p>}
       {finished && (
         <div className="guided-end">
           <Markdown text={problem.takeaway} className="guided-takeaway" />

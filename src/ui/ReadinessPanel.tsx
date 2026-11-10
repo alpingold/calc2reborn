@@ -65,7 +65,9 @@ export function ReadinessPanel({
             : 'No timed mock on these lessons yet'}
         </p>
       )}
-      <Link to={mockLink}>Take a mock exam</Link>
+      <Link to={mockLink} className="button">
+        Take a mock exam
+      </Link>
     </aside>
   )
 }

@@ -7,6 +7,9 @@
     "tags": [
       "slicing",
       "formula"
+    ],
+    "typeIds": [
+      "L6-known-cross-sections"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "tags": [
       "trap",
       "slicing"
+    ],
+    "typeIds": [
+      "L6-known-cross-sections"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "tags": [
       "slicing",
       "compute"
+    ],
+    "typeIds": [
+      "L6-known-cross-sections"
     ]
   },
   {
@@ -37,6 +46,9 @@
     "tags": [
       "disk",
       "compute"
+    ],
+    "typeIds": [
+      "L6-disk-washer-x-axis"
     ]
   },
   {
@@ -48,6 +60,9 @@
       "trap",
       "disk",
       "which-variable"
+    ],
+    "typeIds": [
+      "L6-disk-washer-y-axis"
     ]
   },
   {
@@ -58,6 +73,10 @@
     "tags": [
       "washer",
       "formula"
+    ],
+    "typeIds": [
+      "L6-disk-washer-x-axis",
+      "L6-disk-washer-y-axis"
     ]
   },
   {
@@ -69,6 +88,10 @@
       "trap",
       "washer",
       "quick-decision"
+    ],
+    "typeIds": [
+      "L6-disk-washer-x-axis",
+      "L6-disk-washer-other-line"
     ]
   },
   {
@@ -79,6 +102,9 @@
     "tags": [
       "trap",
       "washer"
+    ],
+    "typeIds": [
+      "L6-disk-washer-x-axis"
     ]
   },
   {
@@ -90,6 +116,9 @@
       "trap",
       "shifted-axis",
       "washer"
+    ],
+    "typeIds": [
+      "L6-disk-washer-other-line"
     ]
   },
   {
@@ -101,6 +130,9 @@
       "trap",
       "shifted-axis",
       "washer"
+    ],
+    "typeIds": [
+      "L6-disk-washer-other-line"
     ]
   },
   {
@@ -112,6 +144,9 @@
       "trap",
       "shifted-axis",
       "disk"
+    ],
+    "typeIds": [
+      "L6-disk-washer-other-line"
     ]
   },
   {
@@ -123,6 +158,9 @@
       "trap",
       "shifted-axis",
       "washer"
+    ],
+    "typeIds": [
+      "L6-disk-washer-other-line"
     ]
   },
   {
@@ -133,6 +171,9 @@
     "tags": [
       "disk",
       "check"
+    ],
+    "typeIds": [
+      "L6-disk-washer-x-axis"
     ]
   }
 ]

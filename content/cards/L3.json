@@ -6,6 +6,9 @@
     "back": "Multiply matching components and add: $4 + 10 + 21 = 35$. In 2D, $\\langle a, b \\rangle \\cdot \\langle c, d \\rangle = ac + bd$.",
     "tags": [
       "dot-product"
+    ],
+    "typeIds": [
+      "L3-dot-orthogonal-work"
     ]
   },
   {
@@ -16,6 +19,10 @@
     "tags": [
       "trap",
       "dot-product"
+    ],
+    "typeIds": [
+      "L3-dot-orthogonal-work",
+      "L3-dot-product-statements"
     ]
   },
   {
@@ -26,6 +33,9 @@
     "tags": [
       "trap",
       "dot-product"
+    ],
+    "typeIds": [
+      "L3-dot-product-statements"
     ]
   },
   {
@@ -35,6 +45,10 @@
     "back": "$\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, where $\\theta$ is the included angle, $0 \\le \\theta \\le 180^\\circ$. For nonzero vectors, $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$.",
     "tags": [
       "angle"
+    ],
+    "typeIds": [
+      "L3-angle-between-vectors",
+      "L3-angle-dot-and-cross"
     ]
   },
   {
@@ -44,6 +58,9 @@
     "back": "The dot product is $6 + 0 + 16 = 22$ and the lengths are $3$ and $10$. So $\\cos\\theta = \\frac{22}{30}$ and $\\theta = \\cos^{-1}\\left(\\frac{22}{30}\\right) \\approx 43^\\circ$.",
     "tags": [
       "angle"
+    ],
+    "typeIds": [
+      "L3-angle-between-vectors"
     ]
   },
   {
@@ -53,6 +70,10 @@
     "back": "Greater than $90^\\circ$. $|\\vec{a}||\\vec{b}| > 0$, so $\\cos\\theta$ has the sign of the dot product, and $\\cos\\theta < 0$ means $\\theta > 90^\\circ$.",
     "tags": [
       "angle"
+    ],
+    "typeIds": [
+      "L3-angle-between-vectors",
+      "L3-angle-dot-and-cross"
     ]
   },
   {
@@ -63,6 +84,9 @@
     "tags": [
       "trap",
       "angle"
+    ],
+    "typeIds": [
+      "L3-angle-between-vectors"
     ]
   },
   {
@@ -73,6 +97,10 @@
     "tags": [
       "trap",
       "perpendicular"
+    ],
+    "typeIds": [
+      "L3-dot-orthogonal-work",
+      "L3-dot-product-statements"
     ]
   },
   {
@@ -82,6 +110,9 @@
     "back": "Set the dot product to $0$: $3 - c + 2c = 0$, so $c = -3$. Both vectors are then nonzero: $\\langle 1, -3, 2 \\rangle$ and $\\langle 3, -1, -3 \\rangle$.",
     "tags": [
       "perpendicular"
+    ],
+    "typeIds": [
+      "L3-dot-orthogonal-work"
     ]
   },
   {
@@ -91,6 +122,9 @@
     "back": "For $\\vec{a} \\ne \\vec{0}$:\n\n$$\n\\text{scal}_{\\vec{a}} \\vec{b} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}, \\quad \\text{proj}_{\\vec{a}} \\vec{b} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^2}\\vec{a}\n$$",
     "tags": [
       "projection"
+    ],
+    "typeIds": [
+      "L3-vector-projection"
     ]
   },
   {
@@ -101,6 +135,9 @@
     "tags": [
       "trap",
       "projection"
+    ],
+    "typeIds": [
+      "L3-vector-projection"
     ]
   },
   {
@@ -111,6 +148,9 @@
     "tags": [
       "trap",
       "projection"
+    ],
+    "typeIds": [
+      "L3-vector-projection"
     ]
   },
   {
@@ -121,6 +161,9 @@
     "tags": [
       "trap",
       "projection"
+    ],
+    "typeIds": [
+      "L3-vector-projection"
     ]
   },
   {
@@ -130,6 +173,9 @@
     "back": "$\\vec{p} = \\text{proj}_{\\vec{v}} \\vec{u} = \\frac{3}{17}\\langle 2, -2, 3 \\rangle = \\left\\langle \\frac{6}{17}, -\\frac{6}{17}, \\frac{9}{17} \\right\\rangle$. $\\vec{n} = \\vec{u} - \\vec{p} = \\left\\langle -\\frac{23}{17}, -\\frac{62}{17}, -\\frac{26}{17} \\right\\rangle$. Check: $\\vec{n} \\cdot \\vec{v} = 0$.",
     "tags": [
       "projection"
+    ],
+    "typeIds": [
+      "L3-vector-projection"
     ]
   },
   {
@@ -139,6 +185,9 @@
     "back": "Use $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ on $\\vec{u} = \\vec{v} - \\vec{w}$: $|\\vec{v} - \\vec{w}|^2 = |\\vec{v}|^2 - 2\\vec{v} \\cdot \\vec{w} + |\\vec{w}|^2$. So $16 = 9 - 2\\vec{v} \\cdot \\vec{w} + 4$, and $\\vec{v} \\cdot \\vec{w} = -\\frac{3}{2}$. Expanding this way uses the distributive law (beyond Chen's notes).",
     "tags": [
       "dot-product"
+    ],
+    "typeIds": [
+      "L3-dot-orthogonal-work"
     ]
   }
 ]

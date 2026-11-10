@@ -6,6 +6,10 @@
     "back": "Save one factor of the function with the odd power, turn the remaining even power into the other function with $\\sin^2 x + \\cos^2 x = 1$, and substitute. Odd cosine: save $\\cos x$ and let $u = \\sin x$. Odd sine: save $\\sin x$ and let $u = \\cos x$, $du = -\\sin x\\,dx$.",
     "tags": [
       "sin-cos-powers"
+    ],
+    "typeIds": [
+      "L12-odd-power-substitution",
+      "L12-choose-method"
     ]
   },
   {
@@ -16,6 +20,10 @@
     "tags": [
       "sin-cos-powers",
       "half-angle"
+    ],
+    "typeIds": [
+      "L12-even-powers-half-angle",
+      "L12-choose-method"
     ]
   },
   {
@@ -26,6 +34,9 @@
     "tags": [
       "trap",
       "half-angle"
+    ],
+    "typeIds": [
+      "L12-even-powers-half-angle"
     ]
   },
   {
@@ -36,6 +47,9 @@
     "tags": [
       "sin-cos-powers",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L12-odd-power-substitution"
     ]
   },
   {
@@ -46,6 +60,10 @@
     "tags": [
       "trap",
       "sin-cos-powers"
+    ],
+    "typeIds": [
+      "L12-odd-power-substitution",
+      "L12-choose-method"
     ]
   },
   {
@@ -56,6 +74,9 @@
     "tags": [
       "half-angle",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L12-even-powers-half-angle"
     ]
   },
   {
@@ -66,6 +87,9 @@
     "tags": [
       "trap",
       "half-angle"
+    ],
+    "typeIds": [
+      "L12-even-powers-half-angle"
     ]
   },
   {
@@ -75,6 +99,9 @@
     "back": "$\\sin x\\cos x = \\frac{1}{2}\\sin 2x$, so the integrand is $\\frac{1}{4}\\sin^2 2x = \\frac{1}{8}(1 - \\cos 4x)$. The integral is $\\frac{x}{8} - \\frac{\\sin 4x}{32} + C$, the same as Chen's $\\frac{1}{8}\\left(x - \\frac{1}{4}\\sin 4x\\right) + C$.",
     "tags": [
       "half-angle"
+    ],
+    "typeIds": [
+      "L12-even-powers-half-angle"
     ]
   },
   {
@@ -84,6 +111,9 @@
     "back": "Either. Saving $\\cos x$ with $u = \\sin x$ gives $\\frac{\\sin^4 x}{4} - \\frac{\\sin^6 x}{6} + C$. Saving $\\sin x$ with $u = \\cos x$ gives $-\\frac{\\cos^4 x}{4} + \\frac{\\cos^6 x}{6} + C$. The two differ by the constant $\\frac{1}{12}$, so both are right.",
     "tags": [
       "sin-cos-powers"
+    ],
+    "typeIds": [
+      "L12-odd-power-substitution"
     ]
   },
   {
@@ -94,6 +124,9 @@
     "tags": [
       "trap",
       "absolute-value"
+    ],
+    "typeIds": [
+      "L12-tan-identities"
     ]
   },
   {

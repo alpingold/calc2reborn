@@ -1,0 +1,309 @@
+[
+  {
+    "id": "L9-g1",
+    "lessonId": "L9",
+    "typeId": "L9-spring-work",
+    "stem": "A spring has natural length $2$ m. A force of $60$ N holds it stretched to a length of $2.4$ m.\n\n(a) Find the work needed to stretch it from a length of $2.4$ m to a length of $2.9$ m.\n\n(b) Find the work needed to stretch it from its natural length to a length of $2.9$ m.",
+    "steps": [
+      {
+        "prompt": "Which equation gives the spring constant $k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$60 = k(2.4)$",
+            "note": "The $2.4$ m is the total length, but Hooke's law uses the deviation from the natural length. This equation would give $k = 25$."
+          },
+          {
+            "label": "B",
+            "text": "$60 = k(0.4)$"
+          },
+          {
+            "label": "C",
+            "text": "$60 = \\frac{k}{2}(0.4)^2$",
+            "note": "That is the form for work, not force. The force at a deviation $x$ is a single product, and this equation would give $k = 750$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Hooke's law is $F = kx$, with $x$ measured from the natural length. The deviation is $x = 2.4 - 2 = 0.4$ m, so $60 = k(0.4)$ and $k = 150$ N/m."
+      },
+      {
+        "prompt": "Part (a). What are the limits of the integral $\\int_a^b 150x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a = 2.4$, $b = 2.9$",
+            "note": "These are total lengths, not deviations from the natural length. They would give $75(2.9^2 - 2.4^2) = 198.75$ J."
+          },
+          {
+            "label": "B",
+            "text": "$a = 0.4$, $b = 0.9$"
+          },
+          {
+            "label": "C",
+            "text": "$a = 0$, $b = 0.5$",
+            "note": "This counts only the size of the extra stretch and forgets that the spring is already stretched by $0.4$ m. It would give $18.75$ J."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Deviations from the natural length: the start $2.4 - 2 = 0.4$ and the end $2.9 - 2 = 0.9$. So $W = \\int_{0.4}^{0.9} 150x\\,dx$."
+      },
+      {
+        "prompt": "Part (a). What is the work?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$97.5$ J",
+            "note": "The antiderivative of $150x$ is $75x^2$, not $150x^2$. Dropping the factor $\\frac{1}{2}$ doubles the work."
+          },
+          {
+            "label": "B",
+            "text": "$30$ J",
+            "note": "This multiplies the starting force $60$ N by the distance $0.5$ m, which treats the force as constant. The force grows as the spring stretches."
+          },
+          {
+            "label": "C",
+            "text": "$48.75$ J"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$W = \\int_{0.4}^{0.9} 150x\\,dx = 75x^2\\Big|_{0.4}^{0.9} = 75(0.81 - 0.16) = 75(0.65) = 48.75$ J."
+      },
+      {
+        "prompt": "Part (b). What are the limits of the integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a = 0$, $b = 0.9$"
+          },
+          {
+            "label": "B",
+            "text": "$a = 2$, $b = 2.9$",
+            "note": "These are total lengths, not deviations from the natural length."
+          },
+          {
+            "label": "C",
+            "text": "$a = 0.4$, $b = 0.9$",
+            "note": "These are the limits of the first part. This problem starts from the natural length, so no stretch is already in place."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Part (b) starts at the natural length, deviation $0$, and ends at the length $2.9$ m, deviation $2.9 - 2 = 0.9$. So $W = \\int_0^{0.9} 150x\\,dx$."
+      },
+      {
+        "prompt": "Part (b). What is the work?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$121.5$ J",
+            "note": "The factor $\\frac{1}{2}$ was dropped: the antiderivative of $150x$ is $75x^2$, not $150x^2$."
+          },
+          {
+            "label": "B",
+            "text": "$135$ J",
+            "note": "This is the force in newtons at the end of the stretch, $150(0.9) = 135$ N. A force is not work; work adds up the force over the distance moved as it grows."
+          },
+          {
+            "label": "C",
+            "text": "$60.75$ J"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$W = \\int_0^{0.9} 150x\\,dx = 75x^2\\Big|_0^{0.9} = 75(0.81) = 60.75$ J."
+      },
+      {
+        "prompt": "Check. The first $0.4$ m of stretch, from the natural length to $2.4$ m, together with part (a) makes up part (b). What is the work for that first $0.4$ m?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$24$ J",
+            "note": "This is $150(0.4)^2$, which drops the factor $\\frac{1}{2}$. It is also the constant-force product $60 \\cdot 0.4$. Neither fits a force that grows from $0$."
+          },
+          {
+            "label": "B",
+            "text": "$12$ J"
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\int_0^{0.4} 150x\\,dx = 75(0.16) = 12$ J. Then $12 + 48.75 = 60.75$ J, which agrees with part (b)."
+      }
+    ],
+    "takeaway": "Measure every limit from the natural length, and start the integral at the stretch already in place, not at zero."
+  },
+  {
+    "id": "L9-g2",
+    "lessonId": "L9",
+    "typeId": "L9-centroid-or-mass",
+    "stem": "Let $R$ be the region in the first quadrant bounded by $y = 4 - x^2$, the $x$-axis and the $y$-axis. Take the density to be $1$.\n\n(a) Find the area $A$ of $R$.\n\n(b) Find $\\bar{x}$.\n\n(c) Find $\\bar{y}$.",
+    "steps": [
+      {
+        "prompt": "What are the limits of $x$ and the height of the region at $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0 \\le x \\le 4$, height $4 - x^2$",
+            "note": "The value $4$ is where the parabola crosses the $y$-axis. The region stops at the $x$-axis, so look for where $4 - x^2 = 0$."
+          },
+          {
+            "label": "B",
+            "text": "$0 \\le x \\le 2$, height $4 - x^2$"
+          },
+          {
+            "label": "C",
+            "text": "$-2 \\le x \\le 2$, height $4 - x^2$",
+            "note": "This takes the whole cap of the parabola. The $y$-axis is a boundary, so the region is only the first-quadrant half."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The parabola meets the $x$-axis where $4 - x^2 = 0$, so $x = 2$ in the first quadrant. The $y$-axis is $x = 0$. Between them the region runs from $y = 0$ up to $y = 4 - x^2$, so the height is $4 - x^2$ for $0 \\le x \\le 2$."
+      },
+      {
+        "prompt": "Part (a). What is the area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8$",
+            "note": "This is the rectangle $4 \\cdot 2$, which ignores that the top boundary falls."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{16}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "This evaluates $4x - x^3$ at $2$, which forgets to divide $x^3$ by $3$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$A = \\int_0^2 (4 - x^2)\\,dx = \\left[4x - \\frac{x^3}{3}\\right]_0^2 = 8 - \\frac{8}{3} = \\frac{16}{3}$."
+      },
+      {
+        "prompt": "Part (b). Which integral gives the moment $M_y$, so that $\\bar{x} = \\frac{M_y}{A}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_0^2 \\frac{1}{2}(4 - x^2)^2\\,dx$",
+            "note": "This is the integrand for the other moment, the one that gives $\\bar{y}$. For $\\bar{x}$ each thin strip is weighted by its distance from the $y$-axis."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_0^2 x^2(4 - x^2)\\,dx$",
+            "note": "Each strip is weighted by its distance $x$ from the $y$-axis once, not squared."
+          },
+          {
+            "label": "C",
+            "text": "$\\int_0^2 x(4 - x^2)\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "A strip at $x$ has area $(4 - x^2)\\,dx$ and lies a distance $x$ from the $y$-axis, so $M_y = \\int_0^2 x(4 - x^2)\\,dx$."
+      },
+      {
+        "prompt": "Part (b). What is $M_y$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8$",
+            "note": "This keeps only the $2x^2$ term of the antiderivative and loses $\\frac{x^4}{4}$."
+          },
+          {
+            "label": "B",
+            "text": "$12$",
+            "note": "The sign of the second term was lost: $-\\frac{x^4}{4}$ became $+\\frac{x^4}{4}$."
+          },
+          {
+            "label": "C",
+            "text": "$4$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$M_y = \\int_0^2 (4x - x^3)\\,dx = \\left[2x^2 - \\frac{x^4}{4}\\right]_0^2 = 8 - 4 = 4$."
+      },
+      {
+        "prompt": "Part (b). What is $\\bar{x}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{4}{3}$",
+            "note": "The quotient is upside down. The centroid is the moment divided by the area."
+          },
+          {
+            "label": "B",
+            "text": "$1$",
+            "note": "This is the midpoint of $[0, 2]$. The region is taller near the $y$-axis, so the centroid is not at the middle."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{3}{4}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\bar{x} = \\frac{M_y}{A} = \\frac{4}{16/3} = \\frac{3}{4}$. This is less than $1$, as expected for a region that is taller near the $y$-axis."
+      },
+      {
+        "prompt": "Part (c). Which integral gives the moment $M_x$, so that $\\bar{y} = \\frac{M_x}{A}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_0^2 \\frac{1}{2}(4 - x^2)^2\\,dx$"
+          },
+          {
+            "label": "B",
+            "text": "$\\int_0^2 (4 - x^2)^2\\,dx$",
+            "note": "Something is missing: the moment uses the height of each strip's centre of mass, not its full height."
+          },
+          {
+            "label": "C",
+            "text": "$\\int_0^2 \\frac{1}{2}(4 - x^2)\\,dx$",
+            "note": "The height of the strip must also be multiplied in: its area is $(4 - x^2)\\,dx$ and its centre is at half that height."
+          }
+        ],
+        "answer": "A",
+        "explanation": "A strip at $x$ has area $(4 - x^2)\\,dx$ and its centre is at height $\\frac{1}{2}(4 - x^2)$. So $M_x = \\int_0^2 \\frac{1}{2}(4 - x^2)^2\\,dx$."
+      },
+      {
+        "prompt": "Part (c). What is $M_x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{128}{9}$",
+            "note": "This squares the integral of $4 - x^2$ instead of integrating the square. The square of $4 - x^2$ must be expanded first."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{256}{15}$",
+            "note": "The factor $\\frac{1}{2}$ was dropped."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{128}{15}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Expand $(4 - x^2)^2 = 16 - 8x^2 + x^4$. Then\n\n$$\nM_x = \\frac{1}{2}\\left[16x - \\frac{8x^3}{3} + \\frac{x^5}{5}\\right]_0^2 = \\frac{1}{2}\\left(32 - \\frac{64}{3} + \\frac{32}{5}\\right) = \\frac{1}{2}\\cdot\\frac{256}{15} = \\frac{128}{15}\n$$"
+      },
+      {
+        "prompt": "Part (c). What is $\\bar{y}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{8}{5}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{128}{15}$",
+            "note": "This is the moment itself. It still has to be divided by the area."
+          },
+          {
+            "label": "C",
+            "text": "$2$",
+            "note": "This is half the maximum height $4$. The region is thin where it is tall, so most of its area lies lower than that."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\bar{y} = \\frac{M_x}{A} = \\frac{128/15}{16/3} = \\frac{128}{15}\\cdot\\frac{3}{16} = \\frac{8}{5}$. The centroid is $\\left(\\frac{3}{4}, \\frac{8}{5}\\right)$."
+      }
+    ],
+    "takeaway": "Pair each coordinate with its own moment, $x(\\text{top} - \\text{bottom})$ for $\\bar{x}$ and $\\frac{1}{2}(\\text{top}^2 - \\text{bottom}^2)$ for $\\bar{y}$, and divide by the area."
+  }
+]

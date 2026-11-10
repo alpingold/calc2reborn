@@ -1,0 +1,501 @@
+[
+  {
+    "id": "L7-g1",
+    "lessonId": "L7",
+    "typeId": "L7-shell-y-axis",
+    "stem": "The region in the first quadrant bounded by $y = x^2$, $y = 8 - x^2$ and the $y$-axis is revolved about the $y$-axis.\n\n(a) Find the volume of the solid.\n\n(b) Let $0 < c < 2$. Revolving only the part of the region with $0 \\le x \\le c$ gives a smaller solid. Find $c$ so that its volume is half the volume in (a).",
+    "steps": [
+      {
+        "prompt": "(a) Which method and variable suit this region and axis?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Washers in $y$, with a single integral over $0 \\le y \\le 8$",
+            "note": "The right-hand boundary of the region is $y = x^2$ for low heights and $y = 8 - x^2$ for high ones, so one expression in $y$ does not describe the whole region."
+          },
+          {
+            "label": "B",
+            "text": "Shells in $x$, with vertical rectangles"
+          },
+          {
+            "label": "C",
+            "text": "Shells in $y$, with horizontal rectangles",
+            "note": "A rectangle parallel to a vertical axis is itself vertical, so its thickness is a change in $x$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The axis is vertical, so shells use rectangles parallel to it: vertical strips of thickness $dx$. The region is described with $x$ as the variable, with $y = x^2$ below and $y = 8 - x^2$ above. A washer in $y$ would need two integrals, one on each side of the height where the curves meet."
+      },
+      {
+        "prompt": "(a) Between which values of $x$ do the shells run?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$ to $2\\sqrt{2}$",
+            "note": "That is where $y = 8 - x^2$ meets the $x$-axis. The region ends on the right where its two boundary curves meet."
+          },
+          {
+            "label": "B",
+            "text": "$-2$ to $2$",
+            "note": "The region is in the first quadrant and is bounded on the left by the $y$-axis."
+          },
+          {
+            "label": "C",
+            "text": "$0$ to $2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The left end is the $y$-axis, $x = 0$. The right end is where the curves meet:\n\n$$\nx^2 = 8 - x^2 \\quad\\Rightarrow\\quad x^2 = 4 \\quad\\Rightarrow\\quad x = 2\n$$\n\nso the shells run over $0 \\le x \\le 2$."
+      },
+      {
+        "prompt": "(a) What are the radius and the height of the shell at $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Radius $x$, height $8 - 2x^2$"
+          },
+          {
+            "label": "B",
+            "text": "Radius $x$, height $8 - x^2$",
+            "note": "The strip does not reach down to the $x$-axis. Its bottom edge is the lower curve."
+          },
+          {
+            "label": "C",
+            "text": "Radius $2 - x$, height $8 - 2x^2$",
+            "note": "The axis is the $y$-axis, so the distance from a strip at $x$ to the axis is not measured from $x = 2$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The strip at $x$ is at distance $x$ from the $y$-axis, so the radius is $x$. Its height is top minus bottom:\n\n$$\n(8 - x^2) - x^2 = 8 - 2x^2\n$$"
+      },
+      {
+        "prompt": "(a) What is the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8\\pi$",
+            "note": "This is what $\\pi\\int$ gives. The circumference of a shell is $2\\pi$ times its radius."
+          },
+          {
+            "label": "B",
+            "text": "$16\\pi$"
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{256\\pi}{3}$",
+            "note": "This squares the height. In the shell integrand the height appears once, not squared."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nV = 2\\pi\\int_0^2 x(8 - 2x^2)\\,dx = 2\\pi\\int_0^2 (8x - 2x^3)\\,dx\n$$\n\n$$\n= 2\\pi\\left[4x^2 - \\frac{x^4}{2}\\right]_0^2 = 2\\pi(16 - 8) = 16\\pi\n$$"
+      },
+      {
+        "prompt": "(b) What is the volume $V(c)$ of the solid from the part of the region with $0 \\le x \\le c$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8\\pi c$",
+            "note": "The volume is not proportional to $c$: both the radius and the height change with $x$, so the integral has to be done with upper limit $c$."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi\\left(8c^2 - c^4\\right)$"
+          },
+          {
+            "label": "C",
+            "text": "$\\pi\\left(8c^2 - 2c^4\\right)$",
+            "note": "Re-check the antiderivative of the $x^3$ term."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Same integrand, with upper limit $c$:\n\n$$\nV(c) = 2\\pi\\int_0^c (8x - 2x^3)\\,dx = 2\\pi\\left[4x^2 - \\frac{x^4}{2}\\right]_0^c = \\pi\\left(8c^2 - c^4\\right)\n$$\n\nAt $c = 2$ this is $\\pi(32 - 16) = 16\\pi$, matching (a)."
+      },
+      {
+        "prompt": "(b) Which equation says that $V(c)$ is half the volume in (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$c^4 - 8c^2 + 16 = 0$",
+            "note": "This sets $V(c) = 16\\pi$, the whole volume from (a), not half of it."
+          },
+          {
+            "label": "B",
+            "text": "$c^4 - 8c^2 + 4 = 0$",
+            "note": "This sets $V(c) = 4\\pi$, which is a quarter of the volume in (a)."
+          },
+          {
+            "label": "C",
+            "text": "$c^4 - 8c^2 + 8 = 0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Half of $16\\pi$ is $8\\pi$:\n\n$$\n\\pi\\left(8c^2 - c^4\\right) = 8\\pi \\quad\\Rightarrow\\quad c^4 - 8c^2 + 8 = 0\n$$"
+      },
+      {
+        "prompt": "(b) Solve for $c$ in the allowed range $0 < c < 2$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$c = \\sqrt{4 - 2\\sqrt{2}} \\approx 1.08$"
+          },
+          {
+            "label": "B",
+            "text": "$c = \\sqrt{4 + 2\\sqrt{2}} \\approx 2.61$",
+            "note": "This root is outside the range $0 < c < 2$."
+          },
+          {
+            "label": "C",
+            "text": "$c = 4 - 2\\sqrt{2} \\approx 1.17$",
+            "note": "That is the value of $c^2$, not of $c$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The equation is quadratic in $c^2$:\n\n$$\nc^2 = \\frac{8 \\pm \\sqrt{64 - 32}}{2} = 4 \\pm 2\\sqrt{2}\n$$\n\nSince $4 + 2\\sqrt{2} \\approx 6.83$ would give $c > 2$, take $c^2 = 4 - 2\\sqrt{2}$, so $c = \\sqrt{4 - 2\\sqrt{2}} \\approx 1.08$."
+      }
+    ],
+    "takeaway": "The radius is the distance from the strip to the axis and the height is top minus bottom; keep both to the first power, and let the limits come from where the boundary curves meet."
+  },
+  {
+    "id": "L7-g2",
+    "lessonId": "L7",
+    "typeId": "L7-shell-vertical-line",
+    "stem": "The region in the first quadrant bounded by $y = x^3$ and $y = 4x$ is revolved about a vertical line.\n\n(a) Find the volume when the axis is $x = 3$.\n\n(b) Find the volume when the axis is $x = -1$.",
+    "steps": [
+      {
+        "prompt": "Which method and variable suit a vertical axis with this region?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Washers in $x$",
+            "note": "Washer slices are perpendicular to a vertical axis, so they are horizontal and their thickness is a change in $y$."
+          },
+          {
+            "label": "B",
+            "text": "Shells in $y$",
+            "note": "A rectangle parallel to a vertical axis is vertical, so its thickness is a change in $x$."
+          },
+          {
+            "label": "C",
+            "text": "Shells in $x$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The axis is vertical, so shells use vertical rectangles, parallel to it, with thickness $dx$. The region is described with $x$ as the variable: each strip runs between the two curves $y = x^3$ and $y = 4x$, and the next steps settle which is on top and where $x$ starts and stops."
+      },
+      {
+        "prompt": "Between which values of $x$ does the region lie?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$ to $8$",
+            "note": "Those are heights, the $y$-values at the right end. With thickness $dx$ the limits are values of $x$."
+          },
+          {
+            "label": "B",
+            "text": "$0$ to $2$"
+          },
+          {
+            "label": "C",
+            "text": "$-2$ to $2$",
+            "note": "The curves also cross at $x = -2$, but the region is in the first quadrant."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The curves meet where\n\n$$\nx^3 = 4x \\quad\\Rightarrow\\quad x(x^2 - 4) = 0 \\quad\\Rightarrow\\quad x = 0,\\ \\pm 2\n$$\n\nIn the first quadrant the region runs over $0 \\le x \\le 2$."
+      },
+      {
+        "prompt": "What is the height of the shell at $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$4x - x^3$"
+          },
+          {
+            "label": "B",
+            "text": "$x^3 - 4x$",
+            "note": "At $x = 1$ this is $-3$. A height is a length, so it cannot be negative: top and bottom are reversed."
+          },
+          {
+            "label": "C",
+            "text": "$4x$",
+            "note": "The strip does not start at the $x$-axis. Its bottom edge is the lower curve."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $x = 1$ the line gives $4$ and the cubic gives $1$, so the line is on top across $0 < x < 2$. The height is top minus bottom:\n\n$$\n4x - x^3\n$$\n\nThis is the same for both axes, since the rectangle itself does not move."
+      },
+      {
+        "prompt": "(a) For the axis $x = 3$, what is the radius of the shell at $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x$",
+            "note": "This is the distance to the $y$-axis, not to the line $x = 3$."
+          },
+          {
+            "label": "B",
+            "text": "$x - 3$",
+            "note": "A radius is a distance and so is positive. This is negative for every $x$ in the region."
+          },
+          {
+            "label": "C",
+            "text": "$3 - x$"
+          },
+          {
+            "label": "D",
+            "text": "$x + 3$",
+            "note": "This is the distance from the strip to the line $x = -3$."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The axis $x = 3$ lies to the right of the region, so the distance from a strip at $x$ to the axis is $3 - x$."
+      },
+      {
+        "prompt": "(a) What is the volume about $x = 3$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{232\\pi}{15}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{592\\pi}{15}$",
+            "note": "Expanding $(3 - x)(4x - x^3)$ gives four terms, including $-3x^3$. This answer is missing one."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{116\\pi}{15}$",
+            "note": "This is what $\\pi\\int$ gives. The circumference of a shell is $2\\pi$ times its radius."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\nV = 2\\pi\\int_0^2 (3 - x)(4x - x^3)\\,dx = 2\\pi\\int_0^2 \\left(12x - 4x^2 - 3x^3 + x^4\\right)dx\n$$\n\n$$\n= 2\\pi\\left[6x^2 - \\frac{4x^3}{3} - \\frac{3x^4}{4} + \\frac{x^5}{5}\\right]_0^2 = 2\\pi\\left(24 - \\frac{32}{3} - 12 + \\frac{32}{5}\\right) = \\frac{232\\pi}{15}\n$$"
+      },
+      {
+        "prompt": "(b) The axis moves to $x = -1$. What changes in the integrand and the limits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Radius $1 - x$, with the same height and limits",
+            "note": "The expression $1 - x$ is the distance to the line $x = 1$, not to the line $x = -1$."
+          },
+          {
+            "label": "B",
+            "text": "Radius $x + 1$, with the same height and limits"
+          },
+          {
+            "label": "C",
+            "text": "Radius $x + 1$, and the limits become $-1$ to $1$",
+            "note": "The limits describe the region, and the region has not moved."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The axis $x = -1$ lies to the left of the region, so the distance from a strip at $x$ to the axis is $x - (-1) = x + 1$. The region, and so the height $4x - x^3$ and the limits $0$ to $2$, is unchanged."
+      },
+      {
+        "prompt": "(b) What is the volume about $x = -1$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{128\\pi}{15}$",
+            "note": "This leaves out the part of the integral that comes from the $1$ in the radius $x + 1$."
+          },
+          {
+            "label": "B",
+            "text": "$8\\pi$",
+            "note": "This keeps only the $1$ in the radius $x + 1$ and leaves out the part from $x$."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{248\\pi}{15}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nV = 2\\pi\\int_0^2 (x + 1)(4x - x^3)\\,dx = 2\\pi\\int_0^2 \\left(4x + 4x^2 - x^3 - x^4\\right)dx\n$$\n\n$$\n= 2\\pi\\left[2x^2 + \\frac{4x^3}{3} - \\frac{x^4}{4} - \\frac{x^5}{5}\\right]_0^2 = 2\\pi\\left(8 + \\frac{32}{3} - 4 - \\frac{32}{5}\\right) = \\frac{248\\pi}{15}\n$$"
+      }
+    ],
+    "takeaway": "When the axis moves, only the radius changes: write it as the positive distance from the strip to the axis, and leave the height and the limits alone."
+  },
+  {
+    "id": "L7-g3",
+    "lessonId": "L7",
+    "typeId": "L7-shell-horizontal-axis",
+    "stem": "The region bounded by $y = \\ln x$, the $x$-axis and the line $x = e$ is revolved about a horizontal line. Use shells for both parts.\n\n(a) Find the volume when the axis is the $x$-axis.\n\n(b) Find the volume when the axis is the line $y = -1$.",
+    "steps": [
+      {
+        "prompt": "(a) Which variable do the shells use, and how are the rectangles drawn?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Shells in $x$, with vertical rectangles",
+            "note": "Vertical rectangles are perpendicular to a horizontal axis. Those belong to disks and washers."
+          },
+          {
+            "label": "B",
+            "text": "Shells in $y$, with horizontal rectangles"
+          },
+          {
+            "label": "C",
+            "text": "Shells in $x$, with radius $x$ and height $\\ln x$",
+            "note": "A radius is the distance to the axis. The distance from a strip to the $x$-axis is not $x$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The axis is horizontal, so the shell rectangles are parallel to it: horizontal strips of thickness $dy$. Everything in the integrand must then be written in terms of $y$."
+      },
+      {
+        "prompt": "(a) Write the curve $y = \\ln x$ as $x$ in terms of $y$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = \\ln y$",
+            "note": "Swapping the names of the variables does not solve for $x$. Undo the logarithm instead."
+          },
+          {
+            "label": "B",
+            "text": "$x = e^{-y}$",
+            "note": "Exponentiate both sides of $y = \\ln x$ and check the sign of the exponent."
+          },
+          {
+            "label": "C",
+            "text": "$x = e^{y}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Exponentiating both sides of $y = \\ln x$ gives $x = e^y$."
+      },
+      {
+        "prompt": "(a) What are the limits for $y$, and the height of the shell at $y$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0 \\le y \\le e$, height $e - e^y$",
+            "note": "The value $x = e$ is a value of $x$. The top of the region is the height of the curve at $x = e$."
+          },
+          {
+            "label": "B",
+            "text": "$0 \\le y \\le 1$, height $e^y - e$",
+            "note": "Here $e^y \\le e$ on the region, so this height is negative. Height is right minus left."
+          },
+          {
+            "label": "C",
+            "text": "$0 \\le y \\le 1$, height $e$",
+            "note": "At height $y$ the strip starts at the curve, not at the $y$-axis."
+          },
+          {
+            "label": "D",
+            "text": "$0 \\le y \\le 1$, height $e - e^y$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The region starts at $y = 0$ and ends where the curve meets $x = e$, at $y = \\ln e = 1$. At height $y$ the strip runs from the curve $x = e^y$ on the left to the line $x = e$ on the right, so the height is\n\n$$\ne - e^y\n$$"
+      },
+      {
+        "prompt": "(a) Which integral gives the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2\\pi\\displaystyle\\int_0^1 y\\,(e - e^y)\\,dy$"
+          },
+          {
+            "label": "B",
+            "text": "$2\\pi\\displaystyle\\int_0^1 x\\,(e - e^y)\\,dy$",
+            "note": "With $dy$ the integrand can have no $x$ in it. The radius is the distance from the strip to the axis."
+          },
+          {
+            "label": "C",
+            "text": "$\\pi\\displaystyle\\int_0^1 \\left(e^2 - e^{2y}\\right)dy$",
+            "note": "Squares and a bare $\\pi$ belong to washers. A shell has a single radius factor and a single height factor."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The strip at height $y$ is at distance $y$ from the $x$-axis, so the radius is $y$:\n\n$$\nV = 2\\pi\\int_0^1 y\\,(e - e^y)\\,dy = 2\\pi\\int_0^1 \\left(e\\,y - y\\,e^y\\right)dy\n$$"
+      },
+      {
+        "prompt": "(a) What is $\\displaystyle\\int_0^1 y\\,e^y\\,dy$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left[\\dfrac{y^2}{2}\\,e^y\\right]_0^1 = \\dfrac{e}{2}$",
+            "note": "The antiderivative of a product is not the product of the antiderivatives. Use integration by parts."
+          },
+          {
+            "label": "B",
+            "text": "$\\left[y\\,e^y - e^y\\right]_0^1 = 1$"
+          },
+          {
+            "label": "C",
+            "text": "$\\left[y\\,e^y + e^y\\right]_0^1 = 2e - 1$",
+            "note": "Check the sign in the integration by parts formula, $\\int u\\,dv = uv - \\int v\\,du$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Integrate by parts with $u = y$ and $dv = e^y\\,dy$, so $du = dy$ and $v = e^y$:\n\n$$\n\\int_0^1 y\\,e^y\\,dy = \\left[y\\,e^y\\right]_0^1 - \\int_0^1 e^y\\,dy = e - (e - 1) = 1\n$$"
+      },
+      {
+        "prompt": "(a) What is the volume about the $x$-axis?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\pi(e + 2)$",
+            "note": "This adds the second integral instead of subtracting it. The integrand is $e\\,y - y\\,e^y$."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi(e - 2)$"
+          },
+          {
+            "label": "C",
+            "text": "$2\\pi(e - 1)$",
+            "note": "The antiderivative of $e\\,y$ is $\\dfrac{e\\,y^2}{2}$, not $e\\,y^2$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nV = 2\\pi\\left(e\\int_0^1 y\\,dy - \\int_0^1 y\\,e^y\\,dy\\right) = 2\\pi\\left(\\frac{e}{2} - 1\\right) = \\pi(e - 2) \\approx 2.26\n$$\n\nAs a check, disks give $\\pi\\int_1^e (\\ln x)^2\\,dx = \\pi(e - 2)$ as well."
+      },
+      {
+        "prompt": "(b) The axis moves to $y = -1$. Which integral gives the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2\\pi\\displaystyle\\int_0^1 (y + 1)(e - e^y)\\,dy$"
+          },
+          {
+            "label": "B",
+            "text": "$2\\pi\\displaystyle\\int_0^1 (1 - y)(e - e^y)\\,dy$",
+            "note": "This is the distance to the line $y = 1$. The axis $y = -1$ is below the region."
+          },
+          {
+            "label": "C",
+            "text": "$2\\pi\\displaystyle\\int_0^1 (y + 1)\\left(e - e^{y+1}\\right)dy$",
+            "note": "The curve has not moved, only the axis has. The height $e - e^y$ stays the same."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The axis $y = -1$ lies below the region, so a strip at height $y$ is at distance $y - (-1) = y + 1$ from it. The height $e - e^y$ and the limits $0$ to $1$ are unchanged:\n\n$$\nV = 2\\pi\\int_0^1 (y + 1)(e - e^y)\\,dy\n$$"
+      },
+      {
+        "prompt": "(b) What is the volume about $y = -1$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\pi(e - 2)$",
+            "note": "That is the volume for the $x$-axis. The radius here is larger, so the volume changes."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi(3e - 2)$",
+            "note": "This uses $\\int_0^1 y\\,e^y\\,dy = 1$, but the integral here is $\\int_0^1 (y + 1)\\,e^y\\,dy$, which has an extra part."
+          },
+          {
+            "label": "C",
+            "text": "$\\pi e$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\int_0^1 (y + 1)(e - e^y)\\,dy = e\\left[\\frac{y^2}{2} + y\\right]_0^1 - \\int_0^1 (y + 1)\\,e^y\\,dy = \\frac{3e}{2} - \\int_0^1 (y + 1)\\,e^y\\,dy\n$$\n\nSince $\\dfrac{d}{dy}\\left(y\\,e^y\\right) = (y + 1)\\,e^y$, the last integral is $\\left[y\\,e^y\\right]_0^1 = e$. So the integral equals $\\dfrac{e}{2}$ and\n\n$$\nV = 2\\pi\\cdot\\frac{e}{2} = \\pi e \\approx 8.54\n$$"
+      }
+    ],
+    "takeaway": "With dy, rewrite every curve as x in terms of y first; then the radius is the distance from height y to the axis, and moving the axis changes only that distance."
+  }
+]

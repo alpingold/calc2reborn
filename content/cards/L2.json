@@ -6,6 +6,10 @@
     "back": "$(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$. Every point on the sphere has a vector from $C$ of length $r$: $|\\langle x-h, y-k, z-l \\rangle| = r$. Squaring gives the equation.",
     "tags": [
       "sphere"
+    ],
+    "typeIds": [
+      "L2-sphere-center-radius",
+      "L2-sphere-equation-constant"
     ]
   },
   {
@@ -16,6 +20,9 @@
     "tags": [
       "trap",
       "sphere"
+    ],
+    "typeIds": [
+      "L2-sphere-center-radius"
     ]
   },
   {
@@ -26,6 +33,10 @@
     "tags": [
       "sphere",
       "diameter"
+    ],
+    "typeIds": [
+      "L2-sphere-equation-constant",
+      "L2-radius-from-point"
     ]
   },
   {
@@ -35,6 +46,10 @@
     "back": "The coefficients of $x^2$, $y^2$, $z^2$ must be equal, or it is not a sphere: $x^2 + 2y^2 + z^2 = 1$ cannot be fixed by dividing. If they are equal but not $1$, divide by that coefficient first. For each variable take half the linear coefficient, square it, and add it to both sides.",
     "tags": [
       "completing-square"
+    ],
+    "typeIds": [
+      "L2-sphere-center-radius",
+      "L2-sphere-equation-constant"
     ]
   },
   {
@@ -45,6 +60,9 @@
     "tags": [
       "trap",
       "completing-square"
+    ],
+    "typeIds": [
+      "L2-sphere-center-radius"
     ]
   },
   {
@@ -55,6 +73,9 @@
     "tags": [
       "trap",
       "completing-square"
+    ],
+    "typeIds": [
+      "L2-sphere-center-radius"
     ]
   },
   {
@@ -65,6 +86,9 @@
     "tags": [
       "trap",
       "completing-square"
+    ],
+    "typeIds": [
+      "L2-sphere-center-radius"
     ]
   },
   {
@@ -75,6 +99,9 @@
     "tags": [
       "trap",
       "completing-square"
+    ],
+    "typeIds": [
+      "L2-sphere-equation-constant"
     ]
   },
   {
@@ -132,6 +159,9 @@
     "tags": [
       "sphere",
       "regions"
+    ],
+    "typeIds": [
+      "L2-sphere-relations"
     ]
   }
 ]

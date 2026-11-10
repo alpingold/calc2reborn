@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { applyGuided, type GuidedFile } from './apply-guided'
+import { applyGuided, mathFault, type GuidedFile } from './apply-guided'
 
 const step = (answer: 'A' | 'B' = 'B') => ({
   prompt: 'p',
@@ -53,4 +53,12 @@ describe('applyGuided', () => {
   ])('rejects %s', (_name, bad, message) => {
     expect(() => applyGuided(bad, types, cards)).toThrow(message)
   })
+})
+
+it('mathFault finds an unclosed $ and display math that is not fenced', () => {
+  expect(mathFault('Plain and $x^2$ and $y$.')).toBeNull()
+  expect(mathFault('Before\n\n$$\nx = 1\n$$\n\nAfter $x$')).toBeNull()
+  expect(mathFault('$2x - x^2')).toMatch(/not closed/)
+  expect(mathFault('So $$x = 1$$ here')).toMatch(/own line/)
+  expect(mathFault('Open\n\n$$\nx = 1')).toMatch(/block is not closed/)
 })

@@ -6,6 +6,10 @@
     "back": "Add and subtract $\\left(\\frac{b}{2}\\right)^2$: $x^2 + bx + c = \\left(x + \\frac{b}{2}\\right)^2 + c - \\frac{b^2}{4}$. Chen: $x^2 - 6x + 45 = (x - 3)^2 + 6^2$, which now fits a triangle.",
     "tags": [
       "complete-square"
+    ],
+    "typeIds": [
+      "L15-choose-completed-square-sub",
+      "L15-evaluate-completed-square"
     ]
   },
   {
@@ -16,6 +20,10 @@
     "tags": [
       "complete-square",
       "which-sub"
+    ],
+    "typeIds": [
+      "L15-choose-completed-square-sub",
+      "L15-transformed-integral"
     ]
   },
   {
@@ -26,6 +34,9 @@
     "tags": [
       "complete-square",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L15-evaluate-completed-square"
     ]
   },
   {
@@ -36,6 +47,10 @@
     "tags": [
       "trap",
       "factored-radical"
+    ],
+    "typeIds": [
+      "L15-choose-completed-square-sub",
+      "L15-evaluate-completed-square"
     ]
   },
   {
@@ -46,6 +61,9 @@
     "tags": [
       "trap",
       "complete-square"
+    ],
+    "typeIds": [
+      "L15-evaluate-completed-square"
     ]
   },
   {
@@ -65,6 +83,9 @@
     "tags": [
       "triangle",
       "definite"
+    ],
+    "typeIds": [
+      "L15-transformed-integral"
     ]
   },
   {
@@ -75,6 +96,10 @@
     "tags": [
       "complete-square",
       "definite"
+    ],
+    "typeIds": [
+      "L15-transformed-integral",
+      "L15-evaluate-completed-square"
     ]
   },
   {
@@ -85,6 +110,9 @@
     "tags": [
       "trap",
       "which-method"
+    ],
+    "typeIds": [
+      "L15-choose-completed-square-sub"
     ]
   },
   {

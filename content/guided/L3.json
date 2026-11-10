@@ -1,0 +1,454 @@
+[
+  {
+    "id": "L3-g1",
+    "lessonId": "L3",
+    "typeId": "L3-angle-between-vectors",
+    "stem": "A triangle has vertices $A = (2, 1, 0)$, $B = (3, 4, -2)$ and $C = (-1, -1, -1)$.\n\n(a) Find the angle at $A$.\n\n(b) Find the angle at $B$.\n\n(c) Use the sides at $A$ to find the angle at $C$ without another dot product, and check that the three angles add to $\\pi$.",
+    "steps": [
+      {
+        "prompt": "(a) Which two vectors give the angle at $A$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{AB}$ and $\\vec{AC}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{AB}$ and $\\vec{BC}$",
+            "note": "These two vectors are laid head to tail, so the angle between them is not the interior angle at the vertex. Both vectors must start at the vertex in question."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{OB}$ and $\\vec{OC}$, from the origin",
+            "note": "These give the angle seen from the origin, not the angle of the triangle. The vectors must start at the vertex."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The angle at a vertex is the angle between the two sides that leave it, so both vectors start at $A$:\n\n$$\n\\vec{AB} = B - A = \\langle 1, 3, -2 \\rangle, \\qquad \\vec{AC} = C - A = \\langle -3, -2, -1 \\rangle\n$$"
+      },
+      {
+        "prompt": "What is $\\vec{AB} \\cdot \\vec{AC}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle -3, -6, 2 \\rangle$",
+            "note": "The products of matching components are not yet added. A dot product is a single number, not a vector."
+          },
+          {
+            "label": "B",
+            "text": "$-11$",
+            "note": "The last product is $(-2)(-1)$, and a negative times a negative is positive. Recheck the sign of each of the three products."
+          },
+          {
+            "label": "C",
+            "text": "$-7$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Multiply matching components and add:\n\n$$\n\\vec{AB} \\cdot \\vec{AC} = (1)(-3) + (3)(-2) + (-2)(-1) = -3 - 6 + 2 = -7\n$$"
+      },
+      {
+        "prompt": "What are $|\\vec{AB}|$ and $|\\vec{AC}|$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "both $14$",
+            "note": "$14$ is the sum of the squared components, which is the squared length. The length needs the square root."
+          },
+          {
+            "label": "B",
+            "text": "both $\\sqrt{14}$"
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n|\\vec{AB}| = \\sqrt{1 + 9 + 4} = \\sqrt{14}, \\qquad |\\vec{AC}| = \\sqrt{9 + 4 + 1} = \\sqrt{14}\n$$"
+      },
+      {
+        "prompt": "What is the angle at $A$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{6}$",
+            "note": "The cosine of $\\frac{\\pi}{6}$ is $\\frac{\\sqrt{3}}{2}$. Compare it with the ratio of the dot product to the product of the lengths."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{3}$",
+            "note": "The cosine of $\\frac{\\pi}{3}$ is positive, but the dot product here is negative. Keep the sign when taking the inverse cosine."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{5\\pi}{6}$",
+            "note": "The cosine of $\\frac{5\\pi}{6}$ is $-\\frac{\\sqrt{3}}{2}$. Compare it with the ratio of the dot product to the product of the lengths."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{2\\pi}{3}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$$\n\\cos A = \\frac{-7}{\\sqrt{14}\\,\\sqrt{14}} = \\frac{-7}{14} = -\\frac{1}{2}\n$$\n\nOn $[0, \\pi]$ the angle with cosine $-\\frac{1}{2}$ is $A = \\frac{2\\pi}{3}$."
+      },
+      {
+        "prompt": "(b) Which vectors give the angle at $B$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle 1, 3, -2 \\rangle$ and $\\langle -4, -5, 1 \\rangle$",
+            "note": "The first vector is $\\vec{AB}$, which ends at $B$ instead of starting there. The vector from $B$ to $A$ is $A - B$."
+          },
+          {
+            "label": "B",
+            "text": "$\\langle -1, -3, 2 \\rangle$ and $\\langle -4, -5, 1 \\rangle$"
+          },
+          {
+            "label": "C",
+            "text": "$\\langle -1, -3, 2 \\rangle$ and $\\langle 4, 5, -1 \\rangle$",
+            "note": "The second vector is $B - C$, so it points from $C$ to $B$. Both vectors must leave $B$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Both vectors start at $B$:\n\n$$\n\\vec{BA} = A - B = \\langle -1, -3, 2 \\rangle, \\qquad \\vec{BC} = C - B = \\langle -4, -5, 1 \\rangle\n$$"
+      },
+      {
+        "prompt": "What is the angle at $B$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\cos B = \\frac{1}{2}$, so $B = \\frac{\\pi}{3}$",
+            "note": "The dot product is $21$ and the product of the lengths is $\\sqrt{14}\\,\\sqrt{42}$. Work out that quotient again; it is not $\\frac{1}{2}$."
+          },
+          {
+            "label": "B",
+            "text": "$\\cos B = -\\frac{\\sqrt{3}}{2}$, so $B = \\frac{5\\pi}{6}$",
+            "note": "The dot product $\\vec{BA} \\cdot \\vec{BC}$ is positive. Recheck its sign."
+          },
+          {
+            "label": "C",
+            "text": "$\\cos B = \\frac{\\sqrt{3}}{2}$, so $B = \\frac{\\pi}{6}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\vec{BA} \\cdot \\vec{BC} = (-1)(-4) + (-3)(-5) + (2)(1) = 21\n$$\n\n$|\\vec{BA}| = \\sqrt{14}$ and $|\\vec{BC}| = \\sqrt{16 + 25 + 1} = \\sqrt{42}$, so $|\\vec{BA}||\\vec{BC}| = \\sqrt{588} = 14\\sqrt{3}$.\n\n$$\n\\cos B = \\frac{21}{14\\sqrt{3}} = \\frac{\\sqrt{3}}{2}, \\qquad B = \\frac{\\pi}{6}\n$$"
+      },
+      {
+        "prompt": "(c) Since $|\\vec{AB}| = |\\vec{AC}|$, what is the angle at $C$, and do the three angles add to $\\pi$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$C = \\frac{\\pi}{6}$, and the three angles add to $\\pi$"
+          },
+          {
+            "label": "B",
+            "text": "$C = \\frac{\\pi}{3}$, and the three angles add to $\\pi$",
+            "note": "With $A = \\frac{2\\pi}{3}$ and $B = \\frac{\\pi}{6}$, these three angles add to $\\frac{7\\pi}{6}$. Equal sides sit opposite equal angles; decide which angle each of $AB$ and $AC$ is opposite."
+          },
+          {
+            "label": "C",
+            "text": "$C = \\frac{2\\pi}{3}$, and the three angles add to $\\pi$",
+            "note": "With $A = \\frac{2\\pi}{3}$ and $B = \\frac{\\pi}{6}$, these three angles add to $\\frac{3\\pi}{2}$. Equal sides sit opposite equal angles; decide which angle each of $AB$ and $AC$ is opposite."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The sides $AB$ and $AC$ are equal, so the triangle is isosceles with equal angles at the other two vertices: $C = B = \\frac{\\pi}{6}$.\n\n$$\nA + B + C = \\frac{2\\pi}{3} + \\frac{\\pi}{6} + \\frac{\\pi}{6} = \\frac{4\\pi + \\pi + \\pi}{6} = \\pi\n$$\n\nThe angles are $\\frac{2\\pi}{3}$ at $A$, $\\frac{\\pi}{6}$ at $B$ and $\\frac{\\pi}{6}$ at $C$."
+      }
+    ],
+    "takeaway": "For an angle in a figure, build both vectors from the vertex itself, and keep the sign of the dot product, since a negative value means an obtuse angle."
+  },
+  {
+    "id": "L3-g2",
+    "lessonId": "L3",
+    "typeId": "L3-vector-projection",
+    "stem": "Let $\\vec{a} = \\langle 2, -1, 2 \\rangle$ and $\\vec{b} = \\langle 1, 4, -2 \\rangle$.\n\n(a) Find the scalar projection and the vector projection of $\\vec{b}$ onto $\\vec{a}$.\n\n(b) Write $\\vec{b} = \\vec{p} + \\vec{n}$ with $\\vec{p}$ parallel to $\\vec{a}$ and $\\vec{n}$ perpendicular to $\\vec{a}$, and check the perpendicularity.",
+    "steps": [
+      {
+        "prompt": "(a) Which formula gives the vector projection of $\\vec{b}$ onto $\\vec{a}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}\\,\\vec{a}$",
+            "note": "This multiplies the scalar projection by $\\vec{a}$ itself instead of by a unit vector, so the vector is too long by a factor of $|\\vec{a}|$."
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^2}\\,\\vec{a}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^2}\\,\\vec{b}$",
+            "note": "This is a multiple of $\\vec{b}$, so it projects $\\vec{a}$ onto $\\vec{b}$. The subscript names the vector projected onto, and its length goes in the denominator."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Projecting onto $\\vec{a}$ gives a multiple of $\\vec{a}$, and the length of $\\vec{a}$ enters squared:\n\n$$\n\\text{proj}_{\\vec{a}}\\vec{b} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^2}\\,\\vec{a}\n$$"
+      },
+      {
+        "prompt": "Find $\\vec{a} \\cdot \\vec{b}$ and $|\\vec{a}|$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{a} \\cdot \\vec{b} = 2$ and $|\\vec{a}| = 3$",
+            "note": "The second product is $(-1)(4) = -4$, not $+4$. Recheck the sign of each of the three products."
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{a} \\cdot \\vec{b} = -6$ and $|\\vec{a}| = 9$",
+            "note": "$9$ is the sum of the squared components. The length needs the square root."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{a} \\cdot \\vec{b} = -6$ and $|\\vec{a}| = 3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\vec{a} \\cdot \\vec{b} = (2)(1) + (-1)(4) + (2)(-2) = 2 - 4 - 4 = -6\n$$\n\n$|\\vec{a}| = \\sqrt{4 + 1 + 4} = 3$, so $|\\vec{a}|^2 = 9$."
+      },
+      {
+        "prompt": "What is the scalar projection of $\\vec{b}$ onto $\\vec{a}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-2$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{2}{3}$",
+            "note": "This divides $-6$ by $|\\vec{a}|^2 = 9$. The scalar projection divides by the length itself."
+          },
+          {
+            "label": "C",
+            "text": "$2$",
+            "note": "The dot product is negative, and the scalar projection keeps that sign."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\text{scal}_{\\vec{a}}\\vec{b} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|} = \\frac{-6}{3} = -2\n$$"
+      },
+      {
+        "prompt": "The scalar projection is negative. What does that say about $\\vec{b}$ and $\\vec{a}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The angle between them is acute, and the projection points along $\\vec{a}$",
+            "note": "A negative scalar projection means $|\\vec{b}|\\cos\\theta < 0$, which an acute angle cannot give."
+          },
+          {
+            "label": "B",
+            "text": "The angle between them is $90^\\circ$, and the projection is $\\vec{0}$",
+            "note": "A right angle makes the dot product, and so the scalar projection, equal to $0$. This one is not $0$."
+          },
+          {
+            "label": "C",
+            "text": "The angle between them is obtuse, and the projection points opposite $\\vec{a}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\text{scal}_{\\vec{a}}\\vec{b} = |\\vec{b}|\\cos\\theta = -2 < 0$, so $\\cos\\theta < 0$ and $\\theta > 90^\\circ$. The component of $\\vec{b}$ along $\\vec{a}$ points against $\\vec{a}$, so the vector projection will be a negative multiple of $\\vec{a}$."
+      },
+      {
+        "prompt": "What is $\\text{proj}_{\\vec{a}}\\vec{b}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle -4, 2, -4 \\rangle$",
+            "note": "This is $-2\\vec{a}$, the scalar projection times $\\vec{a}$. The multiplier must be the dot product over the squared length."
+          },
+          {
+            "label": "B",
+            "text": "$\\langle \\frac{4}{3}, -\\frac{2}{3}, \\frac{4}{3} \\rangle$",
+            "note": "This points along $\\vec{a}$, but the projection was found to point against $\\vec{a}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle -\\frac{2}{7}, -\\frac{8}{7}, \\frac{4}{7} \\rangle$",
+            "note": "This is a multiple of $\\vec{b}$, so it projects onto the wrong vector. The result must be a multiple of $\\vec{a}$."
+          },
+          {
+            "label": "D",
+            "text": "$\\langle -\\frac{4}{3}, \\frac{2}{3}, -\\frac{4}{3} \\rangle$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$$\n\\text{proj}_{\\vec{a}}\\vec{b} = \\frac{-6}{9}\\langle 2, -1, 2 \\rangle = -\\frac{2}{3}\\langle 2, -1, 2 \\rangle = \\left\\langle -\\frac{4}{3}, \\frac{2}{3}, -\\frac{4}{3} \\right\\rangle\n$$\n\nThis is the vector $\\vec{p}$ for part (b)."
+      },
+      {
+        "prompt": "(b) What is $\\vec{n} = \\vec{b} - \\vec{p}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle \\frac{7}{3}, \\frac{10}{3}, -\\frac{2}{3} \\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\langle -\\frac{7}{3}, -\\frac{10}{3}, \\frac{2}{3} \\rangle$",
+            "note": "This is $\\vec{p} - \\vec{b}$. The perpendicular part is the whole vector minus its parallel part."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle -\\frac{1}{3}, \\frac{14}{3}, -\\frac{10}{3} \\rangle$",
+            "note": "This adds $\\vec{p}$ to $\\vec{b}$. The perpendicular part is what is left after taking $\\vec{p}$ away."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\vec{n} = \\langle 1, 4, -2 \\rangle - \\left\\langle -\\frac{4}{3}, \\frac{2}{3}, -\\frac{4}{3} \\right\\rangle = \\left\\langle \\frac{7}{3}, \\frac{10}{3}, -\\frac{2}{3} \\right\\rangle\n$$"
+      },
+      {
+        "prompt": "Which dot product should be $0$ to confirm the split, and does it check?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{n} \\cdot \\vec{b} = 17$, so the split fails",
+            "note": "$\\vec{n} \\cdot \\vec{b}$ does work out to $17$, but that is not the product that has to vanish. Recall which vector $\\vec{n}$ is built to be perpendicular to."
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{n} \\cdot \\vec{a} = 0$, so the split checks"
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{p} \\cdot \\vec{b} = 4$, so the split fails",
+            "note": "$\\vec{p} \\cdot \\vec{b}$ does work out to $4$, but that is not the product that has to vanish. Recall which vector $\\vec{n}$ is built to be perpendicular to."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\vec{n} \\cdot \\vec{a} = \\frac{7}{3}(2) + \\frac{10}{3}(-1) + \\left(-\\frac{2}{3}\\right)(2) = \\frac{14 - 10 - 4}{3} = 0\n$$\n\nSo $\\vec{n} \\perp \\vec{a}$, and $\\vec{b} = \\left\\langle -\\frac{4}{3}, \\frac{2}{3}, -\\frac{4}{3} \\right\\rangle + \\left\\langle \\frac{7}{3}, \\frac{10}{3}, -\\frac{2}{3} \\right\\rangle$ is the required split."
+      }
+    ],
+    "takeaway": "Divide by the squared length of the vector projected onto for the vector projection, and by its plain length for the scalar projection; the vector answer must be a multiple of that vector."
+  },
+  {
+    "id": "L3-g3",
+    "lessonId": "L3",
+    "typeId": "L3-dot-orthogonal-work",
+    "stem": "Let $\\vec{u} = \\langle k, k, 2 \\rangle$ and $\\vec{v} = \\langle k, -1, -3 \\rangle$.\n\n(a) Find all values of $k$ for which $\\vec{u}$ and $\\vec{v}$ are orthogonal.\n\n(b) Take the larger of these values. A constant force $\\vec{F} = \\vec{u}$ (in newtons) moves an object through the displacement $\\vec{d} = \\vec{v}$ (in metres). Find the work done.\n\n(c) A constant force of $12$ N moves a cart $5$ m along level ground, and the work done is $30$ J. Find the angle between the force and the direction of motion.",
+    "steps": [
+      {
+        "prompt": "(a) What condition makes $\\vec{u}$ and $\\vec{v}$ orthogonal?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{u} \\times \\vec{v} = \\vec{0}$",
+            "note": "A zero cross product means the vectors are parallel, not perpendicular."
+          },
+          {
+            "label": "B",
+            "text": "$|\\vec{u}| = |\\vec{v}|$",
+            "note": "Equal lengths say nothing about the angle between the vectors."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{u} \\cdot \\vec{v} = 0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Orthogonal vectors meet at $90^\\circ$, so $\\cos\\theta = 0$ and $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta = 0$. The condition is $\\vec{u} \\cdot \\vec{v} = 0$."
+      },
+      {
+        "prompt": "What is $\\vec{u} \\cdot \\vec{v}$ in terms of $k$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$k^2 + k - 6$",
+            "note": "The middle product is $k \\cdot (-1) = -k$. Recheck its sign."
+          },
+          {
+            "label": "B",
+            "text": "$k^2 - k - 6$"
+          },
+          {
+            "label": "C",
+            "text": "$k^2 - k + 6$",
+            "note": "The last product is $2 \\cdot (-3)$, which is negative. Recheck its sign."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\vec{u} \\cdot \\vec{v} = (k)(k) + (k)(-1) + (2)(-3) = k^2 - k - 6\n$$"
+      },
+      {
+        "prompt": "Which values of $k$ solve $k^2 - k - 6 = 0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$k = -3$ and $k = 2$",
+            "note": "These are the roots of $k^2 + k - 6$. Multiply the factors back out and compare the middle term."
+          },
+          {
+            "label": "B",
+            "text": "$k = 6$ and $k = -1$",
+            "note": "These multiply to $-6$ but add to $5$, and the middle coefficient requires a different sum."
+          },
+          {
+            "label": "C",
+            "text": "$k = 3$ and $k = -2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nk^2 - k - 6 = (k - 3)(k + 2) = 0\n$$\n\nSo $k = 3$ or $k = -2$. Neither value makes a vector zero, so both pairs are genuinely orthogonal."
+      },
+      {
+        "prompt": "(b) For the larger value of $k$, what are $\\vec{F}$ and $\\vec{d}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{F} = \\langle 3, 3, 2 \\rangle$ and $\\vec{d} = \\langle 3, -1, -3 \\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{F} = \\langle -2, -2, 2 \\rangle$ and $\\vec{d} = \\langle -2, -1, -3 \\rangle$",
+            "note": "These come from the smaller root. Compare $3$ and $-2$."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{F} = \\langle 3, 3, 2 \\rangle$ and $\\vec{d} = \\langle 3, 1, 3 \\rangle$",
+            "note": "The last two components of $\\vec{v}$ keep their signs when $k$ is substituted; only $k$ is replaced."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The larger root is $k = 3$, so\n\n$$\n\\vec{F} = \\langle 3, 3, 2 \\rangle, \\qquad \\vec{d} = \\langle 3, -1, -3 \\rangle\n$$"
+      },
+      {
+        "prompt": "What is the work done in (b)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$18$ J",
+            "note": "This adds the sizes of the three products and drops their signs. Keep each sign when summing."
+          },
+          {
+            "label": "B",
+            "text": "$0$ J"
+          },
+          {
+            "label": "C",
+            "text": "$\\sqrt{418}$ J",
+            "note": "This is $|\\vec{F}||\\vec{d}|$, which is the work only when the force points exactly along the motion."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nW = \\vec{F} \\cdot \\vec{d} = (3)(3) + (3)(-1) + (2)(-3) = 9 - 3 - 6 = 0\n$$\n\nThe work is $0$ J: this is the orthogonal pair from (a), so the force has no component along the motion."
+      },
+      {
+        "prompt": "(c) What is the angle between the force and the direction of motion?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$30^\\circ$",
+            "note": "The sine of $30^\\circ$ is $\\frac{1}{2}$, but work is the product of the lengths and the cosine of the angle, not the sine."
+          },
+          {
+            "label": "B",
+            "text": "$120^\\circ$",
+            "note": "The cosine of $120^\\circ$ is $-\\frac{1}{2}$. The work is positive, so the cosine must be positive."
+          },
+          {
+            "label": "C",
+            "text": "$60^\\circ$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Work is $W = |\\vec{F}||\\vec{d}|\\cos\\theta$, so\n\n$$\n30 = 12 \\cdot 5 \\cdot \\cos\\theta, \\qquad \\cos\\theta = \\frac{30}{60} = \\frac{1}{2}\n$$\n\nThe angle in $[0^\\circ, 180^\\circ]$ with cosine $\\frac{1}{2}$ is $\\theta = 60^\\circ$."
+      }
+    ],
+    "takeaway": "Orthogonal means the dot product is zero, and work is a dot product, so a force perpendicular to the motion does no work."
+  }
+]

@@ -1,0 +1,287 @@
+[
+  {
+    "id": "L1-g1",
+    "lessonId": "L1",
+    "typeId": "L1-unit-vector-direction",
+    "stem": "Points $P(3, 1, -2)$ and $Q(5, -3, 2)$ are given. (a) Find the unit vector in the direction of $\\vec{PQ}$. (b) Find the vector of length $5$ that points opposite to $\\vec{PQ}$.",
+    "steps": [
+      {
+        "prompt": "Both parts start from $\\vec{PQ}$. What is it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle -2, 4, -4 \\rangle$",
+            "note": "That is start minus end, $P - Q$, which is the vector going the other way."
+          },
+          {
+            "label": "B",
+            "text": "$\\langle 8, -2, 0 \\rangle$",
+            "note": "That adds the coordinates. A vector between two points comes from a difference."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle 2, -4, 4 \\rangle$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "End minus start, component by component:\n\n$\\vec{PQ} = \\langle 5-3, \\, -3-1, \\, 2-(-2) \\rangle = \\langle 2, -4, 4 \\rangle$."
+      },
+      {
+        "prompt": "(a) What is $|\\vec{PQ}|$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sqrt{2}$",
+            "note": "That puts the plain sum of the components, $2 - 4 + 4 = 2$, under the root instead of the sum of their squares."
+          },
+          {
+            "label": "B",
+            "text": "$6$"
+          },
+          {
+            "label": "C",
+            "text": "$36$",
+            "note": "That is the sum of the squares, $4 + 16 + 16$. The square root has not been taken."
+          },
+          {
+            "label": "D",
+            "text": "$10$",
+            "note": "That adds the absolute values of the components. Length is the root of the sum of squares."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Square each component, add, take the root:\n\n$|\\vec{PQ}| = \\sqrt{2^2 + (-4)^2 + 4^2} = \\sqrt{4 + 16 + 16} = \\sqrt{36} = 6$."
+      },
+      {
+        "prompt": "(a) What is the unit vector in the direction of $\\vec{PQ}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left\\langle \\frac{1}{3}, -\\frac{2}{3}, \\frac{2}{3} \\right\\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\left\\langle \\frac{1}{18}, -\\frac{1}{9}, \\frac{1}{9} \\right\\rangle$",
+            "note": "That divides by $36$, which is the squared length and not the length."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle 12, -24, 24 \\rangle$",
+            "note": "That multiplies by the length $6$. It is far longer than a unit vector."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Divide $\\vec{PQ}$ by its length:\n\n$\\frac{1}{6}\\langle 2, -4, 4 \\rangle = \\left\\langle \\frac{1}{3}, -\\frac{2}{3}, \\frac{2}{3} \\right\\rangle$.\n\nCheck: $\\frac19 + \\frac49 + \\frac49 = 1$. This answers (a)."
+      },
+      {
+        "prompt": "(b) Let $\\vec{u}$ be the unit vector from (a). Which expression gives the vector of length $5$ opposite $\\vec{PQ}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$5\\vec{u}$",
+            "note": "This has length $5$ but points along $\\vec{PQ}$, not against it."
+          },
+          {
+            "label": "B",
+            "text": "$-\\vec{u}$",
+            "note": "This points the right way but has length $1$."
+          },
+          {
+            "label": "C",
+            "text": "$-5\\vec{PQ}$",
+            "note": "This points the right way but has length $30$, since $|\\vec{PQ}| = 6$."
+          },
+          {
+            "label": "D",
+            "text": "$-5\\vec{u}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The unit vector fixes the direction and has length $1$. A minus sign reverses it, and the factor $5$ sets the length. So the vector is $-5\\vec{u}$."
+      },
+      {
+        "prompt": "(b) Compute $-5\\vec{u}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\left\\langle \\frac{5}{3}, -\\frac{10}{3}, \\frac{10}{3} \\right\\rangle$",
+            "note": "The minus sign has been dropped, so this points along $\\vec{PQ}$."
+          },
+          {
+            "label": "B",
+            "text": "$\\left\\langle -\\frac{5}{3}, \\frac{10}{3}, -\\frac{10}{3} \\right\\rangle$"
+          },
+          {
+            "label": "C",
+            "text": "$\\left\\langle -\\frac{5}{3}, -\\frac{10}{3}, -\\frac{10}{3} \\right\\rangle$",
+            "note": "The middle component is wrong: it comes from multiplying $-5$ by a negative component."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Multiply each component of $\\left\\langle \\frac{1}{3}, -\\frac{2}{3}, \\frac{2}{3} \\right\\rangle$ by $-5$:\n\n$-5\\vec{u} = \\left\\langle -\\frac{5}{3}, \\frac{10}{3}, -\\frac{10}{3} \\right\\rangle$."
+      },
+      {
+        "prompt": "Which check confirms that this vector has length $5$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It is a scalar multiple of $\\vec{PQ}$",
+            "note": "That tests direction only. Multiples of $\\vec{PQ}$ of any length pass it."
+          },
+          {
+            "label": "B",
+            "text": "Its components add to $5$",
+            "note": "The components add to $-\\frac{5}{3}$, and in any case the sum of components is not the length."
+          },
+          {
+            "label": "C",
+            "text": "Its squared components add to $25$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\frac{25}{9} + \\frac{100}{9} + \\frac{100}{9} = \\frac{225}{9} = 25$, so the length is $\\sqrt{25} = 5$.\n\nSo (a) is $\\left\\langle \\frac{1}{3}, -\\frac{2}{3}, \\frac{2}{3} \\right\\rangle$ and (b) is $\\left\\langle -\\frac{5}{3}, \\frac{10}{3}, -\\frac{10}{3} \\right\\rangle$."
+      }
+    ],
+    "takeaway": "Divide by the length, not the squared length; for a given length multiply the unit vector by it, and put the minus sign on the unit vector for the opposite direction."
+  },
+  {
+    "id": "L1-g2",
+    "lessonId": "L1",
+    "typeId": "L1-vector-arithmetic-magnitude",
+    "stem": "Let $\\vec{u} = 2\\vec{i} + \\vec{j} + 3\\vec{k}$ and $\\vec{v} = 2\\vec{i} - \\vec{j}$. (a) Find $|2\\vec{u} - \\vec{v}|$. (b) Let $\\vec{w} = 2\\vec{u} - \\vec{v}$. Find the positive number $t$ such that $|\\vec{w} + t\\vec{i}| = 9$.",
+    "steps": [
+      {
+        "prompt": "(a) Write $\\vec{v}$ in components.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle 2, -1, 0 \\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\langle 2, -1 \\rangle$",
+            "note": "That drops a component. Every vector here is three-dimensional, and a missing term still counts."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle 2, 1, 0 \\rangle$",
+            "note": "The coefficient of $\\vec{j}$ is $-1$, not $1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\vec{v}$ has no $\\vec{k}$ term, so that component is $0$. Then $\\vec{v} = \\langle 2, -1, 0 \\rangle$, and likewise $\\vec{u} = \\langle 2, 1, 3 \\rangle$."
+      },
+      {
+        "prompt": "(a) Compute $2\\vec{u} - \\vec{v}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle 6, 1, 6 \\rangle$",
+            "note": "That adds $\\vec{v}$ instead of subtracting it."
+          },
+          {
+            "label": "B",
+            "text": "$\\langle 0, 4, 6 \\rangle$",
+            "note": "That doubles $\\vec{v}$ as well, giving $2(\\vec{u} - \\vec{v})$. Only $\\vec{u}$ is scaled."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle 2, 3, 6 \\rangle$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Scale $\\vec{u}$ first, then subtract component by component:\n\n$2\\vec{u} - \\vec{v} = \\langle 4, 2, 6 \\rangle - \\langle 2, -1, 0 \\rangle = \\langle 2, 3, 6 \\rangle$."
+      },
+      {
+        "prompt": "(a) What is $|2\\vec{u} - \\vec{v}|$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$49$",
+            "note": "That is the sum of the squares, $4 + 9 + 36$. The square root has not been taken."
+          },
+          {
+            "label": "B",
+            "text": "$7$"
+          },
+          {
+            "label": "C",
+            "text": "$\\sqrt{11}$",
+            "note": "That adds the components, $2 + 3 + 6$, under the root instead of their squares."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$|\\langle 2, 3, 6 \\rangle| = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$. This answers (a)."
+      },
+      {
+        "prompt": "(b) With $\\vec{w} = \\langle 2, 3, 6 \\rangle$, which equation does $|\\vec{w} + t\\vec{i}| = 9$ give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(2+t)^2 + 9 + 36 = 9$",
+            "note": "The length is $9$, so it is the length squared that is on the right side, not the length."
+          },
+          {
+            "label": "B",
+            "text": "$t^2 + 9 + 36 = 81$",
+            "note": "That loses the $2$. Adding $t\\vec{i}$ changes only the first component, to $2 + t$."
+          },
+          {
+            "label": "C",
+            "text": "$2 + t + 3 + 6 = 9$",
+            "note": "That adds the components. Length comes from squares under a root."
+          },
+          {
+            "label": "D",
+            "text": "$(2+t)^2 + 9 + 36 = 81$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$\\vec{w} + t\\vec{i} = \\langle 2 + t, 3, 6 \\rangle$. Squaring its length and setting it equal to $9^2$:\n\n$(2+t)^2 + 3^2 + 6^2 = 81$."
+      },
+      {
+        "prompt": "(b) Solve $(2+t)^2 + 45 = 81$ for $t$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$t = 4$ or $t = -8$"
+          },
+          {
+            "label": "B",
+            "text": "$t = 34$",
+            "note": "That skips the square root: the quantity $2 + t$ is squared in the equation."
+          },
+          {
+            "label": "C",
+            "text": "$t = \\pm 6$",
+            "note": "That treats the root as $t$ itself, but what is squared is $2 + t$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$(2+t)^2 = 36$, so $2 + t = 6$ or $2 + t = -6$.\n\nThen $t = 4$ or $t = -8$."
+      },
+      {
+        "prompt": "(b) Which value answers the stem, and what check confirms it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$t = -8$, since $|\\langle -6, 3, 6 \\rangle| = 9$",
+            "note": "That vector does have length $9$, but the stem asks for a positive $t$."
+          },
+          {
+            "label": "B",
+            "text": "$t = 4$, since $|\\langle 6, 3, 6 \\rangle| = 9$"
+          },
+          {
+            "label": "C",
+            "text": "Both $t = 4$ and $t = -8$",
+            "note": "Both satisfy the equation, but the stem asks for one positive number."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The stem wants a positive $t$, so $t = 4$. Check: $\\vec{w} + 4\\vec{i} = \\langle 6, 3, 6 \\rangle$ and $\\sqrt{36 + 9 + 36} = 9$.\n\nSo (a) is $7$ and (b) is $t = 4$."
+      }
+    ],
+    "takeaway": "Write every vector with all its components and combine first; an unknown inside a component gives a quadratic, so keep both roots until the stem says which one to use."
+  }
+]

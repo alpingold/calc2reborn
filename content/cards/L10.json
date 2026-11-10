@@ -7,6 +7,10 @@
     "tags": [
       "pumping",
       "formula"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder",
+      "L10-pump-cone-odd-shape"
     ]
   },
   {
@@ -17,6 +21,9 @@
     "tags": [
       "pumping",
       "compute"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder"
     ]
   },
   {
@@ -28,6 +35,9 @@
       "trap",
       "pumping",
       "limits"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder"
     ]
   },
   {
@@ -39,6 +49,9 @@
       "trap",
       "pumping",
       "limits"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder"
     ]
   },
   {
@@ -50,6 +63,9 @@
       "trap",
       "pumping",
       "origin"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder"
     ]
   },
   {
@@ -60,6 +76,9 @@
     "tags": [
       "trap",
       "pumping"
+    ],
+    "typeIds": [
+      "L10-pump-cone-odd-shape"
     ]
   },
   {
@@ -70,6 +89,9 @@
     "tags": [
       "trap",
       "pumping"
+    ],
+    "typeIds": [
+      "L10-pump-cone-odd-shape"
     ]
   },
   {
@@ -81,6 +103,10 @@
       "trap",
       "density",
       "units"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder",
+      "L10-pump-cone-odd-shape"
     ]
   },
   {
@@ -92,6 +118,10 @@
       "trap",
       "density",
       "units"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder",
+      "L10-pump-cone-odd-shape"
     ]
   },
   {
@@ -103,6 +133,10 @@
       "units",
       "pumping",
       "hydrostatic"
+    ],
+    "typeIds": [
+      "L10-pump-prism-cylinder",
+      "L10-hydrostatic-force"
     ]
   },
   {
@@ -113,6 +147,9 @@
     "tags": [
       "hydrostatic",
       "formula"
+    ],
+    "typeIds": [
+      "L10-hydrostatic-force"
     ]
   },
   {
@@ -123,6 +160,9 @@
     "tags": [
       "trap",
       "hydrostatic"
+    ],
+    "typeIds": [
+      "L10-hydrostatic-force"
     ]
   },
   {
@@ -134,6 +174,9 @@
       "trap",
       "hydrostatic",
       "limits"
+    ],
+    "typeIds": [
+      "L10-hydrostatic-force"
     ]
   },
   {
@@ -144,6 +187,9 @@
     "tags": [
       "trap",
       "hydrostatic"
+    ],
+    "typeIds": [
+      "L10-hydrostatic-force"
     ]
   }
 ]

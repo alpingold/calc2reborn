@@ -6,6 +6,10 @@
     "back": "$\\sqrt{a^2 - x^2}$: $x = a\\sin\\theta$, and the root becomes $a\\cos\\theta$. $\\sqrt{a^2 + x^2}$: $x = a\\tan\\theta$, and the root becomes $a\\sec\\theta$. $\\sqrt{x^2 - a^2}$: $x = a\\sec\\theta$, and the root becomes $a\\tan\\theta$ (for $x \\ge a$). Each uses $1 - \\sin^2\\theta = \\cos^2\\theta$, $1 + \\tan^2\\theta = \\sec^2\\theta$, or $\\sec^2\\theta - 1 = \\tan^2\\theta$.",
     "tags": [
       "which-sub"
+    ],
+    "typeIds": [
+      "L14-identify-substitution",
+      "L14-secant-substitution"
     ]
   },
   {
@@ -16,6 +20,9 @@
     "tags": [
       "trap",
       "which-sub"
+    ],
+    "typeIds": [
+      "L14-identify-substitution"
     ]
   },
   {
@@ -26,6 +33,10 @@
     "tags": [
       "trap",
       "which-sub"
+    ],
+    "typeIds": [
+      "L14-identify-substitution",
+      "L14-tangent-substitution"
     ]
   },
   {
@@ -35,6 +46,9 @@
     "back": "(1) The sides are the radical, the variable part, and the constant, each the square root of a square. (2) The hypotenuse is the side whose square is the sum of the other two squares. (3) Put the constant, or the side containing a constant, adjacent to $\\theta$. (4) Relate $x$ and $\\theta$ with the two simplest sides, the ones without a radical.",
     "tags": [
       "triangle"
+    ],
+    "typeIds": [
+      "L14-identify-substitution"
     ]
   },
   {
@@ -44,6 +58,9 @@
     "back": "The triangle has hypotenuse $3$, opposite side $x$, and adjacent side $\\sqrt{9 - x^2}$. So $\\cos\\theta = \\frac{\\sqrt{9 - x^2}}{3}$, $\\tan\\theta = \\frac{x}{\\sqrt{9 - x^2}}$, and $\\theta = \\sin^{-1}\\left(\\frac{x}{3}\\right)$.",
     "tags": [
       "triangle"
+    ],
+    "typeIds": [
+      "L14-sine-substitution"
     ]
   },
   {
@@ -54,6 +71,9 @@
     "tags": [
       "trap",
       "definite"
+    ],
+    "typeIds": [
+      "L14-sine-substitution"
     ]
   },
   {
@@ -63,6 +83,9 @@
     "back": "$x = 3\\tan\\theta$, $dx = 3\\sec^2\\theta\\,d\\theta$, and the root is $3\\sec\\theta$, so the integral becomes $\\frac{1}{9}\\int \\frac{\\sec\\theta}{\\tan^2\\theta}\\,d\\theta = \\frac{1}{9}\\int \\frac{\\cos\\theta}{\\sin^2\\theta}\\,d\\theta = -\\frac{1}{9\\sin\\theta} + C$. The triangle gives $\\sin\\theta = \\frac{x}{\\sqrt{x^2 + 9}}$, so the answer is $-\\frac{\\sqrt{x^2 + 9}}{9x} + C$.",
     "tags": [
       "triangle"
+    ],
+    "typeIds": [
+      "L14-tangent-substitution"
     ]
   },
   {
@@ -73,6 +96,9 @@
     "tags": [
       "triangle",
       "secant"
+    ],
+    "typeIds": [
+      "L14-secant-substitution"
     ]
   },
   {
@@ -82,6 +108,9 @@
     "back": "$x = 2\\sin\\theta$ with limits $0$ and $\\frac{\\pi}{2}$: $\\int_0^{\\pi/2} 4\\cos^2\\theta\\,d\\theta = 2\\int_0^{\\pi/2}(1 + \\cos 2\\theta)\\,d\\theta = \\pi$. Check: the region is a quarter of a disk of radius $2$, with area $\\frac{1}{4}\\pi\\cdot 2^2 = \\pi$.",
     "tags": [
       "definite"
+    ],
+    "typeIds": [
+      "L14-sine-substitution"
     ]
   },
   {
@@ -92,6 +121,10 @@
     "tags": [
       "trap",
       "formula"
+    ],
+    "typeIds": [
+      "L14-sine-substitution",
+      "L14-tangent-substitution"
     ]
   },
   {
@@ -102,6 +135,10 @@
     "tags": [
       "trap",
       "absolute-value"
+    ],
+    "typeIds": [
+      "L14-sine-substitution",
+      "L14-tangent-substitution"
     ]
   },
   {
@@ -111,6 +148,9 @@
     "back": "No. The numerator is half the derivative of $x^2 + 4$, so $u = x^2 + 4$ gives $\\frac{1}{2}\\int u^{-1/2}\\,du = \\sqrt{x^2 + 4} + C$. Try a plain substitution before reaching for a triangle.",
     "tags": [
       "which-method"
+    ],
+    "typeIds": [
+      "L14-identify-substitution"
     ]
   },
   {
@@ -120,6 +160,9 @@
     "back": "$x = 2\\sin\\theta$, $dx = 2\\cos\\theta\\,d\\theta$, and $(4 - x^2)^{3/2} = 8\\cos^3\\theta$, so the integral is $\\frac{1}{4}\\int \\sec^2\\theta\\,d\\theta = \\frac{1}{4}\\tan\\theta + C$. The triangle gives $\\tan\\theta = \\frac{x}{\\sqrt{4 - x^2}}$, so the answer is $\\frac{x}{4\\sqrt{4 - x^2}} + C$.",
     "tags": [
       "triangle"
+    ],
+    "typeIds": [
+      "L14-sine-substitution"
     ]
   }
 ]

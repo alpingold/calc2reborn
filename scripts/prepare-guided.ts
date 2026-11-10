@@ -15,6 +15,7 @@ interface QuestionJson {
   stem: string
   lessonIds: string[]
   typeIds?: string[]
+  solution?: string
 }
 
 const lessonId = process.argv[2]
@@ -45,7 +46,7 @@ const brief = {
     ...t,
     examQuestions: questions.filter((q) => q.typeIds?.includes(t.id)).length,
   })),
-  examQuestions: questions.map((q) => ({ id: q.id, typeIds: (q.typeIds ?? []).filter((t) => t.startsWith(`${lessonId}-`)), stem: q.stem })),
+  examQuestions: questions.map((q) => ({ id: q.id, typeIds: (q.typeIds ?? []).filter((t) => t.startsWith(`${lessonId}-`)), stem: q.stem, solution: q.solution ?? '' })),
   cards: cards.map((c) => ({ id: c.id, front: c.front, back: c.back })),
 }
 const dir = path.join('.scratch/guided', lessonId)

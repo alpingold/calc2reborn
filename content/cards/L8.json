@@ -7,6 +7,10 @@
     "tags": [
       "arc-length",
       "formula"
+    ],
+    "typeIds": [
+      "L8-arc-length-compute",
+      "L8-arc-length-setup"
     ]
   },
   {
@@ -17,6 +21,10 @@
     "tags": [
       "trap",
       "arc-length"
+    ],
+    "typeIds": [
+      "L8-arc-length-setup",
+      "L8-arc-length-compute"
     ]
   },
   {
@@ -27,6 +35,9 @@
     "tags": [
       "arc-length",
       "compute"
+    ],
+    "typeIds": [
+      "L8-arc-length-compute"
     ]
   },
   {
@@ -37,6 +48,9 @@
     "tags": [
       "arc-length",
       "perfect-square"
+    ],
+    "typeIds": [
+      "L8-arc-length-compute"
     ]
   },
   {
@@ -47,6 +61,10 @@
     "tags": [
       "arc-length",
       "formula"
+    ],
+    "typeIds": [
+      "L8-arc-length-compute",
+      "L8-arc-length-setup"
     ]
   },
   {
@@ -58,6 +76,9 @@
       "trap",
       "arc-length",
       "switch-variable"
+    ],
+    "typeIds": [
+      "L8-arc-length-setup"
     ]
   },
   {
@@ -69,6 +90,9 @@
       "trap",
       "arc-length",
       "limits"
+    ],
+    "typeIds": [
+      "L8-arc-length-compute"
     ]
   },
   {
@@ -79,6 +103,9 @@
     "tags": [
       "surface-area",
       "formula"
+    ],
+    "typeIds": [
+      "L8-surface-area-x-axis"
     ]
   },
   {
@@ -89,6 +116,9 @@
     "tags": [
       "trap",
       "surface-area"
+    ],
+    "typeIds": [
+      "L8-surface-area-x-axis"
     ]
   },
   {
@@ -99,6 +129,9 @@
     "tags": [
       "trap",
       "surface-area"
+    ],
+    "typeIds": [
+      "L8-surface-area-y-axis"
     ]
   },
   {
@@ -110,6 +143,9 @@
       "trap",
       "surface-area",
       "shifted-axis"
+    ],
+    "typeIds": [
+      "L8-surface-area-x-axis"
     ]
   },
   {
@@ -120,6 +156,9 @@
     "tags": [
       "surface-area",
       "compute"
+    ],
+    "typeIds": [
+      "L8-surface-area-x-axis"
     ]
   },
   {
@@ -130,6 +169,10 @@
     "tags": [
       "trap",
       "surface-area"
+    ],
+    "typeIds": [
+      "L8-surface-area-x-axis",
+      "L8-surface-area-y-axis"
     ]
   },
   {
@@ -141,6 +184,9 @@
       "trap",
       "surface-area",
       "disk"
+    ],
+    "typeIds": [
+      "L8-surface-area-x-axis"
     ]
   }
 ]

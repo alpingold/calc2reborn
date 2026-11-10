@@ -1,0 +1,437 @@
+[
+  {
+    "id": "L4-g1",
+    "lessonId": "L4",
+    "typeId": "L4-area-from-points",
+    "stem": "The points $A(0, 1, 2)$, $B(2, 0, 3)$, $C(1, 3, 1)$ and $D(3, 2, 2)$ are the four vertices of a parallelogram, listed in no particular order around it.\n\n(a) Find the area of the parallelogram.\n\n(b) Find the area of the triangle with vertices $B$, $C$ and $D$.",
+    "steps": [
+      {
+        "prompt": "Part (a). Which vertex is opposite $A$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$B$",
+            "note": "If $B$ were opposite $A$, the midpoints of $AB$ and $CD$ would coincide, as the diagonals of a parallelogram must. They are $(1, \\tfrac12, \\tfrac52)$ and $(2, \\tfrac52, \\tfrac32)$, which differ. Test the midpoints of the other pairs."
+          },
+          {
+            "label": "B",
+            "text": "$C$",
+            "note": "If $C$ were opposite $A$, the midpoints of $AC$ and $BD$ would coincide. They are $(\\tfrac12, 2, \\tfrac32)$ and $(\\tfrac52, 1, \\tfrac52)$, which differ. Test the midpoints of the other pairs."
+          },
+          {
+            "label": "C",
+            "text": "$D$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The diagonals of a parallelogram share a midpoint, so opposite vertices have the same coordinate sum.\n\n$A + D = (3, 3, 4)$ and $B + C = (3, 3, 4)$.\n\nSo $AD$ and $BC$ are the diagonals, and the sides at $A$ run to $B$ and $C$."
+      },
+      {
+        "prompt": "Which two side vectors from $A$ give the area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{AB} = \\langle 2, -1, 1 \\rangle$ and $\\vec{AC} = \\langle 1, 2, -1 \\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{AB} = \\langle 2, 0, 3 \\rangle$ and $\\vec{AC} = \\langle 1, 3, 1 \\rangle$",
+            "note": "These are the coordinates of $B$ and $C$ themselves. A side vector is the end point minus the start point, and $A$ is not the origin."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{AB} = \\langle 2, -1, 1 \\rangle$ and $\\vec{AC} = \\langle 1, 2, 1 \\rangle$",
+            "note": "The $\\vec{AC}$ here has a wrong third component. Recompute each coordinate as end minus start."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Subtract the coordinates of $A$ from those of each neighbouring vertex:\n\n$\\vec{AB} = (2 - 0,\\ 0 - 1,\\ 3 - 2) = \\langle 2, -1, 1 \\rangle$\n\n$\\vec{AC} = (1 - 0,\\ 3 - 1,\\ 1 - 2) = \\langle 1, 2, -1 \\rangle$\n\nThe area is $|\\vec{AB} \\times \\vec{AC}|$."
+      },
+      {
+        "prompt": "What is $\\vec{AB} \\times \\vec{AC}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle -1, -3, 5 \\rangle$",
+            "note": "The $\\vec{j}$ term of the determinant carries a minus sign, and here it has been dropped. Recompute that component."
+          },
+          {
+            "label": "B",
+            "text": "$\\langle -1, 3, 5 \\rangle$"
+          },
+          {
+            "label": "C",
+            "text": "$\\langle -1, 3, 3 \\rangle$",
+            "note": "The $\\vec{k}$ component is $ae - bd$, and here the product $bd$ was added instead of subtracted. Recompute with the sign of $b$ in mind."
+          },
+          {
+            "label": "D",
+            "text": "$\\langle 1, -3, -5 \\rangle$",
+            "note": "This is what the other order of the factors gives. Row 2 of the determinant is $\\vec{AB}$ and row 3 is $\\vec{AC}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & -1 & 1 \\\\ 1 & 2 & -1 \\end{vmatrix} = \\vec{i}(1 - 2) - \\vec{j}(-2 - 1) + \\vec{k}(4 + 1)\n$$\n\n$$\n= -\\vec{i} + 3\\vec{j} + 5\\vec{k} = \\langle -1, 3, 5 \\rangle\n$$"
+      },
+      {
+        "prompt": "Dotting $\\langle -1, 3, 5 \\rangle$ with $\\vec{AB}$ and with $\\vec{AC}$ gives $0$ both times. What does that show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The answer is certainly correct, including its order",
+            "note": "Orthogonality to both factors does not detect a swapped order: the other order is also orthogonal to both. Think about what else passes this check."
+          },
+          {
+            "label": "B",
+            "text": "The area is $0$",
+            "note": "A zero dot product says the cross product is perpendicular to the factors. It says nothing about the size of the cross product."
+          },
+          {
+            "label": "C",
+            "text": "The components are consistent with an orthogonal vector, but a swapped order would also pass"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\langle -1, 3, 5 \\rangle \\cdot \\langle 2, -1, 1 \\rangle = -2 - 3 + 5 = 0$\n\n$\\langle -1, 3, 5 \\rangle \\cdot \\langle 1, 2, -1 \\rangle = -1 + 6 - 5 = 0$\n\nA slip in a component would almost surely give a nonzero dot product, so the working passes. The check cannot see the order of the factors, but the area uses only the length, so order does not matter here."
+      },
+      {
+        "prompt": "Part (a). What is the area of the parallelogram?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$9$",
+            "note": "This adds the components $1 + 3 + 5$. A length needs the squares of the components under a square root."
+          },
+          {
+            "label": "B",
+            "text": "$35$",
+            "note": "This is the sum of squares, but the square root has not been taken."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{\\sqrt{35}}{2}$",
+            "note": "This halves the length. Half belongs to a triangle on two sides, and part (a) asks for the parallelogram."
+          },
+          {
+            "label": "D",
+            "text": "$\\sqrt{35}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The area is the length of the cross product:\n\n$$\n|\\langle -1, 3, 5 \\rangle| = \\sqrt{1 + 9 + 25} = \\sqrt{35}\n$$\n\nThe parallelogram has area $\\sqrt{35}$."
+      },
+      {
+        "prompt": "Part (b). How does the area of triangle $BCD$ compare with the area found in part (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Half, $\\dfrac{\\sqrt{35}}{2}$"
+          },
+          {
+            "label": "B",
+            "text": "The same, $\\sqrt{35}$",
+            "note": "A triangle with two sides of the parallelogram fills only part of it. Look at what the diagonal $BC$ does to the parallelogram."
+          },
+          {
+            "label": "C",
+            "text": "One quarter, $\\dfrac{\\sqrt{35}}{4}$",
+            "note": "A diagonal cuts a parallelogram into two congruent triangles. Count the pieces and take that fraction of the area found in part (a)."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$BC$ is a diagonal, so it cuts the parallelogram into two congruent triangles, $ABC$ and $DCB$. Triangle $BCD$ is one of them.\n\nAs a direct check, $\\vec{BC} = \\langle -1, 3, -2 \\rangle$ and $\\vec{BD} = \\langle 1, 2, -1 \\rangle$ give $\\vec{BC} \\times \\vec{BD} = \\langle 1, -3, -5 \\rangle$, of length $\\sqrt{35}$. The triangle has half of that:\n\n$$\n\\frac{1}{2}\\sqrt{35} = \\frac{\\sqrt{35}}{2}\n$$\n\nSo (a) is $\\sqrt{35}$ and (b) is $\\dfrac{\\sqrt{35}}{2}$."
+      }
+    ],
+    "takeaway": "Find the opposite vertex from the diagonals first, then take side vectors from one corner; the cross product's length is the parallelogram, and any triangle on those sides is half."
+  },
+  {
+    "id": "L4-g2",
+    "lessonId": "L4",
+    "typeId": "L4-cross-product-normal-torque",
+    "stem": "The plane $\\Pi$ contains the points $P(1, 0, 2)$, $Q(2, 1, 0)$ and $R(0, 2, 2)$.\n\n(a) Find a vector normal to $\\Pi$.\n\n(b) Find the unit normal to $\\Pi$ whose $\\vec{k}$-component is positive.\n\n(c) Decide whether $S(2, -2, 2)$ lies in $\\Pi$.",
+    "steps": [
+      {
+        "prompt": "Part (a). Which vectors should be crossed to produce a normal to $\\Pi$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{OP}$ and $\\vec{OQ}$, the vectors from the origin",
+            "note": "The plane need not pass through the origin, so these two vectors need not lie in it. A normal must be perpendicular to vectors that lie in the plane."
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{PQ}$ and $\\vec{PR}$, two sides of the triangle $PQR$"
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{PQ}$ and $\\vec{PQ} + \\vec{QP}$",
+            "note": "The second vector is $\\vec{0}$, which has no direction and gives nothing useful. Two different directions in the plane are needed."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Any two non-parallel vectors lying in the plane will do, and the differences of the given points lie in it. Take $\\vec{PQ}$ and $\\vec{PR}$.\n\nTheir cross product is perpendicular to both, hence to the plane."
+      },
+      {
+        "prompt": "What are $\\vec{PQ}$ and $\\vec{PR}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle 1, 1, -2 \\rangle$ and $\\langle -1, 2, 0 \\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\langle 3, 1, 2 \\rangle$ and $\\langle 1, 2, 4 \\rangle$",
+            "note": "These are sums of coordinates. A vector between two points is the end point minus the start point."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle 1, 1, 2 \\rangle$ and $\\langle -1, 2, 0 \\rangle$",
+            "note": "The $\\vec{PQ}$ here has a wrong third component. Recompute it as end minus start."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\vec{PQ} = (2 - 1,\\ 1 - 0,\\ 0 - 2) = \\langle 1, 1, -2 \\rangle$\n\n$\\vec{PR} = (0 - 1,\\ 2 - 0,\\ 2 - 2) = \\langle -1, 2, 0 \\rangle$"
+      },
+      {
+        "prompt": "What is $\\vec{PQ} \\times \\vec{PR}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\langle 4, -2, 3 \\rangle$",
+            "note": "The $\\vec{j}$ term of the determinant carries a minus sign, and here it has been dropped. Recompute that component."
+          },
+          {
+            "label": "B",
+            "text": "$\\langle -4, 2, 3 \\rangle$",
+            "note": "The $\\vec{i}$ component is $bf - ce$, and here the sign of the product $ce$ was lost. Recompute it, keeping the minus sign of $c$."
+          },
+          {
+            "label": "C",
+            "text": "$\\langle 4, 2, 1 \\rangle$",
+            "note": "The $\\vec{k}$ component is $ae - bd$, and here the product $bd$ was subtracted with the wrong sign. Recompute it, keeping the minus sign of $d$."
+          },
+          {
+            "label": "D",
+            "text": "$\\langle 4, 2, 3 \\rangle$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$$\n\\vec{PQ} \\times \\vec{PR} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 1 & -2 \\\\ -1 & 2 & 0 \\end{vmatrix} = \\vec{i}(0 + 4) - \\vec{j}(0 - 2) + \\vec{k}(2 + 1)\n$$\n\n$$\n= 4\\vec{i} + 2\\vec{j} + 3\\vec{k} = \\langle 4, 2, 3 \\rangle\n$$\n\nCall this $\\vec{n}$."
+      },
+      {
+        "prompt": "Which check catches an arithmetic slip in $\\vec{n}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Cross $\\vec{n}$ with $\\vec{PQ}$ and $\\vec{PR}$; both results should be $\\vec{0}$",
+            "note": "A cross product is $\\vec{0}$ only for parallel vectors, and $\\vec{n}$ is perpendicular to the two sides, not parallel to them."
+          },
+          {
+            "label": "B",
+            "text": "Dot $\\vec{n}$ with $\\vec{OP}$; the result should be $0$",
+            "note": "$\\vec{OP}$ is a position vector and need not lie in the plane, so there is no reason for it to be perpendicular to $\\vec{n}$."
+          },
+          {
+            "label": "C",
+            "text": "Dot $\\vec{n}$ with $\\vec{PQ}$ and $\\vec{PR}$; both results should be $0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\vec{n} \\cdot \\vec{PQ} = 4 + 2 - 6 = 0$\n\n$\\vec{n} \\cdot \\vec{PR} = -4 + 4 + 0 = 0$\n\nBoth are $0$, so $\\vec{n} = \\langle 4, 2, 3 \\rangle$ is a normal to $\\Pi$. This answers part (a), and so does any nonzero multiple of it."
+      },
+      {
+        "prompt": "Part (b). What is the unit normal with positive $\\vec{k}$-component?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\dfrac{1}{\\sqrt{29}}\\langle 4, 2, 3 \\rangle$"
+          },
+          {
+            "label": "B",
+            "text": "$\\dfrac{1}{29}\\langle 4, 2, 3 \\rangle$",
+            "note": "Dividing by $29$ divides by $|\\vec{n}|^2$. A unit vector needs division by the length itself."
+          },
+          {
+            "label": "C",
+            "text": "$\\dfrac{1}{9}\\langle 4, 2, 3 \\rangle$",
+            "note": "Here $9$ is the sum of the components. The length is the square root of the sum of the squares."
+          },
+          {
+            "label": "D",
+            "text": "$\\dfrac{1}{\\sqrt{29}}\\langle -4, -2, -3 \\rangle$",
+            "note": "This has length $1$ and is normal to $\\Pi$, but its $\\vec{k}$-component is negative, so it fails the condition in the problem."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n|\\vec{n}| = \\sqrt{16 + 4 + 9} = \\sqrt{29}\n$$\n\n$\\vec{n}$ already has a positive $\\vec{k}$-component, so divide it by its length:\n\n$$\n\\frac{\\vec{n}}{|\\vec{n}|} = \\frac{1}{\\sqrt{29}}\\langle 4, 2, 3 \\rangle\n$$"
+      },
+      {
+        "prompt": "Part (c). Which test decides whether $S(2, -2, 2)$ is in $\\Pi$, and what does it give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{OS} \\cdot \\vec{n} = 10 \\neq 0$, so $S$ is not in $\\Pi$",
+            "note": "This dots the position vector of $S$ with $\\vec{n}$. The plane does not pass through the origin, so the vector must start at a point of the plane."
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{PS} \\times \\vec{n} \\neq \\vec{0}$, so $S$ is not in $\\Pi$",
+            "note": "Whether $\\vec{PS} \\times \\vec{n}$ is zero says whether $\\vec{PS}$ is parallel to the normal. A point of the plane needs $\\vec{PS}$ perpendicular to the normal, which is a different test."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{PS} \\cdot \\vec{n} = 0$, so $S$ lies in $\\Pi$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$S$ lies in $\\Pi$ exactly when $\\vec{PS}$ is perpendicular to $\\vec{n}$.\n\n$\\vec{PS} = (2 - 1,\\ -2 - 0,\\ 2 - 2) = \\langle 1, -2, 0 \\rangle$\n\n$$\n\\vec{PS} \\cdot \\vec{n} = 4 - 4 + 0 = 0\n$$\n\nSo $S$ lies in $\\Pi$. The tempting test $\\vec{OS} \\cdot \\vec{n}$ gives $8 - 4 + 6 = 10$, which would wrongly suggest it does not."
+      }
+    ],
+    "takeaway": "A normal is the cross product of two vectors inside the plane, so build them as differences of points, and measure from a point of the plane, not from the origin."
+  },
+  {
+    "id": "L4-g3",
+    "lessonId": "L4",
+    "typeId": "L4-cross-product-statements",
+    "stem": "For vectors $\\vec{u}$, $\\vec{v}$ and $\\vec{w}$ in 3D, which of the following statements are true for all choices of the vectors?\n\n(I) $|\\vec{u} \\times \\vec{v}|^2 + (\\vec{u} \\cdot \\vec{v})^2 = |\\vec{u}|^2|\\vec{v}|^2$.\n\n(II) $(\\vec{u} \\times \\vec{v}) \\cdot (\\vec{u} + \\vec{v}) = 0$.\n\n(III) If $\\vec{u} \\times \\vec{v} = \\vec{u} \\times \\vec{w}$, then $\\vec{v} = \\vec{w}$.\n\n(IV) If $\\vec{u} \\times \\vec{v} = \\vec{0}$, then $\\vec{u} \\cdot \\vec{v} = 0$.",
+    "steps": [
+      {
+        "prompt": "What does it take to show that a statement is not true for all vectors?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "One example where the statement holds",
+            "note": "Examples where it holds cannot rule out other cases where it fails. Think about what a single case can settle."
+          },
+          {
+            "label": "B",
+            "text": "One example where the statement fails"
+          },
+          {
+            "label": "C",
+            "text": "Several examples where the statement holds",
+            "note": "No number of cases where it holds proves it always holds, and none shows it fails."
+          }
+        ],
+        "answer": "B",
+        "explanation": "A statement claimed for all vectors fails as soon as one choice of vectors breaks it. A counterexample settles it.\n\nProving a statement always true needs a general argument, such as a formula for the cross and dot products."
+      },
+      {
+        "prompt": "Statement (I). With $\\theta$ the angle between the vectors, what do the formulas give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "True: the left side is $|\\vec{u}|^2|\\vec{v}|^2(\\sin^2\\theta + \\cos^2\\theta)$"
+          },
+          {
+            "label": "B",
+            "text": "False: the cross product uses $\\sin\\theta$ and the dot product uses $\\cos\\theta$, so the two terms cannot be combined",
+            "note": "Squaring each formula gives a sine term and a cosine term with the same factor $|\\vec{u}|^2|\\vec{v}|^2$. See what the sum of the squares is."
+          },
+          {
+            "label": "C",
+            "text": "False: the left side is $|\\vec{u}|^2|\\vec{v}|^2(\\sin\\theta + \\cos\\theta)$",
+            "note": "The magnitudes are squared in the statement, so the sine and cosine are squared as well."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$|\\vec{u} \\times \\vec{v}|^2 = |\\vec{u}|^2|\\vec{v}|^2\\sin^2\\theta$ and $(\\vec{u} \\cdot \\vec{v})^2 = |\\vec{u}|^2|\\vec{v}|^2\\cos^2\\theta$.\n\nTheir sum is $|\\vec{u}|^2|\\vec{v}|^2(\\sin^2\\theta + \\cos^2\\theta) = |\\vec{u}|^2|\\vec{v}|^2$.\n\nStatement (I) is true. As a spot check, $\\vec{u} = \\langle 1, 0, 0 \\rangle$ and $\\vec{v} = \\langle 1, 1, 0 \\rangle$ give $1 + 1 = 2 = 1 \\cdot 2$."
+      },
+      {
+        "prompt": "Statement (II). What decides it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "False: the vector $\\vec{u} + \\vec{v}$ is different from both $\\vec{u}$ and $\\vec{v}$, so nothing is known about it",
+            "note": "The dot product distributes over a sum, so what is known about each term carries over to the sum."
+          },
+          {
+            "label": "B",
+            "text": "False: a dot product with a cross product is never $0$",
+            "note": "A dot product is $0$ exactly when the vectors are orthogonal, and $\\vec{u} \\times \\vec{v}$ is orthogonal to two vectors that are always available."
+          },
+          {
+            "label": "C",
+            "text": "True: $\\vec{u} \\times \\vec{v}$ is orthogonal to $\\vec{u}$ and to $\\vec{v}$, so its dot product with $\\vec{u} + \\vec{v}$ is $0 + 0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$(\\vec{u} \\times \\vec{v}) \\cdot (\\vec{u} + \\vec{v}) = (\\vec{u} \\times \\vec{v}) \\cdot \\vec{u} + (\\vec{u} \\times \\vec{v}) \\cdot \\vec{v}$.\n\nA cross product is orthogonal to both of its factors, so each term is $0$.\n\nStatement (II) is true."
+      },
+      {
+        "prompt": "Statement (III). Take $\\vec{u} = \\langle 1, 0, 0 \\rangle$ and $\\vec{v} = \\langle 0, 1, 0 \\rangle$, so $\\vec{u} \\times \\vec{v} = \\langle 0, 0, 1 \\rangle$. Which $\\vec{w} \\neq \\vec{v}$ has $\\vec{u} \\times \\vec{w} = \\langle 0, 0, 1 \\rangle$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{w} = \\langle 0, 2, 0 \\rangle$",
+            "note": "This gives $\\vec{u} \\times \\vec{w} = \\langle 0, 0, 2 \\rangle$, twice the target."
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{w} = \\langle 0, 1, 1 \\rangle$",
+            "note": "This gives $\\vec{u} \\times \\vec{w} = \\langle 0, -1, 1 \\rangle$, which has an extra $\\vec{j}$ component."
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{w} = \\langle 0, -1, 0 \\rangle$",
+            "note": "This gives $\\vec{u} \\times \\vec{w} = \\langle 0, 0, -1 \\rangle$, the opposite of the target."
+          },
+          {
+            "label": "D",
+            "text": "$\\vec{w} = \\langle 2, 1, 0 \\rangle$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$$\n\\vec{u} \\times \\langle 2, 1, 0 \\rangle = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 0 & 0 \\\\ 2 & 1 & 0 \\end{vmatrix} = \\vec{k}(1 - 0) = \\langle 0, 0, 1 \\rangle\n$$\n\nThe extra $2\\vec{i}$ is parallel to $\\vec{u}$, and it adds nothing to the cross product. So $\\vec{w} \\neq \\vec{v}$ and $\\vec{u} \\times \\vec{w} = \\vec{u} \\times \\vec{v}$.\n\nStatement (III) is false: a cross product cannot be cancelled."
+      },
+      {
+        "prompt": "Statement (IV). Which pair is a counterexample?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\vec{u} = \\langle 1, 0, 0 \\rangle$ and $\\vec{v} = \\langle 0, 1, 0 \\rangle$",
+            "note": "Here $\\vec{u} \\times \\vec{v} = \\langle 0, 0, 1 \\rangle$, which is not $\\vec{0}$, so the hypothesis of the statement fails and this pair cannot test it."
+          },
+          {
+            "label": "B",
+            "text": "$\\vec{u} = \\langle 1, 2, 0 \\rangle$ and $\\vec{v} = \\langle 2, 4, 0 \\rangle$"
+          },
+          {
+            "label": "C",
+            "text": "$\\vec{u} = \\langle 1, 2, 0 \\rangle$ and $\\vec{v} = \\langle -2, 1, 0 \\rangle$",
+            "note": "Here the dot product is $0$ and the cross product is $\\langle 0, 0, 5 \\rangle \\neq \\vec{0}$. The hypothesis fails, so this pair cannot be a counterexample."
+          }
+        ],
+        "answer": "B",
+        "explanation": "A counterexample needs $\\vec{u} \\times \\vec{v} = \\vec{0}$ and $\\vec{u} \\cdot \\vec{v} \\neq 0$. Parallel vectors have a zero cross product.\n\n$\\langle 1, 2, 0 \\rangle \\times \\langle 2, 4, 0 \\rangle = \\langle 0, 0, 4 - 4 \\rangle = \\vec{0}$, but $\\langle 1, 2, 0 \\rangle \\cdot \\langle 2, 4, 0 \\rangle = 2 + 8 = 10 \\neq 0$.\n\nStatement (IV) is false: a zero cross product means parallel, and parallel vectors have the largest dot product in size, not $0$."
+      },
+      {
+        "prompt": "Which statements are true for all vectors?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "(I), (II) and (III)",
+            "note": "One of these three was shown to fail with a counterexample."
+          },
+          {
+            "label": "B",
+            "text": "(II) and (IV) only",
+            "note": "One of these two failed with a counterexample."
+          },
+          {
+            "label": "C",
+            "text": "(I) and (II) only"
+          },
+          {
+            "label": "D",
+            "text": "(I), (II) and (IV)",
+            "note": "One of these three was shown to fail with a counterexample."
+          }
+        ],
+        "answer": "C",
+        "explanation": "(I) is true by $\\sin^2\\theta + \\cos^2\\theta = 1$. (II) is true by orthogonality of the cross product. (III) fails for $\\vec{w} = \\langle 2, 1, 0 \\rangle$. (IV) fails for $\\langle 1, 2, 0 \\rangle$ and $\\langle 2, 4, 0 \\rangle$.\n\nSo exactly (I) and (II) are true for all vectors."
+      }
+    ],
+    "takeaway": "Prove a property from the sine and cosine formulas or from orthogonality, and refute one with a single concrete counterexample."
+  }
+]

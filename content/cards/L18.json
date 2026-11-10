@@ -6,6 +6,10 @@
     "back": "(1) An infinite limit of integration, such as $\\int_1^\\infty$ or $\\int_{-\\infty}^\\infty$. (2) Finite limits, but the integrand goes to $\\pm\\infty$ somewhere on $[a, b]$, at an endpoint or inside. Each is defined by limits of ordinary integrals.",
     "tags": [
       "definition"
+    ],
+    "typeIds": [
+      "L18-infinite-interval",
+      "L18-discontinuity"
     ]
   },
   {
@@ -15,6 +19,10 @@
     "back": "$\\int_a^\\infty f(x)\\,dx = \\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx$. It converges if this limit is a finite number. It diverges if the limit is $\\pm\\infty$ or does not exist, as for $\\int_0^\\infty \\cos x\\,dx$, where $\\sin b$ oscillates (this last case is beyond Chen's notes).",
     "tags": [
       "definition"
+    ],
+    "typeIds": [
+      "L18-infinite-interval",
+      "L18-which-converge"
     ]
   },
   {
@@ -24,6 +32,10 @@
     "back": "For $p > 1$, with value $\\frac{1}{p - 1}$; it diverges for $p \\le 1$. Chen: $\\int_1^\\infty \\frac{dx}{x^2} = 1$, while $\\int_1^\\infty \\frac{dx}{x} = \\lim_{b\\to\\infty}\\ln b = \\infty$. The same holds for any lower limit $a > 0$.",
     "tags": [
       "p-integral"
+    ],
+    "typeIds": [
+      "L18-infinite-interval",
+      "L18-which-converge"
     ]
   },
   {
@@ -34,6 +46,10 @@
     "tags": [
       "trap",
       "p-integral"
+    ],
+    "typeIds": [
+      "L18-discontinuity",
+      "L18-which-converge"
     ]
   },
   {
@@ -44,6 +60,10 @@
     "tags": [
       "trap",
       "discontinuity"
+    ],
+    "typeIds": [
+      "L18-discontinuity",
+      "L18-which-converge"
     ]
   },
   {
@@ -53,6 +73,9 @@
     "back": "The integrand blows up at $x = 0$, inside $[-1, 8]$, so split there: $\\lim_{t\\to 0^-}3x^{1/3}\\Big|_{-1}^{t} + \\lim_{s\\to 0^+}3x^{1/3}\\Big|_{s}^{8} = 3 + 6 = 9$. Both pieces converge, so the integral converges to $9$.",
     "tags": [
       "discontinuity"
+    ],
+    "typeIds": [
+      "L18-discontinuity"
     ]
   },
   {
@@ -63,6 +86,10 @@
     "tags": [
       "trap",
       "definition"
+    ],
+    "typeIds": [
+      "L18-infinite-interval",
+      "L18-which-converge"
     ]
   },
   {
@@ -72,6 +99,9 @@
     "back": "$\\lim_{b\\to\\infty}\\left(-\\frac{1}{3}e^{-3x}\\right)\\Big|_0^b = \\lim_{b\\to\\infty}\\frac{1}{3}\\left(1 - e^{-3b}\\right) = \\frac{1}{3}$. It converges.",
     "tags": [
       "quick-compute"
+    ],
+    "typeIds": [
+      "L18-infinite-interval"
     ]
   },
   {
@@ -81,6 +111,9 @@
     "back": "It is improper at $x = 0$, where $\\frac{\\ln x}{x^{3/4}} \\to -\\infty$. By parts with $u = \\ln x$ and $dv = x^{-3/4}\\,dx$, $\\int \\frac{\\ln x}{x^{3/4}}\\,dx = 4x^{1/4}\\ln x - 16x^{1/4}$, so the integral is $\\lim_{t\\to 0^+}\\left[(0 - 16) - (4t^{1/4}\\ln t - 16t^{1/4})\\right] = -16$, using $t^{1/4}\\ln t \\to 0$ (L'Hôpital). It converges to $-16$.",
     "tags": [
       "discontinuity"
+    ],
+    "typeIds": [
+      "L18-discontinuity"
     ]
   },
   {
@@ -90,6 +123,9 @@
     "back": "Yes, by comparison: $0 \\le \\frac{1}{x^3 + 5} \\le \\frac{1}{x^3}$ for $x \\ge 1$, and $\\int_1^\\infty \\frac{dx}{x^3}$ converges ($p = 3 > 1$). A nonnegative function below a convergent integral has a convergent integral.",
     "tags": [
       "comparison"
+    ],
+    "typeIds": [
+      "L18-which-converge"
     ]
   },
   {
@@ -100,6 +136,9 @@
     "tags": [
       "trap",
       "comparison"
+    ],
+    "typeIds": [
+      "L18-which-converge"
     ]
   },
   {
@@ -109,6 +148,9 @@
     "back": "$\\lim_{a\\to-\\infty}\\frac{1}{3}\\tan^{-1}\\left(\\frac{x}{3}\\right)\\Big|_a^3 = \\frac{1}{3}\\left(\\frac{\\pi}{4} - \\left(-\\frac{\\pi}{2}\\right)\\right) = \\frac{\\pi}{4}$, using $\\tan^{-1}a \\to -\\frac{\\pi}{2}$ as $a \\to -\\infty$. It converges.",
     "tags": [
       "quick-compute"
+    ],
+    "typeIds": [
+      "L18-infinite-interval"
     ]
   },
   {
@@ -118,6 +160,9 @@
     "back": "$\\int_1^\\infty e^{-x}\\,dx = e^{-1}$ converges and $0 \\le e^{-x^2} \\le e^{-x}$, so $\\int_1^\\infty e^{-x^2}\\,dx$ converges by comparison, even though $e^{-x^2}$ has no elementary antiderivative.",
     "tags": [
       "comparison"
+    ],
+    "typeIds": [
+      "L18-which-converge"
     ]
   }
 ]

@@ -1,0 +1,340 @@
+[
+  {
+    "id": "L19-g1",
+    "lessonId": "L19",
+    "typeId": "L19-recurrence-term",
+    "stem": "A sequence is defined by\n\n$$\na_1 = 3, \\qquad a_{n+1} = (a_n)^2 - 3a_n + 2.\n$$\n\n(a) Find $a_6$.\n\n(b) Find $a_{101}$.",
+    "steps": [
+      {
+        "prompt": "(a) The rule gives each term from the one before it. How is $a_6$ found?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Put $n = 6$ into a formula for $a_n$",
+            "note": "The rule gives $a_{n+1}$ from $a_n$; there is no formula in $n$ to substitute into."
+          },
+          {
+            "label": "B",
+            "text": "Apply the rule to $a_1$, then to each result in turn, until $a_6$ appears"
+          },
+          {
+            "label": "C",
+            "text": "Apply the rule to $a_1$ six times",
+            "note": "$a_1$ is already the first term, so counting six applications overshoots the sixth term."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The recurrence only turns one term into the next, so the terms are built in order from $a_1 = 3$. Reaching $a_6$ takes five applications of $a_{n+1} = (a_n)^2 - 3a_n + 2$."
+      },
+      {
+        "prompt": "Compute $a_2$ from $a_1 = 3$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_2 = 2$"
+          },
+          {
+            "label": "B",
+            "text": "$a_2 = 8$",
+            "note": "That treats $3a_n$ as the number $3$. The coefficient multiplies $a_n$, so use the value of $a_1$ there."
+          },
+          {
+            "label": "C",
+            "text": "$a_2 = -1$",
+            "note": "That doubles $a_1$ instead of squaring it. Recompute $(a_1)^2$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\na_2 = 3^2 - 3\\cdot 3 + 2 = 9 - 9 + 2 = 2\n$$\n\nSo $a_2 = 2$."
+      },
+      {
+        "prompt": "Compute $a_3$ from $a_2 = 2$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_3 = 3$",
+            "note": "That uses $-3$ instead of $-3a_2$. The coefficient $3$ multiplies the previous term."
+          },
+          {
+            "label": "B",
+            "text": "$a_3 = 12$",
+            "note": "That gives the middle term the wrong sign. The rule subtracts $3a_n$."
+          },
+          {
+            "label": "C",
+            "text": "$a_3 = 0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\na_3 = 2^2 - 3\\cdot 2 + 2 = 4 - 6 + 2 = 0\n$$\n\nSo $a_3 = 0$."
+      },
+      {
+        "prompt": "Compute $a_4$ from $a_3 = 0$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_4 = 0$",
+            "note": "Every term of the rule is used, including the constant, even when $a_3$ is zero."
+          },
+          {
+            "label": "B",
+            "text": "$a_4 = 2$"
+          },
+          {
+            "label": "C",
+            "text": "$a_4 = -2$",
+            "note": "The constant in the rule is $+2$, so check its sign."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\na_4 = 0^2 - 3\\cdot 0 + 2 = 2\n$$\n\nSo $a_4 = 2$, the same value as $a_2$."
+      },
+      {
+        "prompt": "Find $a_5$ and $a_6$, which answers (a).",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_5 = 2$, $a_6 = 0$",
+            "note": "Each term is computed from the one right before it. Recompute $a_5$ from $a_4$ and then $a_6$ from $a_5$."
+          },
+          {
+            "label": "B",
+            "text": "$a_5 = 0$, $a_6 = 0$",
+            "note": "Apply the full rule to $a_5$, constant included, to get $a_6$."
+          },
+          {
+            "label": "C",
+            "text": "$a_5 = 0$, $a_6 = 2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "From $a_4 = 2$ the rule gives $a_5 = 2^2 - 3\\cdot 2 + 2 = 0$, as it did for $a_3$.\n\nFrom $a_5 = 0$ it gives $a_6 = 0 - 0 + 2 = 2$.\n\nSo (a): $a_6 = 2$. The terms so far are $3, 2, 0, 2, 0, 2$."
+      },
+      {
+        "prompt": "(b) Computing 101 terms by hand is long. What do $a_4 = a_2$ and $a_5 = a_3$ show?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Each term depends only on the one before it, so from $a_2$ on the terms repeat $2, 0, 2, 0, \\dots$"
+          },
+          {
+            "label": "B",
+            "text": "The terms settle toward one value, so $a_{101}$ is close to it",
+            "note": "The computed terms do not move toward a single value; look at what they do from term to term."
+          },
+          {
+            "label": "C",
+            "text": "The terms keep growing, so $a_{101}$ is large",
+            "note": "The computed terms stay small; nothing so far is growing."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The next term depends only on the current one. Since $a_4 = a_2 = 2$, the terms after $a_4$ repeat those after $a_2$.\n\nSo from $a_2$ on the sequence cycles: $2, 0, 2, 0, \\dots$ with $a_2 = 2$, $a_3 = 0$, $a_4 = 2$, $a_5 = 0$, and so on. The first term $a_1 = 3$ is outside the cycle."
+      },
+      {
+        "prompt": "(b) Find $a_{101}$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_{101} = 3$",
+            "note": "$a_1 = 3$ is not part of the repeating cycle; it appears only once, at the start."
+          },
+          {
+            "label": "B",
+            "text": "$a_{101} = 2$",
+            "note": "Check which positions hold $2$: it first appears at $a_2$, and the cycle alternates from there."
+          },
+          {
+            "label": "C",
+            "text": "$a_{101} = 0$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "In the cycle, $2$ sits at $a_2, a_4, a_6, \\dots$ (even indices) and $0$ sits at $a_3, a_5, a_7, \\dots$ (odd indices from $3$ on).\n\nThe index $101$ is odd and at least $3$, so $a_{101} = 0$."
+      }
+    ],
+    "takeaway": "Compute the terms one at a time from the first, and watch for a value that returns: once it does, the rest repeats and a distant term is found from its place in the cycle."
+  },
+  {
+    "id": "L19-g2",
+    "lessonId": "L19",
+    "typeId": "L19-recurrence-match",
+    "stem": "Four recurrences are given, each with its first term.\n\n(i) $a_1 = 1$, $a_{n+1} = 3a_n + 1$\n\n(ii) $a_1 = 7$, $a_{n+1} = a_n + n$\n\n(iii) $a_1 = 3$, $a_{n+1} = 4a_n + 1$\n\n(iv) $a_1 = -1$, $a_{n+1} = 3 - 2a_n$\n\n(a) Which one generates a sequence with $a_4 = 13$?\n\n(b) For that recurrence, find $a_6$.",
+    "steps": [
+      {
+        "prompt": "(a) Each recurrence gives the next term from the previous one. How should each be tested?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Find $a_4$ directly by putting $n = 4$ into the rule",
+            "note": "The rule gives $a_{n+1}$ from $a_n$, so $a_4$ needs $a_3$, which needs $a_2$; terms cannot be skipped."
+          },
+          {
+            "label": "B",
+            "text": "Compute $a_2$, $a_3$, $a_4$ in turn and compare the fourth term with the target"
+          },
+          {
+            "label": "C",
+            "text": "Stop at the first term that equals the target",
+            "note": "The target is a particular term, not a value at any position. A match at another position says nothing about the fourth term."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Each rule needs the term before it, so every recurrence is run forward from its $a_1$ to $a_4$. Only the fourth term is compared with $13$."
+      },
+      {
+        "prompt": "Test (i): $a_1 = 1$, $a_{n+1} = 3a_n + 1$. Find $a_2$, $a_3$, $a_4$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_2 = 6$, $a_3 = 21$, $a_4 = 66$",
+            "note": "That multiplies the $+1$ by $3$ as well. The rule is $3$ times $a_n$, and then $1$ is added."
+          },
+          {
+            "label": "B",
+            "text": "$a_2 = 3$, $a_3 = 9$, $a_4 = 27$",
+            "note": "The $+1$ is added at every step; here it has been left out."
+          },
+          {
+            "label": "C",
+            "text": "$a_2 = 4$, $a_3 = 13$, $a_4 = 40$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\na_2 = 3(1) + 1 = 4, \\quad a_3 = 3(4) + 1 = 13, \\quad a_4 = 3(13) + 1 = 40\n$$\n\nSo $a_4 = 40$, not $13$."
+      },
+      {
+        "prompt": "Test (ii): $a_1 = 7$, $a_{n+1} = a_n + n$. Find $a_2$, $a_3$, $a_4$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_2 = 8$, $a_3 = 10$, $a_4 = 13$"
+          },
+          {
+            "label": "B",
+            "text": "$a_2 = 9$, $a_3 = 12$, $a_4 = 16$",
+            "note": "Here $a_{n+1}$ adds $n$, the index of the term being used, not $n + 1$."
+          },
+          {
+            "label": "C",
+            "text": "$a_2 = 8$, $a_3 = 9$, $a_4 = 10$",
+            "note": "The amount added changes with $n$; it does not stay at $1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "To get $a_2$ use $n = 1$, for $a_3$ use $n = 2$, for $a_4$ use $n = 3$:\n\n$$\na_2 = 7 + 1 = 8, \\quad a_3 = 8 + 2 = 10, \\quad a_4 = 10 + 3 = 13\n$$\n\nSo $a_4 = 13$."
+      },
+      {
+        "prompt": "Test (iii): $a_1 = 3$, $a_{n+1} = 4a_n + 1$. Find $a_2$, $a_3$, $a_4$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_2 = 12$, $a_3 = 48$, $a_4 = 192$",
+            "note": "The $+1$ is part of every step; it has been dropped here."
+          },
+          {
+            "label": "B",
+            "text": "$a_2 = 16$, $a_3 = 68$, $a_4 = 276$",
+            "note": "That multiplies the $+1$ by $4$ as well. Only $a_n$ is multiplied."
+          },
+          {
+            "label": "C",
+            "text": "$a_2 = 13$, $a_3 = 53$, $a_4 = 213$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\na_2 = 4(3) + 1 = 13, \\quad a_3 = 4(13) + 1 = 53, \\quad a_4 = 4(53) + 1 = 213\n$$\n\nThe value $13$ shows up, but at the second term. So $a_4 = 213$."
+      },
+      {
+        "prompt": "Test (iv): $a_1 = -1$, $a_{n+1} = 3 - 2a_n$. Find $a_2$, $a_3$, $a_4$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_2 = 5$, $a_3 = -7$, $a_4 = 17$"
+          },
+          {
+            "label": "B",
+            "text": "$a_2 = 1$, $a_3 = 1$, $a_4 = 1$",
+            "note": "That takes $a_1$ as $+1$, so the sign of the first term is lost. Subtracting $2a_n$ when $a_n$ is negative adds a positive number."
+          },
+          {
+            "label": "C",
+            "text": "$a_2 = -5$, $a_3 = -13$, $a_4 = -29$",
+            "note": "That computes $2a_n - 3$. The rule is $3$ minus $2a_n$, in that order."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\na_2 = 3 - 2(-1) = 5, \\quad a_3 = 3 - 2(5) = -7, \\quad a_4 = 3 - 2(-7) = 17\n$$\n\nSo $a_4 = 17$."
+      },
+      {
+        "prompt": "(a) Which recurrence has $a_4 = 13$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "(i)",
+            "note": "The value $13$ does occur there, but at a different position than the one the question asks about."
+          },
+          {
+            "label": "B",
+            "text": "(ii)"
+          },
+          {
+            "label": "C",
+            "text": "(iii)",
+            "note": "The value $13$ does occur there, but at a different position than the one the question asks about."
+          },
+          {
+            "label": "D",
+            "text": "(iv)",
+            "note": "Its fourth term is $17$, which is not the target."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The fourth terms are $40$, $13$, $213$ and $17$.\n\nOnly (ii) has $a_4 = 13$. In (i) the number $13$ is $a_3$ and in (iii) it is $a_2$, so those are decoys.\n\nFor (b), the recurrence is $a_1 = 7$, $a_{n+1} = a_n + n$, with $a_4 = 13$."
+      },
+      {
+        "prompt": "(b) Continue (ii): find $a_5$ from $a_4 = 13$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_5 = 18$",
+            "note": "That adds $5$, the index of the term being found. Recheck which index the rule pairs with the term already known."
+          },
+          {
+            "label": "B",
+            "text": "$a_5 = 14$",
+            "note": "The amount added grows with $n$; it is not always $1$."
+          },
+          {
+            "label": "C",
+            "text": "$a_5 = 17$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$a_5$ comes from $a_4$ with $n = 4$:\n\n$$\na_5 = a_4 + 4 = 13 + 4 = 17\n$$"
+      },
+      {
+        "prompt": "(b) Find $a_6$ from $a_5 = 17$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$a_6 = 22$"
+          },
+          {
+            "label": "B",
+            "text": "$a_6 = 21$",
+            "note": "The amount added changes with each step; the previous step's amount does not repeat."
+          },
+          {
+            "label": "C",
+            "text": "$a_6 = 23$",
+            "note": "That adds $6$, the index of the term being found. Recheck which index the rule pairs with the term already known."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$a_6$ comes from $a_5$ with $n = 5$:\n\n$$\na_6 = a_5 + 5 = 17 + 5 = 22\n$$\n\nSo (b): $a_6 = 22$. The terms are $7, 8, 10, 13, 17, 22$."
+      }
+    ],
+    "takeaway": "Run every recurrence out to the exact term the question names; a value that appears one term early or late is the usual decoy."
+  }
+]

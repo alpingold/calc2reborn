@@ -1,0 +1,469 @@
+[
+  {
+    "id": "L6-g1",
+    "lessonId": "L6",
+    "typeId": "L6-known-cross-sections",
+    "stem": "A solid has as its base the region between the curve $y = x^2$ and the line $y = 2x$.\n\n(a) Cross-sections perpendicular to the $x$-axis are squares, each with one side across the base. Find the volume.\n\n(b) The squares are replaced by semicircles whose diameter lies across the base, still perpendicular to the $x$-axis. Find the volume of this new solid.",
+    "steps": [
+      {
+        "prompt": "Slices are perpendicular to the $x$-axis. What is the variable of integration, and where does the base start and end?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x$, from $0$ to $2$"
+          },
+          {
+            "label": "B",
+            "text": "$y$, from $0$ to $4$",
+            "note": "Revisit what thickness a slice perpendicular to the $x$-axis has, and what that says about the variable."
+          },
+          {
+            "label": "C",
+            "text": "$x$, from $0$ to $4$",
+            "note": "The value $4$ is a $y$-coordinate of an intersection point; the limits must be values of the variable of integration."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Slices perpendicular to the $x$-axis have thickness $dx$, so everything is written in $x$.\n\nThe curves meet where $x^2 = 2x$, so $x(x - 2) = 0$ and $x = 0$ or $x = 2$.\n\nThe base runs over $0 \\le x \\le 2$."
+      },
+      {
+        "prompt": "(a) The bar across the base at position $x$ runs between the two curves. What is its length?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x^2 - 2x$",
+            "note": "At $x = 1$ this is negative, and a length cannot be. Check which curve is higher there."
+          },
+          {
+            "label": "B",
+            "text": "$2x + x^2$",
+            "note": "The bar goes from one curve to the other, so the two heights are not added."
+          },
+          {
+            "label": "C",
+            "text": "$2x - x^2$"
+          },
+          {
+            "label": "D",
+            "text": "$2x$",
+            "note": "This is only the height of the line. The bar starts at the parabola, not at the $x$-axis."
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x = 1$ the line gives $2$ and the parabola gives $1$, so the line is the top curve on $0 < x < 2$.\n\n$$\n\\text{bar} = 2x - x^2\n$$"
+      },
+      {
+        "prompt": "(a) Each slice is a square built on that bar. What is the area of the slice at $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{2}(2x - x^2)^2$",
+            "note": "A factor of one half belongs to a triangle on this base. Revisit the area of a square."
+          },
+          {
+            "label": "B",
+            "text": "$2x - x^2$",
+            "note": "This is the length of one side, not the area of the square."
+          },
+          {
+            "label": "C",
+            "text": "$(2x)^2 - (x^2)^2$",
+            "note": "The side is one length, found first. Squaring the two heights separately and subtracting is not the square of that length."
+          },
+          {
+            "label": "D",
+            "text": "$(2x - x^2)^2$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The side of the square is the bar, $2x - x^2$.\n\n$$\nA(x) = (2x - x^2)^2 = 4x^2 - 4x^3 + x^4\n$$"
+      },
+      {
+        "prompt": "(a) What is the volume of the solid with square slices?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{4}{3}$",
+            "note": "This is the area of the base, the integral of the bar itself. The integrand must be the area of the slice."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{16}{15}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{64}{15}$",
+            "note": "This comes from expanding the square as $4x^2 - x^4$. The square of a difference also has a middle term."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nV = \\int_0^2 (4x^2 - 4x^3 + x^4)\\,dx = \\left[\\frac{4x^3}{3} - x^4 + \\frac{x^5}{5}\\right]_0^2\n$$\n\n$$\n= \\frac{32}{3} - 16 + \\frac{32}{5} = \\frac{160 - 240 + 96}{15} = \\frac{16}{15}\n$$\n\nSo the volume in (a) is $\\frac{16}{15}$."
+      },
+      {
+        "prompt": "(b) The same bar is now the diameter of a semicircular slice. What is the slice area at $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{2}(2x - x^2)^2$",
+            "note": "This treats the whole bar as the radius. Check what the bar is in this problem."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{4}(2x - x^2)^2$",
+            "note": "This is the area of a whole circle on that diameter, but the slice is a semicircle."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{8}(2x - x^2)^2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The bar is the diameter, so the radius is half of it: $r = \\frac{2x - x^2}{2}$.\n\n$$\nA(x) = \\frac{1}{2}\\pi r^2 = \\frac{1}{2}\\pi\\cdot\\frac{(2x - x^2)^2}{4} = \\frac{\\pi}{8}(2x - x^2)^2\n$$"
+      },
+      {
+        "prompt": "(b) The integrand differs from the one in (a) only by a constant factor. What is the volume of the semicircle solid?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{8\\pi}{15}$",
+            "note": "This is $\\frac{\\pi}{2}$ times the integral from (a), the result of using the whole bar as the radius."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{2\\pi}{15}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{4\\pi}{15}$",
+            "note": "This is $\\frac{\\pi}{4}$ times the integral from (a), the volume if the slices were whole circles on the diameter."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{16\\pi}{15}$",
+            "note": "This drops a constant factor from the slice area. Carry the whole constant out of the integral."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The constant comes out of the integral, and the rest is the integral already found in (a):\n\n$$\nV = \\frac{\\pi}{8}\\int_0^2 (2x - x^2)^2\\,dx = \\frac{\\pi}{8}\\cdot\\frac{16}{15} = \\frac{2\\pi}{15}\n$$\n\nSo the volume in (b) is $\\frac{2\\pi}{15}$."
+      }
+    ],
+    "takeaway": "Find the length of the bar first, then turn it into the shape's dimension: a side is the bar itself, a radius is half of it when the bar is a diameter."
+  },
+  {
+    "id": "L6-g2",
+    "lessonId": "L6",
+    "typeId": "L6-disk-washer-x-axis",
+    "stem": "Let $S$ be the region bounded by $y = 2 - x^2$, the $x$-axis, $x = -1$ and $x = 1$. Let $R$ be the region between the parabolas $y = x^2$ and $y = 2 - x^2$.\n\n(a) Find the volume of the solid obtained by revolving $S$ about the $x$-axis.\n\n(b) Find the volume of the solid obtained by revolving $R$ about the $x$-axis.",
+    "steps": [
+      {
+        "prompt": "(a) Draw a slice of $S$ perpendicular to the $x$-axis. What does it give when revolved?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "A washer, because the region is bounded by a curve and a line",
+            "note": "A hole appears only when a gap separates the region from the axis. Look at the lower edge of $S$."
+          },
+          {
+            "label": "B",
+            "text": "A disk, because the slice reaches the axis"
+          },
+          {
+            "label": "C",
+            "text": "A disk, with the integral taken in $y$",
+            "note": "Slices perpendicular to the $x$-axis are labelled by $x$. Revisit which variable goes with the thickness of such a slice."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The lower edge of $S$ is the $x$-axis itself, the axis of revolution. A vertical slice runs from the axis up to the curve, so it has no hole.\n\nThe slices are disks, with thickness $dx$."
+      },
+      {
+        "prompt": "(a) Which integral gives the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\pi\\int_{-1}^{1}(2 - x^2)\\,dx$",
+            "note": "The volume of a disk uses the area $\\pi r^2$, so the radius must be squared."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi\\int_{-1}^{1}\\left(2^2 - (x^2)^2\\right)dx$",
+            "note": "A disk has a single radius, $2 - x^2$. Squaring its two terms separately is not squaring it."
+          },
+          {
+            "label": "C",
+            "text": "$\\pi\\int_{-1}^{1}(2 - x^2)^2\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The radius is the distance from the axis up to the curve, $r = 2 - x^2$. The disk has area $\\pi r^2$.\n\n$$\nV = \\pi\\int_{-1}^{1}(2 - x^2)^2\\,dx\n$$"
+      },
+      {
+        "prompt": "(a) What is the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{86\\pi}{15}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{38\\pi}{5}$",
+            "note": "This is what $\\pi\\int_{-1}^{1}(4 - x^4)\\,dx$ gives, which is not the square of the radius."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{10\\pi}{3}$",
+            "note": "This is $\\pi\\int_{-1}^{1}(2 - x^2)\\,dx$, where the radius was not squared."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Expand $(2 - x^2)^2 = 4 - 4x^2 + x^4$. The integrand is even, so double the integral over $[0, 1]$:\n\n$$\nV = 2\\pi\\left[4x - \\frac{4x^3}{3} + \\frac{x^5}{5}\\right]_0^1 = 2\\pi\\left(4 - \\frac{4}{3} + \\frac{1}{5}\\right) = 2\\pi\\cdot\\frac{43}{15} = \\frac{86\\pi}{15}\n$$"
+      },
+      {
+        "prompt": "(b) The region $R$ lies between the two parabolas. Where do they meet, and so what are the limits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = \\pm\\sqrt{2}$",
+            "note": "The value $\\sqrt{2}$ is where $y = 2 - x^2$ crosses the $x$-axis, not where it meets the other parabola."
+          },
+          {
+            "label": "B",
+            "text": "$x = \\pm 1$"
+          },
+          {
+            "label": "C",
+            "text": "$x = 0$ and $x = 1$",
+            "note": "The parabolas also cross at a negative $x$, and $R$ lies on both sides of the $y$-axis."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Set the curves equal: $x^2 = 2 - x^2$, so $x^2 = 1$ and $x = \\pm 1$.\n\nBoth meeting points have $y = 1$, and $R$ runs over $-1 \\le x \\le 1$."
+      },
+      {
+        "prompt": "(b) Both parabolas lie above the $x$-axis on this interval. What does a slice of $R$ give when revolved, and what are its radii?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Disks of radius $2 - 2x^2$",
+            "note": "This is the height of the region, the length of the vertical slice. A radius is measured from the axis."
+          },
+          {
+            "label": "B",
+            "text": "Washers, outer radius $x^2$ and inner radius $2 - x^2$",
+            "note": "The outer radius belongs to the curve farther from the axis. Compare the two curves at $x = 0$."
+          },
+          {
+            "label": "C",
+            "text": "Disks of radius $2 - x^2$",
+            "note": "The slice of $R$ does not touch the axis: it starts at the curve $y = x^2$, which leaves a gap."
+          },
+          {
+            "label": "D",
+            "text": "Washers, outer radius $2 - x^2$ and inner radius $x^2$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "At $x = 0$ the upper parabola is at $2$ and the lower one at $0$, so $y = 2 - x^2$ is on top for $-1 < x < 1$.\n\nThe slice of $R$ runs from $y = x^2$ up to $y = 2 - x^2$, with a gap between the lower edge and the axis. It gives a washer:\n\n$$\nR_{\\text{outer}} = 2 - x^2, \\qquad r_{\\text{inner}} = x^2\n$$"
+      },
+      {
+        "prompt": "(b) Which integral gives the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\pi\\int_{-1}^{1}\\left[(2 - x^2)^2 - (x^2)^2\\right]dx$"
+          },
+          {
+            "label": "B",
+            "text": "$\\pi\\int_{-1}^{1}(2 - 2x^2)^2\\,dx$",
+            "note": "This squares the difference of the radii. A washer has area big circle minus small circle."
+          },
+          {
+            "label": "C",
+            "text": "$\\pi\\int_{-1}^{1}\\left[(2 - x^2) - x^2\\right]dx$",
+            "note": "The radii must be squared before subtracting: the area of a circle is $\\pi r^2$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The washer area is the outer circle minus the inner circle:\n\n$$\nV = \\pi\\int_{-1}^{1}\\left[(2 - x^2)^2 - (x^2)^2\\right]dx\n$$"
+      },
+      {
+        "prompt": "(b) What is the volume of the solid obtained by revolving $R$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{64\\pi}{15}$",
+            "note": "This is the value of the integral with the difference of the radii squared."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{8\\pi}{3}$",
+            "note": "This is half the true value. It comes from integrating over $0 \\le x \\le 1$ only."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{16\\pi}{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Simplify the integrand: $(2 - x^2)^2 - x^4 = 4 - 4x^2 + x^4 - x^4 = 4 - 4x^2$.\n\n$$\nV = \\pi\\int_{-1}^{1}(4 - 4x^2)\\,dx = 2\\pi\\left[4x - \\frac{4x^3}{3}\\right]_0^1 = 2\\pi\\cdot\\frac{8}{3} = \\frac{16\\pi}{3}\n$$\n\nCheck against (a): revolving the region under $y = x^2$ gives $\\pi\\int_{-1}^{1}x^4\\,dx = \\frac{2\\pi}{5}$, and $\\frac{86\\pi}{15} - \\frac{2\\pi}{5} = \\frac{16\\pi}{3}$.\n\nSo the volume in (b) is $\\frac{16\\pi}{3}$."
+      }
+    ],
+    "takeaway": "Ask whether the slice reaches the axis; if a gap remains, square each radius and subtract, never square the difference."
+  },
+  {
+    "id": "L6-g3",
+    "lessonId": "L6",
+    "typeId": "L6-disk-washer-y-axis",
+    "stem": "Let $T$ be the region in the first quadrant bounded by the line $y = 4x$, the $y$-axis and the line $y = 8$. Let $U$ be the region in the first quadrant between the curves $y = x^3$ and $y = 4x$.\n\n(a) Find the volume of the solid obtained by revolving $T$ about the $y$-axis.\n\n(b) Find the volume of the solid obtained by revolving $U$ about the $y$-axis.",
+    "steps": [
+      {
+        "prompt": "(a) $T$ is revolved about the $y$-axis. What are the slices, and what is their thickness?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Disks, thickness $dx$",
+            "note": "A slice perpendicular to the $y$-axis is a horizontal slice. Revisit what its thickness is."
+          },
+          {
+            "label": "B",
+            "text": "Disks, thickness $dy$"
+          },
+          {
+            "label": "C",
+            "text": "Washers, thickness $dy$",
+            "note": "Look at the left edge of $T$. It lies on the $y$-axis, so no gap separates the region from the axis."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The slices are perpendicular to the $y$-axis, so they are horizontal and have thickness $dy$.\n\nThe left edge of $T$ is the $y$-axis itself, so each slice reaches the axis: a disk. Everything is written in $y$."
+      },
+      {
+        "prompt": "(a) What is the radius of the disk at height $y$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{y}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "$4y$",
+            "note": "Solving $y = 4x$ for $x$ divides by $4$; it does not multiply."
+          },
+          {
+            "label": "C",
+            "text": "$y$",
+            "note": "The height $y$ locates the slice. The radius is a distance from the $y$-axis, an $x$-value."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The radius is the $x$-value on the line at height $y$. From $y = 4x$:\n\n$$\nr = x = \\frac{y}{4}\n$$"
+      },
+      {
+        "prompt": "(a) The heights in $T$ run from $0$ to $8$. What is the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{6}$",
+            "note": "This uses $2$ as the upper limit. That is an $x$-value, but the limits are $y$-values."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{8192\\pi}{3}$",
+            "note": "This comes from using the radius $4y$ instead of $\\frac{y}{4}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{32\\pi}{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nV = \\pi\\int_0^8\\left(\\frac{y}{4}\\right)^2 dy = \\frac{\\pi}{16}\\left[\\frac{y^3}{3}\\right]_0^8 = \\frac{\\pi}{16}\\cdot\\frac{512}{3} = \\frac{32\\pi}{3}\n$$\n\nCheck: the solid is a cone of radius $2$ and height $8$, and $\\frac{1}{3}\\pi(2)^2(8) = \\frac{32\\pi}{3}$."
+      },
+      {
+        "prompt": "(b) For $U$, write each curve as $x$ in terms of $y$ and find the limits. Which is correct?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = y^3$ and $x = 4y$, with $0 \\le y \\le 8$",
+            "note": "Writing $x$ in terms of $y$ means solving each equation for $x$, not swapping the letters."
+          },
+          {
+            "label": "B",
+            "text": "$x = y^{1/3}$ and $x = \\frac{y}{4}$, with $0 \\le y \\le 8$"
+          },
+          {
+            "label": "C",
+            "text": "$x = y^{1/3}$ and $x = \\frac{y}{4}$, with $0 \\le y \\le 2$",
+            "note": "The value $2$ is an $x$-coordinate of the meeting point. The limits are $y$-values."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The curves meet where $x^3 = 4x$, so $x^2 = 4$ and $x = 2$ in the first quadrant. There $y = 8$.\n\nSolving for $x$: $y = x^3$ gives $x = y^{1/3}$, and $y = 4x$ gives $x = \\frac{y}{4}$. The limits are $0 \\le y \\le 8$."
+      },
+      {
+        "prompt": "(b) Which curve gives the outer radius, and what is the slice?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "A washer: outer radius $y^{1/3}$, inner radius $\\frac{y}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "A washer: outer radius $\\frac{y}{4}$, inner radius $y^{1/3}$",
+            "note": "The outer radius belongs to the curve farther from the $y$-axis. Compare the two $x$-values at $y = 1$."
+          },
+          {
+            "label": "C",
+            "text": "A disk of radius $y^{1/3} - \\frac{y}{4}$",
+            "note": "That is the width of $U$, not a distance from the axis. The region does not reach the $y$-axis along these heights."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $y = 1$ the cubic gives $x = 1$ and the line gives $x = \\frac{1}{4}$, so the cubic is farther from the $y$-axis for $0 < y < 8$.\n\nEach horizontal slice of $U$ leaves a gap next to the axis, so it gives a washer:\n\n$$\nR_{\\text{outer}} = y^{1/3}, \\qquad r_{\\text{inner}} = \\frac{y}{4}\n$$"
+      },
+      {
+        "prompt": "(b) Which integral gives the volume?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\pi\\int_0^8\\left(y^{1/3} - \\frac{y}{4}\\right)^2 dy$",
+            "note": "A washer's area is the outer circle minus the inner circle, not the circle on the difference of the radii."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi\\int_0^8\\left(y^{1/3} - \\frac{y}{4}\\right)dy$",
+            "note": "The radii must be squared: each circle has area $\\pi r^2$."
+          },
+          {
+            "label": "C",
+            "text": "$\\pi\\int_0^8\\left[y^{2/3} - \\frac{y^2}{16}\\right]dy$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nV = \\pi\\int_0^8\\left[\\left(y^{1/3}\\right)^2 - \\left(\\frac{y}{4}\\right)^2\\right]dy = \\pi\\int_0^8\\left[y^{2/3} - \\frac{y^2}{16}\\right]dy\n$$"
+      },
+      {
+        "prompt": "(b) What is the volume of the solid obtained by revolving $U$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{256\\pi}{105}$",
+            "note": "This is the value when the difference of the radii is squared."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{128\\pi}{15}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{448\\pi}{15}$",
+            "note": "The two terms were added. The inner solid is removed, so its volume is subtracted."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nV = \\pi\\left[\\frac{3}{5}y^{5/3} - \\frac{y^3}{48}\\right]_0^8 = \\pi\\left(\\frac{3}{5}\\cdot 32 - \\frac{512}{48}\\right) = \\pi\\left(\\frac{96}{5} - \\frac{32}{3}\\right) = \\frac{128\\pi}{15}\n$$\n\nCheck: the first term is the disk volume for radius $y^{1/3}$, and the second is the cone from (a), $\\frac{32\\pi}{3}$.\n\nSo the volume in (b) is $\\frac{128\\pi}{15}$."
+      }
+    ],
+    "takeaway": "About the $y$-axis, write every radius as an $x$-value in terms of $y$ and take the limits as $y$-values."
+  }
+]

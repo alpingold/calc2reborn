@@ -165,7 +165,9 @@ export function Review() {
     return (
       <section>
         <h2>Done for today</h2>
-        <Link to="/">Back to dashboard</Link>
+        <Link to="/" className="button">
+          Back to dashboard
+        </Link>
       </section>
     )
   }
@@ -174,28 +176,31 @@ export function Review() {
   const preview = revealed && current.state ? scheduler.preview(current.state, t) : null
 
   return (
-    <section>
+    <section className="review-page">
       <h2>Review</h2>
       {error && <p role="alert">{error}</p>}
-      <p>{`Cards due: ${summary.due} · New: ${summary.fresh}`}</p>
-      <Markdown text={current.card.front} />
-      {!revealed ? (
-        <button type="button" onClick={reveal}>
-          Show answer
-        </button>
-      ) : (
-        <>
-          <hr />
-          <Markdown text={current.card.back} />
-          <div>
-            {LABELS.map(([r, name]) => (
-              <button key={r} type="button" onClick={() => void rate(r)}>
-                {`${name} · ${formatInterval(preview![r].getTime() - t.getTime())}`}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
+      <p className="review-count">{`Cards due: ${summary.due} · New: ${summary.fresh}`}</p>
+      <div className="panel review-card">
+        <Markdown text={current.card.front} className="review-front" />
+        {!revealed ? (
+          <button type="button" className="primary" onClick={reveal}>
+            Show answer
+          </button>
+        ) : (
+          <>
+            <hr />
+            <Markdown text={current.card.back} />
+            <div className="review-ratings">
+              {LABELS.map(([r, name]) => (
+                <button key={r} type="button" onClick={() => void rate(r)}>
+                  {`${name} · ${formatInterval(preview![r].getTime() - t.getTime())}`}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+      <p className="panel-hint review-keys">Keyboard: Space shows the answer, then 1 to 4 rates it.</p>
     </section>
   )
 }

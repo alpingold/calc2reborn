@@ -1,0 +1,432 @@
+[
+  {
+    "id": "L14-g1",
+    "lessonId": "L14",
+    "typeId": "L14-sine-substitution",
+    "stem": "For $0 < x < 2$, consider $\\int \\frac{\\sqrt{4 - x^2}}{x^2}\\,dx$. (a) Find the antiderivative in terms of $x$. (b) Use a trigonometric substitution with changed limits to evaluate $\\int_1^{\\sqrt{3}} \\frac{\\sqrt{4 - x^2}}{x^2}\\,dx$.",
+    "steps": [
+      {
+        "prompt": "(a) Which substitution removes the root?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 2\\tan\\theta$",
+            "note": "The tangent substitution suits $\\sqrt{a^2 + x^2}$. Here the variable term is subtracted from the constant."
+          },
+          {
+            "label": "B",
+            "text": "$x = 2\\sin\\theta$"
+          },
+          {
+            "label": "C",
+            "text": "$x = 2\\sec\\theta$",
+            "note": "The secant substitution suits $\\sqrt{x^2 - a^2}$, where $x$ is the hypotenuse. Check which side is the hypotenuse here."
+          },
+          {
+            "label": "D",
+            "text": "$x = 4\\sin\\theta$",
+            "note": "The constant under the root is $4 = a^2$, so $a = 2$. Match the squares, not the number itself."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The radicand is $4 - x^2 = a^2 - x^2$ with $a = 2$, so the hypotenuse of the triangle is $2$ and the side opposite $\\theta$ is $x$.\n\n$$\nx = 2\\sin\\theta, \\qquad dx = 2\\cos\\theta\\,d\\theta, \\qquad \\sqrt{4 - x^2} = 2\\cos\\theta\n$$\n\nThe root is $2\\cos\\theta$ without an absolute value because $\\cos\\theta \\ge 0$ on $-\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2}$."
+      },
+      {
+        "prompt": "What does the integral become in $\\theta$, with $dx$ and the root both replaced?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\cos\\theta}{2\\sin^2\\theta}\\,d\\theta$",
+            "note": "This leaves out the factor $dx = 2\\cos\\theta\\,d\\theta$. Every substitution must replace $dx$ as well."
+          },
+          {
+            "label": "B",
+            "text": "$4\\cot^2\\theta\\,d\\theta$",
+            "note": "The denominator is $x^2 = (2\\sin\\theta)^2$. Square the whole expression, including the $2$."
+          },
+          {
+            "label": "C",
+            "text": "$\\cot^2\\theta\\,d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Replace each piece:\n\n$$\n\\frac{\\sqrt{4 - x^2}}{x^2}\\,dx = \\frac{2\\cos\\theta}{4\\sin^2\\theta}\\cdot 2\\cos\\theta\\,d\\theta = \\frac{\\cos^2\\theta}{\\sin^2\\theta}\\,d\\theta = \\cot^2\\theta\\,d\\theta\n$$\n\nThe constants $2 \\cdot 2$ in the numerator cancel the $4$ in the denominator."
+      },
+      {
+        "prompt": "(a) Antiderivative in $\\theta$ of $\\cot^2\\theta$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\cot\\theta - \\theta + C$"
+          },
+          {
+            "label": "B",
+            "text": "$\\cot\\theta - \\theta + C$",
+            "note": "Differentiate: $\\frac{d}{d\\theta}\\cot\\theta = -\\csc^2\\theta$, so the sign on the cotangent term is off."
+          },
+          {
+            "label": "C",
+            "text": "$-\\cot\\theta + \\theta + C$",
+            "note": "After $\\cot^2\\theta = \\csc^2\\theta - 1$, the constant $-1$ integrates to $-\\theta$. Recheck that sign."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The identity $1 + \\cot^2\\theta = \\csc^2\\theta$ gives $\\cot^2\\theta = \\csc^2\\theta - 1$.\n\n$$\n\\int \\cot^2\\theta\\,d\\theta = \\int (\\csc^2\\theta - 1)\\,d\\theta = -\\cot\\theta - \\theta + C\n$$\n\nCheck: $\\frac{d}{d\\theta}(-\\cot\\theta - \\theta) = \\csc^2\\theta - 1$."
+      },
+      {
+        "prompt": "(a) Return to $x$. Which is the antiderivative of the original integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{x}{\\sqrt{4 - x^2}} - \\sin^{-1}\\left(\\frac{x}{2}\\right) + C$",
+            "note": "The triangle has opposite side $x$ and adjacent side $\\sqrt{4 - x^2}$. The cotangent is adjacent over opposite, not the other way round."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{\\sqrt{4 - x^2}}{x} - \\sin^{-1}(x) + C$",
+            "note": "Here $\\sin\\theta$ is $x$ divided by the hypotenuse of the triangle, not $x$ alone. Recheck the argument of the inverse function."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{\\sqrt{4 - x^2}}{x} - \\sin^{-1}\\left(\\frac{x}{2}\\right) + C$"
+          },
+          {
+            "label": "D",
+            "text": "$-\\frac{\\sqrt{4 - x^2}}{x} - \\cos^{-1}\\left(\\frac{x}{2}\\right) + C$",
+            "note": "The cosine is adjacent over hypotenuse, but $\\theta$ was defined through the sine relation. Recheck which ratio $\\frac{x}{2}$ stands for."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The triangle has hypotenuse $2$, opposite side $x$ and adjacent side $\\sqrt{4 - x^2}$. So\n\n$$\n\\cot\\theta = \\frac{\\sqrt{4 - x^2}}{x}, \\qquad \\theta = \\sin^{-1}\\left(\\frac{x}{2}\\right)\n$$\n\nand the antiderivative is $-\\frac{\\sqrt{4 - x^2}}{x} - \\sin^{-1}\\left(\\frac{x}{2}\\right) + C$."
+      },
+      {
+        "prompt": "(b) Evaluate the definite integral by changing the limits. What are the $\\theta$-limits for $x = 1$ and $x = \\sqrt{3}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$ to $\\sqrt{3}$",
+            "note": "These are the $x$-values. After the substitution the integral is in $\\theta$, so the limits must be in $\\theta$ too."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{6}$ to $\\frac{\\pi}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{3}$ to $\\frac{\\pi}{6}$",
+            "note": "These come from reading the relation as $\\cos\\theta = \\frac{x}{2}$. The substitution made $\\sin\\theta = \\frac{x}{2}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "From $\\sin\\theta = \\frac{x}{2}$:\n\n$$\nx = 1:\\ \\sin\\theta = \\tfrac{1}{2},\\ \\theta = \\tfrac{\\pi}{6}; \\qquad x = \\sqrt{3}:\\ \\sin\\theta = \\tfrac{\\sqrt{3}}{2},\\ \\theta = \\tfrac{\\pi}{3}\n$$\n\nBoth angles lie in $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, so they are the right ones."
+      },
+      {
+        "prompt": "(b) What is the value of $\\int_1^{\\sqrt{3}} \\frac{\\sqrt{4 - x^2}}{x^2}\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{2}{\\sqrt{3}} + \\frac{\\pi}{6}$",
+            "note": "This is the lower value minus the upper value. Take the upper limit first."
+          },
+          {
+            "label": "B",
+            "text": "$\\sqrt{3} - \\frac{1}{\\sqrt{3}} - \\frac{\\pi}{3}$",
+            "note": "The angle term $-\\theta$ must be evaluated at both limits, so $\\theta$ contributes the difference of two angles."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{2}{\\sqrt{3}} + \\frac{\\pi}{6}$",
+            "note": "Subtracting the lower value subtracts $-\\frac{\\pi}{6}$ from $-\\frac{\\pi}{3}$. Recheck the sign of each angle."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{2}{\\sqrt{3}} - \\frac{\\pi}{6}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "With $\\int_{\\pi/6}^{\\pi/3} \\cot^2\\theta\\,d\\theta = \\left[-\\cot\\theta - \\theta\\right]_{\\pi/6}^{\\pi/3}$:\n\n$$\n\\left(-\\tfrac{1}{\\sqrt{3}} - \\tfrac{\\pi}{3}\\right) - \\left(-\\sqrt{3} - \\tfrac{\\pi}{6}\\right) = \\sqrt{3} - \\tfrac{1}{\\sqrt{3}} - \\tfrac{\\pi}{6} = \\tfrac{2}{\\sqrt{3}} - \\tfrac{\\pi}{6}\n$$\n\nThis is about $0.631$, positive as the integrand is positive. The same value comes from putting $x = 1$ and $x = \\sqrt{3}$ into the antiderivative in $x$."
+      }
+    ],
+    "takeaway": "Replace dx and the root together, then either change the limits to angles or return to x, and never mix the two."
+  },
+  {
+    "id": "L14-g2",
+    "lessonId": "L14",
+    "typeId": "L14-identify-substitution",
+    "stem": "Consider $\\int_{-2}^{-1/2} \\frac{(x + 2)^2}{\\sqrt{5 - 4x - x^2}}\\,dx$. (a) Choose a trigonometric substitution and rewrite the integral as an integral in $\\theta$ with new limits. (b) Evaluate it.",
+    "steps": [
+      {
+        "prompt": "(a) First put the radicand in a usable form. Which is $5 - 4x - x^2$ written by completing the square?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$9 - (x + 2)^2$"
+          },
+          {
+            "label": "B",
+            "text": "$9 - (x - 2)^2$",
+            "note": "Factor $-1$ from $-4x - x^2$ to get $-(x^2 + 4x)$. Half of the coefficient $4$ is $+2$."
+          },
+          {
+            "label": "C",
+            "text": "$5 - (x + 2)^2$",
+            "note": "Completing the square adds $4$ inside the bracket, so the constant outside must be adjusted to compensate."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Factor out the minus sign and complete the square:\n\n$$\n5 - 4x - x^2 = 5 - (x^2 + 4x) = 5 - \\left[(x + 2)^2 - 4\\right] = 9 - (x + 2)^2\n$$\n\nSo the root is $\\sqrt{3^2 - (x + 2)^2}$."
+      },
+      {
+        "prompt": "(a) Which substitution fits $\\sqrt{3^2 - (x + 2)^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x + 2 = 3\\tan\\theta$",
+            "note": "Tangent suits a sum of squares under the root. This radicand is a difference with the constant first."
+          },
+          {
+            "label": "B",
+            "text": "$x = 3\\sin\\theta$",
+            "note": "The square being subtracted is $(x + 2)^2$, not $x^2$. The substitution must match that whole term."
+          },
+          {
+            "label": "C",
+            "text": "$x + 2 = 3\\sin\\theta$"
+          },
+          {
+            "label": "D",
+            "text": "$x + 2 = 9\\sin\\theta$",
+            "note": "Compare with the form $a^2 - u^2$: the multiplier of $\\sin\\theta$ is $a$, not $a^2$."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The form is $a^2 - u^2$ with $a = 3$ and $u = x + 2$, so the hypotenuse is $3$ and the side opposite $\\theta$ is $u$.\n\n$$\nx + 2 = 3\\sin\\theta\n$$\n\nThen $x = 3\\sin\\theta - 2$."
+      },
+      {
+        "prompt": "(a) Write $dx$ and the root in $\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$dx = 3\\cos\\theta\\,d\\theta$ and $\\sqrt{5 - 4x - x^2} = 9\\cos\\theta$",
+            "note": "The root of $9 - 9\\sin^2\\theta = 9\\cos^2\\theta$ is the square root of $9$ times $\\cos\\theta$."
+          },
+          {
+            "label": "B",
+            "text": "$dx = 3\\cos\\theta\\,d\\theta$ and $\\sqrt{5 - 4x - x^2} = 3\\cos\\theta$"
+          },
+          {
+            "label": "C",
+            "text": "$dx = 3\\sin\\theta\\,d\\theta$ and $\\sqrt{5 - 4x - x^2} = 3\\cos\\theta$",
+            "note": "Differentiate $x = 3\\sin\\theta - 2$: the derivative of sine is cosine, not sine."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Differentiate $x = 3\\sin\\theta - 2$ to get $dx = 3\\cos\\theta\\,d\\theta$. For the root:\n\n$$\n\\sqrt{9 - (3\\sin\\theta)^2} = \\sqrt{9\\cos^2\\theta} = 3\\cos\\theta\n$$\n\nwith $\\cos\\theta \\ge 0$ on the range used."
+      },
+      {
+        "prompt": "(a) What does the integrand become after substituting everything?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$27\\sin^2\\theta\\,d\\theta$",
+            "note": "This is what results if the root is taken as $\\cos\\theta$, forgetting its factor $3$. Use the root found in the previous step."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{3\\sin^2\\theta}{\\cos\\theta}\\,d\\theta$",
+            "note": "This leaves out the factor $dx = 3\\cos\\theta\\,d\\theta$, which cancels the root in the denominator."
+          },
+          {
+            "label": "C",
+            "text": "$9\\sin^2\\theta\\,d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Here $(x + 2)^2 = 9\\sin^2\\theta$, so\n\n$$\n\\frac{(x + 2)^2}{\\sqrt{5 - 4x - x^2}}\\,dx = \\frac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot 3\\cos\\theta\\,d\\theta = 9\\sin^2\\theta\\,d\\theta\n$$"
+      },
+      {
+        "prompt": "(a) What are the new limits for $x = -2$ and $x = -\\frac{1}{2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$ to $\\frac{\\pi}{6}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\sin^{-1}\\left(-\\frac{2}{3}\\right)$ to $\\sin^{-1}\\left(-\\frac{1}{6}\\right)$",
+            "note": "These solve $\\sin\\theta = \\frac{x}{3}$, which forgets the shift. The relation is for $x + 2$."
+          },
+          {
+            "label": "C",
+            "text": "$0$ to $\\frac{\\pi}{3}$",
+            "note": "The angle must satisfy $\\sin\\theta = \\frac{x + 2}{3}$. Check which angle has the sine at the upper limit, not the cosine."
+          },
+          {
+            "label": "D",
+            "text": "$-2$ to $-\\frac{1}{2}$",
+            "note": "These are the $x$-limits. Once the integrand is in $\\theta$, the limits must be $\\theta$-values."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The relation is $\\sin\\theta = \\frac{x + 2}{3}$.\n\n$$\nx = -2:\\ \\sin\\theta = 0,\\ \\theta = 0; \\qquad x = -\\tfrac{1}{2}:\\ \\sin\\theta = \\tfrac{3/2}{3} = \\tfrac{1}{2},\\ \\theta = \\tfrac{\\pi}{6}\n$$\n\nSo the integral is $9\\int_0^{\\pi/6} \\sin^2\\theta\\,d\\theta$."
+      },
+      {
+        "prompt": "(b) Evaluate $9\\int_0^{\\pi/6} \\sin^2\\theta\\,d\\theta$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{3\\pi}{4} + \\frac{9\\sqrt{3}}{8}$",
+            "note": "Using $\\sin^2\\theta = \\frac{1 - \\cos 2\\theta}{2}$, the second term has a minus sign."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{3\\pi}{4} - \\frac{9\\sqrt{3}}{4}$",
+            "note": "The antiderivative of $\\cos 2\\theta$ is $\\frac{\\sin 2\\theta}{2}$. That factor $\\frac{1}{2}$ is easy to lose."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{3\\pi}{4} - \\frac{9\\sqrt{3}}{8}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Use $\\sin^2\\theta = \\frac{1 - \\cos 2\\theta}{2}$:\n\n$$\n9\\int_0^{\\pi/6} \\sin^2\\theta\\,d\\theta = \\frac{9}{2}\\left[\\theta - \\frac{\\sin 2\\theta}{2}\\right]_0^{\\pi/6} = \\frac{9}{2}\\left(\\frac{\\pi}{6} - \\frac{\\sqrt{3}}{4}\\right)\n$$\n\nThis equals $\\frac{3\\pi}{4} - \\frac{9\\sqrt{3}}{8}$, about $0.408$."
+      }
+    ],
+    "takeaway": "Complete the square first, and match the substitution to the whole bracket, shift included, so the limits come from that same relation."
+  },
+  {
+    "id": "L14-g3",
+    "lessonId": "L14",
+    "typeId": "L14-tangent-substitution",
+    "stem": "Consider $\\int \\frac{x^2}{(x^2 + 4)^{3/2}}\\,dx$. (a) Find the antiderivative in terms of $x$. Use $\\int \\sec\\theta\\,d\\theta = \\ln|\\sec\\theta + \\tan\\theta| + C$. (b) Use it to evaluate $\\int_0^2 \\frac{x^2}{(x^2 + 4)^{3/2}}\\,dx$.",
+    "steps": [
+      {
+        "prompt": "(a) Which substitution and triangle fit $x^2 + 4$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 2\\sin\\theta$, with hypotenuse $2$",
+            "note": "A sine substitution suits $a^2 - x^2$. Here the two squares are added."
+          },
+          {
+            "label": "B",
+            "text": "$x = 4\\tan\\theta$, with hypotenuse $\\sqrt{x^2 + 4}$",
+            "note": "The constant $4$ is $a^2$, so $a = 2$. Match the squares, not the number."
+          },
+          {
+            "label": "C",
+            "text": "$x = 2\\tan\\theta$, with hypotenuse $\\sqrt{x^2 + 4}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Here $x^2 + 4 = x^2 + 2^2$ is a sum of squares, so the radical $\\sqrt{x^2 + 4}$ is the hypotenuse, with opposite side $x$ and adjacent side $2$.\n\n$$\nx = 2\\tan\\theta, \\qquad dx = 2\\sec^2\\theta\\,d\\theta, \\qquad x^2 + 4 = 4\\sec^2\\theta\n$$"
+      },
+      {
+        "prompt": "(a) Which integrand in $\\theta$ results?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\tan^2\\theta}{2\\sec^3\\theta}\\,d\\theta$",
+            "note": "This leaves out $dx = 2\\sec^2\\theta\\,d\\theta$. Replace $dx$ along with $x$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{2\\tan^2\\theta}{\\sec\\theta}\\,d\\theta$",
+            "note": "The constant $4$ inside the radicand is raised to the power $\\frac{3}{2}$ as well. Recheck that factor."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Since $(x^2 + 4)^{3/2} = (4\\sec^2\\theta)^{3/2} = 8\\sec^3\\theta$:\n\n$$\n\\frac{4\\tan^2\\theta \\cdot 2\\sec^2\\theta}{8\\sec^3\\theta}\\,d\\theta = \\frac{\\tan^2\\theta}{\\sec\\theta}\\,d\\theta = \\frac{\\sin^2\\theta}{\\cos\\theta}\\,d\\theta\n$$"
+      },
+      {
+        "prompt": "(a) Which is an antiderivative in $\\theta$ of $\\frac{\\sin^2\\theta}{\\cos\\theta}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln|\\sec\\theta + \\tan\\theta| + \\sin\\theta + C$",
+            "note": "Write $\\sin^2\\theta = 1 - \\cos^2\\theta$ and split. The second piece is $-\\cos\\theta$, which integrates to a minus sine."
+          },
+          {
+            "label": "B",
+            "text": "$\\ln|\\sec\\theta + \\tan\\theta| - \\sin\\theta + C$"
+          },
+          {
+            "label": "C",
+            "text": "$\\tan\\theta - \\theta + C$",
+            "note": "This is the antiderivative of $\\tan^2\\theta$. The denominator $\\cos\\theta$ has not been used."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Use $\\sin^2\\theta = 1 - \\cos^2\\theta$:\n\n$$\n\\int \\frac{\\sin^2\\theta}{\\cos\\theta}\\,d\\theta = \\int (\\sec\\theta - \\cos\\theta)\\,d\\theta = \\ln|\\sec\\theta + \\tan\\theta| - \\sin\\theta + C\n$$"
+      },
+      {
+        "prompt": "(a) With the triangle, which values express $\\sec\\theta$, $\\tan\\theta$ and $\\sin\\theta$ in $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\sqrt{x^2 + 4}}{2}$, $\\frac{x}{2}$, $\\frac{x}{\\sqrt{x^2 + 4}}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\sqrt{x^2 + 4}}{x}$, $\\frac{2}{x}$, $\\frac{2}{\\sqrt{x^2 + 4}}$",
+            "note": "These are other ratios of the triangle: $x = 2\\tan\\theta$ puts $x$ over $2$, not $2$ over $x$. Recheck which side is opposite and which adjacent."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\sqrt{x^2 + 4}}{2}$, $\\frac{x}{2}$, $\\frac{2}{\\sqrt{x^2 + 4}}$",
+            "note": "The sine is opposite over hypotenuse, and the opposite side is the one containing $x$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The triangle has opposite side $x$, adjacent side $2$ and hypotenuse $\\sqrt{x^2 + 4}$, so $\\sec\\theta = \\frac{\\sqrt{x^2 + 4}}{2}$, $\\tan\\theta = \\frac{x}{2}$ and $\\sin\\theta = \\frac{x}{\\sqrt{x^2 + 4}}$. Therefore\n\n$$\n\\int \\frac{x^2}{(x^2 + 4)^{3/2}}\\,dx = \\ln\\left|\\frac{\\sqrt{x^2 + 4} + x}{2}\\right| - \\frac{x}{\\sqrt{x^2 + 4}} + C\n$$\n\nCall this $F(x)$ with $C = 0$."
+      },
+      {
+        "prompt": "(b) What is $F(2)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln(2 + 2\\sqrt{2}) - \\frac{\\sqrt{2}}{2}$",
+            "note": "At $x = 2$ the logarithm's argument is $\\frac{\\sqrt{8} + 2}{2}$. The division by $2$ stays inside it."
+          },
+          {
+            "label": "B",
+            "text": "$\\ln(1 + \\sqrt{2}) - \\sqrt{2}$",
+            "note": "The sine term is $\\frac{2}{\\sqrt{8}} = \\frac{2}{2\\sqrt{2}}$. Simplify that fraction again."
+          },
+          {
+            "label": "C",
+            "text": "$\\ln(1 + \\sqrt{2}) - \\frac{\\sqrt{2}}{2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x = 2$ we have $\\sqrt{x^2 + 4} = \\sqrt{8} = 2\\sqrt{2}$:\n\n$$\nF(2) = \\ln\\frac{2\\sqrt{2} + 2}{2} - \\frac{2}{2\\sqrt{2}} = \\ln(1 + \\sqrt{2}) - \\frac{\\sqrt{2}}{2}\n$$"
+      },
+      {
+        "prompt": "(b) Using $F(2)$ and $F(0)$, what is the value of the definite integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln(1 + \\sqrt{2}) + \\frac{\\sqrt{2}}{2}$",
+            "note": "Subtracting $F(0)$ does not change the sign of the sine term at $x = 2$, which is already negative."
+          },
+          {
+            "label": "B",
+            "text": "$\\ln(1 + \\sqrt{2}) - \\frac{\\sqrt{2}}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\ln(1 + \\sqrt{2})$",
+            "note": "The logarithm part is correct, but the sine term at $x = 2$ is not zero."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$F(0) = \\ln 1 - 0 = 0$, so\n\n$$\n\\int_0^2 \\frac{x^2}{(x^2 + 4)^{3/2}}\\,dx = F(2) - F(0) = \\ln(1 + \\sqrt{2}) - \\frac{\\sqrt{2}}{2}\n$$\n\nThis is about $0.174$, which is small and positive as expected for this integrand."
+      }
+    ],
+    "takeaway": "After a tangent substitution, read secant, tangent and sine from the triangle, and keep the scale factors on every term of a logarithm."
+  }
+]

@@ -6,6 +6,9 @@
     "back": "End minus start: $\\vec{PQ} = \\langle 3-1, -4-2 \\rangle = \\langle 2, -6 \\rangle$. That is 2 units right and 6 units down.",
     "tags": [
       "components"
+    ],
+    "typeIds": [
+      "L1-unit-vector-direction"
     ]
   },
   {
@@ -16,6 +19,9 @@
     "tags": [
       "trap",
       "components"
+    ],
+    "typeIds": [
+      "L1-unit-vector-direction"
     ]
   },
   {
@@ -25,6 +31,10 @@
     "back": "$\\sqrt{(-2)^2 + 6^2} = \\sqrt{40}$ and $\\sqrt{3^2 + 4^2 + 5^2} = \\sqrt{50}$. Square the whole component: $(-2)^2 = 4$, not $-4$.",
     "tags": [
       "length"
+    ],
+    "typeIds": [
+      "L1-unit-vector-direction",
+      "L1-vector-arithmetic-magnitude"
     ]
   },
   {
@@ -34,6 +44,9 @@
     "back": "$\\langle 2, 4 \\rangle - \\langle 0, 9 \\rangle = \\langle 2, -5 \\rangle$. Scale each vector first, then subtract component by component.",
     "tags": [
       "arithmetic"
+    ],
+    "typeIds": [
+      "L1-vector-arithmetic-magnitude"
     ]
   },
   {
@@ -44,6 +57,9 @@
     "tags": [
       "arithmetic",
       "graphical"
+    ],
+    "typeIds": [
+      "L1-vector-arithmetic-magnitude"
     ]
   },
   {
@@ -54,6 +70,9 @@
     "tags": [
       "trap",
       "unit-vector"
+    ],
+    "typeIds": [
+      "L1-unit-vector-direction"
     ]
   },
   {
@@ -63,6 +82,9 @@
     "back": "$|\\vec{b}| = 3$. Unit vector opposite: $-\\frac{\\vec{b}}{|\\vec{b}|} = \\left\\langle -\\frac{2}{3}, \\frac{1}{3}, -\\frac{2}{3} \\right\\rangle$. Length $3$ opposite: $-3\\frac{\\vec{b}}{|\\vec{b}|} = \\langle -2, 1, -2 \\rangle$.",
     "tags": [
       "unit-vector"
+    ],
+    "typeIds": [
+      "L1-unit-vector-direction"
     ]
   },
   {
@@ -73,6 +95,9 @@
     "tags": [
       "trap",
       "components"
+    ],
+    "typeIds": [
+      "L1-vector-arithmetic-magnitude"
     ]
   },
   {
@@ -93,6 +118,10 @@
     "tags": [
       "trap",
       "length"
+    ],
+    "typeIds": [
+      "L1-vector-arithmetic-magnitude",
+      "L1-vector-concept-statements"
     ]
   },
   {
@@ -103,6 +132,9 @@
     "tags": [
       "arithmetic",
       "geometry"
+    ],
+    "typeIds": [
+      "L1-vector-concept-statements"
     ]
   }
 ]

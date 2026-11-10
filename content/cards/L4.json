@@ -7,6 +7,10 @@
     "tags": [
       "trap",
       "cross-product"
+    ],
+    "typeIds": [
+      "L4-cross-product-statements",
+      "L4-cross-magnitude-angle"
     ]
   },
   {
@@ -17,6 +21,9 @@
     "tags": [
       "trap",
       "right-hand-rule"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque"
     ]
   },
   {
@@ -27,6 +34,9 @@
     "tags": [
       "trap",
       "right-hand-rule"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque"
     ]
   },
   {
@@ -37,6 +47,10 @@
     "tags": [
       "trap",
       "order"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque",
+      "L4-cross-product-statements"
     ]
   },
   {
@@ -47,6 +61,10 @@
     "tags": [
       "trap",
       "formula"
+    ],
+    "typeIds": [
+      "L4-area-from-points",
+      "L4-parallelepiped-volume"
     ]
   },
   {
@@ -56,6 +74,9 @@
     "back": "$\\vec{i}(1 \\cdot 1 - 2 \\cdot 0) - \\vec{j}(2 \\cdot 1 - 2 \\cdot 5) + \\vec{k}(2 \\cdot 0 - 1 \\cdot 5) = \\vec{i}(1) - \\vec{j}(-8) + \\vec{k}(-5)$. The result is $\\langle 1, 8, -5 \\rangle$.",
     "tags": [
       "formula"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque"
     ]
   },
   {
@@ -66,6 +87,9 @@
     "tags": [
       "trap",
       "formula"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque"
     ]
   },
   {
@@ -76,6 +100,10 @@
     "tags": [
       "trap",
       "orthogonal"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque",
+      "L4-cross-product-statements"
     ]
   },
   {
@@ -86,6 +114,9 @@
     "tags": [
       "trap",
       "parallel"
+    ],
+    "typeIds": [
+      "L4-cross-product-statements"
     ]
   },
   {
@@ -105,6 +136,9 @@
     "back": "Sides from $A$, with a $0$ added: $\\vec{AD} = \\langle 4, -2, 0 \\rangle$ and $\\vec{AB} = \\langle 2, 3, 0 \\rangle$. Their cross product is $\\langle 0, 0, 16 \\rangle$. The area is its magnitude, $16$.",
     "tags": [
       "area"
+    ],
+    "typeIds": [
+      "L4-area-from-points"
     ]
   },
   {
@@ -115,6 +149,9 @@
     "tags": [
       "trap",
       "area"
+    ],
+    "typeIds": [
+      "L4-area-from-points"
     ]
   },
   {
@@ -125,6 +162,9 @@
     "tags": [
       "trap",
       "area"
+    ],
+    "typeIds": [
+      "L4-area-from-points"
     ]
   },
   {
@@ -135,6 +175,9 @@
     "tags": [
       "trap",
       "angle"
+    ],
+    "typeIds": [
+      "L4-cross-magnitude-angle"
     ]
   },
   {
@@ -144,6 +187,9 @@
     "back": "A force $\\vec{F}$ applied at $P$, with pivot $O$, has torque about the pivot $\\vec{OP} \\times \\vec{F}$. It is a vector, and the order is position first, then force. Its magnitude is $|\\vec{OP}||\\vec{F}|\\sin\\theta$, where $\\theta$ is the angle between $\\vec{OP}$ and $\\vec{F}$.",
     "tags": [
       "application"
+    ],
+    "typeIds": [
+      "L4-cross-product-normal-torque"
     ]
   }
 ]

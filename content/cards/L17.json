@@ -7,6 +7,9 @@
     "tags": [
       "trap",
       "long-division"
+    ],
+    "typeIds": [
+      "L17-long-division"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "tags": [
       "long-division",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L17-long-division"
     ]
   },
   {
@@ -26,6 +32,9 @@
     "back": "Divide: $x^3 + x = (x - 1)(x^2 + x + 2) + 2$, so the integrand is $x^2 + x + 2 + \\frac{2}{x - 1}$. The integral is $\\frac{x^3}{3} + \\frac{x^2}{2} + 2x + 2\\ln|x - 1| + C$.",
     "tags": [
       "long-division"
+    ],
+    "typeIds": [
+      "L17-long-division"
     ]
   },
   {
@@ -35,6 +44,9 @@
     "back": "Irreducible means no factoring into real linear factors; for $ax^2 + bx + c$ that is $b^2 - 4ac < 0$. So $x^2 + 4$ (discriminant $-16$) and $x^2 + x + 1$ (discriminant $-3$) are irreducible. $x^2 - 4 = (x - 2)(x + 2)$ and $x^2 + 2x - 3 = (x + 3)(x - 1)$ are not.",
     "tags": [
       "irreducible"
+    ],
+    "typeIds": [
+      "L17-decomposition-form"
     ]
   },
   {
@@ -46,6 +58,9 @@
       "trap",
       "form",
       "irreducible"
+    ],
+    "typeIds": [
+      "L17-decomposition-form"
     ]
   },
   {
@@ -56,6 +71,9 @@
     "tags": [
       "form",
       "repeated-quadratic"
+    ],
+    "typeIds": [
+      "L17-decomposition-form"
     ]
   },
   {
@@ -67,6 +85,9 @@
       "trap",
       "form",
       "irreducible"
+    ],
+    "typeIds": [
+      "L17-decomposition-form"
     ]
   },
   {
@@ -77,6 +98,9 @@
     "tags": [
       "irreducible",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L17-integrate-quadratic-factor"
     ]
   },
   {
@@ -86,6 +110,9 @@
     "back": "$2x^2 - x + 4 = A(x^2 + 4) + (Bx + C)x$. $x = 0$ gives $A = 1$; the $x^2$ terms give $A + B = 2$, so $B = 1$; the $x$ terms give $C = -1$. The integral is $\\ln|x| + \\frac{1}{2}\\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right) + D$. (The finish is beyond Chen's notes.)",
     "tags": [
       "irreducible"
+    ],
+    "typeIds": [
+      "L17-integrate-quadratic-factor"
     ]
   },
   {
@@ -95,6 +122,9 @@
     "back": "$u = x^2 + 4$, $du = 2x\\,dx$: $\\frac{1}{2}\\int u^{-2}\\,du = -\\frac{1}{2(x^2 + 4)} + C$. Pieces $\\frac{Bx}{(x^2 + a^2)^k}$ from repeated quadratic factors integrate this way.",
     "tags": [
       "repeated-quadratic"
+    ],
+    "typeIds": [
+      "L17-integrate-quadratic-factor"
     ]
   },
   {
@@ -106,6 +136,9 @@
       "trap",
       "irreducible",
       "complete-square"
+    ],
+    "typeIds": [
+      "L17-integrate-quadratic-factor"
     ]
   }
 ]

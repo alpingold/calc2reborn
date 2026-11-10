@@ -6,6 +6,10 @@
     "back": "Save $\\sec^2 x$, turn the other secants into tangents with $\\sec^2 x = \\tan^2 x + 1$, and let $u = \\tan x$, $du = \\sec^2 x\\,dx$.",
     "tags": [
       "tan-sec-powers"
+    ],
+    "typeIds": [
+      "L13-even-sec-power",
+      "L13-choose-substitution"
     ]
   },
   {
@@ -15,6 +19,10 @@
     "back": "Save $\\sec x\\tan x$, turn the other tangents into secants with $\\tan^2 x = \\sec^2 x - 1$, and let $u = \\sec x$, $du = \\sec x\\tan x\\,dx$. It works even with no secant in the integrand: Chen writes $\\tan^3 x = \\frac{\\tan^2 x}{\\sec x}\\cdot\\sec x\\tan x$.",
     "tags": [
       "tan-sec-powers"
+    ],
+    "typeIds": [
+      "L13-sec-tan-odd",
+      "L13-choose-substitution"
     ]
   },
   {
@@ -25,6 +33,9 @@
     "tags": [
       "tan-sec-powers",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L13-even-sec-power"
     ]
   },
   {
@@ -35,6 +46,10 @@
     "tags": [
       "trap",
       "tan-sec-powers"
+    ],
+    "typeIds": [
+      "L13-sec-tan-odd",
+      "L13-choose-substitution"
     ]
   },
   {
@@ -45,6 +60,9 @@
     "tags": [
       "trap",
       "tan-sec-powers"
+    ],
+    "typeIds": [
+      "L13-choose-substitution"
     ]
   },
   {
@@ -55,6 +73,9 @@
     "tags": [
       "tan-sec-powers",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L13-sec-tan-odd"
     ]
   },
   {
@@ -65,6 +86,9 @@
     "tags": [
       "tan-sec-powers",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L13-even-sec-power"
     ]
   },
   {
@@ -74,6 +98,9 @@
     "back": "Split off $\\tan^2 x = \\sec^2 x - 1$ again and again: $\\int \\tan^6 x\\,dx = \\frac{\\tan^5 x}{5} - \\int \\tan^4 x\\,dx$, then $\\int \\tan^4 x\\,dx = \\frac{\\tan^3 x}{3} - \\int \\tan^2 x\\,dx$, and $\\int \\tan^2 x\\,dx = \\tan x - x$ (each $\\int \\tan^n x\\sec^2 x\\,dx$ uses $u = \\tan x$). Total: $\\frac{\\tan^5 x}{5} - \\frac{\\tan^3 x}{3} + \\tan x - x + C$.",
     "tags": [
       "tan-sec-powers"
+    ],
+    "typeIds": [
+      "L13-even-sec-power"
     ]
   },
   {
@@ -84,6 +111,9 @@
     "tags": [
       "trap",
       "tan-sec-powers"
+    ],
+    "typeIds": [
+      "L13-choose-substitution"
     ]
   },
   {
@@ -102,6 +132,9 @@
     "back": "No power pattern fits, so rewrite in sine and cosine: $\\frac{\\sec x}{\\tan^2 x} = \\frac{1}{\\cos x}\\cdot\\frac{\\cos^2 x}{\\sin^2 x} = \\frac{\\cos x}{\\sin^2 x}$. With $u = \\sin x$: $\\int u^{-2}\\,du = -\\frac{1}{\\sin x} + C = -\\csc x + C$.",
     "tags": [
       "sin-cos-rewrite"
+    ],
+    "typeIds": [
+      "L13-choose-substitution"
     ]
   },
   {

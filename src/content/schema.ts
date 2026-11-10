@@ -214,7 +214,7 @@ export const GuidedProblemSchema = z
     typeId: z.string().min(1),
     stem: z.string().min(1),
     figures: z.array(z.string().min(1)).optional(),
-    steps: z.array(GuidedStepSchema).min(3).max(5),
+    steps: z.array(GuidedStepSchema).min(3).max(8),
     takeaway: z.string().min(1),
   })
   .superRefine((g, ctx) => {

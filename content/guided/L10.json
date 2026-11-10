@@ -1,0 +1,319 @@
+[
+  {
+    "id": "L10-g1",
+    "lessonId": "L10",
+    "typeId": "L10-pump-prism-cylinder",
+    "stem": "A cylindrical tank stands upright with radius $3$ m and height $6$ m. It holds water to a depth of $4$ m. Let $\\rho$ be the density of water in kg/m$^3$ and $g$ the gravitational acceleration. (a) Find the work needed to pump all the water out over the top of the tank. (b) Find the work if the water instead leaves through a spout $2$ m above the top of the tank.",
+    "steps": [
+      {
+        "prompt": "Measure $y$ up from the bottom of the tank. What is the right slice of water to work with for part (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "A vertical cylindrical shell at a fixed radius",
+            "note": "A shell at one radius reaches from the bottom of the water to its surface, so its pieces travel different distances. Revisit what a slice must have in common."
+          },
+          {
+            "label": "B",
+            "text": "A horizontal disk of thickness $dy$ at height $y$"
+          },
+          {
+            "label": "C",
+            "text": "All the water as one block lifted a single distance",
+            "note": "Water near the top travels less far than water near the bottom, so one distance cannot describe the block."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Every particle in a horizontal disk at height $y$ has the same distance to travel, so the disk is the slice. Work on it is its weight times that distance, and the total comes from adding over all the disks that hold water."
+      },
+      {
+        "prompt": "What is the weight of the disk at height $y$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3\\pi\\rho g\\,dy$",
+            "note": "The disk's volume is its area times $dy$, and the area of a disk involves the radius squared."
+          },
+          {
+            "label": "B",
+            "text": "$36\\pi\\rho g\\,dy$",
+            "note": "This takes the area as $\\pi\\cdot 6^2$, using the height of the tank where the radius belongs."
+          },
+          {
+            "label": "C",
+            "text": "$9\\pi\\rho g\\,dy$"
+          },
+          {
+            "label": "D",
+            "text": "$9\\pi\\,dy$",
+            "note": "This is only the volume of the disk, in m$^3$. Weight needs the density and gravity as well."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The area is $\\pi(3)^2 = 9\\pi$, the same at every height, so the volume is $9\\pi\\,dy$.\n\nMass is $\\rho \\cdot 9\\pi\\,dy$, and weight is $9\\pi\\rho g\\,dy$."
+      },
+      {
+        "prompt": "How far must the disk at height $y$ rise to leave over the top of the tank, for part (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$y$",
+            "note": "This is how far the disk is above the bottom. The distance to go is measured to where the water leaves."
+          },
+          {
+            "label": "B",
+            "text": "$4 - y$",
+            "note": "This is the distance to the surface of the water. The surface is not where the water is going, so revisit where the water must end up."
+          },
+          {
+            "label": "C",
+            "text": "$6 - y$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The top of the tank is at $y = 6$, so the disk at height $y$ rises $6 - y$.\n\nThe surface of the water at $y = 4$ does not matter here, since the water must leave over the rim."
+      },
+      {
+        "prompt": "Which limits cover the slices that hold water?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$y = 0$ to $y = 4$"
+          },
+          {
+            "label": "B",
+            "text": "$y = 0$ to $y = 6$",
+            "note": "The tank reaches $y = 6$, but there is no water above its surface, so slices there carry no weight."
+          },
+          {
+            "label": "C",
+            "text": "$y = 4$ to $y = 6$",
+            "note": "That range is the empty space above the water."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The water fills the tank from $y = 0$ up to its surface at $y = 4$.\n\nSo for part (a)\n\n$$\nW = \\int_0^4 9\\pi\\rho g\\,(6 - y)\\,dy\n$$"
+      },
+      {
+        "prompt": "Evaluate the integral in part (a).",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$162\\pi\\rho g$",
+            "note": "This is what the same integrand gives when the upper limit is $6$ instead of $4$."
+          },
+          {
+            "label": "B",
+            "text": "$144\\pi\\rho g$"
+          },
+          {
+            "label": "C",
+            "text": "$72\\pi\\rho g$",
+            "note": "The antiderivative of $6 - y$ is $6y - \\frac{y^2}{2}$. Dropping the $\\frac{1}{2}$ on the second term gives this value."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nW = 9\\pi\\rho g\\left[6y - \\frac{y^2}{2}\\right]_0^4 = 9\\pi\\rho g\\,(24 - 8) = 9\\pi\\rho g\\cdot 16\n$$\n\nSo the work for part (a) is $144\\pi\\rho g$ J."
+      },
+      {
+        "prompt": "For part (b) the water leaves through a spout $2$ m above the top. What changes in the setup?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The distance becomes $8 - y$ and the limits stay $0$ to $4$"
+          },
+          {
+            "label": "B",
+            "text": "The distance becomes $8 - y$ and the limits become $0$ to $6$",
+            "note": "The spout changes where the water must go, not where the water is. Think about what fills the tank."
+          },
+          {
+            "label": "C",
+            "text": "The distance becomes $2 - y$ and the limits stay $0$ to $4$",
+            "note": "$2$ is only the height of the spout above the rim. The slice starts at height $y$ in the tank, not at the rim."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The spout is at $y = 6 + 2 = 8$, so every slice rises $8 - y$.\n\nThe water still occupies $0 \\le y \\le 4$.\n\n$$\nW = \\int_0^4 9\\pi\\rho g\\,(8 - y)\\,dy\n$$"
+      },
+      {
+        "prompt": "Evaluate the integral in part (b).",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$270\\pi\\rho g$",
+            "note": "This is what the integrand gives with upper limit $6$, which counts slices that hold no water."
+          },
+          {
+            "label": "B",
+            "text": "$144\\pi\\rho g$",
+            "note": "The antiderivative of $8 - y$ is $8y - \\frac{y^2}{2}$. Dropping the $\\frac{1}{2}$ gives this value."
+          },
+          {
+            "label": "C",
+            "text": "$216\\pi\\rho g$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\nW = 9\\pi\\rho g\\left[8y - \\frac{y^2}{2}\\right]_0^4 = 9\\pi\\rho g\\,(32 - 8) = 9\\pi\\rho g\\cdot 24 = 216\\pi\\rho g\n$$\n\nCheck: the spout adds $2$ m to every distance, so the extra work is $2$ times the weight of all the water, $2\\cdot 36\\pi\\rho g = 72\\pi\\rho g$, and $144\\pi\\rho g + 72\\pi\\rho g = 216\\pi\\rho g$.\n\nSo (a) is $144\\pi\\rho g$ J and (b) is $216\\pi\\rho g$ J."
+      }
+    ],
+    "takeaway": "The limits cover only the slices that hold water; the distance runs to wherever the water leaves, so a spout changes the distance and never the limits."
+  },
+  {
+    "id": "L10-g2",
+    "lessonId": "L10",
+    "typeId": "L10-hydrostatic-force",
+    "stem": "A vertical gate in a reservoir wall is an isosceles triangle with its base, $4$ m wide, along the bottom and its apex $3$ m directly above the base. The water surface is $1$ m above the apex. Let $\\rho$ be the density of water and $g$ the gravitational acceleration. (a) Find the force of the water on the gate. (b) Find the force after the water level drops until the surface is exactly level with the apex.",
+    "steps": [
+      {
+        "prompt": "Measure $y$ up from the bottom edge of the gate, which is $4$ m below the surface. What is the depth of a horizontal strip at height $y$ in part (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$4 - y$"
+          },
+          {
+            "label": "B",
+            "text": "$y$",
+            "note": "This is the height above the bottom edge. Pressure depends on depth below the surface."
+          },
+          {
+            "label": "C",
+            "text": "$3 - y$",
+            "note": "This measures down from the apex, but the surface is $1$ m above the apex."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The bottom edge is $1 + 3 = 4$ m below the surface, so a strip at height $y$ is $4 - y$ below it.\n\nThe pressure there is $\\rho g\\,(4 - y)$."
+      },
+      {
+        "prompt": "What is the width of the gate at height $y$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{4}{3}y$",
+            "note": "This grows from $0$ at the bottom, which is the width of a gate with its vertex down. This gate is widest at the bottom."
+          },
+          {
+            "label": "B",
+            "text": "$4 - \\frac{4}{3}y$"
+          },
+          {
+            "label": "C",
+            "text": "$4 - y$",
+            "note": "This assumes the width shrinks by $1$ m per metre of height. It must reach $0$ at the apex, $y = 3$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The width is $4$ at $y = 0$ and $0$ at $y = 3$, and it changes linearly, so\n\n$$\nw(y) = 4 - \\frac{4}{3}y\n$$\n\nBy similar triangles, the same line comes from $\\frac{w}{4} = \\frac{3 - y}{3}$."
+      },
+      {
+        "prompt": "Which limits cover the gate?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$y = 0$ to $y = 4$",
+            "note": "$4$ m is the depth of the bottom edge, not the height of the gate."
+          },
+          {
+            "label": "B",
+            "text": "$y = 0$ to $y = 3$"
+          },
+          {
+            "label": "C",
+            "text": "$y = 1$ to $y = 4$",
+            "note": "Those are depths below the surface, but $y$ here is height above the bottom edge."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The gate runs from its bottom edge at $y = 0$ to its apex at $y = 3$. All of it is under water.\n\n$$\nF = \\int_0^3 \\rho g\\,(4 - y)\\left(4 - \\frac{4}{3}y\\right)dy\n$$"
+      },
+      {
+        "prompt": "Expand the product $(4 - y)\\left(4 - \\frac{4}{3}y\\right)$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$16 - \\frac{28}{3}y + \\frac{4}{3}y^2$"
+          },
+          {
+            "label": "B",
+            "text": "$16 - \\frac{16}{3}y + \\frac{4}{3}y^2$",
+            "note": "The cross terms are $-\\frac{16}{3}y$ and $-4y$. One of them is missing here."
+          },
+          {
+            "label": "C",
+            "text": "$16 - \\frac{28}{3}y - \\frac{4}{3}y^2$",
+            "note": "The last term is a product of two negatives, so its sign is not negative."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n(4 - y)\\left(4 - \\frac{4}{3}y\\right) = 16 - \\frac{16}{3}y - 4y + \\frac{4}{3}y^2 = 16 - \\frac{28}{3}y + \\frac{4}{3}y^2\n$$"
+      },
+      {
+        "prompt": "Evaluate the integral for part (a).",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$42\\rho g$",
+            "note": "Integrating $\\frac{4}{3}y^2$ gives $\\frac{4}{9}y^3$. Using $\\frac{4}{3}y^3$ gives this value."
+          },
+          {
+            "label": "B",
+            "text": "$18\\rho g$"
+          },
+          {
+            "label": "C",
+            "text": "$-24\\rho g$",
+            "note": "A force on a wall cannot be negative, and this is what comes from dropping the $\\frac{1}{2}$ when integrating $-\\frac{28}{3}y$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\nF = \\rho g\\left[16y - \\frac{14}{3}y^2 + \\frac{4}{9}y^3\\right]_0^3 = \\rho g\\,(48 - 42 + 12)\n$$\n\nSo the force in part (a) is $18\\rho g$ N.\n\nCheck: the gate has area $\\frac{1}{2}\\cdot 4\\cdot 3 = 6$ and its centroid is $\\frac{1}{3}$ of the way up from the base, at depth $3$, and $6 \\cdot 3 = 18$."
+      },
+      {
+        "prompt": "For part (b) the surface is level with the apex. What changes in the setup?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The depth is $4 - y$ and the limits stay $0$ to $3$",
+            "note": "The surface has dropped by $1$ m, so the depth of every strip has changed."
+          },
+          {
+            "label": "B",
+            "text": "The depth is $3 - y$ and the limits become $0$ to $4$",
+            "note": "The gate still ends at its apex, and nothing of the gate lies above $y = 3$."
+          },
+          {
+            "label": "C",
+            "text": "The depth is $3 - y$ and the limits stay $0$ to $3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The surface is now at $y = 3$, so the depth of a strip is $3 - y$.\n\nThe gate still runs from $y = 0$ to $y = 3$ and the width is unchanged. Since $4 - \\frac{4}{3}y = \\frac{4}{3}(3 - y)$,\n\n$$\nF = \\int_0^3 \\rho g\\,(3 - y)\\cdot\\frac{4}{3}(3 - y)\\,dy = \\frac{4}{3}\\rho g\\int_0^3 (3 - y)^2\\,dy\n$$"
+      },
+      {
+        "prompt": "Evaluate the integral for part (b).",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$12\\rho g$"
+          },
+          {
+            "label": "B",
+            "text": "$18\\rho g$",
+            "note": "This is the force from part (a). The surface is lower now, so the pressure on every strip is smaller."
+          },
+          {
+            "label": "C",
+            "text": "$36\\rho g$",
+            "note": "The antiderivative of $(3 - y)^2$ is $-\\frac{(3 - y)^3}{3}$. Dropping the $\\frac{1}{3}$ gives this value."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\int_0^3 (3 - y)^2\\,dy = \\left[-\\frac{(3 - y)^3}{3}\\right]_0^3 = 9\n$$\n\nSo $F = \\frac{4}{3}\\rho g \\cdot 9 = 12\\rho g$ N.\n\nCheck: the centroid is now at depth $2$ and the area is $6$, so $2 \\cdot 6 = 12$.\n\nSo (a) is $18\\rho g$ N and (b) is $12\\rho g$ N."
+      }
+    ],
+    "takeaway": "Pressure goes with depth below the surface, so write the depth in the same origin as the width, and take the limits from where the plate lies, not from where the water lies."
+  }
+]

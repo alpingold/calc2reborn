@@ -1,0 +1,439 @@
+[
+  {
+    "id": "L5-g1",
+    "lessonId": "L5",
+    "typeId": "L5-area-top-bottom",
+    "stem": "Find the area of the region bounded by the curves $y = x^2 - 2$ and $y = x$.",
+    "steps": [
+      {
+        "prompt": "What fixes the left and right ends of the region?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The $x$-intercepts of the parabola, $x = \\pm\\sqrt{2}$",
+            "note": "A curve's own intercepts matter only when the region ends on the $x$-axis, and no axis bounds this region."
+          },
+          {
+            "label": "B",
+            "text": "The $x$-values where the two curves meet"
+          },
+          {
+            "label": "C",
+            "text": "The $y$-intercept of each curve",
+            "note": "An intercept belongs to one curve. The ends of a region between two curves are set by both curves together."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The region closes off where the curves meet. The parabola's intercepts $x = \\pm\\sqrt{2}$ play no role, since the $x$-axis is not a boundary. So set $x^2 - 2 = x$."
+      },
+      {
+        "prompt": "Solve $x^2 - 2 = x$ for the limits.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = -2$ and $x = 1$",
+            "note": "Substitute $x = -2$: the parabola gives $2$ and the line gives $-2$, so the curves do not meet there. Move every term to one side again and refactor."
+          },
+          {
+            "label": "B",
+            "text": "$x = -1$ and $x = 2$"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Moving $x$ across gives $x^2 - x - 2 = 0$, so $(x - 2)(x + 1) = 0$. The limits are $x = -1$ and $x = 2$."
+      },
+      {
+        "prompt": "Which curve is on top between the limits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The line $y = x$"
+          },
+          {
+            "label": "B",
+            "text": "The parabola $y = x^2 - 2$",
+            "note": "An upward-opening parabola is not automatically on top. Test a point between the limits instead of guessing from the shape."
+          },
+          {
+            "label": "C",
+            "text": "They swap partway, so two integrals are needed",
+            "note": "The order can change only where the curves meet, and they meet only at the two limits."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Test $x = 0$, which lies between $-1$ and $2$: the line gives $0$ and the parabola gives $-2$. The curves do not meet again inside the interval, so the line is on top throughout."
+      },
+      {
+        "prompt": "Write top minus bottom as one integrand.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x^2 - x - 2$",
+            "note": "That is bottom minus top, so it is the negative of the height. Area comes from top minus bottom."
+          },
+          {
+            "label": "B",
+            "text": "$x - x^2 - 2$",
+            "note": "The minus sign applies to the whole bottom curve, including its $-2$."
+          },
+          {
+            "label": "C",
+            "text": "$-x^2 + x + 2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Height $= x - (x^2 - 2) = x - x^2 + 2 = -x^2 + x + 2$, so $A = \\int_{-1}^{2} (-x^2 + x + 2)\\,dx$."
+      },
+      {
+        "prompt": "Find an antiderivative $F(x)$ of the integrand.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{x^3}{3} + \\frac{x^2}{2} + 2$",
+            "note": "Every term is integrated, including the constant term."
+          },
+          {
+            "label": "B",
+            "text": "$-x^3 + x^2 + 2x$",
+            "note": "The power rule divides by the new exponent each time."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{x^3}{3} + \\frac{x^2}{2} + 2x$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Term by term: $\\int -x^2\\,dx = -\\frac{x^3}{3}$, $\\int x\\,dx = \\frac{x^2}{2}$, $\\int 2\\,dx = 2x$. So $F(x) = -\\frac{x^3}{3} + \\frac{x^2}{2} + 2x$."
+      },
+      {
+        "prompt": "Evaluate $F(2) - F(-1)$ to get the area.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{13}{6}$",
+            "note": "This adds $F(-1)$ instead of subtracting it. The rule is $F(b) - F(a)$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{9}{2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{10}{3}$",
+            "note": "This is $F(2) - F(0)$. The lower limit is the left intersection, not $0$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$F(2) = -\\frac{8}{3} + 2 + 4 = \\frac{10}{3}$ and $F(-1) = \\frac{1}{3} + \\frac{1}{2} - 2 = -\\frac{7}{6}$. So $A = \\frac{10}{3} + \\frac{7}{6} = \\frac{27}{6} = \\frac{9}{2}$."
+      }
+    ],
+    "takeaway": "Take the limits from where the two curves meet, test one point for top and bottom, and keep the whole bottom curve inside the minus sign."
+  },
+  {
+    "id": "L5-g2",
+    "lessonId": "L5",
+    "typeId": "L5-area-in-y",
+    "stem": "Find the area of the region bounded by the curves $x = y^2 - 3$ and $x = 2y + 5$.",
+    "steps": [
+      {
+        "prompt": "Which variable gives the simplest setup?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Integrate in $x$, with top minus bottom",
+            "note": "Solving for $y$ turns the parabola into two branches, $y = \\pm\\sqrt{x + 3}$, so the bottom edge would change curve partway and need two integrals."
+          },
+          {
+            "label": "B",
+            "text": "Integrate in $y$, with right minus left"
+          },
+          {
+            "label": "C",
+            "text": "Either one, since the setup is equally short",
+            "note": "Not here. Compare how many curves make up the top and bottom edges in $x$ with the left and right edges in $y$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Both curves are already written as $x = \\ldots$. In $x$, the bottom edge would switch from the lower branch of the parabola to the line, forcing two integrals. In $y$, right and left each need one curve if the order never changes, which the next steps check."
+      },
+      {
+        "prompt": "Set the two curves equal. What are the $y$-limits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$y = -\\sqrt{3}$ and $y = \\sqrt{3}$",
+            "note": "Those are where the parabola crosses the $y$-axis, which is not a boundary of this region."
+          },
+          {
+            "label": "B",
+            "text": "$y = -4$ and $y = 2$",
+            "note": "Substitute $y = 2$: the parabola gives $1$ and the line gives $9$, so the curves do not meet there. Recheck the sign when factoring."
+          },
+          {
+            "label": "C",
+            "text": "$y = -2$ and $y = 4$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$y^2 - 3 = 2y + 5$ gives $y^2 - 2y - 8 = 0$, so $(y - 4)(y + 2) = 0$. The limits are $y = -2$ and $y = 4$."
+      },
+      {
+        "prompt": "Which curve is on the right between the limits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The line $x = 2y + 5$"
+          },
+          {
+            "label": "B",
+            "text": "The parabola $x = y^2 - 3$",
+            "note": "Test a value of $y$ between the limits and compare the two $x$-values; do not judge from the shape."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Test $y = 0$: the line gives $x = 5$ and the parabola gives $x = -3$. The curves meet only at the limits, so the line stays on the right throughout and the parabola on the left."
+      },
+      {
+        "prompt": "Write right minus left as one integrand.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-y^2 + 2y + 2$",
+            "note": "The minus sign applies to the whole left curve, including its $-3$."
+          },
+          {
+            "label": "B",
+            "text": "$-y^2 + 2y + 8$"
+          },
+          {
+            "label": "C",
+            "text": "$y^2 - 2y - 8$",
+            "note": "That is left minus right, the negative of the width. Area comes from right minus left."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Width $= (2y + 5) - (y^2 - 3) = -y^2 + 2y + 8$, so $A = \\int_{-2}^{4} (-y^2 + 2y + 8)\\,dy$."
+      },
+      {
+        "prompt": "Find an antiderivative $G(y)$ of the integrand.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{y^3}{3} + y^2 + 8y$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{y^3}{3} + y^2 + 8$",
+            "note": "Every term is integrated, including the constant term."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{y^3}{3} + 2y^2 + 8y$",
+            "note": "Check the middle term: the power rule divides by the new exponent."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\int -y^2\\,dy = -\\frac{y^3}{3}$, $\\int 2y\\,dy = y^2$, $\\int 8\\,dy = 8y$. So $G(y) = -\\frac{y^3}{3} + y^2 + 8y$."
+      },
+      {
+        "prompt": "Evaluate $G(4) - G(-2)$ to get the area.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{80}{3}$",
+            "note": "This is $G(4) - G(0)$. The lower limit is $y = -2$, not $0$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{52}{3}$",
+            "note": "This adds $G(-2)$ instead of subtracting it. The rule is $G(b) - G(a)$."
+          },
+          {
+            "label": "C",
+            "text": "$36$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$G(4) = -\\frac{64}{3} + 16 + 32 = \\frac{80}{3}$ and $G(-2) = \\frac{8}{3} + 4 - 16 = -\\frac{28}{3}$. So $A = \\frac{80}{3} + \\frac{28}{3} = \\frac{108}{3} = 36$."
+      }
+    ],
+    "takeaway": "When the curves are given as $x$ in terms of $y$, use $y$-limits from where they meet and take right minus left; the other curve's axis crossings are not limits."
+  },
+  {
+    "id": "L5-g3",
+    "lessonId": "L5",
+    "typeId": "L5-area-split-or-axis",
+    "stem": "(a) Find the area of the region in the first quadrant bounded by $y = x^2$, $y = 6 - x$ and the $x$-axis.\n\n(b) The triangle with vertices $(0, 0)$, $(2, 4)$ and $(6, 0)$ has area $12$. Use it to check the answer to (a).",
+    "steps": [
+      {
+        "prompt": "(a) The $x$-axis is part of the boundary. What gives the height of a vertical rectangle in the region?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The difference of the curves, $(6 - x) - x^2$",
+            "note": "That is the gap between the two curves. The region is bounded below by the $x$-axis, not by either curve."
+          },
+          {
+            "label": "B",
+            "text": "The lower of the two curves, measured down to the axis"
+          },
+          {
+            "label": "C",
+            "text": "The higher of the two curves, measured down to the axis",
+            "note": "A rectangle must stay inside the region, so its top cannot poke above the nearer boundary."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The region sits on the $x$-axis, so each rectangle runs from $y = 0$ up to the first curve it meets, which is the lower of $x^2$ and $6 - x$. Its height is that lower curve's value."
+      },
+      {
+        "prompt": "(a) Where do $y = x^2$ and $y = 6 - x$ cross in the first quadrant?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 3$",
+            "note": "Substitute $x = 3$: the parabola gives $9$ and the line gives $3$, so the curves do not meet there."
+          },
+          {
+            "label": "B",
+            "text": "$x = 2$"
+          },
+          {
+            "label": "C",
+            "text": "$x = 6$",
+            "note": "That is where the line meets the $x$-axis. At $x = 6$ the parabola gives $36$, not $0$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$x^2 = 6 - x$ gives $x^2 + x - 6 = 0$, so $(x + 3)(x - 2) = 0$. The root $x = -3$ is outside the first quadrant, so the curves cross at $x = 2$, at height $y = 4$."
+      },
+      {
+        "prompt": "(a) Where does the region end on the right?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 6$"
+          },
+          {
+            "label": "B",
+            "text": "$x = 2$",
+            "note": "That is where the curves cross, which is where the lower curve changes, not where the region stops."
+          },
+          {
+            "label": "C",
+            "text": "$x = -6$",
+            "note": "Solve $6 - x = 0$ again. A sign slip puts the intercept on the left, outside the first quadrant."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The line $y = 6 - x$ meets the $x$-axis where $6 - x = 0$, so at $x = 6$. The region runs from $x = 0$ to $x = 6$."
+      },
+      {
+        "prompt": "(a) Which integrals give the area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_0^6 (6 - x - x^2)\\,dx$",
+            "note": "One difference of the curves ignores the $x$-axis edge, and across the crossing it would let the pieces cancel."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_0^2 x^2\\,dx + \\int_2^6 (6 - x - x^2)\\,dx$",
+            "note": "On the second piece the region is bounded above by one curve and below by the axis, so the other curve does not appear."
+          },
+          {
+            "label": "C",
+            "text": "$\\int_0^2 x^2\\,dx + \\int_2^6 (6 - x)\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At $x = 1$ the parabola gives $1$ and the line gives $5$, so the parabola is lower on $[0, 2]$. At $x = 3$ the parabola gives $9$ and the line gives $3$, so the line is lower on $[2, 6]$. Splitting at $x = 2$, each piece is the lower curve down to the axis."
+      },
+      {
+        "prompt": "(a) Evaluate $\\int_0^2 x^2\\,dx$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$4$",
+            "note": "That is $x^2$ evaluated at the limits. An antiderivative of $x^2$ is a different function."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{8}{3}$"
+          },
+          {
+            "label": "C",
+            "text": "$8$",
+            "note": "That is $x^3$ evaluated at $2$ with no division. Recheck the power rule."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\int_0^2 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^2 = \\frac{8}{3}$."
+      },
+      {
+        "prompt": "(a) Evaluate $\\int_2^6 (6 - x)\\,dx$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$8$"
+          },
+          {
+            "label": "B",
+            "text": "$18$",
+            "note": "This is the antiderivative's value at the upper limit only. The value at the lower limit must be subtracted."
+          },
+          {
+            "label": "C",
+            "text": "$28$",
+            "note": "This adds the value at the lower limit instead of subtracting it."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\int_2^6 (6 - x)\\,dx = \\left[6x - \\frac{x^2}{2}\\right]_2^6 = (36 - 18) - (12 - 2) = 18 - 10 = 8$."
+      },
+      {
+        "prompt": "(a) What is the total area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{16}{3}$",
+            "note": "Subtracting the pieces would treat one of them as negative area. Both pieces lie above the $x$-axis, so each is positive area."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{8}{3}$",
+            "note": "This is only the first piece. The region also includes the part under the line."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{32}{3}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$A = \\frac{8}{3} + 8 = \\frac{8}{3} + \\frac{24}{3} = \\frac{32}{3}$."
+      },
+      {
+        "prompt": "(b) What does the triangle of area $12$ say about the answer to (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The region lies inside the triangle, so its area is less than $12$, and $\\frac{32}{3}$ passes"
+          },
+          {
+            "label": "B",
+            "text": "The region contains the triangle, so its area must exceed $12$, and $\\frac{32}{3}$ fails",
+            "note": "Look at where the parabola sits on $[0, 2]$ compared with the side of the triangle from $(0, 0)$ to $(2, 4)$, which is the line $y = 2x$."
+          },
+          {
+            "label": "C",
+            "text": "The region has the same area as the triangle, so the answer should be $12$",
+            "note": "Compare the region with the triangle along the side from $(0, 0)$ to $(2, 4)$. Does the parabola follow that side exactly?"
+          }
+        ],
+        "answer": "A",
+        "explanation": "The triangle's sides are $y = 2x$, the line $y = 6 - x$ and the $x$-axis. The parabola lies below $y = 2x$ on $[0, 2]$, so the region is inside the triangle and has area less than $12$; $\\frac{32}{3} \\approx 10.7$ is consistent. The sliver between the chord and the parabola has area $\\int_0^2 (2x - x^2)\\,dx = \\frac{4}{3}$, and $12 - \\frac{4}{3} = \\frac{32}{3}$ confirms the answer."
+      }
+    ],
+    "takeaway": "When the region sits on an axis, the height is the lower curve at each $x$; split wherever the lower curve changes, and sanity-check the total against a simple shape."
+  }
+]

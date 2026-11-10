@@ -7,6 +7,9 @@
     "tags": [
       "trap",
       "proper-fraction"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -16,6 +19,9 @@
     "back": "One constant over each distinct linear factor: $\\frac{A}{x - 1} + \\frac{B}{x + 2} + \\frac{C}{x - 4}$.",
     "tags": [
       "form"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -26,6 +32,10 @@
     "tags": [
       "distinct-linear",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form",
+      "L16-integrate-linear-factors"
     ]
   },
   {
@@ -37,6 +47,9 @@
       "trap",
       "repeated-linear",
       "form"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -47,6 +60,9 @@
     "tags": [
       "trap",
       "repeated-linear"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -56,6 +72,9 @@
     "back": "$\\int \\left(-\\frac{4}{x} + \\frac{5}{x^2} + \\frac{4}{x + 1}\\right)dx = -4\\ln|x| - \\frac{5}{x} + 4\\ln|x + 1| + C$. The $\\frac{5}{x^2}$ term integrates by the power rule, not to a logarithm.",
     "tags": [
       "repeated-linear"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -66,6 +85,9 @@
     "tags": [
       "trap",
       "absolute-value"
+    ],
+    "typeIds": [
+      "L16-integrate-linear-factors"
     ]
   },
   {
@@ -76,6 +98,9 @@
     "tags": [
       "trap",
       "repeated-linear"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -85,6 +110,10 @@
     "back": "(1) Expand, equate the coefficients of like powers of $x$, and solve the system. (2) Plug in convenient $x$-values, such as roots of the factors, so that most terms vanish. The identity holds for every $x$, so the two can be mixed.",
     "tags": [
       "constants"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form",
+      "L16-integrate-linear-factors"
     ]
   },
   {
@@ -95,6 +124,9 @@
     "tags": [
       "trap",
       "which-method"
+    ],
+    "typeIds": [
+      "L16-integrate-linear-factors"
     ]
   },
   {
@@ -105,6 +137,9 @@
     "tags": [
       "trap",
       "proper-fraction"
+    ],
+    "typeIds": [
+      "L16-coefficients-or-form"
     ]
   },
   {
@@ -115,6 +150,9 @@
     "tags": [
       "trap",
       "absolute-value"
+    ],
+    "typeIds": [
+      "L16-integrate-linear-factors"
     ]
   }
 ]

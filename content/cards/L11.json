@@ -6,6 +6,10 @@
     "back": "$\\int u\\,dv = uv - \\int v\\,du$. It is the product rule in reverse: $d(uv) = u\\,dv + v\\,du$. For a definite integral, $\\int_a^b u\\,dv = uv\\Big|_a^b - \\int_a^b v\\,du$.",
     "tags": [
       "formula"
+    ],
+    "typeIds": [
+      "L11-parts-poly-exp-trig",
+      "L11-parts-log-inverse-trig"
     ]
   },
   {
@@ -15,6 +19,10 @@
     "back": "Logarithmic, Inverse trig, Algebraic, Trig, Exponential: the order of preference for choosing $u$ in integration by parts. It is a rule of thumb. The goal is a $u$ that gets simpler when differentiated and a $dv$ that is easy to integrate.",
     "tags": [
       "liate"
+    ],
+    "typeIds": [
+      "L11-parts-poly-exp-trig",
+      "L11-parts-log-inverse-trig"
     ]
   },
   {
@@ -25,6 +33,9 @@
     "tags": [
       "liate",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L11-parts-log-inverse-trig"
     ]
   },
   {
@@ -35,6 +46,9 @@
     "tags": [
       "trap",
       "liate"
+    ],
+    "typeIds": [
+      "L11-parts-poly-exp-trig"
     ]
   },
   {
@@ -44,6 +58,9 @@
     "back": "Take $u = \\ln(2x)$ and $dv = dx$, so $du = \\frac{1}{x}\\,dx$ and $v = x$. Then $\\int \\ln(2x)\\,dx = x\\ln(2x) - \\int x\\cdot\\frac{1}{x}\\,dx = x\\ln(2x) - x + C$. (The $dv = dx$ choice is beyond Chen's notes.)",
     "tags": [
       "quick-compute"
+    ],
+    "typeIds": [
+      "L11-parts-log-inverse-trig"
     ]
   },
   {
@@ -54,6 +71,9 @@
     "tags": [
       "trap",
       "definite"
+    ],
+    "typeIds": [
+      "L11-parts-log-inverse-trig"
     ]
   },
   {
@@ -64,6 +84,9 @@
     "tags": [
       "definite",
       "quick-compute"
+    ],
+    "typeIds": [
+      "L11-parts-log-inverse-trig"
     ]
   },
   {
@@ -73,6 +96,9 @@
     "back": "Three. With $u = x^3$ each round lowers the power of $x$ by one, until only $\\int \\sin x\\,dx$ or $\\int \\cos x\\,dx$ is left. Result: $-x^3\\cos x + 3x^2\\sin x + 6x\\cos x - 6\\sin x + C$.",
     "tags": [
       "repeated-parts"
+    ],
+    "typeIds": [
+      "L11-parts-poly-exp-trig"
     ]
   },
   {
@@ -83,6 +109,9 @@
     "tags": [
       "trap",
       "repeated-parts"
+    ],
+    "typeIds": [
+      "L11-parts-poly-exp-trig"
     ]
   },
   {
@@ -93,6 +122,9 @@
     "tags": [
       "tabular",
       "repeated-parts"
+    ],
+    "typeIds": [
+      "L11-parts-poly-exp-trig"
     ]
   },
   {
@@ -103,6 +135,9 @@
     "tags": [
       "trap",
       "cyclic"
+    ],
+    "typeIds": [
+      "L11-cyclic-parts"
     ]
   },
   {
@@ -113,6 +148,9 @@
     "tags": [
       "trap",
       "cyclic"
+    ],
+    "typeIds": [
+      "L11-cyclic-parts"
     ]
   },
   {
@@ -122,6 +160,9 @@
     "back": "Substitution: $u = x^2$, $du = 2x\\,dx$, so the integral is $\\frac{1}{2}\\int \\cos u\\,du = \\frac{1}{2}\\sin(x^2) + C$. Look for an inside function whose derivative is present before reaching for parts.",
     "tags": [
       "which-method"
+    ],
+    "typeIds": [
+      "L11-recognise-or-complete"
     ]
   }
 ]

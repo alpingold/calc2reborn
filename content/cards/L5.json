@@ -7,6 +7,9 @@
     "tags": [
       "area",
       "formula"
+    ],
+    "typeIds": [
+      "L5-area-top-bottom"
     ]
   },
   {
@@ -17,6 +20,10 @@
     "tags": [
       "trap",
       "area"
+    ],
+    "typeIds": [
+      "L5-area-top-bottom",
+      "L5-area-split-or-axis"
     ]
   },
   {
@@ -27,6 +34,9 @@
     "tags": [
       "area",
       "compute"
+    ],
+    "typeIds": [
+      "L5-area-top-bottom"
     ]
   },
   {
@@ -38,6 +48,9 @@
       "trap",
       "area",
       "limits"
+    ],
+    "typeIds": [
+      "L5-area-top-bottom"
     ]
   },
   {
@@ -48,6 +61,10 @@
     "tags": [
       "crossing",
       "area"
+    ],
+    "typeIds": [
+      "L5-area-top-bottom",
+      "L5-area-split-or-axis"
     ]
   },
   {
@@ -59,6 +76,9 @@
       "trap",
       "crossing",
       "area"
+    ],
+    "typeIds": [
+      "L5-area-split-or-axis"
     ]
   },
   {
@@ -70,6 +90,9 @@
       "trap",
       "crossing",
       "area"
+    ],
+    "typeIds": [
+      "L5-area-split-or-axis"
     ]
   },
   {
@@ -81,6 +104,9 @@
       "trap",
       "crossing",
       "intersections"
+    ],
+    "typeIds": [
+      "L5-area-split-or-axis"
     ]
   },
   {
@@ -91,6 +117,9 @@
     "tags": [
       "crossing",
       "area"
+    ],
+    "typeIds": [
+      "L5-area-split-or-axis"
     ]
   },
   {
@@ -101,6 +130,9 @@
     "tags": [
       "area-in-y",
       "formula"
+    ],
+    "typeIds": [
+      "L5-area-in-y"
     ]
   },
   {
@@ -112,6 +144,9 @@
       "trap",
       "area-in-y",
       "which-variable"
+    ],
+    "typeIds": [
+      "L5-area-in-y"
     ]
   },
   {
@@ -123,6 +158,9 @@
       "trap",
       "area-in-y",
       "limits"
+    ],
+    "typeIds": [
+      "L5-area-in-y"
     ]
   },
   {
@@ -133,6 +171,9 @@
     "tags": [
       "area-in-y",
       "compute"
+    ],
+    "typeIds": [
+      "L5-area-in-y"
     ]
   }
 ]

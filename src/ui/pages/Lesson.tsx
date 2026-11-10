@@ -23,9 +23,8 @@ export function Lesson() {
   // cards flipped to show their answer
   const [openCards, setOpenCards] = useState<Set<string>>(new Set())
   const { hash } = useLocation()
-  // guided problems finished, now or earlier, and the ones opened on this visit
+  // guided problems finished, now or earlier
   const [doneGuided, setDoneGuided] = useState<Set<string>>(new Set())
-  const [openGuided, setOpenGuided] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!lessonId) return
@@ -55,11 +54,10 @@ export function Lesson() {
     }
   }, [store, content, lessonId])
 
-  // arriving at #guided-<id> opens that problem; #guided scrolls to the section
+  // an address ending in #guided, #guided-<problemId> or another section's id scrolls there
   useEffect(() => {
-    if (!hash.startsWith('#guided')) return
+    if (hash.length < 2) return
     const id = hash.slice(1)
-    if (id.startsWith('guided-')) setOpenGuided((open) => new Set(open).add(id.slice('guided-'.length)))
     const frame = requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView?.())
     return () => cancelAnimationFrame(frame)
   }, [hash, lessonId])
@@ -120,65 +118,83 @@ export function Lesson() {
     states && summaryParts.length ? `: ${summaryParts.join(', ')}` : ''
   }`
 
+  const guidedDone = guided.filter((g) => doneGuided.has(g.id)).length
+  const toc = [
+    { id: 'key-ideas', label: 'Key ideas', show: true },
+    { id: 'guided', label: 'Check your understanding', show: guided.length > 0 },
+    { id: 'flashcards', label: 'Flashcards', show: !lesson.isExtra },
+    { id: 'problem-types', label: 'Problem types', show: types.length > 0 },
+    { id: 'exam-questions', label: 'Exam questions', show: true },
+  ].filter((t) => t.show)
+
   return (
-    <section>
-      <h2>{lesson.title}</h2>
-      {error && <p role="alert">{error}</p>}
-      {lesson.sections.length > 0 && <p>{`Sections ${lesson.sections.join(', ')}`}</p>}
-      {lesson.isExtra ? (
-        <p className="note">
-          This topic is on older MA 16200 exams but is not part of Dr. Chen's Fall 2023 lessons, so it has no video,
-          notes, or flashcards, and it doesn't count toward lesson mastery.
+    <section className="lesson-page">
+      <header className="lesson-head">
+        <h2>{lesson.title}</h2>
+        {error && <p role="alert">{error}</p>}
+        <p className="lesson-meta">
+          {lesson.sections.length > 0 && <span>{`Sections ${lesson.sections.join(', ')}`}</span>}
+          {!lesson.isExtra && (
+            <>
+              <a href={lesson.videoUrl} target="_blank" rel="noreferrer">
+                Video
+              </a>
+              <a href={lesson.notesUrl} target="_blank" rel="noreferrer">
+                Notes
+              </a>
+            </>
+          )}
+          {mastery && <span>{mastery.score === null ? 'Untested' : `Mastery: ${Math.round(mastery.score * 100)}%`}</span>}
         </p>
-      ) : (
-        <p>
-          <a href={lesson.videoUrl} target="_blank" rel="noreferrer">
-            Video
-          </a>{' '}
-          <a href={lesson.notesUrl} target="_blank" rel="noreferrer">
-            Notes
-          </a>
-        </p>
-      )}
-      {mastery && <p>{mastery.score === null ? 'Untested' : `Mastery: ${Math.round(mastery.score * 100)}%`}</p>}
-      <Link to={`/practice?lesson=${lesson.id}`}>{lesson.isExtra ? 'Practice this topic' : 'Practice this lesson'}</Link>
-      <h3>Key ideas</h3>
+        {lesson.isExtra && (
+          <p className="note">
+            This topic is on older MA 16200 exams but is not part of Dr. Chen's Fall 2023 lessons, so it has no video,
+            notes, or flashcards, and it doesn't count toward lesson mastery.
+          </p>
+        )}
+        <div className="lesson-actions">
+          {guided.length > 0 && (
+            <Link to={{ hash: '#guided' }} className="button primary">
+              {`Guided problems: ${guidedDone} of ${guided.length} done`}
+            </Link>
+          )}
+          <Link to={`/practice?lesson=${lesson.id}`} className={guided.length > 0 ? 'button' : 'button primary'}>
+            {lesson.isExtra ? 'Practice this topic' : 'Practice this lesson'}
+          </Link>
+        </div>
+        <nav aria-label="On this page" className="lesson-toc">
+          {toc.map((t) => (
+            <Link key={t.id} to={{ hash: `#${t.id}` }}>
+              {t.label}
+            </Link>
+          ))}
+        </nav>
+      </header>
+      <h3 id="key-ideas">Key ideas</h3>
       {lesson.keyIdeas ? <Markdown text={lesson.keyIdeas} /> : <p>No key ideas yet.</p>}
       {guided.length > 0 && (
         <section className="lesson-guided" id="guided">
           <h3>Check your understanding</h3>
-          <p className="panel-hint">Written for this app in the style of the course. These are not Purdue problems.</p>
+          <p className="panel-hint">
+            Work each problem a step at a time. Written for this app in the style of the course. These are not Purdue
+            problems.
+          </p>
           <ul className="guided-list">
-            {guided.map((g, i) => {
-              const open = openGuided.has(g.id)
-              return (
-                <li key={g.id} id={open ? undefined : `guided-${g.id}`}>
-                  <button
-                    type="button"
-                    className="link-button"
-                    aria-expanded={open}
-                    onClick={() =>
-                      setOpenGuided((prev) => {
-                        const next = new Set(prev)
-                        if (next.has(g.id)) next.delete(g.id)
-                        else next.add(g.id)
-                        return next
-                      })
-                    }
-                  >
-                    {`Problem ${i + 1}`}
-                  </button>{' '}
+            {guided.map((g, i) => (
+              <li key={g.id} className="guided-card">
+                <header className="guided-card-head">
+                  <h4>{`Problem ${i + 1}`}</h4>
                   <span className="type-meta">{content.typeById.get(g.typeId)?.name}</span>
                   {doneGuided.has(g.id) && <span className="card-tag card-tag-later">Done</span>}
-                  {open && <GuidedProblemView problem={g} onFinish={(o) => void onGuidedFinish(g.id, o)} />}
-                </li>
-              )
-            })}
+                </header>
+                <GuidedProblemView problem={g} onFinish={(o) => void onGuidedFinish(g.id, o)} />
+              </li>
+            ))}
           </ul>
         </section>
       )}
       {!lesson.isExtra && (
-        <section className="lesson-cards">
+        <section className="lesson-cards" id="flashcards">
           <h3>Flashcards</h3>
           {cards.length === 0 ? (
             <p>No flashcards for this lesson yet.</p>
@@ -238,7 +254,7 @@ export function Lesson() {
         </section>
       )}
       {types.length > 0 && (
-        <section className="lesson-types">
+        <section className="lesson-types" id="problem-types">
           <h3>Problem types</h3>
           <ul>
             {types.map((t) => {
@@ -246,10 +262,10 @@ export function Lesson() {
               const score = byType.get(t.id)?.score ?? null
               return (
                 <li key={t.id}>
-                  <span className="type-name">{t.name}</span>{' '}
+                  <span className="type-name">{t.name}</span>
                   <span className="type-meta">
                     {`${count} ${count === 1 ? 'question' : 'questions'}, ${score === null ? 'untested' : `${Math.round(score * 100)}%`}`}
-                  </span>{' '}
+                  </span>
                   {count > 0 && (
                     <Link to={practiseTypeLink(t.id)} aria-label={`Practise this type: ${t.name}`}>
                       Practise this type
@@ -261,11 +277,11 @@ export function Lesson() {
           </ul>
         </section>
       )}
-      <h3>Exam questions</h3>
+      <h3 id="exam-questions">Exam questions</h3>
       {questions.length === 0 ? (
         <p>No exam questions yet.</p>
       ) : (
-        <ul>
+        <ul className="exam-question-list">
           {questions.map((q) => {
             const exam = content.examByQuestionId.get(q.id)
             if (!exam) return null

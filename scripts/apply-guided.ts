@@ -23,6 +23,40 @@ export const MAX_CARD_TYPES = 2
  * Check one lesson's file against the lesson's types and cards. Returns the problems and the cards with
  * their types set. Throws, changing nothing, on anything that does not fit.
  */
+/** Every Markdown string of a problem, with where it is. */
+function guidedTexts(g: GuidedProblem): [string, string][] {
+  return [
+    ['stem', g.stem],
+    ['takeaway', g.takeaway],
+    ...g.steps.flatMap((st, i): [string, string][] => [
+      [`step ${i + 1} prompt`, st.prompt],
+      [`step ${i + 1} explanation`, st.explanation],
+      ...st.choices.flatMap((c): [string, string][] => [
+        [`step ${i + 1} choice ${c.label}`, c.text],
+        ...(c.note ? [[`step ${i + 1} note ${c.label}`, c.note] as [string, string]] : []),
+      ]),
+    ]),
+  ]
+}
+
+/** A fault in how a string marks its mathematics, or null: an unclosed `$`, or `$$` not alone on its line. */
+export function mathFault(text: string): string | null {
+  const lines = text.split('\n')
+  let fences = 0
+  let inline = ''
+  for (const line of lines) {
+    if (line.trim() === '$$') {
+      fences++
+      continue
+    }
+    if (line.includes('$$')) return 'display math needs $$ alone on its own line'
+    if (fences % 2 === 0) inline += line + '\n'
+  }
+  if (fences % 2 !== 0) return 'a $$ block is not closed'
+  if ((inline.replace(/\\\$/g, '').match(/\$/g) ?? []).length % 2 !== 0) return 'a $ is not closed'
+  return null
+}
+
 export function applyGuided(
   file: GuidedFile,
   typeIds: Set<string>,
@@ -40,6 +74,10 @@ export function applyGuided(
     if (g.id !== `${lessonId}-g${i + 1}`) throw new Error(`problem ${i + 1} should have the id ${lessonId}-g${i + 1}, not ${g.id}`)
     if (!typeIds.has(g.typeId)) throw new Error(`${g.id}: unknown problem type ${g.typeId}`)
     if (g.figures?.length) throw new Error(`${g.id}: guided problems have no figures`)
+    for (const [where, text] of guidedTexts(g)) {
+      const fault = mathFault(text)
+      if (fault) throw new Error(`${g.id} ${where}: ${fault}`)
+    }
     const text = JSON.stringify(g)
     if (/\b(choice|option|answer) [A-D]\b/.test(text)) throw new Error(`${g.id} refers to a choice by its letter`)
   })

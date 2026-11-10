@@ -7,6 +7,9 @@
     "tags": [
       "series",
       "partial-sums"
+    ],
+    "typeIds": [
+      "L19-partial-sums"
     ]
   },
   {
@@ -38,6 +41,9 @@
       "series",
       "partial-sums",
       "definition"
+    ],
+    "typeIds": [
+      "L19-partial-sums"
     ]
   },
   {
@@ -48,6 +54,10 @@
     "tags": [
       "sequence",
       "recurrence"
+    ],
+    "typeIds": [
+      "L19-recurrence-term",
+      "L19-recurrence-match"
     ]
   },
   {
@@ -58,6 +68,9 @@
     "tags": [
       "series",
       "partial-sums"
+    ],
+    "typeIds": [
+      "L19-partial-sums"
     ]
   },
   {
@@ -69,6 +82,9 @@
       "series",
       "partial-sums",
       "divergence-test"
+    ],
+    "typeIds": [
+      "L19-partial-sums"
     ]
   },
   {
@@ -121,6 +137,9 @@
     "tags": [
       "series",
       "partial-sums"
+    ],
+    "typeIds": [
+      "L19-partial-sums"
     ]
   }
 ]

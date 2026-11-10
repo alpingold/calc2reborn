@@ -1,0 +1,333 @@
+[
+  {
+    "id": "L12-g1",
+    "lessonId": "L12",
+    "typeId": "L12-odd-power-substitution",
+    "stem": "(a) Find $\\int \\sin^3(2x)\\cos^2(2x)\\,dx$.\n\n(b) Evaluate $\\int_0^{\\pi/2}\\sin^3(2x)\\cos^2(2x)\\,dx$.\n\n(c) Find the area of the region between the curve $y=\\sin^3(2x)\\cos^2(2x)$ and the $x$-axis for $0\\le x\\le\\pi$.",
+    "steps": [
+      {
+        "prompt": "(a) Which first move suits $\\int \\sin^3(2x)\\cos^2(2x)\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Half-angle identities for both factors",
+            "note": "Half-angle identities are the tool when both powers are even. Check the parity of each power here."
+          },
+          {
+            "label": "B",
+            "text": "Save one factor of $\\sin 2x$ and let $u=\\cos 2x$"
+          },
+          {
+            "label": "C",
+            "text": "Save one factor of $\\cos 2x$ and let $u=\\sin 2x$",
+            "note": "Saving one $\\cos 2x$ leaves $\\cos 2x$ to the first power, which in terms of $u=\\sin 2x$ is $\\sqrt{1-u^2}$. The result is not a polynomial."
+          },
+          {
+            "label": "D",
+            "text": "Integration by parts with $u=\\sin^3(2x)$",
+            "note": "Parts keeps producing new products of trig powers. Such a product calls for a substitution or an identity."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The power of $\\sin 2x$ is $3$, which is odd, and the power of $\\cos 2x$ is $2$, which is even. Save one factor of the odd-power function, here $\\sin 2x$, for the differential, and keep the even power of sine to be rewritten in cosine:\n\n$$\n\\sin^3(2x)\\cos^2(2x)=\\sin^2(2x)\\cos^2(2x)\\cdot\\sin 2x\n$$"
+      },
+      {
+        "prompt": "With $u=\\cos 2x$, what does the integral become?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int (1-u^2)u^2\\,du$",
+            "note": "Check $du$ for $u=\\cos 2x$: the derivative of cosine brings a sign, and the chain rule brings a constant."
+          },
+          {
+            "label": "B",
+            "text": "$-\\int (1-u^2)u^2\\,du$",
+            "note": "The chain rule gives $du=-2\\sin 2x\\,dx$, so the saved $\\sin 2x\\,dx$ is not simply $-du$. A constant factor is missing."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac12\\int (1-u^2)u^2\\,du$"
+          },
+          {
+            "label": "D",
+            "text": "$\\frac12\\int (1-u^2)u^2\\,du$",
+            "note": "The derivative of $\\cos 2x$ is negative, so $du=-2\\sin 2x\\,dx$. Check the sign of the saved factor."
+          }
+        ],
+        "answer": "C",
+        "explanation": "Since $\\sin^2(2x)=1-\\cos^2(2x)$, the integrand is $(1-\\cos^2 2x)\\cos^2 2x\\,\\sin 2x$. With $u=\\cos 2x$, $du=-2\\sin 2x\\,dx$, so $\\sin 2x\\,dx=-\\frac12\\,du$:\n\n$$\n\\int \\sin^3(2x)\\cos^2(2x)\\,dx=\\int (1-\\cos^2 2x)\\cos^2 2x\\,\\sin 2x\\,dx=-\\frac12\\int (1-u^2)u^2\\,du\n$$"
+      },
+      {
+        "prompt": "Expand $(1-u^2)u^2$, integrate, and return to $x$. What is $\\int \\sin^3(2x)\\cos^2(2x)\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{\\cos^3 2x}{6}+\\frac{\\cos^5 2x}{10}+C$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{\\cos^3 2x}{3}+\\frac{\\cos^5 2x}{5}+C$",
+            "note": "This leaves out the factor $\\frac12$ carried from the previous step. Every term has it."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\cos^3 2x}{6}-\\frac{\\cos^5 2x}{10}+C$",
+            "note": "The sign of the factor in front of the integral must multiply both terms. Compare it with the previous step."
+          },
+          {
+            "label": "D",
+            "text": "$-\\frac{\\cos^3 2x}{6}-\\frac{\\cos^5 2x}{10}+C$",
+            "note": "Expanding $(1-u^2)u^2$ gives $u^2-u^4$. The second term keeps its minus sign inside the bracket."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Expand: $(1-u^2)u^2=u^2-u^4$. Then\n\n$$\n-\\frac12\\int (u^2-u^4)\\,du=-\\frac12\\left(\\frac{u^3}{3}-\\frac{u^5}{5}\\right)+C=-\\frac{u^3}{6}+\\frac{u^5}{10}+C\n$$\n\nSubstituting $u=\\cos 2x$ back, $F(x)=-\\frac{\\cos^3 2x}{6}+\\frac{\\cos^5 2x}{10}$ is an antiderivative."
+      },
+      {
+        "prompt": "(b) Use the antiderivative $F$ to evaluate $\\int_0^{\\pi/2}\\sin^3(2x)\\cos^2(2x)\\,dx$.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{4}{15}$",
+            "note": "This is $\\int_{-1}^{1}(1-u^2)u^2\\,du$, which is missing the factor $\\frac12$ from the substitution."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{15}$",
+            "note": "This is the value of $F$ at $\\frac{\\pi}{2}$ alone. The definite integral is $F\\left(\\frac\\pi2\\right)-F(0)$."
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "The integrand is non-negative on this interval and is not identically zero, so its integral cannot be $0$. The antiderivative is written in cosines, which do not vanish at the ends."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{2}{15}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "At $x=0$, $\\cos 2x=1$: $F(0)=-\\frac16+\\frac1{10}=-\\frac{1}{15}$.\n\nAt $x=\\frac\\pi2$, $\\cos 2x=\\cos\\pi=-1$: $F\\left(\\frac\\pi2\\right)=\\frac16-\\frac1{10}=\\frac{1}{15}$.\n\n$$\n\\int_0^{\\pi/2}\\sin^3(2x)\\cos^2(2x)\\,dx=F\\left(\\tfrac\\pi2\\right)-F(0)=\\frac{1}{15}+\\frac{1}{15}=\\frac{2}{15}\n$$"
+      },
+      {
+        "prompt": "(c) Next, on $\\left[\\frac\\pi2,\\pi\\right]$ what is $\\int_{\\pi/2}^{\\pi}\\sin^3(2x)\\cos^2(2x)\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{2}{15}$",
+            "note": "Look at the sign of $\\sin 2x$ when $2x$ runs over $[\\pi,2\\pi]$. The factor $\\cos^2 2x$ is never negative."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{2}{15}$"
+          },
+          {
+            "label": "C",
+            "text": "$0$",
+            "note": "The integrand does not change sign inside this interval and is not identically zero, so its integral cannot be $0$."
+          },
+          {
+            "label": "D",
+            "text": "$-\\frac{1}{15}$",
+            "note": "This is the value of $F$ at $\\pi$ alone. Subtract $F\\left(\\frac\\pi2\\right)$ as well."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Here $\\cos 2\\pi=1$, so $F(\\pi)=F(0)=-\\frac{1}{15}$, while $F\\left(\\frac\\pi2\\right)=\\frac{1}{15}$:\n\n$$\n\\int_{\\pi/2}^{\\pi}\\sin^3(2x)\\cos^2(2x)\\,dx=F(\\pi)-F\\left(\\tfrac\\pi2\\right)=-\\frac{1}{15}-\\frac{1}{15}=-\\frac{2}{15}\n$$\n\nThe value is negative because $\\sin 2x\\le 0$ for $x$ in $\\left[\\frac\\pi2,\\pi\\right]$."
+      },
+      {
+        "prompt": "(c) The region between the curve and the $x$-axis for $0\\le x\\le\\pi$ lies partly above and partly below the axis. What is its total area?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "This is the signed integral over $[0,\\pi]$, where the two halves cancel. Area counts every part as positive."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{2}{15}$",
+            "note": "This is the area of only one of the two pieces of the region. Count both."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{4}{15}$"
+          },
+          {
+            "label": "D",
+            "text": "$-\\frac{4}{15}$",
+            "note": "An area is never negative. Think about how each piece should be counted."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The curve is above the axis on $\\left[0,\\frac\\pi2\\right]$ and below it on $\\left[\\frac\\pi2,\\pi\\right]$, so split at $\\frac\\pi2$ and take the absolute value of the second piece:\n\n$$\n\\text{Area}=\\int_0^{\\pi/2}\\sin^3(2x)\\cos^2(2x)\\,dx-\\int_{\\pi/2}^{\\pi}\\sin^3(2x)\\cos^2(2x)\\,dx=\\frac{2}{15}+\\frac{2}{15}=\\frac{4}{15}\n$$\n\nThe signed integral over $[0,\\pi]$ is $0$, which is not the area."
+      }
+    ],
+    "takeaway": "Save one factor from the odd power, let the chain rule's constant and the sign of $du$ into every term, and split an area where the integrand changes sign."
+  },
+  {
+    "id": "L12-g2",
+    "lessonId": "L12",
+    "typeId": "L12-even-powers-half-angle",
+    "stem": "(a) Evaluate $\\int_0^{\\pi/2}\\sin^2 x\\cos^4 x\\,dx$.\n\n(b) The region under the curve $y=\\sin x\\cos^2 x$ and above the $x$-axis, for $0\\le x\\le\\frac\\pi2$, is revolved about the $x$-axis. Use (a) to find the volume of the solid.",
+    "steps": [
+      {
+        "prompt": "(a) Which method suits $\\int_0^{\\pi/2}\\sin^2 x\\cos^4 x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Save one factor of $\\sin x$ and let $u=\\cos x$",
+            "note": "Saving one $\\sin x$ leaves $\\sin x$ to the first power, which needs a square root in $u$. This substitution needs an odd power to save from."
+          },
+          {
+            "label": "B",
+            "text": "Half-angle identities, since both powers are even"
+          },
+          {
+            "label": "C",
+            "text": "Let $u=\\sin x$ directly",
+            "note": "The $du=\\cos x\\,dx$ uses one cosine and leaves $\\cos^3 x$, an odd power that becomes $(1-u^2)^{3/2}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Both powers, $2$ and $4$, are even, so no factor can be saved for a substitution that leaves a polynomial. Use the half-angle identities $\\cos^2 x=\\frac{1+\\cos 2x}{2}$ and $\\sin^2 x=\\frac{1-\\cos 2x}{2}$, and the double-angle formula $\\sin x\\cos x=\\frac12\\sin 2x$ to combine the factors."
+      },
+      {
+        "prompt": "Pair $\\sin^2 x\\cos^2 x$ as $(\\sin x\\cos x)^2$ and convert the leftover $\\cos^2 x$. Which form does the integrand take?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac14\\sin^2 2x\\,(1+\\cos 2x)$",
+            "note": "The identity $\\cos^2 x=\\frac{1+\\cos 2x}{2}$ carries a factor $\\frac12$. Recount the constants."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac18\\sin^2 2x\\,(1-\\cos 2x)$",
+            "note": "Cosine squared takes the plus sign in the half-angle identity. Check it at $x=0$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac12\\sin^2 2x\\,(1+\\cos 2x)$",
+            "note": "The double-angle formula is $\\sin 2x=2\\sin x\\cos x$, so $\\sin x\\cos x$ is half of $\\sin 2x$ before squaring."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac18\\sin^2 2x\\,(1+\\cos 2x)$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Since $\\sin x\\cos x=\\frac12\\sin 2x$, we get $\\sin^2 x\\cos^2 x=\\frac14\\sin^2 2x$. Multiplying by the leftover $\\cos^2 x=\\frac{1+\\cos 2x}{2}$:\n\n$$\n\\sin^2 x\\cos^4 x=\\frac14\\sin^2 2x\\cdot\\frac{1+\\cos 2x}{2}=\\frac18\\sin^2 2x\\,(1+\\cos 2x)\n$$"
+      },
+      {
+        "prompt": "Expand to $\\frac18\\left(\\sin^2 2x+\\sin^2 2x\\cos 2x\\right)$. How should each term be integrated?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Half-angle identity for $\\sin^2 2x$; substitution $u=\\sin 2x$ for $\\sin^2 2x\\cos 2x$"
+          },
+          {
+            "label": "B",
+            "text": "Half-angle identity for both terms",
+            "note": "Applied to $\\sin^2 2x\\cos 2x$ it leaves a product of cosines that needs yet another identity. One term has a simpler route."
+          },
+          {
+            "label": "C",
+            "text": "Substitution $u=\\sin 2x$ for both terms",
+            "note": "The first term has no $\\cos 2x$ to pair with $du$, so that substitution cannot start there."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The first term is an even power of $\\sin 2x$ with nothing else, so use $\\sin^2 2x=\\frac{1-\\cos 4x}{2}$. In the second term $\\cos 2x$ appears once, so $u=\\sin 2x$ with $du=2\\cos 2x\\,dx$ makes it a power of $u$:\n\n$$\n\\int_0^{\\pi/2}\\sin^2 x\\cos^4 x\\,dx=\\frac18\\int_0^{\\pi/2}\\sin^2 2x\\,dx+\\frac18\\int_0^{\\pi/2}\\sin^2 2x\\cos 2x\\,dx\n$$"
+      },
+      {
+        "prompt": "What is $\\int_0^{\\pi/2}\\sin^2 2x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{2}$",
+            "note": "The identity $\\sin^2 2x=\\frac{1-\\cos 4x}{2}$ has a factor $\\frac12$ in front, which has been dropped."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{8}$",
+            "note": "The factor $\\frac12$ from the identity is applied once. Integrating $1$ gives $x$, with no further halving."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{4}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\int_0^{\\pi/2}\\frac{1-\\cos 4x}{2}\\,dx=\\left[\\frac{x}{2}-\\frac{\\sin 4x}{8}\\right]_0^{\\pi/2}=\\frac{\\pi}{4}-\\frac{\\sin 2\\pi}{8}=\\frac{\\pi}{4}\n$$"
+      },
+      {
+        "prompt": "What is $\\int_0^{\\pi/2}\\sin^2 2x\\cos 2x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac16$",
+            "note": "Look at the limits for $u=\\sin 2x$, not $u=\\sin x$: evaluate $2x$ at each end first."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac13$",
+            "note": "With $u=\\sin 2x$ the differential is $du=2\\cos 2x\\,dx$, so a factor $\\frac12$ is needed, and the limits for $u$ must be recomputed from $2x$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Let $u=\\sin 2x$, so $du=2\\cos 2x\\,dx$. The limits are $u=\\sin 0=0$ at $x=0$ and $u=\\sin\\pi=0$ at $x=\\frac\\pi2$:\n\n$$\n\\int_0^{\\pi/2}\\sin^2 2x\\cos 2x\\,dx=\\frac12\\int_0^{0}u^2\\,du=0\n$$"
+      },
+      {
+        "prompt": "Combine the two pieces. What is $\\int_0^{\\pi/2}\\sin^2 x\\cos^4 x\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\pi}{4}$",
+            "note": "The whole expression carries the prefactor $\\frac18$ from the rewriting in the second step."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\pi}{32}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{16}$",
+            "note": "The prefactor is $\\frac18$, not $\\frac14$. Go back to the form of the integrand."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\int_0^{\\pi/2}\\sin^2 x\\cos^4 x\\,dx=\\frac18\\left(\\frac{\\pi}{4}+0\\right)=\\frac{\\pi}{32}\n$$"
+      },
+      {
+        "prompt": "(b) The region under $y=\\sin x\\cos^2 x$ and above the $x$-axis, for $0\\le x\\le\\frac\\pi2$, is revolved about the $x$-axis. Which line gives the volume of the solid?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$V=\\int_0^{\\pi/2}y^2\\,dx=\\frac{\\pi}{32}$",
+            "note": "Each disk has area $\\pi y^2$, so the factor $\\pi$ belongs in the integral."
+          },
+          {
+            "label": "B",
+            "text": "$V=\\pi\\int_0^{\\pi/2}y^2\\,dx=\\frac{\\pi^2}{32}$"
+          },
+          {
+            "label": "C",
+            "text": "$V=\\pi\\int_0^{\\pi/2}y\\,dx=\\frac{\\pi}{3}$",
+            "note": "The radius of a disk is $y$, so the cross-section area uses $y^2$, not $y$."
+          },
+          {
+            "label": "D",
+            "text": "$V=2\\pi\\int_0^{\\pi/2}y^2\\,dx=\\frac{\\pi^2}{16}$",
+            "note": "The factor $2\\pi$ belongs to shells. Disks about the $x$-axis use area $\\pi y^2$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Disks about the $x$-axis have radius $y$ and area $\\pi y^2$. Here $y^2=\\sin^2 x\\cos^4 x$, the integral from (a):\n\n$$\nV=\\pi\\int_0^{\\pi/2}\\sin^2 x\\cos^4 x\\,dx=\\pi\\cdot\\frac{\\pi}{32}=\\frac{\\pi^2}{32}\n$$"
+      }
+    ],
+    "takeaway": "Reduce even powers with the half-angle and double-angle identities, and give any odd power that appears afterward to a substitution."
+  }
+]

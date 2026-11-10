@@ -164,9 +164,9 @@ describe('GuidedProblemSchema', () => {
   test('accepts a well-formed problem', () => {
     expect(GuidedProblemSchema.safeParse(ok).success).toBe(true)
   })
-  test('needs three to five steps', () => {
+  test('needs three to eight steps', () => {
     expect(bad({ steps: [step, step] })).toBe(false)
-    expect(bad({ steps: Array(6).fill(step) })).toBe(false)
+    expect(bad({ steps: Array(9).fill(step) })).toBe(false)
   })
   test('the id and the type come from the lesson', () => {
     expect(bad({ id: 'L6-g1' })).toBe(false)

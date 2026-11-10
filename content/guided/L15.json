@@ -1,0 +1,319 @@
+[
+  {
+    "id": "L15-g1",
+    "lessonId": "L15",
+    "typeId": "L15-choose-completed-square-sub",
+    "stem": "Find $\\int \\sqrt{x^2+6x+13}\\,dx$ with a trigonometric substitution, from the first move to the answer in $x$.",
+    "steps": [
+      {
+        "prompt": "The radicand $x^2+6x+13$ is not yet a sum or difference of squares. What is the first move?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Read it as $x^2+13$ and ignore the $6x$",
+            "note": "The $6x$ term is part of the function, so dropping it changes the integral. A trig substitution needs the radicand written as one squared expression plus or minus a constant."
+          },
+          {
+            "label": "B",
+            "text": "Complete the square"
+          },
+          {
+            "label": "C",
+            "text": "Factor it into real linear factors",
+            "note": "The discriminant is $36-52=-16<0$, so the quadratic has no real factors to find."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Add and subtract $\\left(\\frac{6}{2}\\right)^2=9$:\n\n$$\nx^2+6x+13=(x+3)^2+4=(x+3)^2+2^2.\n$$\n\nSo the integral is $\\int\\sqrt{(x+3)^2+2^2}\\,dx$."
+      },
+      {
+        "prompt": "Which substitution matches $\\sqrt{(x+3)^2+2^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x+3=4\\tan\\theta$",
+            "note": "In the pattern $u^2+a^2$ the number $a$ is the square root of the constant, not the constant itself."
+          },
+          {
+            "label": "B",
+            "text": "$x+3=2\\sec\\theta$",
+            "note": "A secant substitution suits a difference $u^2-a^2$. Here the constant is added."
+          },
+          {
+            "label": "C",
+            "text": "$x+3=2\\tan\\theta$"
+          },
+          {
+            "label": "D",
+            "text": "$x=3\\tan\\theta+2$",
+            "note": "The two numbers are interchanged: one of them scales the trig function and the other shifts it, and they play different roles."
+          }
+        ],
+        "answer": "C",
+        "explanation": "The radicand has the form $u^2+a^2$ with $u=x+3$ and $a=2$, so the tangent substitution applies: $x+3=2\\tan\\theta$, that is $x=2\\tan\\theta-3$."
+      },
+      {
+        "prompt": "With $x+3=2\\tan\\theta$, what do the radical and $dx$ become?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sqrt{x^2+6x+13}=2\\sec\\theta$ and $dx=2\\sec^2\\theta\\,d\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "$\\sqrt{x^2+6x+13}=2\\tan\\theta$ and $dx=2\\sec^2\\theta\\,d\\theta$",
+            "note": "The radical is $\\sqrt{4\\tan^2\\theta+4}$. Factor out the $4$ and use the Pythagorean identity to see what it equals."
+          },
+          {
+            "label": "C",
+            "text": "$\\sqrt{x^2+6x+13}=2\\sec\\theta$ and $dx=2\\sec\\theta\\tan\\theta\\,d\\theta$",
+            "note": "The derivative of $2\\tan\\theta$ is not $2\\sec\\theta\\tan\\theta$; that is the derivative of a different function."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\sqrt{(x+3)^2+4}=\\sqrt{4\\tan^2\\theta+4}=2\\sqrt{\\tan^2\\theta+1}=2\\sec\\theta,\n$$\n\ntaking $\\sec\\theta>0$ for $|\\theta|<\\frac{\\pi}{2}$. Differentiating $x+3=2\\tan\\theta$ gives $dx=2\\sec^2\\theta\\,d\\theta$."
+      },
+      {
+        "prompt": "What integral in $\\theta$ results?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int 2\\sec^3\\theta\\,d\\theta$",
+            "note": "The radical gives a factor $2$ and $dx$ gives another factor $2$. Both constants must be kept."
+          },
+          {
+            "label": "B",
+            "text": "$\\int 2\\sec\\theta\\,d\\theta$",
+            "note": "The differential $dx$ has been left out. It contributes $2\\sec^2\\theta\\,d\\theta$."
+          },
+          {
+            "label": "C",
+            "text": "$\\int 4\\sec^3\\theta\\,d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\int\\sqrt{x^2+6x+13}\\,dx=\\int 2\\sec\\theta\\cdot 2\\sec^2\\theta\\,d\\theta=4\\int\\sec^3\\theta\\,d\\theta.\n$$"
+      },
+      {
+        "prompt": "Using $\\int\\sec^3\\theta\\,d\\theta=\\frac{1}{2}\\left(\\sec\\theta\\tan\\theta+\\ln|\\sec\\theta+\\tan\\theta|\\right)+C$, what is $4\\int\\sec^3\\theta\\,d\\theta$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sec^4\\theta+C$",
+            "note": "A power of $\\sec\\theta$ cannot be integrated like a power of a variable. Differentiating $\\sec^4\\theta$ gives $4\\sec^4\\theta\\tan\\theta$, not $4\\sec^3\\theta$."
+          },
+          {
+            "label": "B",
+            "text": "$2\\sec\\theta\\tan\\theta+2\\ln|\\sec\\theta+\\tan\\theta|+C$"
+          },
+          {
+            "label": "C",
+            "text": "$4\\sec\\theta\\tan\\theta+4\\ln|\\sec\\theta+\\tan\\theta|+C$",
+            "note": "The factor $\\frac{1}{2}$ in the formula has been left out, which doubles the result."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n4\\int\\sec^3\\theta\\,d\\theta=4\\cdot\\frac{1}{2}\\left(\\sec\\theta\\tan\\theta+\\ln|\\sec\\theta+\\tan\\theta|\\right)+C=2\\sec\\theta\\tan\\theta+2\\ln|\\sec\\theta+\\tan\\theta|+C.\n$$"
+      },
+      {
+        "prompt": "Which right triangle returns the answer to $x$, given $\\tan\\theta=\\frac{x+3}{2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Opposite $2$, adjacent $x+3$, hypotenuse $\\sqrt{x^2+6x+13}$",
+            "note": "Tangent is opposite over adjacent, and the substitution puts $x+3$ over $2$. These sides are the other way round."
+          },
+          {
+            "label": "B",
+            "text": "Hypotenuse $x+3$, adjacent $2$, opposite $\\sqrt{(x+3)^2-4}$",
+            "note": "That triangle has $\\sec\\theta=\\frac{x+3}{2}$, but the substitution says $\\tan\\theta=\\frac{x+3}{2}$."
+          },
+          {
+            "label": "C",
+            "text": "Opposite $x+3$, adjacent $2$, hypotenuse $\\sqrt{x^2+6x+13}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "From $\\tan\\theta=\\frac{x+3}{2}$ the opposite side is $x+3$ and the adjacent side is $2$. The hypotenuse is $\\sqrt{(x+3)^2+4}=\\sqrt{x^2+6x+13}$. So $\\sec\\theta=\\frac{\\sqrt{x^2+6x+13}}{2}$ and $\\tan\\theta=\\frac{x+3}{2}$."
+      },
+      {
+        "prompt": "Which is the antiderivative in $x$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(x+3)\\sqrt{x^2+6x+13}+2\\ln\\left|x+3+\\sqrt{x^2+6x+13}\\right|+C$",
+            "note": "This takes $\\sec\\theta$ to be the full radical, with no division by the adjacent side. The adjacent side in the triangle is not $1$, and the logarithm must be checked too."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{x+3}{2}\\sqrt{x^2+6x+13}+2\\ln\\left|x+3+\\sqrt{x^2+6x+13}\\right|+C$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x+3}{2}\\sqrt{x^2+6x+13}+2\\ln\\left|\\frac{x+3}{2}\\right|+C$",
+            "note": "Compare the argument of the logarithm with the antiderivative found in $\\theta$. It contains both $\\sec\\theta$ and $\\tan\\theta$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n2\\sec\\theta\\tan\\theta=2\\cdot\\frac{\\sqrt{x^2+6x+13}}{2}\\cdot\\frac{x+3}{2}=\\frac{x+3}{2}\\sqrt{x^2+6x+13},\n$$\n\nand $\\sec\\theta+\\tan\\theta=\\frac{\\sqrt{x^2+6x+13}+x+3}{2}$. The factor $\\frac{1}{2}$ inside the logarithm gives $-2\\ln 2$, which is absorbed into $C$. So\n\n$$\n\\int\\sqrt{x^2+6x+13}\\,dx=\\frac{x+3}{2}\\sqrt{x^2+6x+13}+2\\ln\\left|x+3+\\sqrt{x^2+6x+13}\\right|+C.\n$$"
+      }
+    ],
+    "takeaway": "After completing the square, take $a$ as the square root of the constant and the shift from the number added to $x$, then keep every factor from the radical and from $dx$."
+  },
+  {
+    "id": "L15-g2",
+    "lessonId": "L15",
+    "typeId": "L15-transformed-integral",
+    "stem": "Consider $\\int_{-5}^{-2}\\frac{x}{\\sqrt{5-4x-x^2}}\\,dx$. (a) Use a trigonometric substitution to rewrite it as an integral in $\\theta$, with the new limits. (b) Evaluate it.",
+    "steps": [
+      {
+        "prompt": "(a) How does the radicand $5-4x-x^2$ look once the square is completed?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(x+2)^2+9$",
+            "note": "The $x^2$ term is negative, so factor out $-1$ before completing the square; the sign of the square cannot be ignored."
+          },
+          {
+            "label": "B",
+            "text": "$9-(x+2)^2$"
+          },
+          {
+            "label": "C",
+            "text": "$5-(x+2)^2$",
+            "note": "Expanding gives $1-4x-x^2$, which is not the radicand. The square $(x+2)^2$ brings in an extra $4$ that must be compensated."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n5-4x-x^2=-(x^2+4x)+5=-\\left[(x+2)^2-4\\right]+5=9-(x+2)^2.\n$$\n\nSo the integral is $\\int_{-5}^{-2}\\frac{x}{\\sqrt{9-(x+2)^2}}\\,dx$."
+      },
+      {
+        "prompt": "Which substitution fits $\\sqrt{3^2-(x+2)^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x+2=3\\sin\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "$x+2=3\\tan\\theta$",
+            "note": "A tangent substitution suits a sum $u^2+a^2$. Here the square is subtracted from a constant."
+          },
+          {
+            "label": "C",
+            "text": "$x+2=9\\sin\\theta$",
+            "note": "The number $a$ is the square root of the constant $9$, not the constant itself."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The radicand has the form $a^2-u^2$ with $u=x+2$ and $a=3$, so $x+2=3\\sin\\theta$. Then $x=3\\sin\\theta-2$."
+      },
+      {
+        "prompt": "With $x+2=3\\sin\\theta$, what do the radical and $dx$ become?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\sqrt{9-(x+2)^2}=3\\sin\\theta$ and $dx=3\\cos\\theta\\,d\\theta$",
+            "note": "The radical is $\\sqrt{9-9\\sin^2\\theta}$. Factor out the $9$ and use the Pythagorean identity."
+          },
+          {
+            "label": "B",
+            "text": "$\\sqrt{9-(x+2)^2}=3\\cos\\theta$ and $dx=3\\sin\\theta\\,d\\theta$",
+            "note": "The derivative of $3\\sin\\theta$ is not $3\\sin\\theta$; recheck the differentiation."
+          },
+          {
+            "label": "C",
+            "text": "$\\sqrt{9-(x+2)^2}=3\\cos\\theta$ and $dx=3\\cos\\theta\\,d\\theta$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\sqrt{9-9\\sin^2\\theta}=3\\sqrt{1-\\sin^2\\theta}=3\\cos\\theta,\n$$\n\ntaking $\\cos\\theta\\ge 0$ for $-\\frac{\\pi}{2}\\le\\theta\\le\\frac{\\pi}{2}$. Differentiating $x+2=3\\sin\\theta$ gives $dx=3\\cos\\theta\\,d\\theta$."
+      },
+      {
+        "prompt": "(a) What are the new limits?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-5$ to $-2$, unchanged",
+            "note": "These are values of $x$. In the new variable the limits are the angles with $x+2=3\\sin\\theta$ at those two points."
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{\\pi}{2}$ to $0$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\pi}{2}$ to $0$",
+            "note": "At the lower limit $x+2$ is negative, so $\\sin\\theta$ cannot be positive there."
+          }
+        ],
+        "answer": "B",
+        "explanation": "At $x=-5$: $3\\sin\\theta=-3$, so $\\sin\\theta=-1$ and $\\theta=-\\frac{\\pi}{2}$. At $x=-2$: $3\\sin\\theta=0$, so $\\theta=0$. Both lie in $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$, where $\\cos\\theta\\ge 0$."
+      },
+      {
+        "prompt": "(a) What does the integrand become once $x$ itself is also replaced?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_{-\\pi/2}^{0}(3\\sin\\theta-2)\\,d\\theta$"
+          },
+          {
+            "label": "B",
+            "text": "$\\int_{-\\pi/2}^{0}\\frac{3\\sin\\theta-2}{3\\cos\\theta}\\,d\\theta$",
+            "note": "The factor $dx$ has been left out. It contributes $3\\cos\\theta\\,d\\theta$."
+          },
+          {
+            "label": "C",
+            "text": "$\\int_{-\\pi/2}^{0}3\\sin\\theta\\,d\\theta$",
+            "note": "The numerator $x$ is not $x+2$. Replace $x$ using $x=3\\sin\\theta-2$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\int_{-5}^{-2}\\frac{x}{\\sqrt{5-4x-x^2}}\\,dx=\\int_{-\\pi/2}^{0}\\frac{(3\\sin\\theta-2)\\cdot 3\\cos\\theta}{3\\cos\\theta}\\,d\\theta=\\int_{-\\pi/2}^{0}(3\\sin\\theta-2)\\,d\\theta.\n$$"
+      },
+      {
+        "prompt": "(b) What is an antiderivative of $3\\sin\\theta-2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3\\cos\\theta-2\\theta$",
+            "note": "Differentiating gives $-3\\sin\\theta-2$, so the sign of the cosine term is wrong."
+          },
+          {
+            "label": "B",
+            "text": "$-3\\cos\\theta-2\\theta$"
+          },
+          {
+            "label": "C",
+            "text": "$-3\\cos\\theta-2$",
+            "note": "Differentiating gives $3\\sin\\theta$. The constant $-2$ must be integrated too."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\int 3\\sin\\theta\\,d\\theta=-3\\cos\\theta$ and $\\int(-2)\\,d\\theta=-2\\theta$, so an antiderivative is $F(\\theta)=-3\\cos\\theta-2\\theta$."
+      },
+      {
+        "prompt": "(b) What is the value of the integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3+\\pi$",
+            "note": "The integrand is negative everywhere on the interval, since $x<0$ and the root is positive, so the value must be negative. Check the order of subtraction."
+          },
+          {
+            "label": "B",
+            "text": "$\\pi-3$",
+            "note": "This is positive, but the integrand is negative everywhere on the interval. Recheck the value of $F$ at the lower limit."
+          },
+          {
+            "label": "C",
+            "text": "$-3-\\pi$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$F(0)=-3\\cos 0-0=-3$ and $F\\left(-\\frac{\\pi}{2}\\right)=-3\\cos\\left(-\\frac{\\pi}{2}\\right)+\\pi=\\pi$. Then\n\n$$\nF(0)-F\\left(-\\frac{\\pi}{2}\\right)=-3-\\pi.\n$$\n\nThe sign is right: $x<0$ on the whole interval and the root is positive, so the integrand is negative."
+      }
+    ],
+    "takeaway": "Change everything with the substitution: the root, $dx$, any $x$ in the numerator, and the limits, then check the sign of the answer against the integrand."
+  }
+]

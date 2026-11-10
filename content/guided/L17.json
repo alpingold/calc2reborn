@@ -1,0 +1,496 @@
+[
+  {
+    "id": "L17-g1",
+    "lessonId": "L17",
+    "typeId": "L17-decomposition-form",
+    "stem": "Let $f(x) = \\frac{3x^2 + 27}{x^2(x^2 - 9)(x^2 + 1)^2}$.\n\n(a) Write the proper form of the partial fraction decomposition of $f$, with the denominator factored as far as possible.\n\n(b) Find the constant over $x - 3$ in that decomposition.",
+    "steps": [
+      {
+        "prompt": "(a) Does $f$ need polynomial long division before it is decomposed?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "No: the numerator has degree $2$, below the denominator's degree $8$"
+          },
+          {
+            "label": "B",
+            "text": "Yes, because the denominator has repeated factors",
+            "note": "Repeated factors only change which terms are written. Whether to divide depends on comparing the degree of the numerator with the degree of the denominator."
+          },
+          {
+            "label": "C",
+            "text": "Yes, because the numerator factors as $3(x^2 + 9)$",
+            "note": "Factoring the numerator does not decide this. Compare the degree of the numerator with the degree of the denominator."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The numerator $3x^2 + 27$ has degree $2$. The denominator has degree $2 + 2 + 4 = 8$. The fraction is proper, so no division is needed and the decomposition can be written directly."
+      },
+      {
+        "prompt": "How is the denominator factored completely over the real numbers?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x^2(x - 3)^2(x^2 + 1)^2$",
+            "note": "$x^2 - 9$ is a difference of squares, which gives two different factors, not a square."
+          },
+          {
+            "label": "B",
+            "text": "$x^2(x - 3)(x + 3)(x - 1)^2(x + 1)^2$",
+            "note": "$(x - 1)(x + 1) = x^2 - 1$, not $x^2 + 1$. A sum of squares has no real linear factors."
+          },
+          {
+            "label": "C",
+            "text": "$x^2(x - 3)(x + 3)(x^2 + 1)^2$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$x^2 - 9 = (x - 3)(x + 3)$ is reducible. $x^2 + 1$ has discriminant $0 - 4 < 0$, so it is irreducible and stays. The denominator is\n\n$$\nx^2(x - 3)(x + 3)(x^2 + 1)^2.\n$$"
+      },
+      {
+        "prompt": "Which terms does the factor $x^2$ contribute?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{A}{x^2}$ only",
+            "note": "A repeated linear factor needs a term for every power up to its exponent, including the first power."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{A}{x} + \\frac{B}{x^2}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{A}{x}$ only",
+            "note": "The exponent of the factor is $2$. Count how many powers need a term."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The factor $x$ appears to the power $2$, so it contributes one term for each power up to $2$: $\\frac{A}{x} + \\frac{B}{x^2}$, each with a constant numerator."
+      },
+      {
+        "prompt": "Which terms do the linear factors $x - 3$ and $x + 3$ contribute? Use the next two letters, $C$ and $D$, as constants.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{Cx + D}{x^2 - 9}$",
+            "note": "This leaves a reducible quadratic in the denominator. The denominator was already factored into linear factors, and each gets its own term."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{C}{x^2 - 9}$",
+            "note": "This leaves a reducible quadratic in the denominator. The denominator was already factored into linear factors, and each gets its own term."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{C}{(x - 3)^2} + \\frac{D}{(x + 3)^2}$",
+            "note": "Squares are needed only for a factor that is repeated. Check the exponent of each of these factors."
+          },
+          {
+            "label": "D",
+            "text": "$\\frac{C}{x - 3} + \\frac{D}{x + 3}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Each of $x - 3$ and $x + 3$ appears once, so each gets one term with a constant numerator: $\\frac{C}{x - 3} + \\frac{D}{x + 3}$."
+      },
+      {
+        "prompt": "Which terms does the repeated irreducible factor $(x^2 + 1)^2$ contribute?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{E}{x^2 + 1} + \\frac{F}{(x^2 + 1)^2}$",
+            "note": "An irreducible quadratic needs a numerator one degree lower than the factor, which is not a constant."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{Ex + F}{(x^2 + 1)^2}$ only",
+            "note": "A term is needed for every power up to the exponent, so the first power is missing."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{Ex + F}{x^2 + 1} + \\frac{Gx + H}{(x^2 + 1)^2}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "There is a term for each power up to $2$, and each has a linear numerator because $x^2 + 1$ is irreducible: $\\frac{Ex + F}{x^2 + 1} + \\frac{Gx + H}{(x^2 + 1)^2}$. Together with the earlier terms,\n\n$$\nf(x) = \\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x - 3} + \\frac{D}{x + 3} + \\frac{Ex + F}{x^2 + 1} + \\frac{Gx + H}{(x^2 + 1)^2}.\n$$"
+      },
+      {
+        "prompt": "How many unknown constants does this form contain?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$6$",
+            "note": "This counts one constant for each term. The two quadratic terms have numerators with two constants each."
+          },
+          {
+            "label": "B",
+            "text": "$8$"
+          },
+          {
+            "label": "C",
+            "text": "$4$",
+            "note": "This counts one constant for each distinct factor. Count the constants in every numerator instead."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The terms $\\frac{A}{x}$, $\\frac{B}{x^2}$, $\\frac{C}{x - 3}$ and $\\frac{D}{x + 3}$ have one constant each. The two quadratic terms have two each. That makes $4 + 2\\cdot 2 = 8$, equal to the degree of the denominator, as it should be."
+      },
+      {
+        "prompt": "(b) Which method gives the constant $C$ over $x - 3$ most directly?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Set $x = 3$ in $f$ itself",
+            "note": "Both sides have a zero in a denominator at $x = 3$, so the value is not defined."
+          },
+          {
+            "label": "B",
+            "text": "Set $x = 0$ after clearing denominators",
+            "note": "At $x = 0$ every term with a factor $x$ vanishes, so the equation gives a different constant, not this one."
+          },
+          {
+            "label": "C",
+            "text": "Multiply both sides by $x - 3$, cancel it from the left, then set $x = 3$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Multiplying both sides by $x - 3$ gives\n\n$$\n\\frac{3x^2 + 27}{x^2(x + 3)(x^2 + 1)^2} = \\frac{A(x - 3)}{x} + \\frac{B(x - 3)}{x^2} + C + \\frac{D(x - 3)}{x + 3} + \\cdots\n$$\n\nAt $x = 3$ every term except $C$ carries the factor $x - 3$ and vanishes, so $C$ equals the left side at $x = 3$."
+      },
+      {
+        "prompt": "What is $C$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{100}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{3}{50}$",
+            "note": "That value comes from leaving the factor $x + 3$ out of the denominator. All the other factors must be evaluated at $x = 3$, including that one."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{10}$",
+            "note": "That value uses $x^2 + 1$ instead of $(x^2 + 1)^2$ when evaluating the denominator at $x = 3$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $x = 3$ the numerator is $3(9) + 27 = 54$. The other factors are $x^2 = 9$, $x + 3 = 6$ and $(x^2 + 1)^2 = 10^2 = 100$, whose product is $9 \\cdot 6 \\cdot 100 = 5400$. So\n\n$$\nC = \\frac{54}{5400} = \\frac{1}{100}.\n$$"
+      }
+    ],
+    "takeaway": "Factor completely first, then give every power of every factor its own term, with a linear numerator only over irreducible quadratics."
+  },
+  {
+    "id": "L17-g2",
+    "lessonId": "L17",
+    "typeId": "L17-long-division",
+    "stem": "(a) Use long division to write $\\frac{2x^3 + x^2 + 3x + 4}{x^2 + 1}$ in the form $q(x) + \\frac{r(x)}{x^2 + 1}$ with $\\deg r < 2$.\n\n(b) Evaluate $\\displaystyle\\int_0^1 \\frac{2x^3 + x^2 + 3x + 4}{x^2 + 1}\\,dx$.",
+    "steps": [
+      {
+        "prompt": "(a) What should be done before looking for an antiderivative?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Go straight to partial fractions, since $x^2 + 1$ is irreducible",
+            "note": "Partial fractions apply to proper fractions only. Compare the degrees of the numerator and the denominator first."
+          },
+          {
+            "label": "B",
+            "text": "Divide, because the numerator's degree is at least the denominator's"
+          },
+          {
+            "label": "C",
+            "text": "Nothing, the fraction is already proper",
+            "note": "Compare the degree of the numerator with the degree of the denominator."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The numerator has degree $3$ and the denominator has degree $2$, so the fraction is improper. Divide first: $\\frac{N}{D} = q + \\frac{r}{D}$ with $\\deg r < 2$."
+      },
+      {
+        "prompt": "What is the first term of the quotient?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x$",
+            "note": "Dividing the leading terms $2x^3$ and $x^2$ divides the coefficients as well as the powers."
+          },
+          {
+            "label": "B",
+            "text": "$2x^3$",
+            "note": "Divide the leading term of the numerator by the leading term of the denominator. That lowers the power by $2$."
+          },
+          {
+            "label": "C",
+            "text": "$2x$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Leading terms: $\\frac{2x^3}{x^2} = 2x$. Multiply back: $2x(x^2 + 1) = 2x^3 + 2x$. Subtract from the numerator:\n\n$$\n(2x^3 + x^2 + 3x + 4) - (2x^3 + 2x) = x^2 + x + 4.\n$$"
+      },
+      {
+        "prompt": "Continue the division with $x^2 + x + 4$. What are $q(x)$ and $r(x)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$q = 2x + 1$, $r = x + 3$"
+          },
+          {
+            "label": "B",
+            "text": "$q = 2x + 1$, $r = x + 4$",
+            "note": "The product $1\\cdot(x^2 + 1)$ has a constant term as well as $x^2$, and both must be subtracted."
+          },
+          {
+            "label": "C",
+            "text": "$q = 2x + 1$, $r = x + 5$",
+            "note": "Check the sign of the constant when subtracting $x^2 + 1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Leading terms: $\\frac{x^2}{x^2} = 1$. Then $1\\cdot(x^2 + 1) = x^2 + 1$, and\n\n$$\n(x^2 + x + 4) - (x^2 + 1) = x + 3.\n$$\n\nThis has degree $1 < 2$, so the division stops. $q(x) = 2x + 1$ and $r(x) = x + 3$."
+      },
+      {
+        "prompt": "Which expression should equal the original numerator, as a check on the division?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$q(x)\\cdot r(x)$",
+            "note": "Quotient and remainder are not multiplied. In integer division, $17 = 5\\cdot 3 + 2$, the quotient is multiplied by the divisor and then the remainder is added."
+          },
+          {
+            "label": "B",
+            "text": "$q(x)(x^2 + 1) + r(x)$"
+          },
+          {
+            "label": "C",
+            "text": "$q(x) + r(x)(x^2 + 1)$",
+            "note": "Here the remainder is multiplied by the divisor. In $17 = 5\\cdot 3 + 2$ the remainder $2$ is not multiplied by the divisor $3$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Multiply back:\n\n$$\n(2x + 1)(x^2 + 1) + (x + 3) = 2x^3 + x^2 + 2x + 1 + x + 3 = 2x^3 + x^2 + 3x + 4.\n$$\n\nThis is the original numerator, so $\\frac{2x^3 + x^2 + 3x + 4}{x^2 + 1} = 2x + 1 + \\frac{x + 3}{x^2 + 1}$."
+      },
+      {
+        "prompt": "(b) How should the remainder fraction $\\frac{x + 3}{x^2 + 1}$ be split for integration?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{x}{x^2 + 1} + 3$",
+            "note": "The term $3$ has lost its denominator. Each piece of the numerator stays over $x^2 + 1$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{x} + \\frac{3}{x^2 + 1}$",
+            "note": "$\\frac{x}{x^2 + 1}$ does not simplify to $\\frac{1}{x}$, since $x^2 + 1$ is not $x^2$."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{x}{x^2 + 1} + \\frac{3}{x^2 + 1}$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The denominator $x^2 + 1$ is irreducible, so the remainder is not decomposed further. Split the numerator over the common denominator:\n\n$$\n\\frac{x + 3}{x^2 + 1} = \\frac{x}{x^2 + 1} + \\frac{3}{x^2 + 1}.\n$$\n\nThe first piece is a logarithm by $u = x^2 + 1$, and the second is an arctangent."
+      },
+      {
+        "prompt": "What is an antiderivative of $2x + 1 + \\frac{x}{x^2 + 1} + \\frac{3}{x^2 + 1}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x^2 + x + \\ln(x^2 + 1) + 3\\tan^{-1}x$",
+            "note": "With $u = x^2 + 1$, $du = 2x\\,dx$, so $\\int \\frac{x}{x^2 + 1}\\,dx$ carries a factor that this choice leaves out."
+          },
+          {
+            "label": "B",
+            "text": "$x^2 + x + \\frac{1}{2}\\ln(x^2 + 1) + 3\\tan^{-1}x$"
+          },
+          {
+            "label": "C",
+            "text": "$x^2 + x + \\frac{1}{2}\\ln(x^2 + 1) + \\tan^{-1}x$",
+            "note": "The numerator of the second piece is $3$, and integrating does not make that constant disappear."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Term by term: $\\int (2x + 1)\\,dx = x^2 + x$. With $u = x^2 + 1$, $\\int \\frac{x}{x^2 + 1}\\,dx = \\frac{1}{2}\\ln(x^2 + 1)$. And $\\int \\frac{3}{x^2 + 1}\\,dx = 3\\tan^{-1}x$. So\n\n$$\nF(x) = x^2 + x + \\frac{1}{2}\\ln(x^2 + 1) + 3\\tan^{-1}x.\n$$"
+      },
+      {
+        "prompt": "What is the value of the definite integral?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2 + \\frac{1}{2}\\ln 2 + \\frac{3\\pi}{4}$"
+          },
+          {
+            "label": "B",
+            "text": "$2 + \\ln 2 + \\frac{3\\pi}{4}$",
+            "note": "This has $\\ln 2$ where the antiderivative has half of it. Recheck the coefficient of the logarithm."
+          },
+          {
+            "label": "C",
+            "text": "$1 + \\frac{1}{2}\\ln 2 + \\frac{3\\pi}{4}$",
+            "note": "This drops a term of the polynomial part of the antiderivative at $x = 1$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$F(1) = 1 + 1 + \\frac{1}{2}\\ln 2 + 3\\cdot\\frac{\\pi}{4}$ and $F(0) = 0 + 0 + \\frac{1}{2}\\ln 1 + 0 = 0$. So\n\n$$\n\\int_0^1 \\frac{2x^3 + x^2 + 3x + 4}{x^2 + 1}\\,dx = 2 + \\frac{1}{2}\\ln 2 + \\frac{3\\pi}{4} \\approx 4.703.\n$$"
+      }
+    ],
+    "takeaway": "Divide whenever the numerator's degree is at least the denominator's, and multiply back to check before integrating."
+  },
+  {
+    "id": "L17-g3",
+    "lessonId": "L17",
+    "typeId": "L17-integrate-quadratic-factor",
+    "stem": "Evaluate $\\displaystyle\\int_2^4 \\frac{5x^2 - 3x + 13}{(x - 1)(x^2 + 4)}\\,dx$.",
+    "steps": [
+      {
+        "prompt": "What is the form of the partial fraction decomposition of the integrand?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{A}{x - 1} + \\frac{B}{x^2 + 4}$",
+            "note": "An irreducible quadratic factor needs a numerator one degree lower than the factor, so a constant is not enough."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{A}{x - 1} + \\frac{Bx + C}{x^2 + 4}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{A}{x - 1} + \\frac{B}{x + 2} + \\frac{C}{x - 2}$",
+            "note": "$(x + 2)(x - 2) = x^2 - 4$, not $x^2 + 4$. A sum of squares has no real linear factors."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The numerator has degree $2$ and the denominator has degree $3$, so the fraction is proper. The factor $x - 1$ is linear and $x^2 + 4$ has discriminant $-16 < 0$, so it is irreducible:\n\n$$\n\\frac{5x^2 - 3x + 13}{(x - 1)(x^2 + 4)} = \\frac{A}{x - 1} + \\frac{Bx + C}{x^2 + 4}.\n$$"
+      },
+      {
+        "prompt": "Which equation results from clearing the denominators?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$5x^2 - 3x + 13 = A(x^2 + 4) + (Bx + C)(x - 1)$"
+          },
+          {
+            "label": "B",
+            "text": "$5x^2 - 3x + 13 = A(x - 1) + (Bx + C)(x^2 + 4)$",
+            "note": "Each numerator is multiplied by the factor that is missing from its own denominator, not by its own."
+          },
+          {
+            "label": "C",
+            "text": "$5x^2 - 3x + 13 = A(x^2 + 4) + B(x - 1)$",
+            "note": "The numerator over $x^2 + 4$ is $Bx + C$, and it must be kept whole."
+          }
+        ],
+        "answer": "A",
+        "explanation": "Multiply both sides by $(x - 1)(x^2 + 4)$. The term $\\frac{A}{x - 1}$ is left with $A(x^2 + 4)$, and $\\frac{Bx + C}{x^2 + 4}$ is left with $(Bx + C)(x - 1)$:\n\n$$\n5x^2 - 3x + 13 = A(x^2 + 4) + (Bx + C)(x - 1).\n$$"
+      },
+      {
+        "prompt": "Which substitution finds $A$ quickly, and what does it give?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x = 1$, giving $A = 3$"
+          },
+          {
+            "label": "B",
+            "text": "$x = 0$, giving $A = \\frac{13}{4}$",
+            "note": "At $x = 0$ the term $(Bx + C)(x - 1)$ becomes $-C$, not $0$, so $A$ is not isolated."
+          },
+          {
+            "label": "C",
+            "text": "$x = 1$, giving $A = 15$",
+            "note": "At $x = 1$ the factor multiplying $A$ is $x^2 + 4$ evaluated at $1$. Divide by that value."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At $x = 1$ the term $(Bx + C)(x - 1)$ vanishes. The left side is $5 - 3 + 13 = 15$ and the right side is $A(1 + 4) = 5A$. So $A = 3$."
+      },
+      {
+        "prompt": "Expand the right side and match coefficients with $A = 3$. What are $B$ and $C$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$B = 2$, $C = 1$",
+            "note": "The constant terms give $4A - C = 13$. Recheck the sign of $C$ there."
+          },
+          {
+            "label": "B",
+            "text": "$B = 8$, $C = -1$",
+            "note": "The $x^2$ terms give $A + B = 5$. Recheck how $A$ enters that equation."
+          },
+          {
+            "label": "C",
+            "text": "$B = 2$, $C = -1$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Expanding, $A(x^2 + 4) + (Bx + C)(x - 1) = (A + B)x^2 + (C - B)x + (4A - C)$. Matching with $5x^2 - 3x + 13$:\n\n$x^2$: $A + B = 5$, so $B = 2$. Constants: $4A - C = 13$, so $12 - C = 13$ and $C = -1$.\n\nCheck with the $x$ terms: $C - B = -3$ and $-1 - 2 = -3$. Therefore\n\n$$\n\\frac{5x^2 - 3x + 13}{(x - 1)(x^2 + 4)} = \\frac{3}{x - 1} + \\frac{2x - 1}{x^2 + 4}.\n$$"
+      },
+      {
+        "prompt": "How should the quadratic piece $\\frac{2x - 1}{x^2 + 4}$ be split for integration?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{2}{x^2 + 4} - \\frac{x}{x^2 + 4}$",
+            "note": "These two pieces add up to $\\frac{2 - x}{x^2 + 4}$, not to the numerator $2x - 1$."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{2x}{x^2 + 4} - \\frac{1}{x^2 + 4}$"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Split the numerator into its $x$ part and its constant part:\n\n$$\n\\frac{2x - 1}{x^2 + 4} = \\frac{2x}{x^2 + 4} - \\frac{1}{x^2 + 4}.\n$$\n\nThe first piece is a logarithm by $u = x^2 + 4$, and the second is an arctangent."
+      },
+      {
+        "prompt": "What is an antiderivative of $\\frac{3}{x - 1} + \\frac{2x}{x^2 + 4} - \\frac{1}{x^2 + 4}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3\\ln|x - 1| + \\ln(x^2 + 4) - \\tan^{-1}\\left(\\frac{x}{2}\\right)$",
+            "note": "$\\int \\frac{1}{x^2 + a^2}\\,dx$ carries a factor $\\frac{1}{a}$, which is missing here."
+          },
+          {
+            "label": "B",
+            "text": "$3\\ln|x - 1| + 2\\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right)$",
+            "note": "With $u = x^2 + 4$, $du = 2x\\,dx$, so the numerator $2x$ is exactly $du$. Check whether a coefficient belongs in front of the logarithm."
+          },
+          {
+            "label": "C",
+            "text": "$3\\ln|x - 1| + \\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}x$",
+            "note": "The arctangent form is $\\tan^{-1}\\left(\\frac{x}{a}\\right)$ with $a^2 = 4$. The argument must be scaled."
+          },
+          {
+            "label": "D",
+            "text": "$3\\ln|x - 1| + \\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right)$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "$\\int \\frac{3}{x - 1}\\,dx = 3\\ln|x - 1|$. With $u = x^2 + 4$, $\\int \\frac{2x}{x^2 + 4}\\,dx = \\ln(x^2 + 4)$. And $\\int \\frac{1}{x^2 + 4}\\,dx = \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right)$. So\n\n$$\nF(x) = 3\\ln|x - 1| + \\ln(x^2 + 4) - \\frac{1}{2}\\tan^{-1}\\left(\\frac{x}{2}\\right).\n$$"
+      },
+      {
+        "prompt": "What is $F(4) - F(2)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$3\\ln 3 + \\ln\\frac{5}{2} - \\frac{1}{2}\\tan^{-1}2$",
+            "note": "This treats the arctangent term as $0$ at the lower limit. At $x = 2$ its argument is $\\frac{x}{2} = 1$, and $\\tan^{-1}1$ is not $0$."
+          },
+          {
+            "label": "B",
+            "text": "$3\\ln 3 + \\ln\\frac{5}{2} + \\frac{\\pi}{8} - \\frac{1}{2}\\tan^{-1}2$"
+          },
+          {
+            "label": "C",
+            "text": "$3\\ln 3 + \\ln 12 + \\frac{\\pi}{8} - \\frac{1}{2}\\tan^{-1}2$",
+            "note": "A difference of logarithms is the logarithm of a quotient, not of a difference."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Logarithm of $x - 1$: $3\\ln 3 - 3\\ln 1 = 3\\ln 3$. Logarithm of $x^2 + 4$: $\\ln 20 - \\ln 8 = \\ln\\frac{5}{2}$. Arctangent: $-\\frac{1}{2}\\left(\\tan^{-1}2 - \\tan^{-1}1\\right) = -\\frac{1}{2}\\tan^{-1}2 + \\frac{\\pi}{8}$. So\n\n$$\n\\int_2^4 \\frac{5x^2 - 3x + 13}{(x - 1)(x^2 + 4)}\\,dx = 3\\ln 3 + \\ln\\frac{5}{2} + \\frac{\\pi}{8} - \\frac{1}{2}\\tan^{-1}2 \\approx 4.051.\n$$"
+      }
+    ],
+    "takeaway": "Give an irreducible quadratic a linear numerator, then split it into a logarithm part from the derivative of the denominator and an arctangent part from the constant."
+  }
+]

@@ -194,7 +194,7 @@ test('a lesson with no problem types has no such section', async () => {
   expect(screen.queryByRole('heading', { name: 'Problem types' })).not.toBeInTheDocument()
 })
 
-test('guided problems are collapsed, open on demand, and are marked done and saved once finished', async () => {
+test('guided problems are shown ready to work, and are marked done and saved once finished', async () => {
   let saved: MemoryStore | undefined
   await setup('/course/L19', async (store) => {
     saved = store
@@ -202,16 +202,20 @@ test('guided problems are collapsed, open on demand, and are marked done and sav
   })
   const section = (await screen.findByRole('heading', { name: 'Check your understanding' })).parentElement as HTMLElement
   expect(within(section).getByText(/These are not Purdue problems/)).toBeInTheDocument()
-  const items = within(section).getAllByRole('listitem')
+  const items = [...section.querySelectorAll<HTMLElement>('.guided-card')]
   expect(items).toHaveLength(2)
+  expect(within(items[0]).getByRole('heading', { name: 'Problem 1' })).toBeInTheDocument()
   expect(within(items[0]).getByText('L19 type A')).toBeInTheDocument()
   expect(within(items[0]).queryByText('Done')).not.toBeInTheDocument()
   expect(await within(items[1]).findByText('Done')).toBeInTheDocument()
-  expect(screen.queryByText('Stem of L19-g1')).not.toBeInTheDocument()
-  await userEvent.click(within(items[0]).getByRole('button', { name: 'Problem 1' }))
-  expect(screen.getByText('Stem of L19-g1')).toBeInTheDocument()
-  for (const n of [1, 2, 3]) await userEvent.click(screen.getByRole('button', { name: new RegExp(`Right ${n}`) }))
+  // both problems are open from the start, each at its first step
+  expect(within(items[0]).getByText('Stem of L19-g1')).toBeInTheDocument()
+  expect(within(items[1]).getByText('Stem of L19-g2')).toBeInTheDocument()
+  expect(within(items[0]).getByText('Step 1 of 3')).toBeInTheDocument()
+  expect(await screen.findByRole('link', { name: 'Guided problems: 1 of 2 done' })).toHaveAttribute('href', '/course/L19#guided')
+  for (const n of [1, 2, 3]) await userEvent.click(within(items[0]).getByRole('button', { name: new RegExp(`Right ${n}`) }))
   expect(await within(items[0]).findByText('Done')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Guided problems: 2 of 2 done' })).toBeInTheDocument()
   const results = await saved!.listGuidedResults()
   expect(results.find((r) => r.problemId === 'L19-g1')).toMatchObject({
     steps: 3,
@@ -220,10 +224,17 @@ test('guided problems are collapsed, open on demand, and are marked done and sav
   })
 })
 
-test('arriving at a guided problem\'s address opens that problem', async () => {
-  await setup('/course/L19#guided-L19-g2')
-  expect(await screen.findByText('Stem of L19-g2')).toBeInTheDocument()
-  expect(screen.queryByText('Stem of L19-g1')).not.toBeInTheDocument()
+test('the page lists its sections as links', async () => {
+  await setup('/course/L19')
+  const nav = await screen.findByRole('navigation', { name: 'On this page' })
+  expect(within(nav).getAllByRole('link').map((a) => a.textContent)).toEqual([
+    'Key ideas',
+    'Check your understanding',
+    'Flashcards',
+    'Problem types',
+    'Exam questions',
+  ])
+  expect(within(nav).getByRole('link', { name: 'Flashcards' })).toHaveAttribute('href', '/course/L19#flashcards')
 })
 
 test('a lesson with no guided problems has no such section', async () => {

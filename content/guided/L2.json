@@ -1,0 +1,317 @@
+[
+  {
+    "id": "L2-g1",
+    "lessonId": "L2",
+    "typeId": "L2-sphere-center-radius",
+    "stem": "A sphere has the equation $3x^2 + 3y^2 + 3z^2 + 12x - 18y + 6z = 15$.\n\n(a) Find its center and radius.\n\n(b) Decide whether the point $P(1, 5, -3)$ lies inside the sphere, on it, or outside it.",
+    "steps": [
+      {
+        "prompt": "(a) What is the first move before completing any squares?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Complete the square at once on $3x^2 + 12x$, $3y^2 - 18y$ and $3z^2 + 6z$",
+            "note": "Half the linear coefficient completes a square only when the squared term has coefficient $1$. With $3x^2$ the constants added would be wrong."
+          },
+          {
+            "label": "B",
+            "text": "Divide the whole equation by $3$"
+          },
+          {
+            "label": "C",
+            "text": "Stop: the coefficients are not $1$, so this is not a sphere",
+            "note": "A sphere needs the three squared terms to have equal coefficients, not coefficients equal to $1$. Equal coefficients can be adjusted."
+          },
+          {
+            "label": "D",
+            "text": "Divide the left side by $3$ and keep $15$ on the right",
+            "note": "Whatever is done to one side must be done to the other, so the right side changes too."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The coefficients of $x^2$, $y^2$, $z^2$ are all $3$, so this is a sphere once they are made $1$. Divide every term by $3$:\n\n$$\nx^2 + y^2 + z^2 + 4x - 6y + 2z = 5\n$$"
+      },
+      {
+        "prompt": "(a) For $x^2 + y^2 + z^2 + 4x - 6y + 2z = 5$, what is added to each side to complete the squares in $x$, $y$ and $z$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$2,\\ -3,\\ 1$",
+            "note": "These are the halves of the linear coefficients. The number added is the square of each half."
+          },
+          {
+            "label": "B",
+            "text": "$16,\\ 36,\\ 4$",
+            "note": "These square the whole linear coefficients. The square that completes $x^2 + 4x$ uses half of the $4$."
+          },
+          {
+            "label": "C",
+            "text": "$4,\\ 9,\\ 1$"
+          },
+          {
+            "label": "D",
+            "text": "$4,\\ -9,\\ 1$",
+            "note": "A square is never negative: the half of $-6$ is negative, but its square is not."
+          }
+        ],
+        "answer": "C",
+        "explanation": "Take half of each linear coefficient and square it:\n\n$x$: $\\left(\\frac{4}{2}\\right)^2 = 4$\n\n$y$: $\\left(\\frac{-6}{2}\\right)^2 = 9$\n\n$z$: $\\left(\\frac{2}{2}\\right)^2 = 1$\n\nAdd $4$, $9$ and $1$ to both sides."
+      },
+      {
+        "prompt": "(a) Which equation results after completing the squares?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(x+2)^2 + (y-3)^2 + (z+1)^2 = 19$"
+          },
+          {
+            "label": "B",
+            "text": "$(x-2)^2 + (y+3)^2 + (z-1)^2 = 19$",
+            "note": "Expand to check: $(x-2)^2$ contains $-4x$, but the equation has $+4x$. Look again at the sign inside each bracket."
+          },
+          {
+            "label": "C",
+            "text": "$(x+2)^2 + (y-3)^2 + (z+1)^2 = 5$",
+            "note": "The same numbers must be added on the right as on the left. Here the right side was left as it was."
+          },
+          {
+            "label": "D",
+            "text": "$(x+2)^2 + (y-3)^2 + (z+1)^2 = 14$",
+            "note": "The $14$ is $4 + 9 + 1$ alone. The $5$ that was already on the right side has been dropped."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n(x^2 + 4x + 4) + (y^2 - 6y + 9) + (z^2 + 2z + 1) = 5 + 4 + 9 + 1\n$$\n\n$$\n(x+2)^2 + (y-3)^2 + (z+1)^2 = 19\n$$"
+      },
+      {
+        "prompt": "(a) Read the center and the radius from the completed equation.",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Center $(2, -3, 1)$, radius $\\sqrt{19}$",
+            "note": "The center takes the opposite signs to those inside the brackets, since $x + 2 = x - (-2)$."
+          },
+          {
+            "label": "B",
+            "text": "Center $(-2, 3, -1)$, radius $19$",
+            "note": "The right side is $r^2$, not $r$."
+          },
+          {
+            "label": "C",
+            "text": "Center $(-2, 3, -1)$, radius $\\sqrt{5}$",
+            "note": "The right side of the completed equation is the one that gives $r^2$, not the $5$ from the original equation."
+          },
+          {
+            "label": "D",
+            "text": "Center $(-2, 3, -1)$, radius $\\sqrt{19}$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Compare with $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$. Here $x + 2 = x - (-2)$, so $h = -2$; likewise $k = 3$ and $l = -1$.\n\nThe right side is $r^2 = 19$, so $r = \\sqrt{19}$.\n\nThe center is $(-2, 3, -1)$ and the radius is $\\sqrt{19}$."
+      },
+      {
+        "prompt": "(b) What is the squared distance from the center to $P(1, 5, -3)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$81$",
+            "note": "This comes from using $(2, -3, 1)$ as the center, with the signs of the linear terms. Revisit the center found in the previous part."
+          },
+          {
+            "label": "B",
+            "text": "$17$"
+          },
+          {
+            "label": "C",
+            "text": "$7$",
+            "note": "This adds the differences $3$, $2$, $2$ without squaring them. The distance formula squares each difference."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The differences from the center $(-2, 3, -1)$ to $P(1, 5, -3)$ are $1 - (-2) = 3$, $5 - 3 = 2$, $-3 - (-1) = -2$.\n\n$$\nd^2 = 3^2 + 2^2 + (-2)^2 = 9 + 4 + 4 = 17\n$$"
+      },
+      {
+        "prompt": "(b) Where does $P$ lie, given $d^2 = 17$ and $r^2 = 19$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Outside the sphere, since $17 > \\sqrt{19}$",
+            "note": "This compares a squared distance with an unsquared radius. Both quantities must be squared, or neither."
+          },
+          {
+            "label": "B",
+            "text": "On the sphere, since $17$ is close to $19$",
+            "note": "A point is on the sphere only when its squared distance equals $r^2$ exactly."
+          },
+          {
+            "label": "C",
+            "text": "Inside the sphere, since $17 < 19$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$d^2 = 17 < 19 = r^2$, so $d = \\sqrt{17} < \\sqrt{19} = r$.\n\nThe point is closer to the center than the radius, so $P$ lies inside the sphere.\n\nSummary: center $(-2, 3, -1)$, radius $\\sqrt{19}$, and $P$ is inside."
+      }
+    ],
+    "takeaway": "Divide by the common coefficient first, add each square to both sides, and read the radius from the right side as $r^2$."
+  },
+  {
+    "id": "L2-g2",
+    "lessonId": "L2",
+    "typeId": "L2-sphere-equation-constant",
+    "stem": "The points $P(3, -1, 4)$ and $Q(-1, 5, 2)$ are the ends of a diameter of a sphere $S$.\n\n(a) Write the equation of $S$ in standard form.\n\n(b) Expand it to the form $x^2 + y^2 + z^2 + Ax + By + Cz = D$.\n\n(c) Using the left side from (b), the equation $x^2 + y^2 + z^2 - 2x - 4y - 6z = K$ describes a sphere of radius $4$ for one value of $K$. Find $K$.",
+    "steps": [
+      {
+        "prompt": "(a) What is the center of $S$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(2, 4, 6)$",
+            "note": "This adds the coordinates of the endpoints. The midpoint also divides by $2$."
+          },
+          {
+            "label": "B",
+            "text": "$(1, 2, 3)$"
+          },
+          {
+            "label": "C",
+            "text": "$(-2, 3, -1)$",
+            "note": "This is half of the vector $\\vec{PQ}$, which is a displacement and not a point."
+          }
+        ],
+        "answer": "B",
+        "explanation": "The center is the midpoint of the diameter:\n\n$$\nC = \\left(\\frac{3 + (-1)}{2},\\ \\frac{-1 + 5}{2},\\ \\frac{4 + 2}{2}\\right) = (1, 2, 3)\n$$"
+      },
+      {
+        "prompt": "(a) What is $r^2$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$56$",
+            "note": "This is $|\\vec{PQ}|^2$, the squared length of the whole diameter. The radius is half of it."
+          },
+          {
+            "label": "B",
+            "text": "$28$",
+            "note": "This halves $|\\vec{PQ}|^2$. Halving the length divides the squared length by $4$."
+          },
+          {
+            "label": "C",
+            "text": "$14$"
+          },
+          {
+            "label": "D",
+            "text": "$\\sqrt{14}$",
+            "note": "This is the radius $r$. The equation needs $r^2$."
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\vec{PQ} = \\langle -4, 6, -2 \\rangle$, so $|\\vec{PQ}|^2 = 16 + 36 + 4 = 56$.\n\nThe radius is half the diameter, so $r^2 = \\frac{56}{4} = 14$.\n\nCheck from the center: $|\\vec{CP}|^2 = 2^2 + (-3)^2 + 1^2 = 14$."
+      },
+      {
+        "prompt": "(a) Which is the standard form of $S$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$(x+1)^2 + (y+2)^2 + (z+3)^2 = 14$",
+            "note": "The center's coordinates appear with the opposite sign inside the brackets. Here they have been written with the wrong sign."
+          },
+          {
+            "label": "B",
+            "text": "$(x-1)^2 + (y-2)^2 + (z-3)^2 = \\sqrt{14}$",
+            "note": "The right side of the standard form is $r^2$ itself, not a square root."
+          },
+          {
+            "label": "C",
+            "text": "$(x-1)^2 + (y-2)^2 + (z-3)^2 = 56$",
+            "note": "The right side is the squared radius, not the squared diameter."
+          },
+          {
+            "label": "D",
+            "text": "$(x-1)^2 + (y-2)^2 + (z-3)^2 = 14$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "With $(h, k, l) = (1, 2, 3)$ and $r^2 = 14$:\n\n$$\n(x-1)^2 + (y-2)^2 + (z-3)^2 = 14\n$$"
+      },
+      {
+        "prompt": "(b) Expanding and moving every constant to the right, which equation results?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$x^2 + y^2 + z^2 - 2x - 4y - 6z = 0$"
+          },
+          {
+            "label": "B",
+            "text": "$x^2 + y^2 + z^2 - 2x - 4y - 6z = 14$",
+            "note": "The squares expand to $+1$, $+4$, $+9$ on the left, and those must be moved across as well."
+          },
+          {
+            "label": "C",
+            "text": "$x^2 + y^2 + z^2 + 2x + 4y + 6z = 0$",
+            "note": "Expand $(x-1)^2$ to check the sign of the linear term."
+          },
+          {
+            "label": "D",
+            "text": "$x^2 + y^2 + z^2 - 2x - 4y - 6z = 28$",
+            "note": "The $14$ on the left is moved across, so it changes the right side. Check what that does to the number there."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n(x^2 - 2x + 1) + (y^2 - 4y + 4) + (z^2 - 6z + 9) = 14\n$$\n\nThe constants on the left total $1 + 4 + 9 = 14$. Subtract $14$ from both sides:\n\n$$\nx^2 + y^2 + z^2 - 2x - 4y - 6z = 0\n$$\n\nSo $A = -2$, $B = -4$, $C = -6$ and $D = 0$."
+      },
+      {
+        "prompt": "(c) Completing the squares on $x^2 + y^2 + z^2 - 2x - 4y - 6z = K$, what is the right side?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$K - 14$",
+            "note": "The squares $1$, $4$, $9$ are added to both sides, so they increase the right side."
+          },
+          {
+            "label": "B",
+            "text": "$K + 14$"
+          },
+          {
+            "label": "C",
+            "text": "$K + 6$",
+            "note": "$1$, $2$, $3$ are the halves of the linear coefficients. The numbers added are their squares."
+          },
+          {
+            "label": "D",
+            "text": "$K$",
+            "note": "The constants added on the left must also be added on the right, so the right side changes."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Add $1$, $4$ and $9$ to both sides:\n\n$$\n(x-1)^2 + (y-2)^2 + (z-3)^2 = K + 14\n$$"
+      },
+      {
+        "prompt": "(c) What value of $K$ gives radius $4$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$K = 16$",
+            "note": "This sets $K$ equal to $r^2$. The right side is $K + 14$, not $K$."
+          },
+          {
+            "label": "B",
+            "text": "$K = -10$",
+            "note": "This sets $K + 14 = 4$, which is $r$. The right side equals $r^2$."
+          },
+          {
+            "label": "C",
+            "text": "$K = 30$",
+            "note": "This adds $14$ to $16$. The $14$ is already included in $K + 14$."
+          },
+          {
+            "label": "D",
+            "text": "$K = 2$"
+          }
+        ],
+        "answer": "D",
+        "explanation": "The right side must equal $r^2 = 16$:\n\n$$\nK + 14 = 16 \\quad\\Rightarrow\\quad K = 2\n$$\n\nCheck: $x^2 + y^2 + z^2 - 2x - 4y - 6z = 2$ gives $(x-1)^2 + (y-2)^2 + (z-3)^2 = 16$, a sphere of radius $4$ about the same center $(1, 2, 3)$."
+      }
+    ],
+    "takeaway": "Turn every condition into the form $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$, and match the right side to $r^2$, not to $r$."
+  }
+]

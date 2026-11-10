@@ -1,0 +1,475 @@
+[
+  {
+    "id": "L18-g1",
+    "lessonId": "L18",
+    "typeId": "L18-infinite-interval",
+    "stem": "(a) Evaluate $\\int_1^\\infty \\frac{\\ln x}{x^2}\\,dx$.\n\n(b) Decide whether $\\int_1^\\infty \\frac{\\ln x}{x}\\,dx$ converges.",
+    "steps": [
+      {
+        "prompt": "(a) The upper limit is infinite, and $\\frac{\\ln x}{x^2}$ is continuous on $[1, \\infty)$. How is the integral set up?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Substitute $\\infty$ into an antiderivative at once",
+            "note": "$\\infty$ is not a number that can be substituted. An improper integral is defined as a limit of ordinary integrals."
+          },
+          {
+            "label": "B",
+            "text": "$\\lim_{b\\to\\infty}\\int_1^b \\frac{\\ln x}{x^2}\\,dx$"
+          },
+          {
+            "label": "C",
+            "text": "$\\lim_{t\\to1^+}\\int_t^\\infty \\frac{\\ln x}{x^2}\\,dx$",
+            "note": "The integrand equals $0$ at $x = 1$ and is not unbounded there, so the lower end needs no limit."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Only the upper limit is a problem, so\n\n$$\n\\int_1^\\infty \\frac{\\ln x}{x^2}\\,dx = \\lim_{b\\to\\infty}\\int_1^b \\frac{\\ln x}{x^2}\\,dx.\n$$\n\nNext an antiderivative is needed."
+      },
+      {
+        "prompt": "Which method finds an antiderivative of $\\frac{\\ln x}{x^2}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "Partial fractions",
+            "note": "Partial fractions split a rational function, and $\\ln x$ is not one."
+          },
+          {
+            "label": "B",
+            "text": "Substitution $u = x^2$",
+            "note": "Then $du = 2x\\,dx$, and the integrand has no factor of $x$ to supply it."
+          },
+          {
+            "label": "C",
+            "text": "Integration by parts with $u = \\ln x$ and $dv = x^{-2}\\,dx$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "A logarithm times a power: differentiate the logarithm and integrate the power.\n\n$u = \\ln x$, $du = \\frac{dx}{x}$, $dv = x^{-2}\\,dx$, $v = -\\frac{1}{x}$."
+      },
+      {
+        "prompt": "What is $\\int \\frac{\\ln x}{x^2}\\,dx$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$-\\frac{\\ln x}{x} - \\frac{1}{x}$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\frac{\\ln x}{x} + \\frac{1}{x}$",
+            "note": "Differentiating gives $\\frac{\\ln x - 2}{x^2}$, not the integrand. Recheck the sign on $\\int v\\,du$."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{\\ln x}{x}$",
+            "note": "Differentiating gives $\\frac{\\ln x - 1}{x^2}$. The term $\\int v\\,du$ is missing."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\int \\frac{\\ln x}{x^2}\\,dx = -\\frac{\\ln x}{x} - \\int\\left(-\\frac{1}{x}\\right)\\frac{1}{x}\\,dx = -\\frac{\\ln x}{x} + \\int x^{-2}\\,dx\n$$\n\nSo $F(x) = -\\frac{\\ln x}{x} - \\frac{1}{x}$."
+      },
+      {
+        "prompt": "With $F(x) = -\\frac{\\ln x}{x} - \\frac{1}{x}$, what is $\\lim_{b\\to\\infty}F(b)$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$"
+          },
+          {
+            "label": "B",
+            "text": "$-\\infty$",
+            "note": "$\\ln b$ does grow without bound, but it is divided by $b$, which grows faster. Compare the growth rates (L'Hôpital)."
+          },
+          {
+            "label": "C",
+            "text": "$-1$",
+            "note": "That is the value of $F$ at $x = 1$, not its limit at infinity."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$\\lim_{b\\to\\infty}\\frac{\\ln b}{b} = \\lim_{b\\to\\infty}\\frac{1/b}{1} = 0$ by L'Hôpital, and $\\frac{1}{b}\\to 0$.\n\nSo $\\lim_{b\\to\\infty}F(b) = 0$."
+      },
+      {
+        "prompt": "What is the value of (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "That is the upper-limit value alone. The lower limit still has to be used."
+          },
+          {
+            "label": "B",
+            "text": "$1$"
+          },
+          {
+            "label": "C",
+            "text": "$-1$",
+            "note": "That is $F(1)$ by itself. The integral is the value at the top minus the value at the bottom."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$F(1) = -\\frac{\\ln 1}{1} - 1 = -1$.\n\n$$\n\\int_1^\\infty \\frac{\\ln x}{x^2}\\,dx = 0 - (-1) = 1\n$$\n\nSo (a) converges to $1$."
+      },
+      {
+        "prompt": "(b) For $x \\ge e$ we have $\\ln x \\ge 1$. Which comparison is true and decides the question?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{\\ln x}{x} \\ge \\frac{1}{x} > 0$ on $[e, \\infty)$, and $\\int_e^\\infty \\frac{dx}{x}$ diverges"
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{\\ln x}{x} \\le \\frac{1}{x}$ on $[e, \\infty)$, and $\\int_e^\\infty \\frac{dx}{x}$ diverges",
+            "note": "For $x \\ge e$ the inequality runs the other way. Even if it held, lying below a divergent integral decides nothing."
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{\\ln x}{x} \\ge \\frac{\\ln x}{x^2}$ on $[e, \\infty)$, and $\\int_1^\\infty \\frac{\\ln x}{x^2}\\,dx$ converges",
+            "note": "The inequality is true, but lying above a convergent integral decides nothing."
+          }
+        ],
+        "answer": "A",
+        "explanation": "For $x \\ge e$, $\\ln x \\ge 1$, so $\\frac{\\ln x}{x} \\ge \\frac{1}{x} > 0$.\n\n$$\n\\int_e^\\infty \\frac{dx}{x} = \\lim_{b\\to\\infty}(\\ln b - 1) = \\infty\n$$\n\nThe smaller integral diverges, so $\\int_e^\\infty \\frac{\\ln x}{x}\\,dx$ diverges."
+      },
+      {
+        "prompt": "What follows for $\\int_1^\\infty \\frac{\\ln x}{x}\\,dx$, taking the piece on $[1, e]$ into account?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It converges, because $\\frac{\\ln x}{x} \\to 0$ as $x\\to\\infty$",
+            "note": "The integrand of $\\int_1^\\infty \\frac{dx}{x}$ also tends to $0$. Tending to $0$ does not make an integral over an infinite interval converge."
+          },
+          {
+            "label": "B",
+            "text": "Nothing can be said without an antiderivative",
+            "note": "The comparison in the previous step already settles the tail."
+          },
+          {
+            "label": "C",
+            "text": "It diverges: the tail $\\int_e^\\infty$ diverges, and $\\int_1^e \\frac{\\ln x}{x}\\,dx$ is an ordinary finite integral"
+          }
+        ],
+        "answer": "C",
+        "explanation": "On $[1, e]$ the integrand is continuous, and $\\int_1^e \\frac{\\ln x}{x}\\,dx = \\frac{(\\ln e)^2}{2} = \\frac{1}{2}$.\n\nA finite piece plus a divergent tail diverges, so (b) diverges. Directly, $\\int_1^b \\frac{\\ln x}{x}\\,dx = \\frac{(\\ln b)^2}{2} \\to \\infty$."
+      }
+    ],
+    "takeaway": "In a comparison only a divergent integral below, or a convergent one above, decides anything; and a limit of $\\frac{\\ln b}{b}$ type is settled by growth rates."
+  },
+  {
+    "id": "L18-g2",
+    "lessonId": "L18",
+    "typeId": "L18-discontinuity",
+    "stem": "(a) Evaluate $\\int_1^e \\frac{dx}{x\\sqrt{\\ln x}}$.\n\n(b) Does $\\int_1^e \\frac{dx}{x\\ln x}$ converge?",
+    "steps": [
+      {
+        "prompt": "(a) The limits $1$ and $e$ are finite. Where does the integrand $\\frac{1}{x\\sqrt{\\ln x}}$ cause trouble on $[1, e]$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "At $x = e$, the right endpoint",
+            "note": "At $x = e$, $\\ln e = 1$ and the integrand equals $\\frac{1}{e}$, which is finite."
+          },
+          {
+            "label": "B",
+            "text": "At $x = 1$, the left endpoint"
+          },
+          {
+            "label": "C",
+            "text": "Nowhere: it is continuous on $[1, e]$, so the integral is ordinary",
+            "note": "Check the denominator at each endpoint. It must not be zero."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$\\ln x = 0$ exactly at $x = 1$, so the denominator vanishes there and the integrand is unbounded as $x \\to 1^+$. At every other point of $[1, e]$ it is continuous. The integral is improper at the left endpoint."
+      },
+      {
+        "prompt": "How is (a) written as a limit?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\lim_{t\\to1^+}\\int_t^e \\frac{dx}{x\\sqrt{\\ln x}}$"
+          },
+          {
+            "label": "B",
+            "text": "$\\lim_{t\\to e^-}\\int_1^t \\frac{dx}{x\\sqrt{\\ln x}}$",
+            "note": "That approaches $e$, where the integrand is finite. The limit must approach the bad point."
+          },
+          {
+            "label": "C",
+            "text": "$\\lim_{t\\to0^+}\\int_t^e \\frac{dx}{x\\sqrt{\\ln x}}$",
+            "note": "The point $0$ is not in $[1, e]$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The bad point is the left endpoint, approached from inside the interval:\n\n$$\n\\int_1^e \\frac{dx}{x\\sqrt{\\ln x}} = \\lim_{t\\to1^+}\\int_t^e \\frac{dx}{x\\sqrt{\\ln x}}.\n$$"
+      },
+      {
+        "prompt": "Substitute $u = \\ln x$, so $du = \\frac{dx}{x}$. What does $\\int_t^e \\frac{dx}{x\\sqrt{\\ln x}}$ become?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\int_t^e u^{-1/2}\\,du$",
+            "note": "The limits are values of $x$ and must be converted to values of $u$."
+          },
+          {
+            "label": "B",
+            "text": "$\\int_{\\ln t}^{1} u^{1/2}\\,du$",
+            "note": "The root sits in the denominator, so it becomes $u^{-1/2}$, not $u^{1/2}$."
+          },
+          {
+            "label": "C",
+            "text": "$\\int_{\\ln t}^{1} u^{-1/2}\\,du$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$\\frac{dx}{x} = du$ and $\\sqrt{\\ln x} = u^{1/2}$. The limits are $u = \\ln t$ at $x = t$ and $u = \\ln e = 1$ at $x = e$.\n\n$$\n\\int_t^e \\frac{dx}{x\\sqrt{\\ln x}} = \\int_{\\ln t}^{1} u^{-1/2}\\,du\n$$"
+      },
+      {
+        "prompt": "What is the value of (a)?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$1$",
+            "note": "The antiderivative of $u^{-1/2}$ is $2u^{1/2}$. A factor of $2$ is lost in this value."
+          },
+          {
+            "label": "B",
+            "text": "$2$"
+          },
+          {
+            "label": "C",
+            "text": "Divergent",
+            "note": "Look at $2\\sqrt{u}$ as $u\\to0^+$. Does it grow without bound?"
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\int_{\\ln t}^{1} u^{-1/2}\\,du = \\Big[2\\sqrt{u}\\Big]_{\\ln t}^{1} = 2 - 2\\sqrt{\\ln t}\n$$\n\nAs $t \\to 1^+$, $\\ln t \\to 0^+$, so the limit is $2$. Part (a) converges to $2$."
+      },
+      {
+        "prompt": "(b) The same substitution turns $\\int_t^e \\frac{dx}{x\\ln x}$ into $\\int_{\\ln t}^{1} \\frac{du}{u}$. What is an antiderivative of $\\frac{1}{u}$ for $u > 0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln u$"
+          },
+          {
+            "label": "B",
+            "text": "$2\\sqrt{u}$",
+            "note": "That is the antiderivative of $u^{-1/2}$. The integrand here is $u^{-1}$."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{u^2}$",
+            "note": "Differentiating gives $\\frac{2}{u^3}$, not $\\frac{1}{u}$."
+          }
+        ],
+        "answer": "A",
+        "explanation": "The integrand is $u^{-1}$, and the power rule fails for exponent $-1$. The antiderivative is $\\ln u$, since $\\frac{d}{du}\\ln u = \\frac{1}{u}$."
+      },
+      {
+        "prompt": "What is $\\lim_{t\\to1^+}\\int_{\\ln t}^{1} \\frac{du}{u}$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$0$",
+            "note": "$\\ln 1 = 0$ is only the value at the top. The value at $u = \\ln t$ must be subtracted and its limit taken."
+          },
+          {
+            "label": "B",
+            "text": "$-\\infty$",
+            "note": "$\\ln(\\ln t) \\to -\\infty$ as $t \\to 1^+$, but it is subtracted. Check the sign of the result."
+          },
+          {
+            "label": "C",
+            "text": "$+\\infty$"
+          }
+        ],
+        "answer": "C",
+        "explanation": "$$\n\\int_{\\ln t}^{1} \\frac{du}{u} = \\ln 1 - \\ln(\\ln t) = -\\ln(\\ln t)\n$$\n\nAs $t \\to 1^+$, $\\ln t \\to 0^+$, so $\\ln(\\ln t) \\to -\\infty$ and $-\\ln(\\ln t) \\to +\\infty$. The limit is infinite."
+      },
+      {
+        "prompt": "What can be said about (a) and (b) together?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "(a) converges and (b) diverges: near the bad point the integrands behave like $u^{-1/2}$ and $u^{-1}$"
+          },
+          {
+            "label": "B",
+            "text": "Both diverge, because the integrand is unbounded at $x = 1$ in each",
+            "note": "An unbounded integrand can still have a finite integral. Compare with the value found for (a)."
+          },
+          {
+            "label": "C",
+            "text": "(a) diverges and (b) converges",
+            "note": "This does not match the values found in the earlier steps."
+          }
+        ],
+        "answer": "A",
+        "explanation": "At a blow-up at $0$, $\\int_0^1 u^{-p}\\,du$ converges when $p < 1$ and diverges when $p \\ge 1$. Here $p = \\frac{1}{2}$ gives the finite value $2$ for (a), and $p = 1$ gives a divergent integral for (b).\n\nSo (a) $= 2$, and (b) diverges."
+      }
+    ],
+    "takeaway": "At an endpoint where the integrand blows up, the power of the vanishing factor decides: below $1$ converges, $1$ or more diverges."
+  },
+  {
+    "id": "L18-g3",
+    "lessonId": "L18",
+    "typeId": "L18-which-converge",
+    "stem": "Which of the following improper integrals converge?\n\nI. $\\int_1^\\infty \\frac{dx}{\\sqrt{x^3 + 1}}$\n\nII. $\\int_{-1}^{1} \\frac{e^x}{e^x - 1}\\,dx$\n\nIII. $\\int_0^1 \\frac{dx}{\\sqrt{x}\\,(1 + x)}$",
+    "steps": [
+      {
+        "prompt": "What makes each integral improper?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "I: infinite upper limit; II: blow-up at the interior point $x = 0$; III: blow-up at the left endpoint $x = 0$"
+          },
+          {
+            "label": "B",
+            "text": "Only I is improper, since II and III have finite limits",
+            "note": "Finite limits are not enough. The integrand must also stay bounded on the interval."
+          },
+          {
+            "label": "C",
+            "text": "I: infinite upper limit; II: blow-up at both endpoints; III: blow-up at $x = 0$",
+            "note": "At $x = \\pm1$ the denominator $e^x - 1$ is not zero. Find where it vanishes."
+          }
+        ],
+        "answer": "A",
+        "explanation": "I: the upper limit is $\\infty$.\n\nII: $e^x - 1 = 0$ only at $x = 0$, which lies inside $[-1, 1]$.\n\nIII: $\\sqrt{x} = 0$ at $x = 0$, the left endpoint. At $x = 1$ the denominator is $2$.\n\nEach integral is tested by the method for its kind."
+      },
+      {
+        "prompt": "I. For $x \\ge 1$, which comparison function works?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{x}$, since $\\frac{1}{\\sqrt{x^3 + 1}} \\le \\frac{1}{x}$",
+            "note": "The inequality is true, but $\\int_1^\\infty \\frac{dx}{x}$ diverges, and lying below a divergent integral decides nothing."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{x^{3/2}}$, since $0 < \\frac{1}{\\sqrt{x^3 + 1}} < \\frac{1}{x^{3/2}}$"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{x^2}$, since $\\frac{1}{\\sqrt{x^3 + 1}} \\le \\frac{1}{x^2}$",
+            "note": "The inequality fails. At $x = 2$ the left side is $\\frac{1}{3}$ and the right side is $\\frac{1}{4}$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "For $x \\ge 1$, $x^3 + 1 > x^3$, so $\\sqrt{x^3 + 1} > x^{3/2}$. Taking reciprocals,\n\n$$\n0 < \\frac{1}{\\sqrt{x^3 + 1}} < \\frac{1}{x^{3/2}}.\n$$"
+      },
+      {
+        "prompt": "$\\int_1^\\infty x^{-3/2}\\,dx$ is a $p$-integral with $p = \\frac{3}{2}$. What does the comparison give for I?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "The larger integral converges to $2$, so I converges"
+          },
+          {
+            "label": "B",
+            "text": "The larger integral diverges, so I diverges",
+            "note": "The $p$-test for an infinite upper limit needs $p > 1$. Compare $\\frac{3}{2}$ with $1$."
+          },
+          {
+            "label": "C",
+            "text": "The larger integral converges to $2$, so I converges to $2$",
+            "note": "Comparison shows only that I converges. Its value is smaller than $2$, not equal to it."
+          }
+        ],
+        "answer": "A",
+        "explanation": "$$\n\\int_1^\\infty x^{-3/2}\\,dx = \\lim_{b\\to\\infty}\\left[-2x^{-1/2}\\right]_1^b = 2\n$$\n\nI is positive and smaller than a convergent integral, so I converges."
+      },
+      {
+        "prompt": "II. Which function is an antiderivative of $\\frac{e^x}{e^x - 1}$ away from $x = 0$?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\ln|e^x - 1|$"
+          },
+          {
+            "label": "B",
+            "text": "$e^x \\ln|e^x - 1|$",
+            "note": "Differentiating by the product rule gives extra terms. Substitute $u = e^x - 1$ instead."
+          },
+          {
+            "label": "C",
+            "text": "$-\\frac{1}{e^x - 1}$",
+            "note": "Differentiating gives $\\frac{e^x}{(e^x - 1)^2}$, which has a squared denominator."
+          }
+        ],
+        "answer": "A",
+        "explanation": "With $u = e^x - 1$, $du = e^x\\,dx$, so\n\n$$\n\\int \\frac{e^x}{e^x - 1}\\,dx = \\int \\frac{du}{u} = \\ln|e^x - 1| + C.\n$$"
+      },
+      {
+        "prompt": "Split II at $0$. What does the piece $\\int_0^1 \\frac{e^x}{e^x - 1}\\,dx$ do?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "It converges to $\\ln(e - 1)$",
+            "note": "That is only the value of the antiderivative at $x = 1$. The lower end $x\\to0^+$ has to be taken as a limit."
+          },
+          {
+            "label": "B",
+            "text": "It diverges"
+          },
+          {
+            "label": "C",
+            "text": "It converges, and the whole of II equals $1$",
+            "note": "That value comes from substituting $x = -1$ and $x = 1$ straight into the antiderivative, which ignores the blow-up at $0$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "$$\n\\int_0^1 \\frac{e^x}{e^x - 1}\\,dx = \\lim_{t\\to0^+}\\Big[\\ln(e^x - 1)\\Big]_t^1 = \\ln(e - 1) - \\lim_{t\\to0^+}\\ln(e^t - 1)\n$$\n\nAs $t \\to 0^+$, $e^t - 1 \\to 0^+$, so $\\ln(e^t - 1) \\to -\\infty$ and the piece tends to $+\\infty$. One divergent piece makes II diverge."
+      },
+      {
+        "prompt": "III. Near $x = 0$, which comparison on $(0, 1]$ settles it?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "$\\frac{1}{\\sqrt{x}(1 + x)} \\le \\frac{1}{x}$, and $\\int_0^1 \\frac{dx}{x}$ diverges",
+            "note": "The inequality is true, but lying below a divergent integral decides nothing."
+          },
+          {
+            "label": "B",
+            "text": "$\\frac{1}{\\sqrt{x}(1 + x)} \\le \\frac{1}{\\sqrt{x}}$, and $\\int_0^1 \\frac{dx}{\\sqrt{x}}$ converges"
+          },
+          {
+            "label": "C",
+            "text": "$\\frac{1}{\\sqrt{x}(1 + x)} \\le \\frac{1}{1 + x}$, and $\\int_0^1 \\frac{dx}{1 + x}$ is finite",
+            "note": "The inequality fails near $0$. At $x = \\frac{1}{4}$ the left side is $1.6$ and the right side is $0.8$."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Since $1 + x \\ge 1$, $0 < \\frac{1}{\\sqrt{x}(1 + x)} \\le x^{-1/2}$.\n\nThe $p$-integral $\\int_0^1 x^{-1/2}\\,dx = 2$ converges ($p = \\frac{1}{2} < 1$ on $(0, 1]$), so III converges."
+      },
+      {
+        "prompt": "Which of the integrals converge?",
+        "choices": [
+          {
+            "label": "A",
+            "text": "I only",
+            "note": "An unbounded integrand at an endpoint does not by itself force divergence. Recheck each conclusion from the earlier steps."
+          },
+          {
+            "label": "B",
+            "text": "I and III"
+          },
+          {
+            "label": "C",
+            "text": "II and III",
+            "note": "Recheck, using the earlier steps, whether each integral in this choice really converges."
+          },
+          {
+            "label": "D",
+            "text": "I, II and III",
+            "note": "One of the three integrals was found in the earlier steps to have an infinite piece."
+          }
+        ],
+        "answer": "B",
+        "explanation": "I converges by comparison with $x^{-3/2}$, II diverges because the piece next to $0$ is infinite, and III converges by comparison with $x^{-1/2}$.\n\nSo I and III converge, and II does not."
+      }
+    ],
+    "takeaway": "Classify each integral first (infinite limit, endpoint blow-up, interior blow-up), test it the way its kind requires, and remember that one divergent piece sinks the whole integral."
+  }
+]
