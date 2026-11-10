@@ -4,6 +4,7 @@ import { userEvent } from '@testing-library/user-event'
 import { Settings } from './Settings'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
+import { SESSION_KEY } from '../examSession'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import { buildContent } from '../../content'
 import { fixtureLessons, PLANNED_LESSON_COUNT } from '../../test/fixtures'
@@ -289,4 +290,47 @@ test('with nothing reported, the list is absent', async () => {
   await setup()
   expect(screen.queryByRole('list', { name: 'Reported problems' })).not.toBeInTheDocument()
   expect(screen.getByText('No reported problems.')).toBeInTheDocument()
+})
+
+const savedExam = JSON.stringify({
+  sessionId: 's1',
+  kind: 'exam',
+  examId: 'e1',
+  questionIds: ['q1'],
+  answers: {},
+  marked: [],
+  startedAt: '2026-01-01T00:00:00.000Z',
+  durationMinutes: 60,
+})
+
+test('Reset progress also clears an exam in progress', async () => {
+  localStorage.setItem(SESSION_KEY, savedExam)
+  vi.stubGlobal('confirm', vi.fn(() => true))
+  await setup()
+  await userEvent.click(screen.getByRole('button', { name: 'Reset progress' }))
+  expect(await screen.findByRole('status')).toHaveTextContent('Progress reset')
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
+})
+
+test('a cancelled reset leaves an exam in progress alone', async () => {
+  localStorage.setItem(SESSION_KEY, savedExam)
+  vi.stubGlobal('confirm', vi.fn(() => false))
+  await setup()
+  await userEvent.click(screen.getByRole('button', { name: 'Reset progress' }))
+  expect(localStorage.getItem(SESSION_KEY)).toBe(savedExam)
+  localStorage.clear()
+})
+
+test('Import progress also clears an exam in progress, and a rejected file does not', async () => {
+  localStorage.setItem(SESSION_KEY, savedExam)
+  await setup()
+  const bad = new File(['{"version":9}'], 'p.json', { type: 'application/json' })
+  await userEvent.upload(screen.getByLabelText('Import progress'), bad)
+  await screen.findByRole('alert')
+  expect(localStorage.getItem(SESSION_KEY)).toBe(savedExam)
+  const snap = { version: 1, exportedAt: '2026-01-01T00:00:00.000Z', cardStates: [], attempts: [], settings: DEFAULT_SETTINGS }
+  const good = new File([JSON.stringify(snap)], 'p.json', { type: 'application/json' })
+  await userEvent.upload(screen.getByLabelText('Import progress'), good)
+  expect(await screen.findByRole('status')).toHaveTextContent('Progress imported')
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
 })

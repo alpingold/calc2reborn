@@ -7,6 +7,7 @@ import { pullForward } from '../engine/queue'
 import { useContent, useNow, useRng, useSettings, useStore } from '../storage/context'
 import type { Attempt } from '../storage/types'
 import {
+  attemptFor,
   clearSession,
   elapsedSeconds,
   finishSession,
@@ -319,16 +320,34 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
     [commit, locked],
   )
 
-  // feedback mode: reveal the current question's answer and lock it
+  // feedback mode: log the current question's answer, then reveal it and lock it. The answer is saved
+  // first, so closing the tab afterwards loses nothing that was shown as checked.
+  const checking = useRef(false)
   const check = useCallback(
     (_label: Choice['label'], seconds: number) => {
       const s = sessionRef.current
-      if (!s || locked || pending.current !== null) return
+      if (!s || locked || pending.current !== null || checking.current) return
       const id = s.questionIds[s.current ?? 0]
       if (!s.answers[id] || s.checked?.includes(id)) return
-      commit({ ...s, checked: [...(s.checked ?? []), id], seconds: { ...s.seconds, [id]: seconds } })
+      checking.current = true
+      setError(null)
+      void (async () => {
+        try {
+          if (content.questionById.has(id)) await store.logAttempt(attemptFor(s, id, content, now(), seconds))
+        } catch {
+          if (alive.current) setError('Could not save your answer. Try again.')
+          return
+        } finally {
+          checking.current = false
+        }
+        if (!alive.current) return
+        // the session may have moved on (another question on screen) while the save was pending
+        const latest = sessionRef.current ?? s
+        if (latest.checked?.includes(id)) return
+        commit({ ...latest, checked: [...(latest.checked ?? []), id], seconds: { ...latest.seconds, [id]: seconds } })
+      })()
     },
-    [commit, locked],
+    [commit, locked, content, store, now],
   )
 
   const goTo = useCallback(

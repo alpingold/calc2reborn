@@ -79,7 +79,7 @@ const session: ExamSession = {
 }
 
 afterEach(() => {
-  sessionStorage.clear()
+  localStorage.clear()
 })
 
 async function renderResults(entry: string | { pathname: string; state: unknown }, store = new MemoryStore()) {

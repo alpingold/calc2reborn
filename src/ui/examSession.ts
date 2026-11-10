@@ -23,13 +23,14 @@ export interface ExamSession {
   seconds?: Record<string, number>
 }
 
+// Kept in localStorage, not sessionStorage, so an exam in progress survives closing the tab.
 export const SESSION_KEY = 'ma16200-exam-in-progress'
 
 export function saveSession(s: ExamSession): void {
   try {
-    sessionStorage.setItem(SESSION_KEY, JSON.stringify(s))
+    localStorage.setItem(SESSION_KEY, JSON.stringify(s))
   } catch {
-    // quota or private mode: the session simply will not survive a reload
+    // quota or private mode: the session simply will not survive a reload or a closed tab
   }
 }
 
@@ -62,7 +63,7 @@ function isSession(v: unknown): v is ExamSession {
 
 export function loadSession(): ExamSession | null {
   try {
-    const raw = sessionStorage.getItem(SESSION_KEY)
+    const raw = localStorage.getItem(SESSION_KEY)
     if (!raw) return null
     const parsed: unknown = JSON.parse(raw)
     return isSession(parsed) ? parsed : null
@@ -73,7 +74,7 @@ export function loadSession(): ExamSession | null {
 
 export function clearSession(): void {
   try {
-    sessionStorage.removeItem(SESSION_KEY)
+    localStorage.removeItem(SESSION_KEY)
   } catch {
     // nothing to clear if storage is unavailable
   }
@@ -156,28 +157,32 @@ export function timeIsUp(s: ExamSession, now: Date): boolean {
   return !s.feedback && remainingSeconds(s, now) <= 0
 }
 
+/**
+ * The attempt for one answered question of a session. Its id is fixed by the session and the question,
+ * so logging it again (at Submit after Check, or on a retry after a failed save) replaces it.
+ */
+export function attemptFor(s: ExamSession, questionId: string, content: Content, at: Date, seconds: number): Attempt {
+  const chosen = s.answers[questionId]
+  const a: Attempt = {
+    id: `${s.sessionId}:${questionId}`,
+    questionId,
+    chosen,
+    correct: chosen === content.questionById.get(questionId)?.answer,
+    seconds,
+    timestamp: at.toISOString(),
+    mode: s.kind,
+    sessionId: s.sessionId,
+  }
+  if (s.kind === 'exam' && s.examId) a.examId = s.examId
+  if (s.feedback) a.feedback = true
+  return a
+}
+
 export function finishSession(s: ExamSession, content: Content, now: Date): Attempt[] {
   const answered = s.questionIds.filter((id) => s.answers[id] && content.questionById.has(id))
   const elapsed = Math.max(0, (now.getTime() - Date.parse(s.startedAt)) / 1000)
   const average = answered.length ? Math.round((elapsed / answered.length) * 10) / 10 : 0
-  const timestamp = now.toISOString()
-  return answered.map((questionId) => {
-    const chosen = s.answers[questionId]
-    const a: Attempt = {
-      // fixed per session and question: a resubmit after a partial failure replaces rather than duplicates
-      id: `${s.sessionId}:${questionId}`,
-      questionId,
-      chosen,
-      correct: chosen === content.questionById.get(questionId)!.answer,
-      seconds: s.seconds?.[questionId] ?? average,
-      timestamp,
-      mode: s.kind,
-      sessionId: s.sessionId,
-    }
-    if (s.kind === 'exam' && s.examId) a.examId = s.examId
-    if (s.feedback) a.feedback = true
-    return a
-  })
+  return answered.map((questionId) => attemptFor(s, questionId, content, now, s.seconds?.[questionId] ?? average))
 }
 
 export function scoreSession(

@@ -80,7 +80,7 @@ let scheduler: Scheduler
 
 beforeEach(async () => {
   scheduler = await createScheduler()
-  sessionStorage.clear()
+  localStorage.clear()
   vi.useFakeTimers({ shouldAdvanceTime: false, toFake: ['setInterval', 'clearInterval', 'Date'] })
   vi.setSystemTime(NOW)
 })
@@ -89,7 +89,7 @@ afterEach(() => {
   vi.clearAllTimers()
   vi.useRealTimers()
   vi.restoreAllMocks()
-  sessionStorage.clear()
+  localStorage.clear()
 })
 
 function ResultsStub() {
@@ -218,10 +218,10 @@ test('Review Focus 2: time running out submits the answered questions exactly on
     ['f2025-e1-q1', 'B', false],
     ['f2025-e1-q2', 'C', true],
   ])
-  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
 })
 
-test('Submit with all 12 answered logs 12 attempts and clears sessionStorage', async () => {
+test('Submit with all 12 answered logs 12 attempts and clears localStorage', async () => {
   const store = new MemoryStore()
   await start('/exams/f2025-e1', store)
   const confirm = vi.spyOn(window, 'confirm')
@@ -230,14 +230,14 @@ test('Submit with all 12 answered logs 12 attempts and clears sessionStorage', a
     await u.keyboard('c')
     if (i < 12) await u.click(screen.getByRole('button', { name: 'Next' }))
   }
-  expect(sessionStorage.getItem(SESSION_KEY)).not.toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).not.toBeNull()
   await u.click(screen.getByRole('button', { name: 'Submit' }))
   await screen.findByText(/^results:/)
   expect(confirm).not.toHaveBeenCalled()
   const attempts = await store.listAttempts()
   expect(attempts).toHaveLength(12)
   expect(attempts.every((a) => a.correct && a.mode === 'exam')).toBe(true)
-  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
 })
 
 test('Submit with unanswered questions asks first and stays when cancelled', async () => {
@@ -282,7 +282,7 @@ test('a save failure shows an alert and a retry logs each attempt once', async (
   await u.keyboard('c')
   await u.click(screen.getByRole('button', { name: 'Submit' }))
   expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your exam. Try again.')
-  expect(sessionStorage.getItem(SESSION_KEY)).not.toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).not.toBeNull()
   await u.click(screen.getByRole('button', { name: 'Submit' }))
   await screen.findByText(/^results:/)
   expect(await store.listAttempts()).toHaveLength(2)
@@ -340,22 +340,22 @@ test('(a) a mock for another lesson range does not silently serve the saved mock
   const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true)
   await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
   expect(confirm).toHaveBeenCalledWith('Discard your answers to Mock exam, Lesson 19? This cannot be undone.')
-  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
   await clickStart()
   expect(screen.getByRole('heading', { name: 'Question 1 of 9' })).toBeInTheDocument()
   expect(screen.getByText(/^Stem (\d+)$/).textContent).toMatch(/^Stem ([4-9]|1[0-2])$/)
-  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({ kind: 'mock', from: 'L20', to: 'L20' })
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).toMatchObject({ kind: 'mock', from: 'L20', to: 'L20' })
 })
 
 test('declining the discard keeps the saved session', async () => {
   const { view } = await start('/exams/mock?from=L19&to=L19')
-  const saved = sessionStorage.getItem(SESSION_KEY)
+  const saved = localStorage.getItem(SESSION_KEY)
   view.unmount()
   await conflictAt('/exams/mock?from=L20&to=L20')
   vi.spyOn(window, 'confirm').mockReturnValue(false)
   await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
   expect(screen.getByRole('button', { name: 'Discard and start this one' })).toBeInTheDocument()
-  expect(sessionStorage.getItem(SESSION_KEY)).toBe(saved)
+  expect(localStorage.getItem(SESSION_KEY)).toBe(saved)
 })
 
 test('(b) an expired saved mock does not jump to results for a new request', async () => {
@@ -390,7 +390,7 @@ test('resuming an expired session submits it', async () => {
   const attempts = await store.listAttempts()
   expect(attempts).toHaveLength(1)
   expect(attempts[0]).toMatchObject({ mode: 'mock', chosen: 'A' })
-  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
 })
 
 test('(c) opening another exam keeps the answers of the one in progress', async () => {
@@ -401,7 +401,7 @@ test('(c) opening another exam keeps the answers of the one in progress', async 
   await conflictAt('/exams/f2024-e1')
   expect(screen.getByRole('heading', { level: 2, name: 'Fall 2024 Exam 1' })).toBeInTheDocument()
   expect(screen.getByText(/Fall 2025 Exam 1/)).toHaveTextContent('1 of 12 answered')
-  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).toMatchObject({
     examId: 'f2025-e1',
     answers: { 'f2025-e1-q1': 'B' },
   })
@@ -430,11 +430,11 @@ test('Discard and start this one replaces the exam in progress', async () => {
   await clickStart()
   expect(screen.getByRole('heading', { name: 'Question 1 of 4' })).toBeInTheDocument()
   expect(screen.getByText('Other stem 1')).toBeInTheDocument()
-  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({ examId: 'f2024-e1', answers: {} })
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).toMatchObject({ examId: 'f2024-e1', answers: {} })
 })
 
 test('an older saved mock with no lesson range asks instead of being restored, and can resume', async () => {
-  sessionStorage.setItem(
+  localStorage.setItem(
     SESSION_KEY,
     JSON.stringify({
       sessionId: 'old-mock',
@@ -461,10 +461,10 @@ test('the start screen describes the exam and starts nothing until Start', async
   expect(screen.getByText('12 questions, 60 minutes')).toBeInTheDocument()
   expect(screen.getByRole('checkbox', { name: /Show feedback after each answer \(untimed\)/ })).not.toBeChecked()
   expect(screen.queryByRole('timer')).not.toBeInTheDocument()
-  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
   await user().click(startButton)
   expect(await screen.findByRole('heading', { name: 'Question 1 of 12' })).toBeInTheDocument()
-  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).not.toHaveProperty('feedback', true)
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).not.toHaveProperty('feedback', true)
 })
 
 test('the mock start screen names the lesson range', async () => {
@@ -487,7 +487,7 @@ test('feedback mode: Check reveals the answer and locks it, with an elapsed cloc
   expect(screen.getByRole('button', { name: /Your answer$/ })).toBeDisabled()
   expect(screen.queryByRole('button', { name: 'Check' })).not.toBeInTheDocument()
   await u.keyboard('c')
-  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).toMatchObject({
     feedback: true,
     checked: ['f2025-e1-q1'],
     answers: { 'f2025-e1-q1': 'B' },
@@ -523,7 +523,8 @@ test('feedback mode never runs out of time and submits attempts marked as feedba
     vi.advanceTimersByTime(2 * 60 * 60 * 1000)
   })
   expect(screen.queryByText(/^results:/)).not.toBeInTheDocument()
-  expect(await store.listAttempts()).toHaveLength(0)
+  // the checked answer is already saved, so nothing is lost if the tab closes here
+  expect(await store.listAttempts()).toHaveLength(1)
   view.unmount()
 
   // two hours later, a reload still restores it instead of asking
@@ -591,7 +592,7 @@ test('once Submit starts, answers can no longer change', async () => {
   await u.keyboard('a')
   await u.click(screen.getByRole('button', { name: 'Submit' }))
   await u.keyboard('b')
-  expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!).answers['f2025-e1-q1']).toBe('A')
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!).answers['f2025-e1-q1']).toBe('A')
   await act(async () => release())
   await screen.findByText(/^results:/)
   expect((await store.listAttempts())[0].chosen).toBe('A')
@@ -640,4 +641,93 @@ test('an official exam has no such note', async () => {
   renderAt('/exams/f2025-e1', new MemoryStore())
   await screen.findByRole('button', { name: 'Start' })
   expect(screen.queryByText(/not a Purdue exam/)).not.toBeInTheDocument()
+})
+
+test('feedback mode saves each answer when it is checked, and Submit does not add a second copy', async () => {
+  const store = new MemoryStore()
+  await start('/exams/f2025-e1', store, { feedback: true })
+  const u = user()
+  await u.keyboard('a')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  const sessionId = JSON.parse(localStorage.getItem(SESSION_KEY)!).sessionId as string
+  expect(await store.listAttempts()).toMatchObject([
+    { id: `${sessionId}:f2025-e1-q1`, chosen: 'A', correct: false, feedback: true, mode: 'exam', examId: 'f2025-e1' },
+  ])
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  expect(await store.listAttempts()).toHaveLength(1)
+})
+
+test('a timed exam logs nothing until it is submitted', async () => {
+  const store = new MemoryStore()
+  await start('/exams/f2025-e1', store)
+  await user().keyboard('c')
+  expect(await store.listAttempts()).toHaveLength(0)
+})
+
+test('when saving a checked answer fails, the answer stays unlocked and can be checked again', async () => {
+  const store = new MemoryStore()
+  const log = vi.spyOn(store, 'logAttempt').mockRejectedValueOnce(new Error('disk full'))
+  await start('/exams/f2025-e1', store, { feedback: true })
+  const u = user()
+  await u.keyboard('c')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  expect(await screen.findByRole('alert')).toHaveTextContent('Could not save your answer. Try again.')
+  expect(screen.queryByRole('status')).not.toBeInTheDocument()
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!).checked).toEqual([])
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  expect(await screen.findByRole('status')).toHaveTextContent('Correct')
+  expect(log).toHaveBeenCalledTimes(2)
+  expect(await store.listAttempts()).toHaveLength(1)
+})
+
+test('a stored session for an exam that is no longer in the content can be discarded', async () => {
+  const gone = {
+    sessionId: 'old',
+    kind: 'exam',
+    examId: 'f2001-e9',
+    questionIds: ['f2001-e9-q1'],
+    answers: {},
+    marked: [],
+    startedAt: NOW.toISOString(),
+    durationMinutes: 60,
+  }
+  localStorage.setItem(SESSION_KEY, JSON.stringify(gone))
+  renderAt('/exams/f2025-e1', new MemoryStore())
+  expect(await screen.findByText(/You have An exam in progress/)).toBeInTheDocument()
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await user().click(screen.getByRole('button', { name: 'Discard and start this one' }))
+  expect(await screen.findByRole('button', { name: 'Start' })).toBeInTheDocument()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
+})
+
+test('resuming a stored session for a removed exam shows a notice instead of crashing', async () => {
+  const gone = {
+    sessionId: 'old',
+    kind: 'exam',
+    examId: 'f2001-e9',
+    questionIds: ['f2001-e9-q1'],
+    answers: {},
+    marked: [],
+    startedAt: NOW.toISOString(),
+    durationMinutes: 60,
+  }
+  localStorage.setItem(SESSION_KEY, JSON.stringify(gone))
+  render(
+    <MemoryRouter initialEntries={[{ pathname: '/exams/f2001-e9', state: { resume: 'old' } }]}>
+      <StoreProvider store={new MemoryStore()} scheduler={scheduler} content={content} rng={rng} now={now}>
+        <Routes>
+          <Route path="/exams/:examId" element={<TakeExam />} />
+        </Routes>
+      </StoreProvider>
+    </MemoryRouter>,
+  )
+  expect(await screen.findByText('This question is no longer available')).toBeInTheDocument()
+})
+
+test.each(['{not json', '{"sessionId":1}', '[]', 'null'])('stored session text %s is ignored', async (raw) => {
+  localStorage.setItem(SESSION_KEY, raw)
+  renderAt('/exams/f2025-e1', new MemoryStore())
+  expect(await screen.findByRole('button', { name: 'Start' })).toBeInTheDocument()
 })

@@ -65,7 +65,7 @@ function Where() {
 }
 
 afterEach(() => {
-  sessionStorage.clear()
+  localStorage.clear()
 })
 
 async function setup(store = new MemoryStore(), settings: Partial<typeof DEFAULT_SETTINGS> = {}) {

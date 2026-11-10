@@ -5,7 +5,7 @@ import { parseSnapshot } from '../../storage/snapshot'
 import { DEFAULT_SETTINGS } from '../../storage/types'
 import type { Flag } from '../../storage/types'
 import { REASON_LABELS } from '../ReportProblem'
-import { examTitle } from '../examSession'
+import { clearSession, examTitle } from '../examSession'
 import { isPlanned } from '../../content/schema'
 import { lessonRange, rangeEnds } from '../../engine/scope'
 
@@ -165,6 +165,8 @@ export function Settings() {
       setError('Could not import progress. Your data was not changed.')
       return
     }
+    // an exam in progress belonged to the progress that was just replaced
+    clearSession()
     try {
       await save(parsed.snapshot.settings)
     } catch {
@@ -186,6 +188,7 @@ export function Settings() {
       setError('Could not reset progress.')
       return
     }
+    clearSession()
     await loadFlags()
     setStatus('Progress reset')
   }

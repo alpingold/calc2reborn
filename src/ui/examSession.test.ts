@@ -55,7 +55,7 @@ function session(over: Partial<ExamSession> = {}): ExamSession {
 }
 
 afterEach(() => {
-  sessionStorage.clear()
+  localStorage.clear()
   vi.restoreAllMocks()
 })
 
@@ -131,20 +131,20 @@ describe('formatPoints', () => {
   })
 })
 
-test('save, load and clear round-trip through sessionStorage', () => {
+test('save, load and clear round-trip through localStorage', () => {
   const s = session({ answers: { 'e-q1': 'B' }, marked: ['e-q2'] })
   saveSession(s)
-  expect(sessionStorage.getItem(SESSION_KEY)).not.toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).not.toBeNull()
   expect(loadSession()).toEqual(s)
   clearSession()
-  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
   expect(loadSession()).toBeNull()
 })
 
 test('loadSession treats corrupt data as no session', () => {
-  sessionStorage.setItem(SESSION_KEY, '{not json')
+  localStorage.setItem(SESSION_KEY, '{not json')
   expect(loadSession()).toBeNull()
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ sessionId: 's1' }))
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ sessionId: 's1' }))
   expect(loadSession()).toBeNull()
 })
 
@@ -171,12 +171,12 @@ test('a mock session round-trips its lesson range', () => {
 
 test('loadSession accepts an older saved mock with no lesson range', () => {
   const s = session({ kind: 'mock', examId: undefined })
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify(s))
+  localStorage.setItem(SESSION_KEY, JSON.stringify(s))
   expect(loadSession()).toEqual(s)
 })
 
 test('loadSession rejects a lesson range that is not a string', () => {
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...session({ kind: 'mock' }), from: 19 }))
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ ...session({ kind: 'mock' }), from: 19 }))
   expect(loadSession()).toBeNull()
 })
 
@@ -233,7 +233,7 @@ test('a feedback session round-trips its checked questions', () => {
 })
 
 test('loadSession rejects checked questions that are not strings', () => {
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...session(), feedback: true, checked: [1] }))
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ ...session(), feedback: true, checked: [1] }))
   expect(loadSession()).toBeNull()
 })
 
@@ -261,7 +261,7 @@ test('finishSession uses the seconds measured per question when a session has th
 })
 
 test('loadSession rejects per-question seconds that are not numbers', () => {
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...session(), seconds: { 'e-q1': 'x' } }))
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ ...session(), seconds: { 'e-q1': 'x' } }))
   expect(loadSession()).toBeNull()
 })
 
@@ -297,4 +297,11 @@ test('buildContent lists unofficial exams after every official one', () => {
     's2016-e1',
     'xp-e3-a',
   ])
+})
+
+test('the session is kept where it survives a closed tab', () => {
+  saveSession(session())
+  expect(localStorage.getItem(SESSION_KEY)).not.toBeNull()
+  expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+  clearSession()
 })
