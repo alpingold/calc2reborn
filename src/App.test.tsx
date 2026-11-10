@@ -24,9 +24,10 @@ function renderAt(path: string, store?: MemoryStore) {
   )
 }
 
-test('App renders the title and nav once loaded', async () => {
+test('App renders the title and nav once loaded', { timeout: 20000 }, async () => {
   render(<App />)
-  expect(await screen.findByRole('heading', { name: 'MA 16200' })).toBeInTheDocument()
+  // App loads the whole content chunk first: about 2 MB of JSON, which can take over a second while other test files run
+  expect(await screen.findByRole('heading', { name: 'MA 16200' }, { timeout: 15000 })).toBeInTheDocument()
   const nav = screen.getByRole('navigation')
   for (const name of ['Dashboard', 'Course', 'Flashcards', 'Practice', 'Exams', 'Settings']) {
     expect(within(nav).getByRole('link', { name })).toBeInTheDocument()
