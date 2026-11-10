@@ -309,6 +309,14 @@ describe('sessionFromRecord', () => {
     const r = recordFor(session({ examId: 'gone' }), content, at)
     expect(sessionFromRecord(r, [], content)).toBeNull()
   })
+  test('a question logged twice is shown by its later answer, whatever order the attempts come in', () => {
+    const s = session({ answers: { 'e-q1': 'A' } })
+    const record = recordFor(s, content, at)
+    const [late] = finishSession(s, content, at)
+    const early = { ...late, id: 'old-copy', chosen: 'D' as const, correct: false, timestamp: '2026-11-06T12:10:00.000Z' }
+    expect(sessionFromRecord(record, [early, late], content)?.answers).toEqual({ 'e-q1': 'A' })
+    expect(sessionFromRecord(record, [late, early], content)?.answers).toEqual({ 'e-q1': 'A' })
+  })
   test('a mock record keeps its unanswered questions and its range', () => {
     const s = session({ kind: 'mock', examId: undefined, from: 'L19', to: 'L21', answers: { 'e-q2': 'B' } })
     const rebuilt = sessionFromRecord(recordFor(s, content, at), finishSession(s, content, at), content)

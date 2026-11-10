@@ -46,7 +46,15 @@ export class DexieStore extends Dexie implements ProgressStore {
       .upgrade(async (tx) => {
         if (!backfill) return
         const attempts = await tx.table<Attempt, string>('attempts').toArray()
-        await tx.table<SessionRecord, string>('sessions').bulkPut(backfill(attempts))
+        let records: SessionRecord[]
+        try {
+          records = backfill(attempts)
+        } catch {
+          // History that cannot be rebuilt is left out. Failing here would abort the upgrade and leave
+          // the app unable to open its database at all; the attempts themselves are untouched.
+          return
+        }
+        await tx.table<SessionRecord, string>('sessions').bulkPut(records)
       })
   }
 

@@ -87,3 +87,16 @@ test('upgrading without a backfill function leaves the new tables empty', async 
   expect(await s.listAttempts()).toEqual([oldAttempt])
   s.close()
 })
+
+test('a backfill that throws does not stop the upgrade or touch the stored attempts', async () => {
+  const name = 'test-' + crypto.randomUUID()
+  await seedVersion2(name)
+  const s = new DexieStore(name, () => {
+    throw new Error('unexpected old data')
+  })
+  expect(await s.listAttempts()).toEqual([oldAttempt])
+  expect(await s.listSessionRecords()).toEqual([])
+  await s.saveSessionRecord(rebuilt)
+  expect(await s.listSessionRecords()).toEqual([rebuilt])
+  s.close()
+})

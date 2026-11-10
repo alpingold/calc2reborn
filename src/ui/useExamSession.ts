@@ -81,6 +81,8 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
   // set once the attempts are frozen for submission; answers lock from then on
   const [submitting, setSubmitting] = useState(false)
   const alive = useRef(true)
+  // true while a checked answer is being saved: the answer cannot change and Submit waits
+  const checking = useRef(false)
   const sessionRef = useRef<ExamSession | null>(null)
   const busy = useRef(false)
   const autoSubmitted = useRef(false)
@@ -256,7 +258,7 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
   const submit = useCallback(
     async (auto: boolean, confirmUnanswered?: (unanswered: number) => boolean) => {
       const s = sessionRef.current
-      if (busy.current || !s) return
+      if (busy.current || checking.current || !s) return
       if (!auto && !pending.current && confirmUnanswered) {
         const unanswered = s.questionIds.filter((id) => !s.answers[id]).length
         if (unanswered > 0 && !timeIsUp(s, now()) && !confirmUnanswered(unanswered)) return
@@ -313,7 +315,7 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
     (label: Choice['label']) => {
       const s = sessionRef.current
       // pending is read from the ref: a submit in progress has not re-rendered yet
-      if (!s || locked || pending.current !== null) return
+      if (!s || locked || pending.current !== null || checking.current) return
       const id = s.questionIds[s.current ?? 0]
       if (s.checked?.includes(id)) return
       commit({ ...s, answers: { ...s.answers, [id]: label } })
@@ -323,7 +325,6 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
 
   // feedback mode: log the current question's answer, then reveal it and lock it. The answer is saved
   // first, so closing the tab afterwards loses nothing that was shown as checked.
-  const checking = useRef(false)
   const check = useCallback(
     (_label: Choice['label'], seconds: number) => {
       const s = sessionRef.current

@@ -12,6 +12,7 @@ import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, OfficialExam, Question } from '../../content/schema'
 import { saveSession } from '../examSession'
+import { sessionsFromAttempts } from '../../storage/backfill'
 
 const choices: Choice[] = (['A', 'B', 'C', 'D', 'E'] as const).map((label) => ({ label, text: label }))
 
@@ -68,6 +69,11 @@ afterEach(() => {
   localStorage.clear()
 })
 
+/** Give every exam session in the store its record, as Submit does. */
+async function finishSessions(store: MemoryStore) {
+  for (const r of sessionsFromAttempts(await store.listAttempts(), content)) await store.saveSessionRecord(r)
+}
+
 async function setup(store = new MemoryStore(), settings: Partial<typeof DEFAULT_SETTINGS> = {}) {
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L26', ...settings })
   render(
@@ -88,10 +94,11 @@ test('lists exams by year and term with the best score or Not taken', async () =
   // session a: 10 of 12 right; session b: 7 right with the rest unanswered
   for (let n = 1; n <= 12; n++) await store.logAttempt(attempt('a', 'f2025-e1', n, n <= 10))
   for (let n = 1; n <= 7; n++) await store.logAttempt(attempt('b', 'f2025-e1', n, true))
+  await finishSessions(store)
   await setup(store)
 
   const years = screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)
-  expect(years).toEqual(['Mock exam', 'Extra practice', '2025', '2024'])
+  expect(years).toEqual(['Mock exam', 'Extra practice', 'Past attempts', '2025', '2024'])
   expect(screen.getByRole('heading', { level: 4, name: 'Fall' })).toBeInTheDocument()
   expect(screen.getByRole('heading', { level: 4, name: 'Spring' })).toBeInTheDocument()
 
@@ -179,6 +186,7 @@ test('best scores: timed attempts first, feedback-only exams labelled', async ()
   for (let n = 1; n <= 12; n++) await store.logAttempt({ ...attempt('f', 'f2025-e1', n, n <= 11), feedback: true })
   // f2025-final: only a feedback run
   for (let n = 1; n <= 3; n++) await store.logAttempt({ ...attempt('g', 'f2025-final', n, true), feedback: true })
+  await finishSessions(store)
   await setup(store)
   const e1 = screen.getByRole('link', { name: 'Exam 1' })
   expect(await within(e1.closest('li')!).findByText('Best: 5/12')).toBeInTheDocument()
@@ -195,6 +203,7 @@ test('the mock form defaults to the exam lessons while an exam is ahead', async 
 test('unofficial exams have their own section, said to be written for this app, with a best score', async () => {
   const store = new MemoryStore()
   for (let n = 1; n <= 12; n++) await store.logAttempt(attempt('x', 'xp-e3-a', n, n <= 9))
+  await finishSessions(store)
   await setup(store)
   const section = screen.getByRole('heading', { level: 3, name: 'Extra practice' }).closest('section')!
   expect(within(section).getByText(/written for this app/i)).toBeInTheDocument()
@@ -244,5 +253,14 @@ test('a past attempt at an exam that was removed from the content is left out', 
   await store.saveSessionRecord(record('gone', '2026-10-01T15:00:00.000Z', { examId: 'f1999-e1' }))
   await setup(store)
   await screen.findByRole('link', { name: 'Exam 1' })
+  expect(screen.queryByRole('heading', { name: 'Past attempts' })).not.toBeInTheDocument()
+})
+
+test('answers checked in an exam that was never finished give no best score', async () => {
+  const store = new MemoryStore()
+  for (let n = 1; n <= 4; n++) await store.logAttempt({ ...attempt('left', 'f2025-e1', n, true), feedback: true })
+  await setup(store)
+  const e1 = screen.getByRole('link', { name: 'Exam 1' })
+  expect(await within(e1.closest('li')!).findByText('Not taken')).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: 'Past attempts' })).not.toBeInTheDocument()
 })

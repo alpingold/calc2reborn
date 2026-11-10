@@ -201,8 +201,16 @@ export function recordFor(s: ExamSession, content: Content, finishedAt: Date): S
 export function sessionFromRecord(record: SessionRecord, attempts: Attempt[], content: Content): ExamSession | null {
   const exam = record.examId ? content.exams.find((e) => e.id === record.examId) : undefined
   if (record.kind === 'exam' && !exam) return null
+  // a question logged more than once (old data) is shown by its latest answer, as the record's score counts it
   const answers: ExamSession['answers'] = {}
-  for (const a of attempts) answers[a.questionId] = a.chosen
+  const latest = new Map<string, string>()
+  for (const a of attempts) {
+    const prev = latest.get(a.questionId)
+    if (prev === undefined || a.timestamp >= prev) {
+      latest.set(a.questionId, a.timestamp)
+      answers[a.questionId] = a.chosen
+    }
+  }
   return {
     sessionId: record.sessionId,
     kind: record.kind,

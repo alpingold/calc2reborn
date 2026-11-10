@@ -773,3 +773,27 @@ test('when the record cannot be saved the exam stays open and Submit can be trie
   expect(await store.listAttempts()).toHaveLength(1)
   expect(await store.listSessionRecords()).toHaveLength(1)
 })
+
+test('while a checked answer is being saved, the answer cannot change and Submit waits', async () => {
+  const store = new MemoryStore()
+  let release: () => void = () => {}
+  const real = store.logAttempt.bind(store)
+  vi.spyOn(store, 'logAttempt').mockImplementationOnce(
+    (a) => new Promise<void>((resolve) => (release = () => void real(a).then(resolve))),
+  )
+  await start('/exams/f2025-e1', store, { feedback: true })
+  const u = user()
+  await u.keyboard('a')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  // the save is pending: a new choice and a submit are both ignored
+  await u.keyboard('c')
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  expect(screen.queryByText(/^results:/)).not.toBeInTheDocument()
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!).answers['f2025-e1-q1']).toBe('A')
+  await act(async () => {
+    release()
+  })
+  expect(await screen.findByRole('status')).toHaveTextContent('Not quite')
+  expect(await store.listAttempts()).toMatchObject([{ questionId: 'f2025-e1-q1', chosen: 'A' }])
+})

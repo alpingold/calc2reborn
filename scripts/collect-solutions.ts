@@ -49,8 +49,10 @@ for (const examId of process.argv.slice(2)) {
       if (g.lessonNote) notes.push({ questionId: q.id, note: g.lessonNote })
       if (g.escalate) held.push({ questionId: q.id, why: g.escalate })
       else if (g.verdict === 'reject') held.push({ questionId: q.id, why: `rejected: ${g.reason ?? 'no reason given'}` })
-      else if (blind.get(q.id) !== q.answer) held.push({ questionId: q.id, why: `blind answer ${blind.get(q.id)} differs from key ${q.answer} and was not resolved` })
-      else {
+      else if (blind.get(q.id) !== q.answer && !g.reason?.trim()) {
+        // the checker must say how a disagreement with the key was settled; silence holds the question
+        held.push({ questionId: q.id, why: `blind answer ${blind.get(q.id)} differs from key ${q.answer} and the grade gives no reason` })
+      } else {
         final.push({
           questionId: q.id,
           solution: g.verdict === 'fix' && g.fixedSolution ? g.fixedSolution : d.solution,

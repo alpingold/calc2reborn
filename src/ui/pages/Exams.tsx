@@ -9,16 +9,13 @@ import { examScope } from '../../engine/scope'
 import type { ResumeState } from '../examSession'
 import type { SessionRecord } from '../../storage/types'
 
-function bestByExam(attempts: { examId?: string; sessionId?: string; correct: boolean }[]): Map<string, number> {
-  const perSession = new Map<string, { examId: string; correct: number }>()
-  for (const a of attempts) {
-    if (!a.examId || !a.sessionId) continue
-    const s = perSession.get(a.sessionId) ?? { examId: a.examId, correct: 0 }
-    if (a.correct) s.correct++
-    perSession.set(a.sessionId, s)
-  }
+/** The best correct count per exam among finished sessions. An exam abandoned part-way has no record and no score. */
+function bestByExam(records: SessionRecord[]): Map<string, number> {
   const best = new Map<string, number>()
-  for (const s of perSession.values()) best.set(s.examId, Math.max(best.get(s.examId) ?? 0, s.correct))
+  for (const r of records) {
+    if (r.kind !== 'exam' || !r.examId) continue
+    best.set(r.examId, Math.max(best.get(r.examId) ?? 0, r.correct))
+  }
   return best
 }
 
@@ -46,12 +43,12 @@ export function Exams() {
     let cancelled = false
     ;(async () => {
       try {
-        const [attempts, records] = await Promise.all([store.listAttempts({ mode: 'exam' }), store.listSessionRecords()])
+        const records = await store.listSessionRecords()
         if (!cancelled) {
           setPast(records)
           setBest({
-            timed: bestByExam(attempts.filter((a) => !a.feedback)),
-            feedback: bestByExam(attempts.filter((a) => a.feedback)),
+            timed: bestByExam(records.filter((r) => !r.feedback)),
+            feedback: bestByExam(records.filter((r) => r.feedback)),
           })
         }
       } catch {
