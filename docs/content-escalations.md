@@ -9,6 +9,7 @@ Questions the checking pass held back, and how each was settled. A question is h
 | `f2024-final-q04` | The checker answered D (statements I and II only); the key is A (all four). Statements III and IV use the limit comparison test with a limit of 0, which the basic test (a positive finite limit) does not cover. | The key stands. The course teaches the extended test: card `L23` "Limit Comparison gives $c = 0$. What can you conclude?" covers a limit of 0 with a convergent comparison series. The solution says so and names it as the trap. Settled 2026-11-10. |
 | `s2024-final-q17` | The checker's blind answer was D (no $p$ converges); the key is C ($p < -1$). | The key stands. The checker reported the slip as its own: with $u = \ln x$ the integral $\int_{\ln 3}^{\infty} u^p\,du$ converges exactly for $p < -1$. Held only because the grade file gave no reason. Settled 2026-11-10. |
 | `f2022-e3-q12` | The draft was rejected. It bounded $e^{-c}$ on $[-0.1, 0]$ and got $e^{0.1}/6000$, and flagged the stored answer $\frac{1}{6000}$ as only the nearest choice. | The stored answer stands. The estimate of $e^{-0.1}$ is $f(0.1)$ for $f(x) = e^{-x}$, so $c$ lies in $[0, 0.1]$, $M = 1$, and the bound is exactly $\frac{1}{6000}$. The solution was written by hand. Settled 2026-11-10. |
+| `f2021-final-q03` | The draft was rejected. It took only the right half of the shaded loop of $r = \theta$ and got $\frac{\pi^3}{48}$, and flagged the key. | The key stands. The loop is bounded by the branch for $\theta > 0$ and its mirror image for $\theta < 0$, which meet on the $y$-axis at $\theta = \frac{\pi}{2}$, so the area is $2 \cdot \frac12\int_0^{\pi/2}\theta^2\,d\theta = \frac{\pi^3}{24}$. The checker's blind answer agreed. The solution was written by hand. Settled 2026-11-10. |
 
 ## Open
 
@@ -19,6 +20,11 @@ None.
 Suggestions from the checker that hold nothing back.
 
 - `s2024-e1-q12`: the hinged bar fits L9 and L10 only loosely.
+- `s2017-e2-q08`: a repeated linear factor, which is L17 content; tagged to L16 only.
+- `s2018-e3-q03`: integral-test content, tagged to L22 and L23.
+- `f2021-final-q25`: also fits L30 and L31; tagged to L32 only.
+- `s2017-e1-q11` and `s2016-final-q05`: average value of a function, which no lesson's types cover.
+- `f2021-e2-q05`, `s2019-e2-q05`: plain substitution, tagged to L11.
 - `s2024-final-q07`: the circle $r = \cos\theta + \sin\theta$ would also fit L33; it is tagged to L34 only.
 
 ## Batches
@@ -30,3 +36,6 @@ Suggestions from the checker that hold nothing back.
 | 2 | `s2024-e1`, `s2024-e2`, `s2024-e3`, `s2024-final`, `f2023-e1`, `f2023-e2`, `f2023-e3`, `f2023-final` | 122 | 105 | 17 | 0 | 0 | 2, both the checker's own slips |
 | 3 | `f2022-e1`, `f2022-e2`, `f2022-e3`, `f2022-final`, `s2023-e1`, `s2023-e2`, `s2023-e3`, `s2023-final` | 121 | 112 | 8 | 1 | 1 | 0 |
 | 4 | `f2016-e1`, `f2016-e2`, `f2016-e3`, `f2017-e1`, `f2017-e2`, `f2017-e3`, `f2017-final`, `f2018-e2`, `f2018-e3`, `f2018-final` | 146 | 134 | 12 | 0 | 0 | 0 |
+| 5 | The remaining 32 exams: Fall 2019, Fall 2021, Spring 2016 to Spring 2020, Spring 2022, `xp-e3-a`, `xp-e3-b` | 478 | 439 | 38 | 1 | 1 | 0 |
+
+In `xp-e3-a` the checker graded all 12 as fix only because the existing solutions name choice letters. Existing solutions are kept as written, so only the types were merged; the one real fault, a false trap line in Q7, was corrected by hand.

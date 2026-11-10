@@ -34,6 +34,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Apply the ratio test to the series of absolute values. Since $b_n > 0$, we have $|(-1)^n b_n| = b_n$, and\n\n$$\n\\lim_{n \\to \\infty} \\left|\\frac{b_{n+1}}{b_n}\\right| = \\frac{1}{3} < 1.\n$$\n\nSo $\\sum_{n=0}^{\\infty} b_n$ converges by the ratio test, and the series $\\sum_{n=0}^{\\infty} (-1)^n b_n$ is absolutely convergent. The alternating signs make conditional convergence look possible, but the absolute series already converges, so it cannot be only conditionally convergent.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -68,6 +72,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "Use the alternating series estimation theorem. If $s_n$ is the sum through the term $\\frac{(-1)^{n+1}}{n}$, then the error is at most the first omitted term in absolute value:\n\n$$\n\\left|\\ln 2 - s_n\\right| \\le \\frac{1}{n+1}.\n$$\n\nThe inequality we need is therefore\n\n$$\n\\frac{1}{n+1} \\le 0.01 \\iff n+1 \\ge 100 \\iff n \\ge 99.\n$$\n\nSo the stated inequality holds for $n \\ge 99$. The bound uses the first omitted term $\\frac{1}{n+1}$, not the last term included, $\\frac{1}{n}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -102,6 +110,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-apply"
+      ],
+      "solution": "Apply the ratio test to $a_k = \\frac{(k!)^2}{(2k)!}$. Since $(k+1)! = (k+1)k!$ and $(2k+2)! = (2k+2)(2k+1)(2k)!$, the ratio simplifies:\n\n$$\n\\frac{a_{k+1}}{a_k} = \\frac{(k+1)^2}{(2k+2)(2k+1)} = \\frac{k+1}{2(2k+1)}.\n$$\n\nAs $k \\to \\infty$ this tends to $\\frac{1}{4}$. So $r = \\frac{1}{4} < 1$, and the series converges.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -136,6 +148,10 @@
       "lessonIds": [
         "L22"
       ],
+      "typeIds": [
+        "L22-series-claims"
+      ],
+      "solution": "Check each statement. The example $a_n = \\frac{1}{n}$ settles two of them.\n\n- (I) is false. Here $a_n \\to 0$, so the sequence converges, but $\\sum \\frac{1}{n}$ diverges.\n- (II) is true. If $\\sum a_n$ converges, its terms $a_n = S_n - S_{n-1}$ tend to $0$, so the sequence converges. Hence a divergent sequence forces a divergent series.\n- (III) is true. A convergent series has terms tending to $0$, so the sequence converges.\n- (IV) is false. For $a_n = \\frac{1}{n}$ the series diverges while the sequence converges to $0$.\n\nSo statements (II) and (III) are the true ones. The trap is to read the terms-tend-to-zero fact as an equivalence, which would make a convergent sequence seem to force a convergent series.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -170,6 +186,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-interval-with-endpoints"
+      ],
+      "solution": "The series is centred at $1$. Apply the ratio test to the terms $\\frac{n(x-1)^n}{n^2+1}$:\n\n$$\n\\lim_{n \\to \\infty} \\left|\\frac{(n+1)(n^2+1)}{n\\big((n+1)^2+1\\big)}(x-1)\\right| = |x-1|.\n$$\n\nSo the radius is $R = 1$, and the series converges for $|x-1| < 1$, that is $0 < x < 2$. Now check the endpoints.\n\nAt $x = 2$ the series is $\\sum \\frac{n}{n^2+1}$. It diverges by limit comparison with $\\sum \\frac{1}{n}$, since the ratio of terms tends to $1$.\n\nAt $x = 0$ the series is $\\sum \\frac{(-1)^n n}{n^2+1}$. Its terms $\\frac{n}{n^2+1}$ decrease to $0$, so it converges by the alternating series test.\n\nSo the interval of convergence is $[0, 2)$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -204,6 +224,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "The ratio test is inconclusive exactly when $\\lim \\left|\\frac{a_{k+1}}{a_k}\\right| = 1$. Check each series.\n\n- (I) $\\frac{a_{k+1}}{a_k} = \\frac{10}{k+1} \\to 0$, which is less than $1$, so the test settles it.\n- (II) $\\frac{a_{k+1}}{a_k} = \\frac{k^2}{(k+1)^2} \\to 1$, so the test is inconclusive.\n- (III) $\\frac{a_{k+1}}{a_k} = \\frac{k}{k+1} \\cdot \\frac{\\ln(k+1)}{\\ln k} \\to 1 \\cdot 1 = 1$, so the test is inconclusive.\n\nSo the inconclusive series are (II) and (III). A limit of $1$ does not mean divergence: $\\sum \\frac{1}{k^2}$ converges even though the ratio test gives no information about it.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -238,6 +262,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "Check each series separately.\n\n- (I) $\\left|\\frac{\\cos n}{n^2+1}\\right| \\le \\frac{1}{n^2+1} < \\frac{1}{n^2}$, and $\\sum \\frac{1}{n^2}$ converges as a $p$-series with $p = 2$. So $\\sum \\frac{\\cos n}{n^2+1}$ is absolutely convergent.\n- (II) The alternating series $\\sum \\frac{(-1)^n}{2n}$ has terms $\\frac{1}{2n}$ that decrease to $0$, so it converges. The series of absolute values is $\\sum \\frac{1}{2n}$, which is half the harmonic series and diverges. So it is conditionally convergent.\n\nSo (I) is absolutely convergent and (II) is conditionally convergent. The alternating sign in (II) is not enough to call it absolutely convergent; the absolute series must be checked.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -272,6 +300,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-sum"
+      ],
+      "solution": "This is a geometric series with first term $a = 5$. Each term is $-\\frac{2}{3}$ times the one before, since $-\\frac{10}{3} \\div 5 = -\\frac{2}{3}$ and $\\frac{20}{9} \\div \\left(-\\frac{10}{3}\\right) = -\\frac{2}{3}$. Because $\\left|-\\frac{2}{3}\\right| < 1$, the sum is\n\n$$\n\\sum_{n=0}^{\\infty} 5\\left(-\\frac{2}{3}\\right)^n = \\frac{5}{1 - \\left(-\\frac{2}{3}\\right)} = \\frac{5}{\\frac{5}{3}} = 3.\n$$\n\nSo the sum is $3$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -306,6 +338,10 @@
       "lessonIds": [
         "L27"
       ],
+      "typeIds": [
+        "L27-build-taylor-polynomial"
+      ],
+      "solution": "The third-order Taylor polynomial at $a = 0$ is\n\n$$\nf(0) + f'(0)\\,x + \\frac{f''(0)}{2!}x^2 + \\frac{f'''(0)}{3!}x^3.\n$$\n\nSubstituting $f(0) = 0$, $f'(0) = 7$, $f''(0) = 0$ and $f'''(0) = 2$ gives\n\n$$\n0 + 7x + 0\\cdot x^2 + \\frac{2}{6}x^3 = \\frac{1}{3}x^3 + 7x.\n$$\n\nSo the third-order Taylor polynomial is $\\frac{1}{3}x^3 + 7x$. The trap is dividing the $x^3$ coefficient by $3$ rather than by $3! = 6$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -341,6 +377,10 @@
         "L22",
         "L23"
       ],
+      "typeIds": [
+        "L22-integral-test"
+      ],
+      "solution": "Let $f(x) = x^2 e^{-x^3}$. For $x \\ge 1$ the function is positive and continuous, and it is decreasing, since\n\n$$\nf'(x) = x e^{-x^3}\\,(2 - 3x^3) < 0 \\quad \\text{for } x \\ge 1.\n$$\n\nThe integral is\n\n$$\n\\int_1^{\\infty} x^2 e^{-x^3}\\,dx = \\lim_{t \\to \\infty} \\left[-\\frac{1}{3}e^{-x^3}\\right]_1^{t} = \\frac{1}{3e},\n$$\n\nwhich is finite. By the integral test the series converges. The $k = 0$ term is $0$ and does not affect convergence.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -375,6 +415,10 @@
       "lessonIds": [
         "L28"
       ],
+      "typeIds": [
+        "L28-remainder-formula"
+      ],
+      "solution": "The Lagrange form of the remainder, with $a = 2$ and $c$ between $x$ and $2$, is\n\n$$\nR_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!}(x-2)^{n+1}.\n$$\n\nFor $f(x) = e^{-3x}$ each derivative multiplies by $-3$, so $f^{(n+1)}(x) = (-3)^{n+1}e^{-3x}$ and $f^{(n+1)}(c) = (-3)^{n+1}e^{-3c}$. Therefore\n\n$$\nR_n(x) = \\frac{(-3)^{n+1}e^{-3c}}{(n+1)!}(x-2)^{n+1}.\n$$\n\nThe factor $-3$ is raised to $n+1$, and the exponential keeps $e^{-3c}$ with its minus sign.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -409,6 +453,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Multiply the known series by $5x^6$. Since $x^6$ is a factor here and not a substitution,\n\n$$\np(x) = 5x^6 \\ln(1-x) = -5x^6 \\sum_{k=1}^{\\infty} \\frac{x^k}{k} = -5 \\sum_{k=1}^{\\infty} \\frac{x^{k+6}}{k}.\n$$\n\nSo the power series is $-5\\sum_{k=1}^{\\infty}\\frac{x^{6+k}}{k}$. The trap is replacing $x$ by $x^6$ throughout, which gives $x^{6k}$ in place of $x^{6+k}$.",
       "sourcePage": 14,
       "status": "reviewed"
     }

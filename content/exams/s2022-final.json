@@ -38,6 +38,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-product-normal-torque"
+      ],
+      "solution": "A vector perpendicular to the plane is perpendicular to two vectors lying in it, so take their cross product. $\\overrightarrow{PQ} = \\langle 2, 3, 2 \\rangle$ and $\\overrightarrow{PR} = \\langle 4, 3, -2 \\rangle$, so\n\n$$\n\\overrightarrow{PQ} \\times \\overrightarrow{PR} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & 3 & 2 \\\\ 4 & 3 & -2 \\end{vmatrix} = \\langle -12, 12, -6 \\rangle = -6\\langle 2, -2, 1 \\rangle.\n$$\n\nSo the vector perpendicular to the plane is $\\langle 2, -2, 1 \\rangle$, since any nonzero multiple of the normal is also normal.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-dot-product-statements"
+      ],
+      "solution": "(I) $\\operatorname{proj}_{2\\vec{v}} \\vec{u} = \\dfrac{\\vec{u} \\cdot 2\\vec{v}}{|2\\vec{v}|^2}\\, 2\\vec{v} = \\dfrac{2\\,\\vec{u} \\cdot \\vec{v}}{4|\\vec{v}|^2}\\, 2\\vec{v} = \\dfrac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\, \\vec{v} = \\operatorname{proj}_{\\vec{v}} \\vec{u}$, so (I) is true. Scaling $\\vec{v}$ does not change the projection.\n\n(II) $\\vec{u} \\cdot \\vec{u} = |\\vec{u}|^2$ is the definition of length squared, so (II) is true.\n\n(III) $\\vec{u} \\times \\vec{v}$ is perpendicular to $\\vec{v}$, so $(\\vec{u} \\times \\vec{v}) \\cdot \\vec{v} = 0$, and (III) is true.\n\nAll three statements are true.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -108,6 +116,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-angle-dot-and-cross"
+      ],
+      "solution": "Let $\\theta$ be the angle between $\\vec{u}$ and $\\vec{v}$. Then $|\\vec{u} \\times \\vec{v}| = |\\vec{u}||\\vec{v}|\\sin\\theta$ and $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$. Dividing the first by the second gives\n\n$$\n\\tan\\theta = \\frac{|\\vec{u} \\times \\vec{v}|}{\\vec{u} \\cdot \\vec{v}} = \\frac{\\sqrt{1 + 4 + 4}}{\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\sqrt{3}.\n$$\n\nThe dot product is positive, so $\\theta$ is acute, and $\\tan\\theta = \\sqrt{3}$ gives $\\theta = \\frac{\\pi}{3}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -142,6 +154,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-in-y"
+      ],
+      "solution": "The curves meet where $4y - y^2 = y^2 - 2y$, that is $2y^2 - 6y = 0$, so $y = 0$ or $y = 3$. For $0 \\le y \\le 3$ the curve $x = 4y - y^2$ lies to the right, since $(4y - y^2) - (y^2 - 2y) = 6y - 2y^2 \\ge 0$. So the area is\n\n$$\n\\int_0^3 (6y - 2y^2)\\, dy = \\left[3y^2 - \\tfrac{2}{3}y^3\\right]_0^3 = 27 - 18 = 9.\n$$\n\nSo the area is $9$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -176,6 +192,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "The curves $y = x^2$ and $x = y$ meet at $(0,0)$ and $(1,1)$. For $0 \\le x \\le 1$ the line $y = x$ lies above the parabola, so the region is $x^2 \\le y \\le x$. Rotating about the $x$-axis gives washers with outer radius $x$ and inner radius $x^2$, so\n\n$$\nV = \\pi \\int_0^1 \\left( x^2 - x^4 \\right) dx = \\pi \\left( \\frac{1}{3} - \\frac{1}{5} \\right) = \\frac{2\\pi}{15}.\n$$\n\nSo the volume is $\\frac{2\\pi}{15}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -210,6 +230,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Integrate by parts with $u = x$ and $dv = 2^x\\, dx$, so $v = \\dfrac{2^x}{\\ln 2}$. Then\n\n$$\n\\int_0^1 x2^x\\, dx = \\left[\\frac{x 2^x}{\\ln 2}\\right]_0^1 - \\frac{1}{\\ln 2}\\int_0^1 2^x\\, dx = \\frac{2}{\\ln 2} - \\frac{1}{\\ln 2}\\cdot\\frac{1}{\\ln 2},\n$$\n\nwhere $\\int_0^1 2^x\\, dx = \\dfrac{2 - 1}{\\ln 2}$. Combining over $(\\ln 2)^2$ gives $\\dfrac{2\\ln 2 - 1}{(\\ln 2)^2}$.\n\nTaking $v = 2^x$ forgets the factor $\\frac{1}{\\ln 2}$, the usual slip with a base other than $e$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -244,6 +268,10 @@
       "lessonIds": [
         "L16"
       ],
+      "typeIds": [
+        "L16-integrate-linear-factors"
+      ],
+      "solution": "Partial fractions: $\\dfrac{2x + 2}{x(x-1)} = \\dfrac{A}{x} + \\dfrac{B}{x-1}$ gives $2x + 2 = A(x-1) + Bx$. Setting $x = 0$ gives $A = -2$, and setting $x = 1$ gives $B = 4$. So\n\n$$\n\\int_2^3 \\left( \\frac{4}{x-1} - \\frac{2}{x} \\right) dx = \\Big[ 4\\ln(x-1) - 2\\ln x \\Big]_2^3 = (4\\ln 2 - 2\\ln 3) - (-2\\ln 2) = 6\\ln 2 - 2\\ln 3.\n$$\n\nSo the integral is $\\ln\\left(\\frac{64}{9}\\right)$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -278,6 +306,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells. A vertical strip at position $x$, $0 \\le x \\le 1$, has height $x^3$, and the distance from the axis $x = 1$ is $1 - x$. Each shell has volume $2\\pi(1-x)\\,x^3\\,dx$, so\n\n$$\nV = 2\\pi \\int_0^1 (1 - x)\\, x^3\\, dx.\n$$\n\nThe radius is measured from $x = 1$, not from the $y$-axis, so using $x$ as the radius gives the wrong integrand.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -312,6 +344,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-pump-prism-cylinder"
+      ],
+      "solution": "Let $y$ be the depth below the top of the tank, $0 \\le y \\le 10$. A horizontal slice at depth $y$ has area $2^2 = 4$ and thickness $dy$, so its weight is $4\\rho g\\, dy$. Each slice must be lifted to the top, a distance $y$, so\n\n$$\nW = \\int_0^{10} 4\\rho g\\, y\\, dy = 4\\rho g \\left[\\frac{y^2}{2}\\right]_0^{10} = 200\\rho g \\text{ J}.\n$$\n\nThe distance is measured up to the top of the tank, not down to the bottom, which would give a different answer.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -346,6 +382,10 @@
       "lessonIds": [
         "L15"
       ],
+      "typeIds": [
+        "L15-transformed-integral"
+      ],
+      "solution": "Complete the square: $x^2 - 4x + 13 = (x-2)^2 + 9$. Let $u = x - 2$, so the limits become $u = 0$ to $u = 3$ and the integral is $\\displaystyle\\int_0^3 \\frac{du}{\\sqrt{u^2 + 9}}$. Substitute $u = 3\\tan\\theta$, so $du = 3\\sec^2\\theta\\, d\\theta$ and $\\sqrt{u^2 + 9} = 3\\sec\\theta$. The integrand becomes $\\sec\\theta\\, d\\theta$, with $\\theta$ running from $0$ to $\\frac{\\pi}{4}$. So the integral is $\\displaystyle\\int_0^{\\pi/4} \\sec\\theta\\, d\\theta$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -380,6 +420,10 @@
       "lessonIds": [
         "L10"
       ],
+      "typeIds": [
+        "L10-hydrostatic-force"
+      ],
+      "solution": "Let $d$ be the depth below the surface, $0 \\le d \\le 2$. The wall is $10$ m wide, so a horizontal strip at depth $d$ has area $10\\, dd$ and pressure $\\rho g d$. The force is\n\n$$\nF = \\int_0^2 \\rho g\\, d \\cdot 10\\, dd = 10\\rho g \\left[\\frac{d^2}{2}\\right]_0^2 = 20\\rho g \\text{ N}.\n$$\n\nThe $100$ m length of the pool plays no part, since only the wall is involved.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -414,6 +458,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The integrand $\\tan\\theta$ is unbounded as $\\theta \\to \\frac{\\pi}{2}^-$, so the integral is improper and must be written as a limit:\n\n$$\n\\int_0^{\\pi/2} \\tan\\theta\\, d\\theta = \\lim_{b \\to \\pi/2^-} \\left[-\\ln|\\cos\\theta|\\right]_0^b = \\lim_{b \\to \\pi/2^-} \\left(-\\ln \\cos b\\right).\n$$\n\nSince $\\cos b \\to 0^+$, $-\\ln\\cos b \\to \\infty$, so the integral diverges. Evaluating the antiderivative at the endpoint without the limit is the trap.",
       "sourcePage": 14,
       "status": "reviewed"
     },
@@ -448,6 +496,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "For $y = \\frac{x^3}{3}$, $\\dfrac{dy}{dx} = x^2$. Rotating about the $x$-axis, the radius is $y$, so the surface area is\n\n$$\nS = 2\\pi \\int_0^1 y \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}\\, dx = 2\\pi \\int_0^1 \\frac{x^3}{3}\\sqrt{1 + x^4}\\, dx = \\frac{2\\pi}{3} \\int_0^1 x^3 \\sqrt{x^4 + 1}\\, dx.\n$$\n\nThe $\\frac{1}{3}$ from $y$ stays in front of the integral.",
       "sourcePage": 15,
       "status": "reviewed"
     },
@@ -482,6 +534,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-telescoping"
+      ],
+      "solution": "Factor the denominator and split by partial fractions: $\\dfrac{1}{n^2 + n} = \\dfrac{1}{n(n+1)} = \\dfrac{1}{n} - \\dfrac{1}{n+1}$. The partial sums telescope:\n\n$$\ns_N = \\sum_{n=1}^{N} \\left( \\frac{1}{n} - \\frac{1}{n+1} \\right) = 1 - \\frac{1}{N+1}.\n$$\n\nAs $N \\to \\infty$, $s_N \\to 1$, so the sum is $1$.",
       "sourcePage": 16,
       "status": "reviewed"
     },
@@ -516,6 +572,10 @@
       "lessonIds": [
         "L23"
       ],
+      "typeIds": [
+        "L23-comparison-decide"
+      ],
+      "solution": "(I) $0 < \\ln\\left(1 + \\frac{1}{n^2}\\right) \\le \\frac{1}{n^2}$, and $\\sum \\frac{1}{n^2}$ converges, so (I) converges.\n\n(II) $\\lim_{n \\to \\infty} \\dfrac{\\sin(1/n)}{1/n} = 1$, and $\\sum \\frac{1}{n}$ diverges, so by the limit comparison test (II) diverges.\n\n(III) $\\sqrt{n^3} - \\sqrt{n^3 - 1} = \\dfrac{1}{\\sqrt{n^3} + \\sqrt{n^3 - 1}} \\le \\dfrac{1}{\\sqrt{n^3}} = n^{-3/2}$, and the $p$-series with $p = \\frac{3}{2} > 1$ converges, so (III) converges.\n\nSo (I) and (III) converge and (II) diverges. The difference in (III) must be rationalised before comparing; comparing the two square roots directly does not give a usable bound.",
       "sourcePage": 17,
       "status": "reviewed"
     },
@@ -550,6 +610,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-series-for-integral"
+      ],
+      "solution": "Replace $x$ by $x^2$ in the series for $\\cos x$: $\\cos x^2 = \\sum_{k=0}^{\\infty} (-1)^k \\dfrac{x^{4k}}{(2k)!}$. Integrate term by term from $0$ to $1$, using $\\int_0^1 x^{4k}\\, dx = \\dfrac{1}{4k+1}$:\n\n$$\n\\int_0^1 \\cos x^2\\, dx = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{(2k)!\\,(4k+1)}.\n$$\n\nThe factor $(2k)!$ stays in the denominator, since only the power of $x$ changes on integration.",
       "sourcePage": 18,
       "status": "reviewed"
     },
@@ -584,6 +648,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-series-from-geometric"
+      ],
+      "solution": "Differentiate the geometric series $\\dfrac{1}{1 - t} = \\sum_{k=0}^{\\infty} t^k$ to get $\\dfrac{1}{(1-t)^2} = \\sum_{k=1}^{\\infty} k\\, t^{k-1}$. Put $t = -2x$, so $1 - t = 1 + 2x$:\n\n$$\n\\frac{1}{(1+2x)^2} = \\sum_{k=1}^{\\infty} k(-2x)^{k-1} = \\sum_{k=1}^{\\infty} k(-2)^{k-1} x^{k-1}.\n$$\n\nThe substitution must be $t = -2x$, not $2x$, which is why the alternating signs appear.",
       "sourcePage": 19,
       "status": "reviewed"
     },
@@ -618,6 +686,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-binomial-series"
+      ],
+      "solution": "Write $f(x) = (1 + u)^{-1/3}$ with $u = 3x$. The binomial series gives\n\n$$\n(1 + u)^{-1/3} = 1 - \\frac{1}{3}u + \\frac{\\left(-\\frac{1}{3}\\right)\\left(-\\frac{4}{3}\\right)}{2}u^2 + \\cdots = 1 - \\frac{1}{3}u + \\frac{2}{9}u^2 + \\cdots.\n$$\n\nWith $u = 3x$, $-\\frac{1}{3}u = -x$ and $\\frac{2}{9}u^2 = 2x^2$, so the first three terms are $1 - x + 2x^2$.\n\nLeaving the $3$ out of $u = 3x$ gives $1 - \\frac{1}{3}x + \\frac{2}{9}x^2$, the usual slip.",
       "sourcePage": 20,
       "status": "reviewed"
     },
@@ -652,6 +724,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-error-estimate"
+      ],
+      "solution": "The terms $\\frac{1}{k^3}$ decrease to $0$, so the alternating series estimation theorem bounds the error after $m$ terms by the first omitted term: $|R_m| \\le \\dfrac{1}{(m+1)^3}$. We need $\\dfrac{1}{(m+1)^3} \\le 10^{-3}$, so $(m+1)^3 \\ge 1000$ and $m + 1 \\ge 10$, giving $m \\ge 9$. Check: $m = 8$ gives $\\frac{1}{729} > 10^{-3}$, so $m = 9$ is the smallest value.\n\nBounding by $\\frac{1}{m^3}$ instead of $\\frac{1}{(m+1)^3}$ wrongly gives $m = 10$.",
       "sourcePage": 21,
       "status": "reviewed"
     },
@@ -686,6 +762,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Multiply both sides by $r$: $4r\\cos\\theta + r\\sin\\theta = 2$. With $x = r\\cos\\theta$ and $y = r\\sin\\theta$, this becomes $4x + y = 2$, so $y = 2 - 4x$.\n\nThis is a straight line, and the whole line is traced out.",
       "sourcePage": 22,
       "status": "reviewed"
     },
@@ -720,6 +800,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "For a polar curve, $L = \\int_a^b \\sqrt{r^2 + (r')^2}\\, d\\theta$. Here $r = e^{-2\\theta}$ and $r' = -2e^{-2\\theta}$, so $r^2 + (r')^2 = 5e^{-4\\theta}$ and $\\sqrt{r^2 + (r')^2} = \\sqrt{5}\\, e^{-2\\theta}$. Then\n\n$$\nL = \\sqrt{5} \\int_0^{1/2} e^{-2\\theta}\\, d\\theta = \\sqrt{5}\\left[-\\frac{e^{-2\\theta}}{2}\\right]_0^{1/2} = \\frac{\\sqrt{5}}{2}\\left(1 - e^{-1}\\right) = \\frac{(e-1)\\sqrt{5}}{2e}.\n$$\n\nDropping the $(r')^2$ term loses the factor $\\sqrt{5}$.",
       "sourcePage": 23,
       "status": "reviewed"
     },
@@ -754,6 +838,10 @@
       "lessonIds": [
         "L21"
       ],
+      "typeIds": [
+        "L21-geometric-mix"
+      ],
+      "solution": "Split the term into two geometric pieces: $\\dfrac{3 + 2^n}{4^n} = 3\\left(\\dfrac{1}{4}\\right)^n + \\left(\\dfrac{1}{2}\\right)^n$. Each sum starts at $n = 1$:\n\n$$\n\\sum_{n=1}^{\\infty} 3\\left(\\frac{1}{4}\\right)^n = 3 \\cdot \\frac{1/4}{1 - 1/4} = 1, \\qquad \\sum_{n=1}^{\\infty} \\left(\\frac{1}{2}\\right)^n = \\frac{1/2}{1 - 1/2} = 1.\n$$\n\nSo the total is $1 + 1 = 2$. Starting the sums at $n = 0$ would add an extra $3 + 1 = 4$.",
       "sourcePage": 24,
       "status": "reviewed"
     },
@@ -788,6 +876,10 @@
       "lessonIds": [
         "L25"
       ],
+      "typeIds": [
+        "L25-ratio-inconclusive"
+      ],
+      "solution": "The ratio test is inconclusive when $\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = 1$.\n\n(I) $\\dfrac{7^{n+1}/(n+1)!}{7^n/n!} = \\dfrac{7}{n+1} \\to 0$, so the test is conclusive.\n\n(II) $\\dfrac{1/(n+1)^2}{1/n^2} = \\left(\\dfrac{n}{n+1}\\right)^2 \\to 1$, so the test is inconclusive.\n\n(III) $\\dfrac{\\ln(n+1)/(n+1)}{\\ln n/n} = \\dfrac{n}{n+1} \\cdot \\dfrac{\\ln(n+1)}{\\ln n} \\to 1 \\cdot 1 = 1$, so the test is inconclusive.\n\nSo the ratio test is inconclusive for (II) and (III).",
       "sourcePage": 25,
       "status": "reviewed"
     },
@@ -822,6 +914,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-between"
+      ],
+      "solution": "At each angle $\\theta$ with $0 \\le \\theta \\le \\frac{\\pi}{2}$, the region lies between $r = \\theta$ (inner) and $r = 2\\theta$ (outer). The area is\n\n$$\nA = \\frac{1}{2}\\int_0^{\\pi/2} \\left( (2\\theta)^2 - \\theta^2 \\right) d\\theta = \\frac{3}{2}\\int_0^{\\pi/2} \\theta^2\\, d\\theta = \\frac{3}{2} \\cdot \\frac{1}{3}\\left(\\frac{\\pi}{2}\\right)^3 = \\frac{\\pi^3}{16}.\n$$\n\nThe outer curve must be the larger one, $r = 2\\theta$; swapping them gives a negative integrand.",
       "sourcePage": 26,
       "status": "reviewed"
     },
@@ -856,6 +952,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-points"
+      ],
+      "solution": "The point $(1, \\sqrt{3})$ has $r = \\sqrt{1 + 3} = 2$ and, since it lies in the first quadrant with $\\tan\\theta = \\sqrt{3}$, $\\theta = \\frac{\\pi}{3}$. Check each representation:\n\n(I) $(2, \\frac{\\pi}{3})$ is the given point.\n\n(II) $(2, -\\frac{5\\pi}{3})$ differs from $\\frac{\\pi}{3}$ by $-2\\pi$, so it is the same point.\n\n(III) $(2, \\frac{4\\pi}{3})$ gives $\\left(2\\cos\\frac{4\\pi}{3}, 2\\sin\\frac{4\\pi}{3}\\right) = (-1, -\\sqrt{3})$, a different point. Its angle is $\\pi$ away, which would need $r = -2$ rather than $r = 2$.\n\nSo only (I) and (II) are true.",
       "sourcePage": 27,
       "status": "reviewed"
     }

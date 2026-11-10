@@ -112,8 +112,8 @@ export function checkDuration(ownerId: string, minutes: number): void {
 
 const content = loadContent()
 
-/** Set to true in Phase 6, when every question has its solution and problem type. */
-const CONTENT_COMPLETE = false
+/** Set to true in Phase 6, once the thin problem types have been merged or filled. */
+const THIN_TYPES_SETTLED = false
 
 /** Every string in the content files that is rendered as Markdown, with the id that owns it. */
 function markdownStrings(): [string, string][] {
@@ -247,14 +247,14 @@ describe('content validation', () => {
       }
     }
   })
-  // These hold only when the content pass is finished; see docs/plans/2026-11-10-study-app-2.0.md, Phase 6.
-  describe.runIf(CONTENT_COMPLETE)('complete content', () => {
-    test('every question has a solution and a problem type', () => {
-      for (const q of content.questions) {
-        expect(q.solution?.trim(), `${q.id} solution`).toBeTruthy()
-        expect(q.typeIds?.length, `${q.id} types`).toBeGreaterThan(0)
-      }
-    })
+  test('every question has a solution and a problem type', () => {
+    for (const q of content.questions) {
+      expect(q.solution?.trim(), `${q.id} solution`).toBeTruthy()
+      expect(q.typeIds?.length, `${q.id} types`).toBeGreaterThan(0)
+    }
+  })
+  // Holds once the thin types are settled; see docs/plans/2026-11-10-study-app-2.0.md, Phase 6.
+  describe.runIf(THIN_TYPES_SETTLED)('complete content', () => {
     test('every problem type of a planned lesson has at least three questions', () => {
       for (const l of content.lessons.filter(isPlanned)) {
         for (const t of l.problemTypes ?? []) {

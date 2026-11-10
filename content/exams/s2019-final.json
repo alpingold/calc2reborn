@@ -38,6 +38,10 @@
       "lessonIds": [
         "L1"
       ],
+      "typeIds": [
+        "L1-unit-vector-direction"
+      ],
+      "solution": "Scale the vector to unit length, then multiply by the required length.\n\nThe length of $\\langle -2, 6, -3 \\rangle$ is $\\sqrt{4 + 36 + 9} = 7$, so the unit vector in that direction is $\\frac{1}{7}\\langle -2, 6, -3 \\rangle = \\left\\langle -\\frac{2}{7}, \\frac{6}{7}, -\\frac{3}{7} \\right\\rangle$.\n\nMultiplying by $3$ gives $3\\left\\langle -\\frac{2}{7}, \\frac{6}{7}, -\\frac{3}{7} \\right\\rangle = \\left\\langle -\\frac{6}{7}, \\frac{18}{7}, -\\frac{9}{7} \\right\\rangle$, which has length $3$ in the same direction.\n\nSo the vector is $\\left\\langle -\\frac{6}{7}, \\frac{18}{7}, -\\frac{9}{7} \\right\\rangle$. The trap is the unit vector itself, which has the right direction but length $1$ because the final scaling was forgotten.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -73,6 +77,10 @@
         "L3",
         "L4"
       ],
+      "typeIds": [
+        "L3-angle-dot-and-cross"
+      ],
+      "solution": "Use $\\vec a \\cdot \\vec b = |\\vec a||\\vec b|\\cos\\theta$ and $|\\vec a \\times \\vec b| = |\\vec a||\\vec b|\\sin\\theta$, then divide the second equation by the first.\n\nThe magnitude of the cross product is $|\\vec a \\times \\vec b| = \\sqrt{1^2 + 5^2 + 7^2} = \\sqrt{75} = 5\\sqrt{3}$.\n\nSo $\\tan\\theta = \\dfrac{|\\vec a \\times \\vec b|}{\\vec a \\cdot \\vec b} = \\dfrac{5\\sqrt{3}}{5} = \\sqrt{3}$. The dot product is positive, so $\\cos\\theta > 0$ and $\\theta$ is acute, giving $\\theta = \\frac{\\pi}{3}$.\n\nSo the angle between the vectors is $\\frac{\\pi}{3}$.",
       "sourcePage": 2,
       "status": "reviewed"
     },
@@ -108,6 +116,11 @@
         "L5",
         "L11"
       ],
+      "typeIds": [
+        "L5-area-split-or-axis",
+        "L11-parts-applied"
+      ],
+      "solution": "On $[0, 4]$ the curve $y = xe^{-x}$ is above the $x$-axis, so the area is $\\int_0^4 xe^{-x}\\,dx$ with no splitting needed.\n\nThe integrand is a power times an exponential, so integrate by parts with $u = x$ and $dv = e^{-x}\\,dx$, giving $du = dx$ and $v = -e^{-x}$:\n\n$$\n\\int_0^4 xe^{-x}\\,dx = \\left[-xe^{-x}\\right]_0^4 + \\int_0^4 e^{-x}\\,dx\n$$\n\nThe boundary term is $-4e^{-4} - 0 = -4e^{-4}$, and $\\int_0^4 e^{-x}\\,dx = \\left[-e^{-x}\\right]_0^4 = 1 - e^{-4}$.\n\nSo the area is $-4e^{-4} + 1 - e^{-4} = 1 - 5e^{-4}$. The trap is evaluating only at the upper limit, which gives $-5e^{-4}$, a negative number that cannot be an area.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -142,6 +155,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-poly-exp-trig"
+      ],
+      "solution": "Rewrite $\\tan^2 x = \\sec^2 x - 1$ to split the integral into a polynomial times a trig function and a polynomial alone.\n\n$$\n\\int x\\tan^2 x\\,dx = \\int x\\sec^2 x\\,dx - \\int x\\,dx\n$$\n\nFor the first integral, use parts with $u = x$ and $dv = \\sec^2 x\\,dx$, so $v = \\tan x$:\n\n$$\n\\int x\\sec^2 x\\,dx = x\\tan x - \\int \\tan x\\,dx = x\\tan x + \\ln|\\cos x| + C\n$$\n\nusing $\\int \\tan x\\,dx = -\\ln|\\cos x| + C$. Subtracting $\\frac{x^2}{2}$ gives the whole integral.\n\nSo $\\int x\\tan^2 x\\,dx = x\\tan x + \\ln|\\cos x| - \\frac{x^2}{2} + C$. The trap is dropping the $-\\frac{x^2}{2}$ that comes from the $-1$ in $\\sec^2 x - 1$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -176,6 +193,10 @@
       "lessonIds": [
         "L17"
       ],
+      "typeIds": [
+        "L17-integrate-quadratic-factor"
+      ],
+      "solution": "Substitute $u = x^2$, since $\\frac{dx}{x} = \\frac{du}{2u}$, which turns the integral into a rational function of $u$.\n\n$$\n\\int \\frac{dx}{x(x^2+1)^2} = \\frac{1}{2}\\int \\frac{du}{u(u+1)^2}\n$$\n\nWrite $\\frac{1}{u(u+1)^2} = \\frac{A}{u} + \\frac{B}{u+1} + \\frac{C}{(u+1)^2}$. Multiplying through and setting $u = 0$ gives $A = 1$, setting $u = -1$ gives $C = -1$, and comparing $u^2$ coefficients gives $A + B = 0$, so $B = -1$.\n\nSo the integral is $\\frac{1}{2}\\left(\\ln|u| - \\ln|u+1| + \\frac{1}{u+1}\\right) + C$. Substituting back $u = x^2$ gives\n\n$$\n\\ln\\frac{|x|}{\\sqrt{x^2+1}} + \\frac{1}{2(x^2+1)} + C.\n$$\n\nThe trap is the rational term: forgetting the factor $\\frac{1}{2}$ on it gives the $\\frac{1}{x^2+1}$ of a wrong choice.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -211,6 +232,11 @@
         "L6",
         "L12"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis",
+        "L12-even-powers-half-angle"
+      ],
+      "solution": "The disk method about the $x$-axis gives $V = \\pi\\int_a^b y^2\\,dx$, so here $V = \\pi\\int_0^{\\pi/2} \\sin^2 x\\cos^2 x\\,dx$.\n\nWrite $\\sin^2 x\\cos^2 x = \\frac{1}{4}\\sin^2 2x$, then use the half-angle identity $\\sin^2 2x = \\frac{1 - \\cos 4x}{2}$:\n\n$$\nV = \\frac{\\pi}{4}\\int_0^{\\pi/2} \\sin^2 2x\\,dx = \\frac{\\pi}{4}\\int_0^{\\pi/2} \\frac{1 - \\cos 4x}{2}\\,dx\n$$\n\n$$\n= \\frac{\\pi}{4}\\cdot\\frac{1}{2}\\left[x - \\frac{\\sin 4x}{4}\\right]_0^{\\pi/2} = \\frac{\\pi}{4}\\cdot\\frac{\\pi}{4}\n$$\n\nSince $\\sin 2\\pi = 0$, the bracket equals $\\frac{\\pi}{2}$ at the upper limit and $0$ at the lower.\n\nSo the volume is $\\frac{\\pi^2}{16}$.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -245,6 +271,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-sine-substitution"
+      ],
+      "solution": "The average value is $\\frac{1}{b-a}\\int_a^b f(x)\\,dx$, so first evaluate the integral. The $1 - x^2$ under a power suggests $x = \\sin\\theta$.\n\nWith $x = \\sin\\theta$, $dx = \\cos\\theta\\,d\\theta$ and $\\sqrt{1-x^2} = \\cos\\theta$, so $(1-x^2)^{-3/2}\\,dx = \\frac{\\cos\\theta}{\\cos^3\\theta}\\,d\\theta = \\sec^2\\theta\\,d\\theta$. Hence $\\int (1-x^2)^{-3/2}\\,dx = \\tan\\theta + C = \\frac{x}{\\sqrt{1-x^2}} + C$.\n\nAt $x = \\frac{3}{5}$ this is $\\frac{3/5}{4/5} = \\frac{3}{4}$, and at $x = 0$ it is $0$, so $\\int_0^{3/5} f(x)\\,dx = \\frac{3}{4}$.\n\nThe average is $\\frac{1}{3/5}\\cdot\\frac{3}{4} = \\frac{5}{3}\\cdot\\frac{3}{4} = \\frac{5}{4}$. The trap is stopping at $\\frac{3}{4}$, the integral itself, without dividing by the interval length $\\frac{3}{5}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -279,6 +309,10 @@
       "lessonIds": [
         "L14"
       ],
+      "typeIds": [
+        "L14-secant-substitution"
+      ],
+      "solution": "The integrand contains $\\sqrt{x^2 - 1}$, so use the secant substitution.\n\nLet $x = \\sec\\theta$, so $dx = \\sec\\theta\\tan\\theta\\,d\\theta$ and $\\sqrt{x^2-1} = \\tan\\theta$ for $\\theta \\in [0, \\frac{\\pi}{2})$. The integrand becomes\n\n$$\n\\frac{\\sec\\theta\\tan\\theta}{\\sec\\theta\\tan\\theta}\\,d\\theta = d\\theta.\n$$\n\nFor the limits, $\\sec\\theta = \\sqrt{2}$ gives $\\theta = \\frac{\\pi}{4}$, and $\\sec\\theta = 2$ gives $\\theta = \\frac{\\pi}{3}$.\n\nSo the integral is $\\int_{\\pi/4}^{\\pi/3} d\\theta = \\frac{\\pi}{3} - \\frac{\\pi}{4} = \\frac{\\pi}{12}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -313,6 +347,10 @@
       "lessonIds": [
         "L18"
       ],
+      "typeIds": [
+        "L18-discontinuity"
+      ],
+      "solution": "The integrand blows up at the endpoint $x = 1$, so write the integral as a limit from the right:\n\n$$\n\\int_1^3 (x-1)^{-2/3}\\,dx = \\lim_{t \\to 1^+} \\int_t^3 (x-1)^{-2/3}\\,dx\n$$\n\nSince $\\int (x-1)^{-2/3}\\,dx = 3(x-1)^{1/3}$, the inner integral is $3\\cdot 2^{1/3} - 3(t-1)^{1/3}$.\n\nAs $t \\to 1^+$, the term $3(t-1)^{1/3}$ tends to $0$, so the limit is $3\\sqrt[3]{2}$ and the integral converges.\n\nSo the value is $3\\sqrt[3]{2}$. The trap is to say it diverges because the singularity is at an endpoint. That rule is for powers $(x-1)^{-p}$ with $p \\ge 1$, and here $p = \\frac{2}{3} < 1$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -347,6 +385,10 @@
       "lessonIds": [
         "L8"
       ],
+      "typeIds": [
+        "L8-surface-area-x-axis"
+      ],
+      "solution": "Surface area about the $x$-axis is $S = 2\\pi\\int_a^b y\\sqrt{1 + (y')^2}\\,dx$.\n\nHere $y = \\frac{x^3}{3}$ and $y' = x^2$, so $\\sqrt{1 + (y')^2} = \\sqrt{1 + x^4}$ and\n\n$$\nS = 2\\pi\\int_0^1 \\frac{x^3}{3}\\sqrt{1 + x^4}\\,dx.\n$$\n\nLet $u = 1 + x^4$, so $du = 4x^3\\,dx$, with $u = 1$ at $x = 0$ and $u = 2$ at $x = 1$:\n\n$$\nS = \\frac{2\\pi}{3}\\cdot\\frac{1}{4}\\int_1^2 \\sqrt{u}\\,du = \\frac{\\pi}{6}\\left[\\frac{2}{3}u^{3/2}\\right]_1^2 = \\frac{\\pi}{9}\\left(2\\sqrt{2} - 1\\right).\n$$\n\nSo the surface area is $\\frac{2\\sqrt{2}\\pi}{9} - \\frac{\\pi}{9}$.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -382,6 +424,11 @@
         "L20",
         "L23"
       ],
+      "typeIds": [
+        "L20-sequence-limit",
+        "L23-comparison-decide"
+      ],
+      "solution": "Treat the sequence and the series separately: find the limit of $a_n$, then compare the series with a known one.\n\nSince $\\cos(1/n) \\to 1$ and $\\frac{1}{2n+1} \\to 0$, we get $a_n \\to 0$, so the sequence converges.\n\nFor the series, $\\cos(1/n) > 0$ for $n \\ge 1$, so $a_n > 0$. Compare with $b_n = \\frac{1}{n}$:\n\n$$\n\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\lim_{n \\to \\infty} \\frac{n\\cos(1/n)}{2n+1} = \\frac{1}{2}.\n$$\n\nSince $\\sum \\frac{1}{n}$ diverges, $\\sum a_n$ diverges by the limit comparison test.\n\nSo the sequence converges and the series diverges. The trap is to conclude that the series converges because its terms tend to $0$; that is not enough for convergence.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -416,6 +463,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-classify-each"
+      ],
+      "solution": "Test each series in turn.\n\nFor $\\sum k^2 e^{-k^3}$, the integral test applies. Substituting $u = x^3$ in $\\int_1^\\infty x^2 e^{-x^3}\\,dx$ gives $\\frac{1}{3}\\int_1^\\infty e^{-u}\\,du$, which converges, so this series converges.\n\nFor $\\sum \\frac{1}{\\sqrt{\\ell - 1/\\ell}}$, the terms behave like $\\frac{1}{\\sqrt{\\ell}}$. This is a $p$-series with $p = \\frac{1}{2} \\le 1$, so the series diverges by limit comparison.\n\nFor $\\sum \\frac{m!}{3^m}$, the ratio of consecutive terms is $\\frac{m+1}{3} \\to \\infty$, so the terms do not tend to $0$ and the series diverges.\n\nSo only the first series converges, and the statement that it converges while the others diverge is true.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -450,6 +501,10 @@
       "lessonIds": [
         "L24"
       ],
+      "typeIds": [
+        "L24-absolute-conditional"
+      ],
+      "solution": "For each series, check absolute convergence first, then the alternating series test.\n\nFor $\\sum_{m=1}^{\\infty} \\frac{(-1)^m}{m}$, the terms $\\frac{1}{m}$ are positive, decreasing and tend to $0$, so the series converges. The series of absolute values is $\\sum \\frac{1}{m}$, which diverges, so the series is conditionally convergent.\n\nFor $\\sum_{n=2}^{\\infty} \\frac{(-1)^n}{\\ln n}$, the terms $\\frac{1}{\\ln n}$ are positive, decreasing and tend to $0$, so the series converges. Since $\\ln n < n$, $\\frac{1}{\\ln n} > \\frac{1}{n}$, so $\\sum \\frac{1}{\\ln n}$ diverges by comparison with $\\sum \\frac{1}{n}$. This series is also conditionally convergent.\n\nSo both series are conditionally convergent. The trap is to call the second series absolutely convergent because $\\frac{1}{\\ln n}$ looks small; it shrinks too slowly for that.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -484,6 +539,10 @@
       "lessonIds": [
         "L26"
       ],
+      "typeIds": [
+        "L26-odd-one-out"
+      ],
+      "solution": "Test each series and look for the one that diverges.\n\nFor $\\sum \\frac{n^2}{e^n}$, the ratio is $\\frac{(n+1)^2}{e\\,n^2} \\to \\frac{1}{e} < 1$, so it converges.\n\nFor $\\sum \\frac{1}{n\\sqrt{n^2+1}}$, since $\\sqrt{n^2+1} \\ge n$ the terms are at most $\\frac{1}{n^2}$, so it converges by comparison.\n\nFor $\\sum \\frac{(1.01)^n}{n + 3^n}$, the terms are at most $\\left(\\frac{1.01}{3}\\right)^n$, a geometric series with ratio less than $1$, so it converges.\n\nFor $\\sum (e^{1/n} - 1)^n$, the $n$th root of the term is $e^{1/n} - 1 \\to 0$, so the root test gives convergence.\n\nFor $\\sum \\tan(1/n)$, the ratio $\\frac{\\tan(1/n)}{1/n}$ tends to $1$, so by limit comparison with the divergent harmonic series this series diverges.\n\nSo the divergent series is $\\sum \\tan(1/n)$. The trap is to assume $\\tan(1/n)$ is small enough to converge; it behaves like $\\frac{1}{n}$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -518,6 +577,10 @@
       "lessonIds": [
         "L30"
       ],
+      "typeIds": [
+        "L30-sum-by-differentiating"
+      ],
+      "solution": "Recognise the series as a derivative of a geometric series. Its $n$th term is $n\\left(\\frac{1}{3}\\right)^{n-1}$, which is the $n$th term of $\\sum_{n=1}^{\\infty} n x^{n-1}$ at $x = \\frac{1}{3}$.\n\nFor $|x| < 1$, $\\sum_{n=0}^{\\infty} x^n = \\frac{1}{1-x}$. Differentiating term by term gives\n\n$$\n\\sum_{n=1}^{\\infty} n x^{n-1} = \\frac{1}{(1-x)^2}.\n$$\n\nAt $x = \\frac{1}{3}$ this is $\\frac{1}{(2/3)^2} = \\frac{9}{4}$.\n\nSo the sum is $\\frac{9}{4}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -552,6 +615,10 @@
       "lessonIds": [
         "L29"
       ],
+      "typeIds": [
+        "L29-radius-of-convergence"
+      ],
+      "solution": "Use the root test on the terms $n^n x^n$, since each is an $n$th power.\n\n$$\n\\lim_{n \\to \\infty} \\sqrt[n]{|n^n x^n|} = \\lim_{n \\to \\infty} n|x| = \\infty \\quad \\text{for } x \\ne 0.\n$$\n\nSo the series diverges for every $x \\ne 0$, and the radius of convergence is $0$. At $x = 0$ every term after the first is $0$, so the series converges there.\n\nSo the interval of convergence is $\\{0\\}$.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -586,6 +653,10 @@
       "lessonIds": [
         "L31"
       ],
+      "typeIds": [
+        "L31-taylor-series-other-center"
+      ],
+      "solution": "Rewrite $\\frac{1}{x}$ in powers of $x - 2$ so that it becomes a geometric series centred at $2$:\n\n$$\n\\frac{1}{x} = \\frac{1}{2 + (x-2)} = \\frac{1}{2}\\cdot\\frac{1}{1 + \\frac{x-2}{2}}.\n$$\n\nUsing $\\frac{1}{1+u} = \\sum_{n=0}^{\\infty} (-1)^n u^n$ with $u = \\frac{x-2}{2}$:\n\n$$\n\\frac{1}{x} = \\frac{1}{2}\\sum_{n=0}^{\\infty} (-1)^n \\frac{(x-2)^n}{2^n} = \\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{8}(x-2)^2 - \\frac{1}{16}(x-2)^3 + \\cdots\n$$\n\nSo the first terms are $\\frac{1}{2} - \\frac{1}{4}(x-2) + \\frac{1}{8}(x-2)^2 - \\frac{1}{16}(x-2)^3 + \\cdots$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -620,6 +691,10 @@
       "lessonIds": [
         "L32"
       ],
+      "typeIds": [
+        "L32-limits-and-sums"
+      ],
+      "solution": "Replace $\\tan^{-1}(x^2/2)$ by its series, then find the terms of the numerator up to $x^{10}$.\n\nWith $u = \\frac{x^2}{2}$, $\\tan^{-1} u = u - \\frac{u^3}{3} + \\frac{u^5}{5} - \\cdots$, so\n\n$$\n\\tan^{-1}\\frac{x^2}{2} = \\frac{x^2}{2} - \\frac{x^6}{24} + \\frac{x^{10}}{160} - \\cdots\n$$\n\nMultiplying by $24$ gives $12x^2 - x^6 + \\frac{3}{20}x^{10} - \\cdots$. Adding $x^6 - 12x^2$, the numerator is $\\frac{3}{20}x^{10} + O(x^{14})$.\n\nDividing by $x^{10}$ leaves $\\frac{3}{20} + O(x^4)$, so the limit is $\\frac{3}{20}$.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -654,6 +729,10 @@
       "lessonIds": [
         "X1"
       ],
+      "typeIds": [
+        "X1-parametric-curves"
+      ],
+      "solution": "Use the arc length formula for a parametric curve, $L = \\int_a^b \\sqrt{(x')^2 + (y')^2}\\,dt$.\n\nHere $x' = e^t(\\cos t - \\sin t)$ and $y' = e^t(\\sin t + \\cos t)$, so\n\n$$\n(x')^2 + (y')^2 = e^{2t}\\left[(\\cos t - \\sin t)^2 + (\\sin t + \\cos t)^2\\right] = 2e^{2t}.\n$$\n\nTherefore\n\n$$\nL = \\int_0^{\\ln 2} \\sqrt{2}\\,e^t\\,dt = \\sqrt{2}\\left[e^t\\right]_0^{\\ln 2} = \\sqrt{2}(2 - 1).\n$$\n\nSo the length is $\\sqrt{2}$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -688,6 +767,10 @@
       "lessonIds": [
         "L33"
       ],
+      "typeIds": [
+        "L33-convert-equations"
+      ],
+      "solution": "Multiply the polar equation by $\\cos^2\\theta$ to get $r\\cos^2\\theta = \\sin\\theta$, since $\\tan\\theta\\sec\\theta = \\frac{\\sin\\theta}{\\cos^2\\theta}$.\n\nMultiply both sides by $r$: $(r\\cos\\theta)^2 = r\\sin\\theta$. Using $x = r\\cos\\theta$ and $y = r\\sin\\theta$, this is $x^2 = y$.\n\nMultiplying by $r$ can add the origin, but the origin already lies on $y = x^2$, so nothing is lost.\n\nSo the Cartesian equation is $y = x^2$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -725,6 +808,10 @@
       "lessonIds": [
         "L34"
       ],
+      "typeIds": [
+        "L34-limacons-symmetry"
+      ],
+      "solution": "The curve $r = 1 + \\sin\\theta$ is a cardioid, so its shape comes from where $r$ is largest and where it is zero.\n\nThe largest value is $r = 2$ at $\\theta = \\frac{\\pi}{2}$, so the curve reaches $(0, 2)$ on the positive $y$-axis. It is $r = 0$ at $\\theta = \\frac{3\\pi}{2}$, so the curve passes through the origin there with a cusp. Since $r$ depends only on $\\sin\\theta$, the curve is symmetric about the $y$-axis.\n\nSo the graph is a heart shape bulging upward, with its cusp at the origin.\n\nThe trap is a picture with a small inner loop: a limacon $r = a + b\\sin\\theta$ has an inner loop only when $|b| > |a|$, and here $|a| = |b| = 1$.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -762,6 +849,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-area-between"
+      ],
+      "solution": "The area in polar coordinates is $\\frac{1}{2}\\int r^2\\,d\\theta$ over the angles that sweep the shaded region. The shaded part lies between the positive $y$-axis, $\\theta = \\frac{\\pi}{2}$, and the curve, which reaches $(-1, 0)$ at $\\theta = \\pi$, so take $\\theta$ from $\\frac{\\pi}{2}$ to $\\pi$.\n\n$$\nA = \\frac{1}{2}\\int_{\\pi/2}^{\\pi} (2 + \\cos\\theta)^2\\,d\\theta = \\frac{1}{2}\\int_{\\pi/2}^{\\pi}\\left(4 + 4\\cos\\theta + \\cos^2\\theta\\right)d\\theta\n$$\n\nUsing $\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$:\n\n$$\nA = \\frac{1}{2}\\left[\\frac{9}{2}\\theta + 4\\sin\\theta + \\frac{\\sin 2\\theta}{4}\\right]_{\\pi/2}^{\\pi} = \\frac{1}{2}\\left(\\frac{9\\pi}{2} - \\frac{9\\pi}{4} - 4\\right)\n$$\n\nSo the area is $\\frac{9\\pi}{8} - 2$. The trap is dropping the $4\\cos\\theta$ term, which gives $\\frac{9\\pi}{8}$ with the $-2$ missing.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -796,6 +887,10 @@
       "lessonIds": [
         "L35"
       ],
+      "typeIds": [
+        "L35-length-spirals"
+      ],
+      "solution": "Use the polar arc length formula $L = \\int_\\alpha^\\beta \\sqrt{r^2 + (r')^2}\\,d\\theta$.\n\nWith $r = \\theta^2$ and $r' = 2\\theta$, the sum $r^2 + (r')^2 = \\theta^4 + 4\\theta^2 = \\theta^2(\\theta^2 + 4)$, so\n\n$$\nL = \\int_0^{\\pi} \\theta\\sqrt{\\theta^2 + 4}\\,d\\theta.\n$$\n\nLet $u = \\theta^2 + 4$, so $du = 2\\theta\\,d\\theta$, with $u = 4$ at $\\theta = 0$ and $u = \\pi^2 + 4$ at $\\theta = \\pi$:\n\n$$\nL = \\frac{1}{2}\\int_4^{\\pi^2+4} \\sqrt{u}\\,du = \\frac{1}{3}\\left[u^{3/2}\\right]_4^{\\pi^2+4} = \\frac{(\\pi^2+4)^{3/2} - 8}{3}.\n$$\n\nSo the length is $\\frac{(\\pi^2+4)^{3/2} - 8}{3}$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -830,6 +925,10 @@
       "lessonIds": [
         "X2"
       ],
+      "typeIds": [
+        "X2-conic-sections"
+      ],
+      "solution": "Complete the square in $x$ and in $y$ to get the standard form.\n\n$$\n3(x-3)^2 - 27 - (y+3)^2 + 9 + 9 = 0 \\quad\\text{so}\\quad 3(x-3)^2 - (y+3)^2 = 9,\n$$\n\nor $\\frac{(x-3)^2}{3} - \\frac{(y+3)^2}{9} = 1$.\n\nThe $x$-term is positive, so the hyperbola opens left and right, with $a^2 = 3$ and $b^2 = 9$. Then $c^2 = a^2 + b^2 = 12$, so $c = 2\\sqrt{3}$. The foci lie on the line $y = -3$ at distance $2\\sqrt{3}$ from the centre $(3, -3)$.\n\nSo one focus is $(3 + 2\\sqrt{3}, -3)$. The trap is using $c^2 = a^2$, which gives $c = \\sqrt{3}$ and the focus $(3 + \\sqrt{3}, -3)$.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -864,6 +963,10 @@
       "lessonIds": [
         "X3"
       ],
+      "typeIds": [
+        "X3-complex-numbers"
+      ],
+      "solution": "Convert each number to the form $a + bi$ and compare.\n\n$2e^{2\\pi i/3} = 2\\left(-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\\right) = -1 + \\sqrt{3}\\,i$.\n\n$\\frac{4}{-1 - \\sqrt{3}i} = \\frac{4(-1 + \\sqrt{3}i)}{(-1)^2 + (\\sqrt{3})^2} = \\frac{4(-1 + \\sqrt{3}i)}{4} = -1 + \\sqrt{3}\\,i$.\n\nThe number $-1 + \\sqrt{3}\\,i$ is also written directly, and $2\\left(\\cos\\frac{2\\pi}{3} + i\\sin\\frac{2\\pi}{3}\\right)$ is the same value, since $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$ and $\\sin\\frac{2\\pi}{3} = \\frac{\\sqrt{3}}{2}$.\n\nThe remaining one is $2e^{4\\pi i/3} = 2\\left(-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i\\right) = -1 - \\sqrt{3}\\,i$, which is different.\n\nSo the number that is not equal to the others is $2e^{4\\pi i/3}$. The trap is treating $e^{4\\pi i/3}$ as the same angle as $e^{2\\pi i/3}$; the two angles differ by $\\frac{2\\pi}{3}$, not by $2\\pi$.",
       "sourcePage": 14,
       "status": "reviewed"
     }
