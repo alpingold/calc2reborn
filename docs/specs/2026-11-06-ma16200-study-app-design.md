@@ -59,7 +59,7 @@ src/
   engine/           FSRS wrapper, mastery, selectors, mock-exam sampler
   storage/          ProgressStore interface, Dexie and memory stores
   ui/               screens and components
-docs/superpowers/   specs and plans
+docs/specs, docs/plans   specs and plans
 ```
 
 Key libraries: `ts-fsrs` (scheduling), `dexie` (IndexedDB), `katex`
