@@ -2,6 +2,18 @@
 
 How to write the worked solution and choose the problem types for an exam question. It applies to every question in `content/exams/` that has no `solution` yet. A question that already has one keeps it word for word and only gains its problem types.
 
+## Who writes and who checks
+
+Decided by a pilot on 2026-11-10 (`f2018-e1`, 12 questions): solutions are drafted by Haiku and checked by Sonnet in a fresh context. Haiku's drafts passed the check on 12 of 12 with a mean teaching quality of 4.9 out of 5; Sonnet's own drafts passed on 10 of 12 with 3.9, the two faults being wrong closing sentences. The pilot covered only Exam 1 material, so the rejection rate on series and Taylor questions is watched in the first batch, and an exam whose drafts are rejected often is redrafted on Sonnet.
+
+The steps for one exam, with its files under `.scratch/solutions/<examId>/`:
+
+1. `pnpm content:prepare <examId>` writes `questions-no-key.json`.
+2. The drafter writes `draft.json`, following this guide.
+3. The checker first solves `questions-no-key.json` without the key or the draft and writes `blind.json`. It then reads the key and the draft and writes `grades.json`: for each question a verdict of pass, fix (with the corrected text) or reject, and an `escalate` reason for anything the owner must see.
+4. `pnpm content:collect <examId>` writes `final.json`, the records safe to merge, and `escalations.json`.
+5. `pnpm content:solutions .scratch/solutions/<examId>/final.json` merges them into the exam file.
+
 ## Inputs
 
 - The exam file, `content/exams/<examId>.json`: each question's `stem`, `choices`, keyed `answer`, `lessonIds` and `figures`.

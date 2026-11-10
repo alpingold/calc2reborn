@@ -38,6 +38,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-area-from-points"
+      ],
+      "solution": "Use the cross product: the area of a triangle is half the magnitude of the cross product of two side vectors that start at the same vertex.\n\nTake $P = (1,1,1)$, $Q = (2,2,3)$ and $R = (1,2,2)$. Then $\\overrightarrow{PQ} = \\langle 1, 1, 2 \\rangle$ and $\\overrightarrow{PR} = \\langle 0, 1, 1 \\rangle$.\n\n$$\n\\overrightarrow{PQ} \\times \\overrightarrow{PR} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 1 & 2 \\\\ 0 & 1 & 1 \\end{vmatrix} = -\\vec{i} - \\vec{j} + \\vec{k}\n$$\n\nIts magnitude is $\\sqrt{1 + 1 + 1} = \\sqrt{3}$, so the area of the triangle is $\\frac{1}{2}\\sqrt{3} = \\frac{\\sqrt{3}}{2}$.",
       "sourcePage": 3,
       "status": "reviewed"
     },
@@ -72,6 +76,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-dot-orthogonal-work"
+      ],
+      "solution": "Expand the squared length with the dot product, then use $\\vec{u} \\cdot \\vec{v} = |\\vec{u}|\\,|\\vec{v}|\\cos\\theta$.\n\n$$\n|\\vec{u} + \\vec{v}|^2 = \\vec{u}\\cdot\\vec{u} + 2\\,\\vec{u}\\cdot\\vec{v} + \\vec{v}\\cdot\\vec{v} = |\\vec{u}|^2 + 2|\\vec{u}||\\vec{v}|\\cos\\theta + |\\vec{v}|^2\n$$\n\nWith $|\\vec{u}| = 3$, $|\\vec{v}| = 4$ and $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$:\n\n$$\n|\\vec{u} + \\vec{v}|^2 = 9 + 2(3)(4)\\left(-\\frac{1}{2}\\right) + 16 = 9 - 12 + 16 = 13\n$$\n\nso $|\\vec{u} + \\vec{v}| = \\sqrt{13}$. Using $\\cos\\frac{2\\pi}{3} = +\\frac{1}{2}$ gives $\\sqrt{37}$, the common sign slip.",
       "sourcePage": 4,
       "status": "reviewed"
     },
@@ -106,6 +114,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-cross-magnitude-angle"
+      ],
+      "solution": "Use $|\\vec{u} \\times \\vec{v}| = |\\vec{u}|\\,|\\vec{v}|\\sin\\theta$, with $\\theta$ the angle between the vectors.\n\n$$\n|\\vec{u} \\times \\vec{v}| = (1)(5)\\sin\\frac{\\pi}{6} = 5 \\cdot \\frac{1}{2} = \\frac{5}{2}\n$$\n\nso $|\\vec{u} \\times \\vec{v}| = \\frac{5}{2}$.",
       "sourcePage": 5,
       "status": "reviewed"
     },
@@ -140,6 +152,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-vector-projection"
+      ],
+      "solution": "The vector projection of $\\vec{b}$ onto $\\vec{a}$ is $\\operatorname{proj}_{\\vec{a}}\\vec{b} = \\frac{\\vec{a}\\cdot\\vec{b}}{\\vec{a}\\cdot\\vec{a}}\\,\\vec{a}$.\n\nWith $\\vec{a} = \\langle 1, 1, 1 \\rangle$ and $\\vec{b} = \\langle 1, 0, 1 \\rangle$, we get $\\vec{a}\\cdot\\vec{b} = 2$ and $\\vec{a}\\cdot\\vec{a} = 3$.\n\n$$\n\\operatorname{proj}_{\\vec{a}}\\vec{b} = \\frac{2}{3}\\langle 1, 1, 1 \\rangle = \\left\\langle \\frac{2}{3}, \\frac{2}{3}, \\frac{2}{3} \\right\\rangle\n$$\n\nso the projection is $\\langle 2/3, 2/3, 2/3 \\rangle$. Dividing by $|\\vec{a}|$ instead of $|\\vec{a}|^2$ gives $\\langle 2/\\sqrt{3}, 2/\\sqrt{3}, 2/\\sqrt{3} \\rangle$, the trap in the choices.",
       "sourcePage": 6,
       "status": "reviewed"
     },
@@ -174,6 +190,10 @@
       "lessonIds": [
         "L3"
       ],
+      "typeIds": [
+        "L3-angle-between-vectors"
+      ],
+      "solution": "Use $\\cos\\theta = \\dfrac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|\\,|\\vec{b}|}$.\n\n$\\vec{a}\\cdot\\vec{b} = (2)(1) + (-1)(-1) + (2)(0) = 3$, $|\\vec{a}| = \\sqrt{4 + 1 + 4} = 3$ and $|\\vec{b}| = \\sqrt{1 + 1 + 0} = \\sqrt{2}$.\n\n$$\n\\cos\\theta = \\frac{3}{3\\sqrt{2}} = \\frac{1}{\\sqrt{2}}\n$$\n\nso $\\theta = \\frac{\\pi}{4}$.",
       "sourcePage": 7,
       "status": "reviewed"
     },
@@ -208,6 +228,10 @@
       "lessonIds": [
         "L4"
       ],
+      "typeIds": [
+        "L4-parallelepiped-volume"
+      ],
+      "solution": "The volume is the absolute value of the scalar triple product $\\left|\\overrightarrow{PQ}\\cdot(\\overrightarrow{PR}\\times\\overrightarrow{PS})\\right|$.\n\n$\\overrightarrow{PQ} = \\langle 4, 2, 2 \\rangle$, $\\overrightarrow{PR} = \\langle 3, 3, -1 \\rangle$ and $\\overrightarrow{PS} = \\langle 5, 5, 1 \\rangle$.\n\n$$\n\\overrightarrow{PR} \\times \\overrightarrow{PS} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 3 & 3 & -1 \\\\ 5 & 5 & 1 \\end{vmatrix} = \\langle 3 + 5, -(3 + 5), 15 - 15 \\rangle = \\langle 8, -8, 0 \\rangle\n$$\n\n$$\n\\overrightarrow{PQ}\\cdot\\langle 8, -8, 0 \\rangle = 32 - 16 + 0 = 16\n$$\n\nso the volume is $16$.",
       "sourcePage": 8,
       "status": "reviewed"
     },
@@ -242,6 +266,10 @@
       "lessonIds": [
         "L5"
       ],
+      "typeIds": [
+        "L5-area-split-or-axis"
+      ],
+      "solution": "Find where the curves meet, then integrate top minus bottom on each piece.\n\n$x^3 = 4x$ gives $x^3 - 4x = x(x-2)(x+2) = 0$, so the curves meet at $x = -2$, $0$ and $2$. On $(-2, 0)$ the cubic is above the line, and on $(0, 2)$ the line is above the cubic. The region therefore splits at $x = 0$.\n\n$$\nA = \\int_{-2}^{0} (x^3 - 4x)\\,dx + \\int_{0}^{2} (4x - x^3)\\,dx\n$$\n\nBoth integrals equal $4$: $\\left[\\frac{x^4}{4} - 2x^2\\right]_{-2}^{0} = 0 - (4 - 8) = 4$ and $\\left[2x^2 - \\frac{x^4}{4}\\right]_{0}^{2} = 4 - 0 = 4$.\n\nso the area is $8$. The trap is integrating $\\int_{-2}^{2}(4x - x^3)\\,dx$ in one piece, which gives $0$ because the signed pieces cancel.",
       "sourcePage": 9,
       "status": "reviewed"
     },
@@ -276,6 +304,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-disk-washer-x-axis"
+      ],
+      "solution": "Use washers about the $x$-axis: the volume is $\\pi\\int (R^2 - r^2)\\,dx$, where $R$ and $r$ are the distances from the axis to the outer and inner boundaries.\n\nThe curves meet where $-x = -x^2$, so $x = 0$ and $x = 1$. At $x = \\frac{1}{2}$, $-x^2 = -\\frac{1}{4}$ is above $-x = -\\frac{1}{2}$, so $y = -x^2$ is the top curve and $y = -x$ the bottom. Both curves lie below the axis, so the distances are $|y|$: the outer radius is $x$ and the inner radius is $x^2$.\n\n$$\nV = \\pi\\int_0^1 \\left[x^2 - (x^2)^2\\right]\\,dx = \\pi\\int_0^1 (x^2 - x^4)\\,dx = \\pi\\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\pi\\left(\\frac{1}{3} - \\frac{1}{5}\\right)\n$$\n\nso the volume is $\\frac{2\\pi}{15}$. The region lies below the axis, but a radius is a distance, so the volume cannot be negative.",
       "sourcePage": 10,
       "status": "reviewed"
     },
@@ -310,6 +342,10 @@
       "lessonIds": [
         "L7"
       ],
+      "typeIds": [
+        "L7-shell-vertical-line"
+      ],
+      "solution": "Use shells about the vertical line $x = 1$: the volume is $2\\pi\\int (\\text{radius})(\\text{height})\\,dx$.\n\nThe region runs from $x = 0$ to $x = 1$ with top curve $y = x$ and bottom curve $y = x^2$, so the height is $x - x^2 = x(1 - x)$. The radius is the distance to $x = 1$, which is $1 - x$, not $x$.\n\n$$\nV = 2\\pi\\int_0^1 (1 - x)\\,x(1 - x)\\,dx = 2\\pi\\int_0^1 x(1 - x)^2\\,dx = 2\\pi\\int_0^1 x(x - 1)^2\\,dx\n$$\n\nso the volume is $2\\pi\\int_0^1 x(x - 1)^2\\,dx$.",
       "sourcePage": 11,
       "status": "reviewed"
     },
@@ -344,6 +380,10 @@
       "lessonIds": [
         "L6"
       ],
+      "typeIds": [
+        "L6-known-cross-sections"
+      ],
+      "solution": "Slice perpendicular to the $y$-axis. Each slice is a square, so its area is the square of its side, and the side is the width of the base at height $y$.\n\nThe base is bounded by $y = 4 - x^2$ and $y = 0$, so at height $y$ with $0 \\le y \\le 4$ the base runs from $x = -\\sqrt{4 - y}$ to $x = \\sqrt{4 - y}$. The side is $2\\sqrt{4 - y}$, so the area of the slice is $4(4 - y)$.\n\n$$\nV = \\int_0^4 4(4 - y)\\,dy = 4\\left[4y - \\frac{y^2}{2}\\right]_0^4 = 4(16 - 8) = 32\n$$\n\nso the volume is $32$. The choices with $(4 - x^2)^2$ use slices perpendicular to the $x$-axis, which do not match this solid.",
       "sourcePage": 12,
       "status": "reviewed"
     },
@@ -378,6 +418,10 @@
       "lessonIds": [
         "L9"
       ],
+      "typeIds": [
+        "L9-spring-work"
+      ],
+      "solution": "Hooke's law gives a force $F = kx$, where $x$ is the stretch from the natural length. Work in feet, since the answer is in ft-lb.\n\nThe natural length is 12 in $= 1$ ft. Stretching to 18 in is a stretch of 6 in $= \\frac{1}{2}$ ft under a force of 4 lb, so $4 = k\\cdot\\frac{1}{2}$ and $k = 8$ lb/ft.\n\nStretching from 18 in to 24 in means the stretch goes from $\\frac{1}{2}$ ft to $1$ ft. The stretch is measured from the natural length 12 in, not from the total length.\n\n$$\nW = \\int_{1/2}^{1} 8x\\,dx = \\left[4x^2\\right]_{1/2}^{1} = 4 - 1 = 3\n$$\n\nso the work is $3$ ft-lb.",
       "sourcePage": 13,
       "status": "reviewed"
     },
@@ -412,6 +456,10 @@
       "lessonIds": [
         "L11"
       ],
+      "typeIds": [
+        "L11-parts-log-inverse-trig"
+      ],
+      "solution": "Integrate by parts with $u = \\ln x$, since its derivative is simpler, and $dv = x^2\\,dx$. Then $du = \\frac{dx}{x}$ and $v = \\frac{x^3}{3}$.\n\n$$\n\\int_1^2 x^2\\ln x\\,dx = \\left[\\frac{x^3}{3}\\ln x\\right]_1^2 - \\int_1^2 \\frac{x^3}{3}\\cdot\\frac{1}{x}\\,dx = \\frac{8}{3}\\ln 2 - \\frac{1}{3}\\int_1^2 x^2\\,dx\n$$\n\nThe boundary term vanishes at $x = 1$ because $\\ln 1 = 0$. The remaining integral is\n\n$$\n\\frac{1}{3}\\int_1^2 x^2\\,dx = \\frac{1}{3}\\left[\\frac{x^3}{3}\\right]_1^2 = \\frac{1}{3}\\cdot\\frac{7}{3} = \\frac{7}{9}\n$$\n\nso the value is $\\frac{8}{3}\\ln 2 - \\frac{7}{9}$.",
       "sourcePage": 14,
       "status": "reviewed"
     }
