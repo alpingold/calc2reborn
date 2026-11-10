@@ -1,30 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router'
-import { isPlanned, lessonLabel } from '../../content/schema'
-import type { Choice } from '../../content/schema'
-import { sampleMockExam } from '../../engine/mock'
-import { pullForward } from '../../engine/queue'
-import { useContent, useNow, useRng, useSettings, useStore } from '../../storage/context'
-import type { Attempt } from '../../storage/types'
+import { useState } from 'react'
+import { Link, useLocation, useParams, useSearchParams } from 'react-router'
+import { lessonLabel } from '../../content/schema'
+import { useContent, useNow } from '../../storage/context'
 import { QuestionView } from '../QuestionView'
-import {
-  clearSession,
-  elapsedSeconds,
-  examTitle,
-  finishSession,
-  loadSession,
-  matchesRequest,
-  remainingSeconds,
-  rememberMockQuestions,
-  saveSession,
-  sessionTitle,
-  sessionUrl,
-  timeIsUp,
-} from '../examSession'
-import type { ExamSession, ResumeState, SessionRequest } from '../examSession'
-import { newId } from '../../ids'
-
-const MOCK_MINUTES = 60
+import { examTitle, remainingSeconds, sessionTitle, sessionUrl } from '../examSession'
+import type { ResumeState } from '../examSession'
+import { MOCK_MINUTES, useExamSession } from '../useExamSession'
 
 function formatClock(total: number): string {
   const m = Math.floor(total / 60)
@@ -54,313 +35,31 @@ export function TakeExam({ mode = 'exam' }: { mode?: 'exam' | 'mock' }) {
   )
 }
 
-type Status = 'loading' | 'intro' | 'ready' | 'notfound' | 'empty' | 'conflict'
-
-function ExamSessionView({
-  mode,
-  examId,
-  from,
-  to,
-  resumeId,
-}: {
+function ExamSessionView(props: {
   mode: 'exam' | 'mock'
   examId?: string
   from: string | null
   to: string | null
   resumeId?: string
 }) {
-  const store = useStore()
+  const { mode } = props
   const content = useContent()
-  const { settings } = useSettings()
   const now = useNow()
-  const rng = useRng()
-  const navigate = useNavigate()
-
-  const [status, setStatus] = useState<Status>('loading')
-  const [session, setSession] = useState<ExamSession | null>(null)
-  // seconds left on a timed session, or seconds spent on a feedback session
-  const [clock, setClock] = useState(0)
+  const { status, session, conflict, exam, range, clock, untimed, error, begin, discardConflict, choose, check, goTo, toggleMark, submit } =
+    useExamSession(props)
   // the start screen's choice of feedback after each answer
   const [feedback, setFeedback] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  // the saved session in the way of this request, shown with Resume and Discard
-  const [conflict, setConflict] = useState<ExamSession | null>(null)
-  // set once the attempts are frozen for submission; answers lock from then on
-  const [submitting, setSubmitting] = useState(false)
-  const alive = useRef(true)
-  const sessionRef = useRef<ExamSession | null>(null)
-  const busy = useRef(false)
-  const autoSubmitted = useRef(false)
-  // attempts frozen at the first submit so a retry after a failure logs each one once
-  const pending = useRef<{ attempts: Attempt[]; logged: Set<string>; at: Date } | null>(null)
 
-  const exam = useMemo(
-    () => (mode === 'exam' ? content.exams.find((e) => e.id === examId) : undefined),
-    [mode, content.exams, examId],
-  )
-
-  const commit = useCallback((next: ExamSession) => {
-    sessionRef.current = next
-    setSession(next)
-    saveSession(next)
-  }, [])
-
-  // the lesson range a mock request resolves to, with the lesson ids of its ends
-  const range = useMemo(() => {
-    if (mode !== 'mock') return null
-    const planned = content.lessons.filter(isPlanned)
-    const numberOf = (id: string | null) => {
-      const l = id ? content.lessonById.get(id) : undefined
-      return l && isPlanned(l) ? l.number : undefined
-    }
-    const lo = numberOf(from) ?? planned[0]?.number ?? 1
-    const hi = numberOf(to) ?? numberOf(settings.currentLessonId) ?? planned[planned.length - 1]?.number ?? lo
-    const [a, b] = lo <= hi ? [lo, hi] : [hi, lo]
-    const lessons = planned.filter((l) => l.number >= a && l.number <= b)
-    return { lessonIds: lessons.map((l) => l.id), from: lessons[0]?.id, to: lessons[lessons.length - 1]?.id }
-    // the range is resolved once on mount, like the session
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const request: SessionRequest | null =
-    mode === 'exam'
-      ? exam
-        ? { kind: 'exam', examId: exam.id }
-        : null
-      : range?.from && range.to
-        ? { kind: 'mock', from: range.from, to: range.to }
-        : null
-
-  const clockFor = useCallback(
-    (s: ExamSession) => (s.feedback ? elapsedSeconds(s, now()) : remainingSeconds(s, now())),
-    [now],
-  )
-
-  const open = useCallback(
-    (s: ExamSession) => {
-      commit(s)
-      setClock(clockFor(s))
-      setStatus('ready')
-    },
-    [commit, clockFor],
-  )
-
-  // the start screen, or the empty-range notice for a mock with nothing to sample
-  const showIntro = useCallback(() => {
-    if (mode === 'mock' && !range?.lessonIds.some((id) => (content.questionsByLesson.get(id) ?? []).length > 0)) {
-      setStatus('empty')
-    } else {
-      setStatus('intro')
-    }
-  }, [mode, range, content.questionsByLesson])
-
-  const startNew = useCallback(
-    async (isCancelled: () => boolean, withFeedback: boolean) => {
-      const feedbackFields = withFeedback ? { feedback: true, checked: [] } : {}
-      try {
-        let s: ExamSession
-        if (mode === 'exam') {
-          if (!exam) {
-            setStatus('notfound')
-            return
-          }
-          s = {
-            sessionId: newId(),
-            kind: 'exam',
-            examId: exam.id,
-            questionIds: exam.questions.map((q) => q.id),
-            answers: {},
-            marked: [],
-            startedAt: now().toISOString(),
-            durationMinutes: exam.durationMinutes,
-            current: 0,
-            ...feedbackFields,
-          }
-        } else {
-          const questions = sampleMockExam({
-            lessonIds: range?.lessonIds ?? [],
-            questionsByLesson: content.questionsByLesson,
-            attempts: await store.listAttempts(),
-            rng,
-          })
-          if (isCancelled()) return
-          if (questions.length === 0 || !range?.from || !range.to) {
-            setStatus('empty')
-            return
-          }
-          s = {
-            sessionId: newId(),
-            kind: 'mock',
-            from: range.from,
-            to: range.to,
-            questionIds: questions.map((q) => q.id),
-            answers: {},
-            marked: [],
-            startedAt: now().toISOString(),
-            durationMinutes: MOCK_MINUTES,
-            current: 0,
-            ...feedbackFields,
-          }
-        }
-        if (isCancelled()) return
-        open(s)
-      } catch {
-        if (!isCancelled()) setError('Could not start the exam. Try again.')
-      }
-    },
-    [mode, exam, range, content, store, rng, now, open],
-  )
-
-  useEffect(() => {
-    alive.current = true
-    const saved = loadSession()
-    if (saved && saved.sessionId === resumeId) {
-      // asked for by a Resume link: restore it even if its time is up, which submits it
-      open(saved)
-    } else if (mode === 'exam' && !exam) {
-      setStatus('notfound')
-    } else if (saved && request && matchesRequest(saved, request) && !timeIsUp(saved, now())) {
-      // a reload of the session in progress
-      open(saved)
-    } else if (saved) {
-      // another session, or this one with its time up: never discard or submit it unasked
-      setConflict(saved)
-      setStatus('conflict')
-    } else {
-      showIntro()
-    }
-    return () => {
-      alive.current = false
-    }
-    // the session is created or restored once on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  async function discardAndStart() {
+  function discardAndStart() {
     if (!conflict) return
     const title = sessionTitle(conflict, content)
     if (!window.confirm(`Discard your answers to ${title}? This cannot be undone.`)) return
-    clearSession()
-    setConflict(null)
-    showIntro()
+    discardConflict()
   }
 
-  async function begin() {
-    setStatus('loading')
-    await startNew(() => !alive.current, feedback)
+  function onSubmit() {
+    void submit(false, (unanswered) => window.confirm(`You have ${unanswered} unanswered questions. Submit anyway?`))
   }
-
-  const sessionId = session?.sessionId
-  useEffect(() => {
-    if (!sessionId) return
-    const id = setInterval(() => {
-      const s = sessionRef.current
-      if (s) setClock(clockFor(s))
-    }, 1000)
-    return () => clearInterval(id)
-  }, [sessionId, clockFor])
-
-  const submit = useCallback(
-    async (auto: boolean) => {
-      const s = sessionRef.current
-      if (busy.current || !s) return
-      if (!auto && !pending.current) {
-        const unanswered = s.questionIds.filter((id) => !s.answers[id]).length
-        if (
-          unanswered > 0 &&
-          !timeIsUp(s, now()) &&
-          !window.confirm(`You have ${unanswered} unanswered questions. Submit anyway?`)
-        ) {
-          return
-        }
-      }
-      busy.current = true
-      setError(null)
-      if (!pending.current) {
-        const at = now()
-        pending.current = { attempts: finishSession(s, content, at), logged: new Set(), at }
-        setSubmitting(true)
-      }
-      const p = pending.current
-      try {
-        for (const a of p.attempts) {
-          if (p.logged.has(a.id)) continue
-          await store.logAttempt(a)
-          p.logged.add(a.id)
-        }
-        const missedLessons = new Set<string>()
-        for (const a of p.attempts) {
-          if (a.correct) continue
-          for (const lid of content.questionById.get(a.questionId)?.lessonIds ?? []) missedLessons.add(lid)
-        }
-        if (missedLessons.size > 0) {
-          const states = await store.listCardStates()
-          for (const st of pullForward(states, content.cards, [...missedLessons], p.at)) {
-            await store.saveCardState(st)
-          }
-        }
-      } catch {
-        setError('Could not save your exam. Try again.')
-        busy.current = false
-        return
-      }
-      clearSession()
-      if (s.kind === 'mock') rememberMockQuestions(s.sessionId, s.questionIds)
-      // replace: Back from the results should not land on the finished exam
-      navigate('/results/' + s.sessionId, { state: { session: s }, replace: true })
-    },
-    [now, content, store, navigate],
-  )
-
-  const untimed = session?.feedback === true
-  useEffect(() => {
-    if (status !== 'ready' || untimed || clock > 0 || autoSubmitted.current) return
-    autoSubmitted.current = true
-    void submit(true)
-  }, [status, untimed, clock, submit])
-
-  const locked = submitting || (status === 'ready' && !untimed && clock === 0)
-
-  const choose = useCallback(
-    (label: Choice['label']) => {
-      const s = sessionRef.current
-      // pending is read from the ref: a submit in progress has not re-rendered yet
-      if (!s || locked || pending.current !== null) return
-      const id = s.questionIds[s.current ?? 0]
-      if (s.checked?.includes(id)) return
-      commit({ ...s, answers: { ...s.answers, [id]: label } })
-    },
-    [commit, locked],
-  )
-
-  // feedback mode: reveal the current question's answer and lock it
-  const check = useCallback(
-    (_label: Choice['label'], seconds: number) => {
-      const s = sessionRef.current
-      if (!s || locked || pending.current !== null) return
-      const id = s.questionIds[s.current ?? 0]
-      if (!s.answers[id] || s.checked?.includes(id)) return
-      commit({ ...s, checked: [...(s.checked ?? []), id], seconds: { ...s.seconds, [id]: seconds } })
-    },
-    [commit, locked],
-  )
-
-  const goTo = useCallback(
-    (index: number) => {
-      const s = sessionRef.current
-      if (!s || index < 0 || index >= s.questionIds.length) return
-      commit({ ...s, current: index })
-    },
-    [commit],
-  )
-
-  const toggleMark = useCallback(() => {
-    const s = sessionRef.current
-    if (!s) return
-    const id = s.questionIds[s.current ?? 0]
-    const marked = s.marked.includes(id) ? s.marked.filter((m) => m !== id) : [...s.marked, id]
-    commit({ ...s, marked })
-  }, [commit])
 
   const heading = mode === 'mock' ? 'Mock exam' : exam ? examTitle(exam) : 'Exam'
 
@@ -392,7 +91,7 @@ function ExamSessionView({
           <Link to={sessionUrl(conflict)} state={resumeState}>
             Resume
           </Link>
-          <button type="button" onClick={() => void discardAndStart()}>
+          <button type="button" onClick={discardAndStart}>
             Discard and start this one
           </button>
         </p>
@@ -422,7 +121,7 @@ function ExamSessionView({
             : 'A timed exam like the real one. Answers and solutions appear after you submit.'}
         </p>
         <p className="exam-controls">
-          <button type="button" className="primary" onClick={() => void begin()}>
+          <button type="button" className="primary" onClick={() => void begin(feedback)}>
             Start
           </button>
           <Link to="/exams">Back to exams</Link>
@@ -494,7 +193,7 @@ function ExamSessionView({
         <button type="button" onClick={toggleMark}>
           {isMarked ? 'Unmark' : 'Mark for review'}
         </button>
-        <button type="button" onClick={() => void submit(false)}>
+        <button type="button" onClick={onSubmit}>
           Submit
         </button>
       </div>
