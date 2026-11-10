@@ -1,4 +1,4 @@
-import type { ConceptCard, Lesson } from '../content/schema'
+import type { ConceptCard, Lesson, ProblemType } from '../content/schema'
 
 // Synthetic content for UI tests, so that they pass with any subset of the files in content/.
 
@@ -18,6 +18,14 @@ export function fixtureLesson(number: number, over: Partial<Lesson> = {}): Lesso
     isReview: false,
     ...over,
   }
+}
+
+/** Two problem types for a fixture lesson, `L5-a` and `L5-b`; tests that need types pass them to fixtureLesson. */
+export function fixtureTypes(lessonId: string): ProblemType[] {
+  return [
+    { id: `${lessonId}-a`, name: `${lessonId} type A` },
+    { id: `${lessonId}-b`, name: `${lessonId} type B` },
+  ]
 }
 
 /** An exam topic outside Dr. Chen's lessons, in the shape of the real extras. */

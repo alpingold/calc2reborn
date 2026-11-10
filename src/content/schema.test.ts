@@ -121,3 +121,30 @@ describe('ExamSchema', () => {
     expect(QuestionSchema.safeParse({ ...q, answerSource: 'written' }).success).toBe(true)
   })
 })
+
+describe('problem types', () => {
+  test('a question takes one or two type ids', () => {
+    expect(QuestionSchema.safeParse({ ...q, typeIds: ['L1-a'] }).success).toBe(true)
+    expect(QuestionSchema.safeParse({ ...q, typeIds: ['L1-a', 'L1-b'] }).success).toBe(true)
+    expect(QuestionSchema.safeParse({ ...q, typeIds: [] }).success).toBe(false)
+    expect(QuestionSchema.safeParse({ ...q, typeIds: ['L1-a', 'L1-b', 'L1-c'] }).success).toBe(false)
+  })
+  test('the old tags field on a question is dropped', () => {
+    const r = QuestionSchema.safeParse({ ...q, tags: ['series'] })
+    expect(r.success).toBe(true)
+    if (r.success) expect(r.data).not.toHaveProperty('tags')
+  })
+  test('a lesson takes problem types whose ids start with its own id', () => {
+    const ok = { ...lesson, problemTypes: [{ id: 'L1-unit-vector', name: 'Unit vector' }] }
+    expect(LessonSchema.safeParse(ok).success).toBe(true)
+    expect(LessonSchema.safeParse(lesson).success).toBe(true)
+  })
+  test.each(['L2-unit-vector', 'unit-vector', 'L1-', 'L10-x'])('a lesson L1 rejects the type id %s', (id) => {
+    expect(LessonSchema.safeParse({ ...lesson, problemTypes: [{ id, name: 'Name' }] }).success).toBe(false)
+  })
+  test('a lesson rejects a repeated type id and an empty name', () => {
+    const t = { id: 'L1-a', name: 'A' }
+    expect(LessonSchema.safeParse({ ...lesson, problemTypes: [t, t] }).success).toBe(false)
+    expect(LessonSchema.safeParse({ ...lesson, problemTypes: [{ id: 'L1-a', name: '' }] }).success).toBe(false)
+  })
+})

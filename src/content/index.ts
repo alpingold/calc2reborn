@@ -1,4 +1,4 @@
-import type { ConceptCard, Exam, Lesson, Question } from './schema'
+import type { ConceptCard, Exam, Lesson, ProblemType, Question } from './schema'
 
 export interface Content {
   lessons: Lesson[]
@@ -11,6 +11,10 @@ export interface Content {
   cardsByLesson: Map<string, ConceptCard[]>
   questionsByLesson: Map<string, Question[]>
   examByQuestionId: Map<string, Exam>
+  /** every problem type, with the lesson it belongs to */
+  typeById: Map<string, ProblemType & { lessonId: string }>
+  questionsByType: Map<string, Question[]>
+  cardsByType: Map<string, ConceptCard[]>
 }
 
 const TERM_ORDER = { Fall: 0, Spring: 1 } as const
@@ -34,15 +38,27 @@ export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exa
   })
   const questions = sortedExams.flatMap((e) => e.questions)
 
-  const cardsByLesson = new Map<string, ConceptCard[]>()
-  for (const c of cards) pushTo(cardsByLesson, c.lessonId, c)
+  const typeById = new Map<string, ProblemType & { lessonId: string }>()
+  for (const l of sortedLessons) {
+    for (const t of l.problemTypes ?? []) typeById.set(t.id, { ...t, lessonId: l.id })
+  }
 
+  // a type id that no lesson defines is left out of the type maps, so stale tags never surface
+  const cardsByLesson = new Map<string, ConceptCard[]>()
+  const cardsByType = new Map<string, ConceptCard[]>()
+  for (const c of cards) {
+    pushTo(cardsByLesson, c.lessonId, c)
+    for (const tid of c.typeIds ?? []) if (typeById.has(tid)) pushTo(cardsByType, tid, c)
+  }
+
+  const questionsByType = new Map<string, Question[]>()
   const questionsByLesson = new Map<string, Question[]>()
   const examByQuestionId = new Map<string, Exam>()
   for (const e of sortedExams) {
     for (const q of e.questions) {
       examByQuestionId.set(q.id, e)
       for (const lid of q.lessonIds) pushTo(questionsByLesson, lid, q)
+      for (const tid of new Set(q.typeIds ?? [])) if (typeById.has(tid)) pushTo(questionsByType, tid, q)
     }
   }
 
@@ -57,5 +73,8 @@ export function buildContent(lessons: Lesson[], cards: ConceptCard[], exams: Exa
     cardsByLesson,
     questionsByLesson,
     examByQuestionId,
+    typeById,
+    questionsByType,
+    cardsByType,
   }
 }

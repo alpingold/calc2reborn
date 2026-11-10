@@ -6,7 +6,7 @@ import { buildRoutes } from '../../routes'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { buildContent } from '../../content'
-import { fixtureLessons } from '../../test/fixtures'
+import { fixtureLessons, fixtureTypes } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
 
@@ -27,7 +27,8 @@ function q(n: number, extra: Partial<Question> = {}): Question {
     choices,
     answer: 'C',
     lessonIds: ['L5', 'L10'],
-    tags: ['series'],
+    typeIds: ['L5-a'],
+    solution: 'Worked solution',
     status: 'transcribed',
     ...extra,
   }
@@ -40,9 +41,9 @@ const exam: Exam = {
   exam: '1',
   examUrl: '',
   durationMinutes: 60,
-  questions: [q(1), q(2), q(3, { sourcePage: 3 }), q(4, { tags: undefined })],
+  questions: [q(1), q(2), q(3, { sourcePage: 3 }), q(4, { typeIds: undefined, solution: undefined })],
 }
-const lessons = fixtureLessons()
+const lessons = fixtureLessons().map((l) => (l.id === 'L5' ? { ...l, problemTypes: fixtureTypes('L5') } : l))
 const content = buildContent(lessons, [], [exam])
 
 afterEach(() => {
@@ -71,7 +72,9 @@ test('in dev renders question, correct answer, metadata and source image', async
   expect(screen.getByText('Stem 3')).toBeInTheDocument()
   expect(screen.getByRole('button', { name: /Correct answer$/ })).toHaveTextContent('gamma')
   expect(screen.getByText('Lessons: L5, L10')).toBeInTheDocument()
-  expect(screen.getByText('Tags: series')).toBeInTheDocument()
+  expect(screen.getByText('Problem types: L5 type A')).toBeInTheDocument()
+  expect(screen.getByText('Worked solution')).toBeInTheDocument()
+  expect(screen.queryByText('No solution yet')).not.toBeInTheDocument()
   expect(screen.getByText('Status: transcribed')).toBeInTheDocument()
   expect(screen.getByText('Answer: C')).toBeInTheDocument()
   expect(screen.getByText('Source page: 3')).toBeInTheDocument()
@@ -83,7 +86,8 @@ test('page falls back to the position guess and tags show none', async () => {
   await renderAt('/dev/content?q=4')
   const img = await screen.findByRole('img', { name: 'Source page 4 of f2025-e1' })
   expect(img.getAttribute('src')).toBe('/raw-pages/f2025-e1/p4.png')
-  expect(screen.getByText('Tags: none')).toBeInTheDocument()
+  expect(screen.getByText('Problem types: none yet')).toBeInTheDocument()
+  expect(screen.getByText('No solution yet')).toBeInTheDocument()
 })
 
 test('Prev and Next change q and disable at the ends', async () => {

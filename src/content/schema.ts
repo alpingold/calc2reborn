@@ -16,6 +16,13 @@ export type Unit = (typeof UNITS)[number]
 export const CHOICE_LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'] as const
 export type ChoiceLabel = (typeof CHOICE_LABELS)[number]
 
+/** A recognisable kind of exam problem within one lesson, such as "Ratio test with factorials". */
+export interface ProblemType {
+  /** the lesson's id, a hyphen, and a slug: `L24-ratio-factorials` */
+  id: string
+  name: string
+}
+
 export interface Lesson {
   id: string
   number: number
@@ -29,6 +36,8 @@ export interface Lesson {
   isReview: boolean
   /** An exam topic outside Dr. Chen's lessons: no video or notes, and kept out of mastery and ranges. */
   isExtra?: boolean
+  /** The kinds of exam problem this lesson is asked about. Absent on review lessons. */
+  problemTypes?: ProblemType[]
 }
 
 /** A lesson in Dr. Chen's planned sequence: not an exam review and not an extra topic. */
@@ -47,6 +56,8 @@ export interface ConceptCard {
   front: string
   back: string
   tags?: string[]
+  /** the problem types of its own lesson that this card supports */
+  typeIds?: string[]
 }
 export interface Choice {
   label: ChoiceLabel
@@ -66,7 +77,8 @@ export interface Question {
   answerSource?: 'key' | 'derived' | 'written'
   figures?: string[]
   lessonIds: string[]
-  tags?: string[]
+  /** one or two problem types, each belonging to one of the question's lessons */
+  typeIds?: string[]
   solution?: string
   status: 'transcribed' | 'reviewed'
   sourcePage?: number
@@ -107,8 +119,17 @@ export const LessonSchema = z
     keyIdeas: z.string(),
     isReview: z.boolean(),
     isExtra: z.boolean().optional(),
+    problemTypes: z.array(z.object({ id: z.string().min(1), name: z.string().min(1) })).optional(),
   })
   .superRefine((l, ctx) => {
+    const seen = new Set<string>()
+    for (const [i, t] of (l.problemTypes ?? []).entries()) {
+      if (!t.id.startsWith(`${l.id}-`) || t.id.length <= l.id.length + 1) {
+        ctx.addIssue({ code: 'custom', path: ['problemTypes', i, 'id'], message: `a problem type id starts with ${l.id}-` })
+      }
+      if (seen.has(t.id)) ctx.addIssue({ code: 'custom', path: ['problemTypes', i, 'id'], message: 'duplicate problem type id' })
+      seen.add(t.id)
+    }
     if (l.unit === null && !l.isReview) {
       ctx.addIssue({ code: 'custom', path: ['unit'], message: 'unit may be null only for reviews' })
     }
@@ -131,6 +152,7 @@ export const ConceptCardSchema = z.object({
   front: z.string().min(1),
   back: z.string().min(1),
   tags: z.array(z.string()).optional(),
+  typeIds: z.array(z.string().min(1)).optional(),
 })
 
 const ChoiceSchema = z.object({ label: z.enum(CHOICE_LABELS), text: z.string() })
@@ -146,7 +168,7 @@ export const QuestionSchema = z
     answerSource: z.enum(['key', 'derived', 'written']).optional(),
     figures: z.array(z.string()).optional(),
     lessonIds: z.array(z.string()),
-    tags: z.array(z.string()).optional(),
+    typeIds: z.array(z.string().min(1)).min(1).max(2).optional(),
     solution: z.string().optional(),
     status: z.enum(['transcribed', 'reviewed']),
     sourcePage: z.number().int().positive().optional(),

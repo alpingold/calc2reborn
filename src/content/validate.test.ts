@@ -6,7 +6,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, test } from 'vitest'
 import { Markdown } from '../ui/Markdown'
 import { loadContent } from './load'
-import { CHOICE_LABELS } from './schema'
+import { CHOICE_LABELS, isPlanned } from './schema'
 
 /**
  * Extract math the way remark-math pairs dollars. `\$` is a literal dollar only outside math. Inside
@@ -112,6 +112,9 @@ export function checkDuration(ownerId: string, minutes: number): void {
 
 const content = loadContent()
 
+/** Set to true in Phase 6, when every question has its solution and problem type. */
+const CONTENT_COMPLETE = false
+
 /** Every string in the content files that is rendered as Markdown, with the id that owns it. */
 function markdownStrings(): [string, string][] {
   return [
@@ -213,6 +216,52 @@ describe('content validation', () => {
       // the repeated text is never the keyed answer, so the question still has one right choice
       expect(q.choices.filter((c) => c.text.trim() === answer), id).toHaveLength(1)
     }
+  })
+  test('problem types: ids are unique and carry their lesson, and tags point at real types of the right lesson', () => {
+    const owner = new Map<string, string>()
+    for (const l of content.lessons) {
+      for (const t of l.problemTypes ?? []) {
+        expect(owner.has(t.id), `duplicate type ${t.id}`).toBe(false)
+        expect(t.id.startsWith(`${l.id}-`), t.id).toBe(true)
+        expect(t.name.trim().split(/\s+/).length, `${t.id} name`).toBeLessThanOrEqual(6)
+        owner.set(t.id, l.id)
+      }
+    }
+    for (const q of content.questions) {
+      for (const tid of q.typeIds ?? []) expect(q.lessonIds, `${q.id} type ${tid}`).toContain(owner.get(tid))
+      expect(new Set(q.typeIds ?? []).size, `${q.id} repeats a type`).toBe((q.typeIds ?? []).length)
+    }
+    for (const c of content.cards) {
+      for (const tid of c.typeIds ?? []) expect(owner.get(tid), `${c.id} type ${tid}`).toBe(c.lessonId)
+    }
+  })
+  test('once the taxonomy is in, every planned lesson has two to five types, every extra one, and reviews none', () => {
+    if (content.typeById.size === 0) return
+    for (const l of content.lessons) {
+      const n = (l.problemTypes ?? []).length
+      if (l.isReview) expect(n, l.id).toBe(0)
+      else if (l.isExtra) expect(n, l.id).toBe(1)
+      else {
+        expect(n, l.id).toBeGreaterThanOrEqual(2)
+        expect(n, l.id).toBeLessThanOrEqual(5)
+      }
+    }
+  })
+  // These hold only when the content pass is finished; see docs/plans/2026-11-10-study-app-2.0.md, Phase 6.
+  describe.runIf(CONTENT_COMPLETE)('complete content', () => {
+    test('every question has a solution and a problem type', () => {
+      for (const q of content.questions) {
+        expect(q.solution?.trim(), `${q.id} solution`).toBeTruthy()
+        expect(q.typeIds?.length, `${q.id} types`).toBeGreaterThan(0)
+      }
+    })
+    test('every problem type of a planned lesson has at least three questions', () => {
+      for (const l of content.lessons.filter(isPlanned)) {
+        for (const t of l.problemTypes ?? []) {
+          expect((content.questionsByType.get(t.id) ?? []).length, t.id).toBeGreaterThanOrEqual(3)
+        }
+      }
+    })
   })
   test('every question has been reviewed', () => {
     expect(content.questions.filter((q) => q.status !== 'reviewed').map((q) => q.id)).toEqual([])

@@ -66,7 +66,13 @@ export function ContentReview() {
         <div style={{ flex: 1 }}>
           <QuestionView key={question.id} question={question} mode="deferred" revealed chosen={question.answer} onChoose={() => {}} />
           <p>Lessons: {question.lessonIds.join(', ')}</p>
-          <p>Tags: {question.tags?.length ? question.tags.join(', ') : 'none'}</p>
+          <p>
+            Problem types:{' '}
+            {question.typeIds?.length
+              ? question.typeIds.map((id) => content.typeById.get(id)?.name ?? `${id} (unknown)`).join('; ')
+              : 'none yet'}
+          </p>
+          {!question.solution && <p className="note">No solution yet</p>}
           <p>Status: {question.status}</p>
           <p>Answer: {question.answer}</p>
           <p>Source page: {page}</p>
