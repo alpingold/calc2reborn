@@ -4,7 +4,8 @@ import { dailyQueue } from '../../engine/queue'
 import { examScope } from '../../engine/scope'
 import type { Rating } from '../../engine/fsrs'
 import type { ConceptCard } from '../../content/schema'
-import type { CardState } from '../../storage/types'
+import type { Attempt, CardState } from '../../storage/types'
+import { recentMissTypes } from '../../engine/select'
 import { useContent, useNow, useScheduler, useSettings, useStore } from '../../storage/context'
 import { Markdown } from '../Markdown'
 
@@ -48,8 +49,9 @@ export function Review() {
     let cancelled = false
     ;(async () => {
       let states: CardState[]
+      let attempts: Attempt[]
       try {
-        states = await store.listCardStates()
+        ;[states, attempts] = await Promise.all([store.listCardStates(), store.listAttempts()])
       } catch {
         if (!cancelled) setError('Could not load your cards.')
         return
@@ -57,6 +59,7 @@ export function Review() {
       const scope = examScope(settings, content.lessons, now())
       const q = dailyQueue({
         focusLessonIds: scope.active ? scope.lessonIds : undefined,
+        recentMissTypeIds: recentMissTypes(attempts, content.questionById, now()),
         now: now(),
         cards: content.cards,
         states,

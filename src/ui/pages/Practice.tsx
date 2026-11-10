@@ -4,7 +4,7 @@ import type { FormEvent } from 'react'
 import { isPlanned, lessonLabel } from '../../content/schema'
 import type { Choice, Question } from '../../content/schema'
 import { lessonMastery } from '../../engine/mastery'
-import { coveredLessonIds, pullForward } from '../../engine/queue'
+import { coveredLessonIds, promoteCardsForTypes } from '../../engine/queue'
 import { RETRY_AFTER, RETRY_LIMIT, nextRetry, pickPracticeQuestion, retryCandidates, similarQuestion } from '../../engine/select'
 import type { PendingRetry } from '../../engine/select'
 import { examScope, lessonRange } from '../../engine/scope'
@@ -337,7 +337,7 @@ function PracticeSession({
         }
         if (!correct) {
           const states = await store.listCardStates()
-          for (const s of pullForward(states, content.cards, question.lessonIds, t)) {
+          for (const s of promoteCardsForTypes(states, content.cards, question.typeIds ?? [], t)) {
             await store.saveCardState(s)
           }
         }

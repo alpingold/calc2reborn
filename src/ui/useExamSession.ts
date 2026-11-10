@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { isPlanned } from '../content/schema'
 import type { Choice, Exam } from '../content/schema'
 import { sampleMockExam } from '../engine/mock'
-import { pullForward } from '../engine/queue'
+import { promoteCardsForTypes } from '../engine/queue'
 import { useContent, useNow, useRng, useSettings, useStore } from '../storage/context'
 import type { Attempt } from '../storage/types'
 import {
@@ -277,14 +277,15 @@ export function useExamSession({ mode, examId, from, to, resumeId }: ExamSession
           await store.logAttempt(a)
           p.logged.add(a.id)
         }
-        const missedLessons = new Set<string>()
+        // a miss brings forward the cards for that problem type, not the whole lesson's
+        const missedTypes = new Set<string>()
         for (const a of p.attempts) {
           if (a.correct) continue
-          for (const lid of content.questionById.get(a.questionId)?.lessonIds ?? []) missedLessons.add(lid)
+          for (const t of content.questionById.get(a.questionId)?.typeIds ?? []) missedTypes.add(t)
         }
-        if (missedLessons.size > 0) {
+        if (missedTypes.size > 0) {
           const states = await store.listCardStates()
-          for (const st of pullForward(states, content.cards, [...missedLessons], p.at)) {
+          for (const st of promoteCardsForTypes(states, content.cards, [...missedTypes], p.at)) {
             await store.saveCardState(st)
           }
         }

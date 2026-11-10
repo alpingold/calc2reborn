@@ -6,7 +6,7 @@ import { TakeExam } from './TakeExam'
 import { StoreProvider } from '../../storage/context'
 import { MemoryStore } from '../../storage/memory'
 import { buildContent } from '../../content'
-import { fixtureCard, fixtureLessons } from '../../test/fixtures'
+import { fixtureCard, fixtureLessons, fixtureTypes } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Scheduler } from '../../engine/fsrs'
 import type { Choice, Exam, Question } from '../../content/schema'
@@ -32,6 +32,8 @@ function q(n: number): Question {
     choices,
     answer: 'C',
     lessonIds: [n <= 3 ? 'L19' : 'L20'],
+    // question 2 has no problem type, as content does while the taxonomy is being applied
+    typeIds: n === 2 ? undefined : [n <= 3 ? 'L19-a' : 'L20-a'],
     status: 'reviewed',
   }
 }
@@ -72,7 +74,15 @@ const extraExam: Exam = {
   questions: [{ ...q(1), id: 'xp-e3-a-q01', lessonIds: ['L21'], answerSource: 'written' }],
 }
 
-const content = buildContent(fixtureLessons(), [fixtureCard('L19-c01', 'L19')], [seedExam, otherExam, extraExam])
+const lessons = fixtureLessons().map((l) => (['L19', 'L20', 'L21'].includes(l.id) ? { ...l, problemTypes: fixtureTypes(l.id) } : l))
+const content = buildContent(
+  lessons,
+  [
+    { ...fixtureCard('L19-c01', 'L19'), typeIds: ['L19-a'] },
+    { ...fixtureCard('L19-c02', 'L19'), typeIds: ['L19-b'] },
+  ],
+  [seedExam, otherExam, extraExam],
+)
 const now = () => new Date()
 const rng = () => 0
 
@@ -252,10 +262,12 @@ test('Submit with unanswered questions asks first and stays when cancelled', asy
   expect(await store.listAttempts()).toHaveLength(0)
 })
 
-test('wrong answers pull the lesson cards forward', async () => {
+test('a wrong answer brings forward the cards for its problem type, not the whole lesson', async () => {
   const store = new MemoryStore()
-  const st = scheduler.newState('L19-c01', new Date('2026-11-01T00:00:00Z'))
-  await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: '2026-11-20T00:00:00.000Z' } })
+  for (const id of ['L19-c01', 'L19-c02']) {
+    const st = scheduler.newState(id, new Date('2026-11-01T00:00:00Z'))
+    await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: '2026-11-20T00:00:00.000Z' } })
+  }
   await start('/exams/f2025-e1', store)
   vi.spyOn(window, 'confirm').mockReturnValue(true)
   const u = user()
@@ -263,6 +275,21 @@ test('wrong answers pull the lesson cards forward', async () => {
   await u.click(screen.getByRole('button', { name: 'Submit' }))
   await screen.findByText(/^results:/)
   expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(NOW.toISOString())
+  expect((await store.getCardState('L19-c02'))!.fsrs.dueAt).toBe('2026-11-20T00:00:00.000Z')
+})
+
+test('a wrong answer on a question with no problem type moves no card', async () => {
+  const store = new MemoryStore()
+  const st = scheduler.newState('L19-c01', new Date('2026-11-01T00:00:00Z'))
+  await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: '2026-11-20T00:00:00.000Z' } })
+  await start('/exams/f2025-e1', store)
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  const u = user()
+  await u.click(screen.getByRole('button', { name: 'Next' }))
+  await u.keyboard('a')
+  await u.click(screen.getByRole('button', { name: 'Submit' }))
+  await screen.findByText(/^results:/)
+  expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe('2026-11-20T00:00:00.000Z')
 })
 
 test('a save failure shows an alert and a retry logs each attempt once', async () => {

@@ -78,7 +78,7 @@ async function answer(key: string) {
   await screen.findByRole('status')
 }
 
-test('answering wrong logs a practice attempt and pulls the L19 card forward to now', async () => {
+test('answering wrong logs a practice attempt; a question with no problem type moves no card', async () => {
   const { store, clock } = await setup()
   clock.t = new Date(NOW.getTime() + 8000)
   await userEvent.keyboard('a{Enter}')
@@ -94,7 +94,7 @@ test('answering wrong logs a practice attempt and pulls the L19 card forward to 
     timestamp: clock.t.toISOString(),
   })
   expect(typeof attempts[0].id).toBe('string')
-  expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(clock.t.toISOString())
+  expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(TOMORROW)
   expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
 })
 
@@ -533,4 +533,24 @@ test('Enter on the similar-question button does not also move to the next questi
   screen.getByRole('button', { name: 'Try a similar question' }).focus()
   await userEvent.keyboard('{Enter}')
   expect(await screen.findByText('A two')).toBeInTheDocument()
+})
+
+test('a miss brings forward the started cards for that problem type and no others', async () => {
+  const cards = [
+    { ...fixtureCard('L19-c01', 'L19'), typeIds: ['L19-a'] },
+    { ...fixtureCard('L19-c02', 'L19'), typeIds: ['L19-b'] },
+    fixtureCard('L19-c03', 'L19'),
+  ]
+  const withCards = buildContent(typedLessons, cards, [typedExam])
+  const store = new MemoryStore()
+  const scheduler = await createScheduler()
+  for (const id of ['L19-c02', 'L19-c03']) {
+    const st = scheduler.newState(id, new Date('2026-11-01T00:00:00Z'))
+    await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: TOMORROW } })
+  }
+  const { clock } = await setup({ url: '/practice?types=L19-a', store, content: withCards, wait: 'A one' })
+  await answer('a')
+  expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(clock.t.toISOString())
+  expect((await store.getCardState('L19-c02'))!.fsrs.dueAt).toBe(TOMORROW)
+  expect((await store.getCardState('L19-c03'))!.fsrs.dueAt).toBe(TOMORROW)
 })

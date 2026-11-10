@@ -10,7 +10,7 @@ import { buildContent } from '../../content'
 import { fixtureLessons } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
 import type { Scheduler } from '../../engine/fsrs'
-import type { ConceptCard } from '../../content/schema'
+import type { ConceptCard, Exam } from '../../content/schema'
 
 const lessons = fixtureLessons()
 const cards: ConceptCard[] = [
@@ -18,13 +18,13 @@ const cards: ConceptCard[] = [
   { id: 'L19-c02', lessonId: 'L19', front: 'Front two', back: 'Back two' },
 ]
 
-async function setup(opts: { cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void>; settings?: Partial<typeof DEFAULT_SETTINGS> } = {}) {
+async function setup(opts: { exams?: Exam[]; cards?: ConceptCard[]; clock?: { t: Date }; store?: MemoryStore; seed?: (s: MemoryStore, sch: Scheduler) => Promise<void>; settings?: Partial<typeof DEFAULT_SETTINGS> } = {}) {
   const store = opts.store ?? new MemoryStore()
   await store.saveSettings({ ...DEFAULT_SETTINGS, currentLessonId: 'L19', dailyNewCards: 10, ...opts.settings })
   const scheduler = await createScheduler()
   await opts.seed?.(store, scheduler)
   const clock = opts.clock ?? { t: new Date('2026-11-06T12:00:00Z') }
-  const content = buildContent(lessons, opts.cards ?? cards, [])
+  const content = buildContent(lessons, opts.cards ?? cards, opts.exams ?? [])
   render(
     <MemoryRouter>
       <StoreProvider store={store} scheduler={scheduler} content={content} now={() => clock.t}>
@@ -166,13 +166,45 @@ test('while an exam is ahead, new cards from exam lessons come first', async () 
   expect(await screen.findByText('Exam lesson')).toBeInTheDocument()
 })
 
-test('after the exam date, cards return to course order', async () => {
+test('after the exam date, new cards start from the current lesson again', async () => {
   const mixed: ConceptCard[] = [
-    { id: 'L18-c01', lessonId: 'L18', front: 'Earlier lesson', back: 'b' },
-    { id: 'L19-c01', lessonId: 'L19', front: 'Exam lesson', back: 'b' },
+    { id: 'L18-c01', lessonId: 'L18', front: 'Old exam lesson', back: 'b' },
+    { id: 'L19-c01', lessonId: 'L19', front: 'Current lesson', back: 'b' },
   ]
-  await setup({ cards: mixed, settings: { examDate: '2026-11-01', examLessonIds: ['L19'] } })
-  expect(await screen.findByText('Earlier lesson')).toBeInTheDocument()
+  // the exam on L18 is still ahead: its card comes first
+  const ahead = await setup({ cards: mixed, settings: { examDate: '2026-11-09', examLessonIds: ['L18'] } })
+  expect(ahead.store).toBeDefined()
+  expect(await screen.findByText('Old exam lesson')).toBeInTheDocument()
+})
+
+test('once the exam has passed its lessons lose their priority', async () => {
+  const mixed: ConceptCard[] = [
+    { id: 'L18-c01', lessonId: 'L18', front: 'Old exam lesson', back: 'b' },
+    { id: 'L19-c01', lessonId: 'L19', front: 'Current lesson', back: 'b' },
+  ]
+  await setup({ cards: mixed, settings: { examDate: '2026-11-01', examLessonIds: ['L18'] } })
+  expect(await screen.findByText('Current lesson')).toBeInTheDocument()
+})
+
+test('new cards for a problem type missed this week come before the current lesson', async () => {
+  const typedCards: ConceptCard[] = [
+    { id: 'L19-c01', lessonId: 'L19', front: 'Current lesson', back: 'b' },
+    { id: 'L18-c01', lessonId: 'L18', front: 'Missed type', back: 'b', typeIds: ['L18-a'] },
+  ]
+  const store = new MemoryStore()
+  await store.logAttempt({
+    id: 'a1',
+    questionId: 'q-missed',
+    chosen: 'A',
+    correct: false,
+    seconds: 5,
+    timestamp: '2026-11-04T12:00:00.000Z',
+    mode: 'practice',
+  })
+  const question = { id: 'q-missed', number: 1, points: 8, stem: 's', choices: [{ label: 'A' as const, text: 'a' }, { label: 'B' as const, text: 'b' }], answer: 'B' as const, lessonIds: ['L18'], typeIds: ['L18-a'], status: 'reviewed' as const }
+  const exam = { id: 'e', term: 'Fall' as const, year: 2025, exam: '1' as const, examUrl: '', durationMinutes: 60, questions: [question] }
+  await setup({ cards: typedCards, store, exams: [exam] })
+  expect(await screen.findByText('Missed type')).toBeInTheDocument()
 })
 
 test('a saved state for a card that no longer exists is not counted as due', async () => {

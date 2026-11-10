@@ -29,6 +29,8 @@ export function dailyQueue(args: {
   isDue: (s: CardState, now: Date) => boolean
   /** lessons to serve first, such as the lessons on an upcoming exam */
   focusLessonIds?: string[]
+  /** problem types missed lately: new cards that support them are introduced before any others */
+  recentMissTypeIds?: string[]
 }): DailyQueue {
   const { now, cards, states, lessons, settings, isDue } = args
   const focus = new Set(args.focusLessonIds ?? [])
@@ -49,32 +51,36 @@ export function dailyQueue(args: {
   const numberById = new Map(lessons.map((l) => [l.id, l.number]))
   const coveredSet = new Set(covered)
   const haveState = new Set(states.map((s) => s.cardId))
+  const missed = new Set(args.recentMissTypeIds ?? [])
+  // 0: supports a problem type missed lately; 1: a focus lesson; 2: everything else
+  const group = (c: ConceptCard) => ((c.typeIds ?? []).some((t) => missed.has(t)) ? 0 : focus.has(c.lessonId) ? 1 : 2)
+  // With a current lesson set, the rest start there and work back, so a student who joins mid-course
+  // meets this week's material first. With none set, they run from the first lesson up, as before.
+  const current = settings.currentLessonId === null ? undefined : lessons.find((l) => l.id === settings.currentLessonId)
+  const backwards = current !== undefined && isPlanned(current)
   const fresh = cards
-    .map((c, i) => ({ c, i }))
+    .map((c, i) => ({ c, i, g: group(c), n: numberById.get(c.lessonId)! }))
     .filter(({ c }) => coveredSet.has(c.lessonId) && !haveState.has(c.id))
-    .sort(
-      (x, y) =>
-        unfocused(x.c.lessonId) - unfocused(y.c.lessonId) ||
-        numberById.get(x.c.lessonId)! - numberById.get(y.c.lessonId)! ||
-        x.i - y.i,
-    )
+    .sort((x, y) => x.g - y.g || (x.g === 2 && backwards ? y.n - x.n : x.n - y.n) || x.i - y.i)
     .slice(0, remaining)
     .map(({ c }) => c)
   return { due, fresh }
 }
 
-export function pullForward(
+/**
+ * The card states to save after a missed question: the started cards that support one of its problem
+ * types, not yet due, brought forward to now. A question with no types moves nothing.
+ */
+export function promoteCardsForTypes(
   states: CardState[],
   cards: ConceptCard[],
-  lessonIds: string[],
+  typeIds: readonly string[],
   now: Date,
 ): CardState[] {
-  const lessonByCard = new Map(cards.map((c) => [c.id, c.lessonId]))
-  const wanted = new Set(lessonIds)
+  const wanted = new Set(typeIds)
+  if (wanted.size === 0) return []
+  const supports = new Set(cards.filter((c) => (c.typeIds ?? []).some((t) => wanted.has(t))).map((c) => c.id))
   return states
-    .filter((s) => {
-      const lid = lessonByCard.get(s.cardId)
-      return lid !== undefined && wanted.has(lid) && new Date(s.fsrs.dueAt).getTime() > now.getTime()
-    })
+    .filter((s) => supports.has(s.cardId) && new Date(s.fsrs.dueAt).getTime() > now.getTime())
     .map((s) => ({ ...s, fsrs: { ...s.fsrs, dueAt: now.toISOString() } }))
 }

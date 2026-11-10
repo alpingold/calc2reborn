@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Attempt } from '../storage/types'
 import type { Question } from '../content/schema'
 import type { Mastery } from './mastery'
-import { RETRY_LIMIT, lessonWeight, nextRetry, pickPracticeQuestion, retryCandidates, similarQuestion, type SelectArgs } from './select'
+import { RECENT_MISS_DAYS, RETRY_LIMIT, lessonWeight, recentMissTypes, nextRetry, pickPracticeQuestion, retryCandidates, similarQuestion, type SelectArgs } from './select'
 
 function q(id: string, lessonId: string): Question {
   return { id, lessonIds: [lessonId] } as unknown as Question
@@ -240,5 +240,30 @@ describe('similarQuestion', () => {
   })
   it('an rng that returns 1 still picks a question', () => {
     expect(call({ rng: () => 1 })).not.toBeNull()
+  })
+})
+
+describe('recentMissTypes', () => {
+  const byId = new Map([
+    ['a', typed('a', 'L1-a')],
+    ['ab', typed('ab', 'L1-a', 'L1-b')],
+    ['c', typed('c', 'L1-c')],
+    ['plain', typed('plain')],
+  ])
+  it('lists the types of questions answered wrong in the last seven days, each once', () => {
+    expect(RECENT_MISS_DAYS).toBe(7)
+    const attempts = [att('a', false, daysAgo(1)), att('ab', false, daysAgo(2)), att('c', true, daysAgo(1))]
+    expect(recentMissTypes(attempts, byId, now).sort()).toEqual(['L1-a', 'L1-b'])
+  })
+  it('a miss eight days ago no longer counts, one seven days ago still does', () => {
+    expect(recentMissTypes([att('c', false, daysAgo(8))], byId, now)).toEqual([])
+    expect(recentMissTypes([att('c', false, daysAgo(7))], byId, now)).toEqual(['L1-c'])
+  })
+  it('a type stays listed even after a later right answer on it', () => {
+    const attempts = [att('a', false, daysAgo(3)), att('a', true, daysAgo(1))]
+    expect(recentMissTypes(attempts, byId, now)).toEqual(['L1-a'])
+  })
+  it('misses on untagged or removed questions give nothing', () => {
+    expect(recentMissTypes([att('plain', false, daysAgo(1)), att('gone', false, daysAgo(1))], byId, now)).toEqual([])
   })
 })

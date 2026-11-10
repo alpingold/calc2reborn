@@ -138,6 +138,22 @@ export function similarQuestion(args: {
   return from[Math.min(from.length - 1, Math.floor(rng() * from.length))]
 }
 
+// a problem type counts as missed lately for this many days after a wrong answer on it
+export const RECENT_MISS_DAYS = 7
+
+/** The problem types of questions answered wrong in the last RECENT_MISS_DAYS, each once. */
+export function recentMissTypes(attempts: Attempt[], questionById: Map<string, Question>, now: Date): string[] {
+  const since = now.getTime() - RECENT_MISS_DAYS * DAY_MS
+  const types = new Set<string>()
+  for (const a of attempts) {
+    if (a.correct) continue
+    const at = new Date(a.timestamp).getTime()
+    if (at < since || at > now.getTime()) continue
+    for (const t of questionById.get(a.questionId)?.typeIds ?? []) types.add(t)
+  }
+  return [...types]
+}
+
 export interface PendingRetry {
   questionId: string
   /** the number of answers in the session after which it may be served */

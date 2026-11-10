@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { CardState, Settings } from '../storage/types'
 import type { ConceptCard, Lesson } from '../content/schema'
-import { coveredLessonIds, dailyQueue, isSameLocalDay, pullForward } from './queue'
+import { coveredLessonIds, dailyQueue, isSameLocalDay, promoteCardsForTypes } from './queue'
 
 function lesson(number: number, isReview = false): Lesson {
   return { id: isReview ? `R-${number}` : `L${number}`, number, isReview } as unknown as Lesson
@@ -72,14 +72,37 @@ describe('dailyQueue', () => {
   it('with a focus, new cards from focus lessons are introduced first', () => {
     expect(dailyQueue(args({ focusLessonIds: ['L2'] })).fresh.map((c) => c.id)).toEqual(['d', 'a'])
   })
-  it('fresh respects cap and covered range', () => {
-    expect(dailyQueue(args()).fresh.map((c) => c.id)).toEqual(['a', 'b'])
+  it('fresh starts at the current lesson and works back, within the cap and the covered range', () => {
+    expect(dailyQueue(args()).fresh.map((c) => c.id)).toEqual(['d', 'a'])
     const all = dailyQueue(args({ settings: { ...settings(10), currentLessonId: 'L2' } })).fresh.map((c) => c.id)
-    expect(all).toEqual(['a', 'b', 'c', 'd'])
+    expect(all).toEqual(['d', 'a', 'b', 'c'])
+  })
+  it('with no current lesson set, fresh runs from the first lesson up', () => {
+    const all = dailyQueue(args({ settings: settings(10) })).fresh.map((c) => c.id)
+    expect(all).toEqual(['a', 'b', 'c', 'd', 'x'])
+  })
+  it('a student well into the course meets the current lesson first, and nothing from later lessons', () => {
+    const many = [card('l1', 'L1'), card('l8', 'L8'), card('l9a', 'L9'), card('l9b', 'L9'), card('l10', 'L10')]
+    const r = dailyQueue(args({ cards: many, settings: { ...settings(10), currentLessonId: 'L9' } }))
+    expect(r.fresh.map((c) => c.id)).toEqual(['l9a', 'l9b', 'l8', 'l1'])
+  })
+  it('cards for a problem type missed lately come before the focus lessons and everything else', () => {
+    const typed = [
+      card('a', 'L1'),
+      { ...card('m', 'L1'), typeIds: ['L1-x'] },
+      card('d', 'L2'),
+      { ...card('later', 'L9'), typeIds: ['L1-x'] },
+    ] as ConceptCard[]
+    const r = dailyQueue(args({ cards: typed, settings: { ...settings(10), currentLessonId: 'L2' }, focusLessonIds: ['L2'], recentMissTypeIds: ['L1-x'] }))
+    // 'later' supports the type but its lesson is not covered yet
+    expect(r.fresh.map((c) => c.id)).toEqual(['m', 'd', 'a'])
+  })
+  it('a missed type that no card supports changes nothing', () => {
+    expect(dailyQueue(args({ recentMissTypeIds: ['L1-zzz'] })).fresh.map((c) => c.id)).toEqual(['d', 'a'])
   })
   it('cards with state are not fresh', () => {
-    const states = [state('a', '2026-02-01T00:00:00.000Z')]
-    expect(dailyQueue(args({ states })).fresh.map((c) => c.id)).toEqual(['b', 'c'])
+    const states = [state('d', '2026-02-01T00:00:00.000Z')]
+    expect(dailyQueue(args({ states })).fresh.map((c) => c.id)).toEqual(['a', 'b'])
   })
   it('introduced today counts against cap', () => {
     const intro = now.toISOString()
@@ -90,7 +113,7 @@ describe('dailyQueue', () => {
   it('Review Focus 1: introduced 23:50 yesterday local does not count', () => {
     const states = [state('a', '2026-02-01T00:00:00.000Z', new Date(2026, 0, 1, 23, 50).toISOString())]
     const r = dailyQueue(args({ states, now: new Date(2026, 0, 2, 0, 10), settings: { ...settings(1), currentLessonId: 'L2' } }))
-    expect(r.fresh.map((c) => c.id)).toEqual(['b'])
+    expect(r.fresh.map((c) => c.id)).toEqual(['d'])
   })
   it('cap never negative', () => {
     const intro = now.toISOString()
@@ -99,17 +122,33 @@ describe('dailyQueue', () => {
   })
 })
 
-describe('pullForward', () => {
-  const cards = [card('a', 'L23'), card('b', 'L23'), card('c', 'L5')]
-  it('moves future states in listed lessons only, without mutating', () => {
-    const tomorrow = '2026-01-11T12:00:00.000Z'
-    const states = [state('a', tomorrow), state('b', '2026-01-01T00:00:00.000Z'), state('c', tomorrow)]
+describe('promoteCardsForTypes', () => {
+  const cards = [
+    { ...card('a', 'L23'), typeIds: ['L23-x'] },
+    { ...card('b', 'L23'), typeIds: ['L23-x', 'L23-y'] },
+    { ...card('c', 'L23'), typeIds: ['L23-y'] },
+    card('plain', 'L23'),
+  ] as ConceptCard[]
+  const tomorrow = '2026-01-11T12:00:00.000Z'
+  it('brings forward only started, not-yet-due cards that support the missed type, without mutating', () => {
+    const states = [state('a', tomorrow), state('b', '2026-01-01T00:00:00.000Z'), state('c', tomorrow), state('plain', tomorrow)]
     const snapshot = JSON.stringify(states)
-    const out = pullForward(states, cards, ['L23'], now)
-    expect(out).toHaveLength(1)
-    expect(out[0].cardId).toBe('a')
+    const out = promoteCardsForTypes(states, cards, ['L23-x'], now)
+    expect(out.map((s) => s.cardId)).toEqual(['a'])
     expect(out[0].fsrs.dueAt).toBe(now.toISOString())
     expect(JSON.stringify(states)).toBe(snapshot)
     expect(out[0]).not.toBe(states[0])
+  })
+  it('a card supporting any of several missed types is moved once', () => {
+    const states = [state('a', tomorrow), state('b', tomorrow), state('c', tomorrow)]
+    expect(promoteCardsForTypes(states, cards, ['L23-x', 'L23-y'], now).map((s) => s.cardId)).toEqual(['a', 'b', 'c'])
+  })
+  it('a card not started yet has no state to move', () => {
+    expect(promoteCardsForTypes([], cards, ['L23-x'], now)).toEqual([])
+  })
+  it('no types, or a type no card supports, moves nothing', () => {
+    const states = [state('a', tomorrow), state('plain', tomorrow)]
+    expect(promoteCardsForTypes(states, cards, [], now)).toEqual([])
+    expect(promoteCardsForTypes(states, cards, ['L23-zzz'], now)).toEqual([])
   })
 })
