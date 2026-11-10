@@ -4,7 +4,7 @@ import type { ProgressSnapshot } from './types'
 
 export const SNAPSHOT_VERSION = 1
 
-const iso = z.string()
+const iso = z.iso.datetime()
 const FsrsCardSchema = z.object({
   dueAt: z.iso.datetime(),
   lastReviewAt: z.iso.datetime().nullable(),
@@ -41,7 +41,7 @@ const SnapshotSchema = z.object({
   ),
   settings: z.object({
     currentLessonId: z.string().nullable(),
-    examDate: z.string().nullable(),
+    examDate: z.iso.date().nullable(),
     examLessonIds: z.array(z.string()),
     // the same bound the Settings form enforces
     dailyNewCards: z.number().int().min(0).max(100),

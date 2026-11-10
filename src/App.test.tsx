@@ -1,6 +1,7 @@
 import { afterEach, expect, test, vi } from 'vitest'
 import { render, screen, waitFor, within } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router'
+import type { RouteObject } from 'react-router'
 import { App } from './App'
 import { routes } from './routes'
 import { StoreProvider } from './storage/context'
@@ -61,4 +62,21 @@ test.each([
   renderAt(path, new MemoryStore())
   // waitFor re-queries: pages swap their h2 element once data loads
   await waitFor(() => expect(screen.getByRole('heading', { level: 2, name })).toBeInTheDocument())
+})
+
+test('a screen that throws shows the error page with a way to reload', async () => {
+  const spy = vi.spyOn(console, 'error').mockImplementation(() => {})
+  function Broken(): never {
+    throw new Error('boom')
+  }
+  const withBroken = [{ ...routes[0], children: [{ path: 'broken', element: <Broken /> }] }] as RouteObject[]
+  const router = createMemoryRouter(withBroken, { initialEntries: ['/broken'] })
+  render(
+    <StoreProvider store={new MemoryStore()} content={content}>
+      <RouterProvider router={router} />
+    </StoreProvider>,
+  )
+  expect(await screen.findByRole('heading', { name: 'Something went wrong' })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Reload' })).toBeInTheDocument()
+  spy.mockRestore()
 })

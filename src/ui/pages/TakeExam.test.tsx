@@ -483,8 +483,8 @@ test('feedback mode: Check reveals the answer and locks it, with an elapsed cloc
   await u.click(screen.getByRole('button', { name: /^B\b/ }))
   await u.click(screen.getByRole('button', { name: 'Check' }))
   expect(screen.getByRole('status')).toHaveTextContent('Not quite')
-  expect(screen.getByRole('button', { name: 'Correct answer' })).toBeDisabled()
-  expect(screen.getByRole('button', { name: 'Your answer' })).toBeDisabled()
+  expect(screen.getByRole('button', { name: /Correct answer$/ })).toBeDisabled()
+  expect(screen.getByRole('button', { name: /Your answer$/ })).toBeDisabled()
   expect(screen.queryByRole('button', { name: 'Check' })).not.toBeInTheDocument()
   await u.keyboard('c')
   expect(JSON.parse(sessionStorage.getItem(SESSION_KEY)!)).toMatchObject({

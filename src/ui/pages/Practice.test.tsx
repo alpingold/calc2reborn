@@ -337,7 +337,7 @@ test('after a failed card update, retrying keeps the answer that was logged', as
   // the attempt was logged as A; changing the choice now must not change the outcome
   await userEvent.keyboard('c{Enter}')
   expect(await screen.findByRole('status')).toHaveTextContent('Not quite')
-  expect(screen.getByRole('button', { name: 'Your answer' })).toHaveTextContent('alpha')
+  expect(screen.getByRole('button', { name: /Your answer$/ })).toHaveTextContent('alpha')
   const attempts = await store.listAttempts()
   expect(attempts).toHaveLength(1)
   expect(attempts[0].chosen).toBe('A')

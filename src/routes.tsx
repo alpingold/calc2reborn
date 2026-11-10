@@ -2,6 +2,7 @@ import type { RouteObject } from 'react-router'
 import { Layout } from './ui/Layout'
 import { Course } from './ui/pages/Course'
 import { Dashboard } from './ui/pages/Dashboard'
+import { ErrorPage } from './ui/pages/ErrorPage'
 import { ExamResults } from './ui/pages/ExamResults'
 import { Exams } from './ui/pages/Exams'
 import { Lesson } from './ui/pages/Lesson'
@@ -24,6 +25,7 @@ export function buildRoutes(dev: boolean): RouteObject[] {
   {
     path: '/',
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Dashboard /> },
       { path: 'course', element: <Course /> },

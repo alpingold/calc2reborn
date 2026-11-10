@@ -79,7 +79,8 @@ export function QuestionView({
 
   const isCorrect = chosen === question.answer
 
-  function choiceAriaLabel(label: Choice['label']): string | undefined {
+  // read after the choice's own text, which stays in the button's accessible name
+  function choiceMark(label: Choice['label']): string | undefined {
     if (!revealed) return undefined
     if (label === question.answer) return 'Correct answer'
     if (label === chosen) return 'Your answer'
@@ -106,11 +107,11 @@ export function QuestionView({
             type="button"
             className={choiceClass(c.label)}
             aria-pressed={chosen === c.label}
-            aria-label={choiceAriaLabel(c.label)}
             disabled={revealed}
             onClick={() => onChoose(c.label)}
           >
             <strong className="choice-label">{c.label}</strong> <Markdown text={c.text} className="choice-text" />
+            {choiceMark(c.label) && <span className="visually-hidden"> {choiceMark(c.label)}</span>}
           </button>
         ))}
       </div>

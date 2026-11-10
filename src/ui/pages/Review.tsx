@@ -111,7 +111,9 @@ export function Review() {
       setItems((prev) => {
         if (!prev) return prev
         const out = [...prev]
-        if (rating <= 2 && new Date(next.fsrs.dueAt).getTime() <= t.getTime() + HOUR) {
+        // Again always comes back this session; Hard only if it is due again within the hour
+        const dueSoon = new Date(next.fsrs.dueAt).getTime() <= t.getTime() + HOUR
+        if (rating === 1 || (rating === 2 && dueSoon)) {
           out.push({ card: current.card, state: next })
         }
         return out

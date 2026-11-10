@@ -197,3 +197,29 @@ test('rating keys with a modifier, or held down, do nothing', async () => {
   expect(screen.getByText('Back one')).toBeInTheDocument()
   expect(await store.listCardStates()).toHaveLength(0)
 })
+
+test('a review card rated Again returns in the session even when it is due more than an hour later', async () => {
+  const clock = { t: new Date('2026-11-06T12:00:00Z') }
+  let nextDue = ''
+  const { store } = await setup({
+    cards: [cards[0]],
+    clock,
+    seed: async (s, sch) => {
+      // a card well into review: rated Good when new and again when it next came due
+      const start = new Date('2026-09-01T12:00:00Z')
+      const first = sch.review(sch.newState('L19-c01', start), 3, start)
+      const reviewed = sch.review(first, 3, new Date(first.fsrs.dueAt))
+      await s.saveCardState(reviewed)
+      nextDue = sch.review(reviewed, 1, clock.t).fsrs.dueAt
+    },
+  })
+  // the lapse interval is longer than the one-hour window Hard uses
+  expect(new Date(nextDue).getTime() - clock.t.getTime()).toBeGreaterThan(3600_000)
+  await screen.findByText('Front one')
+  await userEvent.keyboard(' ')
+  await userEvent.keyboard('1')
+  await act(async () => {})
+  expect(await screen.findByText('Front one')).toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: 'Done for today' })).not.toBeInTheDocument()
+  expect((await store.getCardState('L19-c01'))!.fsrs.lapses).toBe(1)
+})

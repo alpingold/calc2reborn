@@ -69,7 +69,7 @@ test('in dev renders question, correct answer, metadata and source image', async
   await renderAt('/dev/content?exam=f2025-e1&q=3')
   expect(await screen.findByRole('heading', { level: 2, name: 'Content review' })).toBeInTheDocument()
   expect(screen.getByText('Stem 3')).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: 'Correct answer' })).toHaveTextContent('gamma')
+  expect(screen.getByRole('button', { name: /Correct answer$/ })).toHaveTextContent('gamma')
   expect(screen.getByText('Lessons: L5, L10')).toBeInTheDocument()
   expect(screen.getByText('Tags: series')).toBeInTheDocument()
   expect(screen.getByText('Status: transcribed')).toBeInTheDocument()

@@ -80,4 +80,23 @@ describe('parseSnapshot', () => {
     expect(r.ok).toBe(false)
     if (!r.ok) expect(r.error).toContain('settings.dailyNewCards')
   })
+  test.each(['2026-13-40', 'tomorrow', '2026-1-5'])('rejects the exam date %s', (examDate) => {
+    const r = parseSnapshot({ ...valid, settings: { ...DEFAULT_SETTINGS, examDate } })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.error).toContain('settings.examDate')
+  })
+  test('accepts a real exam date and none', () => {
+    expect(parseSnapshot({ ...valid, settings: { ...DEFAULT_SETTINGS, examDate: '2026-12-14' } }).ok).toBe(true)
+    expect(parseSnapshot({ ...valid, settings: { ...DEFAULT_SETTINGS, examDate: null } }).ok).toBe(true)
+  })
+  test('rejects a timestamp that is not an ISO date-time', () => {
+    const r = parseSnapshot({ ...valid, attempts: [{ ...attempt, timestamp: 'yesterday' }] })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.error).toContain('attempts[0].timestamp')
+  })
+  test('accepts every timestamp the app itself writes', () => {
+    const at = new Date(2026, 10, 7, 23, 59, 59, 5).toISOString()
+    const r = parseSnapshot({ ...valid, exportedAt: at, attempts: [{ ...attempt, timestamp: at }] })
+    expect(r.ok).toBe(true)
+  })
 })

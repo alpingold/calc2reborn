@@ -142,10 +142,10 @@ test('revealed marks correct and chosen answers, shows feedback, solution, and l
     lessonTitle: 'Lesson 19',
     lessonHref: '/course/L19',
   })
-  const correct = screen.getByRole('button', { name: 'Correct answer' })
+  const correct = screen.getByRole('button', { name: /Correct answer$/ })
   expect(correct).toHaveTextContent(/^C/)
   expect(correct).toHaveTextContent('gamma')
-  const mine = screen.getByRole('button', { name: 'Your answer' })
+  const mine = screen.getByRole('button', { name: /Your answer$/ })
   expect(mine).toHaveTextContent(/^B/)
   // the choices lock; only Report a problem stays usable
   const choiceButtons = screen.getAllByRole('button').filter((b) => b.classList.contains('choice'))
@@ -162,8 +162,8 @@ test('revealed marks correct and chosen answers, shows feedback, solution, and l
 test('revealed with the correct choice says Correct and has no Your answer mark', async () => {
   await setup({ chosen: 'C', revealed: true })
   expect(screen.getByRole('status')).toHaveTextContent('Correct')
-  expect(screen.getByRole('button', { name: 'Correct answer' })).toHaveTextContent(/^C/)
-  expect(screen.queryByRole('button', { name: 'Your answer' })).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /Correct answer$/ })).toHaveTextContent(/^C/)
+  expect(screen.queryByRole('button', { name: /Your answer$/ })).not.toBeInTheDocument()
   expect(screen.queryByRole('link')).not.toBeInTheDocument()
 })
 
@@ -226,8 +226,8 @@ test('choices carry correct and wrong classes only once revealed', async () => {
 
 test('a revealed question marks the right choice correct and a wrong pick wrong', async () => {
   await setup({ chosen: 'B', revealed: true })
-  expect(screen.getByRole('button', { name: 'Correct answer' })).toHaveClass('choice', 'correct')
-  expect(screen.getByRole('button', { name: 'Your answer' })).toHaveClass('choice', 'wrong')
+  expect(screen.getByRole('button', { name: /Correct answer$/ })).toHaveClass('choice', 'correct')
+  expect(screen.getByRole('button', { name: /Your answer$/ })).toHaveClass('choice', 'wrong')
   for (const l of ['A', 'D', 'E']) {
     const b = screen.getByRole('button', { name: new RegExp(`^${l}\\b`) })
     expect(b).not.toHaveClass('correct')
@@ -278,4 +278,15 @@ test('typing a note does not pick a choice', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }))
   await userEvent.type(screen.getByLabelText('Note (optional)'), 'abc')
   expect(onChoose).not.toHaveBeenCalled()
+})
+
+test('a revealed choice keeps its own text in its accessible name', async () => {
+  await setup({ chosen: 'A', revealed: true })
+  const correct = screen.getByRole('button', { name: /Correct answer$/ })
+  const mine = screen.getByRole('button', { name: /Your answer$/ })
+  expect(correct.getAttribute('aria-label')).toBeNull()
+  expect(mine.getAttribute('aria-label')).toBeNull()
+  // the name is the choice's label and text followed by the mark, not the mark alone
+  expect(correct).toHaveAccessibleName(/^C\s+\S.*Correct answer$/)
+  expect(mine).toHaveAccessibleName(/^A\s+\S.*Your answer$/)
 })

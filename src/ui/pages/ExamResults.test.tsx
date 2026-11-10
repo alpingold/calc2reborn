@@ -117,10 +117,10 @@ test('an unanswered question says Not answered and reveals its correct choice', 
   await renderResults({ pathname: '/results/s1', state: { session } })
   const item = await screen.findByRole('listitem', { name: 'Question 12' })
   expect(within(item).getByText('Not answered')).toBeInTheDocument()
-  expect(within(item).getByRole('button', { name: 'Correct answer' })).toHaveTextContent('gamma')
+  expect(within(item).getByRole('button', { name: /Correct answer$/ })).toHaveTextContent('gamma')
   expect(screen.getAllByText('Not answered')).toHaveLength(1)
   const wrong = screen.getByRole('listitem', { name: 'Question 10' })
-  expect(within(wrong).getByRole('button', { name: 'Your answer' })).toHaveTextContent('alpha')
+  expect(within(wrong).getByRole('button', { name: /Your answer$/ })).toHaveTextContent('alpha')
   expect(within(wrong).getByRole('link', { name: 'Lesson 19: Topic 19' })).toHaveAttribute(
     'href',
     '/course/L19',
