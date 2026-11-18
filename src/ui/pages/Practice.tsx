@@ -4,13 +4,23 @@ import type { FormEvent } from 'react'
 import { isPlanned, lessonLabel } from '../../content/schema'
 import type { Choice, Question } from '../../content/schema'
 import { lessonMastery } from '../../engine/mastery'
-import { coveredLessonIds, promoteCardsForTypes } from '../../engine/queue'
-import { RETRY_AFTER, RETRY_LIMIT, nextRetry, pickPracticeQuestion, retryCandidates, similarQuestion } from '../../engine/select'
+import { coveredLessonIds, dailyQueue, promoteCardsForTypes } from '../../engine/queue'
+import {
+  RETRY_AFTER,
+  RETRY_LIMIT,
+  nextRetry,
+  pickPracticeQuestion,
+  recentMissTypes,
+  retryCandidates,
+  similarQuestion,
+} from '../../engine/select'
 import type { PendingRetry } from '../../engine/select'
 import { examScope, lessonRange, studyLessonIds } from '../../engine/scope'
-import { useContent, useNow, useRng, useSettings, useStore } from '../../storage/context'
+import { useContent, useNow, useRng, useScheduler, useSettings, useStore } from '../../storage/context'
 import type { Attempt } from '../../storage/types'
 import { QuestionView } from '../QuestionView'
+import { ExitIcon, ProgressStrip, SessionBar } from '../shell'
+import type { SegmentState } from '../shell'
 import { newId } from '../../ids'
 
 const LENGTHS = ['10', '20', '0'] as const
@@ -60,8 +70,26 @@ function rangeLabel(ids: string[], content: ReturnType<typeof useContent>): stri
   return a.id === b.id ? `L${a.number}` : `L${a.number} to L${b.number}`
 }
 
+/** The questions a retry session would serve: last answered wrong a day or more ago, within the lessons being studied. */
+function retryQueueFor(content: ReturnType<typeof useContent>, lessonIds: string[], attempts: Attempt[], now: Date): Question[] {
+  const seen = new Set<string>()
+  const inScope: Question[] = []
+  for (const id of lessonIds) {
+    for (const q of content.questionsByLesson.get(id) ?? []) {
+      if (!seen.has(q.id)) {
+        seen.add(q.id)
+        inScope.push(q)
+      }
+    }
+  }
+  return retryCandidates(attempts, inScope, now).slice(0, RETRY_LIMIT)
+}
+
+/** The Practice hub: past exam questions, flashcards and missed questions, each one step away. */
 function PracticeSetup() {
   const content = useContent()
+  const store = useStore()
+  const scheduler = useScheduler()
   const { settings } = useSettings()
   const now = useNow()
   const navigate = useNavigate()
@@ -73,6 +101,39 @@ function PracticeSetup() {
   const [from, setFrom] = useState(start[0] ?? '')
   const [to, setTo] = useState(start[start.length - 1] ?? '')
   const [length, setLength] = useState<(typeof LENGTHS)[number]>('20')
+  // what the flashcard and retry sessions would serve right now; null until progress has loaded
+  const [counts, setCounts] = useState<{ due: number; fresh: number; retry: number } | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    ;(async () => {
+      try {
+        const [states, attempts] = await Promise.all([store.listCardStates(), store.listAttempts()])
+        if (cancelled) return
+        // the same queue the flashcard session builds
+        const queue = dailyQueue({
+          now: now(),
+          cards: content.cards,
+          states,
+          lessons: content.lessons,
+          isDue: scheduler.isDue,
+          focusLessonIds: scope.active ? scope.lessonIds : undefined,
+          recentMissTypeIds: recentMissTypes(attempts, content.questionById, now()),
+          settings,
+        })
+        setCounts({
+          due: queue.due.filter((s) => content.cardById.has(s.cardId)).length,
+          fresh: queue.fresh.length,
+          retry: retryQueueFor(content, studyLessonIds(settings, content.lessons, now()), attempts, now()).length,
+        })
+      } catch {
+        // the counts are a convenience: the links work without them
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [store, scheduler, content, settings, scope, now])
 
   function onStart(e: FormEvent) {
     e.preventDefault()
@@ -82,65 +143,109 @@ function PracticeSetup() {
     navigate(`/practice?${params.toString()}`)
   }
 
+  const cardLine = !counts
+    ? 'Short questions on the ideas behind each lesson, scheduled so each comes back just before you forget it.'
+    : counts.due + counts.fresh === 0
+      ? 'Nothing due today.'
+      : `${counts.due} due · ${counts.fresh} new`
   return (
-    <section>
-      <h2>Practice</h2>
-      <form className="panel practice-setup" onSubmit={onStart}>
-        <p className="panel-hint">
-          Past exam questions with the answer after each one, weighted toward the lessons you miss most.
-        </p>
-        <fieldset>
-          <legend>Lessons</legend>
-          {scope.active && (
+    <section className="practice-hub">
+      <header className="page-head">
+        <h2>Practice</h2>
+        <p className="page-lede">Past exam questions, flashcards, and the questions you missed.</p>
+      </header>
+      <div className="split">
+        <form className="card card-strong split-main practice-setup" onSubmit={onStart}>
+          <div>
+            <h3>Past exam questions</h3>
+            <p className="hint">The answer and worked solution after each one, weighted toward the lessons you miss most.</p>
+          </div>
+          <fieldset>
+            <legend>Lessons</legend>
+            {scope.active && (
+              <label className="choice-row">
+                <input type="radio" name="scope" checked={mode === 'exam'} onChange={() => setMode('exam')} />
+                {`Exam lessons (${rangeLabel(scope.lessonIds, content)})`}
+              </label>
+            )}
             <label className="choice-row">
-              <input type="radio" name="scope" checked={mode === 'exam'} onChange={() => setMode('exam')} />
-              {`Exam lessons (${rangeLabel(scope.lessonIds, content)})`}
+              <input type="radio" name="scope" checked={mode === 'covered'} onChange={() => setMode('covered')} />
+              {`Everything so far (${rangeLabel(covered, content)})`}
             </label>
-          )}
-          <label className="choice-row">
-            <input type="radio" name="scope" checked={mode === 'covered'} onChange={() => setMode('covered')} />
-            {`Everything so far (${rangeLabel(covered, content)})`}
-          </label>
-          <label className="choice-row">
-            <input type="radio" name="scope" checked={mode === 'range'} onChange={() => setMode('range')} />
-            Choose a range
-          </label>
-          {mode === 'range' && (
-            <div className="range-pickers">
-              <label>
-                From
-                <select value={from} onChange={(e) => setFrom(e.target.value)}>
-                  {planned.map((l) => (
-                    <option key={l.id} value={l.id}>{`L${l.number}: ${l.title}`}</option>
-                  ))}
-                </select>
+            <label className="choice-row">
+              <input type="radio" name="scope" checked={mode === 'range'} onChange={() => setMode('range')} />
+              Choose a range
+            </label>
+            {mode === 'range' && (
+              <div className="range-pickers">
+                <label>
+                  From
+                  <select value={from} onChange={(e) => setFrom(e.target.value)}>
+                    {planned.map((l) => (
+                      <option key={l.id} value={l.id}>{`L${l.number}: ${l.title}`}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  To
+                  <select value={to} onChange={(e) => setTo(e.target.value)}>
+                    {planned.map((l) => (
+                      <option key={l.id} value={l.id}>{`L${l.number}: ${l.title}`}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+            )}
+          </fieldset>
+          <fieldset>
+            <legend>Length</legend>
+            {LENGTHS.map((v) => (
+              <label key={v} className="choice-row">
+                <input type="radio" name="length" checked={length === v} onChange={() => setLength(v)} />
+                {v === '0' ? 'No limit' : `${v} questions`}
               </label>
-              <label>
-                To
-                <select value={to} onChange={(e) => setTo(e.target.value)}>
-                  {planned.map((l) => (
-                    <option key={l.id} value={l.id}>{`L${l.number}: ${l.title}`}</option>
-                  ))}
-                </select>
-              </label>
+            ))}
+          </fieldset>
+          <p className="actions">
+            <button type="submit" className="primary button-large">
+              Start
+            </button>
+          </p>
+        </form>
+        <div className="split-side hub-side">
+          <section className="card hub-card">
+            <h3>Flashcards</h3>
+            <p className="hub-count">{cardLine}</p>
+            <div className="actions">
+              <Link to="/review" className="button">
+                Study flashcards
+              </Link>
+              {scope.active && (
+                <Link to="/review?exam=1" className="button">
+                  All exam cards
+                </Link>
+              )}
             </div>
-          )}
-        </fieldset>
-        <fieldset>
-          <legend>Length</legend>
-          {LENGTHS.map((v) => (
-            <label key={v} className="choice-row">
-              <input type="radio" name="length" checked={length === v} onChange={() => setLength(v)} />
-              {v === '0' ? 'No limit' : `${v} questions`}
-            </label>
-          ))}
-        </fieldset>
-        <p className="exam-controls">
-          <button type="submit" className="primary">
-            Start
-          </button>
-        </p>
-      </form>
+          </section>
+          <section className="card hub-card">
+            <h3>Retry missed questions</h3>
+            <p className="hub-count">
+              {!counts
+                ? 'Questions you got wrong a day or more ago, once the answer is no longer fresh.'
+                : counts.retry === 0
+                  ? 'Nothing to retry right now. A missed question shows up here a day later.'
+                  : `${counts.retry} ${counts.retry === 1 ? 'question' : 'questions'} you missed a day or more ago`}
+            </p>
+            {(!counts || counts.retry > 0) && (
+              <div className="actions">
+                <Link to="/practice?retry=1" className="button">
+                  Retry them
+                </Link>
+              </div>
+            )}
+          </section>
+        </div>
+      </div>
     </section>
   )
 }
@@ -196,6 +301,8 @@ function PracticeSession({
   const [revealed, setRevealed] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [score, setScore] = useState({ correct: 0, total: 0 })
+  // whether each answer so far was right, in order, for the progress strip
+  const [results, setResults] = useState<boolean[]>([])
   const [missed, setMissed] = useState<Set<string>>(new Set())
   const [finished, setFinished] = useState<Finish | null>(null)
 
@@ -209,18 +316,7 @@ function PracticeSession({
     if (retry) {
       if (retryQueue.current === null) {
         // the lessons on the coming exam, or everything covered so far
-        const scopeLessons = studyLessonIds(settings, content.lessons, now())
-        const seen = new Set<string>()
-        const inScope: Question[] = []
-        for (const id of scopeLessons) {
-          for (const q of content.questionsByLesson.get(id) ?? []) {
-            if (!seen.has(q.id)) {
-              seen.add(q.id)
-              inScope.push(q)
-            }
-          }
-        }
-        retryQueue.current = retryCandidates(attempts, inScope, now()).slice(0, RETRY_LIMIT)
+        retryQueue.current = retryQueueFor(content, studyLessonIds(settings, content.lessons, now()), attempts, now())
       }
       return retryQueue.current.find((q) => !served.current.has(q.id)) ?? null
     }
@@ -346,6 +442,7 @@ function PracticeSession({
         return
       }
       setScore((s) => ({ correct: s.correct + (correct ? 1 : 0), total: s.total + 1 }))
+      setResults((r) => [...r, correct])
       if (!correct) setMissed((m) => new Set([...m, ...question.lessonIds]))
       setRevealed(true)
       busy.current = false
@@ -409,13 +506,13 @@ function PracticeSession({
     return () => window.removeEventListener('keydown', onKey)
   }, [revealed, finished, next])
 
-  const scoreLine = <p className="practice-score">{`Correct ${score.correct} of ${score.total}`}</p>
+  const scoreLine = <p className="practice-score">{`${score.correct} of ${score.total} right`}</p>
   const errorLine = error && <p role="alert">{error}</p>
 
   if (finished) {
     const lessonsToRevisit = content.lessons.filter((l) => missed.has(l.id))
     return (
-      <section className="practice-summary">
+      <section className="card practice-summary">
         <h2>Practice</h2>
         {errorLine}
         {scoreLine}
@@ -443,7 +540,7 @@ function PracticeSession({
             </Link>
           )}
           <Link to="/" className="button">
-            Back to dashboard
+            Back to Today
           </Link>
         </p>
       </section>
@@ -474,14 +571,37 @@ function PracticeSession({
     (limit === null || score.total < limit) &&
     (question.typeIds ?? []).some((t) => (content.questionsByType.get(t) ?? []).some((q) => q.id !== question.id && !servedIds.has(q.id)))
 
+  const what = retry
+    ? 'Retry missed questions'
+    : typeIds
+      ? `Practice · ${typeIds.map((id) => content.typeById.get(id)?.name ?? id).join(', ')}`
+      : lessonParam
+        ? `Practice · ${content.lessonById.get(lessonParam)?.isExtra ? content.lessonById.get(lessonParam)?.title : rangeLabel(lessonIds, content)}`
+        : `Practice · ${rangeLabel(lessonIds, content)}`
+  const at = Math.min(position, limit ?? position)
+  const segments: SegmentState[] =
+    limit === null ? [] : Array.from({ length: limit }, (_, i) => (i < results.length ? (results[i] ? 'right' : 'wrong') : 'todo'))
+  const wrong = score.total - score.correct
+
   return (
-    <section>
-      <h2>Practice</h2>
+    <section className="practice-session">
+      <SessionBar
+        exit={
+          <button type="button" className="exit-button" onClick={() => setFinished('stopped')}>
+            <ExitIcon />
+            End session
+          </button>
+        }
+        title={what}
+        progress={limit !== null ? `Question ${at} of ${limit}` : undefined}
+        aside={scoreLine}
+      >
+        {limit !== null && (
+          <ProgressStrip segments={segments} current={at - 1} label={`Question ${at} of ${limit}: ${score.correct} right and ${wrong} wrong so far`} />
+        )}
+      </SessionBar>
+      <h2 className="visually-hidden">Practice</h2>
       {errorLine}
-      <div className="practice-status">
-        {scoreLine}
-        {limit !== null && <p>{`Question ${Math.min(position, limit)} of ${limit}`}</p>}
-      </div>
       {isRetry && <p className="note">You missed this one earlier in this session. Second try.</p>}
       <QuestionView
         key={shown}
@@ -491,20 +611,30 @@ function PracticeSession({
         onChoose={setChosen}
         onSubmit={(label, seconds) => void submit(label, seconds)}
         revealed={revealed}
-        onSimilar={canSimilar ? () => void similar() : undefined}
         lessonTitle={lesson && lessonLabel(lesson)}
         lessonHref={lesson && `/course/${lesson.id}`}
       />
-      <p className="exam-controls">
-        {revealed && (
-          <button type="button" className="primary" onClick={() => void next()}>
-            Next
-          </button>
-        )}
-        <button type="button" data-own-enter onClick={() => setFinished('stopped')}>
-          Stop
-        </button>
-      </p>
+      {revealed && (
+        <div className="action-bar">
+          <div className="action-bar-inner">
+            {canSimilar ? (
+              <button type="button" className="button-large" data-own-enter onClick={() => void similar()}>
+                Try a similar question
+              </button>
+            ) : (
+              <span />
+            )}
+            <div className="action-bar-next">
+              <span className="key-hint" aria-hidden="true">
+                Press Enter
+              </span>
+              <button type="button" className="primary button-large" onClick={() => void next()}>
+                Next question
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

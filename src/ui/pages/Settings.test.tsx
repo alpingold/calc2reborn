@@ -9,6 +9,7 @@ import { DEFAULT_SETTINGS } from '../../storage/types'
 import { buildContent } from '../../content'
 import { fixtureLessons, PLANNED_LESSON_COUNT } from '../../test/fixtures'
 import type { Scheduler } from '../../engine/fsrs'
+import { THEME_KEY } from '../../theme'
 
 const content = buildContent(fixtureLessons(), [], [])
 const scheduler = {} as Scheduler
@@ -17,6 +18,8 @@ const realCreate = URL.createObjectURL
 const realRevoke = URL.revokeObjectURL
 
 afterEach(() => {
+  localStorage.removeItem(THEME_KEY)
+  delete document.documentElement.dataset.theme
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
   Object.assign(URL, { createObjectURL: realCreate, revokeObjectURL: realRevoke })
@@ -333,4 +336,33 @@ test('Import progress also clears an exam in progress, and a rejected file does 
   await userEvent.upload(screen.getByLabelText('Import progress'), good)
   expect(await screen.findByRole('status')).toHaveTextContent('Progress imported')
   expect(localStorage.getItem(SESSION_KEY)).toBeNull()
+})
+
+test('Appearance offers Dark, Light and Match device, with Dark chosen until another is', async () => {
+  await setup()
+  const group = screen.getByRole('group', { name: 'Theme' })
+  expect(within(group).getAllByRole('radio').map((r) => r.parentElement!.textContent)).toEqual(['Dark', 'Light', 'Match device'])
+  expect(within(group).getByRole('radio', { name: 'Dark' })).toBeChecked()
+})
+
+test('choosing a theme applies it to the page at once and keeps it on this device, outside the synced settings', async () => {
+  const store = await setup()
+  const before = await store.getSettings()
+  await userEvent.click(screen.getByRole('radio', { name: 'Light' }))
+  expect(screen.getByRole('radio', { name: 'Light' })).toBeChecked()
+  expect(document.documentElement.dataset.theme).toBe('light')
+  expect(localStorage.getItem(THEME_KEY)).toBe('light')
+  await userEvent.click(screen.getByRole('radio', { name: 'Match device' }))
+  expect(document.documentElement.dataset.theme).toBe('system')
+  expect(localStorage.getItem(THEME_KEY)).toBe('system')
+  // nothing was written to the settings that sync
+  expect(await store.getSettings()).toEqual(before)
+  expect(Object.keys(await store.getSettings())).not.toContain('theme')
+})
+
+test('the saved theme is the one shown as chosen when Settings opens', async () => {
+  localStorage.setItem(THEME_KEY, 'light')
+  await setup()
+  expect(screen.getByRole('radio', { name: 'Light' })).toBeChecked()
+  expect(screen.getByRole('radio', { name: 'Dark' })).not.toBeChecked()
 })

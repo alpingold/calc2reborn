@@ -4,10 +4,13 @@ import { Link, useNavigate } from 'react-router'
 import { isPlanned } from '../../content/schema'
 import type { Exam, OfficialExam } from '../../content/schema'
 import { useContent, useNow, useSettings, useStore } from '../../storage/context'
-import { examLabel, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
-import { examScope } from '../../engine/scope'
+import { examLabel, examTitle, loadSession, sessionTitle, sessionUrl, timeIsUp } from '../examSession'
+import { daysUntil, examScope } from '../../engine/scope'
 import type { ResumeState } from '../examSession'
 import type { SessionRecord } from '../../storage/types'
+import { MOCK_MINUTES } from '../useExamSession'
+import { ModeCards } from '../ModeCards'
+import type { BeginState, ExamMode } from '../ModeCards'
 
 /** The best correct count per exam among finished sessions. An exam abandoned part-way has no record and no score. */
 function bestByExam(records: SessionRecord[]): Map<string, number> {
@@ -17,6 +20,16 @@ function bestByExam(records: SessionRecord[]): Map<string, number> {
     best.set(r.examId, Math.max(best.get(r.examId) ?? 0, r.correct))
   }
   return best
+}
+
+const SLOTS: OfficialExam['exam'][] = ['1', '2', '3', 'final']
+const SLOT_LABEL: Record<OfficialExam['exam'], string> = { '1': 'Exam 1', '2': 'Exam 2', '3': 'Exam 3', final: 'Final' }
+type Filter = 'all' | 'untaken' | 'finals'
+
+interface TermRow {
+  key: string
+  name: string
+  papers: Partial<Record<OfficialExam['exam'], OfficialExam>>
 }
 
 export function Exams() {
@@ -34,6 +47,9 @@ export function Exams() {
   const scope = examScope(settings, content.lessons, now())
   const [from, setFrom] = useState(scope.active ? scope.lessonIds[0] : (planned[0]?.id ?? ''))
   const [to, setTo] = useState(scope.active ? scope.lessonIds[scope.lessonIds.length - 1] : defaultTo)
+  const [mode, setMode] = useState<ExamMode>('timed')
+  const [changing, setChanging] = useState(false)
+  const [filter, setFilter] = useState<Filter>('all')
   // best correct counts from timed attempts, and from attempts taken with feedback
   const [best, setBest] = useState<{ timed: Map<string, number>; feedback: Map<string, number> } | null>(null)
   const [past, setPast] = useState<SessionRecord[]>([])
@@ -60,22 +76,25 @@ export function Exams() {
     }
   }, [store])
 
-  const byYear = useMemo(() => {
-    const years = new Map<number, Map<OfficialExam['term'], OfficialExam[]>>()
+  // one row per term, newest first; content.exams is already in that order
+  const terms = useMemo(() => {
+    const rows = new Map<string, TermRow>()
     for (const e of content.exams) {
       if (e.unofficial) continue
-      const terms = years.get(e.year) ?? new Map<OfficialExam['term'], OfficialExam[]>()
-      terms.set(e.term, [...(terms.get(e.term) ?? []), e])
-      years.set(e.year, terms)
+      const key = `${e.year}-${e.term}`
+      const row = rows.get(key) ?? { key, name: `${e.term} ${e.year}`, papers: {} }
+      row.papers[e.exam] = e
+      rows.set(key, row)
     }
-    return [...years.entries()].sort((a, b) => b[0] - a[0])
+    return [...rows.values()]
   }, [content.exams])
+  const officialCount = useMemo(() => content.exams.filter((e) => !e.unofficial).length, [content.exams])
   const extraExams = useMemo(() => content.exams.filter((e) => e.unofficial), [content.exams])
 
-  function onGenerate(e: FormEvent) {
+  function onStartMock(e: FormEvent) {
     e.preventDefault()
     const params = new URLSearchParams({ from, to })
-    navigate(`/exams/mock?${params.toString()}`)
+    navigate(`/exams/mock?${params.toString()}`, { state: { begin: mode } satisfies BeginState })
   }
 
   // finished sessions the content can still show: a record for a removed exam is left out
@@ -87,18 +106,57 @@ export function Exams() {
       date: new Date(r.finishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }),
     }))
 
+  /** The best finished score on an exam, timed if there is one; null if it was never finished. */
+  function bestOf(exam: Exam): { correct: number; feedback: boolean } | null {
+    const timed = best?.timed.get(exam.id)
+    if (timed !== undefined) return { correct: timed, feedback: false }
+    const withFeedback = best?.feedback.get(exam.id)
+    if (withFeedback !== undefined) return { correct: withFeedback, feedback: true }
+    return null
+  }
+
   function bestLine(exam: Exam): string {
     if (!best) return ''
-    const timed = best.timed.get(exam.id)
-    if (timed !== undefined) return `Best: ${timed}/${exam.questions.length}`
-    const withFeedback = best.feedback.get(exam.id)
-    if (withFeedback !== undefined) return `Best with feedback: ${withFeedback}/${exam.questions.length}`
-    return 'Not taken'
+    const b = bestOf(exam)
+    if (!b) return 'Not taken'
+    return `${b.feedback ? 'Best with feedback' : 'Best'}: ${b.correct} of ${exam.questions.length}`
   }
+
+  const slots = filter === 'finals' ? SLOTS.filter((s) => s === 'final') : SLOTS
+  const shownTerms = terms.filter((row) =>
+    slots.some((s) => {
+      const paper = row.papers[s]
+      return paper !== undefined && (filter !== 'untaken' || bestOf(paper) === null)
+    }),
+  )
+
+  const fromLesson = content.lessonById.get(from)
+  const toLesson = content.lessonById.get(to)
+  const [lo, hi] =
+    fromLesson && toLesson ? (fromLesson.number <= toLesson.number ? [fromLesson, toLesson] : [toLesson, fromLesson]) : [undefined, undefined]
+  const rangeText = lo && hi ? (lo.id === hi.id ? `Lesson ${lo.number}` : `Lessons ${lo.number} to ${hi.number}`) : ''
+  const days = settings.examDate ? daysUntil(settings.examDate, now()) : null
+  const scopeFirst = content.lessonById.get(scope.lessonIds[0] ?? '')
+  const scopeLast = content.lessonById.get(scope.lessonIds[scope.lessonIds.length - 1] ?? '')
+  const lede =
+    scope.active && scopeFirst && scopeLast
+      ? `Your exam ${days === null ? '' : days === 0 ? 'is today and ' : `is in ${days} ${days === 1 ? 'day' : 'days'} and `}covers ${
+          scopeFirst.id === scopeLast.id ? `Lesson ${scopeFirst.number}` : `Lessons ${scopeFirst.number} to ${scopeLast.number}`
+        }.`
+      : 'A mock exam on the lessons you choose, or any past Purdue paper.'
+
+  const filters: [Filter, string][] = [
+    ['all', `All ${officialCount}`],
+    ['untaken', 'Not taken'],
+    ['finals', 'Finals only'],
+  ]
 
   return (
     <section className="exams">
-      <h2>Exams</h2>
+      <header className="page-head">
+        <h2>Exams</h2>
+        <p className="page-lede">{lede}</p>
+      </header>
       {error && <p role="alert">{error}</p>}
       {inProgress && (
         <p className="note">
@@ -111,89 +169,172 @@ export function Exams() {
           </Link>
         </p>
       )}
-      <form className="panel mock-form" onSubmit={onGenerate}>
-        <div className="mock-head">
-          <h3>Mock exam</h3>
-          <p className="panel-hint">
-            Up to twelve questions from past exams on the lessons you pick, preferring ones you have not seen in your
-            last two mocks.
-          </p>
+      <div className="split">
+        <form className="card card-strong split-main mock-form" onSubmit={onStartMock}>
+          <div>
+            <p className="eyebrow eyebrow-accent">{scope.active ? 'Recommended' : 'Mock exam'}</p>
+            <h3>{`Mock exam on ${rangeText}`}</h3>
+            <p className="hint">
+              Up to twelve questions from past exams on these lessons, preferring ones you have not seen in your last
+              two mocks.
+            </p>
+          </div>
+          <ModeCards value={mode} onChange={setMode} minutes={MOCK_MINUTES} />
+          {changing && (
+            <div className="range-pickers" id="mock-range">
+              <label>
+                From
+                <select value={from} onChange={(e) => setFrom(e.target.value)}>
+                  {planned.map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {`Lesson ${l.number}: ${l.title}`}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                To
+                <select value={to} onChange={(e) => setTo(e.target.value)}>
+                  {planned.map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {`Lesson ${l.number}: ${l.title}`}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          )}
+          <div className="actions">
+            <button type="submit" className="primary button-large">
+              Start mock exam
+            </button>
+            <button type="button" className="link-button" aria-expanded={changing} aria-controls="mock-range" onClick={() => setChanging((c) => !c)}>
+              Change the lessons
+            </button>
+          </div>
+        </form>
+        <section className="card split-side attempts">
+          <h3 className="label">Your attempts</h3>
+          {pastRows.length === 0 ? (
+            <p className="hint">Nothing finished yet. A finished exam or mock is listed here with its score.</p>
+          ) : (
+            <ul className="row-list" aria-label="Your attempts">
+              {pastRows.map(({ record, title, date }) => (
+                <li key={record.sessionId}>
+                  <Link to={`/results/${record.sessionId}`}>
+                    <span>
+                      {title} <span className="row-sub">{`${date} · ${record.feedback ? 'with feedback' : 'timed'}`}</span>
+                    </span>
+                    <span className="row-value">{`${record.correct} of ${record.total}`}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className="hint">Timed scores are the ones to trust.</p>
+        </section>
+      </div>
+
+      <section className="papers">
+        <div className="papers-head">
+          <h3>Past Purdue papers</h3>
+          {terms.length > 0 && (
+            <div role="group" aria-label="Show" className="filters">
+              {filters.map(([id, label]) => (
+                <button key={id} type="button" className="filter" aria-pressed={filter === id} onClick={() => setFilter(id)}>
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-        <label>
-          From{' '}
-          <select value={from} onChange={(e) => setFrom(e.target.value)}>
-            {planned.map((l) => (
-              <option key={l.id} value={l.id}>
-                {`Lesson ${l.number}: ${l.title}`}
-              </option>
-            ))}
-          </select>
-        </label>{' '}
-        <label>
-          To{' '}
-          <select value={to} onChange={(e) => setTo(e.target.value)}>
-            {planned.map((l) => (
-              <option key={l.id} value={l.id}>
-                {`Lesson ${l.number}: ${l.title}`}
-              </option>
-            ))}
-          </select>
-        </label>{' '}
-        <button type="submit" className="primary">
-          Generate mock exam
-        </button>
-      </form>
+        {terms.length === 0 ? (
+          <p>No past exams yet</p>
+        ) : shownTerms.length === 0 ? (
+          <p className="card">{filter === 'untaken' ? 'You have taken every paper.' : 'No papers to show.'}</p>
+        ) : (
+          <div className="card table-scroll">
+            <table className="papers-table">
+              <thead>
+                <tr>
+                  <th scope="col">Term</th>
+                  {slots.map((s) => (
+                    <th key={s} scope="col">
+                      {SLOT_LABEL[s]}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {shownTerms.map((row) => (
+                  <tr key={row.key}>
+                    <th scope="row">{row.name}</th>
+                    {slots.map((s) => {
+                      const paper = row.papers[s]
+                      if (!paper) {
+                        return (
+                          <td key={s} className="paper-none">
+                            No paper
+                          </td>
+                        )
+                      }
+                      const b = bestOf(paper)
+                      if (b && filter === 'untaken') {
+                        return (
+                          <td key={s} className="paper-none">
+                            Taken
+                          </td>
+                        )
+                      }
+                      return (
+                        <td key={s}>
+                          {b ? (
+                            <Link to={`/exams/${paper.id}`} className="paper-taken">
+                              {`${b.correct} of ${paper.questions.length}`}
+                              <span className="visually-hidden">{`, your best on ${examTitle(paper)}`}</span>
+                              {b.feedback && (
+                                <>
+                                  {' '}
+                                  <span className="row-sub">with feedback</span>
+                                </>
+                              )}
+                            </Link>
+                          ) : (
+                            <Link to={`/exams/${paper.id}`} className="paper-start">
+                              Start <span className="visually-hidden">{examTitle(paper)}</span>
+                            </Link>
+                          )}
+                        </td>
+                      )
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {terms.length > 0 && <p className="hint">A score means you have taken that paper; open it to retake it. Your attempts above open the results.</p>}
+      </section>
+
       {extraExams.length > 0 && (
         <section className="extra-exams">
           <h3>Extra practice</h3>
-          <p className="panel-hint">
+          <p className="hint">
             Written for this app in the style of past exams. These are not Purdue exams, and their answers were checked
             independently but may contain errors.
           </p>
-          <ul className="exam-cells exam-cells-wide">
+          <ul className="card row-list">
             {extraExams.map((exam) => (
               <li key={exam.id}>
-                <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link> <span className="best">{bestLine(exam)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-      {pastRows.length > 0 && (
-        <section className="past-attempts">
-          <h3>Past attempts</h3>
-          <ul className="past-list" aria-label="Past attempts">
-            {pastRows.map(({ record, title, date }) => (
-              <li key={record.sessionId}>
-                <Link to={`/results/${record.sessionId}`}>{title}</Link>{' '}
-                <span className="best">
-                  {`${record.correct}/${record.total} · ${date}${record.feedback ? ' · with feedback' : ''}`}
+                <span className="row-plain">
+                  <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link>
+                  <span className="row-value row-value-quiet">{bestLine(exam)}</span>
                 </span>
               </li>
             ))}
           </ul>
         </section>
       )}
-      {byYear.length === 0 && <p>No past exams yet</p>}
-      <div className="exam-years">
-        {byYear.map(([year, terms]) => (
-          <section key={year} className="exam-year">
-            <h3>{year}</h3>
-            {[...terms.entries()].map(([term, exams]) => (
-              <div key={term} className="term-row">
-                <h4>{term}</h4>
-                <ul className="exam-cells">
-                  {exams.map((exam) => (
-                    <li key={exam.id}>
-                      <Link to={`/exams/${exam.id}`}>{examLabel(exam)}</Link> <span className="best">{bestLine(exam)}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </section>
-        ))}
-      </div>
     </section>
   )
 }

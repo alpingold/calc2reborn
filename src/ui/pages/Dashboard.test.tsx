@@ -1,5 +1,5 @@
-import { expect, test } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { beforeEach, expect, test } from 'vitest'
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router'
 import { Dashboard } from './Dashboard'
@@ -10,6 +10,7 @@ import type { Settings } from '../../storage/types'
 import { buildContent } from '../../content'
 import { fixtureCard, fixtureLessons, fixtureTypes, PLANNED_LESSON_COUNT } from '../../test/fixtures'
 import { createScheduler } from '../../engine/fsrs'
+import { LESSON_CHECK_KEY, localDay } from '../../lessonCheck'
 import type { Choice, Exam, Question } from '../../content/schema'
 
 const NOW = new Date(2026, 10, 7, 12, 0)
@@ -46,6 +47,8 @@ const seedExam: Exam = {
 const lessons = fixtureLessons().map((l) => (l.id === 'L20' ? { ...l, problemTypes: fixtureTypes('L20') } : l))
 const content = buildContent(lessons, [fixtureCard('L19-c01', 'L19')], [seedExam])
 
+beforeEach(() => localStorage.clear())
+
 async function setup(settings: Partial<Settings>, seed?: (s: MemoryStore) => Promise<void>) {
   const store = new MemoryStore()
   await store.saveSettings({ ...DEFAULT_SETTINGS, ...settings })
@@ -58,7 +61,7 @@ async function setup(settings: Partial<Settings>, seed?: (s: MemoryStore) => Pro
       </StoreProvider>
     </MemoryRouter>,
   )
-  await screen.findByRole('heading', { level: 2, name: 'Dashboard' })
+  await screen.findByRole('heading', { level: 2, name: "Today's session" })
   return { store }
 }
 
@@ -69,22 +72,64 @@ test('first launch asks for the current lesson and hides the prompt after saving
   expect(within(select).getAllByRole('option')).toHaveLength(PLANNED_LESSON_COUNT)
   await userEvent.selectOptions(select, 'L23')
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))
-  await screen.findByRole('heading', { name: 'Today' })
-  expect(screen.queryByText('Where are you in the course?')).not.toBeInTheDocument()
-  expect((await store.getSettings()).currentLessonId).toBe('L23')
+  await waitFor(() => expect(screen.queryByText('Where are you in the course?')).not.toBeInTheDocument())
+  expect(await store.getSettings()).toEqual({ ...DEFAULT_SETTINGS, currentLessonId: 'L23' })
+  expect(screen.queryByRole('complementary', { name: 'Next exam' })).not.toBeInTheDocument()
 })
 
-test('the plan lists due and new cards and the weakest types, each as a link', async () => {
+test('first launch can also take the exam date and its lessons, and the exam block appears at once', async () => {
+  const { store } = await setup({})
+  await userEvent.selectOptions(screen.getByLabelText('Current lesson'), 'L20')
+  expect(screen.queryByLabelText('Last lesson on the exam')).not.toBeInTheDocument()
+  fireEvent.change(screen.getByLabelText('Exam date'), { target: { value: '2026-11-12' } })
+  await userEvent.selectOptions(screen.getByLabelText('First lesson on the exam'), 'L19')
+  // one choice is already a range of one lesson
+  expect(screen.getByLabelText('Last lesson on the exam')).toHaveValue('L19')
+  await userEvent.selectOptions(screen.getByLabelText('Last lesson on the exam'), 'L21')
+  await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+  const panel = await screen.findByRole('complementary', { name: 'Next exam' })
+  expect(within(panel).getByText('5')).toBeInTheDocument()
+  expect(await store.getSettings()).toEqual({
+    ...DEFAULT_SETTINGS,
+    currentLessonId: 'L20',
+    examDate: '2026-11-12',
+    examLessonIds: ['L19', 'L20', 'L21'],
+  })
+})
+
+test('"Move on" saves the next planned lesson as the current one', async () => {
+  localStorage.setItem(LESSON_CHECK_KEY, localDay(NOW))
+  const { store } = await setup({ currentLessonId: 'L20' })
+  expect(screen.getByText(/Finished Lesson 20 in class\?/)).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: 'Move on to Lesson 21' }))
+  expect(await screen.findByRole('button', { name: 'Move on to Lesson 22' })).toBeInTheDocument()
+  expect((await store.getSettings()).currentLessonId).toBe('L21')
+  expect(screen.getByText(/You are on Lesson 21/)).toBeInTheDocument()
+})
+
+test('the last lesson has nowhere to move on to', async () => {
+  await setup({ currentLessonId: `L${PLANNED_LESSON_COUNT}` })
+  expect(screen.getByText(new RegExp(`You are on Lesson ${PLANNED_LESSON_COUNT}`))).toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: /Move on/ })).not.toBeInTheDocument()
+})
+
+test('the first unfinished step is the Up next card with the one Start button, and the rest are numbered links', async () => {
   await setup({ currentLessonId: 'L20' }, async (store) => {
     const scheduler = await createScheduler()
     const st = scheduler.newState('L19-c01', new Date(2026, 10, 1))
     await store.saveCardState({ ...st, fsrs: { ...st.fsrs, dueAt: new Date(2026, 10, 6).toISOString() } })
   })
-  expect(await screen.findByRole('link', { name: 'Review 1 due card' })).toHaveAttribute('href', '/review')
-  expect(screen.getByRole('link', { name: 'Practise your weakest types: L20 type A, L20 type B' })).toHaveAttribute(
+  expect(await screen.findByRole('link', { name: 'Start: Review 1 due card' })).toHaveAttribute('href', '/review')
+  expect(screen.getByText('Up next · step 1 of 2')).toBeInTheDocument()
+  expect(screen.getAllByRole('link', { name: /^Start/ })).toHaveLength(1)
+  const rows = within(screen.getByRole('list', { name: 'Other steps today' })).getAllByRole('listitem')
+  expect(rows).toHaveLength(1)
+  expect(rows[0]).toHaveTextContent(/^2Practise your weakest types: L20 type A, L20 type B/)
+  expect(within(rows[0]).getByRole('link', { name: /^Practise your weakest types: L20 type A, L20 type B/ })).toHaveAttribute(
     'href',
     '/practice?types=L20-a,L20-b&n=10',
   )
+  expect(screen.queryByRole('checkbox')).not.toBeInTheDocument()
   expect(screen.queryByText(/until the exam/)).not.toBeInTheDocument()
   expect(screen.queryByText('Done for today')).not.toBeInTheDocument()
 })
@@ -101,7 +146,7 @@ test('a missed question from an earlier day is offered for retry', async () => {
       mode: 'practice',
     })
   })
-  expect(await screen.findByRole('link', { name: 'Retry 1 missed question' })).toHaveAttribute('href', '/practice?retry=1')
+  expect(await screen.findByRole('link', { name: /Retry 1 missed question/ })).toHaveAttribute('href', '/practice?retry=1')
 })
 
 test('a finished item is ticked and no longer a link, and the plan says so when all are done', async () => {
@@ -136,7 +181,7 @@ test('with nothing to plan, it says how to begin', async () => {
   expect(await screen.findByText('Nothing planned yet. Set your current lesson to begin.')).toBeInTheDocument()
 })
 
-test('the exam block shows the countdown, type tiles, and the latest timed mock on the exam lessons', async () => {
+test('the exam block shows the countdown, one bar of the problem types, the weakest by name, and the latest timed mock', async () => {
   await setup(
     { currentLessonId: 'L23', examDate: '2026-11-12', examLessonIds: ['L19', 'L20'] },
     async (store) => {
@@ -159,17 +204,39 @@ test('the exam block shows the countdown, type tiles, and the latest timed mock 
       await store.saveSessionRecord({ ...base, sessionId: 's3', kind: 'mock', from: 'L19', to: 'L20', finishedAt: new Date(2026, 10, 4).toISOString(), correct: 9 })
     },
   )
-  expect(await screen.findByText('5 days until the exam')).toBeInTheDocument()
-  const panel = screen.getByRole('complementary', { name: 'Next exam' })
-  expect(await within(panel).findByRole('link', { name: 'L20 type A, 51%' })).toHaveClass('mastery-weak')
-  expect(within(panel).getByRole('link', { name: 'L20 type B, untested' })).toHaveAttribute('href', '/practice?types=L20-b&n=10')
-  expect(within(panel).getByText('1 of 2 problem types tested')).toBeInTheDocument()
-  expect(within(panel).getByText(/^Latest timed mock: 9 of 12 on /)).toBeInTheDocument()
-  expect(within(panel).getByRole('link', { name: 'Take a mock exam' })).toHaveAttribute('href', '/exams/mock?from=L19&to=L20')
+  const panel = await screen.findByRole('complementary', { name: 'Next exam' })
+  expect(panel).toHaveTextContent('5 days until the exam')
+  expect(panel).toHaveTextContent('Lessons 19 to 20')
+  // the bar says in words what its colours show, and the same counts are written under it
+  expect(await within(panel).findByRole('img', { name: '0 strong, 0 getting there, 1 weak, 1 not tested' })).toBeInTheDocument()
+  expect(within(panel).getByText('2 problem types on this exam')).toBeInTheDocument()
+  expect(within(panel).getByText('1 tested')).toBeInTheDocument()
+  expect(panel).toHaveTextContent('1 weak')
+  expect(panel).toHaveTextContent('1 not tested yet')
+  // only tested types are named as weakest, with the plain count of right answers
+  const weakest = within(panel).getByRole('heading', { name: 'Weakest right now' }).parentElement as HTMLElement
+  const links = within(weakest).getAllByRole('link')
+  expect(links).toHaveLength(1)
+  expect(links[0]).toHaveAccessibleName('Practise L20 type A, 2 of 3 right')
+  expect(links[0]).toHaveAttribute('href', '/practice?types=L20-a&n=10')
+  expect(links[0]).toHaveTextContent('2 of 3')
+  expect(panel).toHaveTextContent(/Latest timed mock: 9 of 12 on /)
+  expect(within(panel).getByRole('link', { name: 'Take a timed mock exam' })).toHaveAttribute('href', '/exams/mock?from=L19&to=L20')
   expect(screen.queryByRole('heading', { name: 'Weakest lessons' })).not.toBeInTheDocument()
-  expect(await screen.findByTitle('L20: Topic 20, 51%')).toHaveClass('mastery-weak')
-  // touch and screen reader users get the lesson title too, not only "L19"
-  expect(screen.getByRole('link', { name: 'L19 Topic 19, untested' })).toHaveAttribute('href', '/course/L19')
+  const tile = await screen.findByTitle('Lesson 20: Topic 20, Weak, 51%')
+  expect(tile).toHaveClass('mastery-weak')
+  expect(tile).toHaveTextContent('20')
+  // touch and screen reader users get the lesson title and the mastery in words, not only the number
+  expect(screen.getByRole('link', { name: 'Lesson 19: Topic 19, Not tested' })).toHaveAttribute('href', '/course/L19')
+  expect(screen.getByRole('link', { name: 'Lesson 23: Topic 23, Not tested, your current lesson' })).toHaveClass('current')
+  expect(screen.getByText(/Lessons 19 to 20 are on your next exam\./)).toBeInTheDocument()
+})
+
+test('with nothing tested, the exam block names no weakest types', async () => {
+  await setup({ currentLessonId: 'L23', examDate: '2026-11-12', examLessonIds: ['L19', 'L20'] })
+  const panel = await screen.findByRole('complementary', { name: 'Next exam' })
+  expect(within(panel).getByRole('img', { name: '0 strong, 0 getting there, 0 weak, 2 not tested' })).toBeInTheDocument()
+  expect(within(panel).queryByRole('heading', { name: 'Weakest right now' })).not.toBeInTheDocument()
 })
 
 test('with no timed mock on the exam lessons, the exam block says so', async () => {
@@ -190,13 +257,56 @@ test('a load error clears once progress loads after a settings change', async ()
   fail = false
   await userEvent.selectOptions(screen.getByLabelText('Current lesson'), 'L20')
   await userEvent.click(screen.getByRole('button', { name: 'Save' }))
-  await screen.findByRole('heading', { name: 'Today' })
-  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+  await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument())
+  expect(screen.getByText(/You are on Lesson 20/)).toBeInTheDocument()
 })
 
 test('the mastery grid leaves out extra topics', async () => {
   await setup({ currentLessonId: 'L19' })
-  await screen.findByRole('heading', { name: 'Today' })
+  await screen.findByRole('heading', { name: 'Course map' })
   expect(screen.queryByRole('heading', { name: 'Other topics' })).not.toBeInTheDocument()
   expect(screen.queryByRole('link', { name: /Parametric/ })).not.toBeInTheDocument()
+})
+
+test('the first visit of a day asks whether the current lesson is still right, and Yes settles it for the day', async () => {
+  const { store } = await setup({ currentLessonId: 'L20' })
+  expect(screen.getByText(/Are you still on Lesson 20/)).toBeInTheDocument()
+  // the quieter "Move on" line waits until the question is answered
+  expect(screen.queryByRole('button', { name: /Move on/ })).not.toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: 'Yes, still on Lesson 20' }))
+  expect(screen.queryByText(/Are you still on Lesson 20/)).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Move on to Lesson 21' })).toBeInTheDocument()
+  expect((await store.getSettings()).currentLessonId).toBe('L20')
+  expect(localStorage.getItem(LESSON_CHECK_KEY)).toBe(localDay(NOW))
+})
+
+test('the lesson question is not asked again the same day, and is asked again the next day', async () => {
+  localStorage.setItem(LESSON_CHECK_KEY, localDay(NOW))
+  await setup({ currentLessonId: 'L20' })
+  expect(screen.queryByText(/Are you still on Lesson 20/)).not.toBeInTheDocument()
+  cleanup()
+  localStorage.setItem(LESSON_CHECK_KEY, localDay(new Date(2026, 10, 6, 23, 0)))
+  await setup({ currentLessonId: 'L20' })
+  expect(screen.getByText(/Are you still on Lesson 20/)).toBeInTheDocument()
+})
+
+test('answering No moves to the next lesson, and another lesson can be picked instead', async () => {
+  const { store } = await setup({ currentLessonId: 'L20' })
+  await userEvent.click(screen.getByRole('button', { name: "No, I'm on Lesson 21" }))
+  await waitFor(async () => expect((await store.getSettings()).currentLessonId).toBe('L21'))
+  expect(screen.queryByText(/Are you still on/)).not.toBeInTheDocument()
+  cleanup()
+  localStorage.clear()
+  const second = await setup({ currentLessonId: 'L20' })
+  await userEvent.selectOptions(screen.getByLabelText('A different lesson'), 'L23')
+  await waitFor(async () => expect((await second.store.getSettings()).currentLessonId).toBe('L23'))
+  expect(screen.queryByText(/Are you still on/)).not.toBeInTheDocument()
+})
+
+test('first launch does not also ask the daily lesson question', async () => {
+  await setup({})
+  expect(screen.queryByText(/Are you still on/)).not.toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+  await waitFor(() => expect(screen.queryByText('Where are you in the course?')).not.toBeInTheDocument())
+  expect(screen.queryByText(/Are you still on/)).not.toBeInTheDocument()
 })

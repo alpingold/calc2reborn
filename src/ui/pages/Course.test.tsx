@@ -21,7 +21,7 @@ async function setup() {
       </StoreProvider>
     </MemoryRouter>,
   )
-  await screen.findByRole('heading', { level: 2, name: 'Course' })
+  await screen.findByRole('heading', { level: 2, name: 'Lessons' })
 }
 
 test('lists lessons by unit and marks the current one', async () => {

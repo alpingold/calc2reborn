@@ -8,7 +8,7 @@ export function ErrorPage() {
     <section className="error-page" role="alert">
       <h1>Something went wrong</h1>
       <p>Your progress is safe. Reload the page to continue.</p>
-      {detail && <p className="panel-hint">{detail}</p>}
+      {detail && <p className="hint">{detail}</p>}
       <button type="button" className="primary" onClick={() => window.location.reload()}>
         Reload
       </button>

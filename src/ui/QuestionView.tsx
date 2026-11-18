@@ -2,9 +2,11 @@ import { useCallback, useEffect, useRef } from 'react'
 import type { JSX } from 'react'
 import { CHOICE_LABELS } from '../content/schema'
 import type { Choice, Question } from '../content/schema'
-import { useNow } from '../storage/context'
+import { useContent, useNow } from '../storage/context'
+import { examTitle } from './examSession'
 import { Markdown } from './Markdown'
-import { FeedbackPanel } from './FeedbackPanel'
+import { FeedbackMain, FeedbackSide } from './FeedbackPanel'
+import { CheckIcon, CrossIcon } from './shell'
 
 export interface QuestionViewProps {
   question: Question
@@ -17,8 +19,7 @@ export interface QuestionViewProps {
   lessonHref?: string
   // the label of the button that reveals feedback in immediate mode
   submitLabel?: string
-  /** once revealed: serve a similar question next (Practice), or link to one (results) */
-  onSimilar?: () => void
+  /** once revealed, on results: a link to Practice on the same problem type */
   similarHref?: string
 }
 
@@ -41,10 +42,10 @@ export function QuestionView({
   lessonTitle,
   lessonHref,
   submitLabel = 'Submit',
-  onSimilar,
   similarHref,
 }: QuestionViewProps): JSX.Element {
   const now = useNow()
+  const content = useContent()
   const startedAt = useRef(0)
 
   useEffect(() => {
@@ -96,41 +97,70 @@ export function QuestionView({
     return 'choice'
   }
 
+  // where the question is from and its problem type, shown only with the answer: the type's name can
+  // give the method away, and a timed exam never reveals anything
+  const exam = content.examByQuestionId.get(question.id)
+  const chips = revealed
+    ? [
+        exam ? `${examTitle(exam)}, question ${question.number}` : null,
+        ...(question.typeIds ?? []).map((id) => {
+          const type = content.typeById.get(id)
+          const lesson = type ? content.lessonById.get(type.lessonId) : undefined
+          if (!type) return null
+          return lesson && !lesson.isExtra ? `Lesson ${lesson.number} · ${type.name}` : type.name
+        }),
+      ].filter((c) => c !== null)
+    : []
+
   return (
-    <article className="question">
-      <Markdown text={question.stem} />
-      {question.figures?.map((path) => (
-        <img key={path} src={'/' + path} alt={`Figure for question ${question.number}`} />
-      ))}
-      <div className="choices">
-        {question.choices.map((c) => (
-          <button
-            key={c.label}
-            type="button"
-            className={choiceClass(c.label)}
-            aria-pressed={chosen === c.label}
-            disabled={revealed}
-            onClick={() => onChoose(c.label)}
-          >
-            <strong className="choice-label">{c.label}</strong> <Markdown text={c.text} className="choice-text" />
-            {choiceMark(c.label) && <span className="visually-hidden"> {choiceMark(c.label)}</span>}
-          </button>
+    <article className={revealed ? 'question split' : 'question'}>
+      <div className="split-main question-main">
+        {chips.length > 0 && (
+          <ul className="chips" aria-label="About this question">
+            {chips.map((c) => (
+              <li key={c} className="chip">
+                {c}
+              </li>
+            ))}
+          </ul>
+        )}
+        <Markdown text={question.stem} className="question-stem" />
+        {question.figures?.map((path) => (
+          <img key={path} className="figure" src={'/' + path} alt={`Figure for question ${question.number}`} />
         ))}
+        <div className="choices">
+          {question.choices.map((c) => {
+            const mark = choiceMark(c.label)
+            return (
+              <button
+                key={c.label}
+                type="button"
+                className={choiceClass(c.label)}
+                aria-pressed={chosen === c.label}
+                disabled={revealed}
+                onClick={() => onChoose(c.label)}
+              >
+                <strong className="choice-label">{c.label}</strong> <Markdown text={c.text} className="choice-text" />
+                {mark && (
+                  <span className="choice-mark">
+                    {' '}
+                    {mark === 'Correct answer' ? <CheckIcon /> : <CrossIcon />}
+                    {mark}
+                  </span>
+                )}
+              </button>
+            )
+          })}
+        </div>
+        {mode === 'immediate' && onSubmit && !revealed && (
+          <button type="button" className="primary button-large question-submit" disabled={!chosen} onClick={submit}>
+            {submitLabel}
+          </button>
+        )}
+        {revealed && <FeedbackMain question={question} chosen={chosen} />}
       </div>
-      {mode === 'immediate' && onSubmit && !revealed && (
-        <button type="button" className="primary" disabled={!chosen} onClick={submit}>
-          {submitLabel}
-        </button>
-      )}
       {revealed && (
-        <FeedbackPanel
-          question={question}
-          chosen={chosen}
-          lessonTitle={lessonTitle}
-          lessonHref={lessonHref}
-          onSimilar={onSimilar}
-          similarHref={similarHref}
-        />
+        <FeedbackSide question={question} chosen={chosen} lessonTitle={lessonTitle} lessonHref={lessonHref} similarHref={similarHref} />
       )}
     </article>
   )

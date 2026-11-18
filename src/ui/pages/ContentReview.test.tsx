@@ -73,7 +73,8 @@ test('in dev renders question, correct answer, metadata and source image', async
   expect(screen.getByRole('button', { name: /Correct answer$/ })).toHaveTextContent('gamma')
   expect(screen.getByText('Lessons: L5, L10')).toBeInTheDocument()
   expect(screen.getByText('Problem types: L5 type A')).toBeInTheDocument()
-  expect(screen.getByText('Worked solution')).toBeInTheDocument()
+  // the fixture's solution text happens to be the same words as the feedback's own heading
+  expect(screen.getByText('Worked solution', { selector: 'p' })).toBeInTheDocument()
   expect(screen.queryByText('No solution yet')).not.toBeInTheDocument()
   expect(screen.getByText('Status: transcribed')).toBeInTheDocument()
   expect(screen.getByText('Answer: C')).toBeInTheDocument()

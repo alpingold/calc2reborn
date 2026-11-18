@@ -49,9 +49,9 @@ export function SyncPanel({ sync }: { sync: SyncValue }) {
 
   if (!sync.code) {
     return (
-      <section className="settings-group sync-panel">
+      <section className="card settings-group sync-panel">
         <h3>Sync across devices</h3>
-        <p className="panel-hint">
+        <p className="hint">
           Keep the same progress on a phone and a laptop. This device gets a code, and the other device enters it. Your
           progress is then also kept on the app's server under that code, with nothing that says who you are. Anyone
           who has the code can read and change it, so keep it to yourself.
@@ -85,7 +85,7 @@ export function SyncPanel({ sync }: { sync: SyncValue }) {
   }
 
   return (
-    <section className="settings-group sync-panel">
+    <section className="card settings-group sync-panel">
       <h3>Sync across devices</h3>
       <p className="sync-code-label">Your sync code</p>
       <p className="sync-code">
@@ -94,7 +94,7 @@ export function SyncPanel({ sync }: { sync: SyncValue }) {
           {copied ? 'Copied' : 'Copy'}
         </button>
       </p>
-      <p className="panel-hint">
+      <p className="hint">
         Enter this code under Settings on your other device. Anyone who has it can read and change your progress, so
         keep it to yourself.
       </p>

@@ -1,6 +1,5 @@
-import { expect, test, vi } from 'vitest'
+import { expect, test } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router'
 import { FeedbackPanel } from './FeedbackPanel'
 import type { FeedbackPanelProps } from './FeedbackPanel'
@@ -49,10 +48,10 @@ const content = buildContent(
   [fixtureGuided('L1-g1', 'L1', 'L1-a')],
 )
 
-async function show(props: FeedbackPanelProps) {
+async function show(props: FeedbackPanelProps, store = new MemoryStore()) {
   render(
     <MemoryRouter>
-      <StoreProvider store={new MemoryStore()} scheduler={{} as Scheduler} content={content}>
+      <StoreProvider store={store} scheduler={{} as Scheduler} content={content}>
         <FeedbackPanel {...props} />
       </StoreProvider>
     </MemoryRouter>,
@@ -60,19 +59,21 @@ async function show(props: FeedbackPanelProps) {
   await screen.findByRole('status')
 }
 
-test('a wrong answer shows the verdict, solution, sources, type, flashcards and a similar question, in that order', async () => {
-  await show({ question: typed, chosen: 'B', lessonTitle: 'Lesson 1: Topic 1', lessonHref: '/course/L1', onSimilar: () => {} })
+test('a wrong answer shows the verdict, solution, sources and report, then the flashcards and the problem type, in that order', async () => {
+  await show({ question: typed, chosen: 'B', lessonTitle: 'Lesson 1: Topic 1', lessonHref: '/course/L1', similarHref: '/practice?types=L1-a&n=10' })
   expect(screen.getByRole('status')).toHaveTextContent('Not quite')
   const order = [
     screen.getByRole('status'),
+    screen.getByRole('heading', { name: 'Worked solution' }),
     screen.getByText('solution'),
     screen.getByRole('link', { name: 'Answer key (PDF)' }),
-    screen.getByText('Problem type: L1 type A'),
-    screen.getByRole('link', { name: 'Lesson 1: Topic 1' }),
+    screen.getByRole('button', { name: 'Report a problem' }),
     screen.getByRole('heading', { name: 'Remember' }),
     screen.getByText('More flashcards on this (1)'),
-    screen.getByRole('button', { name: 'Try a similar question' }),
-    screen.getByRole('button', { name: 'Report a problem' }),
+    screen.getByRole('heading', { name: 'This problem type' }),
+    screen.getByText('L1 type A'),
+    screen.getByRole('link', { name: 'Lesson 1: Topic 1' }),
+    screen.getByRole('link', { name: 'Try a similar question' }),
   ]
   for (let i = 1; i < order.length; i++) {
     expect(order[i - 1].compareDocumentPosition(order[i]) & Node.DOCUMENT_POSITION_FOLLOWING, `item ${i}`).toBeTruthy()
@@ -105,12 +106,28 @@ test('a question written for the app keeps its notice and links no PDFs', async 
 })
 
 test('a right answer shows the solution and type but no flashcards', async () => {
-  await show({ question: typed, chosen: 'A', onSimilar: () => {} })
+  await show({ question: typed, chosen: 'A' })
   expect(screen.getByRole('status')).toHaveTextContent('Correct')
-  expect(screen.getByText('Problem type: L1 type A')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'This problem type' })).toBeInTheDocument()
+  expect(screen.getByText('L1 type A')).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: 'Remember' })).not.toBeInTheDocument()
   expect(screen.queryByText(/More flashcards/)).not.toBeInTheDocument()
-  expect(screen.getByRole('button', { name: 'Try a similar question' })).toBeInTheDocument()
+})
+
+test('the problem type shows the plain count of right answers on it so far', async () => {
+  const store = new MemoryStore()
+  const base = { chosen: 'A' as const, seconds: 5, mode: 'practice' as const }
+  await store.logAttempt({ ...base, id: 'a1', questionId: 'e-q1', correct: false, timestamp: '2026-11-01T10:00:00Z' })
+  await store.logAttempt({ ...base, id: 'a2', questionId: 'e-q2', correct: true, timestamp: '2026-11-01T10:01:00Z' })
+  await store.logAttempt({ ...base, id: 'a3', questionId: 'e-q3', correct: true, timestamp: '2026-11-01T10:02:00Z' })
+  await show({ question: typed, chosen: 'B' }, store)
+  expect(await screen.findByText('Your record: 1 of 2 right')).toBeInTheDocument()
+})
+
+test('with no answers on the type yet, no record is shown', async () => {
+  await show({ question: typed, chosen: 'B' })
+  expect(screen.getByText('L1 type A')).toBeInTheDocument()
+  expect(screen.queryByText(/Your record/)).not.toBeInTheDocument()
 })
 
 test('an unanswered question counts as missed', async () => {
@@ -132,27 +149,20 @@ test('two flashcards for the missed type are shown open, those about that type a
   expect(screen.queryByText('Front of c3')).not.toBeInTheDocument()
 })
 
-test('Try a similar question is a button that calls back in Practice, and a link from results', async () => {
-  const onSimilar = vi.fn()
-  await show({ question: typed, chosen: 'B', onSimilar })
-  await userEvent.click(screen.getByRole('button', { name: 'Try a similar question' }))
-  expect(onSimilar).toHaveBeenCalledTimes(1)
-})
-
 test('from results it is a link to Practice on the type', async () => {
   await show({ question: typed, chosen: 'B', similarHref: '/practice?types=L1-a&n=10' })
   expect(screen.getByRole('link', { name: 'Try a similar question' })).toHaveAttribute('href', '/practice?types=L1-a&n=10')
   expect(screen.queryByRole('button', { name: 'Try a similar question' })).not.toBeInTheDocument()
 })
 
-test('during an exam, with neither given, there is no similar question', async () => {
+test('during an exam or practice, with no link given, the panel offers no similar question', async () => {
   await show({ question: typed, chosen: 'B' })
   expect(screen.queryByText('Try a similar question')).not.toBeInTheDocument()
 })
 
 test('a type with no other question offers no similar question', async () => {
-  await show({ question: lonely, chosen: 'B', onSimilar: () => {}, similarHref: '/practice?types=L1-b' })
-  expect(screen.getByText('Problem type: L1 type B')).toBeInTheDocument()
+  await show({ question: lonely, chosen: 'B', similarHref: '/practice?types=L1-b' })
+  expect(screen.getByText('L1 type B')).toBeInTheDocument()
   expect(screen.queryByText('Try a similar question')).not.toBeInTheDocument()
   const remember = screen.getByRole('heading', { name: 'Remember' }).parentElement as HTMLElement
   expect(within(remember).getByText('Front of c2')).toBeInTheDocument()
@@ -160,23 +170,25 @@ test('a type with no other question offers no similar question', async () => {
 })
 
 test('a question with no problem type shows the solution and nothing that depends on a type', async () => {
-  await show({ question: plain, chosen: 'B', onSimilar: () => {}, similarHref: '/x' })
+  await show({ question: plain, chosen: 'B', similarHref: '/x' })
   expect(screen.getByText('No type yet.')).toBeInTheDocument()
-  expect(screen.queryByText(/Problem type/)).not.toBeInTheDocument()
+  expect(screen.queryByText(/problem type/i)).not.toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: 'Remember' })).not.toBeInTheDocument()
   expect(screen.queryByText('Try a similar question')).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Report a problem' })).toBeInTheDocument()
 })
 
 test('a type id that the lessons no longer define is ignored', async () => {
-  await show({ question: { ...plain, typeIds: ['L1-gone'] }, chosen: 'B', onSimilar: () => {} })
-  expect(screen.queryByText(/Problem type/)).not.toBeInTheDocument()
+  await show({ question: { ...plain, typeIds: ['L1-gone'] }, chosen: 'B', similarHref: '/x' })
+  expect(screen.queryByText(/problem type/i)).not.toBeInTheDocument()
   expect(screen.queryByText('Try a similar question')).not.toBeInTheDocument()
 })
 
 test('a question with two types names both', async () => {
   await show({ question: { ...typed, typeIds: ['L1-a', 'L1-b'] }, chosen: 'A' })
-  expect(screen.getByText('Problem types: L1 type A; L1 type B')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'These problem types' })).toBeInTheDocument()
+  expect(screen.getByText('L1 type A')).toBeInTheDocument()
+  expect(screen.getByText('L1 type B')).toBeInTheDocument()
 })
 
 test('after a miss, links to a guided problem of the same type when there is one', async () => {

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { act, render, screen } from '@testing-library/react'
+import { act, render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { Link, MemoryRouter, useLocation } from 'react-router'
 import type { ReactNode } from 'react'
@@ -95,7 +95,7 @@ test('answering wrong logs a practice attempt; a question with no problem type m
   })
   expect(typeof attempts[0].id).toBe('string')
   expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(TOMORROW)
-  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+  expect(screen.getByText('0 of 1 right')).toBeInTheDocument()
 })
 
 test('answering right logs a correct attempt and leaves the card state untouched', async () => {
@@ -106,7 +106,7 @@ test('answering right logs a correct attempt and leaves the card state untouched
   expect(attempts).toHaveLength(1)
   expect(attempts[0]).toMatchObject({ questionId: 't-q1', chosen: 'C', correct: true, mode: 'practice' })
   expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(TOMORROW)
-  expect(screen.getByText('Correct 1 of 1')).toBeInTheDocument()
+  expect(screen.getByText('1 of 1 right')).toBeInTheDocument()
 })
 
 test('revealed answer shows the lesson link', async () => {
@@ -128,7 +128,7 @@ test('no question repeats within a session; then shows No more questions in rang
     seen.push(stem)
     await answer(RIGHT[stem])
     if (i < 2) {
-      await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+      await userEvent.click(screen.getByRole('button', { name: 'Next question' }))
       await screen.findByRole('button', { name: 'Submit' })
     } else {
       await userEvent.keyboard('{Enter}')
@@ -136,9 +136,9 @@ test('no question repeats within a session; then shows No more questions in rang
   }
   expect(new Set(seen).size).toBe(3)
   expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
-  expect(screen.getByText('Correct 3 of 3')).toBeInTheDocument()
+  expect(screen.getByText('3 of 3 right')).toBeInTheDocument()
   expect(screen.getByText('No misses this session.')).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: 'Back to dashboard' })).toHaveAttribute('href', '/')
+  expect(screen.getByRole('link', { name: 'Back to Today' })).toHaveAttribute('href', '/')
 })
 
 test('Enter after reveal advances exactly one question', async () => {
@@ -148,7 +148,7 @@ test('Enter after reveal advances exactly one question', async () => {
   await userEvent.keyboard('{Enter}')
   expect(await screen.findByText('Stem two')).toBeInTheDocument()
   expect(screen.queryByRole('status')).not.toBeInTheDocument()
-  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+  expect(screen.getByText('0 of 1 right')).toBeInTheDocument()
 })
 
 test('?lesson=L19 logs mode lesson', async () => {
@@ -160,20 +160,20 @@ test('?lesson=L19 logs mode lesson', async () => {
   expect(attempts[0].mode).toBe('lesson')
 })
 
-test('Stop ends the session with a summary', async () => {
+test('End session ends the session with a summary', async () => {
   await setup()
   await answer('a')
-  await userEvent.click(screen.getByRole('button', { name: 'Stop' }))
-  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: 'End session' }))
+  expect(screen.getByText('0 of 1 right')).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: 'Lessons to revisit' })).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Lesson 19: Topic 19' })).toHaveAttribute('href', '/course/L19')
   expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
 })
 
-test('Enter on the focused Stop button does not submit', async () => {
+test('Enter on the focused End session button does not submit', async () => {
   const { store } = await setup()
   await userEvent.keyboard('a')
-  const stop = screen.getByRole('button', { name: 'Stop' })
+  const stop = screen.getByRole('button', { name: 'End session' })
   stop.focus()
   await act(async () => {
     stop.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }))
@@ -213,7 +213,7 @@ test('save failure shows an alert and allows retry', async () => {
   expect(await screen.findByRole('status')).toHaveTextContent('Not quite')
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
   expect(await store.listAttempts()).toHaveLength(1)
-  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+  expect(screen.getByText('0 of 1 right')).toBeInTheDocument()
 })
 
 test('changing the scope in the address starts a fresh session', async () => {
@@ -224,10 +224,10 @@ test('changing the scope in the address starts a fresh session', async () => {
     if (i < 2) await screen.findByRole('button', { name: 'Submit' })
   }
   expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
-  expect(screen.getByText('Correct 3 of 3')).toBeInTheDocument()
+  expect(screen.getByText('3 of 3 right')).toBeInTheDocument()
   await userEvent.click(screen.getByRole('link', { name: 'All lessons' }))
   expect(await screen.findByText('Stem one')).toBeInTheDocument()
-  expect(screen.getByText('Correct 0 of 0')).toBeInTheDocument()
+  expect(screen.getByText('0 of 0 right')).toBeInTheDocument()
   expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
 })
 
@@ -246,7 +246,7 @@ test('a missed question comes back once the others run out, marked as a second t
   expect(screen.getByRole('status')).toHaveTextContent('Correct')
   await userEvent.keyboard('{Enter}')
   expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
-  expect(screen.getByText('Correct 3 of 4')).toBeInTheDocument()
+  expect(screen.getByText('3 of 4 right')).toBeInTheDocument()
   const attempts = await store.listAttempts()
   expect(attempts.filter((a) => a.questionId === 't-q1').map((a) => a.correct)).toEqual([false, true])
 })
@@ -264,7 +264,7 @@ test('a question missed twice in a session is not retried again', async () => {
   await answer('a')
   await userEvent.keyboard('{Enter}')
   expect(await screen.findByText('No more questions in range')).toBeInTheDocument()
-  expect(screen.getByText('Correct 2 of 4')).toBeInTheDocument()
+  expect(screen.getByText('2 of 4 right')).toBeInTheDocument()
 })
 
 test('a session with a length ends there with a summary, and Practice again starts over', async () => {
@@ -275,11 +275,11 @@ test('a session with a length ends there with a summary, and Practice again star
   await screen.findByText('Question 2 of 2')
   await answer(RIGHT[currentStem()])
   await userEvent.keyboard('{Enter}')
-  expect(await screen.findByText('Correct 1 of 2')).toBeInTheDocument()
+  expect(await screen.findByText('1 of 2 right')).toBeInTheDocument()
   expect(screen.queryByText('No more questions in range')).not.toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Lesson 19: Topic 19' })).toBeInTheDocument()
   await userEvent.click(screen.getByRole('link', { name: 'Practice again' }))
-  expect(await screen.findByText('Correct 0 of 0')).toBeInTheDocument()
+  expect(await screen.findByText('0 of 0 right')).toBeInTheDocument()
   expect(screen.getByText('Question 1 of 2')).toBeInTheDocument()
 })
 
@@ -342,7 +342,7 @@ test('after a failed card update, retrying keeps the answer that was logged', as
   const attempts = await store.listAttempts()
   expect(attempts).toHaveLength(1)
   expect(attempts[0].chosen).toBe('A')
-  expect(screen.getByText('Correct 0 of 1')).toBeInTheDocument()
+  expect(screen.getByText('0 of 1 right')).toBeInTheDocument()
 })
 
 test('a failed question load offers Try again', async () => {
@@ -454,7 +454,7 @@ test('a question missed again in a retry session does not come round a second ti
   await setup({ url: '/practice?retry=1', store, content: typedContent, wait: 'A one' })
   const seen = await playThrough('a')
   expect(seen).toEqual(['A one', 'A two'])
-  expect(screen.getByText('Correct 0 of 2')).toBeInTheDocument()
+  expect(screen.getByText('0 of 2 right')).toBeInTheDocument()
 })
 
 test('?retry=1 keeps to the lessons covered so far, and to the exam lessons while an exam is ahead', async () => {
@@ -553,4 +553,64 @@ test('a miss brings forward the started cards for that problem type and no other
   expect((await store.getCardState('L19-c01'))!.fsrs.dueAt).toBe(clock.t.toISOString())
   expect((await store.getCardState('L19-c02'))!.fsrs.dueAt).toBe(TOMORROW)
   expect((await store.getCardState('L19-c03'))!.fsrs.dueAt).toBe(TOMORROW)
+})
+
+// ---- the hub, the progress strip, and the chips shown with the answer
+
+test('the hub offers flashcards with what is due and new, and says when nothing is waiting to be retried', async () => {
+  // one new card from the current lesson; the card seeded by setup is due tomorrow, so nothing is due
+  const hubContent = buildContent(typedLessons, [fixtureCard('L19-c01', 'L19'), fixtureCard('L19-c02', 'L19')], [typedExam])
+  await setup({ url: '/practice', wait: 'Start', content: hubContent })
+  expect(await screen.findByText('0 due · 1 new')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Study flashcards' })).toHaveAttribute('href', '/review')
+  expect(screen.queryByRole('link', { name: 'All exam cards' })).not.toBeInTheDocument()
+  expect(screen.getByText(/^Nothing to retry right now\./)).toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: 'Retry them' })).not.toBeInTheDocument()
+})
+
+test('the hub counts the missed questions a retry session would serve, and links to it', async () => {
+  const store = new MemoryStore()
+  await store.logAttempt(miss(1, '2026-11-01T12:00:00.000Z'))
+  await store.logAttempt(miss(2, '2026-11-02T12:00:00.000Z'))
+  await store.logAttempt(miss(3, '2026-11-06T10:00:00.000Z')) // two hours ago: too recent
+  await store.logAttempt(miss(6, '2026-11-01T12:00:00.000Z')) // L20 is not covered yet
+  await setup({ url: '/practice', wait: 'Start', store, content: typedContent })
+  expect(await screen.findByText('2 questions you missed a day or more ago')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Retry them' })).toHaveAttribute('href', '/practice?retry=1')
+})
+
+test('with an exam ahead the hub also offers all of the exam cards', async () => {
+  await setup({ url: '/practice', wait: 'Start', settings: { examDate: '2026-11-09', examLessonIds: ['L19', 'L20'] } })
+  expect(screen.getByRole('link', { name: 'All exam cards' })).toHaveAttribute('href', '/review?exam=1')
+})
+
+test('a session with a length shows one segment per question: right, wrong, the current one and those to come', async () => {
+  await setup({ url: '/practice?from=L19&to=L19&n=3' })
+  const strip = () => screen.getByRole('img', { name: /^Question \d of 3/ })
+  expect(strip()).toHaveAccessibleName('Question 1 of 3: 0 right and 0 wrong so far')
+  expect([...strip().querySelectorAll('.seg')].map((s) => s.className)).toEqual(['seg seg-todo seg-current', 'seg seg-todo', 'seg seg-todo'])
+  await answer('a') // Stem one, wrong
+  expect(strip()).toHaveAccessibleName('Question 1 of 3: 0 right and 1 wrong so far')
+  expect(strip().querySelector('.seg-current')).toHaveClass('seg-wrong')
+  await userEvent.keyboard('{Enter}')
+  await screen.findByRole('button', { name: 'Submit' })
+  await answer(RIGHT[currentStem()])
+  expect(strip()).toHaveAccessibleName('Question 2 of 3: 1 right and 1 wrong so far')
+  expect([...strip().querySelectorAll('.seg')].map((s) => s.className)).toEqual(['seg seg-wrong', 'seg seg-right seg-current', 'seg seg-todo'])
+})
+
+test('a session with no length has no strip', async () => {
+  await setup()
+  expect(screen.queryByRole('img')).not.toBeInTheDocument()
+})
+
+test('where a question is from and its problem type are shown only once it is answered', async () => {
+  await setup({ url: '/practice?types=L19-a', content: typedContent, wait: 'A one' })
+  // before the answer, the type's name would give the method away
+  expect(screen.queryByRole('list', { name: 'About this question' })).not.toBeInTheDocument()
+  expect(screen.queryByText(/L19 type A/, { selector: '.chip' })).not.toBeInTheDocument()
+  expect(screen.queryByText(/Fall 2025 Exam 1/)).not.toBeInTheDocument()
+  await answer('c')
+  const chips = within(screen.getByRole('list', { name: 'About this question' })).getAllByRole('listitem')
+  expect(chips.map((c) => c.textContent)).toEqual(['Fall 2025 Exam 1, question 1', 'Lesson 19 · L19 type A'])
 })

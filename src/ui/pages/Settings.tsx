@@ -1,3 +1,4 @@
+import { markLessonChecked } from '../../lessonCheck'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { useContent, useSettings, useStore } from '../../storage/context'
@@ -11,6 +12,8 @@ import { isPlanned } from '../../content/schema'
 import { lessonRange, rangeEnds } from '../../engine/scope'
 import { useSync } from '../../sync/context'
 import { SyncPanel } from '../SyncPanel'
+import { readTheme, saveTheme, THEME_LABELS } from '../../theme'
+import type { Theme } from '../../theme'
 
 const DAILY_ERROR = 'Enter a number from 0 to 100'
 
@@ -28,6 +31,8 @@ export function Settings() {
   const [examFrom, setExamFrom] = useState(ends(settings.examLessonIds)?.from ?? '')
   const [examTo, setExamTo] = useState(ends(settings.examLessonIds)?.to ?? '')
   const [error, setError] = useState<string | null>(null)
+  // the colour theme is this device's own: it is not part of the synced settings
+  const [theme, setTheme] = useState<Theme>(readTheme)
   const [flags, setFlags] = useState<Flag[]>([])
   // shown when the clipboard is unavailable, so the report can still be copied by hand
   const [manualCopy, setManualCopy] = useState(false)
@@ -122,7 +127,14 @@ export function Settings() {
       setError('Could not save your settings.')
       return
     }
+    // a lesson chosen here answers the Today page's daily "still on this lesson?" question
+    if (currentLessonId !== '' && currentLessonId !== (settings.currentLessonId ?? '')) markLessonChecked(new Date())
     setStatus('Saved')
+  }
+
+  function onTheme(next: Theme) {
+    saveTheme(next)
+    setTheme(next)
   }
 
   async function onExport() {
@@ -217,9 +229,11 @@ export function Settings() {
 
   return (
     <section className="settings">
-      <h2>Settings</h2>
+      <header className="page-head">
+        <h2>Settings</h2>
+      </header>
       <div className="settings-grid">
-      <form className="settings-group settings-plan" onSubmit={onSave} noValidate>
+      <form className="card settings-group settings-plan" onSubmit={onSave} noValidate>
         <h3>Study plan</h3>
         <p>
           <label>
@@ -288,16 +302,29 @@ export function Settings() {
               </select>
             </label>
           )}
-          <p className="panel-hint">Practice, Review and the mock-exam form focus on these lessons until the exam date passes.</p>
+          <p className="hint">Practice, Review and the mock-exam form focus on these lessons until the exam date passes.</p>
         </fieldset>
-        <button type="submit" className="primary">
+        <button type="submit" className="primary button-large">
           Save
         </button>
       </form>
       <div className="settings-side">
-        <section className="settings-group">
+        <section className="card settings-group">
+          <h3>Appearance</h3>
+          <fieldset className="theme-choice">
+            <legend>Theme</legend>
+            {(Object.keys(THEME_LABELS) as Theme[]).map((t) => (
+              <label key={t} className="choice-row">
+                <input type="radio" name="theme" checked={theme === t} onChange={() => onTheme(t)} />
+                {THEME_LABELS[t]}
+              </label>
+            ))}
+          </fieldset>
+          <p className="hint">Kept on this device only. Match device follows your phone or computer's light or dark setting.</p>
+        </section>
+        <section className="card settings-group">
           <h3>Your data</h3>
-          <p className="panel-hint">
+          <p className="hint">
             {sync?.code
               ? 'Progress lives in this browser and, while sync is on, on the app\'s server. Export it to keep a backup.'
               : 'Progress lives in this browser only. Export it to move it to another device or keep a backup.'}
@@ -311,19 +338,19 @@ export function Settings() {
               <input type="file" accept="application/json" className="visually-hidden" onChange={onImport} />
             </label>
           </div>
-          <p className="panel-hint">
+          <p className="hint">
             {sync?.code
               ? 'Importing replaces the progress saved in this browser and on your synced devices.'
               : 'Importing replaces the progress saved in this browser.'}
           </p>
         </section>
         {sync && <SyncPanel sync={sync} />}
-        <section className="settings-group">
+        <section className="card settings-group">
           <h3>Reported problems</h3>
           {flags.length === 0 ? (
             <>
-              <p className="panel-hint">No reported problems.</p>
-              <p className="panel-hint">"Report a problem" under any answered question adds it here, ready to copy and send.</p>
+              <p className="hint">No reported problems.</p>
+              <p className="hint">"Report a problem" under any answered question adds it here, ready to copy and send.</p>
             </>
           ) : (
             <>
@@ -346,9 +373,9 @@ export function Settings() {
             </>
           )}
         </section>
-        <section className="settings-group danger-zone">
+        <section className="card settings-group danger-zone">
           <h3>Start over</h3>
-          <p className="panel-hint">
+          <p className="hint">
             {sync?.code
               ? 'Deletes every answer, flashcard schedule and setting saved in this browser and on your synced devices.'
               : 'Deletes every answer, flashcard schedule and setting saved in this browser.'}

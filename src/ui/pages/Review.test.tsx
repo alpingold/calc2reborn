@@ -62,7 +62,7 @@ test('pressing 2 (Got it) saves reps 1 and advances; finishing shows done', asyn
   await userEvent.keyboard(' ')
   await userEvent.keyboard('2')
   expect(await screen.findByRole('heading', { name: 'Done for today' })).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: 'Back to dashboard' })).toHaveAttribute('href', '/')
+  expect(screen.getByRole('link', { name: 'Back to Today' })).toHaveAttribute('href', '/')
 })
 
 test('fresh card introducedAt is set at first reveal, not page load', async () => {
@@ -266,6 +266,7 @@ test('each card shows where it is in the session and links to its lesson', async
   await setup()
   expect(await screen.findByText('Card 1 of 2')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: /^Lesson 19: / })).toHaveAttribute('href', '/course/L19')
+  expect(screen.getByRole('link', { name: 'End session' })).toHaveAttribute('href', '/practice')
 })
 
 test('the three ratings sit on keys 1 to 3: 1 forgets, 3 is Easy', async () => {
@@ -301,7 +302,9 @@ test('the end of a session says how many cards were forgotten', async () => {
 test('a session on one lesson takes all of its new cards whatever the daily limit, and no others', async () => {
   await setup({ at: '/review?lesson=L19', cards: three, settings: { dailyNewCards: 1 } })
   expect(await screen.findByText('Card 1 of 2')).toBeInTheDocument()
-  expect(screen.getByText(/^Lesson 19: /, { selector: '.review-count' })).toBeInTheDocument()
+  // the session bar names the lesson, and the way out leads back to its flashcards
+  expect(screen.getByText(/^Flashcards · Lesson 19: /, { selector: '.session-title' })).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'End session' })).toHaveAttribute('href', '/course/L19?tab=cards')
   expect(screen.getByText('Front B')).toBeInTheDocument()
   await userEvent.keyboard(' ')
   await userEvent.keyboard('2')
@@ -309,7 +312,7 @@ test('a session on one lesson takes all of its new cards whatever the daily limi
   await userEvent.keyboard(' ')
   await userEvent.keyboard('2')
   expect(await screen.findByRole('heading', { name: 'Session finished' })).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: 'Back to the lesson' })).toHaveAttribute('href', '/course/L19')
+  expect(screen.getByRole('link', { name: 'Back to the lesson' })).toHaveAttribute('href', '/course/L19?tab=cards')
   expect(screen.queryByText('Front A')).not.toBeInTheDocument()
 })
 

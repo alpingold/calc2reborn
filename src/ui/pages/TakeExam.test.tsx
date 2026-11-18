@@ -143,7 +143,7 @@ async function start(url = '/exams/f2025-e1', store = new MemoryStore(), { feedb
 async function clickStart({ feedback = false } = {}) {
   const u = user()
   const button = await screen.findByRole('button', { name: 'Start' })
-  if (feedback) await u.click(screen.getByRole('checkbox', { name: /Show feedback after each answer/ }))
+  if (feedback) await u.click(screen.getByRole('radio', { name: /Untimed, with feedback/ }))
   await u.click(button)
   await screen.findByRole('heading', { name: /Question 1 of/ })
 }
@@ -486,7 +486,10 @@ test('the start screen describes the exam and starts nothing until Start', async
   const startButton = await screen.findByRole('button', { name: 'Start' })
   expect(screen.getByRole('heading', { level: 2, name: 'Fall 2025 Exam 1' })).toBeInTheDocument()
   expect(screen.getByText('12 questions, 60 minutes')).toBeInTheDocument()
-  expect(screen.getByRole('checkbox', { name: /Show feedback after each answer \(untimed\)/ })).not.toBeChecked()
+  // the choice of how to take it is two radio cards, timed unless changed
+  expect(screen.getByRole('radio', { name: /Timed, like the real one 60 minutes\./ })).toBeChecked()
+  expect(screen.getByRole('radio', { name: /Untimed, with feedback/ })).not.toBeChecked()
+  expect(screen.queryByRole('checkbox')).not.toBeInTheDocument()
   expect(screen.queryByRole('timer')).not.toBeInTheDocument()
   expect(localStorage.getItem(SESSION_KEY)).toBeNull()
   await user().click(startButton)
@@ -823,4 +826,127 @@ test('while a checked answer is being saved, the answer cannot change and Submit
   })
   expect(await screen.findByRole('status')).toHaveTextContent('Not quite')
   expect(await store.listAttempts()).toMatchObject([{ questionId: 'f2025-e1-q1', chosen: 'A' }])
+})
+
+// ---- the session bar, and starting a mock from the Exams page
+
+test('a running timed exam offers no links, and Leave exam asks before going', async () => {
+  await start()
+  expect(screen.queryAllByRole('link')).toHaveLength(0)
+  expect(screen.getByText('0 of 12 answered', { selector: '.session-progress' })).toBeInTheDocument()
+  const confirm = vi.spyOn(window, 'confirm').mockReturnValue(false)
+  const u = user()
+  await u.keyboard('b')
+  await u.click(screen.getByRole('button', { name: 'Leave exam' }))
+  expect(confirm).toHaveBeenCalledWith(expect.stringMatching(/the clock keeps running/))
+  // declined: still in the exam
+  expect(screen.getByRole('heading', { name: 'Question 1 of 12' })).toBeInTheDocument()
+  confirm.mockReturnValue(true)
+  await u.click(screen.getByRole('button', { name: 'Leave exam' }))
+  expect(await screen.findByText('exam list')).toBeInTheDocument()
+  // the exam is still in progress, with its answer, to resume
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).toMatchObject({ examId: 'f2025-e1', answers: { 'f2025-e1-q1': 'B' } })
+})
+
+test('Enter on the focused Leave exam button leaves; it does not answer the question', async () => {
+  await start()
+  const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true)
+  const u = user()
+  screen.getByRole('button', { name: 'Leave exam' }).focus()
+  await u.keyboard('{Enter}')
+  expect(confirm).toHaveBeenCalledTimes(1)
+  expect(await screen.findByText('exam list')).toBeInTheDocument()
+})
+
+test('a feedback session can be left by a plain link, and its bar shows each checked answer', async () => {
+  await start('/exams/f2025-e1', new MemoryStore(), { feedback: true })
+  const u = user()
+  expect(screen.getByRole('link', { name: 'Save and exit' })).toHaveAttribute('href', '/exams')
+  expect(screen.queryByRole('button', { name: 'Leave exam' })).not.toBeInTheDocument()
+  expect(screen.getByRole('img', { name: 'Question 1 of 12: 0 right and 0 wrong so far' })).toBeInTheDocument()
+  await u.keyboard('b')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  await screen.findByRole('status')
+  const strip = screen.getByRole('img', { name: 'Question 1 of 12: 0 right and 1 wrong so far' })
+  expect(strip.querySelectorAll('.seg')).toHaveLength(12)
+  expect(strip.querySelector('.seg-wrong')).toHaveClass('seg-current')
+  await u.click(screen.getByRole('button', { name: 'Next' }))
+  await u.keyboard('c')
+  await u.click(screen.getByRole('button', { name: 'Check' }))
+  expect(await screen.findByRole('img', { name: 'Question 2 of 12: 1 right and 1 wrong so far' })).toBeInTheDocument()
+})
+
+test('a timed exam shows no right-or-wrong strip', async () => {
+  await start()
+  expect(screen.queryByRole('img')).not.toBeInTheDocument()
+})
+
+function StartFromExams({ begin }: { begin: string }) {
+  const navigate = useNavigate()
+  return (
+    <button type="button" onClick={() => navigate('/exams/mock?from=L19&to=L19', { state: { begin } })}>
+      Start mock exam
+    </button>
+  )
+}
+
+function renderWithExams(begin: string, store = new MemoryStore()) {
+  return render(
+    <MemoryRouter initialEntries={['/exams']}>
+      <StoreProvider store={store} scheduler={scheduler} content={content} rng={rng} now={now}>
+        <Routes>
+          <Route path="/exams/mock" element={<TakeExam mode="mock" />} />
+          <Route path="/results/:sessionId" element={<ResultsStub />} />
+          <Route path="/exams" element={<StartFromExams begin={begin} />} />
+        </Routes>
+      </StoreProvider>
+    </MemoryRouter>,
+  )
+}
+
+test('Start on the Exams page begins the mock at once, timed, with no second start screen', async () => {
+  renderWithExams('timed')
+  await user().click(await screen.findByRole('button', { name: 'Start mock exam' }))
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 3' })).toBeInTheDocument()
+  expect(screen.getByRole('timer', { name: 'Time remaining' })).toHaveTextContent('60:00')
+  expect(screen.queryByRole('button', { name: 'Start' })).not.toBeInTheDocument()
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).not.toHaveProperty('feedback', true)
+})
+
+test('Start on the Exams page with feedback chosen begins an untimed mock', async () => {
+  renderWithExams('feedback')
+  await user().click(await screen.findByRole('button', { name: 'Start mock exam' }))
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 3' })).toBeInTheDocument()
+  expect(screen.getByRole('timer', { name: 'Time elapsed' })).toBeInTheDocument()
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!)).toMatchObject({ kind: 'mock', feedback: true })
+})
+
+test('starting the same mock again from the Exams page while it is in progress returns to it', async () => {
+  renderWithExams('timed')
+  const u = user()
+  await u.click(await screen.findByRole('button', { name: 'Start mock exam' }))
+  await screen.findByRole('heading', { name: 'Question 1 of 3' })
+  // leave, then come back to the same history entry: the exam in progress is restored, not restarted
+  vi.spyOn(window, 'confirm').mockReturnValue(true)
+  const first = JSON.parse(localStorage.getItem(SESSION_KEY)!).sessionId
+  await u.click(screen.getByRole('button', { name: 'Leave exam' }))
+  await u.click(await screen.findByRole('button', { name: 'Start mock exam' }))
+  expect(await screen.findByRole('heading', { name: 'Question 1 of 3' })).toBeInTheDocument()
+  expect(JSON.parse(localStorage.getItem(SESSION_KEY)!).sessionId).toBe(first)
+})
+
+test('an address that only carries the start request in its history state shows the start screen', async () => {
+  // a reload, or Back and Forward, arrives without a click on Start: nothing begins unasked
+  render(
+    <MemoryRouter initialEntries={[{ pathname: '/exams/mock', search: '?from=L19&to=L19', state: { begin: 'timed' } }]}>
+      <StoreProvider store={new MemoryStore()} scheduler={scheduler} content={content} rng={rng} now={now}>
+        <Routes>
+          <Route path="/exams/mock" element={<TakeExam mode="mock" />} />
+        </Routes>
+      </StoreProvider>
+    </MemoryRouter>,
+  )
+  expect(await screen.findByRole('button', { name: 'Start' })).toBeInTheDocument()
+  expect(screen.queryByRole('timer')).not.toBeInTheDocument()
+  expect(localStorage.getItem(SESSION_KEY)).toBeNull()
 })

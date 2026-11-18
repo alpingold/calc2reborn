@@ -2,22 +2,23 @@ import { Link } from 'react-router'
 import { isPlanned } from '../content/schema'
 import type { Lesson } from '../content/schema'
 import type { Mastery } from '../engine/mastery'
+import { masteryLabel, masteryState } from './record'
 
-export function masteryState(score: number | null): 'untested' | 'weak' | 'ok' | 'strong' {
-  if (score === null) return 'untested'
-  if (score < 0.7) return 'weak'
-  if (score < 0.9) return 'ok'
-  return 'strong'
-}
-
+/**
+ * The course map: one row per unit, one tile per lesson. A tile shows the lesson's number, its colour
+ * repeats the mastery named in its label and in the legend, and the current lesson is outlined.
+ */
 export function MasteryGrid({
   lessons,
   mastery,
   currentLessonId,
+  note,
 }: {
   lessons: Lesson[]
   mastery: Map<string, Mastery>
   currentLessonId: string | null
+  /** a line under the map, such as which lessons are on the exam */
+  note?: string
 }) {
   const units = new Map<string, Lesson[]>()
   for (const l of lessons) {
@@ -27,48 +28,53 @@ export function MasteryGrid({
     units.set(l.unit, list)
   }
   return (
-    <div className="mastery-grid">
-      <div className="mastery-head">
-        <h3>Mastery by lesson</h3>
-        <ul className="mastery-legend" aria-label="Legend">
+    <section className="course-map">
+      <div className="course-map-head">
+        <h3>Course map</h3>
+        <ul className="legend" aria-label="Legend">
           <li>
-            <span className="swatch mastery-untested" /> Not enough attempts
+            <span className="swatch mastery-weak" /> Weak, under 70%
           </li>
           <li>
-            <span className="swatch mastery-weak" /> Below 70%
+            <span className="swatch mastery-ok" /> Getting there
           </li>
           <li>
-            <span className="swatch mastery-ok" /> 70 to 89%
+            <span className="swatch mastery-strong" /> Strong, 90% and up
           </li>
           <li>
-            <span className="swatch mastery-strong" /> 90% and up
+            <span className="swatch mastery-untested" /> Not tested
           </li>
         </ul>
       </div>
-      {[...units].map(([unit, ls]) => (
-        <section key={unit} className="mastery-unit">
-          <h4>{unit}</h4>
-          <div className="tiles">
-            {ls.map((l) => {
-              const score = mastery.get(l.id)?.score ?? null
-              const label = score === null ? 'untested' : `${Math.round(score * 100)}%`
-              const cls = `tile mastery-${masteryState(score)}${l.id === currentLessonId ? ' current' : ''}`
-              return (
-                // the tooltip is mouse-only, so the link's name also carries the title and score
-                <Link
-                  key={l.id}
-                  to={`/course/${l.id}`}
-                  className={cls}
-                  title={`L${l.number}: ${l.title}, ${label}`}
-                  aria-label={`L${l.number} ${l.title}, ${label}`}
-                >
-                  {`L${l.number}`}
-                </Link>
-              )
-            })}
-          </div>
-        </section>
-      ))}
-    </div>
+      <div className="card course-map-rows">
+        {[...units].map(([unit, ls]) => (
+          <section key={unit} className="course-map-row">
+            <h4>{unit}</h4>
+            <div className="tiles">
+              {ls.map((l) => {
+                const score = mastery.get(l.id)?.score ?? null
+                const label = `Lesson ${l.number}: ${l.title}, ${masteryLabel(score)}${l.id === currentLessonId ? ', your current lesson' : ''}`
+                return (
+                  // the tooltip is mouse-only, so the link's name carries the title and mastery too
+                  <Link
+                    key={l.id}
+                    to={`/course/${l.id}`}
+                    className={`tile mastery-${masteryState(score)}${l.id === currentLessonId ? ' current' : ''}`}
+                    title={label}
+                    aria-label={label}
+                  >
+                    {l.number}
+                  </Link>
+                )
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+      <p className="hint">
+        {currentLessonId ? 'The outlined tile is the lesson you are on. ' : ''}
+        {note}
+      </p>
+    </section>
   )
 }

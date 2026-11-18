@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,20 @@
     <meta name="description" content="Study app for Purdue MA 16200 (Calculus II): past exams, spaced-repetition flashcards, and practice by lesson." />
     <!-- shared by link with friends; keep it out of search results -->
     <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="dark light" />
+    <!-- the saved theme is applied before the first paint; src/theme.ts holds the same key and default -->
+    <script>
+      ;(function () {
+        var theme = 'dark'
+        try {
+          var saved = localStorage.getItem('ma16200-theme')
+          if (saved === 'light' || saved === 'system' || saved === 'dark') theme = saved
+        } catch (e) {
+          /* storage is unavailable: stay dark */
+        }
+        document.documentElement.setAttribute('data-theme', theme)
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

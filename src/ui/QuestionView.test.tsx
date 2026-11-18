@@ -290,3 +290,18 @@ test('a revealed choice keeps its own text in its accessible name', async () => 
   expect(correct).toHaveAccessibleName(/^C\s+\S.*Correct answer$/)
   expect(mine).toHaveAccessibleName(/^A\s+\S.*Your answer$/)
 })
+
+test('a timed exam question shows no chips and no marks', async () => {
+  await setup({ mode: 'deferred', chosen: 'B' })
+  expect(document.querySelector('.chips')).toBeNull()
+  expect(document.querySelector('.choice-mark')).toBeNull()
+})
+
+test('the Correct answer and Your answer marks are visible words with an icon, not a hidden label', async () => {
+  await setup({ chosen: 'B', revealed: true })
+  for (const name of [/Correct answer$/, /Your answer$/]) {
+    const mark = screen.getByRole('button', { name }).querySelector('.choice-mark')!
+    expect(mark).not.toHaveClass('visually-hidden')
+    expect(mark.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
+  }
+})

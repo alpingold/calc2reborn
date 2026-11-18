@@ -1,11 +1,15 @@
-import { useState } from 'react'
-import { Link, useLocation, useParams, useSearchParams } from 'react-router'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate, useNavigationType, useParams, useSearchParams } from 'react-router'
 import { lessonLabel } from '../../content/schema'
 import { useContent, useNow } from '../../storage/context'
 import { QuestionView } from '../QuestionView'
 import { examTitle, remainingSeconds, sessionTitle, sessionUrl } from '../examSession'
 import type { ResumeState } from '../examSession'
 import { MOCK_MINUTES, useExamSession } from '../useExamSession'
+import { ModeCards } from '../ModeCards'
+import type { BeginState, ExamMode } from '../ModeCards'
+import { ExitIcon, ProgressStrip, SessionBar } from '../shell'
+import type { SegmentState } from '../shell'
 
 function formatClock(total: number): string {
   const m = Math.floor(total / 60)
@@ -21,7 +25,12 @@ export function TakeExam({ mode = 'exam' }: { mode?: 'exam' | 'mock' }) {
   const location = useLocation()
   const from = searchParams.get('from')
   const to = searchParams.get('to')
-  const resume = (location.state as Partial<ResumeState> | null)?.resume
+  const navigationType = useNavigationType()
+  const state = location.state as Partial<ResumeState & BeginState> | null
+  const resume = state?.resume
+  // Start on the Exams page already chose how to take the mock. Only arriving by that click counts:
+  // the state stays in the history entry, and coming Back to it later must not start an exam unasked.
+  const begin = navigationType === 'PUSH' && (state?.begin === 'timed' || state?.begin === 'feedback') ? state.begin : undefined
   const key = `${mode === 'mock' ? `mock:${from}:${to}` : `exam:${examId}`}:${location.key}`
   return (
     <ExamSessionView
@@ -31,6 +40,7 @@ export function TakeExam({ mode = 'exam' }: { mode?: 'exam' | 'mock' }) {
       from={from}
       to={to}
       resumeId={typeof resume === 'string' ? resume : undefined}
+      autoBegin={begin}
     />
   )
 }
@@ -41,14 +51,31 @@ function ExamSessionView(props: {
   from: string | null
   to: string | null
   resumeId?: string
+  /** begin as soon as the start screen would show, in this mode */
+  autoBegin?: ExamMode
 }) {
   const { mode } = props
   const content = useContent()
   const now = useNow()
+  const navigate = useNavigate()
   const { status, session, conflict, exam, range, clock, untimed, error, begin, discardConflict, choose, check, goTo, toggleMark, submit } =
     useExamSession(props)
-  // the start screen's choice of feedback after each answer
-  const [feedback, setFeedback] = useState(false)
+  // the start screen's choice between a timed exam and feedback after each answer
+  const [how, setHow] = useState<ExamMode>('timed')
+  // a start asked for on the Exams page, until it has been acted on
+  const [auto, setAuto] = useState(props.autoBegin)
+  const autoDone = useRef(false)
+  useEffect(() => {
+    if (status !== 'intro' || !auto || autoDone.current) return
+    autoDone.current = true
+    setAuto(undefined)
+    void begin(auto === 'feedback')
+  }, [status, auto, begin])
+
+  function leave() {
+    if (!window.confirm('Leave this exam? Your answers are saved and the clock keeps running. You can resume it from Exams until the time runs out.')) return
+    navigate('/exams')
+  }
 
   function discardAndStart() {
     if (!conflict) return
@@ -77,7 +104,7 @@ function ExamSessionView(props: {
     const answered = conflict.questionIds.filter((id) => conflict.answers[id]).length
     const resumeState: ResumeState = { resume: conflict.sessionId }
     return (
-      <section>
+      <section className="card exam-intro">
         <h2>{heading}</h2>
         {errorLine}
         <p>
@@ -87,8 +114,8 @@ function ExamSessionView(props: {
               ? `You have ${title} in progress, ${answered} of ${conflict.questionIds.length} answered, with ${formatClock(left)} left.`
               : `${title} ran out of time before it was submitted. Resuming submits it.`}
         </p>
-        <p className="exam-controls">
-          <Link to={sessionUrl(conflict)} state={resumeState}>
+        <p className="actions">
+          <Link to={sessionUrl(conflict)} state={resumeState} className="button primary">
             Resume
           </Link>
           <button type="button" onClick={discardAndStart}>
@@ -98,30 +125,22 @@ function ExamSessionView(props: {
       </section>
     )
   }
-  if (status === 'intro') {
+  if (status === 'intro' && !auto) {
     const summary =
       mode === 'exam' && exam
         ? `${exam.questions.length} questions, ${exam.durationMinutes} minutes`
         : `${mockRangeLabel()}, ${MOCK_MINUTES} minutes`
     return (
-      <section className="panel exam-intro">
-        <h2>{heading}</h2>
-        {errorLine}
-        <p className="exam-intro-summary">{summary}</p>
-        {exam?.unofficial && (
-          <p className="panel-hint">Written for this app in the style of past exams. This is not a Purdue exam.</p>
-        )}
-        <label className="exam-intro-option">
-          <input type="checkbox" checked={feedback} onChange={(e) => setFeedback(e.target.checked)} />{' '}
-          Show feedback after each answer (untimed)
-        </label>
-        <p className="exam-intro-hint">
-          {feedback
-            ? 'Check each answer to see whether it is right and read the solution. Checked answers lock, and there is no time limit.'
-            : 'A timed exam like the real one. Answers and solutions appear after you submit.'}
-        </p>
-        <p className="exam-controls">
-          <button type="button" className="primary" onClick={() => void begin(feedback)}>
+      <section className="card card-strong exam-intro">
+        <div>
+          <h2>{heading}</h2>
+          {errorLine}
+          <p className="exam-intro-summary">{summary}</p>
+          {exam?.unofficial && <p className="hint">Written for this app in the style of past exams. This is not a Purdue exam.</p>}
+        </div>
+        <ModeCards value={how} onChange={setHow} minutes={mode === 'exam' && exam ? exam.durationMinutes : MOCK_MINUTES} />
+        <p className="actions">
+          <button type="button" className="primary button-large" onClick={() => void begin(how === 'feedback')}>
             Start
           </button>
           <Link to="/exams">Back to exams</Link>
@@ -156,21 +175,53 @@ function ExamSessionView(props: {
   const lesson = question?.lessonIds[0] ? content.lessonById.get(question.lessonIds[0]) : undefined
   const answeredCount = session.questionIds.filter((id) => session.answers[id]).length
 
+  const checked = session.checked ?? []
+  // feedback mode: each checked question right or wrong, the rest still to do
+  const segments: SegmentState[] = session.questionIds.map((id) =>
+    untimed && checked.includes(id) ? (session.answers[id] === content.questionById.get(id)?.answer ? 'right' : 'wrong') : 'todo',
+  )
+  const rightSoFar = segments.filter((s) => s === 'right').length
+  const wrongSoFar = segments.filter((s) => s === 'wrong').length
+  const clockView = (
+    <div className="exam-clock">
+      <span className="exam-clock-label">{untimed ? 'Elapsed' : 'Time left'}</span>
+      <p className={`exam-timer${!untimed && clock <= 300 ? ' low' : ''}`} role="timer" aria-label={untimed ? 'Time elapsed' : 'Time remaining'}>
+        {formatClock(clock)}
+      </p>
+    </div>
+  )
+
   return (
     <section className="exam">
-      <header className="exam-bar">
-        <h2>{heading}</h2>
-        <div className="exam-clock">
-          <span className="exam-clock-label">{untimed ? 'Elapsed' : 'Time left'}</span>
-          <p
-            className={`exam-timer${!untimed && clock <= 300 ? ' low' : ''}`}
-            role="timer"
-            aria-label={untimed ? 'Time elapsed' : 'Time remaining'}
-          >
-            {formatClock(clock)}
-          </p>
-        </div>
-      </header>
+      <SessionBar
+        exit={
+          untimed ? (
+            // nothing is lost by leaving an untimed session: it waits under Exams
+            <Link to="/exams" className="exit-button">
+              <ExitIcon />
+              Save and exit
+            </Link>
+          ) : (
+            // a button that asks first: a timed exam offers no link that would walk away from it unnoticed
+            <button type="button" className="exit-button" onClick={leave}>
+              <ExitIcon />
+              Leave exam
+            </button>
+          )
+        }
+        title={mode === 'mock' ? mockRangeLabel() === 'Mock exam' ? 'Mock exam' : `Mock exam · ${mockRangeLabel()}` : heading}
+        progress={`${answeredCount} of ${total} answered`}
+        aside={clockView}
+      >
+        {untimed && (
+          <ProgressStrip
+            segments={segments}
+            current={index}
+            label={`Question ${index + 1} of ${total}: ${rightSoFar} right and ${wrongSoFar} wrong so far`}
+          />
+        )}
+      </SessionBar>
+      <h2 className="visually-hidden">{heading}</h2>
       {errorLine}
       <h3>{`Question ${index + 1} of ${total}`}</h3>
       {question ? (
@@ -193,21 +244,7 @@ function ExamSessionView(props: {
       ) : (
         <p>This question is no longer available</p>
       )}
-      <div className="exam-controls exam-actions">
-        <button type="button" disabled={index === 0} onClick={() => goTo(index - 1)}>
-          Prev
-        </button>
-        <button type="button" disabled={index === total - 1} onClick={() => goTo(index + 1)}>
-          Next
-        </button>
-        <button type="button" onClick={toggleMark}>
-          {isMarked ? 'Unmark' : 'Mark for review'}
-        </button>
-        <button type="button" className="exam-submit" onClick={onSubmit}>
-          Submit
-        </button>
-      </div>
-      <div className="exam-map">
+      <div className="exam-map card">
         <p className="exam-map-head">
           <span>{`${answeredCount} of ${total} answered`}</span>
           {session.marked.length > 0 && <span>{`${session.marked.length} marked for review`}</span>}
@@ -230,7 +267,7 @@ function ExamSessionView(props: {
             )
           })}
         </nav>
-        <ul className="exam-legend" aria-hidden="true">
+        <ul className="legend" aria-hidden="true">
           <li>
             <span className="swatch answered" /> Answered
           </li>
@@ -238,6 +275,24 @@ function ExamSessionView(props: {
             <span className="swatch marked" /> Marked for review
           </li>
         </ul>
+      </div>
+      <div className="action-bar">
+        <div className="action-bar-inner exam-actions">
+          <div className="exam-steps">
+            <button type="button" disabled={index === 0} onClick={() => goTo(index - 1)}>
+              Prev
+            </button>
+            <button type="button" disabled={index === total - 1} onClick={() => goTo(index + 1)}>
+              Next
+            </button>
+            <button type="button" onClick={toggleMark}>
+              {isMarked ? 'Unmark' : 'Mark for review'}
+            </button>
+          </div>
+          <button type="button" className="primary exam-submit" onClick={onSubmit}>
+            Submit
+          </button>
+        </div>
       </div>
     </section>
   )

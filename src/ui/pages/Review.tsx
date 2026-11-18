@@ -8,6 +8,7 @@ import type { Attempt, CardState } from '../../storage/types'
 import { recentMissTypes } from '../../engine/select'
 import { useContent, useNow, useScheduler, useSettings, useStore } from '../../storage/context'
 import { Markdown } from '../Markdown'
+import { ExitIcon, SessionBar } from '../shell'
 
 interface Item {
   card: ConceptCard
@@ -173,7 +174,7 @@ export function Review() {
       : null
   // ways to keep going once the queue is empty
   const moreLinks = (
-    <div className="actions review-more">
+    <div className="actions">
       {!scopedIds && ahead > 0 && (
         <Link to={`/review?more=${more + STUDY_AHEAD}`} className="button">
           {`Study ${Math.min(STUDY_AHEAD, ahead)} more new ${Math.min(STUDY_AHEAD, ahead) === 1 ? 'card' : 'cards'}`}
@@ -185,12 +186,15 @@ export function Review() {
         </Link>
       )}
       {scopedLesson && (
-        <Link to={`/course/${scopedLesson.id}`} className="button">
+        <Link to={`/course/${scopedLesson.id}?tab=cards`} className="button">
           Back to the lesson
         </Link>
       )}
+      <Link to="/practice" className="button">
+        Back to Practice
+      </Link>
       <Link to="/" className="button">
-        Back to dashboard
+        Back to Today
       </Link>
     </div>
   )
@@ -205,9 +209,9 @@ export function Review() {
   }
   if (items.length === 0) {
     return (
-      <section>
+      <section className="card review-end">
         <h2>{title}</h2>
-        {scopeLine && <p className="review-count">{scopeLine}</p>}
+        {scopeLine && <p className="review-scope">{scopeLine}</p>}
         <p>
           {scopedIds
             ? 'No cards here are due or new. The ones you have started will come back on their review dates.'
@@ -219,7 +223,7 @@ export function Review() {
   }
   if (!current) {
     return (
-      <section>
+      <section className="card review-end">
         <h2>{scopedIds ? 'Session finished' : 'Done for today'}</h2>
         <p>
           {`You went through ${tally.rated - tally.forgot} ${tally.rated - tally.forgot === 1 ? 'card' : 'cards'}`}
@@ -236,13 +240,20 @@ export function Review() {
 
   return (
     <section className="review-page">
-      <h2>{title}</h2>
+      <SessionBar
+        exit={
+          <Link to={scopedLesson ? `/course/${scopedLesson.id}?tab=cards` : '/practice'} className="exit-button">
+            <ExitIcon />
+            End session
+          </Link>
+        }
+        title={scopeLine ? `Flashcards · ${scopeLine}` : 'Flashcards'}
+        progress={`Card ${index + 1} of ${items.length}`}
+        aside={<p className="review-summary">{`Cards due: ${summary.due} · New: ${summary.fresh}`}</p>}
+      />
+      <h2 className="visually-hidden">{title}</h2>
       {error && <p role="alert">{error}</p>}
-      {scopeLine && <p className="review-count">{scopeLine}</p>}
-      <p className="review-count">
-        <span>{`Card ${index + 1} of ${items.length}`}</span> <span>{`Cards due: ${summary.due} · New: ${summary.fresh}`}</span>
-      </p>
-      <div className="panel review-card">
+      <div className="card review-card">
         {cardLesson && !scopedLesson && (
           <p className="review-lesson">
             <Link to={`/course/${cardLesson.id}`}>{`Lesson ${cardLesson.number}: ${cardLesson.title}`}</Link>
@@ -250,7 +261,7 @@ export function Review() {
         )}
         <Markdown text={current.card.front} className="review-front" />
         {!revealed ? (
-          <button type="button" className="primary" onClick={reveal}>
+          <button type="button" className="primary button-large" onClick={reveal}>
             Show answer
           </button>
         ) : (
@@ -269,7 +280,7 @@ export function Review() {
           </>
         )}
       </div>
-      <p className="panel-hint review-keys">Keyboard: Space shows the answer, then 1, 2 or 3 rates it.</p>
+      <p className="hint review-keys">Keyboard: Space shows the answer, then 1, 2 or 3 rates it.</p>
     </section>
   )
 }
